@@ -1,0 +1,882 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>TIKZ-Feynman &mdash; pyfeyn2  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/plot_directive.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/jupyter-sphinx.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/thebelab.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/thebelab-helper.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="API Reference" href="../autoapi/index.html" />
+    <link rel="prev" title="PyX" href="PyX.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pyfeyn2
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.0.0-20-g25cc539
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Versions:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/pyfeyn2/">Stable</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/pyfeyn2/test/">Dev</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Links:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/APN-Pucky/pyfeyn2">GitHub</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">FeynML:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../feynml/index.html">FeynML</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ASCII.html">ASCII</a></li>
+<li class="toctree-l1"><a class="reference internal" href="All.html">All</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Dot.html">Dot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FeynML.html">FeynML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FeynMP.html">FeynMP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MPL.html">Matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PyX.html">PyX</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">TIKZ-Feynman</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Simple-Case">Simple Case</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Complicated-Case">Complicated Case</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Module:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../autoapi/index.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pyfeyn2</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>TIKZ-Feynman</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/examples/tikzfeynman.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt *,
+div.nbinput.container div.input_area pre,
+div.nboutput.container div.output_area pre,
+div.nbinput.container div.input_area .highlight,
+div.nboutput.container div.output_area .highlight {
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+div.nbinput.container > div[class*=highlight],
+div.nboutput.container > div[class*=highlight] {
+    margin: 0;
+}
+
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt * {
+    background: none;
+}
+
+div.nboutput.container div.output_area .highlight,
+div.nboutput.container div.output_area pre {
+    background: unset;
+}
+
+div.nboutput.container div.output_area div.highlight {
+    color: unset;  /* override Pygments text color */
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars and line breaks on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+    white-space: pre;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    /*background: #f5f5f5;*/
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+    margin: 0;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt .copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+.jp-RenderedHTMLCommon table,
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+.jp-RenderedHTMLCommon thead,
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+.jp-RenderedHTMLCommon tr,
+.jp-RenderedHTMLCommon th,
+.jp-RenderedHTMLCommon td,
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+.jp-RenderedHTMLCommon th,
+div.rendered_html th {
+  font-weight: bold;
+}
+.jp-RenderedHTMLCommon tbody tr:nth-child(odd),
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+.jp-RenderedHTMLCommon tbody tr:hover,
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<section id="TIKZ-Feynman">
+<h1>TIKZ-Feynman<a class="headerlink" href="#TIKZ-Feynman" title="Permalink to this heading">¶</a></h1>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyfeyn2.feynmandiagram</span> <span class="kn">import</span> <span class="n">FeynmanDiagram</span><span class="p">,</span> <span class="n">Leg</span><span class="p">,</span> <span class="n">Propagator</span><span class="p">,</span> <span class="n">Vertex</span>
+<span class="kn">from</span> <span class="nn">pyfeyn2.render.tikzfeynman</span> <span class="kn">import</span> <span class="n">TikzFeynmanRender</span>
+<span class="kn">from</span> <span class="nn">pyfeyn2.render.dot</span> <span class="kn">import</span> <span class="n">feynman_adjust_points</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">ModuleNotFoundError</span>                       Traceback (most recent call last)
+Cell <span class="ansi-green-fg">In [1], line 1</span>
+<span class="ansi-green-fg">----&gt; 1</span> <span class="ansi-bold" style="color: rgb(0,135,0)">from</span> <span class="ansi-bold" style="color: rgb(0,0,255)">pyfeyn2</span><span class="ansi-bold" style="color: rgb(0,0,255)">.</span><span class="ansi-bold" style="color: rgb(0,0,255)">feynmandiagram</span> <span class="ansi-bold" style="color: rgb(0,135,0)">import</span> FeynmanDiagram, Leg, Propagator, Vertex
+<span class="ansi-green-intense-fg ansi-bold">      2</span> <span class="ansi-bold" style="color: rgb(0,135,0)">from</span> <span class="ansi-bold" style="color: rgb(0,0,255)">pyfeyn2</span><span class="ansi-bold" style="color: rgb(0,0,255)">.</span><span class="ansi-bold" style="color: rgb(0,0,255)">render</span><span class="ansi-bold" style="color: rgb(0,0,255)">.</span><span class="ansi-bold" style="color: rgb(0,0,255)">tikzfeynman</span> <span class="ansi-bold" style="color: rgb(0,135,0)">import</span> TikzFeynmanRender
+<span class="ansi-green-intense-fg ansi-bold">      3</span> <span class="ansi-bold" style="color: rgb(0,135,0)">from</span> <span class="ansi-bold" style="color: rgb(0,0,255)">pyfeyn2</span><span class="ansi-bold" style="color: rgb(0,0,255)">.</span><span class="ansi-bold" style="color: rgb(0,0,255)">render</span><span class="ansi-bold" style="color: rgb(0,0,255)">.</span><span class="ansi-bold" style="color: rgb(0,0,255)">dot</span> <span class="ansi-bold" style="color: rgb(0,135,0)">import</span> feynman_adjust_points
+
+<span class="ansi-red-fg">ModuleNotFoundError</span>: No module named &#39;pyfeyn2&#39;
+</pre></div></div>
+</div>
+<section id="Simple-Case">
+<h2>Simple Case<a class="headerlink" href="#Simple-Case" title="Permalink to this heading">¶</a></h2>
+<p>We set the positions of all vertices here.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fd</span> <span class="o">=</span> <span class="n">FeynmanDiagram</span><span class="p">()</span>
+<span class="n">v1</span> <span class="o">=</span> <span class="n">Vertex</span><span class="p">(</span><span class="s2">&quot;v1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set_xy</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">v2</span> <span class="o">=</span> <span class="n">Vertex</span><span class="p">(</span><span class="s2">&quot;v2&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set_xy</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">p1</span> <span class="o">=</span> <span class="n">Propagator</span><span class="p">(</span><span class="s2">&quot;p1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">)</span><span class="o">.</span><span class="n">set_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span>
+<span class="n">l1</span> <span class="o">=</span> <span class="n">Leg</span><span class="p">(</span><span class="s2">&quot;l1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set_target</span><span class="p">(</span><span class="n">v1</span><span class="p">)</span><span class="o">.</span><span class="n">set_xy</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">set_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set_incoming</span><span class="p">()</span>
+<span class="n">l2</span> <span class="o">=</span> <span class="n">Leg</span><span class="p">(</span><span class="s2">&quot;l2&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set_target</span><span class="p">(</span><span class="n">v1</span><span class="p">)</span><span class="o">.</span><span class="n">set_xy</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">set_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set_incoming</span><span class="p">()</span>
+<span class="n">l3</span> <span class="o">=</span> <span class="n">Leg</span><span class="p">(</span><span class="s2">&quot;l3&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set_target</span><span class="p">(</span><span class="n">v2</span><span class="p">)</span><span class="o">.</span><span class="n">set_xy</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">set_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set_outgoing</span><span class="p">()</span>
+<span class="n">l4</span> <span class="o">=</span> <span class="n">Leg</span><span class="p">(</span><span class="s2">&quot;l4&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set_target</span><span class="p">(</span><span class="n">v2</span><span class="p">)</span><span class="o">.</span><span class="n">set_xy</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">set_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set_outgoing</span><span class="p">()</span>
+<span class="n">p1</span><span class="o">.</span><span class="n">set_source</span><span class="p">(</span><span class="n">v1</span><span class="p">)</span>
+<span class="n">p1</span><span class="o">.</span><span class="n">set_target</span><span class="p">(</span><span class="n">v2</span><span class="p">)</span>
+<span class="n">fd</span><span class="o">.</span><span class="n">propagators</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p1</span><span class="p">)</span>
+<span class="n">fd</span><span class="o">.</span><span class="n">vertices</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">])</span>
+<span class="n">fd</span><span class="o">.</span><span class="n">legs</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">l1</span><span class="p">,</span> <span class="n">l2</span><span class="p">,</span> <span class="n">l3</span><span class="p">,</span> <span class="n">l4</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tfd</span> <span class="o">=</span> <span class="n">TikzFeynmanRender</span><span class="p">(</span><span class="n">fd</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tfd</span><span class="o">.</span><span class="n">get_src</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+\documentclass[preview,crop,tikz]{standalone}%
+\usepackage[T1]{fontenc}%
+\usepackage[utf8]{inputenc}%
+\usepackage{lmodern}%
+\usepackage{textcomp}%
+\usepackage{lastpage}%
+%
+\RequirePackage{luatex85}%
+\usepackage[compat=1.1.0]{tikz-feynman}%
+%
+\begin{document}%
+\normalsize%
+\begin{tikzpicture}
+\begin{feynman}
+        \vertex (v1) [label=] at (-1.0,0.0);
+        \vertex (v2) [label=] at (1.0,0.0);
+        \vertex (l1) [label=] at (-2.0,1.0);
+        \vertex (l2) [label=] at (-2.0,-1.0);
+        \vertex (l3) [label=] at (2.0,1.0);
+        \vertex (l4) [label=] at (2.0,-1.0);
+        \diagram*{
+                (v1) -- [gluon] (v2),
+                (l1) -- [gluon] (v1),
+                (l2) -- [gluon] (v1),
+                (v2) -- [gluon] (l3),
+                (v2) -- [gluon] (l4),
+        };
+\end{feynman}
+\end{tikzpicture}
+%
+\end{document}
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tfd</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="s2">&quot;test.pdf&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/examples_tikzfeynman_6_0.png" src="../_images/examples_tikzfeynman_6_0.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/examples_tikzfeynman_6_1.png" src="../_images/examples_tikzfeynman_6_1.png" />
+</div>
+</div>
+</section>
+<section id="Complicated-Case">
+<h2>Complicated Case<a class="headerlink" href="#Complicated-Case" title="Permalink to this heading">¶</a></h2>
+<p>We only set the positions of the Legs here.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fd</span> <span class="o">=</span> <span class="n">FeynmanDiagram</span><span class="p">()</span>
+<span class="n">v1</span> <span class="o">=</span> <span class="n">Vertex</span><span class="p">(</span><span class="s2">&quot;v1&quot;</span><span class="p">)</span>
+<span class="n">v2</span> <span class="o">=</span> <span class="n">Vertex</span><span class="p">(</span><span class="s2">&quot;v2&quot;</span><span class="p">)</span>
+<span class="n">v3</span> <span class="o">=</span> <span class="n">Vertex</span><span class="p">(</span><span class="s2">&quot;v3&quot;</span><span class="p">)</span>
+<span class="n">v4</span> <span class="o">=</span> <span class="n">Vertex</span><span class="p">(</span><span class="s2">&quot;v4&quot;</span><span class="p">)</span>
+<span class="n">p1</span> <span class="o">=</span> <span class="n">Propagator</span><span class="p">(</span><span class="s2">&quot;p1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">)</span><span class="o">.</span><span class="n">set_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span>
+<span class="n">p2</span> <span class="o">=</span> <span class="n">Propagator</span><span class="p">(</span><span class="s2">&quot;p2&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span> <span class="n">v3</span><span class="p">)</span><span class="o">.</span><span class="n">set_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span>
+<span class="n">p3</span> <span class="o">=</span> <span class="n">Propagator</span><span class="p">(</span><span class="s2">&quot;p3&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">v3</span><span class="p">,</span> <span class="n">v2</span><span class="p">)</span><span class="o">.</span><span class="n">set_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span>
+<span class="n">p4</span> <span class="o">=</span> <span class="n">Propagator</span><span class="p">(</span><span class="s2">&quot;p4&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">v4</span><span class="p">,</span> <span class="n">v3</span><span class="p">)</span><span class="o">.</span><span class="n">set_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span>
+<span class="n">p5</span> <span class="o">=</span> <span class="n">Propagator</span><span class="p">(</span><span class="s2">&quot;p5&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">v4</span><span class="p">,</span> <span class="n">v2</span><span class="p">)</span><span class="o">.</span><span class="n">set_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span>
+<span class="n">l1</span> <span class="o">=</span> <span class="n">Leg</span><span class="p">(</span><span class="s2">&quot;l1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set_target</span><span class="p">(</span><span class="n">v1</span><span class="p">)</span><span class="o">.</span><span class="n">set_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set_incoming</span><span class="p">()</span><span class="o">.</span><span class="n">set_xy</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">l2</span> <span class="o">=</span> <span class="n">Leg</span><span class="p">(</span><span class="s2">&quot;l2&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set_target</span><span class="p">(</span><span class="n">v1</span><span class="p">)</span><span class="o">.</span><span class="n">set_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set_incoming</span><span class="p">()</span><span class="o">.</span><span class="n">set_xy</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">l3</span> <span class="o">=</span> <span class="n">Leg</span><span class="p">(</span><span class="s2">&quot;l3&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set_target</span><span class="p">(</span><span class="n">v2</span><span class="p">)</span><span class="o">.</span><span class="n">set_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set_outgoing</span><span class="p">()</span><span class="o">.</span><span class="n">set_xy</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">l4</span> <span class="o">=</span> <span class="n">Leg</span><span class="p">(</span><span class="s2">&quot;l4&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set_target</span><span class="p">(</span><span class="n">v3</span><span class="p">)</span><span class="o">.</span><span class="n">set_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set_outgoing</span><span class="p">()</span><span class="o">.</span><span class="n">set_xy</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">l5</span> <span class="o">=</span> <span class="n">Leg</span><span class="p">(</span><span class="s2">&quot;l5&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set_target</span><span class="p">(</span><span class="n">v4</span><span class="p">)</span><span class="o">.</span><span class="n">set_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set_outgoing</span><span class="p">()</span><span class="o">.</span><span class="n">set_xy</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">l6</span> <span class="o">=</span> <span class="n">Leg</span><span class="p">(</span><span class="s2">&quot;l6&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set_target</span><span class="p">(</span><span class="n">v4</span><span class="p">)</span><span class="o">.</span><span class="n">set_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set_outgoing</span><span class="p">()</span><span class="o">.</span><span class="n">set_xy</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">fd</span><span class="o">.</span><span class="n">propagators</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="n">p3</span><span class="p">,</span> <span class="n">p4</span><span class="p">,</span> <span class="n">p5</span><span class="p">])</span>
+<span class="n">fd</span><span class="o">.</span><span class="n">vertices</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">,</span> <span class="n">v3</span><span class="p">,</span> <span class="n">v4</span><span class="p">])</span>
+<span class="n">fd</span><span class="o">.</span><span class="n">legs</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">l1</span><span class="p">,</span> <span class="n">l2</span><span class="p">,</span> <span class="n">l3</span><span class="p">,</span> <span class="n">l4</span><span class="p">,</span> <span class="n">l5</span><span class="p">,</span> <span class="n">l6</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<p>Now calculate the positions of vertices.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ffd</span><span class="o">=</span> <span class="n">feynman_adjust_points</span><span class="p">(</span><span class="n">fd</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">TikzFeynmanRender</span><span class="p">(</span><span class="n">ffd</span><span class="p">)</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/examples_tikzfeynman_12_0.png" src="../_images/examples_tikzfeynman_12_0.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/examples_tikzfeynman_12_1.png" src="../_images/examples_tikzfeynman_12_1.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyfeyn2.render.dot</span> <span class="kn">import</span> <span class="n">DotRender</span><span class="p">,</span> <span class="n">feynman_to_dot</span>
+<span class="n">fd</span> <span class="o">=</span> <span class="n">FeynmanDiagram</span><span class="p">()</span>
+
+<span class="n">v1</span> <span class="o">=</span> <span class="n">Vertex</span><span class="p">()</span>
+<span class="n">v2</span> <span class="o">=</span> <span class="n">Vertex</span><span class="p">()</span>
+<span class="n">v3</span> <span class="o">=</span> <span class="n">Vertex</span><span class="p">()</span>
+<span class="n">v4</span> <span class="o">=</span> <span class="n">Vertex</span><span class="p">()</span>
+<span class="n">v5</span> <span class="o">=</span> <span class="n">Vertex</span><span class="p">()</span>
+<span class="n">v6</span> <span class="o">=</span> <span class="n">Vertex</span><span class="p">()</span>
+
+<span class="n">p1</span> <span class="o">=</span> <span class="n">Propagator</span><span class="p">()</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">)</span><span class="o">.</span><span class="n">set_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span>
+<span class="n">p2</span> <span class="o">=</span> <span class="n">Propagator</span><span class="p">()</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">v2</span><span class="p">,</span> <span class="n">v3</span><span class="p">)</span><span class="o">.</span><span class="n">set_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span>
+<span class="n">p3</span> <span class="o">=</span> <span class="n">Propagator</span><span class="p">()</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span> <span class="n">v4</span><span class="p">)</span><span class="o">.</span><span class="n">set_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span>
+<span class="n">p4</span> <span class="o">=</span> <span class="n">Propagator</span><span class="p">()</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">v2</span><span class="p">,</span> <span class="n">v5</span><span class="p">)</span><span class="o">.</span><span class="n">set_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span>
+<span class="n">p5</span> <span class="o">=</span> <span class="n">Propagator</span><span class="p">()</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">v3</span><span class="p">,</span> <span class="n">v6</span><span class="p">)</span><span class="o">.</span><span class="n">set_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span>
+<span class="n">p6</span> <span class="o">=</span> <span class="n">Propagator</span><span class="p">()</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">v5</span><span class="p">,</span> <span class="n">v6</span><span class="p">)</span><span class="o">.</span><span class="n">set_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span>
+<span class="n">p7</span> <span class="o">=</span> <span class="n">Propagator</span><span class="p">()</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">v4</span><span class="p">,</span> <span class="n">v5</span><span class="p">)</span><span class="o">.</span><span class="n">set_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span>
+<span class="n">p8</span> <span class="o">=</span> <span class="n">Propagator</span><span class="p">()</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">v4</span><span class="p">,</span> <span class="n">v6</span><span class="p">)</span><span class="o">.</span><span class="n">set_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span>
+
+<span class="n">l1</span> <span class="o">=</span> <span class="n">Leg</span><span class="p">()</span><span class="o">.</span><span class="n">set_target</span><span class="p">(</span><span class="n">v1</span><span class="p">)</span><span class="o">.</span><span class="n">set_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set_incoming</span><span class="p">()</span><span class="o">.</span><span class="n">set_xy</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">l2</span> <span class="o">=</span> <span class="n">Leg</span><span class="p">()</span><span class="o">.</span><span class="n">set_target</span><span class="p">(</span><span class="n">v3</span><span class="p">)</span><span class="o">.</span><span class="n">set_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set_outgoing</span><span class="p">()</span><span class="o">.</span><span class="n">set_xy</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="n">fd</span><span class="o">.</span><span class="n">propagators</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="n">p3</span><span class="p">,</span> <span class="n">p4</span><span class="p">,</span> <span class="n">p5</span><span class="p">,</span> <span class="n">p6</span><span class="p">,</span> <span class="n">p7</span><span class="p">,</span> <span class="n">p8</span><span class="p">])</span>
+<span class="n">fd</span><span class="o">.</span><span class="n">vertices</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">,</span> <span class="n">v3</span><span class="p">,</span> <span class="n">v4</span><span class="p">,</span> <span class="n">v5</span><span class="p">,</span> <span class="n">v6</span><span class="p">])</span>
+<span class="n">fd</span><span class="o">.</span><span class="n">legs</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">l1</span><span class="p">,</span> <span class="n">l2</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">feynman_to_dot</span><span class="p">(</span><span class="n">fd</span><span class="p">))</span>
+<span class="n">ffd</span><span class="o">=</span> <span class="n">feynman_adjust_points</span><span class="p">(</span><span class="n">fd</span><span class="p">)</span>
+<span class="n">TikzFeynmanRender</span><span class="p">(</span><span class="n">ffd</span><span class="p">)</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+graph G {
+rankdir=LR;
+layout=neato;
+node [style=&#34;invis&#34;];
+                 [ pos=&#34;-2.0,0.0!&#34;];
+                 [ pos=&#34;2.0,0.0!&#34;];
+edge [style=&#34;decorate,decoration=coil,aspect=0.3,segment length=1mm&#34;];
+                Vertex0 -- Vertex1;
+edge [style=&#34;decorate,decoration=coil,aspect=0.3,segment length=1mm&#34;];
+                Vertex1 -- Vertex2;
+edge [style=&#34;decorate,decoration=coil,aspect=0.3,segment length=1mm&#34;];
+                Vertex0 -- Vertex3;
+edge [style=&#34;decorate,decoration=coil,aspect=0.3,segment length=1mm&#34;];
+                Vertex1 -- Vertex4;
+edge [style=&#34;decorate,decoration=coil,aspect=0.3,segment length=1mm&#34;];
+                Vertex2 -- Vertex5;
+edge [style=&#34;decorate,decoration=coil,aspect=0.3,segment length=1mm&#34;];
+                Vertex4 -- Vertex5;
+edge [style=&#34;decorate,decoration=coil,aspect=0.3,segment length=1mm&#34;];
+                Vertex3 -- Vertex4;
+edge [style=&#34;decorate,decoration=coil,aspect=0.3,segment length=1mm&#34;];
+                Vertex3 -- Vertex5;
+edge [style=&#34;decorate,decoration=coil,aspect=0.3,segment length=1mm&#34;];
+                 -- Vertex0;
+edge [style=&#34;decorate,decoration=coil,aspect=0.3,segment length=1mm&#34;];
+                Vertex2 -- ;
+{rank=min;  }
+{rank=max;  ;}
+}
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">ParseException</span>                            Traceback (most recent call last)
+Cell <span class="ansi-green-fg">In [8], line 27</span>
+<span class="ansi-green-intense-fg ansi-bold">     25</span> fd<span style="color: rgb(98,98,98)">.</span>legs<span style="color: rgb(98,98,98)">.</span>extend([l1, l2])
+<span class="ansi-green-intense-fg ansi-bold">     26</span> <span style="color: rgb(0,135,0)">print</span>(feynman_to_dot(fd))
+<span class="ansi-green-fg">---&gt; 27</span> ffd<span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">feynman_adjust_points</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">fd</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     28</span> TikzFeynmanRender(ffd)<span style="color: rgb(98,98,98)">.</span>render()
+
+File <span class="ansi-green-fg">~/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/dot.py:21</span>, in <span class="ansi-cyan-fg">feynman_adjust_points</span><span class="ansi-blue-fg">(feyndiag, size)</span>
+<span class="ansi-green-intense-fg ansi-bold">     19</span> norm <span style="color: rgb(98,98,98)">=</span> size
+<span class="ansi-green-intense-fg ansi-bold">     20</span> dot <span style="color: rgb(98,98,98)">=</span> feynman_to_dot(fd)
+<span class="ansi-green-fg">---&gt; 21</span> positions <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">dot_to_positions</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">dot</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     22</span> <span style="color: rgb(0,135,0)">max</span> <span style="color: rgb(98,98,98)">=</span> <span style="color: rgb(98,98,98)">0</span>
+<span class="ansi-green-intense-fg ansi-bold">     23</span> <span class="ansi-bold" style="color: rgb(0,135,0)">for</span> i, p <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> positions<span style="color: rgb(98,98,98)">.</span>items():
+
+File <span class="ansi-green-fg">~/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/dot.py:39</span>, in <span class="ansi-cyan-fg">dot_to_positions</span><span class="ansi-blue-fg">(dot)</span>
+<span class="ansi-green-intense-fg ansi-bold">     38</span> <span class="ansi-bold" style="color: rgb(0,135,0)">def</span> <span style="color: rgb(0,0,255)">dot_to_positions</span>(dot):
+<span class="ansi-green-fg">---&gt; 39</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> <span class="ansi-yellow-bg">dot2tex</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">dot2tex</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">dot</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg" style="color: rgb(0,135,0)">format</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">positions</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg">)</span>
+
+File <span class="ansi-green-fg">~/.cache/pypoetry/virtualenvs/pyfeyn2-CEvJ4jFG-py3.9/lib/python3.9/site-packages/dot2tex/__init__.py:62</span>, in <span class="ansi-cyan-fg">dot2tex</span><span class="ansi-blue-fg">(dotsource, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">     55</span> <span class="ansi-bold" style="color: rgb(0,135,0)">def</span> <span style="color: rgb(0,0,255)">dot2tex</span>(dotsource, <span style="color: rgb(98,98,98)">*</span><span style="color: rgb(98,98,98)">*</span>kwargs):
+<span class="ansi-green-intense-fg ansi-bold">     56</span>     <span style="color: rgb(175,0,0)">&#34;&#34;&#34;Process dotsource and return LaTeX code</span>
+<span class="ansi-green-intense-fg ansi-bold">     57</span>
+<span class="ansi-green-intense-fg ansi-bold">     58</span> <span style="color: rgb(175,0,0)">    Conversion options can be specified as keyword options. Example:</span>
+<span class="ansi-green-intense-fg ansi-bold">     59</span> <span style="color: rgb(175,0,0)">        dot2tex(data,format=&#39;tikz&#39;,crop=True)</span>
+<span class="ansi-green-intense-fg ansi-bold">     60</span>
+<span class="ansi-green-intense-fg ansi-bold">     61</span> <span style="color: rgb(175,0,0)">    &#34;&#34;&#34;</span>
+<span class="ansi-green-fg">---&gt; 62</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> <span class="ansi-yellow-bg">d2t</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">convert_graph</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">dotsource</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">*</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">*</span><span class="ansi-yellow-bg">kwargs</span><span class="ansi-yellow-bg">)</span>
+
+File <span class="ansi-green-fg">~/.cache/pypoetry/virtualenvs/pyfeyn2-CEvJ4jFG-py3.9/lib/python3.9/site-packages/dot2tex/dot2tex.py:3125</span>, in <span class="ansi-cyan-fg">convert_graph</span><span class="ansi-blue-fg">(dotsource, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">   3122</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">del</span> kwargs[<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">preproc</span><span style="color: rgb(175,0,0)">&#39;</span>]
+<span class="ansi-green-intense-fg ansi-bold">   3124</span> options<span style="color: rgb(98,98,98)">.</span><span style="color: rgb(0,0,135)">__dict__</span><span style="color: rgb(98,98,98)">.</span>update(kwargs)
+<span class="ansi-green-fg">-&gt; 3125</span> tex <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">main</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg ansi-bold" style="color: rgb(0,135,0)">True</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">dotsource</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">options</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   3126</span> <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> tex
+
+File <span class="ansi-green-fg">~/.cache/pypoetry/virtualenvs/pyfeyn2-CEvJ4jFG-py3.9/lib/python3.9/site-packages/dot2tex/dot2tex.py:3075</span>, in <span class="ansi-cyan-fg">main</span><span class="ansi-blue-fg">(run_as_module, dotdata, options)</span>
+<span class="ansi-green-intense-fg ansi-bold">   3073</span>     sys<span style="color: rgb(98,98,98)">.</span>exit(<span style="color: rgb(98,98,98)">1</span>)
+<span class="ansi-green-intense-fg ansi-bold">   3074</span> <span class="ansi-bold" style="color: rgb(0,135,0)">try</span>:
+<span class="ansi-green-fg">-&gt; 3075</span>     s <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">conv</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">convert</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">dotdata</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   3076</span>     log<span style="color: rgb(98,98,98)">.</span>debug(<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">Output:</span><span class="ansi-bold" style="color: rgb(175,95,0)">\n</span><span class="ansi-bold" style="color: rgb(175,95,135)">%s</span><span style="color: rgb(175,0,0)">&#39;</span>, s)
+<span class="ansi-green-intense-fg ansi-bold">   3077</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> options<span style="color: rgb(98,98,98)">.</span>autosize:
+
+File <span class="ansi-green-fg">~/.cache/pypoetry/virtualenvs/pyfeyn2-CEvJ4jFG-py3.9/lib/python3.9/site-packages/dot2tex/dot2tex.py:770</span>, in <span class="ansi-cyan-fg">DotConvBase.convert</span><span class="ansi-blue-fg">(self, dotdata)</span>
+<span class="ansi-green-intense-fg ansi-bold">    767</span> <span class="ansi-bold" style="color: rgb(0,135,0)">def</span> <span style="color: rgb(0,0,255)">convert</span>(<span style="color: rgb(0,135,0)">self</span>, dotdata):
+<span class="ansi-green-intense-fg ansi-bold">    768</span>     <span style="color: rgb(95,135,135)"># parse data processed by dot.</span>
+<span class="ansi-green-intense-fg ansi-bold">    769</span>     log<span style="color: rgb(98,98,98)">.</span>debug(<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">Start conversion</span><span style="color: rgb(175,0,0)">&#39;</span>)
+<span class="ansi-green-fg">--&gt; 770</span>     main_graph <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">parse_dot_data</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">dotdata</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    772</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> <span class="ansi-bold" style="color: rgb(175,0,255)">not</span> <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>dopreproc <span class="ansi-bold" style="color: rgb(175,0,255)">and</span> <span class="ansi-bold" style="color: rgb(175,0,255)">not</span> <span style="color: rgb(0,135,0)">hasattr</span>(main_graph, <span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">xdotversion</span><span style="color: rgb(175,0,0)">&#39;</span>):
+<span class="ansi-green-intense-fg ansi-bold">    773</span>         <span style="color: rgb(95,135,135)"># Older versions of Graphviz does not include the xdotversion</span>
+<span class="ansi-green-intense-fg ansi-bold">    774</span>         <span style="color: rgb(95,135,135)"># attribute</span>
+<span class="ansi-green-intense-fg ansi-bold">    775</span>         <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> <span class="ansi-bold" style="color: rgb(175,0,255)">not</span> (dotdata<span style="color: rgb(98,98,98)">.</span>find(<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">_draw_</span><span style="color: rgb(175,0,0)">&#39;</span>) <span style="color: rgb(98,98,98)">&gt;</span> <span style="color: rgb(98,98,98)">0</span> <span class="ansi-bold" style="color: rgb(175,0,255)">or</span> dotdata<span style="color: rgb(98,98,98)">.</span>find(<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">_ldraw_</span><span style="color: rgb(175,0,0)">&#39;</span>) <span style="color: rgb(98,98,98)">&gt;</span> <span style="color: rgb(98,98,98)">0</span>):
+<span class="ansi-green-intense-fg ansi-bold">    776</span>             <span style="color: rgb(95,135,135)"># need to convert to xdot format</span>
+<span class="ansi-green-intense-fg ansi-bold">    777</span>             <span style="color: rgb(95,135,135)"># Warning. Pydot will not include custom attributes</span>
+
+File <span class="ansi-green-fg">~/.cache/pypoetry/virtualenvs/pyfeyn2-CEvJ4jFG-py3.9/lib/python3.9/site-packages/dot2tex/dot2tex.py:242</span>, in <span class="ansi-cyan-fg">parse_dot_data</span><span class="ansi-blue-fg">(dotdata)</span>
+<span class="ansi-green-intense-fg ansi-bold">    240</span> parser <span style="color: rgb(98,98,98)">=</span> dotparsing<span style="color: rgb(98,98,98)">.</span>DotDataParser()
+<span class="ansi-green-intense-fg ansi-bold">    241</span> <span class="ansi-bold" style="color: rgb(0,135,0)">try</span>:
+<span class="ansi-green-fg">--&gt; 242</span>     graph <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">parser</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">parse_dot_data</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">dotdata</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    243</span> <span class="ansi-bold" style="color: rgb(0,135,0)">except</span> dotparsing<span style="color: rgb(98,98,98)">.</span>ParseException:
+<span class="ansi-green-intense-fg ansi-bold">    244</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">raise</span>
+
+File <span class="ansi-green-fg">~/.cache/pypoetry/virtualenvs/pyfeyn2-CEvJ4jFG-py3.9/lib/python3.9/site-packages/dot2tex/dotparsing.py:599</span>, in <span class="ansi-cyan-fg">DotDataParser.parse_dot_data</span><span class="ansi-blue-fg">(self, data)</span>
+<span class="ansi-green-intense-fg ansi-bold">    596</span> ndata <span style="color: rgb(98,98,98)">=</span> data<span style="color: rgb(98,98,98)">.</span>replace(<span style="color: rgb(175,0,0)">&#39;</span><span class="ansi-bold" style="color: rgb(175,95,0)">\\</span><span class="ansi-bold" style="color: rgb(175,95,0)">\n</span><span style="color: rgb(175,0,0)">&#39;</span>, <span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">&#39;</span>)
+<span class="ansi-green-intense-fg ansi-bold">    597</span> <span style="color: rgb(95,135,135)"># lines = data.splitlines()</span>
+<span class="ansi-green-intense-fg ansi-bold">    598</span> <span style="color: rgb(95,135,135)"># lines = [l.rstrip(&#39;\\&#39;) for l in lines]</span>
+<span class="ansi-green-fg">--&gt; 599</span> tokens <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">dotparser</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">parseString</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">ndata</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    600</span> <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>build_top_graph(tokens[<span style="color: rgb(98,98,98)">0</span>])
+<span class="ansi-green-intense-fg ansi-bold">    601</span> <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>graph
+
+File <span class="ansi-green-fg">~/.cache/pypoetry/virtualenvs/pyfeyn2-CEvJ4jFG-py3.9/lib/python3.9/site-packages/pyparsing/core.py:1141</span>, in <span class="ansi-cyan-fg">ParserElement.parse_string</span><span class="ansi-blue-fg">(self, instring, parse_all, parseAll)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1138</span>         <span class="ansi-bold" style="color: rgb(0,135,0)">raise</span>
+<span class="ansi-green-intense-fg ansi-bold">   1139</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">else</span>:
+<span class="ansi-green-intense-fg ansi-bold">   1140</span>         <span style="color: rgb(95,135,135)"># catch and re-raise exception from here, clearing out pyparsing internal stack trace</span>
+<span class="ansi-green-fg">-&gt; 1141</span>         <span class="ansi-bold" style="color: rgb(0,135,0)">raise</span> exc<span style="color: rgb(98,98,98)">.</span>with_traceback(<span class="ansi-bold" style="color: rgb(0,135,0)">None</span>)
+<span class="ansi-green-intense-fg ansi-bold">   1142</span> <span class="ansi-bold" style="color: rgb(0,135,0)">else</span>:
+<span class="ansi-green-intense-fg ansi-bold">   1143</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> tokens
+
+<span class="ansi-red-fg">ParseException</span>: Expected &#39;}&#39;, found &#39;[&#39;  (at char 61), (line:5, col:4)
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../autoapi/index.html" class="btn btn-neutral float-right" title="API Reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="PyX.html" class="btn btn-neutral float-left" title="PyX" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2022, Alexander Puck Neuwirth.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

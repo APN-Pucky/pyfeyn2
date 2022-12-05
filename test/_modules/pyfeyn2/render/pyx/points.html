@@ -1,0 +1,642 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>pyfeyn2.render.pyx.points &mdash; pyfeyn2  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/plot_directive.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/jupyter-sphinx.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/thebelab.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/sphinx_highlight.js"></script>
+        <script src="../../../../_static/thebelab-helper.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> pyfeyn2
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.0.0-20-g25cc539
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Versions:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/pyfeyn2/">Stable</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/pyfeyn2/test/">Dev</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Links:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/APN-Pucky/pyfeyn2">GitHub</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">FeynML:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../feynml/index.html">FeynML</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../examples/ASCII.html">ASCII</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../examples/All.html">All</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../examples/Dot.html">Dot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../examples/FeynML.html">FeynML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../examples/FeynMP.html">FeynMP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../examples/MPL.html">Matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../examples/PyX.html">PyX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../examples/tikzfeynman.html">TIKZ-Feynman</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Module:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../autoapi/index.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">pyfeyn2</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+        
+      <li>pyfeyn2.render.pyx.points</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for pyfeyn2.render.pyx.points</h1><div class="highlight"><pre>
+<span></span>&quot;&quot;&quot;Various types of points for vertices etc.&quot;&quot;&quot;
+
+import math
+from copy import copy
+
+import pyx
+
+from pyfeyn2.render.pyx import config
+from pyfeyn2.render.pyx.deco import PointLabel
+from pyfeyn2.render.pyx.diagrams import FeynDiagram
+from pyfeyn2.render.pyx.utils import Visible
+
+
+<div class="viewcode-block" id="midpoint"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/points/index.html#pyfeyn2.render.pyx.points.midpoint">[docs]</a>def midpoint(point1, point2):
+    &quot;Return the point midway between this point and the argument.&quot;
+    return Point(
+        (point1.getX() + point2.getX()) / 2.0, (point1.getY() + point2.getY()) / 2.0
+    )</div>
+
+
+<div class="viewcode-block" id="distance"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/points/index.html#pyfeyn2.render.pyx.points.distance">[docs]</a>def distance(point1, point2):
+    &quot;Calculate the distance between this point and the argument.&quot;
+    return math.hypot(point1.x() - point2.x(), point1.y() - point2.y())</div>
+
+
+## Point base class
+<div class="viewcode-block" id="Point"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/points/index.html#pyfeyn2.render.pyx.points.Point">[docs]</a>class Point:
+    &quot;&quot;&quot;Base class for all pointlike objects in Feynman diagrams.&quot;&quot;&quot;
+
+    def __init__(self, x, y, blob=None):
+        &quot;&quot;&quot;Constructor.&quot;&quot;&quot;
+        self.setXY(x, y)
+        self.setBlob(blob)
+        self.labels = []
+
+<div class="viewcode-block" id="Point.addLabel"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/points/index.html#pyfeyn2.render.pyx.points.Point.addLabel">[docs]</a>    def addLabel(self, text, displace=0.3, angle=0, size=pyx.text.size.normalsize):
+        &quot;&quot;&quot;Add a LaTeX label to this point, either via parameters or actually as
+        a PointLable object.&quot;&quot;&quot;
+        if text is None:
+            return self
+        if config.getOptions().DEBUG:
+            print(&quot;Adding label: &quot; + text)
+        self.labels.append(
+            PointLabel(text=text, point=self, displace=displace, angle=angle, size=size)
+        )
+        if config.getOptions().DEBUG:
+            print(&quot;Labels = &quot; + str(self.labels))
+        return self</div>
+
+<div class="viewcode-block" id="Point.removeLabels"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/points/index.html#pyfeyn2.render.pyx.points.Point.removeLabels">[docs]</a>    def removeLabels(self):
+        &quot;&quot;&quot;Remove all labels from this point.&quot;&quot;&quot;
+        self.labels = []
+        return self</div>
+
+<div class="viewcode-block" id="Point.draw"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/points/index.html#pyfeyn2.render.pyx.points.Point.draw">[docs]</a>    def draw(self, canvas):
+        &quot;Do nothing (abstract base class).&quot;
+        pass</div>
+
+<div class="viewcode-block" id="Point.getPath"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/points/index.html#pyfeyn2.render.pyx.points.Point.getPath">[docs]</a>    def getPath(self):
+        &quot;Return the path of the attached blob path, if there is one, otherwise None.&quot;
+        if self.getBlob() and hasattr(self.getBlob(), &quot;getPath&quot;):
+            return self.getBlob().getPath()
+        else:
+            return None</div>
+
+<div class="viewcode-block" id="Point.midpoint"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/points/index.html#pyfeyn2.render.pyx.points.Point.midpoint">[docs]</a>    def midpoint(self, otherpoint):
+        &quot;Return the point midway between this point and the argument.&quot;
+        return midpoint(self, otherpoint)</div>
+
+<div class="viewcode-block" id="Point.distance"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/points/index.html#pyfeyn2.render.pyx.points.Point.distance">[docs]</a>    def distance(self, otherpoint):
+        &quot;Calculate the distance between this point and the argument.&quot;
+        return distance(self, otherpoint)</div>
+
+<div class="viewcode-block" id="Point.intercept"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/points/index.html#pyfeyn2.render.pyx.points.Point.intercept">[docs]</a>    def intercept(self, otherpoint):
+        &quot;Return the y-intercept of the straight line defined by this point and the argument.&quot;
+        return self.y() - self.tangent(otherpoint) * self.x()</div>
+
+<div class="viewcode-block" id="Point.tangent"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/points/index.html#pyfeyn2.render.pyx.points.Point.tangent">[docs]</a>    def tangent(self, otherpoint):
+        &quot;Return the tangent of the straight line defined by this point and the argument.&quot;
+        if otherpoint.x() != self.x():
+            return (otherpoint.y() - self.y()) / (otherpoint.x() - self.x())
+        else:
+            return float(10000)  ## An arbitrary large number to replace infinity</div>
+
+<div class="viewcode-block" id="Point.arg"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/points/index.html#pyfeyn2.render.pyx.points.Point.arg">[docs]</a>    def arg(self, otherpoint):
+        &quot;&quot;&quot;Return the angle between the x-axis and the straight line defined
+        by this point and the argument (cf. complex numbers).&quot;&quot;&quot;
+        arg = None
+        if otherpoint.x() == self.x():
+            if otherpoint.y() &gt; self.y():
+                arg = math.pi / 2.0
+            elif otherpoint.y() &lt; self.y():
+                arg = (
+                    3 * math.pi / 2.0
+                )  # this will be reset to 0 if the points are the same
+
+        if otherpoint.y() == self.y():
+            if otherpoint.x() &lt; self.x():
+                arg = math.pi
+            else:
+                arg = 0.0
+
+        if otherpoint.x() != self.x() and otherpoint.y() != self.y():
+            arg = math.atan((otherpoint.y() - self.y()) / (otherpoint.x() - self.x()))
+            if otherpoint.x() &lt; self.x():
+                arg += math.pi
+            elif otherpoint.y() &lt; self.y():
+                arg += 2 * math.pi
+
+        ## Convert to degrees
+        argindegs = math.degrees(arg)
+        return argindegs</div>
+
+<div class="viewcode-block" id="Point.getBlob"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/points/index.html#pyfeyn2.render.pyx.points.Point.getBlob">[docs]</a>    def getBlob(self):
+        &quot;Get the attached blob.&quot;
+        return self.blob</div>
+
+<div class="viewcode-block" id="Point.setBlob"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/points/index.html#pyfeyn2.render.pyx.points.Point.setBlob">[docs]</a>    def setBlob(self, blob):
+        &quot;Set the attached blob.&quot;
+        self.blob = blob
+        return self</div>
+
+<div class="viewcode-block" id="Point.getX"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/points/index.html#pyfeyn2.render.pyx.points.Point.getX">[docs]</a>    def getX(self):
+        &quot;Return the x-coordinate of this point.&quot;
+        return self.xpos</div>
+
+<div class="viewcode-block" id="Point.setX"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/points/index.html#pyfeyn2.render.pyx.points.Point.setX">[docs]</a>    def setX(self, x):
+        &quot;Set the x-coordinate of this point.&quot;
+        self.xpos = x
+        return self</div>
+
+<div class="viewcode-block" id="Point.getY"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/points/index.html#pyfeyn2.render.pyx.points.Point.getY">[docs]</a>    def getY(self):
+        &quot;Return the y-coordinate of this point.&quot;
+        return self.ypos</div>
+
+<div class="viewcode-block" id="Point.setY"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/points/index.html#pyfeyn2.render.pyx.points.Point.setY">[docs]</a>    def setY(self, y):
+        &quot;Set the y-coordinate of this point.&quot;
+        self.ypos = y
+        return self</div>
+
+<div class="viewcode-block" id="Point.getXY"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/points/index.html#pyfeyn2.render.pyx.points.Point.getXY">[docs]</a>    def getXY(self):
+        &quot;Return the x and y coordinates of this point as a 2-tuple.&quot;
+        return self.getX(), self.getY()</div>
+
+<div class="viewcode-block" id="Point.setXY"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/points/index.html#pyfeyn2.render.pyx.points.Point.setXY">[docs]</a>    def setXY(self, xpos, ypos):
+        &quot;Set the x and y coordinates of this point.&quot;
+        self.setX(float(xpos))
+        self.setY(float(ypos))
+        return self</div>
+
+<div class="viewcode-block" id="Point.x"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/points/index.html#pyfeyn2.render.pyx.points.Point.x">[docs]</a>    def x(self):
+        &quot;Alias for getX().&quot;
+        return self.getX()</div>
+
+<div class="viewcode-block" id="Point.y"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/points/index.html#pyfeyn2.render.pyx.points.Point.y">[docs]</a>    def y(self):
+        &quot;Alias for getY().&quot;
+        return self.getY()</div>
+
+<div class="viewcode-block" id="Point.xy"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/points/index.html#pyfeyn2.render.pyx.points.Point.xy">[docs]</a>    def xy(self):
+        &quot;Alias for getXY().&quot;
+        return self.getXY()</div></div>
+
+
+## Decorated point class
+<div class="viewcode-block" id="DecoratedPoint"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/points/index.html#pyfeyn2.render.pyx.points.DecoratedPoint">[docs]</a>class DecoratedPoint(Point, Visible):
+    &quot;Class for a point drawn with a marker&quot;
+
+    def __init__(
+        self,
+        xpos,
+        ypos,
+        mark=None,
+        blob=None,
+        fill=[pyx.color.rgb.black],
+        stroke=[pyx.color.rgb.black],
+    ):
+        &quot;&quot;&quot;Constructor.&quot;&quot;&quot;
+        self.setXY(xpos, ypos)
+        self.labels = []
+        self.setMark(copy(mark))
+        self.setBlob(blob)
+        self.layeroffset = 1000
+        self.fillstyles = copy(fill)  # lists are mutable --
+        self.strokestyles = copy(stroke)  # hence make a copy!
+        ## Add this to the current diagram automatically
+        FeynDiagram.currentDiagram.add(self)
+
+<div class="viewcode-block" id="DecoratedPoint.getPath"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/points/index.html#pyfeyn2.render.pyx.points.DecoratedPoint.getPath">[docs]</a>    def getPath(self):
+        &quot;&quot;&quot;Return the path belonging to the blob or marker attached to this point, if any.&quot;&quot;&quot;
+        if self.blob:
+            return self.getBlob().getPath()
+        elif self.marker:
+            return self.getMark().getPath()
+        else:
+            return None</div>
+
+<div class="viewcode-block" id="DecoratedPoint.getMark"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/points/index.html#pyfeyn2.render.pyx.points.DecoratedPoint.getMark">[docs]</a>    def getMark(self):
+        &quot;&quot;&quot;Return the marker attached to this point.&quot;&quot;&quot;
+        return self.marker</div>
+
+<div class="viewcode-block" id="DecoratedPoint.setMark"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/points/index.html#pyfeyn2.render.pyx.points.DecoratedPoint.setMark">[docs]</a>    def setMark(self, mark):
+        &quot;&quot;&quot;Set the marker attached to this point.&quot;&quot;&quot;
+        self.marker = mark
+        if self.marker is not None:
+            self.marker.setPoint(self)
+        # if size is None and self.radius == 0: # change shape of a true point?
+        #     self.radius = 4*unit.t_pt # probably want to use default size
+        return self</div>
+
+<div class="viewcode-block" id="DecoratedPoint.getBlob"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/points/index.html#pyfeyn2.render.pyx.points.DecoratedPoint.getBlob">[docs]</a>    def getBlob(self):
+        &quot;&quot;&quot;Return the blob attached to this point.&quot;&quot;&quot;
+        return self.blob</div>
+
+<div class="viewcode-block" id="DecoratedPoint.setBlob"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/points/index.html#pyfeyn2.render.pyx.points.DecoratedPoint.setBlob">[docs]</a>    def setBlob(self, blob):
+        &quot;&quot;&quot;Set the blob attached to this point.&quot;&quot;&quot;
+        self.blob = blob
+        if self.blob is not None:
+            self.blob.setPoints([self])
+        return self</div>
+
+<div class="viewcode-block" id="DecoratedPoint.getFillstyles"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/points/index.html#pyfeyn2.render.pyx.points.DecoratedPoint.getFillstyles">[docs]</a>    def getFillstyles(self):
+        &quot;&quot;&quot;Return the fillstyles for the marker or blob attached to this point.&quot;&quot;&quot;
+        return self.fillstyles</div>
+
+<div class="viewcode-block" id="DecoratedPoint.setFillstyles"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/points/index.html#pyfeyn2.render.pyx.points.DecoratedPoint.setFillstyles">[docs]</a>    def setFillstyles(self, styles):
+        &quot;&quot;&quot;Set the fillstyles for the marker or blob attached to this point.&quot;&quot;&quot;
+        if styles is not None:
+            self.fillstyles = styles
+        return self</div>
+
+<div class="viewcode-block" id="DecoratedPoint.addFillstyles"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/points/index.html#pyfeyn2.render.pyx.points.DecoratedPoint.addFillstyles">[docs]</a>    def addFillstyles(self, styles):
+        &quot;&quot;&quot;Add fillstyles to the marker or blob attached to this point.&quot;&quot;&quot;
+        self.fillstyles.add(styles)
+        return self</div>
+
+<div class="viewcode-block" id="DecoratedPoint.addFillstyle"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/points/index.html#pyfeyn2.render.pyx.points.DecoratedPoint.addFillstyle">[docs]</a>    def addFillstyle(self, style):
+        &quot;&quot;&quot;Add a fillstyle to the marker or blob attached to this point.&quot;&quot;&quot;
+        self.fillstyles.append(style)
+        return self</div>
+
+<div class="viewcode-block" id="DecoratedPoint.getStrokestyles"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/points/index.html#pyfeyn2.render.pyx.points.DecoratedPoint.getStrokestyles">[docs]</a>    def getStrokestyles(self):
+        &quot;&quot;&quot;Return the stroke styles for the marker or blob attached to this point.&quot;&quot;&quot;
+        return self.strokestyles</div>
+
+<div class="viewcode-block" id="DecoratedPoint.setStrokestyles"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/points/index.html#pyfeyn2.render.pyx.points.DecoratedPoint.setStrokestyles">[docs]</a>    def setStrokestyles(self, styles):
+        &quot;&quot;&quot;Set the stroke styles for the marker or blob attached to this point.&quot;&quot;&quot;
+        self.strokestyles = styles
+        return self</div>
+
+<div class="viewcode-block" id="DecoratedPoint.addStrokestyles"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/points/index.html#pyfeyn2.render.pyx.points.DecoratedPoint.addStrokestyles">[docs]</a>    def addStrokestyles(self, styles):
+        &quot;&quot;&quot;Add stroke styles to the marker or blob attached to this point.&quot;&quot;&quot;
+        self.strokestyles.add(styles)
+        return self</div>
+
+<div class="viewcode-block" id="DecoratedPoint.addStrokestyle"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/points/index.html#pyfeyn2.render.pyx.points.DecoratedPoint.addStrokestyle">[docs]</a>    def addStrokestyle(self, style):
+        &quot;&quot;&quot;Add a stroke style to the marker or blob attached to this point.&quot;&quot;&quot;
+        self.strokestyles.append(style)
+        return self</div>
+
+<div class="viewcode-block" id="DecoratedPoint.draw"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/points/index.html#pyfeyn2.render.pyx.points.DecoratedPoint.draw">[docs]</a>    def draw(self, canvas):
+        &quot;&quot;&quot;Draw the marker or blob attached to this point.&quot;&quot;&quot;
+        if self.getPath():
+            canvas.fill(self.getPath(), self.fillstyles)
+            canvas.stroke(self.getPath(), self.strokestyles)
+        for l in self.labels:
+            l.draw(canvas)</div></div>
+
+
+## Vertex is an alias for DecoratedPoint
+<div class="viewcode-block" id="Vertex"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/points/index.html#pyfeyn2.render.pyx.points.Vertex">[docs]</a>Vertex = DecoratedPoint</div>
+
+
+<div class="viewcode-block" id="Mark"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/points/index.html#pyfeyn2.render.pyx.points.Mark">[docs]</a>class Mark:
+<div class="viewcode-block" id="Mark.getPoint"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/points/index.html#pyfeyn2.render.pyx.points.Mark.getPoint">[docs]</a>    def getPoint(self):
+        &quot;&quot;&quot;Return the point to which this marker is attached.&quot;&quot;&quot;
+        return self.point</div>
+
+<div class="viewcode-block" id="Mark.setPoint"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/points/index.html#pyfeyn2.render.pyx.points.Mark.setPoint">[docs]</a>    def setPoint(self, point):
+        &quot;&quot;&quot;Attach this marker to a new point.&quot;&quot;&quot;
+        self.point = point
+        return self</div></div>
+
+
+<div class="viewcode-block" id="SquareMark"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/points/index.html#pyfeyn2.render.pyx.points.SquareMark">[docs]</a>class SquareMark(Mark):
+    def __init__(self, size=0.075):
+        &quot;&quot;&quot;A square mark.&quot;&quot;&quot;
+        self.size = size
+        self.point = None
+
+<div class="viewcode-block" id="SquareMark.getPath"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/points/index.html#pyfeyn2.render.pyx.points.SquareMark.getPath">[docs]</a>    def getPath(self):
+        &quot;&quot;&quot;Return the path for this marker.&quot;&quot;&quot;
+        if self.getPoint() is not None:
+            x, y = self.point.getXY()
+            return pyx.box.rect(
+                x - self.size, y - self.size, 2 * self.size, 2 * self.size
+            ).path()
+        return None</div></div>
+
+
+<div class="viewcode-block" id="CircleMark"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/points/index.html#pyfeyn2.render.pyx.points.CircleMark">[docs]</a>class CircleMark(Mark):
+    def __init__(self, size=0.075):
+        &quot;&quot;&quot;A circular mark.&quot;&quot;&quot;
+        self.radius = size
+        self.point = None
+
+<div class="viewcode-block" id="CircleMark.getPath"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/points/index.html#pyfeyn2.render.pyx.points.CircleMark.getPath">[docs]</a>    def getPath(self):
+        &quot;&quot;&quot;Return the path for this marker.&quot;&quot;&quot;
+        if self.point is not None:
+            x, y = self.point.getXY()
+            return pyx.path.circle(x, y, self.radius).path()
+        return None</div></div>
+
+
+<div class="viewcode-block" id="PolygonalMark"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/points/index.html#pyfeyn2.render.pyx.points.PolygonalMark">[docs]</a>class PolygonalMark(Mark):
+    def __init__(self, size=0.075, corners=3):
+        &quot;&quot;&quot;A polygonal mark.&quot;&quot;&quot;
+        self.radius = size
+        self.n = corners
+        self.point = None
+
+<div class="viewcode-block" id="PolygonalMark.getPath"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/points/index.html#pyfeyn2.render.pyx.points.PolygonalMark.getPath">[docs]</a>    def getPath(self):
+        &quot;&quot;&quot;Return the path for this marker.&quot;&quot;&quot;
+        if self.point is not None:
+            x, y = self.point.getXY()
+            return pyx.box.polygon(
+                [
+                    (
+                        x - self.radius * math.sin(i * 2 * math.pi / self.n),
+                        y + self.radius * math.cos(i * 2 * math.pi / self.n),
+                    )
+                    for i in range(self.n)
+                ]
+            ).path()
+        return None</div></div>
+
+
+<div class="viewcode-block" id="StarshapeMark"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/points/index.html#pyfeyn2.render.pyx.points.StarshapeMark">[docs]</a>class StarshapeMark(Mark):
+    def __init__(self, size=0.075, raysize=0.05, rays=3):
+        &quot;&quot;&quot;A star-shaped mark.&quot;&quot;&quot;
+        self.radius = size
+        self.wiggle = raysize
+        self.n = rays
+        self.point = None
+
+<div class="viewcode-block" id="StarshapeMark.getPath"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/points/index.html#pyfeyn2.render.pyx.points.StarshapeMark.getPath">[docs]</a>    def getPath(self):
+        &quot;&quot;&quot;Return the path for this marker.&quot;&quot;&quot;
+        if self.point is not None:
+            x, y = self.point.getXY()
+            return pyx.box.polygon(
+                [
+                    (
+                        x
+                        - (self.radius - self.wiggle * (i % 2))
+                        * math.sin(i * math.pi / self.n),
+                        y
+                        + (self.radius - self.wiggle * (i % 2))
+                        * math.cos(i * math.pi / self.n),
+                    )
+                    for i in range(2 * self.n)
+                ]
+            ).path()
+        return None</div></div>
+
+
+<div class="viewcode-block" id="CrossMark"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/points/index.html#pyfeyn2.render.pyx.points.CrossMark">[docs]</a>class CrossMark(Mark):
+    def __init__(self, size=0.075):
+        &quot;&quot;&quot;A cross marker, e.g. to show neutrino oscillations.&quot;&quot;&quot;
+        self.size = size
+        self.point = None
+
+<div class="viewcode-block" id="CrossMark.getPath"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/points/index.html#pyfeyn2.render.pyx.points.CrossMark.getPath">[docs]</a>    def getPath(self):
+        &quot;&quot;&quot;Return the path for this marker.&quot;&quot;&quot;
+        if self.point is not None:
+            x, y = self.point.getXY()
+            return pyx.path.path(
+                pyx.path.moveto(x - self.size, y - self.size),
+                pyx.path.lineto(x + self.size, y + self.size),
+                pyx.path.moveto(x - self.size, y + self.size),
+                pyx.path.lineto(x + self.size, y - self.size),
+            ).path()
+        return None</div></div>
+
+
+## Convenience constants
+<div class="viewcode-block" id="CIRCLE"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/points/index.html#pyfeyn2.render.pyx.points.CIRCLE">[docs]</a>CIRCLE = CircleMark()</div>
+<div class="viewcode-block" id="SQUARE"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/points/index.html#pyfeyn2.render.pyx.points.SQUARE">[docs]</a>SQUARE = SquareMark()</div>
+<div class="viewcode-block" id="CROSS"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/points/index.html#pyfeyn2.render.pyx.points.CROSS">[docs]</a>CROSS = CrossMark()</div>
+
+<div class="viewcode-block" id="TRIANGLE"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/points/index.html#pyfeyn2.render.pyx.points.TRIANGLE">[docs]</a>TRIANGLE = PolygonalMark(corners=3)</div>
+<div class="viewcode-block" id="DIAMOND"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/points/index.html#pyfeyn2.render.pyx.points.DIAMOND">[docs]</a>DIAMOND = PolygonalMark(corners=4)</div>
+<div class="viewcode-block" id="PENTAGON"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/points/index.html#pyfeyn2.render.pyx.points.PENTAGON">[docs]</a>PENTAGON = PolygonalMark(corners=5)</div>
+<div class="viewcode-block" id="HEXAGON"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/points/index.html#pyfeyn2.render.pyx.points.HEXAGON">[docs]</a>HEXAGON = PolygonalMark(corners=6)</div>
+<div class="viewcode-block" id="HEPTAGON"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/points/index.html#pyfeyn2.render.pyx.points.HEPTAGON">[docs]</a>HEPTAGON = PolygonalMark(corners=7)</div>
+<div class="viewcode-block" id="OCTAGON"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/points/index.html#pyfeyn2.render.pyx.points.OCTAGON">[docs]</a>OCTAGON = PolygonalMark(corners=8)</div>
+
+<div class="viewcode-block" id="TETRASTAR"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/points/index.html#pyfeyn2.render.pyx.points.TETRASTAR">[docs]</a>TETRASTAR = StarshapeMark(rays=4)</div>
+<div class="viewcode-block" id="STAR"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/points/index.html#pyfeyn2.render.pyx.points.STAR">[docs]</a>STAR = StarshapeMark(rays=5)</div>
+<div class="viewcode-block" id="HEXASTAR"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/points/index.html#pyfeyn2.render.pyx.points.HEXASTAR">[docs]</a>HEXASTAR = StarshapeMark(rays=6)</div>
+<div class="viewcode-block" id="OCTOSTAR"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/points/index.html#pyfeyn2.render.pyx.points.OCTOSTAR">[docs]</a>OCTOSTAR = StarshapeMark(rays=8)</div>
+
+
+<div class="viewcode-block" id="NamedMark"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/points/index.html#pyfeyn2.render.pyx.points.NamedMark">[docs]</a>NamedMark = {&quot;none&quot;: lambda size: None, &quot;circle&quot;: CircleMark, &quot;square&quot;: SquareMark}</div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2022, Alexander Puck Neuwirth.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

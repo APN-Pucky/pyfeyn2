@@ -1,0 +1,413 @@
+:py:mod:`pyfeyn2.render.pyx.points`
+===================================
+
+.. py:module:: pyfeyn2.render.pyx.points
+
+.. autoapi-nested-parse::
+
+   Various types of points for vertices etc.
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   pyfeyn2.render.pyx.points.Point
+   pyfeyn2.render.pyx.points.DecoratedPoint
+   pyfeyn2.render.pyx.points.Mark
+   pyfeyn2.render.pyx.points.SquareMark
+   pyfeyn2.render.pyx.points.CircleMark
+   pyfeyn2.render.pyx.points.PolygonalMark
+   pyfeyn2.render.pyx.points.StarshapeMark
+   pyfeyn2.render.pyx.points.CrossMark
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   pyfeyn2.render.pyx.points.midpoint
+   pyfeyn2.render.pyx.points.distance
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   pyfeyn2.render.pyx.points.Vertex
+   pyfeyn2.render.pyx.points.CIRCLE
+   pyfeyn2.render.pyx.points.SQUARE
+   pyfeyn2.render.pyx.points.CROSS
+   pyfeyn2.render.pyx.points.TRIANGLE
+   pyfeyn2.render.pyx.points.DIAMOND
+   pyfeyn2.render.pyx.points.PENTAGON
+   pyfeyn2.render.pyx.points.HEXAGON
+   pyfeyn2.render.pyx.points.HEPTAGON
+   pyfeyn2.render.pyx.points.OCTAGON
+   pyfeyn2.render.pyx.points.TETRASTAR
+   pyfeyn2.render.pyx.points.STAR
+   pyfeyn2.render.pyx.points.HEXASTAR
+   pyfeyn2.render.pyx.points.OCTOSTAR
+   pyfeyn2.render.pyx.points.NamedMark
+
+
+.. py:function:: midpoint(point1, point2)
+
+   Return the point midway between this point and the argument.
+
+
+.. py:function:: distance(point1, point2)
+
+   Calculate the distance between this point and the argument.
+
+
+.. py:class:: Point(x, y, blob=None)
+
+   Base class for all pointlike objects in Feynman diagrams.
+
+   Constructor.
+
+   .. py:method:: addLabel(text, displace=0.3, angle=0, size=pyx.text.size.normalsize)
+
+      Add a LaTeX label to this point, either via parameters or actually as
+      a PointLable object.
+
+
+   .. py:method:: removeLabels()
+
+      Remove all labels from this point.
+
+
+   .. py:method:: draw(canvas)
+
+      Do nothing (abstract base class).
+
+
+   .. py:method:: getPath()
+
+      Return the path of the attached blob path, if there is one, otherwise None.
+
+
+   .. py:method:: midpoint(otherpoint)
+
+      Return the point midway between this point and the argument.
+
+
+   .. py:method:: distance(otherpoint)
+
+      Calculate the distance between this point and the argument.
+
+
+   .. py:method:: intercept(otherpoint)
+
+      Return the y-intercept of the straight line defined by this point and the argument.
+
+
+   .. py:method:: tangent(otherpoint)
+
+      Return the tangent of the straight line defined by this point and the argument.
+
+
+   .. py:method:: arg(otherpoint)
+
+      Return the angle between the x-axis and the straight line defined
+      by this point and the argument (cf. complex numbers).
+
+
+   .. py:method:: getBlob()
+
+      Get the attached blob.
+
+
+   .. py:method:: setBlob(blob)
+
+      Set the attached blob.
+
+
+   .. py:method:: getX()
+
+      Return the x-coordinate of this point.
+
+
+   .. py:method:: setX(x)
+
+      Set the x-coordinate of this point.
+
+
+   .. py:method:: getY()
+
+      Return the y-coordinate of this point.
+
+
+   .. py:method:: setY(y)
+
+      Set the y-coordinate of this point.
+
+
+   .. py:method:: getXY()
+
+      Return the x and y coordinates of this point as a 2-tuple.
+
+
+   .. py:method:: setXY(xpos, ypos)
+
+      Set the x and y coordinates of this point.
+
+
+   .. py:method:: x()
+
+      Alias for getX().
+
+
+   .. py:method:: y()
+
+      Alias for getY().
+
+
+   .. py:method:: xy()
+
+      Alias for getXY().
+
+
+
+.. py:class:: DecoratedPoint(xpos, ypos, mark=None, blob=None, fill=[pyx.color.rgb.black], stroke=[pyx.color.rgb.black])
+
+   Bases: :py:obj:`Point`, :py:obj:`pyfeyn2.render.pyx.utils.Visible`
+
+   Class for a point drawn with a marker
+
+   Constructor.
+
+   .. py:method:: getPath()
+
+      Return the path belonging to the blob or marker attached to this point, if any.
+
+
+   .. py:method:: getMark()
+
+      Return the marker attached to this point.
+
+
+   .. py:method:: setMark(mark)
+
+      Set the marker attached to this point.
+
+
+   .. py:method:: getBlob()
+
+      Return the blob attached to this point.
+
+
+   .. py:method:: setBlob(blob)
+
+      Set the blob attached to this point.
+
+
+   .. py:method:: getFillstyles()
+
+      Return the fillstyles for the marker or blob attached to this point.
+
+
+   .. py:method:: setFillstyles(styles)
+
+      Set the fillstyles for the marker or blob attached to this point.
+
+
+   .. py:method:: addFillstyles(styles)
+
+      Add fillstyles to the marker or blob attached to this point.
+
+
+   .. py:method:: addFillstyle(style)
+
+      Add a fillstyle to the marker or blob attached to this point.
+
+
+   .. py:method:: getStrokestyles()
+
+      Return the stroke styles for the marker or blob attached to this point.
+
+
+   .. py:method:: setStrokestyles(styles)
+
+      Set the stroke styles for the marker or blob attached to this point.
+
+
+   .. py:method:: addStrokestyles(styles)
+
+      Add stroke styles to the marker or blob attached to this point.
+
+
+   .. py:method:: addStrokestyle(style)
+
+      Add a stroke style to the marker or blob attached to this point.
+
+
+   .. py:method:: draw(canvas)
+
+      Draw the marker or blob attached to this point.
+
+
+
+.. py:data:: Vertex
+   
+
+   
+
+.. py:class:: Mark
+
+   .. py:method:: getPoint()
+
+      Return the point to which this marker is attached.
+
+
+   .. py:method:: setPoint(point)
+
+      Attach this marker to a new point.
+
+
+
+.. py:class:: SquareMark(size=0.075)
+
+   Bases: :py:obj:`Mark`
+
+   
+   A square mark.
+
+   .. py:method:: getPath()
+
+      Return the path for this marker.
+
+
+
+.. py:class:: CircleMark(size=0.075)
+
+   Bases: :py:obj:`Mark`
+
+   
+   A circular mark.
+
+   .. py:method:: getPath()
+
+      Return the path for this marker.
+
+
+
+.. py:class:: PolygonalMark(size=0.075, corners=3)
+
+   Bases: :py:obj:`Mark`
+
+   
+   A polygonal mark.
+
+   .. py:method:: getPath()
+
+      Return the path for this marker.
+
+
+
+.. py:class:: StarshapeMark(size=0.075, raysize=0.05, rays=3)
+
+   Bases: :py:obj:`Mark`
+
+   
+   A star-shaped mark.
+
+   .. py:method:: getPath()
+
+      Return the path for this marker.
+
+
+
+.. py:class:: CrossMark(size=0.075)
+
+   Bases: :py:obj:`Mark`
+
+   
+   A cross marker, e.g. to show neutrino oscillations.
+
+   .. py:method:: getPath()
+
+      Return the path for this marker.
+
+
+
+.. py:data:: CIRCLE
+   
+
+   
+
+.. py:data:: SQUARE
+   
+
+   
+
+.. py:data:: CROSS
+   
+
+   
+
+.. py:data:: TRIANGLE
+   
+
+   
+
+.. py:data:: DIAMOND
+   
+
+   
+
+.. py:data:: PENTAGON
+   
+
+   
+
+.. py:data:: HEXAGON
+   
+
+   
+
+.. py:data:: HEPTAGON
+   
+
+   
+
+.. py:data:: OCTAGON
+   
+
+   
+
+.. py:data:: TETRASTAR
+   
+
+   
+
+.. py:data:: STAR
+   
+
+   
+
+.. py:data:: HEXASTAR
+   
+
+   
+
+.. py:data:: OCTOSTAR
+   
+
+   
+
+.. py:data:: NamedMark
+   
+
+   
+

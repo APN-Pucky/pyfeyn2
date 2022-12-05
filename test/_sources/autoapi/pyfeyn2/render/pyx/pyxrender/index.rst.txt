@@ -1,0 +1,35 @@
+:py:mod:`pyfeyn2.render.pyx.pyxrender`
+======================================
+
+.. py:module:: pyfeyn2.render.pyx.pyxrender
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   pyfeyn2.render.pyx.pyxrender.PyxRender
+
+
+
+
+.. py:class:: PyxRender(fd, *args, **kwargs)
+
+   Bases: :py:obj:`pyfeyn2.render.render.Render`
+
+   .. py:method:: render(file=None, show=True, resolution=100, width=None, height=None)
+
+
+   .. py:method:: apply_layout(stylestring, obj)
+
+      Apply the decorators encoded in a style string to an object.
+
+
+   .. py:method:: valid_type()
+
+
+

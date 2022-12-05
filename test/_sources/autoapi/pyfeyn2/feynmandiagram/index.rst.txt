@@ -1,0 +1,223 @@
+:py:mod:`pyfeyn2.feynmandiagram`
+================================
+
+.. py:module:: pyfeyn2.feynmandiagram
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   pyfeyn2.feynmandiagram.PDG
+   pyfeyn2.feynmandiagram.Identifiable
+   pyfeyn2.feynmandiagram.Labeled
+   pyfeyn2.feynmandiagram.Point
+   pyfeyn2.feynmandiagram.Styled
+   pyfeyn2.feynmandiagram.Bending
+   pyfeyn2.feynmandiagram.Targeting
+   pyfeyn2.feynmandiagram.Sourcing
+   pyfeyn2.feynmandiagram.Line
+   pyfeyn2.feynmandiagram.Vertex
+   pyfeyn2.feynmandiagram.Leg
+   pyfeyn2.feynmandiagram.Propagator
+   pyfeyn2.feynmandiagram.FeynmanDiagram
+
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   pyfeyn2.feynmandiagram.id
+
+
+.. py:class:: PDG
+
+   .. py:attribute:: pdgid
+      :annotation: :Optional[int]
+
+      
+
+   .. py:attribute:: type
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: latexname
+      :annotation: :Optional[str]
+
+      
+
+   .. py:method:: _sync_latexname()
+
+      Sync the latexname with the pdgid
+
+
+   .. py:method:: __post_init__()
+
+
+   .. py:method:: set_pdgid(pdgid)
+
+
+   .. py:method:: set_type(type)
+
+
+
+.. py:data:: id
+   :annotation: = 0
+
+   
+
+.. py:class:: Identifiable
+
+   .. py:attribute:: id
+      :annotation: :Optional[str]
+
+      
+
+   .. py:method:: __post_init__()
+
+
+
+.. py:class:: Labeled
+
+   .. py:attribute:: label
+      :annotation: :Optional[str]
+
+      
+
+   .. py:method:: set_label(label)
+
+
+
+.. py:class:: Point
+
+   .. py:attribute:: x
+      :annotation: :Optional[decimal.Decimal]
+
+      
+
+   .. py:attribute:: y
+      :annotation: :Optional[decimal.Decimal]
+
+      
+
+   .. py:attribute:: z
+      :annotation: :Optional[decimal.Decimal]
+
+      
+
+   .. py:method:: set_xy(x, y)
+
+
+   .. py:method:: set_xyz(x, y)
+
+
+
+.. py:class:: Styled
+
+   .. py:attribute:: style
+      :annotation: :Optional[str]
+
+      
+
+
+.. py:class:: Bending
+
+   .. py:attribute:: bend
+      :annotation: :Optional[str]
+
+      
+
+
+.. py:class:: Targeting
+
+   .. py:attribute:: target
+      :annotation: :Optional[str]
+
+      
+
+   .. py:method:: set_target(target)
+
+
+
+.. py:class:: Sourcing
+
+   .. py:attribute:: source
+      :annotation: :Optional[str]
+
+      
+
+   .. py:method:: set_source(source)
+
+
+
+.. py:class:: Line
+
+   Bases: :py:obj:`Targeting`, :py:obj:`Sourcing`
+
+   .. py:method:: connect(source, target)
+
+
+
+.. py:class:: Vertex
+
+   Bases: :py:obj:`Labeled`, :py:obj:`Styled`, :py:obj:`Point`, :py:obj:`Identifiable`
+
+
+.. py:class:: Leg
+
+   Bases: :py:obj:`Labeled`, :py:obj:`Styled`, :py:obj:`PDG`, :py:obj:`Bending`, :py:obj:`Point`, :py:obj:`Targeting`, :py:obj:`Identifiable`
+
+   .. py:attribute:: sense
+      :annotation: :str
+
+      
+
+   .. py:method:: set_incoming()
+
+
+   .. py:method:: set_outgoing()
+
+
+
+.. py:class:: Propagator
+
+   Bases: :py:obj:`Labeled`, :py:obj:`Styled`, :py:obj:`PDG`, :py:obj:`Bending`, :py:obj:`Line`, :py:obj:`Identifiable`
+
+
+.. py:class:: FeynmanDiagram
+
+   .. py:class:: Meta
+
+      .. py:attribute:: name
+         :annotation: = feynmandiagram
+
+         
+
+
+   .. py:attribute:: propagators
+      :annotation: :List[Propagator]
+
+      
+
+   .. py:attribute:: vertices
+      :annotation: :List[Vertex]
+
+      
+
+   .. py:attribute:: legs
+      :annotation: :List[Leg]
+
+      
+
+   .. py:method:: get_point(id)
+
+
+
