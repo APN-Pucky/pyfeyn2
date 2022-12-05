@@ -1,0 +1,64 @@
+:py:mod:`pyfeyn2.render.ascii`
+==============================
+
+.. py:module:: pyfeyn2.render.ascii
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   pyfeyn2.render.ascii.ASCIILine
+   pyfeyn2.render.ascii.Gluon
+   pyfeyn2.render.ascii.Photon
+   pyfeyn2.render.ascii.ASCIIRender
+
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   pyfeyn2.render.ascii.namedlines
+
+
+.. py:class:: ASCIILine(begin=' ', end=' ', vert='|', horz='-')
+
+   .. py:method:: draw(pane, isrc, itar, scalex=1, scaley=1, kickx=0, kicky=0)
+
+
+
+.. py:class:: Gluon
+
+   Bases: :py:obj:`ASCIILine`
+
+
+.. py:class:: Photon
+
+   Bases: :py:obj:`ASCIILine`
+
+
+.. py:data:: namedlines
+   
+
+   
+
+.. py:class:: ASCIIRender(fd, *args, **kwargs)
+
+   Bases: :py:obj:`pyfeyn2.render.render.Render`
+
+   Renders Feynman diagrams to ASCII art.
+
+   .. py:method:: render(file=None, show=True, resolution=100, width=100, height=20)
+
+
+   .. py:method:: valid_type() -> bool
+
+
+

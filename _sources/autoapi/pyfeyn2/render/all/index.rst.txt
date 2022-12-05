@@ -1,0 +1,59 @@
+:py:mod:`pyfeyn2.render.all`
+============================
+
+.. py:module:: pyfeyn2.render.all
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   pyfeyn2.render.all.AllRender
+
+
+
+
+.. py:class:: AllRender(fd, documentclass='standalone', document_options=['varwidth'], *args, **kwargs)
+
+   Bases: :py:obj:`pyfeyn2.render.latex.LatexRender`
+
+   Render all diagrams to PDF.
+
+   :param default_filepath: The default path to save files.
+   :type default_filepath: str
+   :param documentclass: The LaTeX class of the document.
+   :type documentclass: str or `~.Command`
+   :param document_options: The options to supply to the documentclass
+   :type document_options: str or `list`
+   :param fontenc: The option for the fontenc package. If it is `None`, the fontenc
+                   package will not be loaded at all.
+   :type fontenc: str
+   :param inputenc: The option for the inputenc package. If it is `None`, the inputenc
+                    package will not be loaded at all.
+   :type inputenc: str
+   :param font_size: The font size to declare as normalsize
+   :type font_size: str
+   :param lmodern: Use the Latin Modern font. This is a font that contains more glyphs
+                   than the standard LaTeX font.
+   :type lmodern: bool
+   :param textcomp: Adds even more glyphs, for instance the Euro (€) sign.
+   :type textcomp: bool
+   :param page_numbers: Adds the ability to add the last page to the document.
+   :type page_numbers: bool
+   :param indent: Determines whether or not the document requires indentation. If it
+                  is `None` it will use the value from the active config. Which is
+                  `True` by default.
+   :type indent: bool
+   :param geometry_options: The options to supply to the geometry package
+   :type geometry_options: dict
+   :param data: Initial content of the document.
+   :type data: list
+
+   .. py:method:: render(file=None, show=True, subfigure=True, resolution=100, width=None, height=None)
+
+
+

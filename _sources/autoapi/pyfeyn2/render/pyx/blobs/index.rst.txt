@@ -1,0 +1,173 @@
+:py:mod:`pyfeyn2.render.pyx.blobs`
+==================================
+
+.. py:module:: pyfeyn2.render.pyx.blobs
+
+.. autoapi-nested-parse::
+
+   Various blob shapes to represent generic interactions.
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   pyfeyn2.render.pyx.blobs.Blob
+   pyfeyn2.render.pyx.blobs.Circle
+   pyfeyn2.render.pyx.blobs.Ellipse
+
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   pyfeyn2.render.pyx.blobs.NamedBlob
+
+
+.. py:class:: Blob
+
+   Bases: :py:obj:`pyfeyn2.render.pyx.points.Point`, :py:obj:`pyfeyn2.render.pyx.utils.Visible`
+
+   Base class for all blob-like objects in Feynman diagrams
+
+   Dysfunctional constructor, since this is an abstract base class.
+
+   .. py:method:: setStrokeStyle(strokestyle)
+
+      Set the stroke style.
+
+
+   .. py:method:: clearStrokeStyles()
+
+      Remove all the current stroke styles.
+
+
+   .. py:method:: setFillStyle(fillstyle)
+
+      Set the fill style.
+
+
+   .. py:method:: clearFillStyles()
+
+      Remove all the current fill styles.
+
+
+   .. py:method:: addTrafo(trafo)
+
+      Add a transformation.
+
+
+   .. py:method:: clearTrafos()
+
+      Remove transformations.
+
+
+   .. py:method:: setPoints(points)
+
+      Set the points to which this blob is attached.
+
+
+   .. py:method:: addLabel(text, displace=-0.15, angle=0, size=pyx.text.size.normalsize)
+
+      Add a label.
+
+
+   .. py:method:: clearLabels()
+
+      Remove all current labels.
+
+
+
+.. py:class:: Circle(x=None, y=None, center=None, radius=None, fill=[pyx.color.rgb.white], stroke=[pyx.color.rgb.black], points=None)
+
+   Bases: :py:obj:`Blob`
+
+   A circular blob
+
+   Constructor.
+
+   .. py:attribute:: blobshape
+      :annotation: = circle
+
+      
+
+   .. py:method:: getPath()
+
+      Get the path of this circle blob.
+
+
+   .. py:method:: draw(canvas)
+
+      Draw this circle blob.
+
+
+
+.. py:class:: Ellipse(x=None, y=None, center=None, xradius=None, yradius=None, fill=[pyx.color.rgb.white], stroke=[pyx.color.rgb.black], points=None)
+
+   Bases: :py:obj:`Blob`
+
+   An elliptical blob
+
+   Constructor.
+
+   .. py:attribute:: blobshape
+      :annotation: = ellipse
+
+      
+
+   .. py:method:: getXRadius()
+
+      Get the component of the radius in the x-direction.
+
+
+   .. py:method:: setXRadius(xrad)
+
+      Set the component of the radius in the x-direction.
+
+
+   .. py:method:: getYRadius()
+
+      Get the component of the radius in the y-direction.
+
+
+   .. py:method:: setYRadius(yrad)
+
+      Set the component of the radius in the y-direction.
+
+
+   .. py:method:: getXYRadius()
+
+      Get the components of the radius in the x and y
+      directions at the same time.
+
+
+   .. py:method:: setXYRadius(xrad, yrad)
+
+      Get the components of the radius in the x and y
+      directions at the same time.
+
+
+   .. py:method:: getPath()
+
+      Get the path for this blob.
+
+
+   .. py:method:: draw(canvas)
+
+      Draw this blob on the given canvas.
+
+
+
+.. py:data:: NamedBlob
+   
+
+   
+

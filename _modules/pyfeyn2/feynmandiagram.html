@@ -1,0 +1,427 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>pyfeyn2.feynmandiagram &mdash; pyfeyn2  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/plot_directive.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/jupyter-sphinx.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/thebelab.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/thebelab-helper.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> pyfeyn2
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Versions:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/pyfeyn2/">Stable</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/pyfeyn2/test/">Dev</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Links:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/APN-Pucky/pyfeyn2">GitHub</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">FeynML:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../feynml/index.html">FeynML</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/ASCII.html">ASCII</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/All.html">All</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/Dot.html">Dot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/FeynML.html">FeynML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/FeynMP.html">FeynMP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/MPL.html">Matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/PyX.html">PyX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/tikzfeynman.html">TIKZ-Feynman</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Module:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../autoapi/index.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">pyfeyn2</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+      <li>pyfeyn2.feynmandiagram</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for pyfeyn2.feynmandiagram</h1><div class="highlight"><pre>
+<span></span>from dataclasses import dataclass, field
+from decimal import Decimal
+from typing import List, Optional
+
+from pyfeyn2.particles import get_name
+
+# from pyfeyn2.propagator import Propagator
+# from pyfeyn2.vertex import Vertex
+
+
+@dataclass
+<div class="viewcode-block" id="PDG"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.PDG">[docs]</a>class PDG:
+<div class="viewcode-block" id="PDG.pdgid"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.PDG.pdgid">[docs]</a>    pdgid: Optional[int] = field(
+        default=21, metadata={&quot;xml_attribute&quot;: True, &quot;type&quot;: &quot;Attribute&quot;}
+    )</div>
+<div class="viewcode-block" id="PDG.type"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.PDG.type">[docs]</a>    type: Optional[str] = field(
+        default=&quot;&quot;, metadata={&quot;xml_attribute&quot;: True, &quot;type&quot;: &quot;Attribute&quot;}
+    )</div>
+<div class="viewcode-block" id="PDG.latexname"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.PDG.latexname">[docs]</a>    latexname: Optional[str] = field(
+        default=&quot;&quot;, metadata={&quot;xml_attribute&quot;: True, &quot;type&quot;: &quot;Attribute&quot;}
+    )</div>
+
+<div class="viewcode-block" id="PDG._sync_latexname"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.PDG._sync_latexname">[docs]</a>    def _sync_latexname(self):
+        &quot;&quot;&quot;Sync the latexname with the pdgid&quot;&quot;&quot;
+        if self.pdgid is not None:
+            self.latexname = get_name(self.pdgid)</div>
+
+<div class="viewcode-block" id="PDG.__post_init__"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.PDG.__post_init__">[docs]</a>    def __post_init__(self):
+        self._sync_latexname()</div>
+
+<div class="viewcode-block" id="PDG.set_pdgid"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.PDG.set_pdgid">[docs]</a>    def set_pdgid(self, pdgid):
+        self.pdgid = pdgid
+        self._sync_latexname()
+        return self</div>
+
+<div class="viewcode-block" id="PDG.set_type"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.PDG.set_type">[docs]</a>    def set_type(self, type):
+        self.type = type
+        return self</div></div>
+
+
+<div class="viewcode-block" id="id"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.id">[docs]</a>id = 0</div>
+
+
+@dataclass
+<div class="viewcode-block" id="Identifiable"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Identifiable">[docs]</a>class Identifiable:
+<div class="viewcode-block" id="Identifiable.id"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Identifiable.id">[docs]</a>    id: Optional[str] = field(
+        default=&quot;&quot;, metadata={&quot;xml_attribute&quot;: True, &quot;type&quot;: &quot;Attribute&quot;}
+    )</div>
+
+<div class="viewcode-block" id="Identifiable.__post_init__"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Identifiable.__post_init__">[docs]</a>    def __post_init__(self):
+        global id
+        if self.id == &quot;&quot;:
+            # use some global counter to generate unique id
+            self.id = self.__class__.__name__ + str(id)
+            id = id + 1</div></div>
+
+
+@dataclass
+<div class="viewcode-block" id="Labeled"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Labeled">[docs]</a>class Labeled:
+<div class="viewcode-block" id="Labeled.label"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Labeled.label">[docs]</a>    label: Optional[str] = field(
+        default=&quot;&quot;, metadata={&quot;xml_attribute&quot;: True, &quot;type&quot;: &quot;Attribute&quot;}
+    )</div>
+
+<div class="viewcode-block" id="Labeled.set_label"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Labeled.set_label">[docs]</a>    def set_label(self, label):
+        self.label = label
+        return self</div></div>
+
+
+@dataclass
+<div class="viewcode-block" id="Point"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Point">[docs]</a>class Point:
+<div class="viewcode-block" id="Point.x"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Point.x">[docs]</a>    x: Optional[Decimal] = field(
+        default=None, metadata={&quot;xml_attribute&quot;: True, &quot;type&quot;: &quot;Attribute&quot;}
+    )</div>
+<div class="viewcode-block" id="Point.y"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Point.y">[docs]</a>    y: Optional[Decimal] = field(
+        default=None, metadata={&quot;xml_attribute&quot;: True, &quot;type&quot;: &quot;Attribute&quot;}
+    )</div>
+<div class="viewcode-block" id="Point.z"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Point.z">[docs]</a>    z: Optional[Decimal] = field(
+        default=None, metadata={&quot;xml_attribute&quot;: True, &quot;type&quot;: &quot;Attribute&quot;}
+    )</div>
+
+<div class="viewcode-block" id="Point.set_xy"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Point.set_xy">[docs]</a>    def set_xy(self, x, y):
+        self.x = float(x)
+        self.y = float(y)
+        return self</div>
+
+<div class="viewcode-block" id="Point.set_xyz"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Point.set_xyz">[docs]</a>    def set_xyz(self, x, y):
+        self.x = float(x)
+        self.y = float(y)
+        self.z = float(z)
+        return self</div></div>
+
+
+@dataclass
+<div class="viewcode-block" id="Styled"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Styled">[docs]</a>class Styled:
+<div class="viewcode-block" id="Styled.style"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Styled.style">[docs]</a>    style: Optional[str] = field(
+        default=None, metadata={&quot;xml_attribute&quot;: True, &quot;type&quot;: &quot;Attribute&quot;}
+    )</div></div>
+
+
+@dataclass
+<div class="viewcode-block" id="Bending"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Bending">[docs]</a>class Bending:
+<div class="viewcode-block" id="Bending.bend"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Bending.bend">[docs]</a>    bend: Optional[str] = field(
+        default=None, metadata={&quot;xml_attribute&quot;: True, &quot;type&quot;: &quot;Attribute&quot;}
+    )</div></div>
+
+
+@dataclass
+<div class="viewcode-block" id="Targeting"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Targeting">[docs]</a>class Targeting:
+<div class="viewcode-block" id="Targeting.target"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Targeting.target">[docs]</a>    target: Optional[str] = field(
+        default=&quot;&quot;, metadata={&quot;xml_attribute&quot;: True, &quot;type&quot;: &quot;Attribute&quot;}
+    )</div>
+
+<div class="viewcode-block" id="Targeting.set_target"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Targeting.set_target">[docs]</a>    def set_target(self, target):
+        self.target = target.id
+        return self</div></div>
+
+
+@dataclass
+<div class="viewcode-block" id="Sourcing"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Sourcing">[docs]</a>class Sourcing:
+<div class="viewcode-block" id="Sourcing.source"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Sourcing.source">[docs]</a>    source: Optional[str] = field(
+        default=&quot;&quot;, metadata={&quot;xml_attribute&quot;: True, &quot;type&quot;: &quot;Attribute&quot;}
+    )</div>
+
+<div class="viewcode-block" id="Sourcing.set_source"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Sourcing.set_source">[docs]</a>    def set_source(self, source):
+        self.source = source.id
+        return self</div></div>
+
+
+@dataclass
+<div class="viewcode-block" id="Line"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Line">[docs]</a>class Line(Targeting, Sourcing):
+<div class="viewcode-block" id="Line.connect"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Line.connect">[docs]</a>    def connect(self, source, target):
+        self.set_source(source)
+        self.set_target(target)
+        return self</div></div>
+
+
+@dataclass
+<div class="viewcode-block" id="Vertex"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Vertex">[docs]</a>class Vertex(Labeled, Styled, Point, Identifiable):
+    pass</div>
+
+
+@dataclass
+<div class="viewcode-block" id="Leg"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Leg">[docs]</a>class Leg(Labeled, Styled, PDG, Bending, Point, Targeting, Identifiable):
+<div class="viewcode-block" id="Leg.sense"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Leg.sense">[docs]</a>    sense: str = field(
+        default=&quot;&quot;, metadata={&quot;xml_attribute&quot;: True, &quot;type&quot;: &quot;Attribute&quot;}
+    )</div>
+
+<div class="viewcode-block" id="Leg.set_incoming"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Leg.set_incoming">[docs]</a>    def set_incoming(self):
+        self.sense = &quot;incoming&quot;
+        return self</div>
+
+<div class="viewcode-block" id="Leg.set_outgoing"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Leg.set_outgoing">[docs]</a>    def set_outgoing(self):
+        self.sense = &quot;outgoing&quot;
+        return self</div></div>
+
+
+@dataclass
+<div class="viewcode-block" id="Propagator"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Propagator">[docs]</a>class Propagator(Labeled, Styled, PDG, Bending, Line, Identifiable):
+    pass</div>
+
+
+@dataclass
+<div class="viewcode-block" id="FeynmanDiagram"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.FeynmanDiagram">[docs]</a>class FeynmanDiagram:
+<div class="viewcode-block" id="FeynmanDiagram.Meta"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.FeynmanDiagram.Meta">[docs]</a>    class Meta:
+<div class="viewcode-block" id="FeynmanDiagram.Meta.name"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.FeynmanDiagram.Meta.name">[docs]</a>        name = &quot;feynmandiagram&quot;</div></div>
+
+<div class="viewcode-block" id="FeynmanDiagram.propagators"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.FeynmanDiagram.propagators">[docs]</a>    propagators: List[Propagator] = field(
+        default_factory=list,
+        metadata={&quot;name&quot;: &quot;propagator&quot;, &quot;type&quot;: &quot;Element&quot;, &quot;namespace&quot;: &quot;&quot;},
+    )</div>
+<div class="viewcode-block" id="FeynmanDiagram.vertices"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.FeynmanDiagram.vertices">[docs]</a>    vertices: List[Vertex] = field(
+        default_factory=list,
+        metadata={&quot;name&quot;: &quot;vertex&quot;, &quot;type&quot;: &quot;Element&quot;, &quot;namespace&quot;: &quot;&quot;},
+    )</div>
+<div class="viewcode-block" id="FeynmanDiagram.legs"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.FeynmanDiagram.legs">[docs]</a>    legs: List[Leg] = field(
+        default_factory=list,
+        metadata={&quot;name&quot;: &quot;leg&quot;, &quot;type&quot;: &quot;Element&quot;, &quot;namespace&quot;: &quot;&quot;},
+    )</div>
+
+<div class="viewcode-block" id="FeynmanDiagram.get_point"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.FeynmanDiagram.get_point">[docs]</a>    def get_point(self, id):
+        for v in self.vertices:
+            if v.id == id:
+                return v
+        for l in self.legs:
+            if l.id == id:
+                return l
+        return None</div></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2022, Alexander Puck Neuwirth.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
