@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                2.0.3-4-g12148f4
+                2.0.3-7-g5d566bd
               </div>
             
           
@@ -203,13 +203,23 @@
 <div class="viewcode-block" id="Render.render"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/render/index.html#pyfeyn2.render.render.Render.render">[docs]</a>    def render(self, file=None):
         pass</div>
 
-<div class="viewcode-block" id="Render.valid_style"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/render/index.html#pyfeyn2.render.render.Render.valid_style">[docs]</a>    def valid_style(style: str) -&gt; bool:
+<div class="viewcode-block" id="Render.valid_style"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/render/index.html#pyfeyn2.render.render.Render.valid_style">[docs]</a>    def valid_style(self, style: str) -&gt; bool:
         return False</div>
 
-<div class="viewcode-block" id="Render.valid_type"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/render/index.html#pyfeyn2.render.render.Render.valid_type">[docs]</a>    def valid_type(typ: str) -&gt; bool:
+<div class="viewcode-block" id="Render.valid_type"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/render/index.html#pyfeyn2.render.render.Render.valid_type">[docs]</a>    def valid_type(self, typ: str) -&gt; bool:
         return False</div>
 
-<div class="viewcode-block" id="Render.valid_attribute"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/render/index.html#pyfeyn2.render.render.Render.valid_attribute">[docs]</a>    def valid_attribute(attr: str) -&gt; bool:
+<div class="viewcode-block" id="Render.valid_attribute"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/render/index.html#pyfeyn2.render.render.Render.valid_attribute">[docs]</a>    def valid_attribute(self, attr: str) -&gt; bool:
+        if attr == &quot;id&quot;:
+            return True
+        if attr == &quot;sense&quot;:
+            return True
+        if attr == &quot;target&quot;:
+            return True
+        if attr == &quot;source&quot;:
+            return True
+        if attr == &quot;type&quot;:
+            return True
         return False</div></div>
 </pre></div>
 

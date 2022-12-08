@@ -1,20 +1,20 @@
-=================== ======================= ======================= ========================= ========================== ===============================
-:ref:`type`         pyx                     dot                     ascii                     feynmp                     tikzfeynman                     
-=================== ======================= ======================= ========================= ========================== ===============================
-:ref:`boson`        |pyx.type.boson|        |dot.type.boson|        |ascii.type.boson|        |feynmp.type.boson|        |tikzfeynman.type.boson|        
-:ref:`fermion`      |pyx.type.fermion|      |dot.type.fermion|      |ascii.type.fermion|      |feynmp.type.fermion|      |tikzfeynman.type.fermion|      
-:ref:`photon`       |pyx.type.photon|       |dot.type.photon|       |ascii.type.photon|       |feynmp.type.photon|       |tikzfeynman.type.photon|       
-:ref:`higgs`        |pyx.type.higgs|        |dot.type.higgs|        |ascii.type.higgs|        |feynmp.type.higgs|        |tikzfeynman.type.higgs|        
-:ref:`gluon`        |pyx.type.gluon|        |dot.type.gluon|        |ascii.type.gluon|        |feynmp.type.gluon|        |tikzfeynman.type.gluon|        
-:ref:`ghost`        |pyx.type.ghost|        |dot.type.ghost|        |ascii.type.ghost|        |feynmp.type.ghost|        |tikzfeynman.type.ghost|        
-:ref:`scalar`       |pyx.type.scalar|       |dot.type.scalar|       |ascii.type.scalar|       |feynmp.type.scalar|       |tikzfeynman.type.scalar|       
-:ref:`vector`       |pyx.type.vector|       |dot.type.vector|       |ascii.type.vector|       |feynmp.type.vector|       |tikzfeynman.type.vector|       
-:ref:`gluino`       |pyx.type.gluino|       |dot.type.gluino|       |ascii.type.gluino|       |feynmp.type.gluino|       |tikzfeynman.type.gluino|       
-:ref:`squark`       |pyx.type.squark|       |dot.type.squark|       |ascii.type.squark|       |feynmp.type.squark|       |tikzfeynman.type.squark|       
-:ref:`slepton`      |pyx.type.slepton|      |dot.type.slepton|      |ascii.type.slepton|      |feynmp.type.slepton|      |tikzfeynman.type.slepton|      
-:ref:`gaugino`      |pyx.type.gaugino|      |dot.type.gaugino|      |ascii.type.gaugino|      |feynmp.type.gaugino|      |tikzfeynman.type.gaugino|      
-:ref:`neutralino`   |pyx.type.neutralino|   |dot.type.neutralino|   |ascii.type.neutralino|   |feynmp.type.neutralino|   |tikzfeynman.type.neutralino|   
-:ref:`chargino`     |pyx.type.chargino|     |dot.type.chargino|     |ascii.type.chargino|     |feynmp.type.chargino|     |tikzfeynman.type.chargino|     
-:ref:`higgsino`     |pyx.type.higgsino|     |dot.type.higgsino|     |ascii.type.higgsino|     |feynmp.type.higgsino|     |tikzfeynman.type.higgsino|     
-:ref:`graviton`     |pyx.type.graviton|     |dot.type.graviton|     |ascii.type.graviton|     |feynmp.type.graviton|     |tikzfeynman.type.graviton|     
-=================== ======================= ======================= ========================= ========================== ===============================
+=================== ======================= ======================= ========================= ======================= ========================== ===============================
+:ref:`type`         pyx                     dot                     ascii                     mpl                     feynmp                     tikzfeynman                     
+=================== ======================= ======================= ========================= ======================= ========================== ===============================
+:ref:`boson`        |pyx.type.boson|        |dot.type.boson|        |ascii.type.boson|        |mpl.type.boson|        |feynmp.type.boson|        |tikzfeynman.type.boson|        
+:ref:`fermion`      |pyx.type.fermion|      |dot.type.fermion|      |ascii.type.fermion|      |mpl.type.fermion|      |feynmp.type.fermion|      |tikzfeynman.type.fermion|      
+:ref:`photon`       |pyx.type.photon|       |dot.type.photon|       |ascii.type.photon|       |mpl.type.photon|       |feynmp.type.photon|       |tikzfeynman.type.photon|       
+:ref:`higgs`        |pyx.type.higgs|        |dot.type.higgs|        |ascii.type.higgs|        |mpl.type.higgs|        |feynmp.type.higgs|        |tikzfeynman.type.higgs|        
+:ref:`gluon`        |pyx.type.gluon|        |dot.type.gluon|        |ascii.type.gluon|        |mpl.type.gluon|        |feynmp.type.gluon|        |tikzfeynman.type.gluon|        
+:ref:`ghost`        |pyx.type.ghost|        |dot.type.ghost|        |ascii.type.ghost|        |mpl.type.ghost|        |feynmp.type.ghost|        |tikzfeynman.type.ghost|        
+:ref:`scalar`       |pyx.type.scalar|       |dot.type.scalar|       |ascii.type.scalar|       |mpl.type.scalar|       |feynmp.type.scalar|       |tikzfeynman.type.scalar|       
+:ref:`vector`       |pyx.type.vector|       |dot.type.vector|       |ascii.type.vector|       |mpl.type.vector|       |feynmp.type.vector|       |tikzfeynman.type.vector|       
+:ref:`gluino`       |pyx.type.gluino|       |dot.type.gluino|       |ascii.type.gluino|       |mpl.type.gluino|       |feynmp.type.gluino|       |tikzfeynman.type.gluino|       
+:ref:`squark`       |pyx.type.squark|       |dot.type.squark|       |ascii.type.squark|       |mpl.type.squark|       |feynmp.type.squark|       |tikzfeynman.type.squark|       
+:ref:`slepton`      |pyx.type.slepton|      |dot.type.slepton|      |ascii.type.slepton|      |mpl.type.slepton|      |feynmp.type.slepton|      |tikzfeynman.type.slepton|      
+:ref:`gaugino`      |pyx.type.gaugino|      |dot.type.gaugino|      |ascii.type.gaugino|      |mpl.type.gaugino|      |feynmp.type.gaugino|      |tikzfeynman.type.gaugino|      
+:ref:`neutralino`   |pyx.type.neutralino|   |dot.type.neutralino|   |ascii.type.neutralino|   |mpl.type.neutralino|   |feynmp.type.neutralino|   |tikzfeynman.type.neutralino|   
+:ref:`chargino`     |pyx.type.chargino|     |dot.type.chargino|     |ascii.type.chargino|     |mpl.type.chargino|     |feynmp.type.chargino|     |tikzfeynman.type.chargino|     
+:ref:`higgsino`     |pyx.type.higgsino|     |dot.type.higgsino|     |ascii.type.higgsino|     |mpl.type.higgsino|     |feynmp.type.higgsino|     |tikzfeynman.type.higgsino|     
+:ref:`graviton`     |pyx.type.graviton|     |dot.type.graviton|     |ascii.type.graviton|     |mpl.type.graviton|     |feynmp.type.graviton|     |tikzfeynman.type.graviton|     
+=================== ======================= ======================= ========================= ======================= ========================== ===============================

@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                2.0.3-4-g12148f4
+                2.0.3-7-g5d566bd
               </div>
             
           
@@ -358,10 +358,25 @@ from pyfeyn2.render.render import Render
                 obj.set3D(True)
         return obj</div>
 
-<div class="viewcode-block" id="PyxRender.valid_type"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/pyxrender/index.html#pyfeyn2.render.pyx.pyxrender.PyxRender.valid_type">[docs]</a>    def valid_type(typ: str):
+<div class="viewcode-block" id="PyxRender.valid_type"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/pyxrender/index.html#pyfeyn2.render.pyx.pyxrender.PyxRender.valid_type">[docs]</a>    def valid_type(self, typ: str):
         if typ.lower() in NamedLine:
             return True
-        return False</div></div>
+        return False</div>
+
+<div class="viewcode-block" id="PyxRender.valid_attribute"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/pyxrender/index.html#pyfeyn2.render.pyx.pyxrender.PyxRender.valid_attribute">[docs]</a>    def valid_attribute(self, attr: str) -&gt; bool:
+        return super().valid_attribute(attr) or attr.lower() in [
+            &quot;style&quot;,
+            &quot;type&quot;,
+            &quot;bend&quot;,
+            &quot;label&quot;,
+        ]</div>
+
+<div class="viewcode-block" id="PyxRender.valid_style"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/pyxrender/index.html#pyfeyn2.render.pyx.pyxrender.PyxRender.valid_style">[docs]</a>    def valid_style(self, attr: str) -&gt; bool:
+        return super().valid_style(attr) or attr.lower() in [
+            &quot;arrow-pos&quot;,
+            &quot;parallel-arrow-sense&quot;,
+            &quot;parallel-arrow-displace&quot;,
+        ]</div></div>
 </pre></div>
 
            </div>

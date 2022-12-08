@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                2.0.3-4-g12148f4
+                2.0.3-7-g5d566bd
               </div>
             
           
@@ -302,7 +302,7 @@ from pyfeyn2.render.render import Render
         self.preamble.append(Command(&quot;usepackage&quot;, NoEscape(&quot;feynmp-auto&quot;)))
         self.set_src_diag(NoEscape(feynman_to_feynmp(fd)))
 
-<div class="viewcode-block" id="FeynmpRender.valid_type"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/feynmp/index.html#pyfeyn2.render.feynmp.FeynmpRender.valid_type">[docs]</a>    def valid_type(typ):
+<div class="viewcode-block" id="FeynmpRender.valid_type"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/feynmp/index.html#pyfeyn2.render.feynmp.FeynmpRender.valid_type">[docs]</a>    def valid_type(self, typ):
         if typ.lower() in type_map:
             return True
         return False</div></div>

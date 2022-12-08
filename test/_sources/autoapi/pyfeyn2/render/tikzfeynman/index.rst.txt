@@ -82,7 +82,7 @@ Attributes
    :param data: Initial content of the document.
    :type data: list
 
-   .. py:method:: valid_type()
+   .. py:method:: valid_type(typ)
 
 
 

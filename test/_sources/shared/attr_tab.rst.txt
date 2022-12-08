@@ -1,15 +1,15 @@
-================== ======================== ======================== ========================== =========================== ================================
-:ref:`attribute`   pyx                      dot                      ascii                      feynmp                      tikzfeynman                      
-================== ======================== ======================== ========================== =========================== ================================
-:ref:`x`           |pyx.attribute.x|        |dot.attribute.x|        |ascii.attribute.x|        |feynmp.attribute.x|        |tikzfeynman.attribute.x|        
-:ref:`y`           |pyx.attribute.y|        |dot.attribute.y|        |ascii.attribute.y|        |feynmp.attribute.y|        |tikzfeynman.attribute.y|        
-:ref:`bend`        |pyx.attribute.bend|     |dot.attribute.bend|     |ascii.attribute.bend|     |feynmp.attribute.bend|     |tikzfeynman.attribute.bend|     
-:ref:`label`       |pyx.attribute.label|    |dot.attribute.label|    |ascii.attribute.label|    |feynmp.attribute.label|    |tikzfeynman.attribute.label|    
-:ref:`pdgid`       |pyx.attribute.pdgid|    |dot.attribute.pdgid|    |ascii.attribute.pdgid|    |feynmp.attribute.pdgid|    |tikzfeynman.attribute.pdgid|    
-:ref:`sense`       |pyx.attribute.sense|    |dot.attribute.sense|    |ascii.attribute.sense|    |feynmp.attribute.sense|    |tikzfeynman.attribute.sense|    
-:ref:`target`      |pyx.attribute.target|   |dot.attribute.target|   |ascii.attribute.target|   |feynmp.attribute.target|   |tikzfeynman.attribute.target|   
-:ref:`source`      |pyx.attribute.source|   |dot.attribute.source|   |ascii.attribute.source|   |feynmp.attribute.source|   |tikzfeynman.attribute.source|   
-:ref:`style`       |pyx.attribute.style|    |dot.attribute.style|    |ascii.attribute.style|    |feynmp.attribute.style|    |tikzfeynman.attribute.style|    
-:ref:`id`          |pyx.attribute.id|       |dot.attribute.id|       |ascii.attribute.id|       |feynmp.attribute.id|       |tikzfeynman.attribute.id|       
-:ref:`type`        |pyx.attribute.type|     |dot.attribute.type|     |ascii.attribute.type|     |feynmp.attribute.type|     |tikzfeynman.attribute.type|     
-================== ======================== ======================== ========================== =========================== ================================
+================== ======================== ======================== ========================== ======================== =========================== ================================
+:ref:`attribute`   pyx                      dot                      ascii                      mpl                      feynmp                      tikzfeynman                      
+================== ======================== ======================== ========================== ======================== =========================== ================================
+:ref:`x`           |pyx.attribute.x|        |dot.attribute.x|        |ascii.attribute.x|        |mpl.attribute.x|        |feynmp.attribute.x|        |tikzfeynman.attribute.x|        
+:ref:`y`           |pyx.attribute.y|        |dot.attribute.y|        |ascii.attribute.y|        |mpl.attribute.y|        |feynmp.attribute.y|        |tikzfeynman.attribute.y|        
+:ref:`bend`        |pyx.attribute.bend|     |dot.attribute.bend|     |ascii.attribute.bend|     |mpl.attribute.bend|     |feynmp.attribute.bend|     |tikzfeynman.attribute.bend|     
+:ref:`label`       |pyx.attribute.label|    |dot.attribute.label|    |ascii.attribute.label|    |mpl.attribute.label|    |feynmp.attribute.label|    |tikzfeynman.attribute.label|    
+:ref:`pdgid`       |pyx.attribute.pdgid|    |dot.attribute.pdgid|    |ascii.attribute.pdgid|    |mpl.attribute.pdgid|    |feynmp.attribute.pdgid|    |tikzfeynman.attribute.pdgid|    
+:ref:`sense`       |pyx.attribute.sense|    |dot.attribute.sense|    |ascii.attribute.sense|    |mpl.attribute.sense|    |feynmp.attribute.sense|    |tikzfeynman.attribute.sense|    
+:ref:`target`      |pyx.attribute.target|   |dot.attribute.target|   |ascii.attribute.target|   |mpl.attribute.target|   |feynmp.attribute.target|   |tikzfeynman.attribute.target|   
+:ref:`source`      |pyx.attribute.source|   |dot.attribute.source|   |ascii.attribute.source|   |mpl.attribute.source|   |feynmp.attribute.source|   |tikzfeynman.attribute.source|   
+:ref:`style`       |pyx.attribute.style|    |dot.attribute.style|    |ascii.attribute.style|    |mpl.attribute.style|    |feynmp.attribute.style|    |tikzfeynman.attribute.style|    
+:ref:`id`          |pyx.attribute.id|       |dot.attribute.id|       |ascii.attribute.id|       |mpl.attribute.id|       |feynmp.attribute.id|       |tikzfeynman.attribute.id|       
+:ref:`type`        |pyx.attribute.type|     |dot.attribute.type|     |ascii.attribute.type|     |mpl.attribute.type|     |feynmp.attribute.type|     |tikzfeynman.attribute.type|     
+================== ======================== ======================== ========================== ======================== =========================== ================================
