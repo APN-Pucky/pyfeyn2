@@ -77,7 +77,7 @@
             
             
               <div class="version">
-                2.0.4-31-gd7dc614
+                2.0.4-32-g418b375
               </div>
             
           
@@ -344,25 +344,26 @@ from pyfeyn2.render.tikzfeynman import TikzFeynmanRender
                 subfig.add_caption(&quot;MPL&quot;)
         if subfigure:
             super().render(file, show, resolution, width, height)
-        shutil.rmtree(self.dirpath)
+        shutil.rmtree(self.dirpath)</div>
 
-        renderers = [
-            PyxRender(),
-            TikzFeynmanRender(),
-            FeynmpRender(),
-            DotRender(),
-            ASCIIPDFRender(),
-            MPLRender(),
-        ]
+<div class="viewcode-block" id="AllRender.valid_style"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/all/index.html#pyfeyn2.render.all.AllRender.valid_style">[docs]</a>    def valid_style(self, typ):
+        return True in [r.valid_style(typ) for r in renderers]</div>
 
-        def valid_style(self, typ):
-            return True in [r.valid_style(typ) for r in renderers]
+<div class="viewcode-block" id="AllRender.valid_attribute"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/all/index.html#pyfeyn2.render.all.AllRender.valid_attribute">[docs]</a>    def valid_attribute(self, typ):
+        return True in [r.valid_attribute(typ) for r in renderers]</div>
 
-        def valid_attribute(self, typ):
-            return True in [r.valid_attribute(typ) for r in renderers]
+<div class="viewcode-block" id="AllRender.valid_type"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/all/index.html#pyfeyn2.render.all.AllRender.valid_type">[docs]</a>    def valid_type(self, typ):
+        return True in [r.valid_type(typ) for r in renderers]</div></div>
 
-        def valid_type(self, typ):
-            return True in [r.valid_type(typ) for r in renderers]</div></div>
+
+<div class="viewcode-block" id="renderers"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/all/index.html#pyfeyn2.render.all.renderers">[docs]</a>renderers = [
+    PyxRender(),
+    TikzFeynmanRender(),
+    FeynmpRender(),
+    DotRender(),
+    ASCIIPDFRender(),
+    MPLRender(),
+]</div>
 </pre></div>
 
            </div>

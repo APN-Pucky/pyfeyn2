@@ -77,7 +77,7 @@
             
             
               <div class="version">
-                2.0.4-31-gd7dc614
+                2.0.4-32-g418b375
               </div>
             
           
@@ -200,7 +200,6 @@
 <span></span>from typing import List
 
 from pyfeyn2.feynmandiagram import Point
-from pyfeyn2.render.latex import LatexRender
 from pyfeyn2.render.render import Render
 
 
@@ -245,8 +244,8 @@ from pyfeyn2.render.render import Render
         self.index = 0
 
 <div class="viewcode-block" id="ASCIILine.draw"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/ascii/index.html#pyfeyn2.ASCIILine.draw">[docs]</a>    def draw(self, pane, isrc, itar, scalex=1, scaley=1, kickx=0, kicky=0):
-        width = len(pane[0])
-        height = len(pane)
+        # width = len(pane[0])
+        # height = len(pane)
         # TODO normalize to width and height as well
         srcx = int((isrc.x + kickx) * scalex)
         srcy = int((isrc.y + kicky) * scaley)
@@ -286,11 +285,6 @@ from pyfeyn2.render.render import Render
 <div class="viewcode-block" id="Photon"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/ascii/index.html#pyfeyn2.Photon">[docs]</a>class Photon(ASCIILine):
     def __init__(self):
         super().__init__(begin=&quot;*&quot;, end=&quot;*&quot;, vert=[&quot;(&quot;, &quot;)&quot;], horz=[&quot;~&quot;])</div>
-
-
-class Ghost(ASCIILine):
-    def __init__(self):
-        super().__init__(begin=&quot;*&quot;, end=&quot;*&quot;, vert=[&quot;.&quot;], horz=[&quot;.&quot;])
 
 
 <div class="viewcode-block" id="Fermion"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/ascii/index.html#pyfeyn2.Fermion">[docs]</a>class Fermion(ASCIILine):
@@ -352,7 +346,6 @@ class Ghost(ASCIILine):
     &quot;photon&quot;: Photon(),
     &quot;vector&quot;: Photon(),
     &quot;boson&quot;: Photon(),
-    &quot;ghost&quot;: Ghost(),
     &quot;fermion&quot;: Fermion(),
     &quot;ghost&quot;: Ghost(),
     &quot;higgs&quot;: Higgs(),
@@ -397,7 +390,7 @@ class Ghost(ASCIILine):
             height = int((maxy - miny + 1) * resolution / 100)
 
         pane = []
-        for i in range(height):
+        for _ in range(height):
             pane.append([&quot; &quot;] * width)
 
         scalex = (width - 1) / (maxx - minx)

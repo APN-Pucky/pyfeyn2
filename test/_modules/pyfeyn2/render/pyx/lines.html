@@ -77,7 +77,7 @@
             
             
               <div class="version">
-                2.0.4-31-gd7dc614
+                2.0.4-32-g418b375
               </div>
             
           
@@ -199,13 +199,12 @@
   <h1>Source code for pyfeyn2.render.pyx.lines</h1><div class="highlight"><pre>
 <span></span>&quot;&quot;&quot;Various particle line types.&quot;&quot;&quot;
 
-import math
 
 import pyx
 from pyx import color
 
 from pyfeyn2.render.pyx import config
-from pyfeyn2.render.pyx.deco import Arrow, LineLabel, ParallelArrow, PointLabel
+from pyfeyn2.render.pyx.deco import Arrow, LineLabel, ParallelArrow
 from pyfeyn2.render.pyx.diagrams import FeynDiagram
 from pyfeyn2.render.pyx.paint import CENTER
 from pyfeyn2.render.pyx.points import Point
@@ -220,21 +219,21 @@ from pyfeyn2.render.pyx.utils import Visible, defunit
         self,
         point1,
         point2,
-        styles=[],
+        styles=None,
         arcthrupoint=None,
         is3D=False,
-        arrows=[],
-        labels=[],
+        arrows=None,
+        labels=None,
         **kwargs
     ):
         &quot;&quot;&quot;Constructor.&quot;&quot;&quot;
         self.p1 = point1
         self.p2 = point2
-        self.styles = styles
+        self.styles = styles if styles is not None else []
         self.arcthrupoint = arcthrupoint
         self.is3D = is3D
-        self.arrows = arrows
-        self.labels = labels
+        self.arrows = arrows if arrows is not None else []
+        self.labels = labels if labels is not None else []
 
         ## Add this to the current diagram automatically
         FeynDiagram.currentDiagram.add(self)
@@ -395,9 +394,9 @@ from pyfeyn2.render.pyx.utils import Visible, defunit
             )
         return self</div>
 
-<div class="viewcode-block" id="Line.set3D"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/lines/index.html#pyfeyn2.render.pyx.lines.Line.set3D">[docs]</a>    def set3D(self, choice):
+<div class="viewcode-block" id="Line.set3D"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/lines/index.html#pyfeyn2.render.pyx.lines.Line.set3D">[docs]</a>    def set3D(self, is3d):
         &quot;&quot;&quot;Make this line display in &#39;3D&#39;.&quot;&quot;&quot;
-        self.is3D = choice
+        self.is3D = is3d
         return self</div>
 
 <div class="viewcode-block" id="Line.getStyles"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/lines/index.html#pyfeyn2.render.pyx.lines.Line.getStyles">[docs]</a>    def getStyles(self, stylelist):
@@ -439,16 +438,16 @@ from pyfeyn2.render.pyx.utils import Visible, defunit
             line = pyx.path.line(self.p1.x(), self.p1.y(), arccenter.x(), arccenter.y())
             if config.getOptions().VDEBUG:
                 FeynDiagram.currentDiagram.currentCanvas.stroke(line, [color.rgb.green])
-            ass, bs = circle.intersect(line)
+            ass, _ = circle.intersect(line)
             subpaths = circle.split(ass[0])
             cpath = subpaths[0]
             return cpath
 
             ## or, with an arc...
-            arcangle1 = arccenter.arg(self.p1)
-            arcangle2 = arccenter.arg(self.p1) + 360
-            arcargs = (arccenter.x(), arccenter.y(), arcradius, arcangle1, arcangle2)
-            return pyx.path.path(pyx.path.arc(*arcargs))
+            # arcangle1 = arccenter.arg(self.p1)
+            # arcangle2 = arccenter.arg(self.p1) + 360
+            # arcargs = (arccenter.x(), arccenter.y(), arcradius, arcangle1, arcangle2)
+            # return pyx.path.path(pyx.path.arc(*arcargs))
 
         else:
             n13, n23 = None, None
@@ -505,7 +504,7 @@ from pyfeyn2.render.pyx.utils import Visible, defunit
             arcradius = arccenter.distance(self.arcthrupoint)
             arcangle1 = arccenter.arg(self.p1)
             arcangle2 = arccenter.arg(self.p2)
-            arcangle3 = arccenter.arg(self.arcthrupoint)
+            # arcangle3 = arccenter.arg(self.arcthrupoint)
             arcargs = (arccenter.x(), arccenter.y(), arcradius, arcangle1, arcangle2)
 
             if config.getOptions().DEBUG and arcangle1 == arcangle2:
@@ -623,7 +622,7 @@ from pyfeyn2.render.pyx.utils import Visible, defunit
         path = pyx.deformer.parallel(-n / 2.0 * dist).deform(self.getPath())
         paths = [path]
         defo = pyx.deformer.parallel(dist)
-        for m in range(0, n):
+        for _ in range(0, n):
             path = defo.deform(path)
             paths.append(path)
         styles = self.styles + self.arrows
@@ -808,7 +807,7 @@ from pyfeyn2.render.pyx.utils import Visible, defunit
         intwindings += 2 * self.extras
         if intwindings % 2 == 0:
             intwindings -= 1
-        deficit = needwindings - intwindings
+        # deficit = needwindings - intwindings
         sign = 1
         if self.inverted:
             sign = -1
@@ -832,9 +831,7 @@ from pyfeyn2.render.pyx.utils import Visible, defunit
             canvas.stroke(mypath, styles)
         else:
             para = pyx.deformer.parallel(0.001)
-            ass, bs, cs = para.normpath_selfintersections(
-                mypath.normpath(), epsilon=0.01
-            )
+            _, bs, _ = para.normpath_selfintersections(mypath.normpath(), epsilon=0.01)
             coil_params = []
             for b in bs:
                 coil_params.append(b[self.parity3D] - self.skipsize3D)
@@ -981,7 +978,7 @@ from pyfeyn2.render.pyx.utils import Visible, defunit
                 #    print self.__class__, &quot;- curve radius = &quot;, curveradius
                 if mincurveradius is None or curveradius &lt; mincurveradius:
                     mincurveradius = curveradius
-            except:
+            except Exception:
                 pass
         numhloopcurves = 5
         if mincurveradius is not None:
@@ -1328,7 +1325,7 @@ from pyfeyn2.render.pyx.utils import Visible, defunit
                     params2.append(b + self.skipsize3D)
                 parity2 = not parity2
             para = pyx.deformer.parallel(0.001)
-            sas, sbs, scs = para.normpath_selfintersections(
+            _, sbs, _ = para.normpath_selfintersections(
                 mypath2.normpath(), epsilon=0.01
             )
             coil_params = []

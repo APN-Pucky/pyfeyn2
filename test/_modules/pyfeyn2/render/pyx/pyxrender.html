@@ -77,7 +77,7 @@
             
             
               <div class="version">
-                2.0.4-31-gd7dc614
+                2.0.4-32-g418b375
               </div>
             
           
@@ -208,14 +208,7 @@ from wand.image import Image as WImage
 from pyfeyn2.render.pyx.deco import Arrow, PointLabel
 from pyfeyn2.render.pyx.diagrams import FeynDiagram
 from pyfeyn2.render.pyx.lines import Line, NamedLine
-from pyfeyn2.render.pyx.points import (
-    SQUARE,
-    CircleMark,
-    DecoratedPoint,
-    NamedMark,
-    Point,
-    SquareMark,
-)
+from pyfeyn2.render.pyx.points import SQUARE, DecoratedPoint, NamedMark, Point
 from pyfeyn2.render.render import Render
 
 
@@ -290,11 +283,11 @@ from pyfeyn2.render.render import Render
         ):
             try:
                 marktype = NamedMark[styledict[&quot;mark-shape&quot;]]
-            except:
+            except Exception:
                 marktype = SQUARE
             try:
                 marksize = float(styledict[&quot;mark-size&quot;])
-            except:
+            except Exception:
                 marksize = 0.075
             obj.setMark(marktype(size=marksize))
         if (
@@ -305,19 +298,19 @@ from pyfeyn2.render.render import Render
         ) and isinstance(obj, Line):
             try:
                 arrsize = pyx.unit.length(float(styledict[&quot;arrow-size&quot;]), unit=&quot;cm&quot;)
-            except:
+            except Exception:
                 arrsize = 6 * pyx.unit.v_pt
             try:
                 arrangle = float(styledict[&quot;arrow-angle&quot;])
-            except:
+            except Exception:
                 arrangle = 45
             try:
                 arrconstrict = float(styledict[&quot;arrow-constrict&quot;])
-            except:
+            except Exception:
                 arrconstrict = 0.8
             try:
                 arrpos = float(styledict[&quot;arrow-pos&quot;])
-            except:
+            except Exception:
                 arrpos = 0.5
             obj.addArrow(arrow=Arrow(arrpos, arrsize, arrangle, arrconstrict))
         if (
@@ -333,31 +326,31 @@ from pyfeyn2.render.render import Render
                 arrsize = pyx.unit.length(
                     float(styledict[&quot;parallel-arrow-size&quot;]), unit=&quot;cm&quot;
                 )
-            except:
+            except Exception:
                 arrsize = 6 * pyx.unit.v_pt
             try:
                 arrangle = float(styledict[&quot;parallel-arrow-angle&quot;])
-            except:
+            except Exception:
                 arrangle = 45
             try:
                 arrconstrict = float(styledict[&quot;parallel-arrow-constrict&quot;])
-            except:
+            except Exception:
                 arrconstrict = 0.8
             try:
                 arrpos = float(styledict[&quot;parallel-arrow-pos&quot;])
-            except:
+            except Exception:
                 arrpos = 0.5
             try:
                 arrlen = float(styledict[&quot;parallel-arrow-length&quot;])
-            except:
+            except Exception:
                 arrlen = 0.5 * pyx.unit.v_cm
             try:
                 arrdisp = float(styledict[&quot;parallel-arrow-displace&quot;])
-            except:
+            except Exception:
                 arrdisp = 0.3
             try:
                 arrsense = int(styledict[&quot;parallel-arrow-sense&quot;])
-            except:
+            except Exception:
                 arrsense = +1
             obj.addParallelArrow(
                 arrpos, arrdisp, arrlen, arrsize, arrangle, arrconstrict, arrsense

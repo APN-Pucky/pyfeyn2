@@ -77,7 +77,7 @@
             
             
               <div class="version">
-                2.0.4-31-gd7dc614
+                2.0.4-32-g418b375
               </div>
             
           
@@ -197,13 +197,7 @@
            <div itemprop="articleBody">
             
   <h1>Source code for pyfeyn2.render.render</h1><div class="highlight"><pre>
-<span></span>import io
-
-import PIL
-from IPython.display import display
-from matplotlib import pyplot as plt
-
-from pyfeyn2.feynmandiagram import FeynmanDiagram, Leg, Vertex
+<span></span>from pyfeyn2.feynmandiagram import FeynmanDiagram, Leg, Vertex
 
 
 <div class="viewcode-block" id="Render"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/render/index.html#pyfeyn2.render.render.Render">[docs]</a>class Render:
@@ -217,7 +211,7 @@ from pyfeyn2.feynmandiagram import FeynmanDiagram, Leg, Vertex
 <div class="viewcode-block" id="Render.get_src"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/render/index.html#pyfeyn2.render.render.Render.get_src">[docs]</a>    def get_src(self):
         return self.src</div>
 
-<div class="viewcode-block" id="Render.render"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/render/index.html#pyfeyn2.render.render.Render.render">[docs]</a>    def render(self, file=None):
+<div class="viewcode-block" id="Render.render"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/render/index.html#pyfeyn2.render.render.Render.render">[docs]</a>    def render(self, file=None, show=True, resolution=100, width=None, height=None):
         pass</div>
 
 <div class="viewcode-block" id="Render.valid_style"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/render/index.html#pyfeyn2.render.render.Render.valid_style">[docs]</a>    def valid_style(self, style: str) -&gt; bool:

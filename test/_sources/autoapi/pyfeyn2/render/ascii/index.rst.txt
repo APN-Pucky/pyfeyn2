@@ -15,7 +15,6 @@ Classes
    pyfeyn2.render.ascii.ASCIILine
    pyfeyn2.render.ascii.Gluon
    pyfeyn2.render.ascii.Photon
-   pyfeyn2.render.ascii.Ghost
    pyfeyn2.render.ascii.Fermion
    pyfeyn2.render.ascii.Scalar
    pyfeyn2.render.ascii.Ghost
@@ -47,11 +46,6 @@ Attributes
 
 
 .. py:class:: Photon
-
-   Bases: :py:obj:`ASCIILine`
-
-
-.. py:class:: Ghost
 
    Bases: :py:obj:`ASCIILine`
 

@@ -17,6 +17,14 @@ Classes
 
 
 
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   pyfeyn2.render.all.renderers
+
+
 .. py:class:: AllRender(fd=None, documentclass='standalone', document_options=None, *args, **kwargs)
 
    Bases: :py:obj:`pyfeyn2.render.latex.LatexRender`
@@ -56,4 +64,18 @@ Classes
    .. py:method:: render(file=None, show=True, subfigure=False, resolution=None, width=None, height=None)
 
 
+   .. py:method:: valid_style(typ)
+
+
+   .. py:method:: valid_attribute(typ)
+
+
+   .. py:method:: valid_type(typ)
+
+
+
+.. py:data:: renderers
+   
+
+   
 

@@ -77,7 +77,7 @@
             
             
               <div class="version">
-                2.0.4-31-gd7dc614
+                2.0.4-32-g418b375
               </div>
             
           
@@ -199,11 +199,10 @@
   <h1>Source code for pyfeyn2.render.latex</h1><div class="highlight"><pre>
 <span></span>import os
 import re
-from tempfile import mktemp
 
 from IPython.display import display
-from pylatex import Command, Document, Section, Subsection
-from pylatex.utils import NoEscape, italic
+from pylatex import Document
+from pylatex.utils import NoEscape
 from wand.image import Image as WImage
 
 from pyfeyn2.render.render import Render

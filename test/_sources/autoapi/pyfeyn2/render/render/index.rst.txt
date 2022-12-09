@@ -25,7 +25,7 @@ Classes
    .. py:method:: get_src()
 
 
-   .. py:method:: render(file=None)
+   .. py:method:: render(file=None, show=True, resolution=100, width=None, height=None)
 
 
    .. py:method:: valid_style(style: str) -> bool

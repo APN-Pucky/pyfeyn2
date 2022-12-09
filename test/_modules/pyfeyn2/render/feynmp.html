@@ -77,7 +77,7 @@
             
             
               <div class="version">
-                2.0.4-31-gd7dc614
+                2.0.4-32-g418b375
               </div>
             
           
@@ -198,14 +198,11 @@
             
   <h1>Source code for pyfeyn2.render.feynmp</h1><div class="highlight"><pre>
 <span></span>import random
-import string
 
-from pylatex import Command, Document, Section, Subsection
-from pylatex.utils import NoEscape, italic
+from pylatex import Command
+from pylatex.utils import NoEscape
 
-from pyfeyn2.render.latex import LatexRender
 from pyfeyn2.render.metapost import MetaPostRender
-from pyfeyn2.render.render import Render
 
 # converte FeynmanDiagram to tikz-feynman
 

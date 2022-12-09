@@ -45,7 +45,7 @@ Attributes
    pyfeyn2.render.pyx.lines.NamedLine
 
 
-.. py:class:: Line(point1, point2, styles=[], arcthrupoint=None, is3D=False, arrows=[], labels=[], **kwargs)
+.. py:class:: Line(point1, point2, styles=None, arcthrupoint=None, is3D=False, arrows=None, labels=None, **kwargs)
 
    Bases: :py:obj:`pyfeyn2.render.pyx.utils.Visible`
 
@@ -111,7 +111,7 @@ Attributes
       Bend the line to the right by a given distance.
 
 
-   .. py:method:: set3D(choice)
+   .. py:method:: set3D(is3d)
 
       Make this line display in '3D'.
 
