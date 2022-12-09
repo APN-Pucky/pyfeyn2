@@ -1,8 +1,8 @@
 ================================================= ======================= ======================= ========================= ======================= ========================== ===============================
 :ref:`type`                                       pyx                     dot                     ascii                     mpl                     feynmp                     tikzfeynman                     
 ================================================= ======================= ======================= ========================= ======================= ========================== ===============================
-:ref:`/feynml/attributes/type/boson.ipynb`        |pyx.type.boson|        |dot.type.boson|        |ascii.type.boson|        |mpl.type.boson|        |feynmp.type.boson|        |tikzfeynman.type.boson|        
 :ref:`/feynml/attributes/type/fermion.ipynb`      |pyx.type.fermion|      |dot.type.fermion|      |ascii.type.fermion|      |mpl.type.fermion|      |feynmp.type.fermion|      |tikzfeynman.type.fermion|      
+:ref:`/feynml/attributes/type/boson.ipynb`        |pyx.type.boson|        |dot.type.boson|        |ascii.type.boson|        |mpl.type.boson|        |feynmp.type.boson|        |tikzfeynman.type.boson|        
 :ref:`/feynml/attributes/type/photon.ipynb`       |pyx.type.photon|       |dot.type.photon|       |ascii.type.photon|       |mpl.type.photon|       |feynmp.type.photon|       |tikzfeynman.type.photon|       
 :ref:`/feynml/attributes/type/higgs.ipynb`        |pyx.type.higgs|        |dot.type.higgs|        |ascii.type.higgs|        |mpl.type.higgs|        |feynmp.type.higgs|        |tikzfeynman.type.higgs|        
 :ref:`/feynml/attributes/type/gluon.ipynb`        |pyx.type.gluon|        |dot.type.gluon|        |ascii.type.gluon|        |mpl.type.gluon|        |feynmp.type.gluon|        |tikzfeynman.type.gluon|        

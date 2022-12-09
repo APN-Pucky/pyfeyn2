@@ -24,6 +24,7 @@ Functions
    pyfeyn2.render.mpl.dotted
    pyfeyn2.render.mpl.line
    pyfeyn2.render.mpl.spring
+   pyfeyn2.render.mpl.wave
 
 
 
@@ -42,6 +43,9 @@ Attributes
 
 
 .. py:function:: spring(xp1, xp2, points=200, rot=3, amp=0.15, line_frac=0.2)
+
+
+.. py:function:: wave(xp1, xp2, points=200, rot=3, amp=0.15, line_frac=0.2)
 
 
 .. py:data:: namedlines
