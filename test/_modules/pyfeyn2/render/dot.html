@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                2.0.3-8-ge420b54
+                2.0.3-10-g9acdf22
               </div>
             
           
@@ -201,9 +201,12 @@ from pylatex.utils import NoEscape, italic
 from pyfeyn2.render.latex import LatexRender
 from pyfeyn2.render.render import Render
 
+# https://tikz.dev/tikz-decorations
 <div class="viewcode-block" id="map_feyn_to_tikz"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/dot/index.html#pyfeyn2.render.dot.map_feyn_to_tikz">[docs]</a>map_feyn_to_tikz = {
-    &quot;photon&quot;: &quot;snake&quot;,
-    &quot;gluon&quot;: &quot;coil,aspect=0.3,segment length=1mm&quot;,
+    &quot;photon&quot;: &quot;decorate,decoration=snake&quot;,
+    &quot;boson&quot;: &quot;decorate,decoration=snake&quot;,
+    &quot;gluon&quot;: &quot;decorate,decoration=coil,aspect=0.3,segment length=1mm&quot;,
+    &quot;ghost&quot;: &quot;dotted&quot;,
 }</div>
 
 
@@ -249,24 +252,18 @@ from pyfeyn2.render.render import Render
         if l.x is not None and l.y is not None:
             src += f&#39;\t\t{l.id} [ pos=&quot;{l.x},{l.y}!&quot;];\n&#39;
     for p in fd.propagators:
-        src += &#39;edge [style=&quot;decorate,decoration={}&quot;];\n&#39;.format(
-            map_feyn_to_tikz[p.type]
-        )
+        src += &#39;edge [style=&quot;{}&quot;];\n&#39;.format(map_feyn_to_tikz[p.type])
         src += f&quot;\t\t{p.source} -- {p.target};\n&quot;
     rank_in = &quot;{rank=min; &quot;
     rank_out = &quot;{rank=max; &quot;
 
     for l in fd.legs:
         if l.sense == &quot;incoming&quot;:
-            src += &#39;edge [style=&quot;decorate,decoration={}&quot;];\n&#39;.format(
-                map_feyn_to_tikz[p.type]
-            )
+            src += &#39;edge [style=&quot;{}&quot;];\n&#39;.format(map_feyn_to_tikz[l.type])
             src += f&quot;\t\t{l.id} -- {l.target};\n&quot;
             rank_in += f&quot;{l.id} &quot;
         elif l.sense == &quot;outgoing&quot;:
-            src += &#39;edge [style=&quot;decorate,decoration={}&quot;];\n&#39;.format(
-                map_feyn_to_tikz[p.type]
-            )
+            src += &#39;edge [style=&quot;{}&quot;];\n&#39;.format(map_feyn_to_tikz[l.type])
             src += f&quot;\t\t{l.target} -- {l.id};\n&quot;
             rank_out += f&quot;{l.id} ;&quot;
         else:
@@ -300,11 +297,20 @@ from pyfeyn2.render.render import Render
             Command(&quot;usetikzlibrary&quot;, NoEscape(&quot;snakes,arrows,shapes&quot;))
         )
         self.preamble.append(Command(&quot;usepackage&quot;, NoEscape(&quot;amsmath&quot;)))
+        self.set_feynman_diagram(fd)
+
+<div class="viewcode-block" id="DotRender.set_feynman_diagram"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/dot/index.html#pyfeyn2.render.dot.DotRender.set_feynman_diagram">[docs]</a>    def set_feynman_diagram(self, fd):
+        super().set_feynman_diagram(fd)
         self.src_dot = feynman_to_dot(fd)
-        self.set_src_diag(dot_to_tikz(self.src_dot))
+        self.set_src_diag(dot_to_tikz(self.src_dot))</div>
 
 <div class="viewcode-block" id="DotRender.get_src_dot"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/dot/index.html#pyfeyn2.render.dot.DotRender.get_src_dot">[docs]</a>    def get_src_dot(self):
-        return self.src_dot</div></div>
+        return self.src_dot</div>
+
+<div class="viewcode-block" id="DotRender.valid_type"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/dot/index.html#pyfeyn2.render.dot.DotRender.valid_type">[docs]</a>    def valid_type(self, typ):
+        if typ.lower() in map_feyn_to_tikz:
+            return True
+        return False</div></div>
 </pre></div>
 
            </div>

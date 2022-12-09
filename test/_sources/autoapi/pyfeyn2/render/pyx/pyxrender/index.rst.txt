@@ -17,7 +17,7 @@ Classes
 
 
 
-.. py:class:: PyxRender(fd, *args, **kwargs)
+.. py:class:: PyxRender(fd=None, *args, **kwargs)
 
    Bases: :py:obj:`pyfeyn2.render.render.Render`
 

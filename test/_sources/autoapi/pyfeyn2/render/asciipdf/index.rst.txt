@@ -17,7 +17,7 @@ Classes
 
 
 
-.. py:class:: ASCIIPDFRender(fd, width=40, height=30, *args, **kwargs)
+.. py:class:: ASCIIPDFRender(fd, documentclass=None, docuement_options=None, *args, **kwargs)
 
    Bases: :py:obj:`pyfeyn2.render.latex.LatexRender`, :py:obj:`pyfeyn2.render.ascii.ASCIIRender`
 
@@ -52,5 +52,8 @@ Classes
    :type geometry_options: dict
    :param data: Initial content of the document.
    :type data: list
+
+   .. py:method:: render(file=None, show=True, resolution=100, width=None, height=None, clean_up=True)
+
 
 

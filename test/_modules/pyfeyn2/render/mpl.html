@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                2.0.3-8-ge420b54
+                2.0.3-10-g9acdf22
               </div>
             
           
@@ -198,12 +198,22 @@ import numpy as np
 from pyfeyn2.render.render import Render
 
 
-<div class="viewcode-block" id="line"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/mpl/index.html#pyfeyn2.render.mpl.line">[docs]</a>def line(p1, p2, points=200):
+<div class="viewcode-block" id="dotted"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/mpl/index.html#pyfeyn2.render.mpl.dotted">[docs]</a>def dotted(p1, p2, points=200):
     n = np.linspace(0, points, points)
-    return (
+    x, y = (
         p1[0] + (p2[0] - p1[0]) * (n / points),
         p1[1] + (p2[1] - p1[1]) * (n / points),
-    )</div>
+    )
+    plt.plot(x, y, &quot;k:&quot;)</div>
+
+
+<div class="viewcode-block" id="line"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/mpl/index.html#pyfeyn2.render.mpl.line">[docs]</a>def line(p1, p2, points=200):
+    n = np.linspace(0, points, points)
+    x, y = (
+        p1[0] + (p2[0] - p1[0]) * (n / points),
+        p1[1] + (p2[1] - p1[1]) * (n / points),
+    )
+    plt.plot(x, y, &quot;k-&quot;)</div>
 
 
 <div class="viewcode-block" id="spring"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/mpl/index.html#pyfeyn2.render.mpl.spring">[docs]</a>def spring(xp1, xp2, points=200, rot=3, amp=0.15, line_frac=0.2):
@@ -231,10 +241,18 @@ from pyfeyn2.render.render import Render
         + amp * (np.sin(w * n - alpha) - np.sin(-alpha)),
     )
 
-    return (
+    x, y = (
         np.append(np.insert(ret[0], 0, xp1[0]), xp2[0]),
         np.append(np.insert(ret[1], 0, xp1[1]), xp2[1]),
-    )</div>
+    )
+    plt.plot(x, y, &quot;k-&quot;)</div>
+
+
+<div class="viewcode-block" id="namedlines"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/mpl/index.html#pyfeyn2.render.mpl.namedlines">[docs]</a>namedlines = {
+    &quot;straight&quot;: line,
+    &quot;gluon&quot;: spring,
+    &quot;ghost&quot;: dotted,
+}</div>
 
 
 <div class="viewcode-block" id="MPLRender"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/mpl/index.html#pyfeyn2.render.mpl.MPLRender">[docs]</a>class MPLRender(Render):
@@ -249,22 +267,24 @@ from pyfeyn2.render.render import Render
             idtopos[l.id] = (l.x, l.y)
 
         for p in self.fd.propagators:
-            x, y = spring(idtopos[p.source], idtopos[p.target])
-            plt.plot(x, y, &quot;k-&quot;)
+            namedlines[l.type](idtopos[p.source], idtopos[p.target])
         for l in self.fd.legs:
             if l.sense == &quot;incoming&quot;:
-                x, y = spring(idtopos[l.id], idtopos[l.target])
-                plt.plot(x, y, &quot;k-&quot;)
+                namedlines[l.type](idtopos[l.id], idtopos[l.target])
             elif l.sense == &quot;outgoing&quot;:
-                x, y = spring(idtopos[l.target], idtopos[l.id])
-                plt.plot(x, y, &quot;k-&quot;)
+                namedlines[l.type](idtopos[l.target], idtopos[l.id])
             else:
                 raise Exception(&quot;Unknown sense&quot;)
-
+        plt.axis(&quot;off&quot;)
         if show:
             plt.show()
         if file is not None:
-            plt.savefig(file)</div></div>
+            plt.savefig(file)</div>
+
+<div class="viewcode-block" id="MPLRender.valid_type"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/mpl/index.html#pyfeyn2.render.mpl.MPLRender.valid_type">[docs]</a>    def valid_type(self, typ: str) -&gt; bool:
+        if typ.lower() in namedlines:
+            return True
+        return False</div></div>
 </pre></div>
 
            </div>

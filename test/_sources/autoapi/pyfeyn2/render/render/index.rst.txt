@@ -19,6 +19,9 @@ Classes
 
 .. py:class:: Render(fd)
 
+   .. py:method:: set_feynman_diagram(fd)
+
+
    .. py:method:: get_src()
 
 
@@ -32,6 +35,9 @@ Classes
 
 
    .. py:method:: valid_attribute(attr: str) -> bool
+
+
+   .. py:method:: demo_propagator(d, show=True)
 
 
 

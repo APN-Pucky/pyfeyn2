@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                2.0.3-8-ge420b54
+                2.0.3-10-g9acdf22
               </div>
             
           
@@ -202,11 +202,32 @@ from pyfeyn2.render.latex import LatexRender
 <div class="viewcode-block" id="ASCIIPDFRender"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/asciipdf/index.html#pyfeyn2.render.asciipdf.ASCIIPDFRender">[docs]</a>class ASCIIPDFRender(LatexRender, ASCIIRender):
     &quot;&quot;&quot;Renders Feynman diagrams as ASCII art to PDF.&quot;&quot;&quot;
 
-    def __init__(self, fd, width=40, height=30, *args, **kwargs):
-        super().__init__(fd, *args, **kwargs)
+    def __init__(self, fd, documentclass=None, docuement_options=None, *args, **kwargs):
+        if documentclass is None:
+            documentclass = &quot;standalone&quot;
+        if docuement_options is None:
+            docuement_options = [&quot;preview&quot;, &quot;crop&quot;]
+        super().__init__(
+            fd,
+            documentclass=documentclass,
+            document_options=docuement_options,
+            *args,
+            **kwargs
+        )
         self.preamble.append(Command(&quot;usepackage&quot;, NoEscape(&quot;listings&quot;)))
-        str = ASCIIRender.render(self, None, False, 100, width, height)
-        self.set_src_diag(&quot;\\begin{lstlisting}&quot; + str + &quot;\\end{lstlisting}&quot;)</div>
+
+<div class="viewcode-block" id="ASCIIPDFRender.render"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/asciipdf/index.html#pyfeyn2.render.asciipdf.ASCIIPDFRender.render">[docs]</a>    def render(
+        self,
+        file=None,
+        show=True,
+        resolution=100,
+        width=None,
+        height=None,
+        clean_up=True,
+    ):
+        str = ASCIIRender.render(self, None, False, resolution, width, height)
+        self.set_src_diag(&quot;\\begin{lstlisting}&quot; + str + &quot;\\end{lstlisting}&quot;)
+        super().render(file, show, resolution, width, height, clean_up)</div></div>
 </pre></div>
 
            </div>

@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                2.0.3-8-ge420b54
+                2.0.3-10-g9acdf22
               </div>
             
           
@@ -257,16 +257,18 @@ from pyfeyn2.render.render import Render
             # src += f&quot;\t\t\\fmf{{{ttype}}}{{{l.target},{l.id}}}\n&quot;
         else:
             raise Exception(&quot;Unknown sense&quot;)
-    src += &quot;\t\t\\fmfleft{&quot;
-    for l in incoming:
-        src += f&quot;{l.id},&quot;
-    src = src[:-1]
-    src += &quot;}\n&quot;
-    src += &quot;\t\t\\fmfright{&quot;
-    for l in outgoing:
-        src += f&quot;{l.id},&quot;
-    src = src[:-1]
-    src += &quot;}\n&quot;
+    if len(incoming) &gt; 0:
+        src += &quot;\t\t\\fmfleft{&quot;
+        for l in incoming:
+            src += f&quot;{l.id},&quot;
+        src = src[:-1]
+        src += &quot;}\n&quot;
+    if len(outgoing) &gt; 0:
+        src += &quot;\t\t\\fmfright{&quot;
+        for l in outgoing:
+            src += f&quot;{l.id},&quot;
+        src = src[:-1]
+        src += &quot;}\n&quot;
 
     for l in incoming:
         ttype = type_map[l.type]
@@ -286,7 +288,7 @@ from pyfeyn2.render.render import Render
 <div class="viewcode-block" id="FeynmpRender"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/feynmp/index.html#pyfeyn2.render.feynmp.FeynmpRender">[docs]</a>class FeynmpRender(MetaPostRender):
     def __init__(
         self,
-        fd,
+        fd=None,
         documentclass=&quot;standalone&quot;,
         document_options=[&quot;preview&quot;, &quot;crop&quot;],
         *args,
@@ -300,7 +302,12 @@ from pyfeyn2.render.render import Render
             **kwargs,
         )
         self.preamble.append(Command(&quot;usepackage&quot;, NoEscape(&quot;feynmp-auto&quot;)))
-        self.set_src_diag(NoEscape(feynman_to_feynmp(fd)))
+        if fd is not None:
+            self.set_feynman_diagram(fd)
+
+<div class="viewcode-block" id="FeynmpRender.set_feynman_diagram"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/feynmp/index.html#pyfeyn2.render.feynmp.FeynmpRender.set_feynman_diagram">[docs]</a>    def set_feynman_diagram(self, fd):
+        super().set_feynman_diagram(fd)
+        self.set_src_diag(NoEscape(feynman_to_feynmp(fd)))</div>
 
 <div class="viewcode-block" id="FeynmpRender.valid_type"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/feynmp/index.html#pyfeyn2.render.feynmp.FeynmpRender.valid_type">[docs]</a>    def valid_type(self, typ):
         if typ.lower() in type_map:

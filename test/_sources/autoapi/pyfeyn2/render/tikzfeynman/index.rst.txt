@@ -41,7 +41,7 @@ Attributes
 .. py:function:: feynman_to_tikz_feynman(fd)
 
 
-.. py:class:: TikzFeynmanRender(fd, documentclass='standalone', document_options=['preview', 'crop', 'tikz'], *args, **kwargs)
+.. py:class:: TikzFeynmanRender(fd=None, documentclass='standalone', document_options=['preview', 'crop', 'tikz'], *args, **kwargs)
 
    Bases: :py:obj:`pyfeyn2.render.latex.LatexRender`
 
@@ -81,6 +81,9 @@ Attributes
    :type geometry_options: dict
    :param data: Initial content of the document.
    :type data: list
+
+   .. py:method:: set_feynman_diagram(fd)
+
 
    .. py:method:: valid_type(typ)
 
