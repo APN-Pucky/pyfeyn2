@@ -64,6 +64,9 @@ Attributes
    .. py:method:: render(file=None, show=True, width=None, height=None, resolution=100)
 
 
+   .. py:method:: valid_attribute(attr: str) -> bool
+
+
    .. py:method:: valid_type(typ: str) -> bool
 
 

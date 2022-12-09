@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                2.0.3-14-ga8e8479
+                2.0.3-15-ge924b18
               </div>
             
           
@@ -223,6 +223,8 @@ from pyfeyn2.feynmandiagram import FeynmanDiagram, Leg, Vertex
 
 <div class="viewcode-block" id="Render.valid_attribute"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/render/index.html#pyfeyn2.render.render.Render.valid_attribute">[docs]</a>    def valid_attribute(self, attr: str) -&gt; bool:
         if attr == &quot;id&quot;:
+            return True
+        if attr == &quot;pdgid&quot;:
             return True
         if attr == &quot;sense&quot;:
             return True

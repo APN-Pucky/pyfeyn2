@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                2.0.3-14-ga8e8479
+                2.0.3-15-ge924b18
               </div>
             
           
@@ -331,7 +331,25 @@ from pyfeyn2.render.tikzfeynman import TikzFeynmanRender
                 subfig.add_caption(&quot;MPL&quot;)
         if subfigure:
             super().render(file, show, resolution, width, height)
-        shutil.rmtree(self.dirpath)</div></div>
+        shutil.rmtree(self.dirpath)
+
+        renderers = [
+            PyxRender(),
+            TikzFeynmanRender(),
+            FeynmpRender(),
+            DotRender(),
+            ASCIIPDFRender(),
+            MPLRender(),
+        ]
+
+        def valid_style(self, type):
+            return True in [r.valid_style(type) for r in renderers]
+
+        def valid_attribute(self, type):
+            return True in [r.valid_attribute(type) for r in renderers]
+
+        def valid_type(self, type):
+            return True in [r.valid_type(type) for r in renderers]</div></div>
 </pre></div>
 
            </div>

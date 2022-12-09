@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                2.0.3-14-ga8e8479
+                2.0.3-15-ge924b18
               </div>
             
           
@@ -312,6 +312,9 @@ from pyfeyn2.render.render import Render
 
 <div class="viewcode-block" id="DotRender.get_src_dot"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/dot/index.html#pyfeyn2.render.dot.DotRender.get_src_dot">[docs]</a>    def get_src_dot(self):
         return self.src_dot</div>
+
+<div class="viewcode-block" id="DotRender.valid_attribute"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/dot/index.html#pyfeyn2.render.dot.DotRender.valid_attribute">[docs]</a>    def valid_attribute(self, attr: str) -&gt; bool:
+        return super().valid_attribute(attr) or attr in [&quot;x&quot;, &quot;y&quot;]</div>
 
 <div class="viewcode-block" id="DotRender.valid_type"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/dot/index.html#pyfeyn2.render.dot.DotRender.valid_type">[docs]</a>    def valid_type(self, typ):
         if typ.lower() in map_feyn_to_tikz:

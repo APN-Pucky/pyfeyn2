@@ -100,6 +100,9 @@ Attributes
    .. py:method:: get_src_dot()
 
 
+   .. py:method:: valid_attribute(attr: str) -> bool
+
+
    .. py:method:: valid_type(typ)
 
 

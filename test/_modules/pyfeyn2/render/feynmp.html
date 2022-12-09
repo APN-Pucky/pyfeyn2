@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                2.0.3-14-ga8e8479
+                2.0.3-15-ge924b18
               </div>
             
           
@@ -312,6 +312,9 @@ from pyfeyn2.render.render import Render
 <div class="viewcode-block" id="FeynmpRender.set_feynman_diagram"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/feynmp/index.html#pyfeyn2.render.feynmp.FeynmpRender.set_feynman_diagram">[docs]</a>    def set_feynman_diagram(self, fd):
         super().set_feynman_diagram(fd)
         self.set_src_diag(NoEscape(feynman_to_feynmp(fd)))</div>
+
+<div class="viewcode-block" id="FeynmpRender.valid_attribute"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/feynmp/index.html#pyfeyn2.render.feynmp.FeynmpRender.valid_attribute">[docs]</a>    def valid_attribute(self, attr: str) -&gt; bool:
+        return super().valid_attribute(attr) or attr in []</div>
 
 <div class="viewcode-block" id="FeynmpRender.valid_type"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/feynmp/index.html#pyfeyn2.render.feynmp.FeynmpRender.valid_type">[docs]</a>    def valid_type(self, typ):
         if typ.lower() in type_map:

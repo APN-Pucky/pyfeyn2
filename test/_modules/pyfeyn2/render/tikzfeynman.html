@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                2.0.3-14-ga8e8479
+                2.0.3-15-ge924b18
               </div>
             
           
@@ -277,6 +277,9 @@ from pyfeyn2.render.render import Render
 <div class="viewcode-block" id="TikzFeynmanRender.set_feynman_diagram"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/tikzfeynman/index.html#pyfeyn2.render.tikzfeynman.TikzFeynmanRender.set_feynman_diagram">[docs]</a>    def set_feynman_diagram(self, fd):
         super().set_feynman_diagram(fd)
         self.set_src_diag(NoEscape(feynman_to_tikz_feynman(fd)))</div>
+
+<div class="viewcode-block" id="TikzFeynmanRender.valid_attribute"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/tikzfeynman/index.html#pyfeyn2.render.tikzfeynman.TikzFeynmanRender.valid_attribute">[docs]</a>    def valid_attribute(self, attr: str) -&gt; bool:
+        return super().valid_attribute(attr) or attr in [&quot;x&quot;, &quot;y&quot;, &quot;label&quot;]</div>
 
 <div class="viewcode-block" id="TikzFeynmanRender.valid_type"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/tikzfeynman/index.html#pyfeyn2.render.tikzfeynman.TikzFeynmanRender.valid_type">[docs]</a>    def valid_type(self, typ):
         if typ.lower() in type_map:

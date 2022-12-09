@@ -85,6 +85,9 @@ Attributes
    .. py:method:: set_feynman_diagram(fd)
 
 
+   .. py:method:: valid_attribute(attr: str) -> bool
+
+
    .. py:method:: valid_type(typ)
 
 

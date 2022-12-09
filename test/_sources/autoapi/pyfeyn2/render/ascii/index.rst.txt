@@ -88,6 +88,9 @@ Attributes
    .. py:method:: render(file=None, show=True, resolution=100, width=None, height=None)
 
 
+   .. py:method:: valid_attribute(attr: str) -> bool
+
+
    .. py:method:: valid_type(typ: str) -> bool
 
 

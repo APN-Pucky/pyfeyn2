@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                2.0.3-14-ga8e8479
+                2.0.3-15-ge924b18
               </div>
             
           
@@ -404,6 +404,9 @@ class Ghost(ASCIILine):
         if show:
             print(joined)
         return joined</div>
+
+<div class="viewcode-block" id="ASCIIRender.valid_attribute"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/ascii/index.html#pyfeyn2.render.ascii.ASCIIRender.valid_attribute">[docs]</a>    def valid_attribute(self, attr: str) -&gt; bool:
+        return super().valid_attribute(attr) or attr in [&quot;x&quot;, &quot;y&quot;]</div>
 
 <div class="viewcode-block" id="ASCIIRender.valid_type"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/ascii/index.html#pyfeyn2.render.ascii.ASCIIRender.valid_type">[docs]</a>    def valid_type(self, typ: str) -&gt; bool:
         if typ.lower() in namedlines:
