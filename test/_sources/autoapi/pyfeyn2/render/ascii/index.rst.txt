@@ -20,6 +20,8 @@ Classes
    pyfeyn2.render.ascii.Scalar
    pyfeyn2.render.ascii.Ghost
    pyfeyn2.render.ascii.Higgs
+   pyfeyn2.render.ascii.Gluino
+   pyfeyn2.render.ascii.Gaugino
    pyfeyn2.render.ascii.ASCIIRender
 
 
@@ -70,6 +72,16 @@ Attributes
 
 
 .. py:class:: Higgs
+
+   Bases: :py:obj:`ASCIILine`
+
+
+.. py:class:: Gluino
+
+   Bases: :py:obj:`ASCIILine`
+
+
+.. py:class:: Gaugino
 
    Bases: :py:obj:`ASCIILine`
 

@@ -26,6 +26,7 @@ Functions
    pyfeyn2.render.mpl.line
    pyfeyn2.render.mpl.spring
    pyfeyn2.render.mpl.wave
+   pyfeyn2.render.mpl.combine_lines
 
 
 
@@ -52,12 +53,15 @@ Attributes
 .. py:function:: wave(xp1, xp2, points=200, rot=3, amp=0.15, line_frac=0.2)
 
 
+.. py:function:: combine_lines(lines)
+
+
 .. py:data:: namedlines
    
 
    
 
-.. py:class:: MPLRender(fd, *args, **kwargs)
+.. py:class:: MPLRender(fd=None, *args, **kwargs)
 
    Bases: :py:obj:`pyfeyn2.render.render.Render`
 

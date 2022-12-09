@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                2.0.3-15-ge924b18
+                2.0.3-16-g63eea4a
               </div>
             
           
@@ -284,7 +284,7 @@ from pyfeyn2.render.render import Render
 <div class="viewcode-block" id="DotRender"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/dot/index.html#pyfeyn2.render.dot.DotRender">[docs]</a>class DotRender(LatexRender):
     def __init__(
         self,
-        fd,
+        fd=None,
         documentclass=&quot;standalone&quot;,
         document_options=[&quot;preview&quot;, &quot;crop&quot;, &quot;tikz&quot;],
         *args,
@@ -303,7 +303,8 @@ from pyfeyn2.render.render import Render
             Command(&quot;usetikzlibrary&quot;, NoEscape(&quot;snakes,arrows,shapes&quot;))
         )
         self.preamble.append(Command(&quot;usepackage&quot;, NoEscape(&quot;amsmath&quot;)))
-        self.set_feynman_diagram(fd)
+        if fd is not None:
+            self.set_feynman_diagram(fd)
 
 <div class="viewcode-block" id="DotRender.set_feynman_diagram"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/dot/index.html#pyfeyn2.render.dot.DotRender.set_feynman_diagram">[docs]</a>    def set_feynman_diagram(self, fd):
         super().set_feynman_diagram(fd)

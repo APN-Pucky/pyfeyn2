@@ -53,7 +53,7 @@ Attributes
 .. py:function:: feynman_to_dot(fd)
 
 
-.. py:class:: DotRender(fd, documentclass='standalone', document_options=['preview', 'crop', 'tikz'], *args, **kwargs)
+.. py:class:: DotRender(fd=None, documentclass='standalone', document_options=['preview', 'crop', 'tikz'], *args, **kwargs)
 
    Bases: :py:obj:`pyfeyn2.render.latex.LatexRender`
 

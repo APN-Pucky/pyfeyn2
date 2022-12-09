@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                2.0.3-15-ge924b18
+                2.0.3-16-g63eea4a
               </div>
             
           
@@ -205,41 +205,43 @@ from pyfeyn2.render.render import Render
 # converte FeynmanDiagram to tikz-feynman
 
 <div class="viewcode-block" id="type_map"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/feynmp/index.html#pyfeyn2.render.feynmp.type_map">[docs]</a>type_map = {
-    &quot;gluon&quot;: &quot;gluon&quot;,
-    &quot;curly&quot;: &quot;curly&quot;,
-    &quot;dbl_curly&quot;: &quot;dbl_curly&quot;,
-    &quot;dashes&quot;: &quot;dashes&quot;,
-    &quot;scalar&quot;: &quot;scalar&quot;,
-    &quot;dashes_arrow&quot;: &quot;dashes_arrow&quot;,
-    &quot;dbl_dashes&quot;: &quot;dbl_dashes&quot;,
-    &quot;dbl_dashes_arrow&quot;: &quot;dbl_dashes_arrow&quot;,
-    &quot;dots&quot;: &quot;dots&quot;,
-    &quot;dots_arrow&quot;: &quot;dots_arrow&quot;,
-    &quot;ghost&quot;: &quot;ghost&quot;,
-    &quot;dbl_dots&quot;: &quot;dbl_dots&quot;,
-    &quot;dbl_dots_arrow&quot;: &quot;dbl_dots_arrow&quot;,
-    &quot;phantom&quot;: &quot;phantom&quot;,
-    &quot;phantom_arrow&quot;: &quot;phantom_arrow&quot;,
-    &quot;plain&quot;: &quot;plain&quot;,
-    &quot;plain_arrow&quot;: &quot;plain_arrow&quot;,
-    &quot;fermion&quot;: &quot;fermion&quot;,
-    &quot;electron&quot;: &quot;electron&quot;,
-    &quot;quark&quot;: &quot;quark&quot;,
-    &quot;double&quot;: &quot;double&quot;,
-    &quot;dbl_plain&quot;: &quot;dbl_plain&quot;,
-    &quot;double_arrow&quot;: &quot;double_arrow&quot;,
-    &quot;dbl_plain_arrow&quot;: &quot;dbl_plain_arrow&quot;,
-    &quot;heavy&quot;: &quot;heavy&quot;,
-    &quot;photon&quot;: &quot;photon&quot;,
-    &quot;boson&quot;: &quot;boson&quot;,
-    &quot;wiggly&quot;: &quot;wiggly&quot;,
-    &quot;dbl_wiggly&quot;: &quot;dbl_wiggly&quot;,
-    &quot;zigzag&quot;: &quot;zigzag&quot;,
-    &quot;dbl_zigzag&quot;: &quot;dbl_zigzag&quot;,
-    &quot;higgs&quot;: &quot;dashes&quot;,
-    &quot;vector&quot;: &quot;boson&quot;,
-    &quot;slepton&quot;: &quot;scalar&quot;,
-    &quot;squark&quot;: &quot;scalar&quot;,
+    &quot;gluon&quot;: [&quot;gluon&quot;],
+    &quot;curly&quot;: [&quot;curly&quot;],
+    &quot;dbl_curly&quot;: [&quot;dbl_curly&quot;],
+    &quot;dashes&quot;: [&quot;dashes&quot;],
+    &quot;scalar&quot;: [&quot;scalar&quot;],
+    &quot;dashes_arrow&quot;: [&quot;dashes_arrow&quot;],
+    &quot;dbl_dashes&quot;: [&quot;dbl_dashes&quot;],
+    &quot;dbl_dashes_arrow&quot;: [&quot;dbl_dashes_arrow&quot;],
+    &quot;dots&quot;: [&quot;dots&quot;],
+    &quot;dots_arrow&quot;: [&quot;dots_arrow&quot;],
+    &quot;ghost&quot;: [&quot;ghost&quot;],
+    &quot;dbl_dots&quot;: [&quot;dbl_dots&quot;],
+    &quot;dbl_dots_arrow&quot;: [&quot;dbl_dots_arrow&quot;],
+    &quot;phantom&quot;: [&quot;phantom&quot;],
+    &quot;phantom_arrow&quot;: [&quot;phantom_arrow&quot;],
+    &quot;plain&quot;: [&quot;plain&quot;],
+    &quot;plain_arrow&quot;: [&quot;plain_arrow&quot;],
+    &quot;fermion&quot;: [&quot;fermion&quot;],
+    &quot;electron&quot;: [&quot;electron&quot;],
+    &quot;quark&quot;: [&quot;quark&quot;],
+    &quot;double&quot;: [&quot;double&quot;],
+    &quot;dbl_plain&quot;: [&quot;dbl_plain&quot;],
+    &quot;double_arrow&quot;: [&quot;double_arrow&quot;],
+    &quot;dbl_plain_arrow&quot;: [&quot;dbl_plain_arrow&quot;],
+    &quot;heavy&quot;: [&quot;heavy&quot;],
+    &quot;photon&quot;: [&quot;photon&quot;],
+    &quot;boson&quot;: [&quot;boson&quot;],
+    &quot;wiggly&quot;: [&quot;wiggly&quot;],
+    &quot;dbl_wiggly&quot;: [&quot;dbl_wiggly&quot;],
+    &quot;zigzag&quot;: [&quot;zigzag&quot;],
+    &quot;dbl_zigzag&quot;: [&quot;dbl_zigzag&quot;],
+    &quot;higgs&quot;: [&quot;dashes&quot;],
+    &quot;vector&quot;: [&quot;boson&quot;],
+    &quot;slepton&quot;: [&quot;scalar&quot;],
+    &quot;squark&quot;: [&quot;scalar&quot;],
+    &quot;gluino&quot;: [&quot;gluon&quot;, &quot;plain&quot;],
+    &quot;gaugino&quot;: [&quot;photon&quot;, &quot;plain&quot;],
 }</div>
 
 
@@ -275,11 +277,13 @@ from pyfeyn2.render.render import Render
         src += &quot;}\n&quot;
 
     for l in incoming:
-        ttype = type_map[l.type]
-        src += f&quot;\t\t\\fmf{{{ttype}}}{{{l.id},{l.target}}}\n&quot;
+        tttype = type_map[l.type]
+        for ttype in tttype:
+            src += f&quot;\t\t\\fmf{{{ttype}}}{{{l.id},{l.target}}}\n&quot;
     for l in outgoing:
-        ttype = type_map[l.type]
-        src += f&quot;\t\t\\fmf{{{ttype}}}{{{l.target},{l.id}}}\n&quot;
+        tttype = type_map[l.type]
+        for ttype in tttype:
+            src += f&quot;\t\t\\fmf{{{ttype}}}{{{l.target},{l.id}}}\n&quot;
 
     for p in fd.propagators:
         ttype = type_map[p.type]

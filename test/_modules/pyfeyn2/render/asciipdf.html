@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                2.0.3-15-ge924b18
+                2.0.3-16-g63eea4a
               </div>
             
           
@@ -202,7 +202,9 @@ from pyfeyn2.render.latex import LatexRender
 <div class="viewcode-block" id="ASCIIPDFRender"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/asciipdf/index.html#pyfeyn2.render.asciipdf.ASCIIPDFRender">[docs]</a>class ASCIIPDFRender(LatexRender, ASCIIRender):
     &quot;&quot;&quot;Renders Feynman diagrams as ASCII art to PDF.&quot;&quot;&quot;
 
-    def __init__(self, fd, documentclass=None, docuement_options=None, *args, **kwargs):
+    def __init__(
+        self, fd=None, documentclass=None, docuement_options=None, *args, **kwargs
+    ):
         if documentclass is None:
             documentclass = &quot;standalone&quot;
         if docuement_options is None:
