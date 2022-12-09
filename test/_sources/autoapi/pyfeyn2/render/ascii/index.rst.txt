@@ -16,6 +16,7 @@ Classes
    pyfeyn2.render.ascii.Gluon
    pyfeyn2.render.ascii.Photon
    pyfeyn2.render.ascii.Ghost
+   pyfeyn2.render.ascii.Fermion
    pyfeyn2.render.ascii.ASCIIRender
 
 
@@ -29,7 +30,7 @@ Attributes
    pyfeyn2.render.ascii.namedlines
 
 
-.. py:class:: ASCIILine(begin=' ', end=' ', vert='|', horz='-')
+.. py:class:: ASCIILine(begin=' ', end=' ', vert=None, horz=None, left=None, up=None, right=None, down=None)
 
    .. py:method:: draw(pane, isrc, itar, scalex=1, scaley=1, kickx=0, kicky=0)
 
@@ -46,6 +47,11 @@ Attributes
 
 
 .. py:class:: Ghost
+
+   Bases: :py:obj:`ASCIILine`
+
+
+.. py:class:: Fermion
 
    Bases: :py:obj:`ASCIILine`
 

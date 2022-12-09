@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                2.0.3-11-gb10f230
+                2.0.3-13-g1dfcd3a
               </div>
             
           
@@ -278,7 +278,6 @@ from pyfeyn2.render.render import Render
         + (p2[1] - p1[1]) * (n / points)
         + amp * np.sin(w * n) * (0 * np.sin((alpha)) + np.cos((alpha))),
     )
-    print(alpha)
 
     x, y = (
         np.append(np.insert(ret[0], 0, xp1[0]), xp2[0]),
@@ -293,6 +292,7 @@ from pyfeyn2.render.render import Render
     &quot;photon&quot;: wave,
     &quot;boson&quot;: wave,
     &quot;ghost&quot;: dotted,
+    &quot;fermion&quot;: line,
 }</div>
 
 

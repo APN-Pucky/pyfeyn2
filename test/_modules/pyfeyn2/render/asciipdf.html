@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                2.0.3-11-gb10f230
+                2.0.3-13-g1dfcd3a
               </div>
             
           
@@ -226,6 +226,9 @@ from pyfeyn2.render.latex import LatexRender
         clean_up=True,
     ):
         str = ASCIIRender.render(self, None, False, resolution, width, height)
+        # str = str.replace(&quot;^&quot;, &quot;\\^{}&quot;)
+        # str = str.replace(&quot;&gt;&quot;, &quot;$&gt;$&quot;)
+        # str = str.replace(&quot;&lt;&quot;, &quot;$&lt;$&quot;)
         self.set_src_diag(&quot;\\begin{lstlisting}&quot; + str + &quot;\\end{lstlisting}&quot;)
         super().render(file, show, resolution, width, height, clean_up)</div></div>
 </pre></div>

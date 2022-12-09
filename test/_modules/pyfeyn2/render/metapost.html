@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                2.0.3-11-gb10f230
+                2.0.3-13-g1dfcd3a
               </div>
             
           
@@ -259,6 +259,8 @@ from pyfeyn2.render.latex import LatexRender
         if clean_up:
             for filename in os.listdir(parent_dir):
                 if filename.endswith(&quot;.mp&quot;) and filename.startswith(&quot;tmp&quot;):
+                    os.remove(Path.joinpath(parent_dir, filename))
+                elif filename.endswith(&quot;.log&quot;) and filename.startswith(&quot;tmp&quot;):
                     os.remove(Path.joinpath(parent_dir, filename))
                 elif filename.endswith(&quot;.1&quot;) and filename.startswith(
                     &quot;tmp&quot;

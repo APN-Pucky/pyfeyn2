@@ -79,7 +79,7 @@
             
             
               <div class="version">
-                2.0.3-11-gb10f230
+                2.0.3-13-g1dfcd3a
               </div>
             
           
@@ -506,7 +506,7 @@ div.rendered_html tbody tr:hover {
 <span class="n">v4</span> <span class="o">=</span> <span class="n">Vertex</span><span class="p">(</span><span class="s2">&quot;v4&quot;</span><span class="p">)</span>
 <span class="n">p1</span> <span class="o">=</span> <span class="n">Propagator</span><span class="p">(</span><span class="s2">&quot;p1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">)</span><span class="o">.</span><span class="n">set_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span>
 <span class="n">p2</span> <span class="o">=</span> <span class="n">Propagator</span><span class="p">(</span><span class="s2">&quot;p2&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span> <span class="n">v3</span><span class="p">)</span><span class="o">.</span><span class="n">set_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span>
-<span class="n">p3</span> <span class="o">=</span> <span class="n">Propagator</span><span class="p">(</span><span class="s2">&quot;p3&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">v3</span><span class="p">,</span> <span class="n">v2</span><span class="p">)</span><span class="o">.</span><span class="n">set_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span>
+<span class="n">p3</span> <span class="o">=</span> <span class="n">Propagator</span><span class="p">(</span><span class="s2">&quot;p3&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">v3</span><span class="p">,</span> <span class="n">v2</span><span class="p">)</span><span class="o">.</span><span class="n">set_type</span><span class="p">(</span><span class="s2">&quot;fermion&quot;</span><span class="p">)</span>
 <span class="n">p4</span> <span class="o">=</span> <span class="n">Propagator</span><span class="p">(</span><span class="s2">&quot;p4&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">v4</span><span class="p">,</span> <span class="n">v3</span><span class="p">)</span><span class="o">.</span><span class="n">set_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span>
 <span class="n">p5</span> <span class="o">=</span> <span class="n">Propagator</span><span class="p">(</span><span class="s2">&quot;p5&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">v4</span><span class="p">,</span> <span class="n">v2</span><span class="p">)</span><span class="o">.</span><span class="n">set_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span>
 <span class="n">l1</span> <span class="o">=</span> <span class="n">Leg</span><span class="p">(</span><span class="s2">&quot;l1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set_target</span><span class="p">(</span><span class="n">v1</span><span class="p">)</span><span class="o">.</span><span class="n">set_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set_incoming</span><span class="p">()</span><span class="o">.</span><span class="n">set_xy</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
@@ -552,12 +552,12 @@ div.rendered_html tbody tr:hover {
                OOOO                                    OO                 O
                    OOO                               OO                 OO
                       OOOO                       OOOOO                 O
-                          OOO              OOOOOO  O  OOOOO          OO
-                             OOOO    OOOOOO        O       OOOOO   OO
-                                OOOOO              O            OOOO
-                            OOOO     OOOO          O         OOOO   OO
-                       OOOOO             OOOO      O     OOOO         OO
-                  OOOOO                      OOOO  O OOOO               OO
+                          OOO              OOOOOO  |  OOOOO          OO
+                             OOOO    OOOOOO        |       OOOOO   OO
+                                OOOOO              v            OOOO
+                            OOOO     OOOO          |         OOOO   OO
+                       OOOOO             OOOO      |     OOOO         OO
+                  OOOOO                      OOOO  v OOOO               OO
              OOOOO                               OOOO                     OO
          OOOO                                        OOO                    OO
       OOO                                               OOO                   OO
@@ -574,18 +574,17 @@ div.rendered_html tbody tr:hover {
 <section id="PDF">
 <h2>PDF<a class="headerlink" href="#PDF" title="Permalink to this heading">¶</a></h2>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyfeyn2.render.asciipdf</span> <span class="kn">import</span> <span class="n">ASCIIPDFRender</span>
-<span class="n">tfd</span> <span class="o">=</span> <span class="n">ASCIIPDFRender</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span><span class="n">height</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span><span class="n">width</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span>
-<span class="n">tfd</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">tfd</span> <span class="o">=</span> <span class="n">ASCIIPDFRender</span><span class="p">(</span><span class="n">fd</span><span class="p">)</span>
+<span class="n">tfd</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">height</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span><span class="n">width</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
-</pre></div>
+<div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
 <img alt="../_images/examples_ASCII_6_0.png" src="../_images/examples_ASCII_6_0.png" />

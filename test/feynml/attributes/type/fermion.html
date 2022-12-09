@@ -79,7 +79,7 @@
             
             
               <div class="version">
-                2.0.3-11-gb10f230
+                2.0.3-13-g1dfcd3a
               </div>
             
           
@@ -128,6 +128,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../style.html">Style</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../target.html">Target</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../type.html">Type</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="boson.html">Boson</a></li>
 <li class="toctree-l4"><a class="reference internal" href="chargino.html">Chargino</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">Fermion</a></li>
 <li class="toctree-l4"><a class="reference internal" href="gaugino.html">Gaugino</a></li>
@@ -518,6 +519,131 @@ div.rendered_html tbody tr:hover {
 </style>
 <section id="Fermion">
 <h1>Fermion<a class="headerlink" href="#Fermion" title="Permalink to this heading">¶</a></h1>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyfeyn2.render.all</span> <span class="kn">import</span> <span class="n">AllRender</span>
+<span class="n">ar</span> <span class="o">=</span> <span class="n">AllRender</span><span class="p">()</span><span class="o">.</span><span class="n">demo_propagator</span><span class="p">(</span><span class="s2">&quot;fermion&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Pyx:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../_images/feynml_attributes_type_fermion_1_1.png" src="../../../_images/feynml_attributes_type_fermion_1_1.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Tikz:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../_images/feynml_attributes_type_fermion_1_3.png" src="../../../_images/feynml_attributes_type_fermion_1_3.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Feynmp:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../_images/feynml_attributes_type_fermion_1_5.png" src="../../../_images/feynml_attributes_type_fermion_1_5.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Dot:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../_images/feynml_attributes_type_fermion_1_7.png" src="../../../_images/feynml_attributes_type_fermion_1_7.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+ASCIIPDF:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../_images/feynml_attributes_type_fermion_1_9.png" src="../../../_images/feynml_attributes_type_fermion_1_9.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+MPL:
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">KeyError</span>                                  Traceback (most recent call last)
+Cell <span class="ansi-green-fg">In[1], line 2</span>
+<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-bold" style="color: rgb(0,135,0)">from</span> <span class="ansi-bold" style="color: rgb(0,0,255)">pyfeyn2</span><span class="ansi-bold" style="color: rgb(0,0,255)">.</span><span class="ansi-bold" style="color: rgb(0,0,255)">render</span><span class="ansi-bold" style="color: rgb(0,0,255)">.</span><span class="ansi-bold" style="color: rgb(0,0,255)">all</span> <span class="ansi-bold" style="color: rgb(0,135,0)">import</span> AllRender
+<span class="ansi-green-fg">----&gt; 2</span> ar <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">AllRender</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">)</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">demo_propagator</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">fermion</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg">)</span>
+
+File <span class="ansi-green-fg">~/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/render.py:56</span>, in <span class="ansi-cyan-fg">Render.demo_propagator</span><span class="ansi-blue-fg">(self, d, show)</span>
+<span class="ansi-green-intense-fg ansi-bold">     54</span> fd<span style="color: rgb(98,98,98)">.</span>legs<span style="color: rgb(98,98,98)">.</span>extend([l1, l2])
+<span class="ansi-green-intense-fg ansi-bold">     55</span> <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>set_feynman_diagram(fd)
+<span class="ansi-green-fg">---&gt; 56</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">render</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">show</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">show</span><span class="ansi-yellow-bg">)</span>
+
+File <span class="ansi-green-fg">~/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/all.py:78</span>, in <span class="ansi-cyan-fg">AllRender.render</span><span class="ansi-blue-fg">(self, file, show, subfigure, resolution, width, height)</span>
+<span class="ansi-green-intense-fg ansi-bold">     76</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> <span class="ansi-bold" style="color: rgb(175,0,255)">not</span> subfigure:
+<span class="ansi-green-intense-fg ansi-bold">     77</span>     <span style="color: rgb(0,135,0)">print</span>(<span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">MPL:</span><span style="color: rgb(175,0,0)">&#34;</span>)
+<span class="ansi-green-fg">---&gt; 78</span> <span class="ansi-yellow-bg">MPLRender</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">fd</span><span class="ansi-yellow-bg">)</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">render</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">dirpath</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">+</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">/mpl.pdf</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">*</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">*</span><span class="ansi-yellow-bg">dynarg</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     79</span> plt<span style="color: rgb(98,98,98)">.</span>close()
+<span class="ansi-green-intense-fg ansi-bold">     81</span> <span class="ansi-bold" style="color: rgb(0,135,0)">with</span> <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>create(Figure(position<span style="color: rgb(98,98,98)">=</span><span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">h!</span><span style="color: rgb(175,0,0)">&#34;</span>)) <span class="ansi-bold" style="color: rgb(0,135,0)">as</span> kittens:
+
+File <span class="ansi-green-fg">~/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/mpl.py:119</span>, in <span class="ansi-cyan-fg">MPLRender.render</span><span class="ansi-blue-fg">(self, file, show, width, height, resolution)</span>
+<span class="ansi-green-intense-fg ansi-bold">    117</span> <span class="ansi-bold" style="color: rgb(0,135,0)">for</span> l <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>fd<span style="color: rgb(98,98,98)">.</span>legs:
+<span class="ansi-green-intense-fg ansi-bold">    118</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> l<span style="color: rgb(98,98,98)">.</span>sense <span style="color: rgb(98,98,98)">==</span> <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">incoming</span><span style="color: rgb(175,0,0)">&#34;</span>:
+<span class="ansi-green-fg">--&gt; 119</span>         <span class="ansi-yellow-bg">namedlines</span><span class="ansi-yellow-bg">[</span><span class="ansi-yellow-bg">l</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">type</span><span class="ansi-yellow-bg">]</span>(idtopos[l<span style="color: rgb(98,98,98)">.</span>id], idtopos[l<span style="color: rgb(98,98,98)">.</span>target])
+<span class="ansi-green-intense-fg ansi-bold">    120</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">elif</span> l<span style="color: rgb(98,98,98)">.</span>sense <span style="color: rgb(98,98,98)">==</span> <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">outgoing</span><span style="color: rgb(175,0,0)">&#34;</span>:
+<span class="ansi-green-intense-fg ansi-bold">    121</span>         namedlines[l<span style="color: rgb(98,98,98)">.</span>type](idtopos[l<span style="color: rgb(98,98,98)">.</span>target], idtopos[l<span style="color: rgb(98,98,98)">.</span>id])
+
+<span class="ansi-red-fg">KeyError</span>: &#39;fermion&#39;
+</pre></div></div>
+</div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
