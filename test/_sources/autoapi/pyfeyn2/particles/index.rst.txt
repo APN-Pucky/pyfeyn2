@@ -14,7 +14,6 @@ Functions
 .. autoapisummary::
 
    pyfeyn2.particles.get_name
-   pyfeyn2.particles.get_LR_partner
 
 
 
@@ -34,21 +33,5 @@ Functions
    'g'
    >>> get_name(1000022)
    '\\tilde{\\chi}_{1}^{0}'
-
-
-.. py:function:: get_LR_partner(pid: int) -> Tuple[int, int]
-
-   Transforms a PDG id to it's left-right partner.
-
-   :param pid: PDG Monte Carlo identifier for the particle.
-   :type pid: int
-
-   :returns: First int is -1 for Left and 1 for Right. Second int is the PDG id.
-   :rtype: tuple
-
-   .. rubric:: Examples
-
-   >>> get_LR_partner(1000002)
-   (-1, 2000002)
 
 

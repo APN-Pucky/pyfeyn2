@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                2.0.4-5-g68a7cb4
+                2.0.4-6-gc7de3c7
               </div>
             
           
@@ -227,37 +227,6 @@ PDG2Name2IDMap, PDGID2NameMap = DirectionalMaps(
     global PDG2LaTeXNameMap
     pdgid = PDG2LaTeXNameMap[pid]
     return pdgid</div>
-
-
-<div class="viewcode-block" id="get_LR_partner"><a class="viewcode-back" href="../../autoapi/pyfeyn2/particles/index.html#pyfeyn2.particles.get_LR_partner">[docs]</a>def get_LR_partner(pid: int) -&gt; Tuple[int, int]:
-    &quot;&quot;&quot;
-    Transforms a PDG id to it&#39;s left-right partner.
-
-    Args:
-        pid (int) : PDG Monte Carlo identifier for the particle.
-
-    Returns:
-        tuple : First int is -1 for Left and 1 for Right. Second int is the PDG id.
-
-    Examples:
-        &gt;&gt;&gt; get_LR_partner(1000002)
-        (-1, 2000002)
-    &quot;&quot;&quot;
-    global PDG2Name2IDMap
-    n = PDGID2NameMap[pid]
-    if &quot;L&quot; in n:
-        n = n.replace(&quot;L&quot;, &quot;R&quot;)
-        return -1, int(PDG2Name2IDMap[n])
-    if &quot;R&quot; in n:
-        n = n.replace(&quot;R&quot;, &quot;L&quot;)
-        return 1, int(PDG2Name2IDMap[n])
-    if &quot;1&quot; in n:
-        n = n.replace(&quot;1&quot;, &quot;2&quot;)
-        return -1, int(PDG2Name2IDMap[n])
-    if &quot;2&quot; in n:
-        n = n.replace(&quot;2&quot;, &quot;1&quot;)
-        return 1, int(PDG2Name2IDMap[n])
-    return None</div>
 </pre></div>
 
            </div>
