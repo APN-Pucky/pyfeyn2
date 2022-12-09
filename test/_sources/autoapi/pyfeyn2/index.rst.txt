@@ -20,6 +20,7 @@ Submodules
    :maxdepth: 1
 
    feynmandiagram/index.rst
+   mkfeyndiag/index.rst
    particles/index.rst
 
 

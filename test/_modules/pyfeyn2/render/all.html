@@ -68,13 +68,16 @@
           
 
           
+            
+            <img src="../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
+          
           </a>
 
           
             
             
               <div class="version">
-                2.0.4-7-g66d8272
+                2.0.4-26-g731cde8
               </div>
             
           
@@ -196,6 +199,7 @@
   <h1>Source code for pyfeyn2.render.all</h1><div class="highlight"><pre>
 <span></span>import shutil
 import tempfile
+import traceback
 
 from matplotlib import pyplot as plt
 from pylatex import Figure, NoEscape, SubFigure
@@ -260,14 +264,16 @@ from pyfeyn2.render.tikzfeynman import TikzFeynmanRender
                 print(&quot;Pyx:&quot;)
             PyxRender(fd).render(dirpath + &quot;/pyx.pdf&quot;, **dynarg)
         except Exception as e:
-            print(&quot;Pyx failed:&quot;, e)
+            print(&quot;Pyx failed:&quot;)
+            print(traceback.format_exc())
 
         try:
             if not subfigure:
                 print(&quot;Tikz:&quot;)
             TikzFeynmanRender(fd).render(dirpath + &quot;/tikz.pdf&quot;, **dynarg)
         except Exception as e:
-            print(&quot;Tikz failed:&quot;, e)
+            print(&quot;Tikz failed:&quot;)
+            print(traceback.format_exc())
 
         try:
             if not subfigure:
@@ -275,6 +281,7 @@ from pyfeyn2.render.tikzfeynman import TikzFeynmanRender
             FeynmpRender(fd).render(dirpath + &quot;/feynmp.pdf&quot;, **dynarg)
         except Exception as e:
             print(&quot;Feynmp failed:&quot;, e)
+            print(traceback.format_exc())
 
         try:
             if not subfigure:
@@ -282,6 +289,7 @@ from pyfeyn2.render.tikzfeynman import TikzFeynmanRender
             DotRender(fd).render(dirpath + &quot;/dot.pdf&quot;, **dynarg)
         except Exception as e:
             print(&quot;Dot failed:&quot;, e)
+            print(traceback.format_exc())
 
         try:
             if not subfigure:
@@ -289,6 +297,7 @@ from pyfeyn2.render.tikzfeynman import TikzFeynmanRender
             ASCIIPDFRender(fd).render(dirpath + &quot;/asciipdf.pdf&quot;, **dynarg)
         except Exception as e:
             print(&quot;ASCIIPDF failed:&quot;, e)
+            print(traceback.format_exc())
 
         try:
             if not subfigure:
@@ -297,6 +306,7 @@ from pyfeyn2.render.tikzfeynman import TikzFeynmanRender
             plt.close()
         except Exception as e:
             print(&quot;MPL failed:&quot;, e)
+            print(traceback.format_exc())
 
         with self.create(Figure(position=&quot;h!&quot;)):
 

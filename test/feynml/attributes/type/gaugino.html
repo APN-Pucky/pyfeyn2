@@ -73,13 +73,16 @@
           
 
           
+            
+            <img src="../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
+          
           </a>
 
           
             
             
               <div class="version">
-                2.0.4-7-g66d8272
+                2.0.4-26-g731cde8
               </div>
             
           
@@ -535,8 +538,6 @@ div.rendered_html tbody tr:hover {
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Pyx:
-Pyx failed: &#39;path&#39; object has no attribute &#39;curveradius&#39;
-Tikz:
 </pre></div></div>
 </div>
 <div class="nboutput docutils container">
@@ -551,7 +552,7 @@ Tikz:
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Feynmp:
+Tikz:
 </pre></div></div>
 </div>
 <div class="nboutput docutils container">
@@ -566,9 +567,7 @@ Feynmp:
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Dot:
-Dot failed: &#39;gaugino&#39;
-ASCIIPDF:
+Feynmp:
 </pre></div></div>
 </div>
 <div class="nboutput docutils container">
@@ -583,6 +582,34 @@ ASCIIPDF:
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
+Dot:
+Dot failed: &#39;gaugino&#39;
+Traceback (most recent call last):
+  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/all.py&#34;, line 90, in render
+    DotRender(fd).render(dirpath + &#34;/dot.pdf&#34;, **dynarg)
+  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/dot.py&#34;, line 115, in __init__
+    self.set_feynman_diagram(fd)
+  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/dot.py&#34;, line 119, in set_feynman_diagram
+    self.src_dot = feynman_to_dot(fd)
+  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/dot.py&#34;, line 74, in feynman_to_dot
+    src += &#39;edge [style=&#34;{}&#34;];\n&#39;.format(map_feyn_to_tikz[l.type])
+KeyError: &#39;gaugino&#39;
+
+ASCIIPDF:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../_images/feynml_attributes_type_gaugino_1_7.png" src="../../../_images/feynml_attributes_type_gaugino_1_7.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
 MPL:
 </pre></div></div>
 </div>
@@ -590,7 +617,7 @@ MPL:
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/feynml_attributes_type_gaugino_1_7.png" src="../../../_images/feynml_attributes_type_gaugino_1_7.png" />
+<img alt="../../../_images/feynml_attributes_type_gaugino_1_9.png" src="../../../_images/feynml_attributes_type_gaugino_1_9.png" />
 </div>
 </div>
 <div class="nbinput nblast docutils container">

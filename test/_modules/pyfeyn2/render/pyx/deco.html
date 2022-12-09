@@ -68,13 +68,16 @@
           
 
           
+            
+            <img src="../../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
+          
           </a>
 
           
             
             
               <div class="version">
-                2.0.4-7-g66d8272
+                2.0.4-26-g731cde8
               </div>
             
           
@@ -202,11 +205,8 @@ import pyx
 
 from pyfeyn2.render.pyx import config
 from pyfeyn2.render.pyx.diagrams import FeynDiagram
+from pyfeyn2.render.pyx.paint import CENTER
 from pyfeyn2.render.pyx.utils import Visible
-
-###########################################################################################
-## Added by George S. Williams to allow PyFeyn to work with PyX versions 0.12.x and 0.11.x
-## Also see changes in class Arrow and class ParallelArrow
 
 
 <div class="viewcode-block" id="getarrowpath"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/deco/index.html#pyfeyn2.render.pyx.deco.getarrowpath">[docs]</a>def getarrowpath(
@@ -438,7 +438,16 @@ from pyfeyn2.render.pyx.utils import Visible
 <div class="viewcode-block" id="Label"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/deco/index.html#pyfeyn2.render.pyx.deco.Label">[docs]</a>class Label(Visible):
     &quot;&quot;&quot;General label, unattached to any diagram elements&quot;&quot;&quot;
 
-    def __init__(self, text, pos=None, x=None, y=None, size=pyx.text.size.normalsize):
+    def __init__(
+        self,
+        text,
+        pos=None,
+        x=None,
+        y=None,
+        size=pyx.text.size.normalsize,
+        halign=CENTER,
+        valign=None,
+    ):
         &quot;&quot;&quot;Constructor.&quot;&quot;&quot;
         self.x, self.y = 0, 0
         if x is not None:
@@ -448,6 +457,9 @@ from pyfeyn2.render.pyx.utils import Visible
         self.size = size
         self.text = text
         self.textattrs = []
+        self.textattrs.append(halign)
+        if valign is not None:
+            self.textattrs.append(valign)
         self.pos = pos
 
         ## Add this to the current diagram automatically
@@ -456,8 +468,7 @@ from pyfeyn2.render.pyx.utils import Visible
 <div class="viewcode-block" id="Label.draw"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/deco/index.html#pyfeyn2.render.pyx.deco.Label.draw">[docs]</a>    def draw(self, canvas):
         &quot;&quot;&quot;Draw this label on the supplied canvas.&quot;&quot;&quot;
         textattrs = pyx.attr.mergeattrs(
-            [pyx.text.halign.center, pyx.text.vshift.mathaxis, self.size]
-            + self.textattrs
+            [pyx.text.vshift.mathaxis, self.size] + self.textattrs
         )
         t = pyx.text.latexrunner().text(self.x, self.y, self.text, textattrs)
         canvas.insert(t)</div></div>
@@ -468,7 +479,14 @@ from pyfeyn2.render.pyx.utils import Visible
     &quot;&quot;&quot;Label attached to points on the diagram&quot;&quot;&quot;
 
     def __init__(
-        self, point, text, displace=0.3, angle=0, size=pyx.text.size.normalsize
+        self,
+        point,
+        text,
+        displace=0.3,
+        angle=0,
+        size=pyx.text.size.normalsize,
+        halign=CENTER,
+        valign=None,
     ):
         &quot;&quot;&quot;Constructor.&quot;&quot;&quot;
         self.size = size
@@ -477,6 +495,9 @@ from pyfeyn2.render.pyx.utils import Visible
         self.text = text
         self.point = point
         self.textattrs = []
+        self.textattrs.append(halign)
+        if valign is not None:
+            self.textattrs.append(valign)
 
 <div class="viewcode-block" id="PointLabel.getPoint"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/deco/index.html#pyfeyn2.render.pyx.deco.PointLabel.getPoint">[docs]</a>    def getPoint(self):
         &quot;&quot;&quot;Get the point associated with this label.&quot;&quot;&quot;
@@ -497,8 +518,7 @@ from pyfeyn2.render.pyx.utils import Visible
         x = self.point.getX() + self.displace * math.cos(math.radians(self.angle))
         y = self.point.getY() + self.displace * math.sin(math.radians(self.angle))
         textattrs = pyx.attr.mergeattrs(
-            [pyx.text.halign.center, pyx.text.vshift.mathaxis, self.size]
-            + self.textattrs
+            [pyx.text.vshift.mathaxis, self.size] + self.textattrs
         )
         t = pyx.text.latexrunner().text(x, y, self.text, textattrs)
         canvas.insert(t)</div></div>
@@ -509,7 +529,15 @@ from pyfeyn2.render.pyx.utils import Visible
     &quot;&quot;&quot;Label for Feynman diagram lines&quot;&quot;&quot;
 
     def __init__(
-        self, line, text, pos=0.5, displace=0.3, angle=0, size=pyx.text.size.normalsize
+        self,
+        line,
+        text,
+        pos=0.5,
+        displace=0.3,
+        angle=0,
+        size=pyx.text.size.normalsize,
+        halign=CENTER,
+        valign=None,
     ):
         &quot;&quot;&quot;Constructor.&quot;&quot;&quot;
         self.pos = pos
@@ -519,6 +547,9 @@ from pyfeyn2.render.pyx.utils import Visible
         self.text = text
         self.line = line
         self.textattrs = []
+        self.textattrs.append(halign)
+        if valign is not None:
+            self.textattrs.append(valign)
 
 <div class="viewcode-block" id="LineLabel.getLine"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/deco/index.html#pyfeyn2.render.pyx.deco.LineLabel.getLine">[docs]</a>    def getLine(self):
         &quot;&quot;&quot;Get the associated line.&quot;&quot;&quot;
@@ -570,8 +601,7 @@ from pyfeyn2.render.pyx.utils import Visible
         x, y = nx, ny
 
         textattrs = pyx.attr.mergeattrs(
-            [pyx.text.halign.center, pyx.text.vshift.mathaxis, self.size]
-            + self.textattrs
+            [pyx.text.vshift.mathaxis, self.size] + self.textattrs
         )
         t = pyx.text.latexrunner().text(x, y, self.text, textattrs)
         # t.linealign(self.displace,

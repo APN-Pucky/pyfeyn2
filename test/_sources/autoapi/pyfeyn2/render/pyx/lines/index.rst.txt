@@ -45,7 +45,7 @@ Attributes
    pyfeyn2.render.pyx.lines.NamedLine
 
 
-.. py:class:: Line(point1, point2)
+.. py:class:: Line(point1, point2, styles=[], arcthrupoint=None, is3D=False, arrows=[], labels=[], **kwargs)
 
    Bases: :py:obj:`pyfeyn2.render.pyx.utils.Visible`
 
@@ -53,7 +53,7 @@ Attributes
 
    Constructor.
 
-   .. py:method:: addLabel(text, pos=0.5, displace=-0.25, angle=0, size=pyx.text.size.normalsize)
+   .. py:method:: addLabel(text, pos=0.5, displace=-0.25, angle=0, size=pyx.text.size.normalsize, halign=CENTER, valign=None, **kwargs)
 
       Add a LaTeX label to this line, either via parameters or actually as
       a TeXLabel object.
@@ -157,7 +157,7 @@ Attributes
 
    
 
-.. py:class:: MultiLine(point1, point2, n=5, dist=0.2)
+.. py:class:: MultiLine(point1, point2, n=5, dist=0.2, styles=[], arcthrupoint=None, is3D=False, arrows=[], labels=[], **kwargs)
 
    Bases: :py:obj:`Line`
 
@@ -171,7 +171,7 @@ Attributes
 
 
 
-.. py:class:: Scalar(point1, point2)
+.. py:class:: Scalar(point1, point2, linestyle=pyx.style.linestyle.dashed, styles=[], arcthrupoint=None, is3D=False, arrows=[], labels=[], **kwargs)
 
    Bases: :py:obj:`Line`
 
@@ -195,49 +195,20 @@ Attributes
 
    
 
-.. py:class:: Ghost(point1, point2)
+.. py:class:: Ghost(point1, point2, linestyle=pyx.style.linestyle.dotted, styles=[], arcthrupoint=None, is3D=False, arrows=[], labels=[], **kwargs)
 
-   Bases: :py:obj:`Line`
+   Bases: :py:obj:`Scalar`
 
    A dotted scalar particle line, like a Yang-Mills ghost particle.
 
    Constructor.
 
-   .. py:method:: draw(canvas)
 
-      Draw this scalar line on the given canvas.
-
-
-
-.. py:class:: DecoratedLine(point1, point2)
+.. py:class:: DecoratedLine(point1, point2, amplitude, frequency, extras, invert, linetype, styles=[], arcthrupoint=None, is3D=False, arrows=[], labels=[], **kwargs)
 
    Bases: :py:obj:`Line`
 
    Base class for spring and sine-like lines
-
-   Constructor.
-
-   .. py:method:: invert()
-
-      Reflect the line decoration about the line.
-
-
-   .. py:method:: getNumHalfCycles()
-
-      Get the number of half cycles in this line.
-
-
-   .. py:method:: getDeformedPath()
-
-      Get the deformed path.
-
-
-
-.. py:class:: Gluon(point1, point2)
-
-   Bases: :py:obj:`DecoratedLine`
-
-   A line with a cycloid deformation
 
    Constructor.
 
@@ -248,33 +219,47 @@ Attributes
 
    .. py:method:: invert()
 
-      Flip the line decoration around the line.
+      Reflect the decoration in the line itself.
 
 
    .. py:method:: getFrequency()
 
-      Get the rate of occurence of the coil decoration.
+      Get the rate of occurence of the oscillation.
 
 
    .. py:method:: setFrequency(freq)
 
-      Set the rate of occurence of the coil decoration.
+      Set the rate of occurence of the oscillation.
 
 
    .. py:method:: getAmplitude()
 
-      Get the radius of the coil decoration.
+      Get the radius of the oscillation.
 
 
    .. py:method:: setAmplitude(amplitude)
 
-      Set the radius of the coil decoration.
+      Set the radius of the oscillation.
 
 
    .. py:method:: setExtraCycles(extras)
 
-      Add some extra (possibly negative) oscillations to the coil decoration.
+      Add some extra (possibly negative) cycles to the oscillation.
 
+
+   .. py:method:: getDeformedPath()
+
+      Get the deformed path.
+
+
+
+.. py:class:: Gluon(point1, point2, amplitude=0.15, frequency=1.3, extras=0, invert=False, styles=[], arcthrupoint=None, is3D=False, arrows=[], labels=[], **kwargs)
+
+   Bases: :py:obj:`DecoratedLine`
+
+   A line with a cycloid deformation
+
+   Constructor.
 
    .. py:method:: getDeformedPath()
 
@@ -287,44 +272,13 @@ Attributes
 
 
 
-.. py:class:: Vector(point1, point2, amplitude=0.25, frequency=1.0)
+.. py:class:: Vector(point1, point2, amplitude=0.25, frequency=1.0, extras=0, invert=False, styles=[], arcthrupoint=None, is3D=False, arrows=[], labels=[], **kwargs)
 
    Bases: :py:obj:`DecoratedLine`
 
    A line with a sinoid deformation
 
    Constructor.
-
-   .. py:method:: invert()
-
-      Reflect the decoration in the line itself.
-
-
-   .. py:method:: getFrequency()
-
-      Get the rate of occurance of the oscillation.
-
-
-   .. py:method:: setFrequency(freq)
-
-      Set the rate of occurance of the oscillation.
-
-
-   .. py:method:: getAmplitude()
-
-      Get the size of the oscillation.
-
-
-   .. py:method:: setAmplitude(amplitude)
-
-      Set the size of the oscillation.
-
-
-   .. py:method:: setExtraHalfCycles(extras)
-
-      Add some extra half cycles to the oscillation on top of those
-      determined from the frequency.
-
 
    .. py:method:: getDeformedPath()
 
@@ -342,7 +296,7 @@ Attributes
 
    
 
-.. py:class:: Graviton(point1, point2)
+.. py:class:: Graviton(point1, point2, amplitude=0.25, frequency=0.6, extras=0, invert=False, styles=[], arcthrupoint=None, is3D=False, arrows=[], labels=[], **kwargs)
 
    Bases: :py:obj:`DecoratedLine`
 
@@ -350,17 +304,7 @@ Attributes
 
    Constructor.
 
-   .. py:method:: set3D(is3D=True, skipsize=pyx.unit.length(0.04), parity=0)
-
-      Make this line display in '3D'.
-
-
-   .. py:method:: invert()
-
-      Reflect the decoration in the line itself.
-
-
-   .. py:method:: getDeformedPath(sign=1)
+   .. py:method:: getDeformedPath()
 
       Get the path with the decorative deformation.
 
@@ -371,7 +315,7 @@ Attributes
 
 
 
-.. py:class:: Gaugino(point1, point2)
+.. py:class:: Gaugino(point1, point2, amplitude=0.25, frequency=1.0, extras=0, invert=False, styles=[], arcthrupoint=None, is3D=False, arrows=[], labels=[], **kwargs)
 
    Bases: :py:obj:`DecoratedLine`
 
@@ -379,16 +323,6 @@ Attributes
 
    Constructor.
 
-   .. py:method:: set3D(is3D=True, skipsize=pyx.unit.length(0.04), parity=0)
-
-      Make the line look 3-dimensional by 'cutting' one line where self-intersections occur.
-
-
-   .. py:method:: invert()
-
-      Reflect the decoration in the line itself.
-
-
    .. py:method:: getDeformedPath()
 
       Get the path with the decorative deformation.
@@ -400,7 +334,7 @@ Attributes
 
 
 
-.. py:class:: Gluino(point1, point2)
+.. py:class:: Gluino(point1, point2, amplitude=0.25, frequency=1.2, extras=0, invert=False, styles=[], arcthrupoint=None, is3D=False, arrows=[], labels=[], **kwargs)
 
    Bases: :py:obj:`DecoratedLine`
 
@@ -408,15 +342,24 @@ Attributes
 
    Constructor.
 
-   .. py:method:: set3D(is3D=True, skipsize=pyx.unit.length(0.04), parity=0)
+   .. py:method:: getDeformedPath()
 
-      Make this line display in '3D'.
+      Get the path with the decorative deformation.
 
 
-   .. py:method:: invert()
+   .. py:method:: draw(canvas)
 
-      Reflect the decoration in the line itself.
+      Draw the line on the supplied canvas.
 
+
+
+.. py:class:: Gravitino(point1, point2, amplitude=0.25, frequency=0.6, extras=0, invert=False, styles=[], arcthrupoint=None, is3D=False, arrows=[], labels=[], **kwargs)
+
+   Bases: :py:obj:`DecoratedLine`
+
+   A line with a double sinoid deformation and a simple line
+
+   Constructor.
 
    .. py:method:: getDeformedPath()
 
@@ -429,36 +372,7 @@ Attributes
 
 
 
-.. py:class:: Gravitino(point1, point2)
-
-   Bases: :py:obj:`DecoratedLine`
-
-   A line with a double sinoid deformation and a simple line
-
-   Constructor.
-
-   .. py:method:: set3D(is3D=True, skipsize=pyx.unit.length(0.04), parity=0)
-
-      Make this line display in '3D'.
-
-
-   .. py:method:: invert()
-
-      Reflect the decoration in the line itself.
-
-
-   .. py:method:: getDeformedPath(sign=1)
-
-      Get the path with the decorative deformation.
-
-
-   .. py:method:: draw(canvas)
-
-      Draw the line on the supplied canvas.
-
-
-
-.. py:class:: Phantom(point1, point2)
+.. py:class:: Phantom(point1, point2, amplitude=0.25, frequency=1.0, extras=0, invert=False, styles=[], arcthrupoint=None, is3D=False, arrows=[], labels=[], **kwargs)
 
    Bases: :py:obj:`DecoratedLine`
 
