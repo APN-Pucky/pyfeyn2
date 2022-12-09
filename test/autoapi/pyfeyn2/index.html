@@ -77,7 +77,7 @@
             
             
               <div class="version">
-                2.0.3-16-g63eea4a
+                2.0.4-5-g68a7cb4
               </div>
             
           
@@ -137,6 +137,11 @@
 <li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="feynmandiagram/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfeyn2.feynmandiagram</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="particles/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfeyn2.particles</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#package-contents">Package Contents</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#classes">Classes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#attributes">Attributes</a></li>
 </ul>
 </li>
 </ul>
@@ -279,6 +284,297 @@
 <li class="toctree-l1"><a class="reference internal" href="particles/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfeyn2.particles</span></code></a></li>
 </ul>
 </div>
+</section>
+<section id="package-contents">
+<h2>Package Contents<a class="headerlink" href="#package-contents" title="Permalink to this heading">¶</a></h2>
+<section id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this heading">¶</a></h3>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.ASCIIRender" title="pyfeyn2.ASCIIRender"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ASCIIRender</span></code></a></p></td>
+<td><p>Renders Feynman diagrams to ASCII art.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.DotRender" title="pyfeyn2.DotRender"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DotRender</span></code></a></p></td>
+<td><p>A class that contains a full LaTeX document.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.FeynmpRender" title="pyfeyn2.FeynmpRender"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FeynmpRender</span></code></a></p></td>
+<td><p>A class that contains a full LaTeX document.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.MPLRender" title="pyfeyn2.MPLRender"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MPLRender</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.PyxRender" title="pyfeyn2.PyxRender"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PyxRender</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.TikzFeynmanRender" title="pyfeyn2.TikzFeynmanRender"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TikzFeynmanRender</span></code></a></p></td>
+<td><p>A class that contains a full LaTeX document.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="attributes">
+<h3>Attributes<a class="headerlink" href="#attributes" title="Permalink to this heading">¶</a></h3>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.renders" title="pyfeyn2.renders"><code class="xref py py-obj docutils literal notranslate"><span class="pre">renders</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.styles" title="pyfeyn2.styles"><code class="xref py py-obj docutils literal notranslate"><span class="pre">styles</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.types" title="pyfeyn2.types"><code class="xref py py-obj docutils literal notranslate"><span class="pre">types</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.attributes" title="pyfeyn2.attributes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">attributes</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyfeyn2.ASCIIRender">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyfeyn2.</span></span><span class="sig-name descname"><span class="pre">ASCIIRender</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyfeyn2/render/ascii.html#ASCIIRender"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.ASCIIRender" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="render/render/index.html#pyfeyn2.render.render.Render" title="pyfeyn2.render.render.Render"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyfeyn2.render.render.Render</span></code></a></p>
+<p>Renders Feynman diagrams to ASCII art.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.ASCIIRender.render">
+<span class="sig-name descname"><span class="pre">render</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resolution</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.ASCIIRender.render" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.ASCIIRender.valid_attribute">
+<span class="sig-name descname"><span class="pre">valid_attribute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#pyfeyn2.ASCIIRender.valid_attribute" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.ASCIIRender.valid_type">
+<span class="sig-name descname"><span class="pre">valid_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">typ</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#pyfeyn2.ASCIIRender.valid_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyfeyn2.DotRender">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyfeyn2.</span></span><span class="sig-name descname"><span class="pre">DotRender</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">documentclass</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'standalone'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">document_options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['preview',</span> <span class="pre">'crop',</span> <span class="pre">'tikz']</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyfeyn2/render/dot.html#DotRender"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.DotRender" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="render/latex/index.html#pyfeyn2.render.latex.LatexRender" title="pyfeyn2.render.latex.LatexRender"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyfeyn2.render.latex.LatexRender</span></code></a></p>
+<p>A class that contains a full LaTeX document.</p>
+<p>If needed, you can append stuff to the preamble or the packages.
+For instance, if you need to use <code class="docutils literal notranslate"><span class="pre">\maketitle</span></code> you can add the title,
+author and date commands to the preamble to make it work.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>default_filepath</strong> (<em>str</em>) – The default path to save files.</p></li>
+<li><p><strong>documentclass</strong> (str or <cite>~.Command</cite>) – The LaTeX class of the document.</p></li>
+<li><p><strong>document_options</strong> (str or <cite>list</cite>) – The options to supply to the documentclass</p></li>
+<li><p><strong>fontenc</strong> (<em>str</em>) – The option for the fontenc package. If it is <cite>None</cite>, the fontenc
+package will not be loaded at all.</p></li>
+<li><p><strong>inputenc</strong> (<em>str</em>) – The option for the inputenc package. If it is <cite>None</cite>, the inputenc
+package will not be loaded at all.</p></li>
+<li><p><strong>font_size</strong> (<em>str</em>) – The font size to declare as normalsize</p></li>
+<li><p><strong>lmodern</strong> (<em>bool</em>) – Use the Latin Modern font. This is a font that contains more glyphs
+than the standard LaTeX font.</p></li>
+<li><p><strong>textcomp</strong> (<em>bool</em>) – Adds even more glyphs, for instance the Euro (€) sign.</p></li>
+<li><p><strong>page_numbers</strong> (<em>bool</em>) – Adds the ability to add the last page to the document.</p></li>
+<li><p><strong>indent</strong> (<em>bool</em>) – Determines whether or not the document requires indentation. If it
+is <cite>None</cite> it will use the value from the active config. Which is
+<cite>True</cite> by default.</p></li>
+<li><p><strong>geometry_options</strong> (<em>dict</em>) – The options to supply to the geometry package</p></li>
+<li><p><strong>data</strong> (<em>list</em>) – Initial content of the document.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.DotRender.set_feynman_diagram">
+<span class="sig-name descname"><span class="pre">set_feynman_diagram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fd</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.DotRender.set_feynman_diagram" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.DotRender.get_src_dot">
+<span class="sig-name descname"><span class="pre">get_src_dot</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.DotRender.get_src_dot" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.DotRender.valid_attribute">
+<span class="sig-name descname"><span class="pre">valid_attribute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#pyfeyn2.DotRender.valid_attribute" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.DotRender.valid_type">
+<span class="sig-name descname"><span class="pre">valid_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">typ</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.DotRender.valid_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyfeyn2.FeynmpRender">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyfeyn2.</span></span><span class="sig-name descname"><span class="pre">FeynmpRender</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">documentclass</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'standalone'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">document_options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['preview',</span> <span class="pre">'crop']</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyfeyn2/render/feynmp.html#FeynmpRender"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.FeynmpRender" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="render/metapost/index.html#pyfeyn2.render.metapost.MetaPostRender" title="pyfeyn2.render.metapost.MetaPostRender"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyfeyn2.render.metapost.MetaPostRender</span></code></a></p>
+<p>A class that contains a full LaTeX document.</p>
+<p>If needed, you can append stuff to the preamble or the packages.
+For instance, if you need to use <code class="docutils literal notranslate"><span class="pre">\maketitle</span></code> you can add the title,
+author and date commands to the preamble to make it work.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>default_filepath</strong> (<em>str</em>) – The default path to save files.</p></li>
+<li><p><strong>documentclass</strong> (str or <cite>~.Command</cite>) – The LaTeX class of the document.</p></li>
+<li><p><strong>document_options</strong> (str or <cite>list</cite>) – The options to supply to the documentclass</p></li>
+<li><p><strong>fontenc</strong> (<em>str</em>) – The option for the fontenc package. If it is <cite>None</cite>, the fontenc
+package will not be loaded at all.</p></li>
+<li><p><strong>inputenc</strong> (<em>str</em>) – The option for the inputenc package. If it is <cite>None</cite>, the inputenc
+package will not be loaded at all.</p></li>
+<li><p><strong>font_size</strong> (<em>str</em>) – The font size to declare as normalsize</p></li>
+<li><p><strong>lmodern</strong> (<em>bool</em>) – Use the Latin Modern font. This is a font that contains more glyphs
+than the standard LaTeX font.</p></li>
+<li><p><strong>textcomp</strong> (<em>bool</em>) – Adds even more glyphs, for instance the Euro (€) sign.</p></li>
+<li><p><strong>page_numbers</strong> (<em>bool</em>) – Adds the ability to add the last page to the document.</p></li>
+<li><p><strong>indent</strong> (<em>bool</em>) – Determines whether or not the document requires indentation. If it
+is <cite>None</cite> it will use the value from the active config. Which is
+<cite>True</cite> by default.</p></li>
+<li><p><strong>geometry_options</strong> (<em>dict</em>) – The options to supply to the geometry package</p></li>
+<li><p><strong>data</strong> (<em>list</em>) – Initial content of the document.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.FeynmpRender.set_feynman_diagram">
+<span class="sig-name descname"><span class="pre">set_feynman_diagram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fd</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.FeynmpRender.set_feynman_diagram" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.FeynmpRender.valid_attribute">
+<span class="sig-name descname"><span class="pre">valid_attribute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#pyfeyn2.FeynmpRender.valid_attribute" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.FeynmpRender.valid_type">
+<span class="sig-name descname"><span class="pre">valid_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">typ</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.FeynmpRender.valid_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyfeyn2.MPLRender">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyfeyn2.</span></span><span class="sig-name descname"><span class="pre">MPLRender</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyfeyn2/render/mpl.html#MPLRender"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.MPLRender" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="render/render/index.html#pyfeyn2.render.render.Render" title="pyfeyn2.render.render.Render"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyfeyn2.render.render.Render</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.MPLRender.render">
+<span class="sig-name descname"><span class="pre">render</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resolution</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.MPLRender.render" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.MPLRender.valid_attribute">
+<span class="sig-name descname"><span class="pre">valid_attribute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#pyfeyn2.MPLRender.valid_attribute" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.MPLRender.valid_type">
+<span class="sig-name descname"><span class="pre">valid_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">typ</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#pyfeyn2.MPLRender.valid_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyfeyn2.PyxRender">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyfeyn2.</span></span><span class="sig-name descname"><span class="pre">PyxRender</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyfeyn2/render/pyx/pyxrender.html#PyxRender"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.PyxRender" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="render/render/index.html#pyfeyn2.render.render.Render" title="pyfeyn2.render.render.Render"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyfeyn2.render.render.Render</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.PyxRender.render">
+<span class="sig-name descname"><span class="pre">render</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resolution</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.PyxRender.render" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.PyxRender.apply_layout">
+<span class="sig-name descname"><span class="pre">apply_layout</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stylestring</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obj</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.PyxRender.apply_layout" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply the decorators encoded in a style string to an object.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.PyxRender.valid_type">
+<span class="sig-name descname"><span class="pre">valid_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">typ</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.PyxRender.valid_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.PyxRender.valid_attribute">
+<span class="sig-name descname"><span class="pre">valid_attribute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#pyfeyn2.PyxRender.valid_attribute" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.PyxRender.valid_style">
+<span class="sig-name descname"><span class="pre">valid_style</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#pyfeyn2.PyxRender.valid_style" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyfeyn2.TikzFeynmanRender">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyfeyn2.</span></span><span class="sig-name descname"><span class="pre">TikzFeynmanRender</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">documentclass</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'standalone'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">document_options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['preview',</span> <span class="pre">'crop',</span> <span class="pre">'tikz']</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyfeyn2/render/tikzfeynman.html#TikzFeynmanRender"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.TikzFeynmanRender" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="render/latex/index.html#pyfeyn2.render.latex.LatexRender" title="pyfeyn2.render.latex.LatexRender"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyfeyn2.render.latex.LatexRender</span></code></a></p>
+<p>A class that contains a full LaTeX document.</p>
+<p>If needed, you can append stuff to the preamble or the packages.
+For instance, if you need to use <code class="docutils literal notranslate"><span class="pre">\maketitle</span></code> you can add the title,
+author and date commands to the preamble to make it work.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>default_filepath</strong> (<em>str</em>) – The default path to save files.</p></li>
+<li><p><strong>documentclass</strong> (str or <cite>~.Command</cite>) – The LaTeX class of the document.</p></li>
+<li><p><strong>document_options</strong> (str or <cite>list</cite>) – The options to supply to the documentclass</p></li>
+<li><p><strong>fontenc</strong> (<em>str</em>) – The option for the fontenc package. If it is <cite>None</cite>, the fontenc
+package will not be loaded at all.</p></li>
+<li><p><strong>inputenc</strong> (<em>str</em>) – The option for the inputenc package. If it is <cite>None</cite>, the inputenc
+package will not be loaded at all.</p></li>
+<li><p><strong>font_size</strong> (<em>str</em>) – The font size to declare as normalsize</p></li>
+<li><p><strong>lmodern</strong> (<em>bool</em>) – Use the Latin Modern font. This is a font that contains more glyphs
+than the standard LaTeX font.</p></li>
+<li><p><strong>textcomp</strong> (<em>bool</em>) – Adds even more glyphs, for instance the Euro (€) sign.</p></li>
+<li><p><strong>page_numbers</strong> (<em>bool</em>) – Adds the ability to add the last page to the document.</p></li>
+<li><p><strong>indent</strong> (<em>bool</em>) – Determines whether or not the document requires indentation. If it
+is <cite>None</cite> it will use the value from the active config. Which is
+<cite>True</cite> by default.</p></li>
+<li><p><strong>geometry_options</strong> (<em>dict</em>) – The options to supply to the geometry package</p></li>
+<li><p><strong>data</strong> (<em>list</em>) – Initial content of the document.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.TikzFeynmanRender.set_feynman_diagram">
+<span class="sig-name descname"><span class="pre">set_feynman_diagram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fd</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.TikzFeynmanRender.set_feynman_diagram" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.TikzFeynmanRender.valid_attribute">
+<span class="sig-name descname"><span class="pre">valid_attribute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#pyfeyn2.TikzFeynmanRender.valid_attribute" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.TikzFeynmanRender.valid_type">
+<span class="sig-name descname"><span class="pre">valid_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">typ</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.TikzFeynmanRender.valid_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pyfeyn2.renders">
+<span class="sig-prename descclassname"><span class="pre">pyfeyn2.</span></span><span class="sig-name descname"><span class="pre">renders</span></span><a class="reference internal" href="../../_modules/pyfeyn2.html#renders"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.renders" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pyfeyn2.styles">
+<span class="sig-prename descclassname"><span class="pre">pyfeyn2.</span></span><span class="sig-name descname"><span class="pre">styles</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">['arrow-pos',</span> <span class="pre">'parallel-arrow-sense',</span> <span class="pre">'parallel-arrow-displace']</span></em><a class="reference internal" href="../../_modules/pyfeyn2.html#styles"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.styles" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pyfeyn2.types">
+<span class="sig-prename descclassname"><span class="pre">pyfeyn2.</span></span><span class="sig-name descname"><span class="pre">types</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">['fermion',</span> <span class="pre">'boson',</span> <span class="pre">'vector',</span> <span class="pre">'scalar',</span> <span class="pre">'photon',</span> <span class="pre">'higgs',</span> <span class="pre">'gluon',</span> <span class="pre">'ghost',</span> <span class="pre">'graviton',...</span></em><a class="reference internal" href="../../_modules/pyfeyn2.html#types"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.types" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pyfeyn2.attributes">
+<span class="sig-prename descclassname"><span class="pre">pyfeyn2.</span></span><span class="sig-name descname"><span class="pre">attributes</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">['x',</span> <span class="pre">'y',</span> <span class="pre">'bend',</span> <span class="pre">'label',</span> <span class="pre">'pdgid',</span> <span class="pre">'sense',</span> <span class="pre">'target',</span> <span class="pre">'source',</span> <span class="pre">'style',</span> <span class="pre">'id',</span> <span class="pre">'type']</span></em><a class="reference internal" href="../../_modules/pyfeyn2.html#attributes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.attributes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</section>
 </section>
 </section>
 

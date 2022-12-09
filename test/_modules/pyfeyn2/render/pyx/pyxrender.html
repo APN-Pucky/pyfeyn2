@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                2.0.3-16-g63eea4a
+                2.0.4-5-g68a7cb4
               </div>
             
           
@@ -176,6 +176,8 @@
         
           <li><a href="../../../index.html">Module code</a> &raquo;</li>
         
+          <li><a href="../../../pyfeyn2.html">pyfeyn2</a> &raquo;</li>
+        
       <li>pyfeyn2.render.pyx.pyxrender</li>
     
     
@@ -212,11 +214,11 @@ from pyfeyn2.render.pyx.points import (
 from pyfeyn2.render.render import Render
 
 
-<div class="viewcode-block" id="PyxRender"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/pyxrender/index.html#pyfeyn2.render.pyx.pyxrender.PyxRender">[docs]</a>class PyxRender(Render):
+<div class="viewcode-block" id="PyxRender"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/pyxrender/index.html#pyfeyn2.PyxRender">[docs]</a>class PyxRender(Render):
     def __init__(self, fd=None, *args, **kwargs):
         super().__init__(fd, *args, **kwargs)
 
-<div class="viewcode-block" id="PyxRender.render"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/pyxrender/index.html#pyfeyn2.render.pyx.pyxrender.PyxRender.render">[docs]</a>    def render(self, file=None, show=True, resolution=100, width=None, height=None):
+<div class="viewcode-block" id="PyxRender.render"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/pyxrender/index.html#pyfeyn2.PyxRender.render">[docs]</a>    def render(self, file=None, show=True, resolution=100, width=None, height=None):
         pyxfd = FeynDiagram()
         for v in self.fd.vertices:
             dp = DecoratedPoint(v.x, v.y)
@@ -247,7 +249,7 @@ from pyfeyn2.render.render import Render
             display(wi)
         return wi</div>
 
-<div class="viewcode-block" id="PyxRender.apply_layout"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/pyxrender/index.html#pyfeyn2.render.pyx.pyxrender.PyxRender.apply_layout">[docs]</a>    def apply_layout(self, stylestring, obj):
+<div class="viewcode-block" id="PyxRender.apply_layout"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/pyxrender/index.html#pyfeyn2.PyxRender.apply_layout">[docs]</a>    def apply_layout(self, stylestring, obj):
         &quot;&quot;&quot;Apply the decorators encoded in a style string to an object.&quot;&quot;&quot;
         if stylestring is None:
             return obj
@@ -358,20 +360,22 @@ from pyfeyn2.render.render import Render
                 obj.set3D(True)
         return obj</div>
 
-<div class="viewcode-block" id="PyxRender.valid_type"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/pyxrender/index.html#pyfeyn2.render.pyx.pyxrender.PyxRender.valid_type">[docs]</a>    def valid_type(self, typ: str):
+<div class="viewcode-block" id="PyxRender.valid_type"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/pyxrender/index.html#pyfeyn2.PyxRender.valid_type">[docs]</a>    def valid_type(self, typ: str):
         if typ.lower() in NamedLine:
             return True
         return False</div>
 
-<div class="viewcode-block" id="PyxRender.valid_attribute"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/pyxrender/index.html#pyfeyn2.render.pyx.pyxrender.PyxRender.valid_attribute">[docs]</a>    def valid_attribute(self, attr: str) -&gt; bool:
+<div class="viewcode-block" id="PyxRender.valid_attribute"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/pyxrender/index.html#pyfeyn2.PyxRender.valid_attribute">[docs]</a>    def valid_attribute(self, attr: str) -&gt; bool:
         return super().valid_attribute(attr) or attr.lower() in [
             &quot;style&quot;,
             &quot;type&quot;,
             &quot;bend&quot;,
             &quot;label&quot;,
+            &quot;x&quot;,
+            &quot;y&quot;,
         ]</div>
 
-<div class="viewcode-block" id="PyxRender.valid_style"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/pyxrender/index.html#pyfeyn2.render.pyx.pyxrender.PyxRender.valid_style">[docs]</a>    def valid_style(self, attr: str) -&gt; bool:
+<div class="viewcode-block" id="PyxRender.valid_style"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/pyxrender/index.html#pyfeyn2.PyxRender.valid_style">[docs]</a>    def valid_style(self, attr: str) -&gt; bool:
         return super().valid_style(attr) or attr.lower() in [
             &quot;arrow-pos&quot;,
             &quot;parallel-arrow-sense&quot;,

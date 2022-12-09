@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                2.0.3-16-g63eea4a
+                2.0.4-5-g68a7cb4
               </div>
             
           
@@ -176,6 +176,8 @@
         
           <li><a href="../../index.html">Module code</a> &raquo;</li>
         
+          <li><a href="../../pyfeyn2.html">pyfeyn2</a> &raquo;</li>
+        
       <li>pyfeyn2.render.dot</li>
     
     
@@ -202,7 +204,7 @@ from pyfeyn2.render.latex import LatexRender
 from pyfeyn2.render.render import Render
 
 # https://tikz.dev/tikz-decorations
-<div class="viewcode-block" id="map_feyn_to_tikz"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/dot/index.html#pyfeyn2.render.dot.map_feyn_to_tikz">[docs]</a>map_feyn_to_tikz = {
+<div class="viewcode-block" id="map_feyn_to_tikz"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/dot/index.html#pyfeyn2.map_feyn_to_tikz">[docs]</a>map_feyn_to_tikz = {
     &quot;vector&quot;: &quot;decorate,decoration=snake&quot;,
     &quot;boson&quot;: &quot;decorate,decoration=snake&quot;,
     &quot;photon&quot;: &quot;decorate,decoration=snake&quot;,
@@ -216,7 +218,7 @@ from pyfeyn2.render.render import Render
 }</div>
 
 
-<div class="viewcode-block" id="feynman_adjust_points"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/dot/index.html#pyfeyn2.render.dot.feynman_adjust_points">[docs]</a>def feynman_adjust_points(feyndiag, size=5):
+<div class="viewcode-block" id="feynman_adjust_points"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/dot/index.html#pyfeyn2.feynman_adjust_points">[docs]</a>def feynman_adjust_points(feyndiag, size=5):
     # deepcopy
     fd = copy.deepcopy(feyndiag)
     norm = size
@@ -238,15 +240,15 @@ from pyfeyn2.render.render import Render
     return fd</div>
 
 
-<div class="viewcode-block" id="dot_to_positions"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/dot/index.html#pyfeyn2.render.dot.dot_to_positions">[docs]</a>def dot_to_positions(dot):
+<div class="viewcode-block" id="dot_to_positions"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/dot/index.html#pyfeyn2.dot_to_positions">[docs]</a>def dot_to_positions(dot):
     return dot2tex.dot2tex(dot, format=&quot;positions&quot;)</div>
 
 
-<div class="viewcode-block" id="dot_to_tikz"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/dot/index.html#pyfeyn2.render.dot.dot_to_tikz">[docs]</a>def dot_to_tikz(dot):
+<div class="viewcode-block" id="dot_to_tikz"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/dot/index.html#pyfeyn2.dot_to_tikz">[docs]</a>def dot_to_tikz(dot):
     return dot2tex.dot2tex(dot, format=&quot;tikz&quot;, figonly=True)</div>
 
 
-<div class="viewcode-block" id="feynman_to_dot"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/dot/index.html#pyfeyn2.render.dot.feynman_to_dot">[docs]</a>def feynman_to_dot(fd):
+<div class="viewcode-block" id="feynman_to_dot"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/dot/index.html#pyfeyn2.feynman_to_dot">[docs]</a>def feynman_to_dot(fd):
     # TODO better use pydot? still alive?
     # TODO style pick neato or dot or whatever
     src = &quot;graph G {\n&quot;
@@ -281,7 +283,7 @@ from pyfeyn2.render.render import Render
     return src</div>
 
 
-<div class="viewcode-block" id="DotRender"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/dot/index.html#pyfeyn2.render.dot.DotRender">[docs]</a>class DotRender(LatexRender):
+<div class="viewcode-block" id="DotRender"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/dot/index.html#pyfeyn2.DotRender">[docs]</a>class DotRender(LatexRender):
     def __init__(
         self,
         fd=None,
@@ -306,18 +308,18 @@ from pyfeyn2.render.render import Render
         if fd is not None:
             self.set_feynman_diagram(fd)
 
-<div class="viewcode-block" id="DotRender.set_feynman_diagram"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/dot/index.html#pyfeyn2.render.dot.DotRender.set_feynman_diagram">[docs]</a>    def set_feynman_diagram(self, fd):
+<div class="viewcode-block" id="DotRender.set_feynman_diagram"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/dot/index.html#pyfeyn2.DotRender.set_feynman_diagram">[docs]</a>    def set_feynman_diagram(self, fd):
         super().set_feynman_diagram(fd)
         self.src_dot = feynman_to_dot(fd)
         self.set_src_diag(dot_to_tikz(self.src_dot))</div>
 
-<div class="viewcode-block" id="DotRender.get_src_dot"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/dot/index.html#pyfeyn2.render.dot.DotRender.get_src_dot">[docs]</a>    def get_src_dot(self):
+<div class="viewcode-block" id="DotRender.get_src_dot"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/dot/index.html#pyfeyn2.DotRender.get_src_dot">[docs]</a>    def get_src_dot(self):
         return self.src_dot</div>
 
-<div class="viewcode-block" id="DotRender.valid_attribute"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/dot/index.html#pyfeyn2.render.dot.DotRender.valid_attribute">[docs]</a>    def valid_attribute(self, attr: str) -&gt; bool:
+<div class="viewcode-block" id="DotRender.valid_attribute"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/dot/index.html#pyfeyn2.DotRender.valid_attribute">[docs]</a>    def valid_attribute(self, attr: str) -&gt; bool:
         return super().valid_attribute(attr) or attr in [&quot;x&quot;, &quot;y&quot;]</div>
 
-<div class="viewcode-block" id="DotRender.valid_type"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/dot/index.html#pyfeyn2.render.dot.DotRender.valid_type">[docs]</a>    def valid_type(self, typ):
+<div class="viewcode-block" id="DotRender.valid_type"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/dot/index.html#pyfeyn2.DotRender.valid_type">[docs]</a>    def valid_type(self, typ):
         if typ.lower() in map_feyn_to_tikz:
             return True
         return False</div></div>

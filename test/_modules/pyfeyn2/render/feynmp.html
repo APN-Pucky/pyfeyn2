@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                2.0.3-16-g63eea4a
+                2.0.4-5-g68a7cb4
               </div>
             
           
@@ -176,6 +176,8 @@
         
           <li><a href="../../index.html">Module code</a> &raquo;</li>
         
+          <li><a href="../../pyfeyn2.html">pyfeyn2</a> &raquo;</li>
+        
       <li>pyfeyn2.render.feynmp</li>
     
     
@@ -204,7 +206,7 @@ from pyfeyn2.render.render import Render
 
 # converte FeynmanDiagram to tikz-feynman
 
-<div class="viewcode-block" id="type_map"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/feynmp/index.html#pyfeyn2.render.feynmp.type_map">[docs]</a>type_map = {
+<div class="viewcode-block" id="type_map"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/feynmp/index.html#pyfeyn2.type_map">[docs]</a>type_map = {
     &quot;gluon&quot;: [&quot;gluon&quot;],
     &quot;curly&quot;: [&quot;curly&quot;],
     &quot;dbl_curly&quot;: [&quot;dbl_curly&quot;],
@@ -245,7 +247,7 @@ from pyfeyn2.render.render import Render
 }</div>
 
 
-<div class="viewcode-block" id="feynman_to_feynmp"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/feynmp/index.html#pyfeyn2.render.feynmp.feynman_to_feynmp">[docs]</a>def feynman_to_feynmp(fd):
+<div class="viewcode-block" id="feynman_to_feynmp"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/feynmp/index.html#pyfeyn2.feynman_to_feynmp">[docs]</a>def feynman_to_feynmp(fd):
     letters = &quot;abcdefghijklmnopqrstuvwxyz&quot;
     result_str = &quot;&quot;.join(random.choice(letters) for i in range(10))
     src = &quot;\\begin{fmffile}{tmp-&quot; + result_str + &quot;}\n&quot;
@@ -293,7 +295,7 @@ from pyfeyn2.render.render import Render
     return src</div>
 
 
-<div class="viewcode-block" id="FeynmpRender"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/feynmp/index.html#pyfeyn2.render.feynmp.FeynmpRender">[docs]</a>class FeynmpRender(MetaPostRender):
+<div class="viewcode-block" id="FeynmpRender"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/feynmp/index.html#pyfeyn2.FeynmpRender">[docs]</a>class FeynmpRender(MetaPostRender):
     def __init__(
         self,
         fd=None,
@@ -313,14 +315,14 @@ from pyfeyn2.render.render import Render
         if fd is not None:
             self.set_feynman_diagram(fd)
 
-<div class="viewcode-block" id="FeynmpRender.set_feynman_diagram"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/feynmp/index.html#pyfeyn2.render.feynmp.FeynmpRender.set_feynman_diagram">[docs]</a>    def set_feynman_diagram(self, fd):
+<div class="viewcode-block" id="FeynmpRender.set_feynman_diagram"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/feynmp/index.html#pyfeyn2.FeynmpRender.set_feynman_diagram">[docs]</a>    def set_feynman_diagram(self, fd):
         super().set_feynman_diagram(fd)
         self.set_src_diag(NoEscape(feynman_to_feynmp(fd)))</div>
 
-<div class="viewcode-block" id="FeynmpRender.valid_attribute"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/feynmp/index.html#pyfeyn2.render.feynmp.FeynmpRender.valid_attribute">[docs]</a>    def valid_attribute(self, attr: str) -&gt; bool:
+<div class="viewcode-block" id="FeynmpRender.valid_attribute"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/feynmp/index.html#pyfeyn2.FeynmpRender.valid_attribute">[docs]</a>    def valid_attribute(self, attr: str) -&gt; bool:
         return super().valid_attribute(attr) or attr in []</div>
 
-<div class="viewcode-block" id="FeynmpRender.valid_type"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/feynmp/index.html#pyfeyn2.render.feynmp.FeynmpRender.valid_type">[docs]</a>    def valid_type(self, typ):
+<div class="viewcode-block" id="FeynmpRender.valid_type"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/feynmp/index.html#pyfeyn2.FeynmpRender.valid_type">[docs]</a>    def valid_type(self, typ):
         if typ.lower() in type_map:
             return True
         return False</div></div>

@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                2.0.3-16-g63eea4a
+                2.0.4-5-g68a7cb4
               </div>
             
           
@@ -176,6 +176,8 @@
         
           <li><a href="../../index.html">Module code</a> &raquo;</li>
         
+          <li><a href="../../pyfeyn2.html">pyfeyn2</a> &raquo;</li>
+        
       <li>pyfeyn2.render.tikzfeynman</li>
     
     
@@ -200,7 +202,7 @@ from pyfeyn2.render.render import Render
 
 # converte FeynmanDiagram to tikz-feynman
 
-<div class="viewcode-block" id="type_map"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/tikzfeynman/index.html#pyfeyn2.render.tikzfeynman.type_map">[docs]</a>type_map = {
+<div class="viewcode-block" id="type_map"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/tikzfeynman/index.html#pyfeyn2.type_map">[docs]</a>type_map = {
     &quot;gluon&quot;: &quot;gluon&quot;,
     &quot;ghost&quot;: &quot;ghost&quot;,
     &quot;photon&quot;: &quot;boson&quot;,
@@ -226,7 +228,7 @@ from pyfeyn2.render.render import Render
 }</div>
 
 
-<div class="viewcode-block" id="feynman_to_tikz_feynman"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/tikzfeynman/index.html#pyfeyn2.render.tikzfeynman.feynman_to_tikz_feynman">[docs]</a>def feynman_to_tikz_feynman(fd):
+<div class="viewcode-block" id="feynman_to_tikz_feynman"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/tikzfeynman/index.html#pyfeyn2.feynman_to_tikz_feynman">[docs]</a>def feynman_to_tikz_feynman(fd):
     src = &quot;\\begin{tikzpicture}\n&quot;
     src += &quot;\\begin{feynman}\n&quot;
     for v in fd.vertices:
@@ -251,7 +253,7 @@ from pyfeyn2.render.render import Render
     return src</div>
 
 
-<div class="viewcode-block" id="TikzFeynmanRender"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/tikzfeynman/index.html#pyfeyn2.render.tikzfeynman.TikzFeynmanRender">[docs]</a>class TikzFeynmanRender(LatexRender):
+<div class="viewcode-block" id="TikzFeynmanRender"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/tikzfeynman/index.html#pyfeyn2.TikzFeynmanRender">[docs]</a>class TikzFeynmanRender(LatexRender):
     def __init__(
         self,
         fd=None,
@@ -274,14 +276,14 @@ from pyfeyn2.render.render import Render
         if fd is not None:
             self.set_feynman_diagram(fd)
 
-<div class="viewcode-block" id="TikzFeynmanRender.set_feynman_diagram"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/tikzfeynman/index.html#pyfeyn2.render.tikzfeynman.TikzFeynmanRender.set_feynman_diagram">[docs]</a>    def set_feynman_diagram(self, fd):
+<div class="viewcode-block" id="TikzFeynmanRender.set_feynman_diagram"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/tikzfeynman/index.html#pyfeyn2.TikzFeynmanRender.set_feynman_diagram">[docs]</a>    def set_feynman_diagram(self, fd):
         super().set_feynman_diagram(fd)
         self.set_src_diag(NoEscape(feynman_to_tikz_feynman(fd)))</div>
 
-<div class="viewcode-block" id="TikzFeynmanRender.valid_attribute"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/tikzfeynman/index.html#pyfeyn2.render.tikzfeynman.TikzFeynmanRender.valid_attribute">[docs]</a>    def valid_attribute(self, attr: str) -&gt; bool:
+<div class="viewcode-block" id="TikzFeynmanRender.valid_attribute"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/tikzfeynman/index.html#pyfeyn2.TikzFeynmanRender.valid_attribute">[docs]</a>    def valid_attribute(self, attr: str) -&gt; bool:
         return super().valid_attribute(attr) or attr in [&quot;x&quot;, &quot;y&quot;, &quot;label&quot;]</div>
 
-<div class="viewcode-block" id="TikzFeynmanRender.valid_type"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/tikzfeynman/index.html#pyfeyn2.render.tikzfeynman.TikzFeynmanRender.valid_type">[docs]</a>    def valid_type(self, typ):
+<div class="viewcode-block" id="TikzFeynmanRender.valid_type"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/tikzfeynman/index.html#pyfeyn2.TikzFeynmanRender.valid_type">[docs]</a>    def valid_type(self, typ):
         if typ.lower() in type_map:
             return True
         return False</div></div>

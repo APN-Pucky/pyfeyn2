@@ -17,7 +17,7 @@ Classes
 
 
 
-.. py:class:: Render(fd)
+.. py:class:: Render(fd=None)
 
    .. py:method:: get_src()
 

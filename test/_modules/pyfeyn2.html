@@ -4,11 +4,10 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Leg &mdash; pyfeyn2  documentation</title>
+  <title>pyfeyn2 &mdash; pyfeyn2  documentation</title>
   
 
   
@@ -51,9 +50,7 @@
 
     
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Vertex" href="vertex.html" />
-    <link rel="prev" title="FeynML" href="index.html" /> 
+    <link rel="search" title="Search" href="../search.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -112,18 +109,8 @@
 <li class="toctree-l1"><a class="reference external" href="https://github.com/APN-Pucky/pyfeyn2">GitHub</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">FeynML:</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">FeynML</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="index.html#why-xml">Why XML?</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="index.html#elements">Elements</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Leg</a></li>
-<li class="toctree-l3"><a class="reference internal" href="vertex.html">Vertex</a></li>
-<li class="toctree-l3"><a class="reference internal" href="propagator.html">Propagator</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#attributes">Attributes</a></li>
-</ul>
-</li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../feynml/index.html">FeynML</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Examples:</span></p>
 <ul>
@@ -187,16 +174,12 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-          <li><a href="index.html">FeynML</a> &raquo;</li>
+          <li><a href="index.html">Module code</a> &raquo;</li>
         
-      <li>Leg</li>
+      <li>pyfeyn2</li>
     
     
       <li class="wy-breadcrumbs-aside">
-        
-          
-            <a href="../_sources/feynml/leg.rst.txt" rel="nofollow"> View page source</a>
-          
         
       </li>
     
@@ -208,44 +191,65 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
+  <h1>Source code for pyfeyn2</h1><div class="highlight"><pre>
+<span></span>from pyfeyn2.render.ascii import ASCIIRender
+from pyfeyn2.render.dot import DotRender
+from pyfeyn2.render.feynmp import FeynmpRender
+from pyfeyn2.render.mpl import MPLRender
+from pyfeyn2.render.pyx.pyxrender import PyxRender
+from pyfeyn2.render.tikzfeynman import TikzFeynmanRender
 
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<section id="leg">
-<span id="id1"></span><h1>Leg<a class="headerlink" href="#leg" title="Permalink to this heading">¶</a></h1>
-<p>Required attributes: <a class="reference internal" href="attributes/id.html#id"><span class="std std-ref">ID</span></a>, <a class="reference internal" href="attributes/target.html#target"><span class="std std-ref">Target</span></a></p>
-</section>
-
+<div class="viewcode-block" id="renders"><a class="viewcode-back" href="../autoapi/pyfeyn2/index.html#pyfeyn2.renders">[docs]</a>renders = {
+    &quot;pyx&quot;: PyxRender,
+    &quot;dot&quot;: DotRender,
+    &quot;ascii&quot;: ASCIIRender,
+    &quot;mpl&quot;: MPLRender,
+    &quot;feynmp&quot;: FeynmpRender,
+    &quot;tikzfeynman&quot;: TikzFeynmanRender,
+}</div>
+<div class="viewcode-block" id="styles"><a class="viewcode-back" href="../autoapi/pyfeyn2/index.html#pyfeyn2.styles">[docs]</a>styles = [&quot;arrow-pos&quot;, &quot;parallel-arrow-sense&quot;, &quot;parallel-arrow-displace&quot;]</div>
+<div class="viewcode-block" id="types"><a class="viewcode-back" href="../autoapi/pyfeyn2/index.html#pyfeyn2.types">[docs]</a>types = [
+    # General
+    &quot;fermion&quot;,
+    &quot;boson&quot;,
+    &quot;vector&quot;,
+    &quot;scalar&quot;,
+    # SM
+    &quot;photon&quot;,
+    &quot;higgs&quot;,
+    &quot;gluon&quot;,
+    &quot;ghost&quot;,
+    # Grav
+    &quot;graviton&quot;,
+    # MSSM
+    &quot;gluino&quot;,
+    &quot;squark&quot;,
+    &quot;slepton&quot;,
+    &quot;gaugino&quot;,
+    &quot;neutralino&quot;,
+    &quot;chargino&quot;,
+    &quot;higgsino&quot;,
+    &quot;gravitino&quot;,
+]</div>
+<div class="viewcode-block" id="attributes"><a class="viewcode-back" href="../autoapi/pyfeyn2/index.html#pyfeyn2.attributes">[docs]</a>attributes = [
+    &quot;x&quot;,
+    &quot;y&quot;,
+    &quot;bend&quot;,
+    &quot;label&quot;,
+    &quot;pdgid&quot;,
+    &quot;sense&quot;,
+    &quot;target&quot;,
+    &quot;source&quot;,
+    &quot;style&quot;,
+    &quot;id&quot;,
+    &quot;type&quot;,
+]</div>
+</pre></div>
 
            </div>
            
           </div>
           <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="vertex.html" class="btn btn-neutral float-right" title="Vertex" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="index.html" class="btn btn-neutral float-left" title="FeynML" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-    </div>
 
   <hr/>
 

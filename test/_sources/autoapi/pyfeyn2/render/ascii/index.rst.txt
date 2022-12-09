@@ -91,7 +91,7 @@ Attributes
 
    
 
-.. py:class:: ASCIIRender(fd, *args, **kwargs)
+.. py:class:: ASCIIRender(fd=None, *args, **kwargs)
 
    Bases: :py:obj:`pyfeyn2.render.render.Render`
 
