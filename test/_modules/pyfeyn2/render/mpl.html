@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                2.0.3-13-g1dfcd3a
+                2.0.3-14-ga8e8479
               </div>
             
           
@@ -207,6 +207,15 @@ from pyfeyn2.render.render import Render
     plt.plot(x, y, &quot;k:&quot;)</div>
 
 
+<div class="viewcode-block" id="dashed"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/mpl/index.html#pyfeyn2.render.mpl.dashed">[docs]</a>def dashed(p1, p2, points=200):
+    n = np.linspace(0, points, points)
+    x, y = (
+        p1[0] + (p2[0] - p1[0]) * (n / points),
+        p1[1] + (p2[1] - p1[1]) * (n / points),
+    )
+    plt.plot(x, y, &quot;k--&quot;)</div>
+
+
 <div class="viewcode-block" id="line"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/mpl/index.html#pyfeyn2.render.mpl.line">[docs]</a>def line(p1, p2, points=200):
     n = np.linspace(0, points, points)
     x, y = (
@@ -291,8 +300,10 @@ from pyfeyn2.render.render import Render
     &quot;gluon&quot;: spring,
     &quot;photon&quot;: wave,
     &quot;boson&quot;: wave,
+    &quot;vector&quot;: wave,
     &quot;ghost&quot;: dotted,
     &quot;fermion&quot;: line,
+    &quot;higgs&quot;: dashed,
 }</div>
 
 

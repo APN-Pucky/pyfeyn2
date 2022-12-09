@@ -17,6 +17,9 @@ Classes
    pyfeyn2.render.ascii.Photon
    pyfeyn2.render.ascii.Ghost
    pyfeyn2.render.ascii.Fermion
+   pyfeyn2.render.ascii.Scalar
+   pyfeyn2.render.ascii.Ghost
+   pyfeyn2.render.ascii.Higgs
    pyfeyn2.render.ascii.ASCIIRender
 
 
@@ -52,6 +55,21 @@ Attributes
 
 
 .. py:class:: Fermion
+
+   Bases: :py:obj:`ASCIILine`
+
+
+.. py:class:: Scalar
+
+   Bases: :py:obj:`ASCIILine`
+
+
+.. py:class:: Ghost
+
+   Bases: :py:obj:`ASCIILine`
+
+
+.. py:class:: Higgs
 
    Bases: :py:obj:`ASCIILine`
 

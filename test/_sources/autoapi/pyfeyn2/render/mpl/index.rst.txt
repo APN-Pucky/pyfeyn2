@@ -22,6 +22,7 @@ Functions
 .. autoapisummary::
 
    pyfeyn2.render.mpl.dotted
+   pyfeyn2.render.mpl.dashed
    pyfeyn2.render.mpl.line
    pyfeyn2.render.mpl.spring
    pyfeyn2.render.mpl.wave
@@ -37,6 +38,9 @@ Attributes
 
 
 .. py:function:: dotted(p1, p2, points=200)
+
+
+.. py:function:: dashed(p1, p2, points=200)
 
 
 .. py:function:: line(p1, p2, points=200)

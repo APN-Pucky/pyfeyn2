@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                2.0.3-13-g1dfcd3a
+                2.0.3-14-ga8e8479
               </div>
             
           
@@ -283,9 +283,9 @@ from pyfeyn2.render.render import Render
         super().__init__(begin=&quot;*&quot;, end=&quot;*&quot;, vert=[&quot;(&quot;, &quot;)&quot;], horz=[&quot;~&quot;])</div>
 
 
-<div class="viewcode-block" id="Ghost"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/ascii/index.html#pyfeyn2.render.ascii.Ghost">[docs]</a>class Ghost(ASCIILine):
+class Ghost(ASCIILine):
     def __init__(self):
-        super().__init__(begin=&quot;*&quot;, end=&quot;*&quot;, vert=[&quot;.&quot;], horz=[&quot;.&quot;])</div>
+        super().__init__(begin=&quot;*&quot;, end=&quot;*&quot;, vert=[&quot;.&quot;], horz=[&quot;.&quot;])
 
 
 <div class="viewcode-block" id="Fermion"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/ascii/index.html#pyfeyn2.render.ascii.Fermion">[docs]</a>class Fermion(ASCIILine):
@@ -300,12 +300,50 @@ from pyfeyn2.render.render import Render
         )</div>
 
 
+<div class="viewcode-block" id="Scalar"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/ascii/index.html#pyfeyn2.render.ascii.Scalar">[docs]</a>class Scalar(ASCIILine):
+    def __init__(self):
+        super().__init__(
+            begin=&quot;*&quot;,
+            end=&quot;*&quot;,
+            left=&quot;..&lt;..&quot;,
+            right=&quot;..&gt;..&quot;,
+            up=&quot;::^::&quot;,
+            down=&quot;::v::&quot;,
+        )</div>
+
+
+<div class="viewcode-block" id="Ghost"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/ascii/index.html#pyfeyn2.render.ascii.Ghost">[docs]</a>class Ghost(ASCIILine):
+    def __init__(self):
+        super().__init__(
+            begin=&quot;*&quot;,
+            end=&quot;*&quot;,
+            vert=&quot;:&quot;,
+            horz=&quot;.&quot;,
+        )</div>
+
+
+<div class="viewcode-block" id="Higgs"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/ascii/index.html#pyfeyn2.render.ascii.Higgs">[docs]</a>class Higgs(ASCIILine):
+    def __init__(self):
+        super().__init__(
+            begin=&quot;*&quot;,
+            end=&quot;*&quot;,
+            vert=&quot;=&quot;,
+            horz=&quot;H&quot;,
+        )</div>
+
+
 <div class="viewcode-block" id="namedlines"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/ascii/index.html#pyfeyn2.render.ascii.namedlines">[docs]</a>namedlines = {
     &quot;gluon&quot;: Gluon,
     &quot;photon&quot;: Photon,
-    &quot;ghost&quot;: Ghost,
+    &quot;vector&quot;: Photon,
     &quot;boson&quot;: Photon,
+    &quot;ghost&quot;: Ghost,
     &quot;fermion&quot;: Fermion,
+    &quot;ghost&quot;: Ghost,
+    &quot;higgs&quot;: Higgs,
+    &quot;scalar&quot;: Scalar,
+    &quot;slepton&quot;: Scalar,
+    &quot;squark&quot;: Scalar,
 }</div>
 
 

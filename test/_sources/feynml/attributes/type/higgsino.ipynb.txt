@@ -10,8 +10,38 @@
   },
   {
    "cell_type": "code",
-   "execution_count": null,
+   "execution_count": 1,
    "id": "c0acd5dd",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Pyx:\n",
+      "Pyx failed: 'higgsino'\n",
+      "Tikz:\n",
+      "Tikz failed: 'higgsino'\n",
+      "Feynmp:\n",
+      "Feynmp failed: 'higgsino'\n",
+      "Dot:\n",
+      "Dot failed: 'higgsino'\n",
+      "ASCIIPDF:\n",
+      "ASCIIPDF failed: 'higgsino'\n",
+      "MPL:\n",
+      "MPL failed: 'higgsino'\n"
+     ]
+    }
+   ],
+   "source": [
+    "from pyfeyn2.render.all import AllRender\n",
+    "ar = AllRender().demo_propagator(\"higgsino\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "77d871ec",
    "metadata": {},
    "outputs": [],
    "source": []

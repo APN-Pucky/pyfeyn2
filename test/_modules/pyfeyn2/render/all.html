@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                2.0.3-13-g1dfcd3a
+                2.0.3-14-ga8e8479
               </div>
             
           
@@ -252,25 +252,48 @@ from pyfeyn2.render.tikzfeynman import TikzFeynmanRender
         else:
             dynarg = {&quot;show&quot;: False}
 
-        if not subfigure:
-            print(&quot;Pyx:&quot;)
-        PyxRender(fd).render(dirpath + &quot;/pyx.pdf&quot;, **dynarg)
-        if not subfigure:
-            print(&quot;Tikz:&quot;)
-        TikzFeynmanRender(fd).render(dirpath + &quot;/tikz.pdf&quot;, **dynarg)
-        if not subfigure:
-            print(&quot;Feynmp:&quot;)
-        FeynmpRender(fd).render(dirpath + &quot;/feynmp.pdf&quot;, **dynarg)
-        if not subfigure:
-            print(&quot;Dot:&quot;)
-        DotRender(fd).render(dirpath + &quot;/dot.pdf&quot;, **dynarg)
-        if not subfigure:
-            print(&quot;ASCIIPDF:&quot;)
-        ASCIIPDFRender(fd).render(dirpath + &quot;/asciipdf.pdf&quot;, **dynarg)
-        if not subfigure:
-            print(&quot;MPL:&quot;)
-        MPLRender(fd).render(dirpath + &quot;/mpl.pdf&quot;, **dynarg)
-        plt.close()
+        try:
+            if not subfigure:
+                print(&quot;Pyx:&quot;)
+            PyxRender(fd).render(dirpath + &quot;/pyx.pdf&quot;, **dynarg)
+        except Exception as e:
+            print(&quot;Pyx failed:&quot;, e)
+
+        try:
+            if not subfigure:
+                print(&quot;Tikz:&quot;)
+            TikzFeynmanRender(fd).render(dirpath + &quot;/tikz.pdf&quot;, **dynarg)
+        except Exception as e:
+            print(&quot;Tikz failed:&quot;, e)
+
+        try:
+            if not subfigure:
+                print(&quot;Feynmp:&quot;)
+            FeynmpRender(fd).render(dirpath + &quot;/feynmp.pdf&quot;, **dynarg)
+        except Exception as e:
+            print(&quot;Feynmp failed:&quot;, e)
+
+        try:
+            if not subfigure:
+                print(&quot;Dot:&quot;)
+            DotRender(fd).render(dirpath + &quot;/dot.pdf&quot;, **dynarg)
+        except Exception as e:
+            print(&quot;Dot failed:&quot;, e)
+
+        try:
+            if not subfigure:
+                print(&quot;ASCIIPDF:&quot;)
+            ASCIIPDFRender(fd).render(dirpath + &quot;/asciipdf.pdf&quot;, **dynarg)
+        except Exception as e:
+            print(&quot;ASCIIPDF failed:&quot;, e)
+
+        try:
+            if not subfigure:
+                print(&quot;MPL:&quot;)
+            MPLRender(fd).render(dirpath + &quot;/mpl.pdf&quot;, **dynarg)
+            plt.close()
+        except Exception as e:
+            print(&quot;MPL failed:&quot;, e)
 
         with self.create(Figure(position=&quot;h!&quot;)) as kittens:
 
