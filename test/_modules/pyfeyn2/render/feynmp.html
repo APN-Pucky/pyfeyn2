@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                2.0.4-6-gc7de3c7
+                2.0.4-7-g66d8272
               </div>
             
           
@@ -300,10 +300,12 @@ from pyfeyn2.render.render import Render
         self,
         fd=None,
         documentclass=&quot;standalone&quot;,
-        document_options=[&quot;preview&quot;, &quot;crop&quot;],
+        document_options=None,
         *args,
         **kwargs,
     ):
+        if document_options is None:
+            document_options = [&quot;preview&quot;, &quot;crop&quot;]
         super().__init__(
             *args,
             fd=fd,
@@ -322,7 +324,7 @@ from pyfeyn2.render.render import Render
 <div class="viewcode-block" id="FeynmpRender.valid_attribute"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/feynmp/index.html#pyfeyn2.FeynmpRender.valid_attribute">[docs]</a>    def valid_attribute(self, attr: str) -&gt; bool:
         return super().valid_attribute(attr) or attr in []</div>
 
-<div class="viewcode-block" id="FeynmpRender.valid_type"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/feynmp/index.html#pyfeyn2.FeynmpRender.valid_type">[docs]</a>    def valid_type(self, typ):
+<div class="viewcode-block" id="FeynmpRender.valid_type"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/feynmp/index.html#pyfeyn2.FeynmpRender.valid_type">[docs]</a>    def valid_type(self, typ: str):
         if typ.lower() in type_map:
             return True
         return False</div></div>

@@ -17,7 +17,7 @@ Classes
 
 
 
-.. py:class:: AllRender(fd=None, documentclass='standalone', document_options=['varwidth'], *args, **kwargs)
+.. py:class:: AllRender(fd=None, documentclass='standalone', document_options=None, *args, **kwargs)
 
    Bases: :py:obj:`pyfeyn2.render.latex.LatexRender`
 

@@ -41,7 +41,7 @@ Attributes
 .. py:function:: feynman_to_feynmp(fd)
 
 
-.. py:class:: FeynmpRender(fd=None, documentclass='standalone', document_options=['preview', 'crop'], *args, **kwargs)
+.. py:class:: FeynmpRender(fd=None, documentclass='standalone', document_options=None, *args, **kwargs)
 
    Bases: :py:obj:`pyfeyn2.render.metapost.MetaPostRender`
 
@@ -88,7 +88,7 @@ Attributes
    .. py:method:: valid_attribute(attr: str) -> bool
 
 
-   .. py:method:: valid_type(typ)
+   .. py:method:: valid_type(typ: str)
 
 
 

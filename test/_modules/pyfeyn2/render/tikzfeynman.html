@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                2.0.4-6-gc7de3c7
+                2.0.4-7-g66d8272
               </div>
             
           
@@ -258,10 +258,12 @@ from pyfeyn2.render.render import Render
         self,
         fd=None,
         documentclass=&quot;standalone&quot;,
-        document_options=[&quot;preview&quot;, &quot;crop&quot;, &quot;tikz&quot;],
+        document_options=None,
         *args,
         **kwargs,
     ):
+        if document_options is None:
+            document_options = [&quot;preview&quot;, &quot;crop&quot;, &quot;tikz&quot;]
         super().__init__(
             *args,
             fd=fd,

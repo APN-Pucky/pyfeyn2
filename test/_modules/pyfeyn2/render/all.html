@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                2.0.4-6-gc7de3c7
+                2.0.4-7-g66d8272
               </div>
             
           
@@ -194,12 +194,11 @@
            <div itemprop="articleBody">
             
   <h1>Source code for pyfeyn2.render.all</h1><div class="highlight"><pre>
-<span></span>import copy
-import shutil
+<span></span>import shutil
 import tempfile
 
 from matplotlib import pyplot as plt
-from pylatex import Document, Figure, NoEscape, Section, SubFigure
+from pylatex import Figure, NoEscape, SubFigure
 
 from pyfeyn2.render.asciipdf import ASCIIPDFRender
 from pyfeyn2.render.dot import DotRender
@@ -217,10 +216,12 @@ from pyfeyn2.render.tikzfeynman import TikzFeynmanRender
         self,
         fd=None,
         documentclass=&quot;standalone&quot;,
-        document_options=[&quot;varwidth&quot;],
+        document_options=None,
         *args,
         **kwargs,
     ):
+        if document_options is None:
+            document_options = [&quot;varwidth&quot;]
         super().__init__(
             *args,
             fd=fd,
@@ -297,7 +298,7 @@ from pyfeyn2.render.tikzfeynman import TikzFeynmanRender
         except Exception as e:
             print(&quot;MPL failed:&quot;, e)
 
-        with self.create(Figure(position=&quot;h!&quot;)) as kittens:
+        with self.create(Figure(position=&quot;h!&quot;)):
 
             with self.create(SubFigure(position=&quot;b&quot;)) as subfig:
                 subfig.add_image(
@@ -344,14 +345,14 @@ from pyfeyn2.render.tikzfeynman import TikzFeynmanRender
             MPLRender(),
         ]
 
-        def valid_style(self, type):
-            return True in [r.valid_style(type) for r in renderers]
+        def valid_style(self, typ):
+            return True in [r.valid_style(typ) for r in renderers]
 
-        def valid_attribute(self, type):
-            return True in [r.valid_attribute(type) for r in renderers]
+        def valid_attribute(self, typ):
+            return True in [r.valid_attribute(typ) for r in renderers]
 
-        def valid_type(self, type):
-            return True in [r.valid_type(type) for r in renderers]</div></div>
+        def valid_type(self, typ):
+            return True in [r.valid_type(typ) for r in renderers]</div></div>
 </pre></div>
 
            </div>

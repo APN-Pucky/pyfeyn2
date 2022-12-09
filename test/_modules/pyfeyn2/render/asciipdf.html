@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                2.0.4-6-gc7de3c7
+                2.0.4-7-g66d8272
               </div>
             
           
@@ -205,10 +205,13 @@ from pyfeyn2.render.latex import LatexRender
     &quot;&quot;&quot;Renders Feynman diagrams as ASCII art to PDF.&quot;&quot;&quot;
 
     def __init__(
-        self, fd=None, documentclass=None, docuement_options=None, *args, **kwargs
+        self,
+        fd=None,
+        documentclass=&quot;standalone&quot;,
+        docuement_options=None,
+        *args,
+        **kwargs
     ):
-        if documentclass is None:
-            documentclass = &quot;standalone&quot;
         if docuement_options is None:
             docuement_options = [&quot;preview&quot;, &quot;crop&quot;]
         super().__init__(
