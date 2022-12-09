@@ -19,19 +19,25 @@ Classes
 
 .. py:class:: Render(fd)
 
+   .. py:method:: set_feynman_diagram(fd)
+
+
    .. py:method:: get_src()
 
 
    .. py:method:: render(file=None)
 
 
-   .. py:method:: valid_style() -> bool
+   .. py:method:: valid_style(style: str) -> bool
 
 
-   .. py:method:: valid_type() -> bool
+   .. py:method:: valid_type(typ: str) -> bool
 
 
-   .. py:method:: valid_attribute() -> bool
+   .. py:method:: valid_attribute(attr: str) -> bool
+
+
+   .. py:method:: demo_propagator(d, show=True)
 
 
 

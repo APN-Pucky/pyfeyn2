@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                2.0.3-3-g0677581
+                2.0.4
               </div>
             
           
@@ -204,6 +204,7 @@ from pyfeyn2.render.dot import DotRender
 from pyfeyn2.render.feynmp import FeynmpRender
 from pyfeyn2.render.latex import LatexRender
 from pyfeyn2.render.mpl import MPLRender
+from pyfeyn2.render.pyx.pyxrender import PyxRender
 from pyfeyn2.render.tikzfeynman import TikzFeynmanRender
 
 
@@ -212,7 +213,7 @@ from pyfeyn2.render.tikzfeynman import TikzFeynmanRender
 
     def __init__(
         self,
-        fd,
+        fd=None,
         documentclass=&quot;standalone&quot;,
         document_options=[&quot;varwidth&quot;],
         *args,
@@ -230,35 +231,77 @@ from pyfeyn2.render.tikzfeynman import TikzFeynmanRender
         self,
         file=None,
         show=True,
-        subfigure=True,
-        resolution=100,
+        subfigure=False,
+        resolution=None,
         width=None,
         height=None,
     ):
         fd = self.fd
         self.dirpath = tempfile.mkdtemp()
         dirpath = self.dirpath
+
+        dynarg = {}
         if show and not subfigure:
-            dynarg = {
-                &quot;show&quot;: True,
-                &quot;resolution&quot;: resolution,
-                &quot;width&quot;: width,
-                &quot;height&quot;: height,
-            }
+            dynarg[&quot;show&quot;] = True
+            if resolution is not None:
+                dynarg[&quot;resolution&quot;] = resolution
+            if width is not None:
+                dynarg[&quot;width&quot;] = width
+            if height is not None:
+                dynarg[&quot;height&quot;] = height
         else:
             dynarg = {&quot;show&quot;: False}
-        ASCIIPDFRender(fd).render(dirpath + &quot;/asciipdf.pdf&quot;, **dynarg)
-        TikzFeynmanRender(fd).render(dirpath + &quot;/tikz.pdf&quot;, **dynarg)
-        DotRender(fd).render(dirpath + &quot;/dot.pdf&quot;, **dynarg)
-        FeynmpRender(fd).render(dirpath + &quot;/feynmp.pdf&quot;, **dynarg)
-        MPLRender(fd).render(dirpath + &quot;/mpl.pdf&quot;, **dynarg)
-        plt.close()
+
+        try:
+            if not subfigure:
+                print(&quot;Pyx:&quot;)
+            PyxRender(fd).render(dirpath + &quot;/pyx.pdf&quot;, **dynarg)
+        except Exception as e:
+            print(&quot;Pyx failed:&quot;, e)
+
+        try:
+            if not subfigure:
+                print(&quot;Tikz:&quot;)
+            TikzFeynmanRender(fd).render(dirpath + &quot;/tikz.pdf&quot;, **dynarg)
+        except Exception as e:
+            print(&quot;Tikz failed:&quot;, e)
+
+        try:
+            if not subfigure:
+                print(&quot;Feynmp:&quot;)
+            FeynmpRender(fd).render(dirpath + &quot;/feynmp.pdf&quot;, **dynarg)
+        except Exception as e:
+            print(&quot;Feynmp failed:&quot;, e)
+
+        try:
+            if not subfigure:
+                print(&quot;Dot:&quot;)
+            DotRender(fd).render(dirpath + &quot;/dot.pdf&quot;, **dynarg)
+        except Exception as e:
+            print(&quot;Dot failed:&quot;, e)
+
+        try:
+            if not subfigure:
+                print(&quot;ASCIIPDF:&quot;)
+            ASCIIPDFRender(fd).render(dirpath + &quot;/asciipdf.pdf&quot;, **dynarg)
+        except Exception as e:
+            print(&quot;ASCIIPDF failed:&quot;, e)
+
+        try:
+            if not subfigure:
+                print(&quot;MPL:&quot;)
+            MPLRender(fd).render(dirpath + &quot;/mpl.pdf&quot;, **dynarg)
+            plt.close()
+        except Exception as e:
+            print(&quot;MPL failed:&quot;, e)
+
         with self.create(Figure(position=&quot;h!&quot;)) as kittens:
+
             with self.create(SubFigure(position=&quot;b&quot;)) as subfig:
                 subfig.add_image(
-                    dirpath + &quot;/asciipdf.pdf&quot;, width=NoEscape(&quot;0.49\\textwidth&quot;)
+                    dirpath + &quot;/pyx.pdf&quot;, width=NoEscape(&quot;0.49\\textwidth&quot;)
                 )
-                subfig.add_caption(&quot;ASCIIPDF&quot;)
+                subfig.add_caption(&quot;Tikz&quot;)
             with self.create(SubFigure(position=&quot;b&quot;)) as subfig:
                 subfig.add_image(
                     dirpath + &quot;/tikz.pdf&quot;, width=NoEscape(&quot;0.49\\textwidth&quot;)
@@ -267,15 +310,20 @@ from pyfeyn2.render.tikzfeynman import TikzFeynmanRender
             self.append(NoEscape(r&quot;\\&quot;))
             with self.create(SubFigure(position=&quot;b&quot;)) as subfig:
                 subfig.add_image(
-                    dirpath + &quot;/dot.pdf&quot;, width=NoEscape(&quot;0.49\\textwidth&quot;)
-                )
-                subfig.add_caption(&quot;Dot&quot;)
-            with self.create(SubFigure(position=&quot;b&quot;)) as subfig:
-                subfig.add_image(
                     dirpath + &quot;/feynmp.pdf&quot;, width=NoEscape(&quot;0.49\\textwidth&quot;)
                 )
                 subfig.add_caption(&quot;FeynMP&quot;)
+            with self.create(SubFigure(position=&quot;b&quot;)) as subfig:
+                subfig.add_image(
+                    dirpath + &quot;/dot.pdf&quot;, width=NoEscape(&quot;0.49\\textwidth&quot;)
+                )
+                subfig.add_caption(&quot;Dot&quot;)
             self.append(NoEscape(r&quot;\\&quot;))
+            with self.create(SubFigure(position=&quot;b&quot;)) as subfig:
+                subfig.add_image(
+                    dirpath + &quot;/asciipdf.pdf&quot;, width=NoEscape(&quot;0.49\\textwidth&quot;)
+                )
+                subfig.add_caption(&quot;ASCIIPDF&quot;)
             with self.create(SubFigure(position=&quot;b&quot;)) as subfig:
                 subfig.add_image(
                     dirpath + &quot;/mpl.pdf&quot;, width=NoEscape(&quot;0.49\\textwidth&quot;)
@@ -283,7 +331,25 @@ from pyfeyn2.render.tikzfeynman import TikzFeynmanRender
                 subfig.add_caption(&quot;MPL&quot;)
         if subfigure:
             super().render(file, show, resolution, width, height)
-        shutil.rmtree(self.dirpath)</div></div>
+        shutil.rmtree(self.dirpath)
+
+        renderers = [
+            PyxRender(),
+            TikzFeynmanRender(),
+            FeynmpRender(),
+            DotRender(),
+            ASCIIPDFRender(),
+            MPLRender(),
+        ]
+
+        def valid_style(self, type):
+            return True in [r.valid_style(type) for r in renderers]
+
+        def valid_attribute(self, type):
+            return True in [r.valid_attribute(type) for r in renderers]
+
+        def valid_type(self, type):
+            return True in [r.valid_type(type) for r in renderers]</div></div>
 </pre></div>
 
            </div>

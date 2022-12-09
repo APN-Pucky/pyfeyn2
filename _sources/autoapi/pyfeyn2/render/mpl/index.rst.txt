@@ -21,9 +21,27 @@ Functions
 
 .. autoapisummary::
 
+   pyfeyn2.render.mpl.dotted
+   pyfeyn2.render.mpl.dashed
    pyfeyn2.render.mpl.line
    pyfeyn2.render.mpl.spring
+   pyfeyn2.render.mpl.wave
+   pyfeyn2.render.mpl.combine_lines
 
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   pyfeyn2.render.mpl.namedlines
+
+
+.. py:function:: dotted(p1, p2, points=200)
+
+
+.. py:function:: dashed(p1, p2, points=200)
 
 
 .. py:function:: line(p1, p2, points=200)
@@ -32,11 +50,28 @@ Functions
 .. py:function:: spring(xp1, xp2, points=200, rot=3, amp=0.15, line_frac=0.2)
 
 
-.. py:class:: MPLRender(fd, *args, **kwargs)
+.. py:function:: wave(xp1, xp2, points=200, rot=3, amp=0.15, line_frac=0.2)
+
+
+.. py:function:: combine_lines(lines)
+
+
+.. py:data:: namedlines
+   
+
+   
+
+.. py:class:: MPLRender(fd=None, *args, **kwargs)
 
    Bases: :py:obj:`pyfeyn2.render.render.Render`
 
    .. py:method:: render(file=None, show=True, width=None, height=None, resolution=100)
+
+
+   .. py:method:: valid_attribute(attr: str) -> bool
+
+
+   .. py:method:: valid_type(typ: str) -> bool
 
 
 

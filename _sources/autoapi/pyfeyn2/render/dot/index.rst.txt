@@ -53,7 +53,7 @@ Attributes
 .. py:function:: feynman_to_dot(fd)
 
 
-.. py:class:: DotRender(fd, documentclass='standalone', document_options=['preview', 'crop', 'tikz'], *args, **kwargs)
+.. py:class:: DotRender(fd=None, documentclass='standalone', document_options=['preview', 'crop', 'tikz'], *args, **kwargs)
 
    Bases: :py:obj:`pyfeyn2.render.latex.LatexRender`
 
@@ -94,7 +94,16 @@ Attributes
    :param data: Initial content of the document.
    :type data: list
 
+   .. py:method:: set_feynman_diagram(fd)
+
+
    .. py:method:: get_src_dot()
+
+
+   .. py:method:: valid_attribute(attr: str) -> bool
+
+
+   .. py:method:: valid_type(typ)
 
 
 

@@ -41,7 +41,7 @@ Attributes
 .. py:function:: feynman_to_feynmp(fd)
 
 
-.. py:class:: FeynmpRender(fd, documentclass='standalone', document_options=['preview', 'crop'], *args, **kwargs)
+.. py:class:: FeynmpRender(fd=None, documentclass='standalone', document_options=['preview', 'crop'], *args, **kwargs)
 
    Bases: :py:obj:`pyfeyn2.render.metapost.MetaPostRender`
 
@@ -82,7 +82,13 @@ Attributes
    :param data: Initial content of the document.
    :type data: list
 
-   .. py:method:: valid_type()
+   .. py:method:: set_feynman_diagram(fd)
+
+
+   .. py:method:: valid_attribute(attr: str) -> bool
+
+
+   .. py:method:: valid_type(typ)
 
 
 

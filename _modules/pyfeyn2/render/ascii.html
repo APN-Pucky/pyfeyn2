@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                2.0.3-3-g0677581
+                2.0.4
               </div>
             
           
@@ -200,18 +200,43 @@ from pyfeyn2.render.render import Render
 
 
 <div class="viewcode-block" id="ASCIILine"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/ascii/index.html#pyfeyn2.render.ascii.ASCIILine">[docs]</a>class ASCIILine:
-    def __init__(self, begin=&quot; &quot;, end=&quot; &quot;, vert=&quot;|&quot;, horz=&quot;-&quot;):
+    def __init__(
+        self,
+        begin=&quot; &quot;,
+        end=&quot; &quot;,
+        vert=None,
+        horz=None,
+        left=None,
+        up=None,
+        right=None,
+        down=None,
+    ):
         self.begin = begin
         self.end = end
 
-        if isinstance(vert, List):
-            self.vert = vert
-        else:
-            self.vert = [vert]
-        if isinstance(horz, List):
-            self.horz = horz
-        else:
-            self.horz = [horz]
+        if not isinstance(left, List):
+            left = [left]
+        self.left = left
+        if not isinstance(up, List):
+            up = [up]
+        self.up = up
+        if not isinstance(right, List):
+            right = [right]
+        self.right = right
+        if not isinstance(down, List):
+            down = [down]
+        self.down = down
+
+        if vert is not None:
+            if not isinstance(vert, List):
+                vert = [vert]
+            self.down = vert
+            self.up = vert
+        if horz is not None:
+            if not isinstance(horz, List):
+                self.horz = [horz]
+            self.right = horz
+            self.left = horz
         self.index = 0
 
 <div class="viewcode-block" id="ASCIILine.draw"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/ascii/index.html#pyfeyn2.render.ascii.ASCIILine.draw">[docs]</a>    def draw(self, pane, isrc, itar, scalex=1, scaley=1, kickx=0, kicky=0):
@@ -225,17 +250,22 @@ from pyfeyn2.render.render import Render
 
         if abs(srcx - tarx) &gt; abs(srcy - tary):
             for i in range(srcx, tarx, 1 if srcx &lt; tarx else -1):
-                pane[round(srcy + (tary - srcy) * (i - srcx) / (-srcx + tarx))][
-                    i
-                ] = self.horz[self.index % len(self.horz)]
+                pane[round(srcy + (tary - srcy) * (i - srcx) / (-srcx + tarx))][i] = (
+                    self.left[self.index % len(self.left)]
+                    if srcx &gt; tarx
+                    else self.right[self.index % len(self.right)]
+                )
                 self.index += 1
         else:
             for i in range(srcy, tary, 1 if srcy &lt; tary else -1):
-                pane[i][
-                    round(srcx + (tarx - srcx) * (i - srcy) / (-srcy + tary))
-                ] = self.vert[self.index % len(self.vert)]
+                pane[i][round(srcx + (tarx - srcx) * (i - srcy) / (-srcy + tary))] = (
+                    self.up[self.index % len(self.up)]
+                    if srcy &lt; tary
+                    else self.down[self.index % len(self.down)]
+                )
+
                 self.index += 1
-        pane[tary][tarx] = self.vert[self.index % len(self.vert)]
+        # pane[tary][tarx] = self.vert[self.index % len(self.vert)]
         self.index += 1
         if self.begin is not None and self.begin != &quot;&quot;:
             pane[srcy][srcx] = self.begin
@@ -245,15 +275,88 @@ from pyfeyn2.render.render import Render
 
 <div class="viewcode-block" id="Gluon"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/ascii/index.html#pyfeyn2.render.ascii.Gluon">[docs]</a>class Gluon(ASCIILine):
     def __init__(self):
-        super().__init__(begin=&quot;O&quot;, end=&quot;O&quot;, vert=&quot;O&quot;, horz=&quot;O&quot;)</div>
+        super().__init__(begin=&quot;*&quot;, end=&quot;*&quot;, vert=[&quot;O&quot;], horz=[&quot;O&quot;])</div>
 
 
 <div class="viewcode-block" id="Photon"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/ascii/index.html#pyfeyn2.render.ascii.Photon">[docs]</a>class Photon(ASCIILine):
     def __init__(self):
-        super().__init__(begin=&quot;*&quot;, end=&quot;*&quot;, vert=[&quot;(&quot;, &quot;)&quot;], horz=&quot;~&quot;)</div>
+        super().__init__(begin=&quot;*&quot;, end=&quot;*&quot;, vert=[&quot;(&quot;, &quot;)&quot;], horz=[&quot;~&quot;])</div>
 
 
-<div class="viewcode-block" id="namedlines"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/ascii/index.html#pyfeyn2.render.ascii.namedlines">[docs]</a>namedlines = {&quot;gluon&quot;: Gluon, &quot;photon&quot;: Photon}</div>
+class Ghost(ASCIILine):
+    def __init__(self):
+        super().__init__(begin=&quot;*&quot;, end=&quot;*&quot;, vert=[&quot;.&quot;], horz=[&quot;.&quot;])
+
+
+<div class="viewcode-block" id="Fermion"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/ascii/index.html#pyfeyn2.render.ascii.Fermion">[docs]</a>class Fermion(ASCIILine):
+    def __init__(self):
+        super().__init__(
+            begin=&quot;*&quot;,
+            end=&quot;*&quot;,
+            left=&quot;--&lt;--&quot;,
+            right=&quot;--&gt;--&quot;,
+            up=&quot;||^||&quot;,
+            down=&quot;||v||&quot;,
+        )</div>
+
+
+<div class="viewcode-block" id="Scalar"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/ascii/index.html#pyfeyn2.render.ascii.Scalar">[docs]</a>class Scalar(ASCIILine):
+    def __init__(self):
+        super().__init__(
+            begin=&quot;*&quot;,
+            end=&quot;*&quot;,
+            left=&quot;..&lt;..&quot;,
+            right=&quot;..&gt;..&quot;,
+            up=&quot;::^::&quot;,
+            down=&quot;::v::&quot;,
+        )</div>
+
+
+<div class="viewcode-block" id="Ghost"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/ascii/index.html#pyfeyn2.render.ascii.Ghost">[docs]</a>class Ghost(ASCIILine):
+    def __init__(self):
+        super().__init__(
+            begin=&quot;*&quot;,
+            end=&quot;*&quot;,
+            vert=&quot;:&quot;,
+            horz=&quot;.&quot;,
+        )</div>
+
+
+<div class="viewcode-block" id="Higgs"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/ascii/index.html#pyfeyn2.render.ascii.Higgs">[docs]</a>class Higgs(ASCIILine):
+    def __init__(self):
+        super().__init__(
+            begin=&quot;*&quot;,
+            end=&quot;*&quot;,
+            vert=&quot;=&quot;,
+            horz=&quot;H&quot;,
+        )</div>
+
+
+<div class="viewcode-block" id="Gluino"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/ascii/index.html#pyfeyn2.render.ascii.Gluino">[docs]</a>class Gluino(ASCIILine):
+    def __init__(self):
+        super().__init__(begin=&quot;*&quot;, end=&quot;*&quot;, vert=[&quot;&amp;&quot;], horz=[&quot;&amp;&quot;])</div>
+
+
+<div class="viewcode-block" id="Gaugino"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/ascii/index.html#pyfeyn2.render.ascii.Gaugino">[docs]</a>class Gaugino(ASCIILine):
+    def __init__(self):
+        super().__init__(begin=&quot;*&quot;, end=&quot;*&quot;, vert=[&quot;$&quot;], horz=[&quot;$&quot;])</div>
+
+
+<div class="viewcode-block" id="namedlines"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/ascii/index.html#pyfeyn2.render.ascii.namedlines">[docs]</a>namedlines = {
+    &quot;gluon&quot;: Gluon(),
+    &quot;photon&quot;: Photon(),
+    &quot;vector&quot;: Photon(),
+    &quot;boson&quot;: Photon(),
+    &quot;ghost&quot;: Ghost(),
+    &quot;fermion&quot;: Fermion(),
+    &quot;ghost&quot;: Ghost(),
+    &quot;higgs&quot;: Higgs(),
+    &quot;scalar&quot;: Scalar(),
+    &quot;slepton&quot;: Scalar(),
+    &quot;squark&quot;: Scalar(),
+    &quot;gluino&quot;: Gluino(),
+    &quot;gaugino&quot;: Gaugino(),
+}</div>
 
 
 <div class="viewcode-block" id="ASCIIRender"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/ascii/index.html#pyfeyn2.render.ascii.ASCIIRender">[docs]</a>class ASCIIRender(Render):
@@ -262,10 +365,7 @@ from pyfeyn2.render.render import Render
     def __init__(self, fd, *args, **kwargs):
         super().__init__(fd, *args, **kwargs)
 
-<div class="viewcode-block" id="ASCIIRender.render"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/ascii/index.html#pyfeyn2.render.ascii.ASCIIRender.render">[docs]</a>    def render(self, file=None, show=True, resolution=100, width=100, height=20):
-        pane = []
-        for i in range(height):
-            pane.append([&quot; &quot;] * width)
+<div class="viewcode-block" id="ASCIIRender.render"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/ascii/index.html#pyfeyn2.render.ascii.ASCIIRender.render">[docs]</a>    def render(self, file=None, show=True, resolution=100, width=None, height=None):
         maxx = minx = maxy = miny = 0
         for l in self.fd.legs:
             if l.x &lt; minx:
@@ -285,6 +385,16 @@ from pyfeyn2.render.render import Render
                 miny = l.y
             if l.y &gt; maxy:
                 maxy = l.y
+
+        if width is None:
+            width = int((maxx - minx + 1) * resolution / 100)
+        if height is None:
+            height = int((maxy - miny + 1) * resolution / 100)
+
+        pane = []
+        for i in range(height):
+            pane.append([&quot; &quot;] * width)
+
         scalex = (width - 1) / (maxx - minx)
         scaley = (height - 1) / (maxy - miny)
         kickx = -minx
@@ -294,20 +404,23 @@ from pyfeyn2.render.render import Render
         for p in self.fd.propagators:
             src = self.fd.get_point(p.source)
             tar = self.fd.get_point(p.target)
-            namedlines[p.type]().draw(pane, src, tar, **fmt)
+            namedlines[p.type].draw(pane, src, tar, **fmt)
         for l in self.fd.legs:
             tar = self.fd.get_point(l.target)
             if l.sense[:2] == &quot;in&quot; or l.sense[:8] == &quot;anti-out&quot;:
-                namedlines[l.type]().draw(pane, Point(l.x, l.y), tar, **fmt)
+                namedlines[l.type].draw(pane, Point(l.x, l.y), tar, **fmt)
             elif l.sense[:3] == &quot;out&quot; or l.sense[:9] == &quot;anti-in&quot;:
-                namedlines[l.type]().draw(pane, tar, Point(l.x, l.y), **fmt)
+                namedlines[l.type].draw(pane, tar, Point(l.x, l.y), **fmt)
 
         joined = &quot;\n&quot;.join([&quot;&quot;.join(row) for row in pane])
         if show:
             print(joined)
         return joined</div>
 
-<div class="viewcode-block" id="ASCIIRender.valid_type"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/ascii/index.html#pyfeyn2.render.ascii.ASCIIRender.valid_type">[docs]</a>    def valid_type(typ: str) -&gt; bool:
+<div class="viewcode-block" id="ASCIIRender.valid_attribute"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/ascii/index.html#pyfeyn2.render.ascii.ASCIIRender.valid_attribute">[docs]</a>    def valid_attribute(self, attr: str) -&gt; bool:
+        return super().valid_attribute(attr) or attr in [&quot;x&quot;, &quot;y&quot;]</div>
+
+<div class="viewcode-block" id="ASCIIRender.valid_type"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/ascii/index.html#pyfeyn2.render.ascii.ASCIIRender.valid_type">[docs]</a>    def valid_type(self, typ: str) -&gt; bool:
         if typ.lower() in namedlines:
             return True
         return False</div></div>

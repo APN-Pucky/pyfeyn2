@@ -17,7 +17,7 @@ Classes
 
 
 
-.. py:class:: AllRender(fd, documentclass='standalone', document_options=['varwidth'], *args, **kwargs)
+.. py:class:: AllRender(fd=None, documentclass='standalone', document_options=['varwidth'], *args, **kwargs)
 
    Bases: :py:obj:`pyfeyn2.render.latex.LatexRender`
 
@@ -53,7 +53,7 @@ Classes
    :param data: Initial content of the document.
    :type data: list
 
-   .. py:method:: render(file=None, show=True, subfigure=True, resolution=100, width=None, height=None)
+   .. py:method:: render(file=None, show=True, subfigure=False, resolution=None, width=None, height=None)
 
 
 

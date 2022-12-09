@@ -17,7 +17,7 @@ Classes
 
 
 
-.. py:class:: PyxRender(fd, *args, **kwargs)
+.. py:class:: PyxRender(fd=None, *args, **kwargs)
 
    Bases: :py:obj:`pyfeyn2.render.render.Render`
 
@@ -29,7 +29,13 @@ Classes
       Apply the decorators encoded in a style string to an object.
 
 
-   .. py:method:: valid_type()
+   .. py:method:: valid_type(typ: str)
+
+
+   .. py:method:: valid_attribute(attr: str) -> bool
+
+
+   .. py:method:: valid_style(attr: str) -> bool
 
 
 

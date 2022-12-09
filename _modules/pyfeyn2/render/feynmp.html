@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                2.0.3-3-g0677581
+                2.0.4
               </div>
             
           
@@ -205,37 +205,43 @@ from pyfeyn2.render.render import Render
 # converte FeynmanDiagram to tikz-feynman
 
 <div class="viewcode-block" id="type_map"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/feynmp/index.html#pyfeyn2.render.feynmp.type_map">[docs]</a>type_map = {
-    &quot;gluon&quot;: &quot;gluon&quot;,
-    &quot;curly&quot;: &quot;curly&quot;,
-    &quot;dbl_curly&quot;: &quot;dbl_curly&quot;,
-    &quot;dashes&quot;: &quot;dashes&quot;,
-    &quot;scalar&quot;: &quot;scalar&quot;,
-    &quot;dashes_arrow&quot;: &quot;dashes_arrow&quot;,
-    &quot;dbl_dashes&quot;: &quot;dbl_dashes&quot;,
-    &quot;dbl_dashes_arrow&quot;: &quot;dbl_dashes_arrow&quot;,
-    &quot;dots&quot;: &quot;dots&quot;,
-    &quot;dots_arrow&quot;: &quot;dots_arrow&quot;,
-    &quot;ghost&quot;: &quot;ghost&quot;,
-    &quot;dbl_dots&quot;: &quot;dbl_dots&quot;,
-    &quot;dbl_dots_arrow&quot;: &quot;dbl_dots_arrow&quot;,
-    &quot;phantom&quot;: &quot;phantom&quot;,
-    &quot;phantom_arrow&quot;: &quot;phantom_arrow&quot;,
-    &quot;plain&quot;: &quot;plain&quot;,
-    &quot;plain_arrow&quot;: &quot;plain_arrow&quot;,
-    &quot;fermion&quot;: &quot;fermion&quot;,
-    &quot;electron&quot;: &quot;electron&quot;,
-    &quot;quark&quot;: &quot;quark&quot;,
-    &quot;double&quot;: &quot;double&quot;,
-    &quot;dbl_plain&quot;: &quot;dbl_plain&quot;,
-    &quot;double_arrow&quot;: &quot;double_arrow&quot;,
-    &quot;dbl_plain_arrow&quot;: &quot;dbl_plain_arrow&quot;,
-    &quot;heavy&quot;: &quot;heavy&quot;,
-    &quot;photon&quot;: &quot;photon&quot;,
-    &quot;boson&quot;: &quot;boson&quot;,
-    &quot;wiggly&quot;: &quot;wiggly&quot;,
-    &quot;dbl_wiggly&quot;: &quot;dbl_wiggly&quot;,
-    &quot;zigzag&quot;: &quot;zigzag&quot;,
-    &quot;dbl_zigzag&quot;: &quot;dbl_zigzag&quot;,
+    &quot;gluon&quot;: [&quot;gluon&quot;],
+    &quot;curly&quot;: [&quot;curly&quot;],
+    &quot;dbl_curly&quot;: [&quot;dbl_curly&quot;],
+    &quot;dashes&quot;: [&quot;dashes&quot;],
+    &quot;scalar&quot;: [&quot;scalar&quot;],
+    &quot;dashes_arrow&quot;: [&quot;dashes_arrow&quot;],
+    &quot;dbl_dashes&quot;: [&quot;dbl_dashes&quot;],
+    &quot;dbl_dashes_arrow&quot;: [&quot;dbl_dashes_arrow&quot;],
+    &quot;dots&quot;: [&quot;dots&quot;],
+    &quot;dots_arrow&quot;: [&quot;dots_arrow&quot;],
+    &quot;ghost&quot;: [&quot;ghost&quot;],
+    &quot;dbl_dots&quot;: [&quot;dbl_dots&quot;],
+    &quot;dbl_dots_arrow&quot;: [&quot;dbl_dots_arrow&quot;],
+    &quot;phantom&quot;: [&quot;phantom&quot;],
+    &quot;phantom_arrow&quot;: [&quot;phantom_arrow&quot;],
+    &quot;plain&quot;: [&quot;plain&quot;],
+    &quot;plain_arrow&quot;: [&quot;plain_arrow&quot;],
+    &quot;fermion&quot;: [&quot;fermion&quot;],
+    &quot;electron&quot;: [&quot;electron&quot;],
+    &quot;quark&quot;: [&quot;quark&quot;],
+    &quot;double&quot;: [&quot;double&quot;],
+    &quot;dbl_plain&quot;: [&quot;dbl_plain&quot;],
+    &quot;double_arrow&quot;: [&quot;double_arrow&quot;],
+    &quot;dbl_plain_arrow&quot;: [&quot;dbl_plain_arrow&quot;],
+    &quot;heavy&quot;: [&quot;heavy&quot;],
+    &quot;photon&quot;: [&quot;photon&quot;],
+    &quot;boson&quot;: [&quot;boson&quot;],
+    &quot;wiggly&quot;: [&quot;wiggly&quot;],
+    &quot;dbl_wiggly&quot;: [&quot;dbl_wiggly&quot;],
+    &quot;zigzag&quot;: [&quot;zigzag&quot;],
+    &quot;dbl_zigzag&quot;: [&quot;dbl_zigzag&quot;],
+    &quot;higgs&quot;: [&quot;dashes&quot;],
+    &quot;vector&quot;: [&quot;boson&quot;],
+    &quot;slepton&quot;: [&quot;scalar&quot;],
+    &quot;squark&quot;: [&quot;scalar&quot;],
+    &quot;gluino&quot;: [&quot;gluon&quot;, &quot;plain&quot;],
+    &quot;gaugino&quot;: [&quot;photon&quot;, &quot;plain&quot;],
 }</div>
 
 
@@ -257,23 +263,27 @@ from pyfeyn2.render.render import Render
             # src += f&quot;\t\t\\fmf{{{ttype}}}{{{l.target},{l.id}}}\n&quot;
         else:
             raise Exception(&quot;Unknown sense&quot;)
-    src += &quot;\t\t\\fmfleft{&quot;
-    for l in incoming:
-        src += f&quot;{l.id},&quot;
-    src = src[:-1]
-    src += &quot;}\n&quot;
-    src += &quot;\t\t\\fmfright{&quot;
-    for l in outgoing:
-        src += f&quot;{l.id},&quot;
-    src = src[:-1]
-    src += &quot;}\n&quot;
+    if len(incoming) &gt; 0:
+        src += &quot;\t\t\\fmfleft{&quot;
+        for l in incoming:
+            src += f&quot;{l.id},&quot;
+        src = src[:-1]
+        src += &quot;}\n&quot;
+    if len(outgoing) &gt; 0:
+        src += &quot;\t\t\\fmfright{&quot;
+        for l in outgoing:
+            src += f&quot;{l.id},&quot;
+        src = src[:-1]
+        src += &quot;}\n&quot;
 
     for l in incoming:
-        ttype = type_map[l.type]
-        src += f&quot;\t\t\\fmf{{{ttype}}}{{{l.id},{l.target}}}\n&quot;
+        tttype = type_map[l.type]
+        for ttype in tttype:
+            src += f&quot;\t\t\\fmf{{{ttype}}}{{{l.id},{l.target}}}\n&quot;
     for l in outgoing:
-        ttype = type_map[l.type]
-        src += f&quot;\t\t\\fmf{{{ttype}}}{{{l.target},{l.id}}}\n&quot;
+        tttype = type_map[l.type]
+        for ttype in tttype:
+            src += f&quot;\t\t\\fmf{{{ttype}}}{{{l.target},{l.id}}}\n&quot;
 
     for p in fd.propagators:
         ttype = type_map[p.type]
@@ -286,7 +296,7 @@ from pyfeyn2.render.render import Render
 <div class="viewcode-block" id="FeynmpRender"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/feynmp/index.html#pyfeyn2.render.feynmp.FeynmpRender">[docs]</a>class FeynmpRender(MetaPostRender):
     def __init__(
         self,
-        fd,
+        fd=None,
         documentclass=&quot;standalone&quot;,
         document_options=[&quot;preview&quot;, &quot;crop&quot;],
         *args,
@@ -300,9 +310,17 @@ from pyfeyn2.render.render import Render
             **kwargs,
         )
         self.preamble.append(Command(&quot;usepackage&quot;, NoEscape(&quot;feynmp-auto&quot;)))
-        self.set_src_diag(NoEscape(feynman_to_feynmp(fd)))
+        if fd is not None:
+            self.set_feynman_diagram(fd)
 
-<div class="viewcode-block" id="FeynmpRender.valid_type"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/feynmp/index.html#pyfeyn2.render.feynmp.FeynmpRender.valid_type">[docs]</a>    def valid_type(typ):
+<div class="viewcode-block" id="FeynmpRender.set_feynman_diagram"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/feynmp/index.html#pyfeyn2.render.feynmp.FeynmpRender.set_feynman_diagram">[docs]</a>    def set_feynman_diagram(self, fd):
+        super().set_feynman_diagram(fd)
+        self.set_src_diag(NoEscape(feynman_to_feynmp(fd)))</div>
+
+<div class="viewcode-block" id="FeynmpRender.valid_attribute"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/feynmp/index.html#pyfeyn2.render.feynmp.FeynmpRender.valid_attribute">[docs]</a>    def valid_attribute(self, attr: str) -&gt; bool:
+        return super().valid_attribute(attr) or attr in []</div>
+
+<div class="viewcode-block" id="FeynmpRender.valid_type"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/feynmp/index.html#pyfeyn2.render.feynmp.FeynmpRender.valid_type">[docs]</a>    def valid_type(self, typ):
         if typ.lower() in type_map:
             return True
         return False</div></div>

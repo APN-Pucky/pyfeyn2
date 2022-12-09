@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                2.0.3-3-g0677581
+                2.0.4
               </div>
             
           
@@ -198,12 +198,31 @@ import numpy as np
 from pyfeyn2.render.render import Render
 
 
-<div class="viewcode-block" id="line"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/mpl/index.html#pyfeyn2.render.mpl.line">[docs]</a>def line(p1, p2, points=200):
+<div class="viewcode-block" id="dotted"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/mpl/index.html#pyfeyn2.render.mpl.dotted">[docs]</a>def dotted(p1, p2, points=200):
     n = np.linspace(0, points, points)
-    return (
+    x, y = (
         p1[0] + (p2[0] - p1[0]) * (n / points),
         p1[1] + (p2[1] - p1[1]) * (n / points),
-    )</div>
+    )
+    plt.plot(x, y, &quot;k:&quot;)</div>
+
+
+<div class="viewcode-block" id="dashed"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/mpl/index.html#pyfeyn2.render.mpl.dashed">[docs]</a>def dashed(p1, p2, points=200):
+    n = np.linspace(0, points, points)
+    x, y = (
+        p1[0] + (p2[0] - p1[0]) * (n / points),
+        p1[1] + (p2[1] - p1[1]) * (n / points),
+    )
+    plt.plot(x, y, &quot;k--&quot;)</div>
+
+
+<div class="viewcode-block" id="line"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/mpl/index.html#pyfeyn2.render.mpl.line">[docs]</a>def line(p1, p2, points=200):
+    n = np.linspace(0, points, points)
+    x, y = (
+        p1[0] + (p2[0] - p1[0]) * (n / points),
+        p1[1] + (p2[1] - p1[1]) * (n / points),
+    )
+    plt.plot(x, y, &quot;k-&quot;)</div>
 
 
 <div class="viewcode-block" id="spring"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/mpl/index.html#pyfeyn2.render.mpl.spring">[docs]</a>def spring(xp1, xp2, points=200, rot=3, amp=0.15, line_frac=0.2):
@@ -231,14 +250,71 @@ from pyfeyn2.render.render import Render
         + amp * (np.sin(w * n - alpha) - np.sin(-alpha)),
     )
 
-    return (
+    x, y = (
         np.append(np.insert(ret[0], 0, xp1[0]), xp2[0]),
         np.append(np.insert(ret[1], 0, xp1[1]), xp2[1]),
-    )</div>
+    )
+    plt.plot(x, y, &quot;k-&quot;)</div>
+
+
+<div class="viewcode-block" id="wave"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/mpl/index.html#pyfeyn2.render.mpl.wave">[docs]</a>def wave(xp1, xp2, points=200, rot=3, amp=0.15, line_frac=0.2):
+    # first skip via p1 and p2 to
+    p1 = [
+        xp1[0] + (xp2[0] - xp1[0]) * line_frac,
+        xp1[1] + (xp2[1] - xp1[1]) * line_frac,
+    ]
+
+    p2 = [
+        xp2[0] - (xp2[0] - xp1[0]) * line_frac,
+        xp2[1] - (xp2[1] - xp1[1]) * line_frac,
+    ]
+
+    n = np.linspace(0, points, points)
+    alpha = np.arctan((p2[1] - p1[1]) / np.array([(p2[0] - p1[0])]))
+    scaley = 1
+    scalex = 1
+    if p2[1] &lt; p1[1]:
+        scaley = -1
+    if p2[0] &lt; p1[0]:
+        scalex = -1
+    alphap = alpha + np.pi / 2
+    w = rot / points * (2 * np.pi)  # + np.pi / points
+    ret = (
+        p1[0]
+        + (p2[0] - p1[0]) * (n / points)
+        + amp * np.sin(w * n) * (0 * np.cos((alpha)) - np.sin((alpha))),
+        p1[1]
+        + (p2[1] - p1[1]) * (n / points)
+        + amp * np.sin(w * n) * (0 * np.sin((alpha)) + np.cos((alpha))),
+    )
+
+    x, y = (
+        np.append(np.insert(ret[0], 0, xp1[0]), xp2[0]),
+        np.append(np.insert(ret[1], 0, xp1[1]), xp2[1]),
+    )
+    plt.plot(x, y, &quot;k-&quot;)</div>
+
+
+<div class="viewcode-block" id="combine_lines"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/mpl/index.html#pyfeyn2.render.mpl.combine_lines">[docs]</a>def combine_lines(lines):
+    return lambda *a, **k: [l(*a, **k) for l in lines]</div>
+
+
+<div class="viewcode-block" id="namedlines"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/mpl/index.html#pyfeyn2.render.mpl.namedlines">[docs]</a>namedlines = {
+    &quot;straight&quot;: line,
+    &quot;gluon&quot;: spring,
+    &quot;photon&quot;: wave,
+    &quot;boson&quot;: wave,
+    &quot;vector&quot;: wave,
+    &quot;ghost&quot;: dotted,
+    &quot;fermion&quot;: line,
+    &quot;higgs&quot;: dashed,
+    &quot;gluino&quot;: combine_lines([spring, line]),
+    &quot;gaugino&quot;: combine_lines([wave, line]),
+}</div>
 
 
 <div class="viewcode-block" id="MPLRender"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/mpl/index.html#pyfeyn2.render.mpl.MPLRender">[docs]</a>class MPLRender(Render):
-    def __init__(self, fd, *args, **kwargs):
+    def __init__(self, fd=None, *args, **kwargs):
         super().__init__(fd, *args, **kwargs)
 
 <div class="viewcode-block" id="MPLRender.render"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/mpl/index.html#pyfeyn2.render.mpl.MPLRender.render">[docs]</a>    def render(self, file=None, show=True, width=None, height=None, resolution=100):
@@ -249,22 +325,27 @@ from pyfeyn2.render.render import Render
             idtopos[l.id] = (l.x, l.y)
 
         for p in self.fd.propagators:
-            x, y = spring(idtopos[p.source], idtopos[p.target])
-            plt.plot(x, y, &quot;k-&quot;)
+            namedlines[l.type](idtopos[p.source], idtopos[p.target])
         for l in self.fd.legs:
             if l.sense == &quot;incoming&quot;:
-                x, y = spring(idtopos[l.id], idtopos[l.target])
-                plt.plot(x, y, &quot;k-&quot;)
+                namedlines[l.type](idtopos[l.id], idtopos[l.target])
             elif l.sense == &quot;outgoing&quot;:
-                x, y = spring(idtopos[l.target], idtopos[l.id])
-                plt.plot(x, y, &quot;k-&quot;)
+                namedlines[l.type](idtopos[l.target], idtopos[l.id])
             else:
                 raise Exception(&quot;Unknown sense&quot;)
-
+        plt.axis(&quot;off&quot;)
         if show:
             plt.show()
         if file is not None:
-            plt.savefig(file)</div></div>
+            plt.savefig(file)</div>
+
+<div class="viewcode-block" id="MPLRender.valid_attribute"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/mpl/index.html#pyfeyn2.render.mpl.MPLRender.valid_attribute">[docs]</a>    def valid_attribute(self, attr: str) -&gt; bool:
+        return super().valid_attribute(attr) or attr in [&quot;x&quot;, &quot;y&quot;]</div>
+
+<div class="viewcode-block" id="MPLRender.valid_type"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/mpl/index.html#pyfeyn2.render.mpl.MPLRender.valid_type">[docs]</a>    def valid_type(self, typ: str) -&gt; bool:
+        if typ.lower() in namedlines:
+            return True
+        return False</div></div>
 </pre></div>
 
            </div>

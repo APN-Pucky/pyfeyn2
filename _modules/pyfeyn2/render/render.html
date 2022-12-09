@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                2.0.3-3-g0677581
+                2.0.4
               </div>
             
           
@@ -192,10 +192,22 @@
            <div itemprop="articleBody">
             
   <h1>Source code for pyfeyn2.render.render</h1><div class="highlight"><pre>
-<div class="viewcode-block" id="Render"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/render/index.html#pyfeyn2.render.render.Render">[docs]</a><span></span>class Render:
+<span></span>import io
+
+import PIL
+from IPython.display import display
+from matplotlib import pyplot as plt
+
+from pyfeyn2.feynmandiagram import FeynmanDiagram, Leg, Vertex
+
+
+<div class="viewcode-block" id="Render"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/render/index.html#pyfeyn2.render.render.Render">[docs]</a>class Render:
     def __init__(self, fd):
         self.fd = fd
         self.src = &quot;&quot;
+
+<div class="viewcode-block" id="Render.set_feynman_diagram"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/render/index.html#pyfeyn2.render.render.Render.set_feynman_diagram">[docs]</a>    def set_feynman_diagram(self, fd):
+        self.fd = fd</div>
 
 <div class="viewcode-block" id="Render.get_src"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/render/index.html#pyfeyn2.render.render.Render.get_src">[docs]</a>    def get_src(self):
         return self.src</div>
@@ -203,14 +215,41 @@
 <div class="viewcode-block" id="Render.render"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/render/index.html#pyfeyn2.render.render.Render.render">[docs]</a>    def render(self, file=None):
         pass</div>
 
-<div class="viewcode-block" id="Render.valid_style"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/render/index.html#pyfeyn2.render.render.Render.valid_style">[docs]</a>    def valid_style(style: str) -&gt; bool:
+<div class="viewcode-block" id="Render.valid_style"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/render/index.html#pyfeyn2.render.render.Render.valid_style">[docs]</a>    def valid_style(self, style: str) -&gt; bool:
         return False</div>
 
-<div class="viewcode-block" id="Render.valid_type"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/render/index.html#pyfeyn2.render.render.Render.valid_type">[docs]</a>    def valid_type(typ: str) -&gt; bool:
+<div class="viewcode-block" id="Render.valid_type"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/render/index.html#pyfeyn2.render.render.Render.valid_type">[docs]</a>    def valid_type(self, typ: str) -&gt; bool:
         return False</div>
 
-<div class="viewcode-block" id="Render.valid_attribute"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/render/index.html#pyfeyn2.render.render.Render.valid_attribute">[docs]</a>    def valid_attribute(attr: str) -&gt; bool:
-        return False</div></div>
+<div class="viewcode-block" id="Render.valid_attribute"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/render/index.html#pyfeyn2.render.render.Render.valid_attribute">[docs]</a>    def valid_attribute(self, attr: str) -&gt; bool:
+        if attr == &quot;id&quot;:
+            return True
+        if attr == &quot;pdgid&quot;:
+            return True
+        if attr == &quot;sense&quot;:
+            return True
+        if attr == &quot;target&quot;:
+            return True
+        if attr == &quot;source&quot;:
+            return True
+        if attr == &quot;type&quot;:
+            return True
+        return False</div>
+
+<div class="viewcode-block" id="Render.demo_propagator"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/render/index.html#pyfeyn2.render.render.Render.demo_propagator">[docs]</a>    def demo_propagator(self, d, show=True):
+        fd = FeynmanDiagram()
+        v0 = Vertex(&quot;v0&quot;).set_xy(0, 0)
+        v1 = Vertex(&quot;v1&quot;).set_xy(2, 2)
+        v2 = Vertex(&quot;v2&quot;).set_xy(-2, 2)
+        v3 = Vertex(&quot;v3&quot;).set_xy(2, -2)
+        v4 = Vertex(&quot;v4&quot;).set_xy(-2, -2)
+        l1 = Leg(&quot;l1&quot;).set_target(v0).set_type(d).set_incoming().set_xy(-2, 0)
+        l2 = Leg(&quot;l2&quot;).set_target(v0).set_type(d).set_outgoing().set_xy(2, 0)
+        # fd.propagators.append(p1)
+        fd.vertices.extend([v0, v1, v2, v3, v4])
+        fd.legs.extend([l1, l2])
+        self.set_feynman_diagram(fd)
+        self.render(show=show)</div></div>
 </pre></div>
 
            </div>
