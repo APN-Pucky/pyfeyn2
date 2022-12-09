@@ -64,13 +64,13 @@ Attributes
    .. py:method:: render(file=None, show=True, subfigure=False, resolution=None, width=None, height=None)
 
 
-   .. py:method:: valid_style(typ)
+   .. py:method:: valid_style(style: str) -> bool
 
 
-   .. py:method:: valid_attribute(typ)
+   .. py:method:: valid_attribute(attr: str) -> bool
 
 
-   .. py:method:: valid_type(typ)
+   .. py:method:: valid_type(typ: str) -> bool
 
 
 

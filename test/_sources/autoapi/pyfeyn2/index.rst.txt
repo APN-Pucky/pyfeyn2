@@ -206,7 +206,7 @@ Attributes
    .. py:method:: valid_attribute(attr: str) -> bool
 
 
-   .. py:method:: valid_style(attr: str) -> bool
+   .. py:method:: valid_style(style: str) -> bool
 
 
 

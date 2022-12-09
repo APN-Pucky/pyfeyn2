@@ -71,7 +71,7 @@ Attributes
    .. py:method:: set_pdgid(pdgid)
 
 
-   .. py:method:: set_type(type)
+   .. py:method:: set_type(typ)
 
 
 

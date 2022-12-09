@@ -77,7 +77,7 @@
             
             
               <div class="version">
-                2.0.4-32-g418b375
+                2.0.5-1-g2fa9c8e
               </div>
             
           
@@ -276,13 +276,6 @@ from pyfeyn2.render.render import Render
 
     n = np.linspace(0, points, points)
     alpha = np.arctan((p2[1] - p1[1]) / np.array([(p2[0] - p1[0])]))
-    scaley = 1
-    scalex = 1
-    if p2[1] &lt; p1[1]:
-        scaley = -1
-    if p2[0] &lt; p1[0]:
-        scalex = -1
-    alphap = alpha + np.pi / 2
     w = rot / points * (2 * np.pi)  # + np.pi / points
     ret = (
         p1[0]
