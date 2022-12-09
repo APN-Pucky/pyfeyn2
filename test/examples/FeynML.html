@@ -82,7 +82,7 @@
             
             
               <div class="version">
-                2.0.4-26-g731cde8
+                2.0.4-31-gd7dc614
               </div>
             
           
@@ -125,7 +125,12 @@
 <li class="toctree-l1"><a class="reference internal" href="ASCII.html">ASCII</a></li>
 <li class="toctree-l1"><a class="reference internal" href="All.html">All</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Dot.html">Dot</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">FeynML</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">FeynML</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Write-FeynmanDiagram">Write FeynmanDiagram</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Write-FeynML">Write FeynML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Read-FeynML">Read FeynML</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="FeynMP.html">FeynMP</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MPL.html">Matplotlib</a></li>
 <li class="toctree-l1"><a class="reference internal" href="PyX.html">PyX</a></li>
@@ -482,6 +487,8 @@ div.rendered_html tbody tr:hover {
 </style>
 <section id="FeynML">
 <h1>FeynML<a class="headerlink" href="#FeynML" title="Permalink to this heading">¶</a></h1>
+<section id="Write-FeynmanDiagram">
+<h2>Write FeynmanDiagram<a class="headerlink" href="#Write-FeynmanDiagram" title="Permalink to this heading">¶</a></h2>
 <p>Convenient saving and loading of style independent feynman diagrams as XML or FeynML.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
@@ -491,8 +498,15 @@ div.rendered_html tbody tr:hover {
 <span class="kn">from</span> <span class="nn">xsdata.formats.dataclass.serializers</span> <span class="kn">import</span> <span class="n">XmlSerializer</span>
 <span class="kn">from</span> <span class="nn">xsdata.formats.dataclass.serializers.config</span> <span class="kn">import</span> <span class="n">SerializerConfig</span>
 
-<span class="kn">from</span> <span class="nn">pyfeyn2</span> <span class="kn">import</span> <span class="n">io_utils</span>
-<span class="kn">from</span> <span class="nn">pyfeyn2.feynmandiagram</span> <span class="kn">import</span> <span class="n">FeynmanDiagram</span><span class="p">,</span> <span class="n">Leg</span><span class="p">,</span> <span class="n">Propagator</span><span class="p">,</span> <span class="n">Vertex</span>
+<span class="kn">from</span> <span class="nn">pyfeyn2.feynmandiagram</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">FeynmanDiagram</span><span class="p">,</span>
+    <span class="n">FeynML</span><span class="p">,</span>
+    <span class="n">Head</span><span class="p">,</span>
+    <span class="n">Leg</span><span class="p">,</span>
+    <span class="n">Meta</span><span class="p">,</span>
+    <span class="n">Propagator</span><span class="p">,</span>
+    <span class="n">Vertex</span><span class="p">,</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -524,14 +538,89 @@ div.rendered_html tbody tr:hover {
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 &lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;
-&lt;feynmandiagram&gt;
-  &lt;propagator id=&#34;p1&#34; source=&#34;v1&#34; target=&#34;v2&#34; pdgid=&#34;0&#34; type=&#34;&#34; label=&#34;&#34;/&gt;
+&lt;diagram&gt;
+  &lt;propagator id=&#34;p1&#34; source=&#34;v1&#34; target=&#34;v2&#34; pdgid=&#34;21&#34; type=&#34;&#34; latexname=&#34;g&#34; label=&#34;&#34;/&gt;
   &lt;vertex id=&#34;v1&#34; label=&#34;&#34;/&gt;
   &lt;vertex id=&#34;v2&#34; label=&#34;&#34;/&gt;
-  &lt;leg id=&#34;l1&#34; target=&#34;&#34; pdgid=&#34;0&#34; type=&#34;&#34; label=&#34;&#34; sense=&#34;&#34;/&gt;
-&lt;/feynmandiagram&gt;
+  &lt;leg id=&#34;l1&#34; target=&#34;&#34; pdgid=&#34;21&#34; type=&#34;&#34; latexname=&#34;g&#34; label=&#34;&#34; sense=&#34;&#34;/&gt;
+&lt;/diagram&gt;
 
 </pre></div></div>
+</div>
+</section>
+<section id="Write-FeynML">
+<h2>Write FeynML<a class="headerlink" href="#Write-FeynML" title="Permalink to this heading">¶</a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fml</span> <span class="o">=</span> <span class="n">FeynML</span><span class="p">(</span>
+        <span class="n">head</span><span class="o">=</span><span class="n">Head</span><span class="p">(</span>
+            <span class="n">metas</span><span class="o">=</span><span class="n">Meta</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;pyfeyn2&quot;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;test&quot;</span><span class="p">),</span>
+            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Simple single test diagram&quot;</span><span class="p">,</span>
+        <span class="p">),</span>
+        <span class="n">diagrams</span><span class="o">=</span><span class="n">fd</span><span class="p">,</span>
+    <span class="p">)</span>
+
+<span class="n">config</span> <span class="o">=</span> <span class="n">SerializerConfig</span><span class="p">(</span><span class="n">pretty_print</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">serializer</span> <span class="o">=</span> <span class="n">XmlSerializer</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">serializer</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">fml</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;
+&lt;feynml&gt;
+  &lt;head&gt;
+    &lt;meta name=&#34;pyfeyn2&#34; value=&#34;test&#34;/&gt;
+    &lt;description&gt;Simple single test diagram&lt;/description&gt;
+  &lt;/head&gt;
+  &lt;diagram&gt;
+    &lt;propagator id=&#34;p1&#34; source=&#34;v1&#34; target=&#34;v2&#34; pdgid=&#34;21&#34; type=&#34;&#34; latexname=&#34;g&#34; label=&#34;&#34;/&gt;
+    &lt;vertex id=&#34;v1&#34; label=&#34;&#34;/&gt;
+    &lt;vertex id=&#34;v2&#34; label=&#34;&#34;/&gt;
+    &lt;leg id=&#34;l1&#34; target=&#34;&#34; pdgid=&#34;21&#34; type=&#34;&#34; latexname=&#34;g&#34; label=&#34;&#34; sense=&#34;&#34;/&gt;
+  &lt;/diagram&gt;
+&lt;/feynml&gt;
+
+</pre></div></div>
+</div>
+</section>
+<section id="Read-FeynML">
+<h2>Read FeynML<a class="headerlink" href="#Read-FeynML" title="Permalink to this heading">¶</a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span> <span class="nn">pyfeyn2.render.pyx.pyxrender</span> <span class="kn">import</span> <span class="n">PyxRender</span>
+
+<span class="n">xml_string</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;test.fml&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read_text</span><span class="p">()</span>
+<span class="n">parser</span> <span class="o">=</span> <span class="n">XmlParser</span><span class="p">()</span>
+<span class="n">fml</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">from_string</span><span class="p">(</span><span class="n">xml_string</span><span class="p">,</span> <span class="n">FeynML</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fml</span><span class="p">)</span>
+<span class="n">wimg</span> <span class="o">=</span> <span class="n">PyxRender</span><span class="p">(</span><span class="n">fml</span><span class="o">.</span><span class="n">diagrams</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+FeynML(head=[Head(metas=[Meta(name=&#39;creator&#39;, value=&#39;PyFeyn&#39;)], description=&#39;\n   A sample diagram showing a QCD correction to the Drell-Yan process.\n   &#39;)], diagrams=[FeynmanDiagram(propagators=[Propagator(id=&#39;P2&#39;, source=&#39;V0&#39;, target=&#39;V1&#39;, bend=None, pdgid=21, type=&#39;photon&#39;, latexname=&#39;g&#39;, style=None, label=&#39;Z&#39;), Propagator(id=&#39;P4&#39;, source=&#39;V5&#39;, target=&#39;V1&#39;, bend=None, pdgid=21, type=&#39;fermion&#39;, latexname=&#39;g&#39;, style=None, label=&#39;&#39;), Propagator(id=&#39;P5&#39;, source=&#39;V1&#39;, target=&#39;V6&#39;, bend=None, pdgid=21, type=&#39;fermion&#39;, latexname=&#39;g&#39;, style=None, label=&#39;&#39;), Propagator(id=&#39;P7&#39;, source=&#39;V5&#39;, target=&#39;V6&#39;, bend=0.5, pdgid=21, type=&#39;gluon&#39;, latexname=&#39;g&#39;, style=&#39;parallel-arrow-displace:0.2;&#39;, label=&#39;g&#39;)], vertices=[Vertex(id=&#39;V0&#39;, x=-2.0, y=0.0, z=None, style=None, label=&#39;&#39;), Vertex(id=&#39;V1&#39;, x=2.0, y=0.0, z=None, style=None, label=&#39;&#39;), Vertex(id=&#39;V5&#39;, x=3.0, y=-1.0, z=None, style=None, label=&#39;&#39;), Vertex(id=&#39;V6&#39;, x=3.0, y=1.0, z=None, style=None, label=&#39;&#39;)], legs=[Leg(id=&#39;E0&#39;, target=&#39;V0&#39;, x=-4.0, y=2.0, z=None, bend=None, pdgid=21, type=&#39;fermion&#39;, latexname=&#39;g&#39;, style=&#39;arrow-pos:0.53;&#39;, label=&#39;e-&#39;, sense=&#39;incoming&#39;), Leg(id=&#39;E1&#39;, target=&#39;V0&#39;, x=-4.0, y=-2.0, z=None, bend=None, pdgid=21, type=&#39;fermion&#39;, latexname=&#39;g&#39;, style=&#39;arrow-pos:0.53; parallel-arrow-displace:-0.06; parallel-arrow-sense:-1;&#39;, label=&#39;e+&#39;, sense=&#39;outgoing&#39;), Leg(id=&#39;E2&#39;, target=&#39;V5&#39;, x=4.0, y=-2.0, z=None, bend=None, pdgid=21, type=&#39;fermion&#39;, latexname=&#39;g&#39;, style=&#39;arrow-pos:0.53; parallel-arrow-displace:-0.06; parallel-arrow-sense:-1;&#39;, label=&#39;q+&#39;, sense=&#39;incoming&#39;), Leg(id=&#39;E3&#39;, target=&#39;V6&#39;, x=4.0, y=2.0, z=None, bend=None, pdgid=21, type=&#39;fermion&#39;, latexname=&#39;g&#39;, style=&#39;arrow-pos:0.53;&#39;, label=&#39;q-&#39;, sense=&#39;outgoing&#39;)], labels=[Label(text=&#39;Drell-Yan QCD vertex correction&#39;, x=0.0, y=2.0, z=None, id=&#39;L0&#39;)])])
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/examples_FeynML_8_1.png" src="../_images/examples_FeynML_8_1.png" />
+</div>
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
@@ -541,6 +630,7 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
+</section>
 </section>
 
 

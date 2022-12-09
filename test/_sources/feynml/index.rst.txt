@@ -22,6 +22,7 @@ A Feynman diagram is constructed of
    leg.rst
    vertex.rst
    propagator.rst
+   label.rst
 
 .. _attributes:
 

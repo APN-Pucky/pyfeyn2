@@ -192,7 +192,7 @@ Attributes
 
    Bases: :py:obj:`pyfeyn2.render.render.Render`
 
-   .. py:method:: render(file=None, show=True, resolution=100, width=None, height=None)
+   .. py:method:: render(file=None, show=True, resolution=200, width=None, height=None)
 
 
    .. py:method:: apply_layout(stylestring, obj)
@@ -277,7 +277,7 @@ Attributes
    
 
 .. py:data:: attributes
-   :annotation: = ['x', 'y', 'bend', 'label', 'pdgid', 'sense', 'target', 'source', 'style', 'id', 'type']
+   :annotation: = ['x', 'y', 'bend', 'label', 'pdgid', 'sense', 'target', 'source', 'style', 'id', 'type', 'text']
 
    
 

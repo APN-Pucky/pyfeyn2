@@ -21,7 +21,7 @@ Classes
 
    Bases: :py:obj:`pyfeyn2.render.render.Render`
 
-   .. py:method:: render(file=None, show=True, resolution=100, width=None, height=None)
+   .. py:method:: render(file=None, show=True, resolution=200, width=None, height=None)
 
 
    .. py:method:: apply_layout(stylestring, obj)

@@ -77,7 +77,7 @@
             
             
               <div class="version">
-                2.0.4-26-g731cde8
+                2.0.4-31-gd7dc614
               </div>
             
           
@@ -197,7 +197,9 @@
            <div itemprop="articleBody">
             
   <h1>Source code for pyfeyn2.render.pyx.pyxrender</h1><div class="highlight"><pre>
-<span></span>import pyx
+<span></span>import os
+
+import pyx
 from IPython.display import display
 from pyx import *
 from wand.image import Image as WImage
@@ -221,7 +223,11 @@ from pyfeyn2.render.render import Render
     def __init__(self, fd=None, *args, **kwargs):
         super().__init__(fd, *args, **kwargs)
 
-<div class="viewcode-block" id="PyxRender.render"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/pyxrender/index.html#pyfeyn2.PyxRender.render">[docs]</a>    def render(self, file=None, show=True, resolution=100, width=None, height=None):
+<div class="viewcode-block" id="PyxRender.render"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/pyxrender/index.html#pyfeyn2.PyxRender.render">[docs]</a>    def render(self, file=None, show=True, resolution=200, width=None, height=None):
+        delete = False
+        if file is None:
+            file = &quot;tmp.pdf&quot;
+            delete = True
         pyxfd = FeynDiagram()
         for v in self.fd.vertices:
             dp = DecoratedPoint(v.x, v.y)
@@ -245,9 +251,11 @@ from pyfeyn2.render.render import Render
             nl = NamedLine[p.type](Point(src.x, src.y), Point(tar.x, tar.y))
             nl = nl.bend(p.bend)
             nl = self.apply_layout(v.style, nl)
-            nl = nl.addLabel(l.label)
+            nl = nl.addLabel(p.label)
         pyxfd.draw(file)
         wi = WImage(filename=file, resolution=resolution, width=width, height=height)
+        if delete:
+            os.remove(file)
         if show:
             display(wi)
         return wi</div>

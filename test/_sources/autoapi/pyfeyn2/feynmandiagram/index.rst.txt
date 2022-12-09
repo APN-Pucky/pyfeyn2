@@ -15,6 +15,7 @@ Classes
    pyfeyn2.feynmandiagram.PDG
    pyfeyn2.feynmandiagram.Identifiable
    pyfeyn2.feynmandiagram.Labeled
+   pyfeyn2.feynmandiagram.Texted
    pyfeyn2.feynmandiagram.Point
    pyfeyn2.feynmandiagram.Styled
    pyfeyn2.feynmandiagram.Bending
@@ -24,7 +25,11 @@ Classes
    pyfeyn2.feynmandiagram.Vertex
    pyfeyn2.feynmandiagram.Leg
    pyfeyn2.feynmandiagram.Propagator
+   pyfeyn2.feynmandiagram.Label
    pyfeyn2.feynmandiagram.FeynmanDiagram
+   pyfeyn2.feynmandiagram.Meta
+   pyfeyn2.feynmandiagram.Head
+   pyfeyn2.feynmandiagram.FeynML
 
 
 
@@ -35,6 +40,7 @@ Attributes
 .. autoapisummary::
 
    pyfeyn2.feynmandiagram.id
+   pyfeyn2.feynmandiagram.aliasMeta
 
 
 .. py:class:: PDG
@@ -96,27 +102,38 @@ Attributes
 
 
 
+.. py:class:: Texted
+
+   .. py:attribute:: text
+      :annotation: :Optional[str]
+
+      
+
+   .. py:method:: set_text(text)
+
+
+
 .. py:class:: Point
 
    .. py:attribute:: x
-      :annotation: :Optional[decimal.Decimal]
+      :annotation: :Optional[float]
 
       
 
    .. py:attribute:: y
-      :annotation: :Optional[decimal.Decimal]
+      :annotation: :Optional[float]
 
       
 
    .. py:attribute:: z
-      :annotation: :Optional[decimal.Decimal]
+      :annotation: :Optional[float]
 
       
 
    .. py:method:: set_xy(x, y)
 
 
-   .. py:method:: set_xyz(x, y)
+   .. py:method:: set_xyz(x, y, z)
 
 
 
@@ -131,7 +148,7 @@ Attributes
 .. py:class:: Bending
 
    .. py:attribute:: bend
-      :annotation: :Optional[str]
+      :annotation: :Optional[float]
 
       
 
@@ -192,12 +209,17 @@ Attributes
    Bases: :py:obj:`Labeled`, :py:obj:`Styled`, :py:obj:`PDG`, :py:obj:`Bending`, :py:obj:`Line`, :py:obj:`Identifiable`
 
 
+.. py:class:: Label
+
+   Bases: :py:obj:`Identifiable`, :py:obj:`Point`, :py:obj:`Texted`
+
+
 .. py:class:: FeynmanDiagram
 
    .. py:class:: Meta
 
       .. py:attribute:: name
-         :annotation: = feynmandiagram
+         :annotation: = diagram
 
          
 
@@ -217,7 +239,83 @@ Attributes
 
       
 
+   .. py:attribute:: labels
+      :annotation: :List[Label]
+
+      
+
    .. py:method:: get_point(id)
+
+
+
+.. py:class:: Meta
+
+   .. py:class:: Meta
+
+      .. py:attribute:: name
+         :annotation: = meta
+
+         
+
+
+   .. py:attribute:: name
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: value
+      :annotation: :Optional[str]
+
+      
+
+
+.. py:data:: aliasMeta
+   
+
+   
+
+.. py:class:: Head
+
+   .. py:class:: Meta
+
+      .. py:attribute:: name
+         :annotation: = head
+
+         
+
+
+   .. py:attribute:: metas
+      :annotation: :List[aliasMeta]
+
+      
+
+   .. py:attribute:: description
+      :annotation: :Optional[str]
+
+      
+
+
+.. py:class:: FeynML
+
+   .. py:class:: Meta
+
+      .. py:attribute:: name
+         :annotation: = feynml
+
+         
+
+
+   .. py:attribute:: head
+      :annotation: :List[Head]
+
+      
+
+   .. py:attribute:: diagrams
+      :annotation: :List[FeynmanDiagram]
+
+      
+
+   .. py:method:: get_diagram(id)
 
 
 

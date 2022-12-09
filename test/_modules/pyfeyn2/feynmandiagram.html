@@ -77,7 +77,7 @@
             
             
               <div class="version">
-                2.0.4-26-g731cde8
+                2.0.4-31-gd7dc614
               </div>
             
           
@@ -198,7 +198,6 @@
             
   <h1>Source code for pyfeyn2.feynmandiagram</h1><div class="highlight"><pre>
 <span></span>from dataclasses import dataclass, field
-from decimal import Decimal
 from typing import List, Optional
 
 from pyfeyn2.particles import get_name
@@ -266,14 +265,25 @@ from pyfeyn2.particles import get_name
 
 
 @dataclass
+<div class="viewcode-block" id="Texted"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Texted">[docs]</a>class Texted:
+<div class="viewcode-block" id="Texted.text"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Texted.text">[docs]</a>    text: Optional[str] = field(
+        default=&quot;&quot;, metadata={&quot;xml_attribute&quot;: True, &quot;type&quot;: &quot;Attribute&quot;}
+    )</div>
+
+<div class="viewcode-block" id="Texted.set_text"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Texted.set_text">[docs]</a>    def set_text(self, text):
+        self.text = text
+        return self</div></div>
+
+
+@dataclass
 <div class="viewcode-block" id="Point"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Point">[docs]</a>class Point:
-<div class="viewcode-block" id="Point.x"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Point.x">[docs]</a>    x: Optional[Decimal] = field(
+<div class="viewcode-block" id="Point.x"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Point.x">[docs]</a>    x: Optional[float] = field(
         default=None, metadata={&quot;xml_attribute&quot;: True, &quot;type&quot;: &quot;Attribute&quot;}
     )</div>
-<div class="viewcode-block" id="Point.y"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Point.y">[docs]</a>    y: Optional[Decimal] = field(
+<div class="viewcode-block" id="Point.y"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Point.y">[docs]</a>    y: Optional[float] = field(
         default=None, metadata={&quot;xml_attribute&quot;: True, &quot;type&quot;: &quot;Attribute&quot;}
     )</div>
-<div class="viewcode-block" id="Point.z"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Point.z">[docs]</a>    z: Optional[Decimal] = field(
+<div class="viewcode-block" id="Point.z"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Point.z">[docs]</a>    z: Optional[float] = field(
         default=None, metadata={&quot;xml_attribute&quot;: True, &quot;type&quot;: &quot;Attribute&quot;}
     )</div>
 
@@ -282,7 +292,7 @@ from pyfeyn2.particles import get_name
         self.y = float(y)
         return self</div>
 
-<div class="viewcode-block" id="Point.set_xyz"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Point.set_xyz">[docs]</a>    def set_xyz(self, x, y):
+<div class="viewcode-block" id="Point.set_xyz"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Point.set_xyz">[docs]</a>    def set_xyz(self, x, y, z):
         self.x = float(x)
         self.y = float(y)
         self.z = float(z)
@@ -298,7 +308,7 @@ from pyfeyn2.particles import get_name
 
 @dataclass
 <div class="viewcode-block" id="Bending"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Bending">[docs]</a>class Bending:
-<div class="viewcode-block" id="Bending.bend"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Bending.bend">[docs]</a>    bend: Optional[str] = field(
+<div class="viewcode-block" id="Bending.bend"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Bending.bend">[docs]</a>    bend: Optional[float] = field(
         default=None, metadata={&quot;xml_attribute&quot;: True, &quot;type&quot;: &quot;Attribute&quot;}
     )</div></div>
 
@@ -359,9 +369,14 @@ from pyfeyn2.particles import get_name
 
 
 @dataclass
+<div class="viewcode-block" id="Label"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Label">[docs]</a>class Label(Identifiable, Point, Texted):
+    pass</div>
+
+
+@dataclass
 <div class="viewcode-block" id="FeynmanDiagram"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.FeynmanDiagram">[docs]</a>class FeynmanDiagram:
 <div class="viewcode-block" id="FeynmanDiagram.Meta"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.FeynmanDiagram.Meta">[docs]</a>    class Meta:
-<div class="viewcode-block" id="FeynmanDiagram.Meta.name"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.FeynmanDiagram.Meta.name">[docs]</a>        name = &quot;feynmandiagram&quot;</div></div>
+<div class="viewcode-block" id="FeynmanDiagram.Meta.name"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.FeynmanDiagram.Meta.name">[docs]</a>        name = &quot;diagram&quot;</div></div>
 
 <div class="viewcode-block" id="FeynmanDiagram.propagators"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.FeynmanDiagram.propagators">[docs]</a>    propagators: List[Propagator] = field(
         default_factory=list,
@@ -375,6 +390,10 @@ from pyfeyn2.particles import get_name
         default_factory=list,
         metadata={&quot;name&quot;: &quot;leg&quot;, &quot;type&quot;: &quot;Element&quot;, &quot;namespace&quot;: &quot;&quot;},
     )</div>
+<div class="viewcode-block" id="FeynmanDiagram.labels"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.FeynmanDiagram.labels">[docs]</a>    labels: List[Label] = field(
+        default_factory=list,
+        metadata={&quot;name&quot;: &quot;label&quot;, &quot;type&quot;: &quot;Element&quot;, &quot;namespace&quot;: &quot;&quot;},
+    )</div>
 
 <div class="viewcode-block" id="FeynmanDiagram.get_point"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.FeynmanDiagram.get_point">[docs]</a>    def get_point(self, id):
         for v in self.vertices:
@@ -383,6 +402,58 @@ from pyfeyn2.particles import get_name
         for l in self.legs:
             if l.id == id:
                 return l
+        return None</div></div>
+
+
+@dataclass
+<div class="viewcode-block" id="Meta"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Meta">[docs]</a>class Meta:
+<div class="viewcode-block" id="Meta.Meta"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Meta.Meta">[docs]</a>    class Meta:
+<div class="viewcode-block" id="Meta.Meta.name"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Meta.Meta.name">[docs]</a>        name = &quot;meta&quot;</div></div>
+
+<div class="viewcode-block" id="Meta.name"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Meta.name">[docs]</a>    name: Optional[str] = field(
+        default=&quot;&quot;, metadata={&quot;xml_attribute&quot;: True, &quot;type&quot;: &quot;Attribute&quot;}
+    )</div>
+<div class="viewcode-block" id="Meta.value"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Meta.value">[docs]</a>    value: Optional[str] = field(
+        default=&quot;&quot;, metadata={&quot;xml_attribute&quot;: True, &quot;type&quot;: &quot;Attribute&quot;}
+    )</div></div>
+
+
+<div class="viewcode-block" id="aliasMeta"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.aliasMeta">[docs]</a>aliasMeta = Meta</div>
+
+
+@dataclass
+<div class="viewcode-block" id="Head"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Head">[docs]</a>class Head:
+<div class="viewcode-block" id="Head.Meta"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Head.Meta">[docs]</a>    class Meta:
+<div class="viewcode-block" id="Head.Meta.name"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Head.Meta.name">[docs]</a>        name = &quot;head&quot;</div></div>
+
+<div class="viewcode-block" id="Head.metas"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Head.metas">[docs]</a>    metas: List[aliasMeta] = field(
+        default_factory=list,
+        metadata={&quot;name&quot;: &quot;meta&quot;, &quot;namespace&quot;: &quot;&quot;},
+    )</div>
+
+<div class="viewcode-block" id="Head.description"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Head.description">[docs]</a>    description: Optional[str] = field(
+        default=&quot;&quot;, metadata={&quot;xml_attribute&quot;: True, &quot;type&quot;: &quot;Element&quot;}
+    )</div></div>
+
+
+@dataclass
+<div class="viewcode-block" id="FeynML"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.FeynML">[docs]</a>class FeynML:
+<div class="viewcode-block" id="FeynML.Meta"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.FeynML.Meta">[docs]</a>    class Meta:
+<div class="viewcode-block" id="FeynML.Meta.name"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.FeynML.Meta.name">[docs]</a>        name = &quot;feynml&quot;</div></div>
+
+<div class="viewcode-block" id="FeynML.head"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.FeynML.head">[docs]</a>    head: List[Head] = field(
+        default_factory=list, metadata={&quot;name&quot;: &quot;head&quot;, &quot;namespace&quot;: &quot;&quot;}
+    )</div>
+
+<div class="viewcode-block" id="FeynML.diagrams"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.FeynML.diagrams">[docs]</a>    diagrams: List[FeynmanDiagram] = field(
+        default_factory=list,
+        metadata={&quot;name&quot;: &quot;diagram&quot;, &quot;type&quot;: &quot;Element&quot;, &quot;namespace&quot;: &quot;&quot;},
+    )</div>
+
+<div class="viewcode-block" id="FeynML.get_diagram"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.FeynML.get_diagram">[docs]</a>    def get_diagram(self, id):
+        for d in self.diagrams:
+            if d.id == id:
+                return d
         return None</div></div>
 </pre></div>
 

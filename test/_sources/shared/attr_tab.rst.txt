@@ -12,4 +12,5 @@
 :ref:`style`       |pyx.attribute.style|    |dot.attribute.style|    |ascii.attribute.style|    |mpl.attribute.style|    |feynmp.attribute.style|    |tikzfeynman.attribute.style|    
 :ref:`id`          |pyx.attribute.id|       |dot.attribute.id|       |ascii.attribute.id|       |mpl.attribute.id|       |feynmp.attribute.id|       |tikzfeynman.attribute.id|       
 :ref:`type`        |pyx.attribute.type|     |dot.attribute.type|     |ascii.attribute.type|     |mpl.attribute.type|     |feynmp.attribute.type|     |tikzfeynman.attribute.type|     
+:ref:`text`        |pyx.attribute.text|     |dot.attribute.text|     |ascii.attribute.text|     |mpl.attribute.text|     |feynmp.attribute.text|     |tikzfeynman.attribute.text|     
 ================== ======================== ======================== ========================== ======================== =========================== ================================

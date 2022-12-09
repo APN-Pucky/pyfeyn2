@@ -2,5 +2,5 @@
 
 Bend
 ====
-| Format: String
+| Format: Float
 | Elements: :ref:`leg`, :ref:`propagator`
