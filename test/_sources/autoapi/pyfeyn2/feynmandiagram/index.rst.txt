@@ -128,6 +128,9 @@ Attributes
 
       
 
+   .. py:method:: set_point(p)
+
+
    .. py:method:: set_xy(x, y)
 
 
@@ -190,15 +193,26 @@ Attributes
 
    Bases: :py:obj:`Labeled`, :py:obj:`Styled`, :py:obj:`Bending`, :py:obj:`PDG`, :py:obj:`Identifiable`
 
-   .. py:attribute:: edge_label
-      :annotation: :Optional[str]
-
-      
-
    .. py:attribute:: momentum
       :annotation: :Optional[str]
 
       
+
+   .. py:attribute:: tension
+      :annotation: :Optional[float]
+
+      
+
+   .. py:attribute:: length
+      :annotation: :Optional[float]
+
+      
+
+   .. py:method:: set_tension(tension)
+
+
+   .. py:method:: set_length(length)
+
 
 
 .. py:class:: Leg

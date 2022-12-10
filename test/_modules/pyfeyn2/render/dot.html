@@ -77,7 +77,7 @@
             
             
               <div class="version">
-                2.0.5-10-ga84d8ab
+                2.0.5-11-g435f30b
               </div>
             
           
@@ -219,6 +219,7 @@ from pyfeyn2.render.render import Render
     &quot;slepton&quot;: &quot;densely dashed&quot;,
     &quot;squark&quot;: &quot;densely dashed&quot;,
     &quot;zigzag&quot;: &quot;decorate,decoration=zigzag&quot;,
+    &quot;phantom&quot;: &quot;draw=none&quot;,
 }</div>
 
 
@@ -228,13 +229,19 @@ from pyfeyn2.render.render import Render
         label = &quot;&quot;
     else:
         label = c.label.replace(&quot;\\&quot;, REPLACE_THIS_WITH_A_BACKSLASH)
+    if c.length is not None:
+        style += f&quot;,len={c.length}&quot;
     style += f&#39;,label=&quot;{label}&quot;&#39;
     return style</div>
 
 
-<div class="viewcode-block" id="feynman_adjust_points"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/dot/index.html#pyfeyn2.feynman_adjust_points">[docs]</a>def feynman_adjust_points(feyndiag, size=5):
+<div class="viewcode-block" id="feynman_adjust_points"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/dot/index.html#pyfeyn2.feynman_adjust_points">[docs]</a>def feynman_adjust_points(feyndiag, size=5, delete_vertices=True):
     # deepcopy
     fd = copy.deepcopy(feyndiag)
+    if delete_vertices:
+        for v in fd.vertices:
+            v.x = None
+            v.y = None
     norm = size
     dot = feynman_to_dot(fd)
     positions = dot_to_positions(dot)
@@ -273,6 +280,9 @@ from pyfeyn2.render.render import Render
     # src += &quot;mode=hier;\n&quot;
     src += &#39;node [style=&quot;invis&quot;];\n&#39;
     for l in fd.legs:
+        if l.x is not None and l.y is not None:
+            src += f&#39;\t\t{l.id} [ pos=&quot;{l.x},{l.y}!&quot;];\n&#39;
+    for l in fd.vertices:
         if l.x is not None and l.y is not None:
             src += f&#39;\t\t{l.id} [ pos=&quot;{l.x},{l.y}!&quot;];\n&#39;
     for p in fd.propagators:
@@ -335,7 +345,7 @@ from pyfeyn2.render.render import Render
         super().set_feynman_diagram(fd)
         self.src_dot = feynman_to_dot(fd)
         self.set_src_diag(dot_to_tikz(self.src_dot))
-        self.src_dot = self.src_diag.replace(REPLACE_THIS_WITH_A_BACKSLASH, &quot;\\&quot;)</div>
+        self.src_dot = self.src_dot.replace(REPLACE_THIS_WITH_A_BACKSLASH, &quot;\\&quot;)</div>
 
 <div class="viewcode-block" id="DotRender.get_src_dot"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/dot/index.html#pyfeyn2.DotRender.get_src_dot">[docs]</a>    def get_src_dot(self):
         return self.src_dot</div>

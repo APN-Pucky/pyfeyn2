@@ -82,7 +82,7 @@
             
             
               <div class="version">
-                2.0.5-10-ga84d8ab
+                2.0.5-11-g435f30b
               </div>
             
           
@@ -492,6 +492,9 @@ div.rendered_html tbody tr:hover {
 <section id="Dot">
 <h1>Dot<a class="headerlink" href="#Dot" title="Permalink to this heading">¶</a></h1>
 <p>DotRender uses dot2tex which in turn TikZ in Latex.</p>
+<p><a class="reference external" href="https://dot2tex.readthedocs.io/en/latest/">https://dot2tex.readthedocs.io/en/latest/</a></p>
+<p><a class="reference external" href="https://github.com/kjellmf/dot2tex">https://github.com/kjellmf/dot2tex</a></p>
+<p><a class="reference external" href="https://graphviz.org/doc/info/lang.html">https://graphviz.org/doc/info/lang.html</a></p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
@@ -504,7 +507,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fd</span> <span class="o">=</span> <span class="n">FeynmanDiagram</span><span class="p">()</span>
@@ -531,7 +534,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dr</span><span class="o">=</span> <span class="n">DotRender</span><span class="p">(</span><span class="n">fd</span><span class="p">)</span>
@@ -539,7 +542,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">dr</span><span class="o">.</span><span class="n">get_src_dot</span><span class="p">())</span>
@@ -551,57 +554,46 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-
-\begin{tikzpicture}[&gt;=latex,line join=bevel,]
-%%
-\begin{scope}
-  \pgfsetstrokecolor{black}
-  \definecolor{strokecol}{rgb}{1.0,1.0,1.0};
-  \pgfsetstrokecolor{strokecol}
-  \definecolor{fillcol}{rgb}{1.0,1.0,1.0};
-  \pgfsetfillcolor{fillcol}
-  \filldraw (0.0bp,0.0bp) -- (0.0bp,324.0bp) -- (342.0bp,324.0bp) -- (342.0bp,0.0bp) -- cycle;
-\end{scope}
-\begin{scope}
-  \pgfsetstrokecolor{black}
-  \definecolor{strokecol}{rgb}{1.0,1.0,1.0};
-  \pgfsetstrokecolor{strokecol}
-  \definecolor{fillcol}{rgb}{1.0,1.0,1.0};
-  \pgfsetfillcolor{fillcol}
-  \filldraw (0.0bp,0.0bp) -- (0.0bp,324.0bp) -- (342.0bp,324.0bp) -- (342.0bp,0.0bp) -- cycle;
-\end{scope}
-  \coordinate (l1) at (27.0bp,234.0bp);
-  \coordinate (l2) at (27.0bp,90.0bp);
-  \coordinate (l3) at (315.0bp,18.0bp);
-  \coordinate (l4) at (315.0bp,306.0bp);
-  \coordinate (l5) at (315.0bp,234.0bp);
-  \coordinate (l6) at (315.0bp,90.0bp);
-  \coordinate (v1) at (136.9bp,180.13bp);
-  \coordinate (v2) at (203.59bp,142.95bp);
-  \coordinate (v3) at (204.41bp,217.19bp);
-  \coordinate (v4) at (263.32bp,176.05bp);
-  \draw [decorate,decoration={coil,aspect=0.3,segment length=1mm}] (l1) ..controls (68.145bp,213.83bp) and (95.809bp,200.27bp)  .. (v1);
-  \draw [decorate,decoration={coil,aspect=0.3,segment length=1mm}] (l2) ..controls (64.82bp,121.01bp) and (99.259bp,149.26bp)  .. (v1);
-  \draw [decorate,decoration={coil,aspect=0.3,segment length=1mm}] (v2) ..controls (238.83bp,103.43bp) and (279.49bp,57.83bp)  .. (l3);
-  \draw [decorate,postaction={decorate,draw,red,decoration={markings,mark=at position 0.5 with {\arrow{&gt;}}}}] (v2) ..controls (174.91bp,158.94bp) and (165.83bp,164.0bp)  .. (v1);
-  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
-  \pgfsetstrokecolor{strokecol}
-  \draw (143.86bp,153.98bp) node {$\mu$};
-  \draw [decorate,postaction={decorate,draw,red,decoration={markings,mark=at position 0.5 with {\arrow{&gt;}}}}] (v1) ..controls (165.94bp,196.07bp) and (175.13bp,201.11bp)  .. (v3);
-  \draw [decorate,decoration={coil,aspect=0.3,segment length=1mm}] (v3) ..controls (242.34bp,247.65bp) and (276.71bp,275.25bp)  .. (l4);
-  \draw [decorate,postaction={decorate,draw,red,decoration={markings,mark=at position 0.5 with {\arrow{&gt;}}}}] (v3) ..controls (204.08bp,187.33bp) and (203.92bp,172.56bp)  .. (v2);
-  \draw [decorate,decoration={coil,aspect=0.3,segment length=1mm}] (v4) ..controls (284.58bp,199.89bp) and (293.69bp,210.1bp)  .. (l5);
-  \draw [decorate,decoration={coil,aspect=0.3,segment length=1mm}] (v4) ..controls (282.59bp,143.96bp) and (295.76bp,122.04bp)  .. (l6);
-  \draw [decorate,decoration={coil,aspect=0.3,segment length=1mm}] (v4) ..controls (236.65bp,161.26bp) and (230.36bp,157.78bp)  .. (v2);
-  \draw [decorate,decoration={coil,aspect=0.3,segment length=1mm}] (v4) ..controls (237.63bp,193.99bp) and (230.06bp,199.27bp)  .. (v3);
-%
-\end{tikzpicture}
-
+graph G {
+rankdir=LR;
+layout=neato;
+node [style=&#34;invis&#34;];
+                l1 [ pos=&#34;-2.0,1.0!&#34;];
+                l2 [ pos=&#34;-2.0,-1.0!&#34;];
+                l3 [ pos=&#34;2.0,-2.0!&#34;];
+                l4 [ pos=&#34;2.0,2.0!&#34;];
+                l5 [ pos=&#34;2.0,1.0!&#34;];
+                l6 [ pos=&#34;2.0,-1.0!&#34;];
+edge [style=&#34;decorate,postaction={decorate,draw,red,decoration={markings,mark=at position 0.5 with {\arrow{&gt;}}}}&#34;,texmode=&#34;raw&#34;,label=&#34;$\mu$&#34;];
+                v2 -- v1;
+edge [style=&#34;decorate,postaction={decorate,draw,red,decoration={markings,mark=at position 0.5 with {\arrow{&gt;}}}}&#34;,texmode=&#34;raw&#34;,label=&#34;&#34;];
+                v1 -- v3;
+edge [style=&#34;decorate,postaction={decorate,draw,red,decoration={markings,mark=at position 0.5 with {\arrow{&gt;}}}}&#34;,texmode=&#34;raw&#34;,label=&#34;&#34;];
+                v3 -- v2;
+edge [style=&#34;decorate,decoration={coil,aspect=0.3,segment length=1mm}&#34;,texmode=&#34;raw&#34;,label=&#34;&#34;];
+                v4 -- v3;
+edge [style=&#34;decorate,decoration={coil,aspect=0.3,segment length=1mm}&#34;,texmode=&#34;raw&#34;,label=&#34;&#34;];
+                v4 -- v2;
+edge [style=&#34;decorate,decoration={coil,aspect=0.3,segment length=1mm}&#34;,texmode=&#34;raw&#34;,label=&#34;&#34;];
+                l1 -- v1;
+edge [style=&#34;decorate,decoration={coil,aspect=0.3,segment length=1mm}&#34;,texmode=&#34;raw&#34;,label=&#34;&#34;];
+                l2 -- v1;
+edge [style=&#34;decorate,decoration={coil,aspect=0.3,segment length=1mm}&#34;,texmode=&#34;raw&#34;,label=&#34;&#34;];
+                v2 -- l3;
+edge [style=&#34;decorate,decoration={coil,aspect=0.3,segment length=1mm}&#34;,texmode=&#34;raw&#34;,label=&#34;&#34;];
+                v3 -- l4;
+edge [style=&#34;decorate,decoration={coil,aspect=0.3,segment length=1mm}&#34;,texmode=&#34;raw&#34;,label=&#34;&#34;];
+                v4 -- l5;
+edge [style=&#34;decorate,decoration={coil,aspect=0.3,segment length=1mm}&#34;,texmode=&#34;raw&#34;,label=&#34;&#34;];
+                v4 -- l6;
+{rank=min; l1 l2 }
+{rank=max; l3 ;l4 ;l5 ;l6 ;}
+}
 </pre></div></div>
 </div>
 <p>Render Dot script via dot2tex, so tikz again. No need to fix points via dot here explicitly.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dr</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">resolution</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
@@ -616,7 +608,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -671,7 +663,7 @@ div.rendered_html tbody tr:hover {
   \draw [decorate,postaction={decorate,draw,red,decoration={markings,mark=at position 0.5 with {\arrow{&gt;}}}}] (v2) ..controls (174.91bp,158.94bp) and (165.83bp,164.0bp)  .. (v1);
   \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
   \pgfsetstrokecolor{strokecol}
-  \draw (127.36bp,153.98bp) node {$x_8\beta$};
+  \draw (143.86bp,153.98bp) node {$\mu$};
   \draw [decorate,postaction={decorate,draw,red,decoration={markings,mark=at position 0.5 with {\arrow{&gt;}}}}] (v1) ..controls (165.94bp,196.07bp) and (175.13bp,201.11bp)  .. (v3);
   \draw [decorate,decoration={coil,aspect=0.3,segment length=1mm}] (v3) ..controls (242.34bp,247.65bp) and (276.71bp,275.25bp)  .. (l4);
   \draw [decorate,postaction={decorate,draw,red,decoration={markings,mark=at position 0.5 with {\arrow{&gt;}}}}] (v3) ..controls (204.08bp,187.33bp) and (203.92bp,172.56bp)  .. (v2);

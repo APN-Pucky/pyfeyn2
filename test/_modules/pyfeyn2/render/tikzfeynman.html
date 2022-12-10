@@ -77,7 +77,7 @@
             
             
               <div class="version">
-                2.0.5-10-ga84d8ab
+                2.0.5-11-g435f30b
               </div>
             
           
@@ -228,6 +228,7 @@ from pyfeyn2.render.render import Render
     &quot;gluino&quot;: &quot;plain,gluon&quot;,
     &quot;higgs&quot;: &quot;scalar&quot;,
     &quot;vector&quot;: &quot;boson&quot;,
+    &quot;phantom&quot;: &quot;draw=none&quot;,
 }</div>
 
 
@@ -235,8 +236,8 @@ from pyfeyn2.render.render import Render
     style = &quot;&quot;
     style += type_map[c.type]
 
-    if c.edge_label is not None:
-        style += &quot;,edge label=&quot; + c.edge_label
+    if c.label is not None:
+        style += &quot;,edge label=&quot; + c.label
     # if c.edge_label_ is not None: style += &quot;,edge label&#39;=&quot; + c.edge_label_
     if c.momentum is not None:
         style += &quot;,momentum=&quot; + c.momentum
@@ -259,7 +260,7 @@ from pyfeyn2.render.render import Render
         style = stylize_node(v)
         src += f&quot;\t\\vertex ({v.id}) [{style}] at ({v.x},{v.y});\n&quot;
     for l in fd.legs:
-        style = stylize_node(l)
+        # style = stylize_node(l)
         src += f&quot;\t\\vertex ({l.id}) [{style}] at ({l.x},{l.y});\n&quot;
     src += &quot;\t\\diagram*{\n&quot;
     for p in fd.propagators:

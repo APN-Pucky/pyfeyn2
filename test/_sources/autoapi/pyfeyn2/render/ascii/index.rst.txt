@@ -22,6 +22,7 @@ Classes
    pyfeyn2.render.ascii.Gluino
    pyfeyn2.render.ascii.Gaugino
    pyfeyn2.render.ascii.Label
+   pyfeyn2.render.ascii.Phantom
    pyfeyn2.render.ascii.ASCIIRender
 
 
@@ -101,6 +102,14 @@ Attributes
 
    .. py:method:: inc_index() -> bool
 
+
+   .. py:method:: draw(pane, isrc, itar, scalex=1, scaley=1, kickx=0, kicky=0)
+
+
+
+.. py:class:: Phantom
+
+   Bases: :py:obj:`ASCIILine`
 
    .. py:method:: draw(pane, isrc, itar, scalex=1, scaley=1, kickx=0, kicky=0)
 

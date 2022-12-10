@@ -292,7 +292,7 @@ Attributes
    
 
 .. py:data:: attributes
-   :annotation: = ['x', 'y', 'bend', 'label', 'pdgid', 'sense', 'target', 'source', 'style', 'id', 'type', 'text']
+   :annotation: = ['x', 'y', 'bend', 'label', 'pdgid', 'sense', 'target', 'source', 'style', 'id', 'type', 'text',...
 
    
 

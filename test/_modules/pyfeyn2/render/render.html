@@ -77,7 +77,7 @@
             
             
               <div class="version">
-                2.0.5-10-ga84d8ab
+                2.0.5-11-g435f30b
               </div>
             
           
@@ -194,7 +194,7 @@
            <div itemprop="articleBody">
             
   <h1>Source code for pyfeyn2.render.render</h1><div class="highlight"><pre>
-<span></span>from pyfeyn2.feynmandiagram import FeynmanDiagram, Leg, Vertex
+<span></span>from pyfeyn2.feynmandiagram import FeynmanDiagram, Leg, Propagator, Vertex
 
 
 <div class="viewcode-block" id="Render"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/render/index.html#pyfeyn2.render.render.Render">[docs]</a>class Render:
@@ -222,18 +222,28 @@
             return True
         return False</div>
 
-<div class="viewcode-block" id="Render.demo_propagator"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/render/index.html#pyfeyn2.render.render.Render.demo_propagator">[docs]</a>    def demo_propagator(self, d, show=True):
-        fd = FeynmanDiagram()
-        v0 = Vertex(&quot;v0&quot;).set_xy(0, 0)
-        v1 = Vertex(&quot;v1&quot;).set_xy(2, 2)
-        v2 = Vertex(&quot;v2&quot;).set_xy(-2, 2)
-        v3 = Vertex(&quot;v3&quot;).set_xy(2, -2)
-        v4 = Vertex(&quot;v4&quot;).set_xy(-2, -2)
-        l1 = Leg(&quot;l1&quot;).set_target(v0).set_type(d).set_incoming().set_xy(-2, 0)
-        l2 = Leg(&quot;l2&quot;).set_target(v0).set_type(d).set_outgoing().set_xy(2, 0)
-        # fd.propagators.append(p1)
-        fd.vertices.extend([v0, v1, v2, v3, v4])
-        fd.legs.extend([l1, l2])
+<div class="viewcode-block" id="Render.demo_propagator"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/render/index.html#pyfeyn2.render.render.Render.demo_propagator">[docs]</a>    def demo_propagator(self, d, show=True, label=None):
+        v1 = Vertex().set_xy(-2, -2)
+        v2 = Vertex().set_xy(2, -2)
+
+        fd = FeynmanDiagram().add(
+            v1,
+            v2,
+            Propagator().connect(v1, v2).set_type(d).set_label(label).set_tension(0.0),
+            Leg()
+            .set_target(v1)
+            .set_point(v1)
+            .set_type(&quot;phantom&quot;)
+            .set_incoming()
+            .set_length(0.0),
+            Leg()
+            .set_target(v2)
+            .set_point(v2)
+            .set_type(&quot;phantom&quot;)
+            .set_outgoing()
+            .set_length(0.0),
+        )
+
         self.set_feynman_diagram(fd)
         self.render(show=show)</div></div>
 </pre></div>

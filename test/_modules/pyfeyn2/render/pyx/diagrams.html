@@ -77,7 +77,7 @@
             
             
               <div class="version">
-                2.0.5-10-ga84d8ab
+                2.0.5-11-g435f30b
               </div>
             
           
@@ -199,6 +199,7 @@
 import pyx
 
 from pyfeyn2.render.pyx import config
+from pyfeyn2.render.pyx.utils import Visible
 
 
 ## Diagram class
@@ -229,7 +230,8 @@ from pyfeyn2.render.pyx import config
                 # print &quot;offset =&quot;, obj.layeroffset
                 offset = obj.layeroffset
             self.highestautolayer += 1
-            obj.setDepth(self.highestautolayer + offset)
+            if isinstance(obj, Visible):
+                obj.setDepth(self.highestautolayer + offset)
             if config.getOptions().DEBUG:
                 print(
                     &quot;Object %s layer = %d + %d = %d&quot;

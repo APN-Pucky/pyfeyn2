@@ -77,7 +77,7 @@
             
             
               <div class="version">
-                2.0.5-10-ga84d8ab
+                2.0.5-11-g435f30b
               </div>
             
           
@@ -195,6 +195,7 @@
             
   <h1>Source code for pyfeyn2.render.ascii</h1><div class="highlight"><pre>
 <span></span>import copy
+import re
 from typing import Iterable, List
 
 from pyfeyn2.feynmandiagram import Point
@@ -347,6 +348,9 @@ from pyfeyn2.render.render import Render
 
 
 <div class="viewcode-block" id="remove_tex"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/ascii/index.html#pyfeyn2.remove_tex">[docs]</a>def remove_tex(s):
+    s = s.replace(&quot;\\bar&quot;, &quot;_&quot;)
+    s = s.replace(&quot;\\tilde&quot;, &quot;~&quot;)
+    s = re.sub(r&quot;\\[a-zA-Z]+&quot;, &quot;&quot;, s)
     return (
         s.replace(&quot;$&quot;, &quot;&quot;)
         .replace(&quot;{&quot;, &quot;&quot;)
@@ -410,6 +414,14 @@ from pyfeyn2.render.render import Render
         self.index = 0</div></div>
 
 
+<div class="viewcode-block" id="Phantom"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/ascii/index.html#pyfeyn2.Phantom">[docs]</a>class Phantom(ASCIILine):
+    def __init__(self):
+        super().__init__(begin=None, end=None, vert=&quot;&quot;, horz=&quot;&quot;)
+
+<div class="viewcode-block" id="Phantom.draw"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/ascii/index.html#pyfeyn2.Phantom.draw">[docs]</a>    def draw(self, pane, isrc, itar, scalex=1, scaley=1, kickx=0, kicky=0):
+        pass</div></div>
+
+
 <div class="viewcode-block" id="namedlines"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/ascii/index.html#pyfeyn2.namedlines">[docs]</a>namedlines = {
     &quot;gluon&quot;: Gluon(),
     &quot;photon&quot;: Photon(),
@@ -423,6 +435,7 @@ from pyfeyn2.render.render import Render
     &quot;squark&quot;: Scalar(),
     &quot;gluino&quot;: Gluino(),
     &quot;gaugino&quot;: Gaugino(),
+    &quot;phantom&quot;: Phantom(),
 }</div>
 
 
@@ -453,10 +466,18 @@ from pyfeyn2.render.render import Render
             if l.y &gt; maxy:
                 maxy = l.y
 
+        shift = 2
+        # maxx = maxx + shift
+        maxy = maxy + shift
+        # minx = minx - shift
+        miny = miny - shift
+
         if width is None:
-            width = int((maxx - minx + 1) * resolution / 10)
+            width = int((maxx - minx) * resolution / 10)
         if height is None:
-            height = int((maxy - miny + 1) * resolution / 10)
+            height = int(
+                (maxy - miny) * resolution / 10 / 2
+            )  # divide by two to make it look better due to aspect ratio
 
         pane = []
         for _ in range(height):

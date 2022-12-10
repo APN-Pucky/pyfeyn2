@@ -18,4 +18,5 @@
 :ref:`/feynml/attributes/type/chargino.ipynb`     |pyx.type.chargino|     |feynmp.type.chargino|     |tikz.type.chargino|     |dot.type.chargino|     |feynman.type.chargino|     |mpl.type.chargino|     |ascii.type.chargino|     
 :ref:`/feynml/attributes/type/higgsino.ipynb`     |pyx.type.higgsino|     |feynmp.type.higgsino|     |tikz.type.higgsino|     |dot.type.higgsino|     |feynman.type.higgsino|     |mpl.type.higgsino|     |ascii.type.higgsino|     
 :ref:`/feynml/attributes/type/gravitino.ipynb`    |pyx.type.gravitino|    |feynmp.type.gravitino|    |tikz.type.gravitino|    |dot.type.gravitino|    |feynman.type.gravitino|    |mpl.type.gravitino|    |ascii.type.gravitino|    
+:ref:`/feynml/attributes/type/phantom.ipynb`      |pyx.type.phantom|      |feynmp.type.phantom|      |tikz.type.phantom|      |dot.type.phantom|      |feynman.type.phantom|      |mpl.type.phantom|      |ascii.type.phantom|      
 ================================================= ======================= ========================== ======================== ======================= =========================== ======================= =========================

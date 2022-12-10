@@ -77,7 +77,7 @@
             
             
               <div class="version">
-                2.0.5-10-ga84d8ab
+                2.0.5-11-g435f30b
               </div>
             
           
@@ -284,6 +284,11 @@ from pyfeyn2.particles import get_name
         default=None, metadata={&quot;xml_attribute&quot;: True, &quot;type&quot;: &quot;Attribute&quot;}
     )</div>
 
+<div class="viewcode-block" id="Point.set_point"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Point.set_point">[docs]</a>    def set_point(self, p):
+        self.x = float(p.x)
+        self.y = float(p.y)
+        return self</div>
+
 <div class="viewcode-block" id="Point.set_xy"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Point.set_xy">[docs]</a>    def set_xy(self, x, y):
         self.x = float(x)
         self.y = float(y)
@@ -347,12 +352,24 @@ from pyfeyn2.particles import get_name
 
 @dataclass
 <div class="viewcode-block" id="Connector"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Connector">[docs]</a>class Connector(Labeled, Styled, Bending, PDG, Identifiable):
-<div class="viewcode-block" id="Connector.edge_label"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Connector.edge_label">[docs]</a>    edge_label: Optional[str] = field(
-        default=None, metadata={&quot;xml_attribute&quot;: True, &quot;type&quot;: &quot;Attribute&quot;}
-    )</div>
 <div class="viewcode-block" id="Connector.momentum"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Connector.momentum">[docs]</a>    momentum: Optional[str] = field(
         default=None, metadata={&quot;xml_attribute&quot;: True, &quot;type&quot;: &quot;Attribute&quot;}
     )</div>
+<div class="viewcode-block" id="Connector.tension"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Connector.tension">[docs]</a>    tension: Optional[float] = field(
+        default=None, metadata={&quot;xml_attribute&quot;: True, &quot;type&quot;: &quot;Attribute&quot;}
+    )</div>
+<div class="viewcode-block" id="Connector.length"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Connector.length">[docs]</a>    length: Optional[float] = field(
+        default=None, metadata={&quot;xml_attribute&quot;: True, &quot;type&quot;: &quot;Attribute&quot;}
+    )</div>
+
+<div class="viewcode-block" id="Connector.set_tension"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Connector.set_tension">[docs]</a>    def set_tension(self, tension):
+        self.tension = tension
+        return self</div>
+
+<div class="viewcode-block" id="Connector.set_length"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Connector.set_length">[docs]</a>    def set_length(self, length):
+        self.length = length
+        return self</div>
+
     pass</div>
 
 

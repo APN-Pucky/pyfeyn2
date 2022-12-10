@@ -51,7 +51,7 @@ Attributes
 .. py:function:: stylize_connect(c: pyfeyn2.feynmandiagram.Connector) -> str
 
 
-.. py:function:: feynman_adjust_points(feyndiag, size=5)
+.. py:function:: feynman_adjust_points(feyndiag, size=5, delete_vertices=True)
 
 
 .. py:function:: dot_to_positions(dot)
