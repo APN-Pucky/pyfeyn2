@@ -43,9 +43,16 @@
 .. toctree::
    :glob:
    :maxdepth: 3
-   :caption: Examples:
+   :caption: Gallery:
 
-   examples/*
+   gallery/*
+
+.. toctree::
+   :glob:
+   :maxdepth: 3
+   :caption: Renderers:
+
+   renderers/*
 
 .. toctree::
    :glob:

@@ -1,0 +1,46 @@
+:py:mod:`pyfeyn2.render.feynman`
+================================
+
+.. py:module:: pyfeyn2.render.feynman
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   pyfeyn2.render.feynman.FeynmanRender
+
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   pyfeyn2.render.feynman.namedlines
+
+
+.. py:data:: namedlines
+   
+
+   
+
+.. py:class:: FeynmanRender(fd=None, *args, **kwargs)
+
+   Bases: :py:obj:`pyfeyn2.render.render.Render`
+
+   .. py:method:: render(file=None, show=True, resolution=100, width=10.0, height=10.0, clean_up=True)
+
+
+   .. py:method:: valid_attribute(attr: str) -> bool
+
+
+   .. py:method:: valid_type(typ: str) -> bool
+
+
+

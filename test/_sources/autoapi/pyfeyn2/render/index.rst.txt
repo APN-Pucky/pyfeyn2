@@ -23,6 +23,7 @@ Submodules
    ascii/index.rst
    asciipdf/index.rst
    dot/index.rst
+   feynman/index.rst
    feynmp/index.rst
    latex/index.rst
    metapost/index.rst

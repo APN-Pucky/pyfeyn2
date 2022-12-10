@@ -38,3 +38,12 @@ Above buildings blocks come with different attributes, which are described in th
    :hidden:
 
    attributes/*
+
+Examples
+~~~~~~~~~~
+
+.. toctree::
+   :glob:
+   :maxdepth: 3
+
+   FeynML.ipynb

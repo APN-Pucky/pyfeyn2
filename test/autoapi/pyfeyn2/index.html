@@ -80,7 +80,7 @@
             
             
               <div class="version">
-                2.0.5-7-g6acce88
+                2.0.5-8-g84876c6
               </div>
             
           
@@ -118,16 +118,13 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../feynml/index.html">FeynML</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Examples:</span></p>
+<p class="caption" role="heading"><span class="caption-text">Gallery:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../examples/ASCII.html">ASCII</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../examples/All.html">All</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../examples/Dot.html">Dot</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../examples/FeynML.html">FeynML</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../examples/FeynMP.html">FeynMP</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../examples/MPL.html">Matplotlib</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../examples/PyX.html">PyX</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../examples/tikzfeynman.html">TIKZ-Feynman</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gallery/index.html">Gallery</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Renderers:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../renderers/index.html">Renderers</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Module:</span></p>
 <ul class="current">
@@ -268,6 +265,7 @@
 <li class="toctree-l2"><a class="reference internal" href="render/ascii/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfeyn2.render.ascii</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="render/asciipdf/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfeyn2.render.asciipdf</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="render/dot/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfeyn2.render.dot</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="render/feynman/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfeyn2.render.feynman</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="render/feynmp/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfeyn2.render.feynmp</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="render/latex/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfeyn2.render.latex</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="render/metapost/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfeyn2.render.metapost</span></code></a></li>
@@ -301,16 +299,19 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.DotRender" title="pyfeyn2.DotRender"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DotRender</span></code></a></p></td>
 <td><p>A class that contains a full LaTeX document.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.FeynmpRender" title="pyfeyn2.FeynmpRender"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FeynmpRender</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.FeynmanRender" title="pyfeyn2.FeynmanRender"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FeynmanRender</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.FeynmpRender" title="pyfeyn2.FeynmpRender"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FeynmpRender</span></code></a></p></td>
 <td><p>A class that contains a full LaTeX document.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.MPLRender" title="pyfeyn2.MPLRender"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MPLRender</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.MPLRender" title="pyfeyn2.MPLRender"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MPLRender</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.PyxRender" title="pyfeyn2.PyxRender"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PyxRender</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.PyxRender" title="pyfeyn2.PyxRender"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PyxRender</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.TikzFeynmanRender" title="pyfeyn2.TikzFeynmanRender"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TikzFeynmanRender</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.TikzFeynmanRender" title="pyfeyn2.TikzFeynmanRender"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TikzFeynmanRender</span></code></a></p></td>
 <td><p>A class that contains a full LaTeX document.</p></td>
 </tr>
 </tbody>
@@ -405,6 +406,27 @@ is <cite>None</cite> it will use the value from the active config. Which is
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.DotRender.valid_type">
 <span class="sig-name descname"><span class="pre">valid_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">typ</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.DotRender.valid_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyfeyn2.FeynmanRender">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyfeyn2.</span></span><span class="sig-name descname"><span class="pre">FeynmanRender</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pyfeyn2/render/feynman.html#FeynmanRender"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.FeynmanRender" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="render/render/index.html#pyfeyn2.render.render.Render" title="pyfeyn2.render.render.Render"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyfeyn2.render.render.Render</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.FeynmanRender.render">
+<span class="sig-name descname"><span class="pre">render</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resolution</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clean_up</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.FeynmanRender.render" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.FeynmanRender.valid_attribute">
+<span class="sig-name descname"><span class="pre">valid_attribute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#pyfeyn2.FeynmanRender.valid_attribute" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.FeynmanRender.valid_type">
+<span class="sig-name descname"><span class="pre">valid_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">typ</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#pyfeyn2.FeynmanRender.valid_type" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>

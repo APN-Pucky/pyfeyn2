@@ -34,6 +34,7 @@ Classes
 
    pyfeyn2.ASCIIRender
    pyfeyn2.DotRender
+   pyfeyn2.FeynmanRender
    pyfeyn2.FeynmpRender
    pyfeyn2.MPLRender
    pyfeyn2.PyxRender
@@ -120,6 +121,20 @@ Attributes
 
 
    .. py:method:: valid_type(typ)
+
+
+
+.. py:class:: FeynmanRender(fd=None, *args, **kwargs)
+
+   Bases: :py:obj:`pyfeyn2.render.render.Render`
+
+   .. py:method:: render(file=None, show=True, resolution=100, width=10.0, height=10.0, clean_up=True)
+
+
+   .. py:method:: valid_attribute(attr: str) -> bool
+
+
+   .. py:method:: valid_type(typ: str) -> bool
 
 
 
