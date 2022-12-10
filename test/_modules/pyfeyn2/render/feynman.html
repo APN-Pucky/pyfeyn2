@@ -77,7 +77,7 @@
             
             
               <div class="version">
-                2.0.5-8-g84876c6
+                2.0.5-9-g686a758
               </div>
             
           
@@ -232,15 +232,46 @@ from pyfeyn2.render.render import Render
         width=10.0,
         height=10.0,
         clean_up=True,
+        buffer=0.9,
     ):
+        # normaliuze to 1
+        maxx = minx = maxy = miny = 0.0
+        for l in self.fd.legs:
+            if l.x &lt; minx:
+                minx = l.x
+            if l.x &gt; maxx:
+                maxx = l.x
+            if l.y &lt; miny:
+                miny = l.y
+            if l.y &gt; maxy:
+                maxy = l.y
+        for l in self.fd.vertices:
+            if l.x &lt; minx:
+                minx = l.x
+            if l.x &gt; maxx:
+                maxx = l.x
+            if l.y &lt; miny:
+                miny = l.y
+            if l.y &gt; maxy:
+                maxy = l.y
+
+        kickx = -minx
+        kicky = -miny
+        scalex = 1.0 / (maxx - minx) * buffer
+        scaley = 1.0 / (maxy - miny) * buffer
+
         fig = plt.figure(figsize=(width, height))
         ax = fig.add_axes([0, 0, 1, 1], frameon=False)
         diagram = Diagram(ax)
         byid = {}
         for v in self.fd.vertices:
-            byid[v.id] = diagram.vertex(xy=(v.x, v.y))
+            byid[v.id] = diagram.vertex(
+                xy=((v.x + kickx) * scalex, (v.y + kicky) * scaley)
+            )
         for v in self.fd.legs:
-            byid[v.id] = diagram.vertex(xy=(v.x, v.y), marker=&quot;&quot;)
+            byid[v.id] = diagram.vertex(
+                xy=((v.x + kickx) * scalex, (v.y + kicky) * scaley), marker=&quot;&quot;
+            )
 
         for p in self.fd.propagators:
             for style in namedlines[p.type]:

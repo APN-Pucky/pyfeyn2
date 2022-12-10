@@ -128,7 +128,7 @@ Attributes
 
    Bases: :py:obj:`pyfeyn2.render.render.Render`
 
-   .. py:method:: render(file=None, show=True, resolution=100, width=10.0, height=10.0, clean_up=True)
+   .. py:method:: render(file=None, show=True, resolution=100, width=10.0, height=10.0, clean_up=True, buffer=0.9)
 
 
    .. py:method:: valid_attribute(attr: str) -> bool

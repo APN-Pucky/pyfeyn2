@@ -82,7 +82,7 @@
             
             
               <div class="version">
-                2.0.5-8-g84876c6
+                2.0.5-9-g686a758
               </div>
             
           
@@ -197,7 +197,7 @@
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="../../_sources/renderers/feynman/Untitled.ipynb.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/renderers/feynman/feynman.ipynb.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -503,8 +503,8 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><br/><span></span><span class="n">v1</span> <span class="o">=</span> <span class="n">Vertex</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
@@ -514,18 +514,11 @@ div.rendered_html tbody tr:hover {
     <span class="n">v1</span><span class="p">,</span><span class="n">v2</span><span class="p">,</span>
      <span class="n">Propagator</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">&quot;photon&quot;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$\gamma$&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">),</span>
     <span class="n">Leg</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">&quot;fermion&quot;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$\chi$&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set_target</span><span class="p">(</span><span class="n">v1</span><span class="p">)</span><span class="o">.</span><span class="n">set_xy</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span><span class="o">.</span><span class="n">set_incoming</span><span class="p">(),</span>
-    <span class="n">Leg</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">&quot;fermion&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set_target</span><span class="p">(</span><span class="n">v1</span><span class="p">)</span><span class="o">.</span><span class="n">set_xy</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">)</span><span class="o">.</span><span class="n">set_incoming</span><span class="p">(),</span>
+    <span class="n">Leg</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">&quot;fermion&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set_target</span><span class="p">(</span><span class="n">v1</span><span class="p">)</span><span class="o">.</span><span class="n">set_xy</span><span class="p">(</span><span class="o">-</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">)</span><span class="o">.</span><span class="n">set_incoming</span><span class="p">(),</span>
     <span class="n">Leg</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">&quot;fermion&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set_target</span><span class="p">(</span><span class="n">v2</span><span class="p">)</span><span class="o">.</span><span class="n">set_xy</span><span class="p">(</span><span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span><span class="o">.</span><span class="n">set_outgoing</span><span class="p">(),</span>
-    <span class="n">Leg</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">&quot;fermion&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set_target</span><span class="p">(</span><span class="n">v2</span><span class="p">)</span><span class="o">.</span><span class="n">set_xy</span><span class="p">(</span><span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">)</span><span class="o">.</span><span class="n">set_outgoing</span><span class="p">()</span>
+    <span class="n">Leg</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">&quot;fermion&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set_target</span><span class="p">(</span><span class="n">v2</span><span class="p">)</span><span class="o">.</span><span class="n">set_xy</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">)</span><span class="o">.</span><span class="n">set_outgoing</span><span class="p">()</span>
 <span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">FeynmanRender</span><span class="p">(</span><span class="n">fd</span><span class="p">)</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">FeynmanRender</span><span class="p">(</span><span class="n">fd</span><span class="p">)</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -533,7 +526,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/renderers_feynman_Untitled_3_0.png" src="../../_images/renderers_feynman_Untitled_3_0.png" />
+<img alt="../../_images/renderers_feynman_feynman_2_0.png" src="../../_images/renderers_feynman_feynman_2_0.png" />
 </div>
 </div>
 <div class="nbinput nblast docutils container">
