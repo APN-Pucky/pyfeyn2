@@ -77,7 +77,7 @@
             
             
               <div class="version">
-                2.0.5-6-g8f11cad
+                2.0.5-7-g6acce88
               </div>
             
           
@@ -202,6 +202,7 @@
 from pylatex import Command
 from pylatex.utils import NoEscape
 
+from pyfeyn2.feynmandiagram import Connector
 from pyfeyn2.render.metapost import MetaPostRender
 
 # converte FeynmanDiagram to tikz-feynman
@@ -247,6 +248,13 @@ from pyfeyn2.render.metapost import MetaPostRender
 }</div>
 
 
+<div class="viewcode-block" id="stylize_line"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/feynmp/index.html#pyfeyn2.stylize_line">[docs]</a>def stylize_line(c: Connector) -&gt; str:
+    style = &quot;&quot;
+    if c.label is not None:
+        style += f&quot;,label={c.label}&quot;
+    return style</div>
+
+
 <div class="viewcode-block" id="feynman_to_feynmp"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/feynmp/index.html#pyfeyn2.feynman_to_feynmp">[docs]</a>def feynman_to_feynmp(fd):
     letters = &quot;abcdefghijklmnopqrstuvwxyz&quot;
     result_str = &quot;&quot;.join(random.choice(letters) for i in range(10))
@@ -254,15 +262,12 @@ from pyfeyn2.render.metapost import MetaPostRender
     src += &quot;\\begin{fmfgraph*}(120,80)\n&quot;
     incoming = []
     outgoing = []
+    # Collect incoming and outgoing legs
     for l in fd.legs:
         if l.sense == &quot;incoming&quot;:
             incoming += [l]
-            # src += f&quot;\t\t\\fmfleft{{{l.id}}}\n&quot;
-            # src += f&quot;\t\t\\fmf{{{ttype}}}{{{l.id},{l.target}}}\n&quot;
         elif l.sense == &quot;outgoing&quot;:
             outgoing += [l]
-            # src += f&quot;\t\t\\fmfright{{{l.id}}}\n&quot;
-            # src += f&quot;\t\t\\fmf{{{ttype}}}{{{l.target},{l.id}}}\n&quot;
         else:
             raise Exception(&quot;Unknown sense&quot;)
     if len(incoming) &gt; 0:
@@ -280,17 +285,28 @@ from pyfeyn2.render.metapost import MetaPostRender
 
     for l in incoming:
         tttype = type_map[l.type]
+        style = stylize_line(l)
         for ttype in tttype:
-            src += f&quot;\t\t\\fmf{{{ttype}}}{{{l.id},{l.target}}}\n&quot;
+            src += f&quot;\t\t\\fmf{{{ttype}{style}}}{{{l.id},{l.target}}}\n&quot;
+            style = &quot;&quot;
     for l in outgoing:
         tttype = type_map[l.type]
+        style = stylize_line(l)
         for ttype in tttype:
-            src += f&quot;\t\t\\fmf{{{ttype}}}{{{l.target},{l.id}}}\n&quot;
+            src += f&quot;\t\t\\fmf{{{ttype}{style}}}{{{l.target},{l.id}}}\n&quot;
+            style = &quot;&quot;
 
     for p in fd.propagators:
         tttype = type_map[p.type]
+        style = stylize_line(p)
         for ttype in tttype:
-            src += f&quot;\t\t\\fmf{{{ttype}}}{{{p.source},{p.target}}}\n&quot;
+            src += f&quot;\t\t\\fmf{{{ttype}{style}}}{{{p.source},{p.target}}}\n&quot;
+            style = &quot;&quot;
+
+    # Add labels
+    for v in fd.vertices:
+        if v.label is not None:
+            src += f&quot;\t\t\\fmflabel{{{v.label}}}{{{v.id}}}\n&quot;
     src += &quot;\\end{fmfgraph*}\n&quot;
     src += &quot;\\end{fmffile}\n&quot;
     return src</div>
@@ -323,7 +339,7 @@ from pyfeyn2.render.metapost import MetaPostRender
         self.set_src_diag(NoEscape(feynman_to_feynmp(fd)))</div>
 
 <div class="viewcode-block" id="FeynmpRender.valid_attribute"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/feynmp/index.html#pyfeyn2.FeynmpRender.valid_attribute">[docs]</a>    def valid_attribute(self, attr: str) -&gt; bool:
-        return super().valid_attribute(attr) or attr in []</div>
+        return super().valid_attribute(attr) or attr in [&quot;label&quot;]</div>
 
 <div class="viewcode-block" id="FeynmpRender.valid_type"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/feynmp/index.html#pyfeyn2.FeynmpRender.valid_type">[docs]</a>    def valid_type(self, typ: str):
         if typ.lower() in type_map:

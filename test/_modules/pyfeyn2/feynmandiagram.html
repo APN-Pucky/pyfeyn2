@@ -77,7 +77,7 @@
             
             
               <div class="version">
-                2.0.5-6-g8f11cad
+                2.0.5-7-g6acce88
               </div>
             
           
@@ -198,7 +198,7 @@
             
   <h1>Source code for pyfeyn2.feynmandiagram</h1><div class="highlight"><pre>
 <span></span>from dataclasses import dataclass, field
-from typing import List, Optional
+from typing import List, Optional, Union
 
 from pyfeyn2.particles import get_name
 
@@ -223,8 +223,8 @@ from pyfeyn2.particles import get_name
         if self.pdgid is not None:
             self.latexname = get_name(self.pdgid)</div>
 
-<div class="viewcode-block" id="PDG.__post_init__"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.PDG.__post_init__">[docs]</a>    def __post_init__(self):
-        self._sync_latexname()</div>
+    # def __post_init__(self):
+    #    self._sync_latexname()
 
 <div class="viewcode-block" id="PDG.set_pdgid"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.PDG.set_pdgid">[docs]</a>    def set_pdgid(self, pdgid):
         self.pdgid = pdgid
@@ -242,12 +242,12 @@ from pyfeyn2.particles import get_name
 @dataclass
 <div class="viewcode-block" id="Identifiable"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Identifiable">[docs]</a>class Identifiable:
 <div class="viewcode-block" id="Identifiable.id"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Identifiable.id">[docs]</a>    id: Optional[str] = field(
-        default=&quot;&quot;, metadata={&quot;xml_attribute&quot;: True, &quot;type&quot;: &quot;Attribute&quot;}
+        default=None, metadata={&quot;xml_attribute&quot;: True, &quot;type&quot;: &quot;Attribute&quot;}
     )</div>
 
 <div class="viewcode-block" id="Identifiable.__post_init__"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Identifiable.__post_init__">[docs]</a>    def __post_init__(self):
         global id
-        if self.id == &quot;&quot;:
+        if self.id is None:
             # use some global counter to generate unique id
             self.id = self.__class__.__name__ + str(id)
             id = id + 1</div></div>
@@ -256,7 +256,7 @@ from pyfeyn2.particles import get_name
 @dataclass
 <div class="viewcode-block" id="Labeled"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Labeled">[docs]</a>class Labeled:
 <div class="viewcode-block" id="Labeled.label"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Labeled.label">[docs]</a>    label: Optional[str] = field(
-        default=&quot;&quot;, metadata={&quot;xml_attribute&quot;: True, &quot;type&quot;: &quot;Attribute&quot;}
+        default=None, metadata={&quot;xml_attribute&quot;: True, &quot;type&quot;: &quot;Attribute&quot;}
     )</div>
 
 <div class="viewcode-block" id="Labeled.set_label"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Labeled.set_label">[docs]</a>    def set_label(self, label):
@@ -349,7 +349,18 @@ from pyfeyn2.particles import get_name
 
 
 @dataclass
-<div class="viewcode-block" id="Leg"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Leg">[docs]</a>class Leg(Labeled, Styled, PDG, Bending, Point, Targeting, Identifiable):
+<div class="viewcode-block" id="Connector"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Connector">[docs]</a>class Connector(Labeled, Styled, Bending, PDG, Identifiable):
+<div class="viewcode-block" id="Connector.edge_label"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Connector.edge_label">[docs]</a>    edge_label: Optional[str] = field(
+        default=None, metadata={&quot;xml_attribute&quot;: True, &quot;type&quot;: &quot;Attribute&quot;}
+    )</div>
+<div class="viewcode-block" id="Connector.momentum"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Connector.momentum">[docs]</a>    momentum: Optional[str] = field(
+        default=None, metadata={&quot;xml_attribute&quot;: True, &quot;type&quot;: &quot;Attribute&quot;}
+    )</div>
+    pass</div>
+
+
+@dataclass
+<div class="viewcode-block" id="Leg"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Leg">[docs]</a>class Leg(Point, Targeting, Connector):
 <div class="viewcode-block" id="Leg.sense"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Leg.sense">[docs]</a>    sense: str = field(
         default=&quot;&quot;, metadata={&quot;xml_attribute&quot;: True, &quot;type&quot;: &quot;Attribute&quot;}
     )</div>
@@ -364,12 +375,12 @@ from pyfeyn2.particles import get_name
 
 
 @dataclass
-<div class="viewcode-block" id="Propagator"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Propagator">[docs]</a>class Propagator(Labeled, Styled, PDG, Bending, Line, Identifiable):
+<div class="viewcode-block" id="Propagator"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Propagator">[docs]</a>class Propagator(Line, Connector):
     pass</div>
 
 
 @dataclass
-<div class="viewcode-block" id="Label"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Label">[docs]</a>class Label(Identifiable, Point, Texted):
+<div class="viewcode-block" id="Label"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Label">[docs]</a>class Label(Point, Texted, Identifiable):
     pass</div>
 
 
@@ -394,6 +405,20 @@ from pyfeyn2.particles import get_name
         default_factory=list,
         metadata={&quot;name&quot;: &quot;label&quot;, &quot;type&quot;: &quot;Element&quot;, &quot;namespace&quot;: &quot;&quot;},
     )</div>
+
+<div class="viewcode-block" id="FeynmanDiagram.add"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.FeynmanDiagram.add">[docs]</a>    def add(self, *all: List[Union[Propagator, Vertex, Leg, Label]]):
+        for any in all:
+            if isinstance(any, Propagator):
+                self.propagators.append(any)
+            elif isinstance(any, Vertex):
+                self.vertices.append(any)
+            elif isinstance(any, Leg):
+                self.legs.append(any)
+            elif isinstance(any, Label):
+                self.labels.append(any)
+            else:
+                raise Exception(&quot;Unknown type: &quot; + str(type(any)) + &quot; &quot; + str(any))
+        return self</div>
 
 <div class="viewcode-block" id="FeynmanDiagram.get_point"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.FeynmanDiagram.get_point">[docs]</a>    def get_point(self, id):
         for v in self.vertices:

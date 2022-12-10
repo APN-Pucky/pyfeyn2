@@ -77,7 +77,7 @@
             
             
               <div class="version">
-                2.0.5-6-g8f11cad
+                2.0.5-7-g6acce88
               </div>
             
           
@@ -197,9 +197,12 @@
            <div itemprop="articleBody">
             
   <h1>Source code for pyfeyn2.render.tikzfeynman</h1><div class="highlight"><pre>
-<span></span>from pylatex import Command
+<span></span>from typing import Union
+
+from pylatex import Command
 from pylatex.utils import NoEscape
 
+from pyfeyn2.feynmandiagram import Connector, Leg, Propagator, Vertex
 from pyfeyn2.render.latex import LatexRender
 from pyfeyn2.render.render import Render
 
@@ -208,8 +211,8 @@ from pyfeyn2.render.render import Render
 <div class="viewcode-block" id="type_map"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/tikzfeynman/index.html#pyfeyn2.type_map">[docs]</a>type_map = {
     &quot;gluon&quot;: &quot;gluon&quot;,
     &quot;ghost&quot;: &quot;ghost&quot;,
-    &quot;photon&quot;: &quot;boson&quot;,
-    &quot;boson&quot;: &quot;boson&quot;,
+    &quot;photon&quot;: &quot;photon&quot;,
+    &quot;boson&quot;: &quot;photon&quot;,
     &quot;fermion&quot;: &quot;fermion&quot;,
     &quot;anti fermion&quot;: &quot;anti fermion&quot;,
     &quot;charged boson&quot;: &quot;charged boson&quot;,
@@ -231,23 +234,46 @@ from pyfeyn2.render.render import Render
 }</div>
 
 
+<div class="viewcode-block" id="stylize_connect"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/tikzfeynman/index.html#pyfeyn2.stylize_connect">[docs]</a>def stylize_connect(c: Connector):
+    style = &quot;&quot;
+    style += type_map[c.type]
+
+    if c.edge_label is not None:
+        style += &quot;,edge label=&quot; + c.edge_label
+    # if c.edge_label_ is not None: style += &quot;,edge label&#39;=&quot; + c.edge_label_
+    if c.momentum is not None:
+        style += &quot;,momentum=&quot; + c.momentum
+    # if c.momentum_ is not None: style += &quot;,momentum&#39;=&quot; + c.momentum_
+
+    return style</div>
+
+
+<div class="viewcode-block" id="stylize_node"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/tikzfeynman/index.html#pyfeyn2.stylize_node">[docs]</a>def stylize_node(v: Vertex):
+    style = &quot;&quot;
+    if v.label is not None:
+        style += &quot;label=&quot; + v.label
+    return style</div>
+
+
 <div class="viewcode-block" id="feynman_to_tikz_feynman"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/tikzfeynman/index.html#pyfeyn2.feynman_to_tikz_feynman">[docs]</a>def feynman_to_tikz_feynman(fd):
     src = &quot;\\begin{tikzpicture}\n&quot;
     src += &quot;\\begin{feynman}\n&quot;
     for v in fd.vertices:
-        src += f&quot;\t\\vertex ({v.id}) [label={v.label}] at ({v.x},{v.y});\n&quot;
+        style = stylize_node(v)
+        src += f&quot;\t\\vertex ({v.id}) [{style}] at ({v.x},{v.y});\n&quot;
     for l in fd.legs:
-        src += f&quot;\t\\vertex ({l.id}) [label={l.label}] at ({l.x},{l.y});\n&quot;
+        style = stylize_node(l)
+        src += f&quot;\t\\vertex ({l.id}) [{style}] at ({l.x},{l.y});\n&quot;
     src += &quot;\t\\diagram*{\n&quot;
     for p in fd.propagators:
-        ttype = type_map[p.type]
-        src += f&quot;\t\t({p.source}) -- [{ttype}] ({p.target}),\n&quot;
+        style = stylize_connect(p)
+        src += f&quot;\t\t({p.source}) -- [{style}] ({p.target}),\n&quot;
     for l in fd.legs:
-        ttype = type_map[l.type]
+        style = stylize_connect(l)
         if l.sense == &quot;incoming&quot;:
-            src += f&quot;\t\t({l.id}) -- [{ttype}] ({l.target}),\n&quot;
+            src += f&quot;\t\t({l.id}) -- [{style}] ({l.target}),\n&quot;
         elif l.sense == &quot;outgoing&quot;:
-            src += f&quot;\t\t({l.target}) -- [{ttype}] ({l.id}),\n&quot;
+            src += f&quot;\t\t({l.target}) -- [{style}] ({l.id}),\n&quot;
         else:
             raise Exception(&quot;Unknown sense&quot;)
     src += &quot;\t};\n&quot;

@@ -21,6 +21,8 @@ Functions
 
 .. autoapisummary::
 
+   pyfeyn2.render.tikzfeynman.stylize_connect
+   pyfeyn2.render.tikzfeynman.stylize_node
    pyfeyn2.render.tikzfeynman.feynman_to_tikz_feynman
 
 
@@ -37,6 +39,12 @@ Attributes
    
 
    
+
+.. py:function:: stylize_connect(c: pyfeyn2.feynmandiagram.Connector)
+
+
+.. py:function:: stylize_node(v: pyfeyn2.feynmandiagram.Vertex)
+
 
 .. py:function:: feynman_to_tikz_feynman(fd)
 

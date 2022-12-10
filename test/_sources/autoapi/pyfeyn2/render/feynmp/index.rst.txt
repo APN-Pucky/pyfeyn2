@@ -21,6 +21,7 @@ Functions
 
 .. autoapisummary::
 
+   pyfeyn2.render.feynmp.stylize_line
    pyfeyn2.render.feynmp.feynman_to_feynmp
 
 
@@ -37,6 +38,9 @@ Attributes
    
 
    
+
+.. py:function:: stylize_line(c: pyfeyn2.feynmandiagram.Connector) -> str
+
 
 .. py:function:: feynman_to_feynmp(fd)
 

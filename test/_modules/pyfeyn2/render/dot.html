@@ -77,7 +77,7 @@
             
             
               <div class="version">
-                2.0.5-6-g8f11cad
+                2.0.5-7-g6acce88
               </div>
             
           
@@ -203,9 +203,12 @@ import dot2tex
 from pylatex import Command
 from pylatex.utils import NoEscape
 
+from pyfeyn2.feynmandiagram import Connector, Vertex
 from pyfeyn2.render.latex import LatexRender
 from pyfeyn2.render.render import Render
 
+# workaround for dot2tex bug in math mode labels
+<div class="viewcode-block" id="REPLACE_THIS_WITH_A_BACKSLASH"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/dot/index.html#pyfeyn2.REPLACE_THIS_WITH_A_BACKSLASH">[docs]</a>REPLACE_THIS_WITH_A_BACKSLASH = &quot;¬&quot;</div>
 # https://tikz.dev/tikz-decorations
 <div class="viewcode-block" id="map_feyn_to_tikz"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/dot/index.html#pyfeyn2.map_feyn_to_tikz">[docs]</a>map_feyn_to_tikz = {
     &quot;vector&quot;: &quot;decorate,decoration=snake&quot;,
@@ -220,6 +223,16 @@ from pyfeyn2.render.render import Render
     &quot;squark&quot;: &quot;densely dashed&quot;,
     &quot;zigzag&quot;: &quot;decorate,decoration=zigzag&quot;,
 }</div>
+
+
+<div class="viewcode-block" id="stylize_connect"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/dot/index.html#pyfeyn2.stylize_connect">[docs]</a>def stylize_connect(c: Connector) -&gt; str:
+    style = &#39;style=&quot;{}&quot;,texmode=&quot;raw&quot;&#39;.format(map_feyn_to_tikz[c.type])
+    if c.label is None:
+        label = &quot;&quot;
+    else:
+        label = c.label.replace(&quot;\\&quot;, REPLACE_THIS_WITH_A_BACKSLASH)
+    style += f&#39;,label=&quot;{label}&quot;&#39;
+    return style</div>
 
 
 <div class="viewcode-block" id="feynman_adjust_points"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/dot/index.html#pyfeyn2.feynman_adjust_points">[docs]</a>def feynman_adjust_points(feyndiag, size=5):
@@ -249,7 +262,9 @@ from pyfeyn2.render.render import Render
 
 
 <div class="viewcode-block" id="dot_to_tikz"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/dot/index.html#pyfeyn2.dot_to_tikz">[docs]</a>def dot_to_tikz(dot):
-    return dot2tex.dot2tex(dot, format=&quot;tikz&quot;, figonly=True)</div>
+    ret = dot2tex.dot2tex(dot, format=&quot;tikz&quot;, figonly=True)
+    ret = ret.replace(REPLACE_THIS_WITH_A_BACKSLASH, &quot;\\&quot;)
+    return ret</div>
 
 
 <div class="viewcode-block" id="feynman_to_dot"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/dot/index.html#pyfeyn2.feynman_to_dot">[docs]</a>def feynman_to_dot(fd):
@@ -264,18 +279,20 @@ from pyfeyn2.render.render import Render
         if l.x is not None and l.y is not None:
             src += f&#39;\t\t{l.id} [ pos=&quot;{l.x},{l.y}!&quot;];\n&#39;
     for p in fd.propagators:
-        src += &#39;edge [style=&quot;{}&quot;];\n&#39;.format(map_feyn_to_tikz[p.type])
+        style = stylize_connect(p)
+        src += &quot;edge [{}];\n&quot;.format(style)
         src += f&quot;\t\t{p.source} -- {p.target};\n&quot;
     rank_in = &quot;{rank=min; &quot;
     rank_out = &quot;{rank=max; &quot;
 
     for l in fd.legs:
+        style = stylize_connect(l)
         if l.sense == &quot;incoming&quot;:
-            src += &#39;edge [style=&quot;{}&quot;];\n&#39;.format(map_feyn_to_tikz[l.type])
+            src += &quot;edge [{}];\n&quot;.format(style)
             src += f&quot;\t\t{l.id} -- {l.target};\n&quot;
             rank_in += f&quot;{l.id} &quot;
         elif l.sense == &quot;outgoing&quot;:
-            src += &#39;edge [style=&quot;{}&quot;];\n&#39;.format(map_feyn_to_tikz[l.type])
+            src += &quot;edge [{}];\n&quot;.format(style)
             src += f&quot;\t\t{l.target} -- {l.id};\n&quot;
             rank_out += f&quot;{l.id} ;&quot;
         else:
@@ -320,13 +337,14 @@ from pyfeyn2.render.render import Render
 <div class="viewcode-block" id="DotRender.set_feynman_diagram"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/dot/index.html#pyfeyn2.DotRender.set_feynman_diagram">[docs]</a>    def set_feynman_diagram(self, fd):
         super().set_feynman_diagram(fd)
         self.src_dot = feynman_to_dot(fd)
-        self.set_src_diag(dot_to_tikz(self.src_dot))</div>
+        self.set_src_diag(dot_to_tikz(self.src_dot))
+        self.src_dot = self.src_diag.replace(REPLACE_THIS_WITH_A_BACKSLASH, &quot;\\&quot;)</div>
 
 <div class="viewcode-block" id="DotRender.get_src_dot"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/dot/index.html#pyfeyn2.DotRender.get_src_dot">[docs]</a>    def get_src_dot(self):
         return self.src_dot</div>
 
 <div class="viewcode-block" id="DotRender.valid_attribute"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/dot/index.html#pyfeyn2.DotRender.valid_attribute">[docs]</a>    def valid_attribute(self, attr: str) -&gt; bool:
-        return super().valid_attribute(attr) or attr in [&quot;x&quot;, &quot;y&quot;]</div>
+        return super().valid_attribute(attr) or attr in [&quot;x&quot;, &quot;y&quot;, &quot;label&quot;]</div>
 
 <div class="viewcode-block" id="DotRender.valid_type"><a class="viewcode-back" href="../../../autoapi/pyfeyn2/render/dot/index.html#pyfeyn2.DotRender.valid_type">[docs]</a>    def valid_type(self, typ):
         if typ.lower() in map_feyn_to_tikz:

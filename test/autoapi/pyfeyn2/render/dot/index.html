@@ -80,7 +80,7 @@
             
             
               <div class="version">
-                2.0.5-6-g8f11cad
+                2.0.5-7-g6acce88
               </div>
             
           
@@ -258,16 +258,19 @@
 <h3>Functions<a class="headerlink" href="#functions" title="Permalink to this heading">¶</a></h3>
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.render.dot.feynman_adjust_points" title="pyfeyn2.render.dot.feynman_adjust_points"><code class="xref py py-obj docutils literal notranslate"><span class="pre">feynman_adjust_points</span></code></a>(feyndiag[, size])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.render.dot.stylize_connect" title="pyfeyn2.render.dot.stylize_connect"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stylize_connect</span></code></a>(→ str)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.render.dot.dot_to_positions" title="pyfeyn2.render.dot.dot_to_positions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dot_to_positions</span></code></a>(dot)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.render.dot.feynman_adjust_points" title="pyfeyn2.render.dot.feynman_adjust_points"><code class="xref py py-obj docutils literal notranslate"><span class="pre">feynman_adjust_points</span></code></a>(feyndiag[, size])</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.render.dot.dot_to_tikz" title="pyfeyn2.render.dot.dot_to_tikz"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dot_to_tikz</span></code></a>(dot)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.render.dot.dot_to_positions" title="pyfeyn2.render.dot.dot_to_positions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dot_to_positions</span></code></a>(dot)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.render.dot.feynman_to_dot" title="pyfeyn2.render.dot.feynman_to_dot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">feynman_to_dot</span></code></a>(fd)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.render.dot.dot_to_tikz" title="pyfeyn2.render.dot.dot_to_tikz"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dot_to_tikz</span></code></a>(dot)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.render.dot.feynman_to_dot" title="pyfeyn2.render.dot.feynman_to_dot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">feynman_to_dot</span></code></a>(fd)</p></td>
 <td><p></p></td>
 </tr>
 </tbody>
@@ -277,14 +280,27 @@
 <h3>Attributes<a class="headerlink" href="#attributes" title="Permalink to this heading">¶</a></h3>
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.render.dot.map_feyn_to_tikz" title="pyfeyn2.render.dot.map_feyn_to_tikz"><code class="xref py py-obj docutils literal notranslate"><span class="pre">map_feyn_to_tikz</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.render.dot.REPLACE_THIS_WITH_A_BACKSLASH" title="pyfeyn2.render.dot.REPLACE_THIS_WITH_A_BACKSLASH"><code class="xref py py-obj docutils literal notranslate"><span class="pre">REPLACE_THIS_WITH_A_BACKSLASH</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.render.dot.map_feyn_to_tikz" title="pyfeyn2.render.dot.map_feyn_to_tikz"><code class="xref py py-obj docutils literal notranslate"><span class="pre">map_feyn_to_tikz</span></code></a></p></td>
 <td><p></p></td>
 </tr>
 </tbody>
 </table>
 <dl class="py data">
+<dt class="sig sig-object py" id="pyfeyn2.render.dot.REPLACE_THIS_WITH_A_BACKSLASH">
+<span class="sig-prename descclassname"><span class="pre">pyfeyn2.render.dot.</span></span><span class="sig-name descname"><span class="pre">REPLACE_THIS_WITH_A_BACKSLASH</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">¬</span></em><a class="reference internal" href="../../../../_modules/pyfeyn2/render/dot.html#REPLACE_THIS_WITH_A_BACKSLASH"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.dot.REPLACE_THIS_WITH_A_BACKSLASH" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
 <dt class="sig sig-object py" id="pyfeyn2.render.dot.map_feyn_to_tikz">
 <span class="sig-prename descclassname"><span class="pre">pyfeyn2.render.dot.</span></span><span class="sig-name descname"><span class="pre">map_feyn_to_tikz</span></span><a class="reference internal" href="../../../../_modules/pyfeyn2/render/dot.html#map_feyn_to_tikz"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.dot.map_feyn_to_tikz" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyfeyn2.render.dot.stylize_connect">
+<span class="sig-prename descclassname"><span class="pre">pyfeyn2.render.dot.</span></span><span class="sig-name descname"><span class="pre">stylize_connect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">c</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../feynmandiagram/index.html#pyfeyn2.feynmandiagram.Connector" title="pyfeyn2.feynmandiagram.Connector"><span class="pre">pyfeyn2.feynmandiagram.Connector</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../../../../_modules/pyfeyn2/render/dot.html#stylize_connect"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.dot.stylize_connect" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
