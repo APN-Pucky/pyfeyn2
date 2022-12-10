@@ -77,7 +77,7 @@
             
             
               <div class="version">
-                2.0.5-4-g7d17c22
+                2.0.5-5-g04e562a
               </div>
             
           
@@ -211,13 +211,14 @@ from pyfeyn2.render.render import Render
     &quot;vector&quot;: &quot;decorate,decoration=snake&quot;,
     &quot;boson&quot;: &quot;decorate,decoration=snake&quot;,
     &quot;photon&quot;: &quot;decorate,decoration=snake&quot;,
-    &quot;gluon&quot;: &quot;decorate,decoration=coil,aspect=0.3,segment length=1mm&quot;,
+    &quot;gluon&quot;: &quot;decorate,decoration={coil,aspect=0.3,segment length=1mm}&quot;,
     &quot;ghost&quot;: &quot;dotted&quot;,
-    &quot;fermion&quot;: &quot;-&gt;.&quot;,
+    &quot;fermion&quot;: &quot;decorate,postaction={decorate,draw,red,decoration={markings,mark=at position 0.5 with {\\arrow{&gt;}}}}&quot;,
     &quot;higgs&quot;: &quot;densely dashed&quot;,
     &quot;scalar&quot;: &quot;densely dashed&quot;,
     &quot;slepton&quot;: &quot;densely dashed&quot;,
     &quot;squark&quot;: &quot;densely dashed&quot;,
+    &quot;zigzag&quot;: &quot;decorate,decoration=zigzag&quot;,
 }</div>
 
 
@@ -310,6 +311,9 @@ from pyfeyn2.render.render import Render
             Command(&quot;usetikzlibrary&quot;, NoEscape(&quot;snakes,arrows,shapes&quot;))
         )
         self.preamble.append(Command(&quot;usepackage&quot;, NoEscape(&quot;amsmath&quot;)))
+        self.preamble.append(
+            Command(&quot;usetikzlibrary&quot;, NoEscape(&quot;decorations.markings&quot;))
+        )
         if fd is not None:
             self.set_feynman_diagram(fd)
 
