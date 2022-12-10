@@ -80,7 +80,7 @@
             
             
               <div class="version">
-                2.0.5-9-g686a758
+                2.0.5-10-ga84d8ab
               </div>
             
           
@@ -132,7 +132,7 @@
 <li class="toctree-l2"><a class="reference internal" href="feynmp/FeynMP.html">FeynMP</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mpl/MPL.html">Matplotlib</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pyx/PyX.html">PyX</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tikz/tikzfeynman.html">TIKZ-Feynman</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tikz/tikzfeynman.html">TikZ-Feynman</a></li>
 </ul>
 </li>
 </ul>
@@ -232,6 +232,10 @@
 </style>
 <section id="renderers">
 <h1>Renderers<a class="headerlink" href="#renderers" title="Permalink to this heading">¶</a></h1>
+<p>Most of the renderers are implemented in the <a class="reference internal" href="../autoapi/pyfeyn2/render/index.html#module-pyfeyn2.render" title="pyfeyn2.render"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfeyn2.render</span></code></a> module.</p>
+<p>The once based on latex are in <a class="reference internal" href="../autoapi/pyfeyn2/render/latex/index.html#module-pyfeyn2.render.latex" title="pyfeyn2.render.latex"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfeyn2.render.latex</span></code></a>.
+They offer the function <a class="reference internal" href="../autoapi/pyfeyn2/render/latex/index.html#pyfeyn2.render.latex.LatexRender.get_src_diag" title="pyfeyn2.render.latex.LatexRender.get_src_diag"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyfeyn2.render.latex.LatexRender.get_src_diag()</span></code></a> to get the latex source for rendering this diagram or the whole latex source via <a class="reference internal" href="../autoapi/pyfeyn2/render/latex/index.html#pyfeyn2.render.latex.LatexRender.get_src" title="pyfeyn2.render.latex.LatexRender.get_src"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyfeyn2.render.latex.LatexRender.get_src()</span></code></a>.
+Some more specialized renderers offer their source through different functions like <a class="reference internal" href="../autoapi/pyfeyn2/render/dot/index.html#pyfeyn2.render.dot.DotRender.get_src_dot" title="pyfeyn2.render.dot.DotRender.get_src_dot"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyfeyn2.render.dot.DotRender.get_src_dot()</span></code></a>.</p>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="all/All.html">All</a></li>
@@ -245,7 +249,7 @@
 <li class="toctree-l1"><a class="reference internal" href="feynmp/FeynMP.html">FeynMP</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mpl/MPL.html">Matplotlib</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pyx/PyX.html">PyX</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tikz/tikzfeynman.html">TIKZ-Feynman</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="tikz/tikzfeynman.html">TikZ-Feynman</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="tikz/tikzfeynman.html#Simple-Case">Simple Case</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tikz/tikzfeynman.html#Complicated-Case">Complicated Case</a></li>
 </ul>
