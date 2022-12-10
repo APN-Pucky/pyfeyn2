@@ -21,8 +21,17 @@ Classes
    pyfeyn2.render.ascii.Higgs
    pyfeyn2.render.ascii.Gluino
    pyfeyn2.render.ascii.Gaugino
+   pyfeyn2.render.ascii.Label
    pyfeyn2.render.ascii.ASCIIRender
 
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   pyfeyn2.render.ascii.remove_tex
 
 
 
@@ -35,6 +44,9 @@ Attributes
 
 
 .. py:class:: ASCIILine(begin=' ', end=' ', vert=None, horz=None, left=None, up=None, right=None, down=None)
+
+   .. py:method:: inc_index() -> bool
+
 
    .. py:method:: draw(pane, isrc, itar, scalex=1, scaley=1, kickx=0, kicky=0)
 
@@ -78,6 +90,20 @@ Attributes
 .. py:class:: Gaugino
 
    Bases: :py:obj:`ASCIILine`
+
+
+.. py:function:: remove_tex(s)
+
+
+.. py:class:: Label(label, rm_tex=True)
+
+   Bases: :py:obj:`ASCIILine`
+
+   .. py:method:: inc_index() -> bool
+
+
+   .. py:method:: draw(pane, isrc, itar, scalex=1, scaley=1, kickx=0, kicky=0)
+
 
 
 .. py:data:: namedlines

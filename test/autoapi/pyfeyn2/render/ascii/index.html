@@ -80,7 +80,7 @@
             
             
               <div class="version">
-                2.0.5-5-g04e562a
+                2.0.5-6-g8f11cad
               </div>
             
           
@@ -275,8 +275,21 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.render.ascii.Gaugino" title="pyfeyn2.render.ascii.Gaugino"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gaugino</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.render.ascii.ASCIIRender" title="pyfeyn2.render.ascii.ASCIIRender"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ASCIIRender</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.render.ascii.Label" title="pyfeyn2.render.ascii.Label"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Label</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.render.ascii.ASCIIRender" title="pyfeyn2.render.ascii.ASCIIRender"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ASCIIRender</span></code></a></p></td>
 <td><p>Renders Feynman diagrams to ASCII art.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this heading">¶</a></h3>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.render.ascii.remove_tex" title="pyfeyn2.render.ascii.remove_tex"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_tex</span></code></a>(s)</p></td>
+<td><p></p></td>
 </tr>
 </tbody>
 </table>
@@ -294,6 +307,11 @@
 <dt class="sig sig-object py" id="pyfeyn2.render.ascii.ASCIILine">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyfeyn2.render.ascii.</span></span><span class="sig-name descname"><span class="pre">ASCIILine</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">begin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'</span> <span class="pre">'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'</span> <span class="pre">'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vert</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">horz</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">left</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">up</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">right</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">down</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/pyfeyn2/render/ascii.html#ASCIILine"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.ascii.ASCIILine" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.ascii.ASCIILine.inc_index">
+<span class="sig-name descname"><span class="pre">inc_index</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../../../../_modules/pyfeyn2/render/ascii.html#ASCIILine.inc_index"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.ascii.ASCIILine.inc_index" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.render.ascii.ASCIILine.draw">
 <span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pane</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isrc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">itar</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scalex</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scaley</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kickx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kicky</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/pyfeyn2/render/ascii.html#ASCIILine.draw"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.ascii.ASCIILine.draw" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -346,6 +364,27 @@
 <dt class="sig sig-object py" id="pyfeyn2.render.ascii.Gaugino">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyfeyn2.render.ascii.</span></span><span class="sig-name descname"><span class="pre">Gaugino</span></span><a class="reference internal" href="../../../../_modules/pyfeyn2/render/ascii.html#Gaugino"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.ascii.Gaugino" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#pyfeyn2.render.ascii.ASCIILine" title="pyfeyn2.render.ascii.ASCIILine"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ASCIILine</span></code></a></p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyfeyn2.render.ascii.remove_tex">
+<span class="sig-prename descclassname"><span class="pre">pyfeyn2.render.ascii.</span></span><span class="sig-name descname"><span class="pre">remove_tex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/pyfeyn2/render/ascii.html#remove_tex"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.ascii.remove_tex" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyfeyn2.render.ascii.Label">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyfeyn2.render.ascii.</span></span><span class="sig-name descname"><span class="pre">Label</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rm_tex</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/pyfeyn2/render/ascii.html#Label"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.ascii.Label" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pyfeyn2.render.ascii.ASCIILine" title="pyfeyn2.render.ascii.ASCIILine"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ASCIILine</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.ascii.Label.inc_index">
+<span class="sig-name descname"><span class="pre">inc_index</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../../../../_modules/pyfeyn2/render/ascii.html#Label.inc_index"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.ascii.Label.inc_index" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.ascii.Label.draw">
+<span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pane</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isrc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">itar</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scalex</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scaley</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kickx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kicky</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/pyfeyn2/render/ascii.html#Label.draw"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.ascii.Label.draw" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 </dd></dl>
 
 <dl class="py data">
