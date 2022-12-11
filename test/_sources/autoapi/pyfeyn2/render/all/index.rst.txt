@@ -17,17 +17,9 @@ Classes
 
 
 
-Attributes
-~~~~~~~~~~
-
-.. autoapisummary::
-
-   pyfeyn2.render.all.renderers
-
-
 .. py:class:: AllRender(fd=None, documentclass='standalone', document_options=None, *args, **kwargs)
 
-   Bases: :py:obj:`pyfeyn2.render.latex.LatexRender`
+   Bases: :py:obj:`pyfeyn2.render.latex.latex.LatexRender`
 
    Render all diagrams to PDF.
 
@@ -73,9 +65,4 @@ Attributes
    .. py:method:: valid_type(typ: str) -> bool
 
 
-
-.. py:data:: renderers
-   
-
-   
 

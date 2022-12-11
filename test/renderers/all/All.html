@@ -54,7 +54,7 @@
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="ASCII" href="../ascii/ASCII.html" />
+    <link rel="next" title="Dot" href="../dot/Dot.html" />
     <link rel="prev" title="Renderers" href="../index.html" /> 
 </head>
 
@@ -82,7 +82,7 @@
             
             
               <div class="version">
-                2.0.5-11-g435f30b
+                2.0.5-24-ge554c8e
               </div>
             
           
@@ -128,13 +128,17 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Renderers</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">All</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../ascii/ASCII.html">ASCII</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../dot/Dot.html">Dot</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../feynman/feynman.html">Feynman</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../feynmp/FeynMP.html">FeynMP</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../mpl/MPL.html">Matplotlib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../latex/feynmp/FeynMP.html">FeynMP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../latex/index.html">Latex</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../latex/tikz/tikzfeynman.html">TikZ-Feynman</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mpl/feynman/feynman.html">Feynman</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mpl/index.html">Matplotlib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mpl/mpl/MPL.html">Matplotlib</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../pyx/PyX.html">PyX</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tikz/tikzfeynman.html">TikZ-Feynman</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text/ascii/ASCII.html">ASCII</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text/index.html">Text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text/unicode/Unicode.html">Unicode</a></li>
 </ul>
 </li>
 </ul>
@@ -492,17 +496,19 @@ div.rendered_html tbody tr:hover {
 <section id="All">
 <h1>All<a class="headerlink" href="#All" title="Permalink to this heading">¶</a></h1>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyfeyn2.feynmandiagram</span> <span class="kn">import</span> <span class="n">FeynmanDiagram</span><span class="p">,</span> <span class="n">Leg</span><span class="p">,</span> <span class="n">Propagator</span><span class="p">,</span> <span class="n">Vertex</span>
 <span class="kn">from</span> <span class="nn">pyfeyn2.render.all</span> <span class="kn">import</span> <span class="n">AllRender</span>
-<span class="kn">from</span> <span class="nn">pyfeyn2.render.dot</span> <span class="kn">import</span> <span class="n">feynman_adjust_points</span>
+<span class="kn">from</span> <span class="nn">pyfeyn2.render.latex.dot</span> <span class="kn">import</span> <span class="n">feynman_adjust_points</span>
+<span class="kn">import</span> <span class="nn">pyfeyn2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pyfeyn2</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fd</span> <span class="o">=</span> <span class="n">FeynmanDiagram</span><span class="p">()</span>
@@ -522,7 +528,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ar</span> <span class="o">=</span> <span class="n">AllRender</span><span class="p">(</span><span class="n">fd</span><span class="p">)</span>
@@ -538,7 +544,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ar</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">subfigure</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -565,7 +571,7 @@ pyx:
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-dot:
+feynmp:
 </pre></div></div>
 </div>
 <div class="nboutput docutils container">
@@ -580,7 +586,7 @@ dot:
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-ascii:
+tikz:
 </pre></div></div>
 </div>
 <div class="nboutput docutils container">
@@ -595,7 +601,7 @@ ascii:
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-feynmp:
+dot:
 </pre></div></div>
 </div>
 <div class="nboutput docutils container">
@@ -625,7 +631,7 @@ feynman:
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-tikzfeynman:
+mpl:
 </pre></div></div>
 </div>
 <div class="nboutput docutils container">
@@ -640,14 +646,91 @@ tikzfeynman:
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-mpl:
+ascii:
+
+
+
+
+
+
+
+
+
+*                                      *
+ OO                                 OOO
+   OO                              O
+     OO                         OOO
+       OO                      O
+         *OOOOOOOOOOOOOOOOOOO*O
+       OO                      O
+     OO                         OOO
+   OO                              O
+ OO                                 OOO
+*                                      *
+
+
+
+
+
+
+
+
+
+
+
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/renderers_all_All_4_13.png" src="../../_images/renderers_all_All_4_13.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+unicode:
+
+
+
+
+
+
+
+
+
+*                                      *
+ OO                                 OOO
+   OO                              O
+     OO                         OOO
+       OO                      O
+         *OOOOOOOOOOOOOOOOOOO*O
+       OO                      O
+     OO                         OOO
+   OO                              O
+ OO                                 OOO
+*                                      *
+
+
+
+
+
+
+
+
+
+
+
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/renderers_all_All_4_13.png" src="../../_images/renderers_all_All_4_13.png" />
+<img alt="../../_images/renderers_all_All_4_15.png" src="../../_images/renderers_all_All_4_15.png" />
 </div>
 </div>
 <div class="nbinput nblast docutils container">
@@ -666,7 +749,7 @@ mpl:
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="../ascii/ASCII.html" class="btn btn-neutral float-right" title="ASCII" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../dot/Dot.html" class="btn btn-neutral float-right" title="Dot" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
         <a href="../index.html" class="btn btn-neutral float-left" title="Renderers" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 

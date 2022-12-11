@@ -7,5 +7,20 @@ This page contains auto-generated API reference documentation [#f1]_.
    :titlesonly:
 
    /autoapi/pyfeyn2/index
+   /autoapi/dot/index
+   /autoapi/metapost/index
+   /autoapi/tikzfeynman/index
+   /autoapi/feynmp/index
+   /autoapi/latex/index
+   /autoapi/mpl/index
+   /autoapi/feynmanrender/index
+   /autoapi/unicodepdf/index
+   /autoapi/line/index
+   /autoapi/asciipdf/index
+   /autoapi/plainpdf/index
+   /autoapi/label/index
+   /autoapi/unicode/index
+   /autoapi/style/index
+   /autoapi/ascii/index
 
 .. [#f1] Created with `sphinx-autoapi <https://github.com/readthedocs/sphinx-autoapi>`_

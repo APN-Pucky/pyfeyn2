@@ -1,0 +1,55 @@
+:py:mod:`style`
+===============
+
+.. py:module:: style
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   style.Style
+   style.LineStyle
+   style.Cross
+   style.Compass
+
+
+
+
+.. py:class:: Style(style=None, **kwargs)
+
+   .. py:method:: next(dirx, diry)
+
+
+
+.. py:class:: LineStyle(style=None, terminate=True, **kwargs)
+
+   Bases: :py:obj:`Style`
+
+   .. py:method:: get(index)
+
+
+   .. py:method:: next(dirx, diry)
+
+
+
+.. py:class:: Cross(vert=None, horz=None, left=None, up=None, right=None, down=None, **kwargs)
+
+   Bases: :py:obj:`Style`
+
+   .. py:method:: next(dirx, diry)
+
+
+
+.. py:class:: Compass(nn=None, ne=None, ee=None, se=None, ss=None, sw=None, ww=None, nw=None, **kwargs)
+
+   Bases: :py:obj:`Style`
+
+   .. py:method:: next(dirx, diry)
+
+
+

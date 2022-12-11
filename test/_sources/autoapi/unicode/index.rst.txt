@@ -1,0 +1,49 @@
+:py:mod:`unicode`
+=================
+
+.. py:module:: unicode
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   unicode.ULabel
+   unicode.UFermion
+   unicode.UnicodeRender
+
+
+
+
+.. py:class:: ULabel(label, handle_tex=True)
+
+   Bases: :py:obj:`pyfeyn2.render.text.ascii.Label`
+
+   .. py:method:: handle_tex(s)
+      :staticmethod:
+
+      Converts LaTeX to unicode.
+
+
+
+.. py:class:: UFermion
+
+   Bases: :py:obj:`pyfeyn2.render.text.line.ASCIILine`
+
+
+.. py:class:: UnicodeRender(fd=None, *args, **kwargs)
+
+   Bases: :py:obj:`pyfeyn2.render.text.ascii.ASCIIRender`
+
+   Renders Feynman diagrams to Unicode art.
+
+   .. py:attribute:: namedlines
+      
+
+      
+
+

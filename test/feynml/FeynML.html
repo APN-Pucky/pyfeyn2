@@ -82,7 +82,7 @@
             
             
               <div class="version">
-                2.0.5-11-g435f30b
+                2.0.5-24-ge554c8e
               </div>
             
           
@@ -542,10 +542,10 @@ div.rendered_html tbody tr:hover {
 <div class="highlight"><pre>
 &lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;
 &lt;diagram&gt;
-  &lt;propagator id=&#34;p1&#34; source=&#34;v1&#34; target=&#34;v2&#34; pdgid=&#34;21&#34; type=&#34;&#34; latexname=&#34;g&#34; label=&#34;&#34;/&gt;
-  &lt;vertex id=&#34;v1&#34; label=&#34;&#34;/&gt;
-  &lt;vertex id=&#34;v2&#34; label=&#34;&#34;/&gt;
-  &lt;leg id=&#34;l1&#34; target=&#34;&#34; pdgid=&#34;21&#34; type=&#34;&#34; latexname=&#34;g&#34; label=&#34;&#34; sense=&#34;&#34;/&gt;
+  &lt;propagator id=&#34;p1&#34; style=&#34;&#34; pdgid=&#34;21&#34; type=&#34;&#34; source=&#34;v1&#34; target=&#34;v2&#34;/&gt;
+  &lt;vertex id=&#34;v1&#34; style=&#34;&#34;/&gt;
+  &lt;vertex id=&#34;v2&#34; style=&#34;&#34;/&gt;
+  &lt;leg id=&#34;l1&#34; style=&#34;&#34; pdgid=&#34;21&#34; type=&#34;&#34; target=&#34;&#34; sense=&#34;&#34;/&gt;
 &lt;/diagram&gt;
 
 </pre></div></div>
@@ -583,10 +583,10 @@ div.rendered_html tbody tr:hover {
     &lt;description&gt;Simple single test diagram&lt;/description&gt;
   &lt;/head&gt;
   &lt;diagram&gt;
-    &lt;propagator id=&#34;p1&#34; source=&#34;v1&#34; target=&#34;v2&#34; pdgid=&#34;21&#34; type=&#34;&#34; latexname=&#34;g&#34; label=&#34;&#34;/&gt;
-    &lt;vertex id=&#34;v1&#34; label=&#34;&#34;/&gt;
-    &lt;vertex id=&#34;v2&#34; label=&#34;&#34;/&gt;
-    &lt;leg id=&#34;l1&#34; target=&#34;&#34; pdgid=&#34;21&#34; type=&#34;&#34; latexname=&#34;g&#34; label=&#34;&#34; sense=&#34;&#34;/&gt;
+    &lt;propagator id=&#34;p1&#34; style=&#34;&#34; pdgid=&#34;21&#34; type=&#34;&#34; source=&#34;v1&#34; target=&#34;v2&#34;/&gt;
+    &lt;vertex id=&#34;v1&#34; style=&#34;&#34;/&gt;
+    &lt;vertex id=&#34;v2&#34; style=&#34;&#34;/&gt;
+    &lt;leg id=&#34;l1&#34; style=&#34;&#34; pdgid=&#34;21&#34; type=&#34;&#34; target=&#34;&#34; sense=&#34;&#34;/&gt;
   &lt;/diagram&gt;
 &lt;/feynml&gt;
 
@@ -596,7 +596,7 @@ div.rendered_html tbody tr:hover {
 <section id="Read-FeynML">
 <h1>Read FeynML<a class="headerlink" href="#Read-FeynML" title="Permalink to this heading">¶</a></h1>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
@@ -615,7 +615,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-FeynML(head=[Head(metas=[Meta(name=&#39;creator&#39;, value=&#39;PyFeyn&#39;)], description=&#39;\n   A sample diagram showing a QCD correction to the Drell-Yan process.\n   &#39;)], diagrams=[FeynmanDiagram(propagators=[Propagator(id=&#39;P2&#39;, source=&#39;V0&#39;, target=&#39;V1&#39;, bend=None, pdgid=21, type=&#39;photon&#39;, latexname=&#39;g&#39;, style=None, label=&#39;Z&#39;), Propagator(id=&#39;P4&#39;, source=&#39;V5&#39;, target=&#39;V1&#39;, bend=None, pdgid=21, type=&#39;fermion&#39;, latexname=&#39;g&#39;, style=None, label=&#39;&#39;), Propagator(id=&#39;P5&#39;, source=&#39;V1&#39;, target=&#39;V6&#39;, bend=None, pdgid=21, type=&#39;fermion&#39;, latexname=&#39;g&#39;, style=None, label=&#39;&#39;), Propagator(id=&#39;P7&#39;, source=&#39;V5&#39;, target=&#39;V6&#39;, bend=0.5, pdgid=21, type=&#39;gluon&#39;, latexname=&#39;g&#39;, style=&#39;parallel-arrow-displace:0.2;&#39;, label=&#39;g&#39;)], vertices=[Vertex(id=&#39;V0&#39;, x=-2.0, y=0.0, z=None, style=None, label=&#39;&#39;), Vertex(id=&#39;V1&#39;, x=2.0, y=0.0, z=None, style=None, label=&#39;&#39;), Vertex(id=&#39;V5&#39;, x=3.0, y=-1.0, z=None, style=None, label=&#39;&#39;), Vertex(id=&#39;V6&#39;, x=3.0, y=1.0, z=None, style=None, label=&#39;&#39;)], legs=[Leg(id=&#39;E0&#39;, target=&#39;V0&#39;, x=-4.0, y=2.0, z=None, bend=None, pdgid=21, type=&#39;fermion&#39;, latexname=&#39;g&#39;, style=&#39;arrow-pos:0.53;&#39;, label=&#39;e-&#39;, sense=&#39;incoming&#39;), Leg(id=&#39;E1&#39;, target=&#39;V0&#39;, x=-4.0, y=-2.0, z=None, bend=None, pdgid=21, type=&#39;fermion&#39;, latexname=&#39;g&#39;, style=&#39;arrow-pos:0.53; parallel-arrow-displace:-0.06; parallel-arrow-sense:-1;&#39;, label=&#39;e+&#39;, sense=&#39;outgoing&#39;), Leg(id=&#39;E2&#39;, target=&#39;V5&#39;, x=4.0, y=-2.0, z=None, bend=None, pdgid=21, type=&#39;fermion&#39;, latexname=&#39;g&#39;, style=&#39;arrow-pos:0.53; parallel-arrow-displace:-0.06; parallel-arrow-sense:-1;&#39;, label=&#39;q+&#39;, sense=&#39;incoming&#39;), Leg(id=&#39;E3&#39;, target=&#39;V6&#39;, x=4.0, y=2.0, z=None, bend=None, pdgid=21, type=&#39;fermion&#39;, latexname=&#39;g&#39;, style=&#39;arrow-pos:0.53;&#39;, label=&#39;q-&#39;, sense=&#39;outgoing&#39;)], labels=[Label(text=&#39;Drell-Yan QCD vertex correction&#39;, x=0.0, y=2.0, z=None, id=&#39;L0&#39;)])])
+FeynML(head=[Head(metas=[Meta(name=&#39;creator&#39;, value=&#39;PyFeyn&#39;)], description=&#39;\n   A sample diagram showing a QCD correction to the Drell-Yan process.\n   &#39;)], diagrams=[FeynmanDiagram(propagators=[Propagator(id=&#39;P2&#39;, style=cssutils.css.CSSStyleDeclaration(cssText=&#39;&#39;), pdgid=21, type=&#39;photon&#39;, latexname=None, bend=None, label=&#39;Z&#39;, momentum=None, tension=None, length=None, source=&#39;V0&#39;, target=&#39;V1&#39;), Propagator(id=&#39;P4&#39;, style=cssutils.css.CSSStyleDeclaration(cssText=&#39;&#39;), pdgid=21, type=&#39;fermion&#39;, latexname=None, bend=None, label=None, momentum=None, tension=None, length=None, source=&#39;V5&#39;, target=&#39;V1&#39;), Propagator(id=&#39;P5&#39;, style=cssutils.css.CSSStyleDeclaration(cssText=&#39;&#39;), pdgid=21, type=&#39;fermion&#39;, latexname=None, bend=None, label=None, momentum=None, tension=None, length=None, source=&#39;V1&#39;, target=&#39;V6&#39;), Propagator(id=&#39;P7&#39;, style=cssutils.css.CSSStyleDeclaration(cssText=&#39;parallel-arrow-displace: 0.2&#39;), pdgid=21, type=&#39;gluon&#39;, latexname=None, bend=0.5, label=&#39;g&#39;, momentum=None, tension=None, length=None, source=&#39;V5&#39;, target=&#39;V6&#39;)], vertices=[Vertex(id=&#39;V0&#39;, style=cssutils.css.CSSStyleDeclaration(cssText=&#39;&#39;), x=-2.0, y=0.0, z=None, label=None), Vertex(id=&#39;V1&#39;, style=cssutils.css.CSSStyleDeclaration(cssText=&#39;&#39;), x=2.0, y=0.0, z=None, label=None), Vertex(id=&#39;V5&#39;, style=cssutils.css.CSSStyleDeclaration(cssText=&#39;&#39;), x=3.0, y=-1.0, z=None, label=None), Vertex(id=&#39;V6&#39;, style=cssutils.css.CSSStyleDeclaration(cssText=&#39;&#39;), x=3.0, y=1.0, z=None, label=None)], legs=[Leg(id=&#39;E0&#39;, style=cssutils.css.CSSStyleDeclaration(cssText=&#39;arrow-pos: 0.53&#39;), pdgid=21, type=&#39;fermion&#39;, latexname=None, bend=None, label=&#39;e-&#39;, momentum=None, tension=None, length=None, target=&#39;V0&#39;, x=-4.0, y=2.0, z=None, sense=&#39;incoming&#39;), Leg(id=&#39;E1&#39;, style=cssutils.css.CSSStyleDeclaration(cssText=&#39;arrow-pos: 0.53; parallel-arrow-displace: -0.06; parallel-arrow-sense: -1&#39;), pdgid=21, type=&#39;fermion&#39;, latexname=None, bend=None, label=&#39;e+&#39;, momentum=None, tension=None, length=None, target=&#39;V0&#39;, x=-4.0, y=-2.0, z=None, sense=&#39;outgoing&#39;), Leg(id=&#39;E2&#39;, style=cssutils.css.CSSStyleDeclaration(cssText=&#39;arrow-pos: 0.53; parallel-arrow-displace: -0.06; parallel-arrow-sense: -1&#39;), pdgid=21, type=&#39;fermion&#39;, latexname=None, bend=None, label=&#39;q+&#39;, momentum=None, tension=None, length=None, target=&#39;V5&#39;, x=4.0, y=-2.0, z=None, sense=&#39;incoming&#39;), Leg(id=&#39;E3&#39;, style=cssutils.css.CSSStyleDeclaration(cssText=&#39;arrow-pos: 0.53&#39;), pdgid=21, type=&#39;fermion&#39;, latexname=None, bend=None, label=&#39;q-&#39;, momentum=None, tension=None, length=None, target=&#39;V6&#39;, x=4.0, y=2.0, z=None, sense=&#39;outgoing&#39;)], labels=[Label(id=&#39;L0&#39;, text=&#39;Drell-Yan QCD vertex correction&#39;, x=0.0, y=2.0, z=None)])])
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">

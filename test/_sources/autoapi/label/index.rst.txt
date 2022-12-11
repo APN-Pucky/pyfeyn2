@@ -1,0 +1,33 @@
+:py:mod:`label`
+===============
+
+.. py:module:: label
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   label.Label
+
+
+
+
+.. py:class:: Label(label, handle_tex=True)
+
+   Bases: :py:obj:`pyfeyn2.render.text.line.ASCIILine`
+
+   .. py:method:: handle_tex(s)
+      :staticmethod:
+
+      Remove TeX commands from a string to pure ASCII.
+
+
+   .. py:method:: draw(pane, isrc, itar, scalex=1, scaley=1, kickx=0, kicky=0)
+
+
+

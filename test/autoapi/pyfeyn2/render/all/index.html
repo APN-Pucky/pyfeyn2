@@ -52,7 +52,7 @@
     
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="pyfeyn2.render.ascii" href="../ascii/index.html" />
+    <link rel="next" title="pyfeyn2.render.render" href="../render/index.html" />
     <link rel="prev" title="pyfeyn2.render.pyx.utils" href="../pyx/utils/index.html" /> 
 </head>
 
@@ -80,7 +80,7 @@
             
             
               <div class="version">
-                2.0.5-11-g435f30b
+                2.0.5-24-ge554c8e
               </div>
             
           
@@ -138,6 +138,21 @@
 <li class="toctree-l3"><a class="reference internal" href="../../index.html#package-contents">Package Contents</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../dot/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dot</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../metapost/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">metapost</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tikzfeynman/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">tikzfeynman</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../feynmp/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">feynmp</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../latex/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">latex</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../mpl/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mpl</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../feynmanrender/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">feynmanrender</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../unicodepdf/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">unicodepdf</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../line/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">line</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../asciipdf/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">asciipdf</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plainpdf/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">plainpdf</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../label/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">label</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../unicode/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">unicode</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../style/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">style</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../ascii/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ascii</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -250,20 +265,10 @@
 </tr>
 </tbody>
 </table>
-</section>
-<section id="attributes">
-<h3>Attributes<a class="headerlink" href="#attributes" title="Permalink to this heading">¶</a></h3>
-<table class="autosummary longtable docutils align-default">
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.render.all.renderers" title="pyfeyn2.render.all.renderers"><code class="xref py py-obj docutils literal notranslate"><span class="pre">renderers</span></code></a></p></td>
-<td><p></p></td>
-</tr>
-</tbody>
-</table>
 <dl class="py class">
 <dt class="sig sig-object py" id="pyfeyn2.render.all.AllRender">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyfeyn2.render.all.</span></span><span class="sig-name descname"><span class="pre">AllRender</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">documentclass</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'standalone'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">document_options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/pyfeyn2/render/all.html#AllRender"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.all.AllRender" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="../latex/index.html#pyfeyn2.render.latex.LatexRender" title="pyfeyn2.render.latex.LatexRender"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyfeyn2.render.latex.LatexRender</span></code></a></p>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">pyfeyn2.render.latex.latex.LatexRender</span></code></p>
 <p>Render all diagrams to PDF.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -310,11 +315,6 @@ is <cite>None</cite> it will use the value from the active config. Which is
 
 </dd></dl>
 
-<dl class="py data">
-<dt class="sig sig-object py" id="pyfeyn2.render.all.renderers">
-<span class="sig-prename descclassname"><span class="pre">pyfeyn2.render.all.</span></span><span class="sig-name descname"><span class="pre">renderers</span></span><a class="reference internal" href="../../../../_modules/pyfeyn2/render/all.html#renderers"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.all.renderers" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
 </section>
 </section>
 </section>
@@ -325,7 +325,7 @@ is <cite>None</cite> it will use the value from the active config. Which is
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="../ascii/index.html" class="btn btn-neutral float-right" title="pyfeyn2.render.ascii" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../render/index.html" class="btn btn-neutral float-right" title="pyfeyn2.render.render" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
         <a href="../pyx/utils/index.html" class="btn btn-neutral float-left" title="pyfeyn2.render.pyx.utils" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 

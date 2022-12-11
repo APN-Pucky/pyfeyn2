@@ -54,8 +54,8 @@
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="TikZ-Feynman" href="../tikz/tikzfeynman.html" />
-    <link rel="prev" title="Matplotlib" href="../mpl/MPL.html" /> 
+    <link rel="next" title="ASCII" href="../text/ascii/ASCII.html" />
+    <link rel="prev" title="Matplotlib" href="../mpl/mpl/MPL.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -82,7 +82,7 @@
             
             
               <div class="version">
-                2.0.5-11-g435f30b
+                2.0.5-24-ge554c8e
               </div>
             
           
@@ -128,13 +128,17 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Renderers</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../all/All.html">All</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../ascii/ASCII.html">ASCII</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../dot/Dot.html">Dot</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../feynman/feynman.html">Feynman</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../feynmp/FeynMP.html">FeynMP</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../mpl/MPL.html">Matplotlib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../latex/feynmp/FeynMP.html">FeynMP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../latex/index.html">Latex</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../latex/tikz/tikzfeynman.html">TikZ-Feynman</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mpl/feynman/feynman.html">Feynman</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mpl/index.html">Matplotlib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mpl/mpl/MPL.html">Matplotlib</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">PyX</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tikz/tikzfeynman.html">TikZ-Feynman</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text/ascii/ASCII.html">ASCII</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text/index.html">Text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text/unicode/Unicode.html">Unicode</a></li>
 </ul>
 </li>
 </ul>
@@ -491,14 +495,24 @@ div.rendered_html tbody tr:hover {
 </style>
 <section id="PyX">
 <h1>PyX<a class="headerlink" href="#PyX" title="Permalink to this heading">¶</a></h1>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyfeyn2.feynmandiagram</span> <span class="kn">import</span> <span class="n">FeynmanDiagram</span><span class="p">,</span> <span class="n">Leg</span><span class="p">,</span> <span class="n">Propagator</span><span class="p">,</span> <span class="n">Vertex</span>
 <span class="kn">from</span> <span class="nn">pyfeyn2.render.pyx.pyxrender</span> <span class="kn">import</span> <span class="n">PyxRender</span>
+<span class="kn">import</span> <span class="nn">pyfeyn2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pyfeyn2</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+2.0.5.16
+</pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
@@ -587,7 +601,7 @@ Running in visual debug mode
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><br/><span></span><span class="n">pr</span> <span class="o">=</span> <span class="n">PyxRender</span><span class="p">(</span><span class="n">fd</span><span class="p">)</span>
@@ -597,7 +611,7 @@ Running in visual debug mode
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
+<div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
@@ -613,23 +627,21 @@ Object &lt;class &#39;pyfeyn2.render.pyx.points.DecoratedPoint&#39;&gt; layer = 
 #objs = 4
 Object &lt;class &#39;pyfeyn2.render.pyx.lines.Vector&#39;&gt; layer = 5 + 0 = 5
 Adding label: $g_1$
-Labels = [&lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f0dcacdc9a0&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f0dcacdca30&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f0dcacdcf70&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f0dcacdc8b0&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f0dcacdcdf0&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f0dc84a6760&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f0dc84a6cd0&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f0dcad2b7c0&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f0dcad2b640&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f0d7952d160&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f0dc84807c0&gt;]
+Labels = [&lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f66b15ce760&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f66b15cedc0&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f66b15cee80&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f66b15ceee0&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f66b15ce1c0&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f66b15ce460&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f66b15ce100&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f66d7f5b940&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f66d77e1a00&gt;]
 #objs = 5
 Object &lt;class &#39;pyfeyn2.render.pyx.lines.Vector&#39;&gt; layer = 6 + 0 = 6
 Adding label: $g_2$
-Labels = [&lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f0dcacdc9a0&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f0dcacdca30&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f0dcacdcf70&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f0dcacdc8b0&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f0dcacdcdf0&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f0dc84a6760&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f0dc84a6cd0&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f0dcad2b7c0&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f0dcad2b640&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f0d7952d160&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f0dc84807c0&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f0dc8480760&gt;]
+Labels = [&lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f66b15ce760&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f66b15cedc0&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f66b15cee80&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f66b15ceee0&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f66b15ce1c0&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f66b15ce460&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f66b15ce100&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f66d7f5b940&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f66d77e1a00&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f66d77e1820&gt;]
 #objs = 6
 Object &lt;class &#39;pyfeyn2.render.pyx.lines.Vector&#39;&gt; layer = 7 + 0 = 7
 Adding label: $g_3$
-Labels = [&lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f0dcacdc9a0&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f0dcacdca30&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f0dcacdcf70&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f0dcacdc8b0&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f0dcacdcdf0&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f0dc84a6760&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f0dc84a6cd0&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f0dcad2b7c0&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f0dcad2b640&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f0d7952d160&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f0dc84807c0&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f0dc8480760&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f0dc84800d0&gt;]
+Labels = [&lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f66b15ce760&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f66b15cedc0&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f66b15cee80&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f66b15ceee0&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f66b15ce1c0&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f66b15ce460&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f66b15ce100&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f66d7f5b940&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f66d77e1a00&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f66d77e1820&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f66d77e1460&gt;]
 #objs = 7
 Object &lt;class &#39;pyfeyn2.render.pyx.lines.Vector&#39;&gt; layer = 8 + 0 = 8
 Adding label: $g_4$
-Labels = [&lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f0dcacdc9a0&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f0dcacdca30&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f0dcacdcf70&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f0dcacdc8b0&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f0dcacdcdf0&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f0dc84a6760&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f0dc84a6cd0&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f0dcad2b7c0&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f0dcad2b640&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f0d7952d160&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f0dc84807c0&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f0dc8480760&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f0dc84800d0&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f0dc84808b0&gt;]
+Labels = [&lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f66b15ce760&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f66b15cedc0&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f66b15cee80&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f66b15ceee0&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f66b15ce1c0&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f66b15ce460&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f66b15ce100&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f66d7f5b940&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f66d77e1a00&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f66d77e1820&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f66d77e1460&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f66d77e1070&gt;]
 #objs = 8
 Object &lt;class &#39;pyfeyn2.render.pyx.lines.Vector&#39;&gt; layer = 9 + 0 = 9
-Adding label:
-Labels = [&lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f0dcacdc9a0&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f0dcacdca30&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f0dcacdcf70&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f0dcacdc8b0&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f0dcacdcdf0&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f0dc84a6760&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f0dc84a6cd0&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f0dcad2b7c0&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f0dcad2b640&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f0d7952d160&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f0dc84807c0&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f0dc8480760&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f0dc84800d0&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f0dc84808b0&gt;, &lt;pyfeyn2.render.pyx.deco.LineLabel object at 0x7f0dc8480cd0&gt;]
 Final #objs = 9
 Depth =  1002
 Depth =  1002
@@ -637,9 +649,6 @@ Depth =  1004
 Depth =  1004
 Depth =  5
 Drawing &lt;class &#39;pyfeyn2.render.pyx.lines.Vector&#39;&gt; with styles = []
-Displacement =  (0.000000 t + -0.005000 u + 0.000000 v + 0.000000 w + 0.000000 x) m
-Displacement =  (0.000000 t + -0.005000 u + 0.000000 v + 0.000000 w + 0.000000 x) m
-Displacement =  (0.000000 t + -0.005000 u + 0.000000 v + 0.000000 w + 0.000000 x) m
 Displacement =  (0.000000 t + -0.005000 u + 0.000000 v + 0.000000 w + 0.000000 x) m
 Displacement =  (0.000000 t + -0.005000 u + 0.000000 v + 0.000000 w + 0.000000 x) m
 Displacement =  (0.000000 t + -0.005000 u + 0.000000 v + 0.000000 w + 0.000000 x) m
@@ -666,14 +675,8 @@ Displacement =  (0.000000 t + -0.005000 u + 0.000000 v + 0.000000 w + 0.000000 x
 Displacement =  (0.000000 t + -0.005000 u + 0.000000 v + 0.000000 w + 0.000000 x) m
 Displacement =  (0.000000 t + -0.005000 u + 0.000000 v + 0.000000 w + 0.000000 x) m
 Displacement =  (0.000000 t + -0.005000 u + 0.000000 v + 0.000000 w + 0.000000 x) m
-Displacement =  (0.000000 t + -0.005000 u + 0.000000 v + 0.000000 w + 0.000000 x) m
-Displacement =  (0.000000 t + -0.005000 u + 0.000000 v + 0.000000 w + 0.000000 x) m
-Displacement =  (0.000000 t + -0.005000 u + 0.000000 v + 0.000000 w + 0.000000 x) m
 Depth =  7
 Drawing &lt;class &#39;pyfeyn2.render.pyx.lines.Vector&#39;&gt; with styles = []
-Displacement =  (0.000000 t + -0.005000 u + 0.000000 v + 0.000000 w + 0.000000 x) m
-Displacement =  (0.000000 t + -0.005000 u + 0.000000 v + 0.000000 w + 0.000000 x) m
-Displacement =  (0.000000 t + -0.005000 u + 0.000000 v + 0.000000 w + 0.000000 x) m
 Displacement =  (0.000000 t + -0.005000 u + 0.000000 v + 0.000000 w + 0.000000 x) m
 Displacement =  (0.000000 t + -0.005000 u + 0.000000 v + 0.000000 w + 0.000000 x) m
 Displacement =  (0.000000 t + -0.005000 u + 0.000000 v + 0.000000 w + 0.000000 x) m
@@ -700,9 +703,6 @@ Displacement =  (0.000000 t + -0.005000 u + 0.000000 v + 0.000000 w + 0.000000 x
 Displacement =  (0.000000 t + -0.005000 u + 0.000000 v + 0.000000 w + 0.000000 x) m
 Displacement =  (0.000000 t + -0.005000 u + 0.000000 v + 0.000000 w + 0.000000 x) m
 Displacement =  (0.000000 t + -0.005000 u + 0.000000 v + 0.000000 w + 0.000000 x) m
-Displacement =  (0.000000 t + -0.005000 u + 0.000000 v + 0.000000 w + 0.000000 x) m
-Displacement =  (0.000000 t + -0.005000 u + 0.000000 v + 0.000000 w + 0.000000 x) m
-Displacement =  (0.000000 t + -0.005000 u + 0.000000 v + 0.000000 w + 0.000000 x) m
 Depth =  9
 Drawing &lt;class &#39;pyfeyn2.render.pyx.lines.Vector&#39;&gt; with styles = []
 Displacement =  (0.000000 t + -0.005000 u + 0.000000 v + 0.000000 w + 0.000000 x) m
@@ -717,25 +717,7 @@ Displacement =  (0.000000 t + -0.005000 u + 0.000000 v + 0.000000 w + 0.000000 x
 Displacement =  (0.000000 t + -0.005000 u + 0.000000 v + 0.000000 w + 0.000000 x) m
 Displacement =  (0.000000 t + -0.005000 u + 0.000000 v + 0.000000 w + 0.000000 x) m
 Displacement =  (0.000000 t + -0.005000 u + 0.000000 v + 0.000000 w + 0.000000 x) m
-Displacement =  (0.000000 t + -0.005000 u + 0.000000 v + 0.000000 w + 0.000000 x) m
-Displacement =  (0.000000 t + -0.005000 u + 0.000000 v + 0.000000 w + 0.000000 x) m
-Displacement =  (0.000000 t + -0.005000 u + 0.000000 v + 0.000000 w + 0.000000 x) m
 </pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../_images/renderers_pyx_PyX_6_1.png" src="../../_images/renderers_pyx_PyX_6_1.png" />
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<img alt="../../_images/renderers_pyx_PyX_6_2.png" src="../../_images/renderers_pyx_PyX_6_2.png" />
-</div>
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
@@ -753,8 +735,8 @@ Displacement =  (0.000000 t + -0.005000 u + 0.000000 v + 0.000000 w + 0.000000 x
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="../tikz/tikzfeynman.html" class="btn btn-neutral float-right" title="TikZ-Feynman" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="../mpl/MPL.html" class="btn btn-neutral float-left" title="Matplotlib" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../text/ascii/ASCII.html" class="btn btn-neutral float-right" title="ASCII" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../mpl/mpl/MPL.html" class="btn btn-neutral float-left" title="Matplotlib" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

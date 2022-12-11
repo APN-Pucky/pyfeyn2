@@ -1,0 +1,388 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>mpl &mdash; pyfeyn2  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/plot_directive.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/jupyter-sphinx.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/thebelab.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/thebelab-helper.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pyfeyn2
+          
+
+          
+            
+            <img src="../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.0.5-24-ge554c8e
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Versions:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/pyfeyn2/">Stable</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/pyfeyn2/test/">Dev</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Links:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/APN-Pucky/pyfeyn2">GitHub</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">FeynML:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../feynml/index.html">FeynML</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Gallery:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../gallery/index.html">Gallery</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Renderers:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../renderers/index.html">Renderers</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Module:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../autoapi/index.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pyfeyn2</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">Module code</a> &raquo;</li>
+        
+      <li>mpl</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for mpl</h1><div class="highlight"><pre>
+<span></span>import matplotlib.pyplot as plt
+import numpy as np
+
+from pyfeyn2.render.render import Render
+
+
+<div class="viewcode-block" id="dotted"><a class="viewcode-back" href="../autoapi/mpl/index.html#mpl.dotted">[docs]</a>def dotted(p1, p2, points=200):
+    n = np.linspace(0, points, points)
+    x, y = (
+        p1[0] + (p2[0] - p1[0]) * (n / points),
+        p1[1] + (p2[1] - p1[1]) * (n / points),
+    )
+    plt.plot(x, y, &quot;k:&quot;)</div>
+
+
+<div class="viewcode-block" id="dashed"><a class="viewcode-back" href="../autoapi/mpl/index.html#mpl.dashed">[docs]</a>def dashed(p1, p2, points=200):
+    n = np.linspace(0, points, points)
+    x, y = (
+        p1[0] + (p2[0] - p1[0]) * (n / points),
+        p1[1] + (p2[1] - p1[1]) * (n / points),
+    )
+    plt.plot(x, y, &quot;k--&quot;)</div>
+
+
+<div class="viewcode-block" id="line"><a class="viewcode-back" href="../autoapi/mpl/index.html#mpl.line">[docs]</a>def line(p1, p2, points=200):
+    n = np.linspace(0, points, points)
+    x, y = (
+        p1[0] + (p2[0] - p1[0]) * (n / points),
+        p1[1] + (p2[1] - p1[1]) * (n / points),
+    )
+    plt.plot(x, y, &quot;k-&quot;)</div>
+
+
+<div class="viewcode-block" id="spring"><a class="viewcode-back" href="../autoapi/mpl/index.html#mpl.spring">[docs]</a>def spring(xp1, xp2, points=200, rot=3, amp=0.15, line_frac=0.2):
+    p1 = [
+        xp1[0] + (xp2[0] - xp1[0]) * line_frac,
+        xp1[1] + (xp2[1] - xp1[1]) * line_frac,
+    ]
+
+    p2 = [
+        xp2[0] - (xp2[0] - xp1[0]) * line_frac,
+        xp2[1] - (xp2[1] - xp1[1]) * line_frac,
+    ]
+
+    n = np.linspace(0, points, points)
+    alpha = np.arctan((p2[1] - p1[1]) / np.array([(p2[0] - p1[0])]))
+    if p2[0] &lt; p1[0]:
+        alpha += np.pi
+    w = rot / points * (2 * np.pi) + np.pi / points
+    ret = (
+        p1[0]
+        + (p2[0] - p1[0]) * (n / points)
+        + amp * (-np.cos(w * n - alpha) + np.cos(-alpha)),
+        p1[1]
+        + (p2[1] - p1[1]) * (n / points)
+        + amp * (np.sin(w * n - alpha) - np.sin(-alpha)),
+    )
+
+    x, y = (
+        np.append(np.insert(ret[0], 0, xp1[0]), xp2[0]),
+        np.append(np.insert(ret[1], 0, xp1[1]), xp2[1]),
+    )
+    plt.plot(x, y, &quot;k-&quot;)</div>
+
+
+<div class="viewcode-block" id="wave"><a class="viewcode-back" href="../autoapi/mpl/index.html#mpl.wave">[docs]</a>def wave(xp1, xp2, points=200, rot=3, amp=0.15, line_frac=0.2):
+    # first skip via p1 and p2 to
+    p1 = [
+        xp1[0] + (xp2[0] - xp1[0]) * line_frac,
+        xp1[1] + (xp2[1] - xp1[1]) * line_frac,
+    ]
+
+    p2 = [
+        xp2[0] - (xp2[0] - xp1[0]) * line_frac,
+        xp2[1] - (xp2[1] - xp1[1]) * line_frac,
+    ]
+
+    n = np.linspace(0, points, points)
+    alpha = np.arctan((p2[1] - p1[1]) / np.array([(p2[0] - p1[0])]))
+    w = rot / points * (2 * np.pi)  # + np.pi / points
+    ret = (
+        p1[0]
+        + (p2[0] - p1[0]) * (n / points)
+        + amp * np.sin(w * n) * (0 * np.cos((alpha)) - np.sin((alpha))),
+        p1[1]
+        + (p2[1] - p1[1]) * (n / points)
+        + amp * np.sin(w * n) * (0 * np.sin((alpha)) + np.cos((alpha))),
+    )
+
+    x, y = (
+        np.append(np.insert(ret[0], 0, xp1[0]), xp2[0]),
+        np.append(np.insert(ret[1], 0, xp1[1]), xp2[1]),
+    )
+    plt.plot(x, y, &quot;k-&quot;)</div>
+
+
+<div class="viewcode-block" id="combine_lines"><a class="viewcode-back" href="../autoapi/mpl/index.html#mpl.combine_lines">[docs]</a>def combine_lines(lines):
+    return lambda *a, **k: [l(*a, **k) for l in lines]</div>
+
+
+<div class="viewcode-block" id="namedlines"><a class="viewcode-back" href="../autoapi/mpl/index.html#mpl.namedlines">[docs]</a>namedlines = {
+    &quot;straight&quot;: line,
+    &quot;gluon&quot;: spring,
+    &quot;photon&quot;: wave,
+    &quot;boson&quot;: wave,
+    &quot;vector&quot;: wave,
+    &quot;ghost&quot;: dotted,
+    &quot;fermion&quot;: line,
+    &quot;higgs&quot;: dashed,
+    &quot;gluino&quot;: combine_lines([spring, line]),
+    &quot;gaugino&quot;: combine_lines([wave, line]),
+    &quot;phantom&quot;: lambda *a, **k: None,
+}</div>
+
+
+<div class="viewcode-block" id="MPLRender"><a class="viewcode-back" href="../autoapi/mpl/index.html#mpl.MPLRender">[docs]</a>class MPLRender(Render):
+    def __init__(self, fd=None, *args, **kwargs):
+        super().__init__(fd, *args, **kwargs)
+
+<div class="viewcode-block" id="MPLRender.render"><a class="viewcode-back" href="../autoapi/mpl/index.html#mpl.MPLRender.render">[docs]</a>    def render(self, file=None, show=True, width=None, height=None, resolution=100):
+        idtopos = {}
+        for v in self.fd.vertices:
+            idtopos[v.id] = (v.x, v.y)
+        for l in self.fd.legs:
+            idtopos[l.id] = (l.x, l.y)
+
+        for p in self.fd.propagators:
+            namedlines[p.type](idtopos[p.source], idtopos[p.target])
+        for l in self.fd.legs:
+            if l.sense[:2] == &quot;in&quot;:
+                namedlines[l.type](idtopos[l.id], idtopos[l.target])
+            elif l.sense[:3] == &quot;out&quot;:
+                namedlines[l.type](idtopos[l.target], idtopos[l.id])
+            else:
+                raise Exception(&quot;Unknown sense&quot;)
+        plt.axis(&quot;off&quot;)
+        if show:
+            plt.show()
+        if file is not None:
+            plt.savefig(file)</div>
+
+<div class="viewcode-block" id="MPLRender.valid_attribute"><a class="viewcode-back" href="../autoapi/mpl/index.html#mpl.MPLRender.valid_attribute">[docs]</a>    def valid_attribute(self, attr: str) -&gt; bool:
+        return super().valid_attribute(attr) or attr in [&quot;x&quot;, &quot;y&quot;]</div>
+
+<div class="viewcode-block" id="MPLRender.valid_type"><a class="viewcode-back" href="../autoapi/mpl/index.html#mpl.MPLRender.valid_type">[docs]</a>    def valid_type(self, typ: str) -&gt; bool:
+        if typ.lower() in namedlines:
+            return True
+        return False</div></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2022, Alexander Puck Neuwirth.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

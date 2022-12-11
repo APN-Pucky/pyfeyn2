@@ -25,6 +25,9 @@ Classes
    .. py:method:: get_src()
 
 
+   .. py:method:: set_src(src)
+
+
    .. py:method:: render(file=None, show=True, resolution=100, width=None, height=None)
 
 

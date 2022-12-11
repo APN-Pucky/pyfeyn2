@@ -8,7 +8,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>pyfeyn2 2.0.5-11-g435f30b documentation &mdash; pyfeyn2  documentation</title>
+  <title>pyfeyn2 2.0.5-24-ge554c8e documentation &mdash; pyfeyn2  documentation</title>
   
 
   
@@ -79,7 +79,7 @@
             
             
               <div class="version">
-                2.0.5-11-g435f30b
+                2.0.5-24-ge554c8e
               </div>
             
           
@@ -176,7 +176,7 @@
     
       <li><a href="#" class="icon icon-home"></a> &raquo;</li>
         
-      <li>pyfeyn2 2.0.5-11-g435f30b documentation</li>
+      <li>pyfeyn2 2.0.5-24-ge554c8e documentation</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -220,7 +220,7 @@
 }
 </style>
 <section id="project-version-documentation">
-<h1>pyfeyn2 2.0.5-11-g435f30b documentation<a class="headerlink" href="#project-version-documentation" title="Permalink to this heading">¶</a></h1>
+<h1>pyfeyn2 2.0.5-24-ge554c8e documentation<a class="headerlink" href="#project-version-documentation" title="Permalink to this heading">¶</a></h1>
 <section id="pyfeyn2">
 <h2>PyFeyn2<a class="headerlink" href="#pyfeyn2" title="Permalink to this heading">¶</a></h2>
 <p>Forked from <a class="reference external" href="https://pyfeyn.hepforge.org/">https://pyfeyn.hepforge.org/</a></p>
@@ -254,6 +254,7 @@
 <h3>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>libmagickwand-dev (to display pdfs in a jupyter-notebook, might require a policy change of the imagemagick config for PDFs, see Troubleshooting)</p></li>
+<li><p>ghostscript</p></li>
 <li><p>latexmk</p></li>
 <li><p>(feynmp-auto/feynmf)</p></li>
 </ul>
@@ -323,6 +324,7 @@ poetry shell
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="gallery/index.html">Gallery</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="gallery/Overleaf/overleaf.html">Overleaf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gallery/pyfeyn/pyfeyn.html">Pyfeyn</a></li>
 </ul>
 </li>
 </ul>
@@ -332,19 +334,39 @@ poetry shell
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="renderers/index.html">Renderers</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="renderers/all/All.html">All</a></li>
-<li class="toctree-l2"><a class="reference internal" href="renderers/ascii/ASCII.html">ASCII</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="renderers/ascii/ASCII.html#Characters/String">Characters/String</a></li>
-<li class="toctree-l3"><a class="reference internal" href="renderers/ascii/ASCII.html#PDF">PDF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="renderers/dot/Dot.html">Dot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="renderers/latex/feynmp/FeynMP.html">FeynMP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="renderers/latex/index.html">Latex</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="renderers/latex/feynmp/FeynMP.html">FeynMP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="renderers/latex/tikz/tikzfeynman.html">TikZ-Feynman</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="renderers/dot/Dot.html">Dot</a></li>
-<li class="toctree-l2"><a class="reference internal" href="renderers/feynman/feynman.html">Feynman</a></li>
-<li class="toctree-l2"><a class="reference internal" href="renderers/feynmp/FeynMP.html">FeynMP</a></li>
-<li class="toctree-l2"><a class="reference internal" href="renderers/mpl/MPL.html">Matplotlib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="renderers/latex/tikz/tikzfeynman.html">TikZ-Feynman</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="renderers/latex/tikz/tikzfeynman.html#Simple-Case">Simple Case</a></li>
+<li class="toctree-l3"><a class="reference internal" href="renderers/latex/tikz/tikzfeynman.html#Complicated-Case">Complicated Case</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="renderers/mpl/feynman/feynman.html">Feynman</a></li>
+<li class="toctree-l2"><a class="reference internal" href="renderers/mpl/index.html">Matplotlib</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="renderers/mpl/feynman/feynman.html">Feynman</a></li>
+<li class="toctree-l3"><a class="reference internal" href="renderers/mpl/mpl/MPL.html">Matplotlib</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="renderers/mpl/mpl/MPL.html">Matplotlib</a></li>
 <li class="toctree-l2"><a class="reference internal" href="renderers/pyx/PyX.html">PyX</a></li>
-<li class="toctree-l2"><a class="reference internal" href="renderers/tikz/tikzfeynman.html">TikZ-Feynman</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="renderers/tikz/tikzfeynman.html#Simple-Case">Simple Case</a></li>
-<li class="toctree-l3"><a class="reference internal" href="renderers/tikz/tikzfeynman.html#Complicated-Case">Complicated Case</a></li>
+<li class="toctree-l2"><a class="reference internal" href="renderers/text/ascii/ASCII.html">ASCII</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="renderers/text/ascii/ASCII.html#Characters/String">Characters/String</a></li>
+<li class="toctree-l3"><a class="reference internal" href="renderers/text/ascii/ASCII.html#PDF">PDF</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="renderers/text/index.html">Text</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="renderers/text/ascii/ASCII.html">ASCII</a></li>
+<li class="toctree-l3"><a class="reference internal" href="renderers/text/unicode/Unicode.html">Unicode</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="renderers/text/unicode/Unicode.html">Unicode</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="renderers/text/unicode/Unicode.html#Characters/String">Characters/String</a></li>
+<li class="toctree-l3"><a class="reference internal" href="renderers/text/unicode/Unicode.html#PDF">PDF</a></li>
 </ul>
 </li>
 </ul>
@@ -359,6 +381,66 @@ poetry shell
 <li class="toctree-l3"><a class="reference internal" href="autoapi/pyfeyn2/index.html#subpackages">Subpackages</a></li>
 <li class="toctree-l3"><a class="reference internal" href="autoapi/pyfeyn2/index.html#submodules">Submodules</a></li>
 <li class="toctree-l3"><a class="reference internal" href="autoapi/pyfeyn2/index.html#package-contents">Package Contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="autoapi/dot/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dot</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="autoapi/dot/index.html#module-contents">Module Contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="autoapi/metapost/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">metapost</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="autoapi/metapost/index.html#module-contents">Module Contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="autoapi/tikzfeynman/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">tikzfeynman</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="autoapi/tikzfeynman/index.html#module-contents">Module Contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="autoapi/feynmp/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">feynmp</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="autoapi/feynmp/index.html#module-contents">Module Contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="autoapi/latex/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">latex</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="autoapi/latex/index.html#module-contents">Module Contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="autoapi/mpl/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mpl</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="autoapi/mpl/index.html#module-contents">Module Contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="autoapi/feynmanrender/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">feynmanrender</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="autoapi/feynmanrender/index.html#module-contents">Module Contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="autoapi/unicodepdf/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">unicodepdf</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="autoapi/unicodepdf/index.html#module-contents">Module Contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="autoapi/line/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">line</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="autoapi/line/index.html#module-contents">Module Contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="autoapi/asciipdf/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">asciipdf</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="autoapi/asciipdf/index.html#module-contents">Module Contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="autoapi/plainpdf/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">plainpdf</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="autoapi/plainpdf/index.html#module-contents">Module Contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="autoapi/label/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">label</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="autoapi/label/index.html#module-contents">Module Contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="autoapi/unicode/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">unicode</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="autoapi/unicode/index.html#module-contents">Module Contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="autoapi/style/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">style</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="autoapi/style/index.html#module-contents">Module Contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="autoapi/ascii/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ascii</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="autoapi/ascii/index.html#module-contents">Module Contents</a></li>
 </ul>
 </li>
 </ul>

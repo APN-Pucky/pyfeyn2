@@ -54,8 +54,8 @@
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Feynman" href="../feynman/feynman.html" />
-    <link rel="prev" title="ASCII" href="../ascii/ASCII.html" /> 
+    <link rel="next" title="FeynMP" href="../latex/feynmp/FeynMP.html" />
+    <link rel="prev" title="All" href="../all/All.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -82,7 +82,7 @@
             
             
               <div class="version">
-                2.0.5-11-g435f30b
+                2.0.5-24-ge554c8e
               </div>
             
           
@@ -128,13 +128,17 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Renderers</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../all/All.html">All</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../ascii/ASCII.html">ASCII</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Dot</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../feynman/feynman.html">Feynman</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../feynmp/FeynMP.html">FeynMP</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../mpl/MPL.html">Matplotlib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../latex/feynmp/FeynMP.html">FeynMP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../latex/index.html">Latex</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../latex/tikz/tikzfeynman.html">TikZ-Feynman</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mpl/feynman/feynman.html">Feynman</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mpl/index.html">Matplotlib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mpl/mpl/MPL.html">Matplotlib</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../pyx/PyX.html">PyX</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tikz/tikzfeynman.html">TikZ-Feynman</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text/ascii/ASCII.html">ASCII</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text/index.html">Text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text/unicode/Unicode.html">Unicode</a></li>
 </ul>
 </li>
 </ul>
@@ -500,9 +504,11 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyfeyn2.feynmandiagram</span> <span class="kn">import</span> <span class="n">FeynmanDiagram</span><span class="p">,</span> <span class="n">Leg</span><span class="p">,</span> <span class="n">Propagator</span><span class="p">,</span> <span class="n">Vertex</span>
-<span class="kn">from</span> <span class="nn">pyfeyn2.render.tikzfeynman</span> <span class="kn">import</span> <span class="n">TikzFeynmanRender</span>
-<span class="kn">from</span> <span class="nn">pyfeyn2.render.dot</span> <span class="kn">import</span> <span class="n">feynman_adjust_points</span>
-<span class="kn">from</span> <span class="nn">pyfeyn2.render.dot</span> <span class="kn">import</span> <span class="n">DotRender</span><span class="p">,</span> <span class="n">feynman_to_dot</span>
+<span class="kn">from</span> <span class="nn">pyfeyn2.render.latex.tikzfeynman</span> <span class="kn">import</span> <span class="n">TikzFeynmanRender</span>
+<span class="kn">from</span> <span class="nn">pyfeyn2.render.latex.dot</span> <span class="kn">import</span> <span class="n">feynman_adjust_points</span>
+<span class="kn">from</span> <span class="nn">pyfeyn2.render.latex.dot</span> <span class="kn">import</span> <span class="n">DotRender</span><span class="p">,</span> <span class="n">feynman_to_dot</span>
+<span class="kn">import</span> <span class="nn">pyfeyn2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pyfeyn2</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -700,8 +706,8 @@ edge [style=&#34;decorate,decoration={coil,aspect=0.3,segment length=1mm}&#34;,t
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="../feynman/feynman.html" class="btn btn-neutral float-right" title="Feynman" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="../ascii/ASCII.html" class="btn btn-neutral float-left" title="ASCII" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../latex/feynmp/FeynMP.html" class="btn btn-neutral float-right" title="FeynMP" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../all/All.html" class="btn btn-neutral float-left" title="All" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

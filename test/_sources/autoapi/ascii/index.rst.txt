@@ -1,0 +1,103 @@
+:py:mod:`ascii`
+===============
+
+.. py:module:: ascii
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   ascii.Gluon
+   ascii.Photon
+   ascii.Fermion
+   ascii.Scalar
+   ascii.Ghost
+   ascii.Higgs
+   ascii.Gluino
+   ascii.Gaugino
+   ascii.Phantom
+   ascii.ASCIIRender
+
+
+
+
+.. py:class:: Gluon
+
+   Bases: :py:obj:`pyfeyn2.render.text.line.ASCIILine`
+
+
+.. py:class:: Photon
+
+   Bases: :py:obj:`pyfeyn2.render.text.line.ASCIILine`
+
+
+.. py:class:: Fermion
+
+   Bases: :py:obj:`pyfeyn2.render.text.line.ASCIILine`
+
+
+.. py:class:: Scalar
+
+   Bases: :py:obj:`pyfeyn2.render.text.line.ASCIILine`
+
+
+.. py:class:: Ghost
+
+   Bases: :py:obj:`pyfeyn2.render.text.line.ASCIILine`
+
+
+.. py:class:: Higgs
+
+   Bases: :py:obj:`pyfeyn2.render.text.line.ASCIILine`
+
+
+.. py:class:: Gluino
+
+   Bases: :py:obj:`pyfeyn2.render.text.line.ASCIILine`
+
+
+.. py:class:: Gaugino
+
+   Bases: :py:obj:`pyfeyn2.render.text.line.ASCIILine`
+
+
+.. py:class:: Phantom
+
+   Bases: :py:obj:`pyfeyn2.render.text.line.ASCIILine`
+
+   .. py:method:: draw(pane, isrc, itar, scalex=1, scaley=1, kickx=0, kicky=0)
+
+
+
+.. py:class:: ASCIIRender(fd=None, *args, **kwargs)
+
+   Bases: :py:obj:`pyfeyn2.render.render.Render`
+
+   Renders Feynman diagrams to ASCII art.
+
+   .. py:attribute:: namedlines
+      
+
+      
+
+   .. py:method:: render(file=None, show=True, resolution=100, width=None, height=None)
+
+
+   .. py:method:: get_src_txt()
+
+
+   .. py:method:: set_src_txt(src_txt)
+
+
+   .. py:method:: valid_attribute(attr: str) -> bool
+
+
+   .. py:method:: valid_type(typ: str) -> bool
+
+
+
