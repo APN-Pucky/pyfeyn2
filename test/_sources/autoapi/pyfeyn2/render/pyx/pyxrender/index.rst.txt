@@ -23,6 +23,8 @@ Classes
 
    .. py:method:: render(file=None, show=True, resolution=200, width=None, height=None)
 
+      Render the diagram.
+
 
    .. py:method:: apply_layout(stylestring, obj)
 
@@ -30,12 +32,15 @@ Classes
 
 
    .. py:method:: valid_type(typ: str)
+      :staticmethod:
 
 
    .. py:method:: valid_attribute(attr: str) -> bool
+      :staticmethod:
 
 
    .. py:method:: valid_style(style: str) -> bool
+      :staticmethod:
 
 
 

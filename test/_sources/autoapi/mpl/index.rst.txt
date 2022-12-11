@@ -67,11 +67,15 @@ Attributes
 
    .. py:method:: render(file=None, show=True, width=None, height=None, resolution=100)
 
+      Render the diagram.
+
 
    .. py:method:: valid_attribute(attr: str) -> bool
+      :staticmethod:
 
 
    .. py:method:: valid_type(typ: str) -> bool
+      :staticmethod:
 
 
 

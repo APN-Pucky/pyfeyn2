@@ -111,9 +111,11 @@ Attributes
 
 
    .. py:method:: valid_attribute(attr: str) -> bool
+      :staticmethod:
 
 
    .. py:method:: valid_type(typ)
+      :staticmethod:
 
 
 

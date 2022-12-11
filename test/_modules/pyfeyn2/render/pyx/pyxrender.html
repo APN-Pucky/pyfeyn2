@@ -77,7 +77,7 @@
             
             
               <div class="version">
-                2.0.5-25-gaa8b003
+                2.0.5-27-gb6dcd6c
               </div>
             
           
@@ -361,13 +361,15 @@ from pyfeyn2.render.render import Render
                 obj.set3D(True)
         return obj</div>
 
-<div class="viewcode-block" id="PyxRender.valid_type"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/pyxrender/index.html#pyfeyn2.PyxRender.valid_type">[docs]</a>    def valid_type(self, typ: str):
+    @staticmethod
+<div class="viewcode-block" id="PyxRender.valid_type"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/pyxrender/index.html#pyfeyn2.PyxRender.valid_type">[docs]</a>    def valid_type(typ: str):
         if typ.lower() in NamedLine:
             return True
         return False</div>
 
-<div class="viewcode-block" id="PyxRender.valid_attribute"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/pyxrender/index.html#pyfeyn2.PyxRender.valid_attribute">[docs]</a>    def valid_attribute(self, attr: str) -&gt; bool:
-        return super().valid_attribute(attr) or attr.lower() in [
+    @staticmethod
+<div class="viewcode-block" id="PyxRender.valid_attribute"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/pyxrender/index.html#pyfeyn2.PyxRender.valid_attribute">[docs]</a>    def valid_attribute(attr: str) -&gt; bool:
+        return super(PyxRender,PyxRender).valid_attribute(attr) or attr.lower() in [
             &quot;style&quot;,
             &quot;type&quot;,
             &quot;bend&quot;,
@@ -376,8 +378,9 @@ from pyfeyn2.render.render import Render
             &quot;y&quot;,
         ]</div>
 
-<div class="viewcode-block" id="PyxRender.valid_style"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/pyxrender/index.html#pyfeyn2.PyxRender.valid_style">[docs]</a>    def valid_style(self, style: str) -&gt; bool:
-        return super().valid_style(style) or style.lower() in [
+    @staticmethod
+<div class="viewcode-block" id="PyxRender.valid_style"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/pyxrender/index.html#pyfeyn2.PyxRender.valid_style">[docs]</a>    def valid_style(style: str) -&gt; bool:
+        return super(PyxRender,PyxRender).valid_style(style) or style.lower() in [
             &quot;arrow-pos&quot;,
             &quot;parallel-arrow-sense&quot;,
             &quot;parallel-arrow-displace&quot;,

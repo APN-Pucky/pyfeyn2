@@ -77,7 +77,7 @@
             
             
               <div class="version">
-                2.0.5-25-gaa8b003
+                2.0.5-27-gb6dcd6c
               </div>
             
           
@@ -457,18 +457,18 @@ converter.register_converter(CSSString, CSSConverter())
         metadata={&quot;name&quot;: &quot;label&quot;, &quot;type&quot;: &quot;Element&quot;, &quot;namespace&quot;: &quot;&quot;},
     )</div>
 
-<div class="viewcode-block" id="FeynmanDiagram.add"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.FeynmanDiagram.add">[docs]</a>    def add(self, *all: List[Union[Propagator, Vertex, Leg, Label]]):
-        for any in all:
-            if isinstance(any, Propagator):
-                self.propagators.append(any)
-            elif isinstance(any, Vertex):
-                self.vertices.append(any)
-            elif isinstance(any, Leg):
-                self.legs.append(any)
-            elif isinstance(any, Label):
-                self.labels.append(any)
+<div class="viewcode-block" id="FeynmanDiagram.add"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.FeynmanDiagram.add">[docs]</a>    def add(self, *fd_all: List[Union[Propagator, Vertex, Leg, Label]]):
+        for a in fd_all:
+            if isinstance(a, Propagator):
+                self.propagators.append(a)
+            elif isinstance(a, Vertex):
+                self.vertices.append(a)
+            elif isinstance(a, Leg):
+                self.legs.append(a)
+            elif isinstance(a, Label):
+                self.labels.append(a)
             else:
-                raise Exception(&quot;Unknown type: &quot; + str(type(any)) + &quot; &quot; + str(any))
+                raise Exception(&quot;Unknown type: &quot; + str(type(a)) + &quot; &quot; + str(a))
         return self</div>
 
 <div class="viewcode-block" id="FeynmanDiagram.get_point"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.FeynmanDiagram.get_point">[docs]</a>    def get_point(self, id):

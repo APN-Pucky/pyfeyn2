@@ -55,14 +55,19 @@ Classes
 
    .. py:method:: render(file=None, show=True, subfigure=False, resolution=None, width=None, height=None)
 
+      Render the diagram.
+
 
    .. py:method:: valid_style(style: str) -> bool
+      :staticmethod:
 
 
    .. py:method:: valid_attribute(attr: str) -> bool
+      :staticmethod:
 
 
    .. py:method:: valid_type(typ: str) -> bool
+      :staticmethod:
 
 
 

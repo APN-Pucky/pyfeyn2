@@ -87,6 +87,8 @@ Classes
 
    .. py:method:: render(file=None, show=True, resolution=100, width=None, height=None)
 
+      Render the diagram.
+
 
    .. py:method:: get_src_txt()
 
@@ -95,9 +97,11 @@ Classes
 
 
    .. py:method:: valid_attribute(attr: str) -> bool
+      :staticmethod:
 
 
    .. py:method:: valid_type(typ: str) -> bool
+      :staticmethod:
 
 
 

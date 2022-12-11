@@ -69,5 +69,7 @@ Classes
 
    .. py:method:: render(file=None, show=True, resolution=100, width=None, height=None, clean_up=True)
 
+      Render the diagram.
+
 
 

@@ -157,7 +157,7 @@ Attributes
 
    
 
-.. py:class:: MultiLine(point1, point2, n=5, dist=0.2, styles=[], arcthrupoint=None, is3D=False, arrows=[], labels=[], **kwargs)
+.. py:class:: MultiLine(point1, point2, n=5, dist=0.2, styles=None, arcthrupoint=None, is3D=False, arrows=None, labels=None, **kwargs)
 
    Bases: :py:obj:`Line`
 
@@ -171,7 +171,7 @@ Attributes
 
 
 
-.. py:class:: Scalar(point1, point2, linestyle=pyx.style.linestyle.dashed, styles=[], arcthrupoint=None, is3D=False, arrows=[], labels=[], **kwargs)
+.. py:class:: Scalar(point1, point2, linestyle=pyx.style.linestyle.dashed, styles=None, arcthrupoint=None, is3D=False, arrows=None, labels=None, **kwargs)
 
    Bases: :py:obj:`Line`
 
@@ -195,7 +195,7 @@ Attributes
 
    
 
-.. py:class:: Ghost(point1, point2, linestyle=pyx.style.linestyle.dotted, styles=[], arcthrupoint=None, is3D=False, arrows=[], labels=[], **kwargs)
+.. py:class:: Ghost(point1, point2, linestyle=pyx.style.linestyle.dotted, styles=None, arcthrupoint=None, is3D=False, arrows=None, labels=None, **kwargs)
 
    Bases: :py:obj:`Scalar`
 
@@ -204,7 +204,7 @@ Attributes
    Constructor.
 
 
-.. py:class:: DecoratedLine(point1, point2, amplitude, frequency, extras, invert, linetype, styles=[], arcthrupoint=None, is3D=False, arrows=[], labels=[], **kwargs)
+.. py:class:: DecoratedLine(point1, point2, amplitude, frequency, extras, invert, linetype, styles=None, arcthrupoint=None, is3D=False, arrows=None, labels=None, **kwargs)
 
    Bases: :py:obj:`Line`
 
@@ -253,7 +253,7 @@ Attributes
 
 
 
-.. py:class:: Gluon(point1, point2, amplitude=0.15, frequency=1.3, extras=0, invert=False, styles=[], arcthrupoint=None, is3D=False, arrows=[], labels=[], **kwargs)
+.. py:class:: Gluon(point1, point2, amplitude=0.15, frequency=1.3, extras=0, invert=False, styles=None, arcthrupoint=None, is3D=False, arrows=None, labels=None, **kwargs)
 
    Bases: :py:obj:`DecoratedLine`
 
@@ -272,7 +272,7 @@ Attributes
 
 
 
-.. py:class:: Vector(point1, point2, amplitude=0.25, frequency=1.0, extras=0, invert=False, styles=[], arcthrupoint=None, is3D=False, arrows=[], labels=[], **kwargs)
+.. py:class:: Vector(point1, point2, amplitude=0.25, frequency=1.0, extras=0, invert=False, styles=None, arcthrupoint=None, is3D=False, arrows=None, labels=None, **kwargs)
 
    Bases: :py:obj:`DecoratedLine`
 
@@ -296,7 +296,7 @@ Attributes
 
    
 
-.. py:class:: Graviton(point1, point2, amplitude=0.25, frequency=0.6, extras=0, invert=False, styles=[], arcthrupoint=None, is3D=False, arrows=[], labels=[], **kwargs)
+.. py:class:: Graviton(point1, point2, amplitude=0.25, frequency=0.6, extras=0, invert=False, styles=None, arcthrupoint=None, is3D=False, arrows=None, labels=None, **kwargs)
 
    Bases: :py:obj:`DecoratedLine`
 
@@ -315,7 +315,7 @@ Attributes
 
 
 
-.. py:class:: Gaugino(point1, point2, amplitude=0.25, frequency=1.0, extras=0, invert=False, styles=[], arcthrupoint=None, is3D=False, arrows=[], labels=[], **kwargs)
+.. py:class:: Gaugino(point1, point2, amplitude=0.25, frequency=1.0, extras=0, invert=False, styles=None, arcthrupoint=None, is3D=False, arrows=None, labels=None, **kwargs)
 
    Bases: :py:obj:`DecoratedLine`
 
@@ -334,7 +334,7 @@ Attributes
 
 
 
-.. py:class:: Gluino(point1, point2, amplitude=0.25, frequency=1.2, extras=0, invert=False, styles=[], arcthrupoint=None, is3D=False, arrows=[], labels=[], **kwargs)
+.. py:class:: Gluino(point1, point2, amplitude=0.25, frequency=1.2, extras=0, invert=False, styles=None, arcthrupoint=None, is3D=False, arrows=None, labels=None, **kwargs)
 
    Bases: :py:obj:`DecoratedLine`
 
@@ -353,7 +353,7 @@ Attributes
 
 
 
-.. py:class:: Gravitino(point1, point2, amplitude=0.25, frequency=0.6, extras=0, invert=False, styles=[], arcthrupoint=None, is3D=False, arrows=[], labels=[], **kwargs)
+.. py:class:: Gravitino(point1, point2, amplitude=0.25, frequency=0.6, extras=0, invert=False, styles=None, arcthrupoint=None, is3D=False, arrows=None, labels=None, **kwargs)
 
    Bases: :py:obj:`DecoratedLine`
 

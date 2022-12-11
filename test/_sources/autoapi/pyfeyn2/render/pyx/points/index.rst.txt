@@ -70,7 +70,7 @@ Attributes
    Calculate the distance between this point and the argument.
 
 
-.. py:class:: Point(x, y, blob=None, labels=[], **kwargs)
+.. py:class:: Point(x, y, blob=None, labels=None, **kwargs)
 
    Base class for all pointlike objects in Feynman diagrams.
 

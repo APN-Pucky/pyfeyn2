@@ -308,7 +308,7 @@ Attributes
 
       
 
-   .. py:method:: add(*all: List[Union[Propagator, Vertex, Leg, Label]])
+   .. py:method:: add(*fd_all: List[Union[Propagator, Vertex, Leg, Label]])
 
 
    .. py:method:: get_point(id)
