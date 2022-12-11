@@ -77,7 +77,7 @@
             
             
               <div class="version">
-                2.0.5-27-gb6dcd6c
+                2.0.5-28-gc41ce60
               </div>
             
           
@@ -213,7 +213,7 @@ from pyfeyn2.render.render import Render
     def __init__(self, fd=None, *args, **kwargs):
         super().__init__(fd, *args, **kwargs)
 
-<div class="viewcode-block" id="PyxRender.render"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/pyxrender/index.html#pyfeyn2.PyxRender.render">[docs]</a>    def render(self, file=None, show=True, resolution=200, width=None, height=None):
+<div class="viewcode-block" id="PyxRender.render"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/pyxrender/index.html#pyfeyn2.PyxRender.render">[docs]</a>    def render(self, file=None, show=True, resolution=200, width=None, height=None,clean_up=False):
         delete = False
         if file is None:
             file = &quot;tmp.pdf&quot;
@@ -248,6 +248,9 @@ from pyfeyn2.render.render import Render
             os.remove(file)
         if show:
             display(wi)
+        if clean_up:
+            # TODO: clean up
+            pass
         return wi</div>
 
 <div class="viewcode-block" id="PyxRender.apply_layout"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/pyxrender/index.html#pyfeyn2.PyxRender.apply_layout">[docs]</a>    def apply_layout(self, stylestring, obj):

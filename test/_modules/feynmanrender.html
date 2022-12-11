@@ -77,7 +77,7 @@
             
             
               <div class="version">
-                2.0.5-27-gb6dcd6c
+                2.0.5-28-gc41ce60
               </div>
             
           
@@ -298,7 +298,9 @@ from pyfeyn2.render.render import Render
         if show:
             plt.show()
         if file is not None:
-            plt.savefig(file)</div>
+            plt.savefig(file)
+        if clean_up:
+            plt.close()</div>
 
     @staticmethod
 <div class="viewcode-block" id="FeynmanRender.valid_attribute"><a class="viewcode-back" href="../autoapi/feynmanrender/index.html#feynmanrender.FeynmanRender.valid_attribute">[docs]</a>    def valid_attribute(attr: str) -&gt; bool:

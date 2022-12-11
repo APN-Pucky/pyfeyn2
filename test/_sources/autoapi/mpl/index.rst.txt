@@ -65,7 +65,7 @@ Attributes
 
    Bases: :py:obj:`pyfeyn2.render.render.Render`
 
-   .. py:method:: render(file=None, show=True, width=None, height=None, resolution=100)
+   .. py:method:: render(file=None, show=True, width=None, height=None, resolution=100, clean_up=False)
 
       Render the diagram.
 
