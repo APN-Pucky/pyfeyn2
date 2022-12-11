@@ -12,6 +12,8 @@ The following types are available:
 
 .. include:: ../../shared/type_tab.rst
 
+.. include:: ../../shared/attribute/type.rst
+
 .. toctree::
    :glob:
    :maxdepth: 3

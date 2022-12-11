@@ -70,7 +70,7 @@ Attributes
    Calculate the distance between this point and the argument.
 
 
-.. py:class:: Point(x, y, blob=None)
+.. py:class:: Point(x, y, blob=None, labels=None, **kwargs)
 
    Base class for all pointlike objects in Feynman diagrams.
 
@@ -179,7 +179,7 @@ Attributes
 
 
 
-.. py:class:: DecoratedPoint(xpos, ypos, mark=None, blob=None, fill=[pyx.color.rgb.black], stroke=[pyx.color.rgb.black])
+.. py:class:: DecoratedPoint(x=None, y=None, center=None, mark=None, fill=[BLACK], stroke=[BLACK], blob=None, labels=[], **kwargs)
 
    Bases: :py:obj:`Point`, :py:obj:`pyfeyn2.render.pyx.utils.Visible`
 

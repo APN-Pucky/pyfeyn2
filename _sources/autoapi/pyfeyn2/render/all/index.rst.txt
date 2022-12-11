@@ -17,9 +17,9 @@ Classes
 
 
 
-.. py:class:: AllRender(fd=None, documentclass='standalone', document_options=['varwidth'], *args, **kwargs)
+.. py:class:: AllRender(fd=None, documentclass='standalone', document_options=None, *args, **kwargs)
 
-   Bases: :py:obj:`pyfeyn2.render.latex.LatexRender`
+   Bases: :py:obj:`pyfeyn2.render.latex.latex.LatexRender`
 
    Render all diagrams to PDF.
 
@@ -54,6 +54,20 @@ Classes
    :type data: list
 
    .. py:method:: render(file=None, show=True, subfigure=False, resolution=None, width=None, height=None)
+
+      Render the diagram.
+
+
+   .. py:method:: valid_style(style: str) -> bool
+      :staticmethod:
+
+
+   .. py:method:: valid_attribute(attr: str) -> bool
+      :staticmethod:
+
+
+   .. py:method:: valid_type(typ: str) -> bool
+      :staticmethod:
 
 
 

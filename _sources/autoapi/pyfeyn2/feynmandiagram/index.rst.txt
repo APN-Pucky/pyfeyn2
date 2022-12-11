@@ -15,16 +15,23 @@ Classes
    pyfeyn2.feynmandiagram.PDG
    pyfeyn2.feynmandiagram.Identifiable
    pyfeyn2.feynmandiagram.Labeled
+   pyfeyn2.feynmandiagram.Texted
    pyfeyn2.feynmandiagram.Point
    pyfeyn2.feynmandiagram.Styled
+   pyfeyn2.feynmandiagram.CSSConverter
    pyfeyn2.feynmandiagram.Bending
    pyfeyn2.feynmandiagram.Targeting
    pyfeyn2.feynmandiagram.Sourcing
    pyfeyn2.feynmandiagram.Line
    pyfeyn2.feynmandiagram.Vertex
+   pyfeyn2.feynmandiagram.Connector
    pyfeyn2.feynmandiagram.Leg
    pyfeyn2.feynmandiagram.Propagator
+   pyfeyn2.feynmandiagram.Label
    pyfeyn2.feynmandiagram.FeynmanDiagram
+   pyfeyn2.feynmandiagram.Meta
+   pyfeyn2.feynmandiagram.Head
+   pyfeyn2.feynmandiagram.FeynML
 
 
 
@@ -35,6 +42,8 @@ Attributes
 .. autoapisummary::
 
    pyfeyn2.feynmandiagram.id
+   pyfeyn2.feynmandiagram.CSSString
+   pyfeyn2.feynmandiagram.aliasMeta
 
 
 .. py:class:: PDG
@@ -59,13 +68,10 @@ Attributes
       Sync the latexname with the pdgid
 
 
-   .. py:method:: __post_init__()
-
-
    .. py:method:: set_pdgid(pdgid)
 
 
-   .. py:method:: set_type(type)
+   .. py:method:: set_type(typ)
 
 
 
@@ -96,42 +102,88 @@ Attributes
 
 
 
+.. py:class:: Texted
+
+   .. py:attribute:: text
+      :annotation: :Optional[str]
+
+      
+
+   .. py:method:: set_text(text)
+
+
+
 .. py:class:: Point
 
    .. py:attribute:: x
-      :annotation: :Optional[decimal.Decimal]
+      :annotation: :Optional[float]
 
       
 
    .. py:attribute:: y
-      :annotation: :Optional[decimal.Decimal]
+      :annotation: :Optional[float]
 
       
 
    .. py:attribute:: z
-      :annotation: :Optional[decimal.Decimal]
+      :annotation: :Optional[float]
 
       
+
+   .. py:method:: set_point(p)
+
 
    .. py:method:: set_xy(x, y)
 
 
-   .. py:method:: set_xyz(x, y)
+   .. py:method:: set_xyz(x, y, z)
 
 
+
+.. py:data:: CSSString
+   
+
+   
 
 .. py:class:: Styled
 
    .. py:attribute:: style
-      :annotation: :Optional[str]
+      :annotation: :CSSString
 
       
+
+   .. py:method:: raw_style()
+
+
+   .. py:method:: put_style(key, value)
+
+
+
+.. py:class:: CSSConverter
+
+   Bases: :py:obj:`xsdata.formats.converter.Converter`
+
+   Abstract converter class.
+
+   .. py:method:: deserialize(value: str, **kwargs) -> CSSString
+      :staticmethod:
+
+      Convert any type to the converter dedicated type.
+
+      :raises ConverterError: if converter fails with and expected ValueError
+
+
+   .. py:method:: serialize(value: CSSString, **kwargs) -> str
+      :staticmethod:
+
+      Convert value to string.
+
 
 
 .. py:class:: Bending
 
    .. py:attribute:: bend
-      :annotation: :Optional[str]
+      :annotation: :Optional[float]
 
       
 
@@ -168,12 +220,41 @@ Attributes
 
 .. py:class:: Vertex
 
-   Bases: :py:obj:`Labeled`, :py:obj:`Styled`, :py:obj:`Point`, :py:obj:`Identifiable`
+   Bases: :py:obj:`Labeled`, :py:obj:`Point`, :py:obj:`Styled`, :py:obj:`Identifiable`
+
+
+.. py:class:: Connector
+
+   Bases: :py:obj:`Labeled`, :py:obj:`Bending`, :py:obj:`PDG`, :py:obj:`Styled`, :py:obj:`Identifiable`
+
+   .. py:attribute:: momentum
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: tension
+      :annotation: :Optional[float]
+
+      
+
+   .. py:attribute:: length
+      :annotation: :Optional[float]
+
+      
+
+   .. py:method:: set_momentum(momentum)
+
+
+   .. py:method:: set_tension(tension)
+
+
+   .. py:method:: set_length(length)
+
 
 
 .. py:class:: Leg
 
-   Bases: :py:obj:`Labeled`, :py:obj:`Styled`, :py:obj:`PDG`, :py:obj:`Bending`, :py:obj:`Point`, :py:obj:`Targeting`, :py:obj:`Identifiable`
+   Bases: :py:obj:`Point`, :py:obj:`Targeting`, :py:obj:`Connector`
 
    .. py:attribute:: sense
       :annotation: :str
@@ -189,7 +270,12 @@ Attributes
 
 .. py:class:: Propagator
 
-   Bases: :py:obj:`Labeled`, :py:obj:`Styled`, :py:obj:`PDG`, :py:obj:`Bending`, :py:obj:`Line`, :py:obj:`Identifiable`
+   Bases: :py:obj:`Line`, :py:obj:`Connector`
+
+
+.. py:class:: Label
+
+   Bases: :py:obj:`Point`, :py:obj:`Texted`, :py:obj:`Identifiable`
 
 
 .. py:class:: FeynmanDiagram
@@ -197,7 +283,7 @@ Attributes
    .. py:class:: Meta
 
       .. py:attribute:: name
-         :annotation: = feynmandiagram
+         :annotation: = diagram
 
          
 
@@ -217,7 +303,89 @@ Attributes
 
       
 
+   .. py:attribute:: labels
+      :annotation: :List[Label]
+
+      
+
+   .. py:method:: add(*fd_all: List[Union[Propagator, Vertex, Leg, Label]])
+
+
    .. py:method:: get_point(id)
+
+
+   .. py:method:: get_bounding_box()
+
+
+
+.. py:class:: Meta
+
+   .. py:class:: Meta
+
+      .. py:attribute:: name
+         :annotation: = meta
+
+         
+
+
+   .. py:attribute:: name
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: value
+      :annotation: :Optional[str]
+
+      
+
+
+.. py:data:: aliasMeta
+   
+
+   
+
+.. py:class:: Head
+
+   .. py:class:: Meta
+
+      .. py:attribute:: name
+         :annotation: = head
+
+         
+
+
+   .. py:attribute:: metas
+      :annotation: :List[aliasMeta]
+
+      
+
+   .. py:attribute:: description
+      :annotation: :Optional[str]
+
+      
+
+
+.. py:class:: FeynML
+
+   .. py:class:: Meta
+
+      .. py:attribute:: name
+         :annotation: = feynml
+
+         
+
+
+   .. py:attribute:: head
+      :annotation: :List[Head]
+
+      
+
+   .. py:attribute:: diagrams
+      :annotation: :List[FeynmanDiagram]
+
+      
+
+   .. py:method:: get_diagram(id)
 
 
 

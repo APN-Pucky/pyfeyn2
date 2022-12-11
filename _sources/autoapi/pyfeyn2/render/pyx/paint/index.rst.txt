@@ -12,31 +12,6 @@
 Module Contents
 ---------------
 
-.. py:data:: BLACK
-   
-
-   
-
-.. py:data:: BLUE
-   
-
-   
-
-.. py:data:: GREEN
-   
-
-   
-
-.. py:data:: RED
-   
-
-   
-
-.. py:data:: WHITE
-   
-
-   
-
 .. py:data:: APRICOT
    
 
@@ -473,6 +448,36 @@ Module Contents
    
 
 .. py:data:: CLEAR
+   
+
+   
+
+.. py:data:: TOP
+   
+
+   
+
+.. py:data:: MIDDLE
+   
+
+   
+
+.. py:data:: BOTTOM
+   
+
+   
+
+.. py:data:: LEFT
+   
+
+   
+
+.. py:data:: CENTER
+   
+
+   
+
+.. py:data:: RIGHT
    
 
    

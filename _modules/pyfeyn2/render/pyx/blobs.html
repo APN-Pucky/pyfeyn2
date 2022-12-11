@@ -68,13 +68,16 @@
           
 
           
+            
+            <img src="../../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
+          
           </a>
 
           
             
             
               <div class="version">
-                2.0.4
+                2.0.6
               </div>
             
           
@@ -112,16 +115,13 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../feynml/index.html">FeynML</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Examples:</span></p>
+<p class="caption" role="heading"><span class="caption-text">Gallery:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../examples/ASCII.html">ASCII</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../examples/All.html">All</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../examples/Dot.html">Dot</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../examples/FeynML.html">FeynML</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../examples/FeynMP.html">FeynMP</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../examples/MPL.html">Matplotlib</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../examples/PyX.html">PyX</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../examples/tikzfeynman.html">TIKZ-Feynman</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../gallery/index.html">Gallery</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Renderers:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../renderers/index.html">Renderers</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Module:</span></p>
 <ul>
@@ -176,6 +176,8 @@
         
           <li><a href="../../../index.html">Module code</a> &raquo;</li>
         
+          <li><a href="../../../pyfeyn2.html">pyfeyn2</a> &raquo;</li>
+        
       <li>pyfeyn2.render.pyx.blobs</li>
     
     
@@ -199,6 +201,7 @@ import pyx
 from pyfeyn2.render.pyx import config
 from pyfeyn2.render.pyx.deco import PointLabel
 from pyfeyn2.render.pyx.diagrams import FeynDiagram
+from pyfeyn2.render.pyx.paint import BLACK, CENTER, WHITE
 from pyfeyn2.render.pyx.points import Point
 from pyfeyn2.render.pyx.utils import Visible
 
@@ -207,13 +210,25 @@ from pyfeyn2.render.pyx.utils import Visible
 <div class="viewcode-block" id="Blob"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/blobs/index.html#pyfeyn2.render.pyx.blobs.Blob">[docs]</a>class Blob(Point, Visible):
     &quot;Base class for all blob-like objects in Feynman diagrams&quot;
 
-    def __init__(self):
-        &quot;&quot;&quot;Dysfunctional constructor, since this is an abstract base class.&quot;&quot;&quot;
-        self.trafos = []
-        self.strokestyles = []
-        self.fillstyles = []
+    def __init__(
+        self,
+        x,
+        y,
+        trafos=[],
+        points=[],
+        fill=[],
+        stroke=[],
+        blob=None,
+        labels=[],
+        **kwargs
+    ):
+        &quot;&quot;&quot;Constructor.&quot;&quot;&quot;
+        Point.__init__(self, x, y, blob, labels)
+        self.trafos = trafos
+        self.points = points
+        self.fillstyles = fill
+        self.strokestyles = stroke
         self.layeroffset = 1000
-        raise Exception(&quot;Blobs are an abstract base class: you can&#39;t make them!&quot;)
 
 <div class="viewcode-block" id="Blob.setStrokeStyle"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/blobs/index.html#pyfeyn2.render.pyx.blobs.Blob.setStrokeStyle">[docs]</a>    def setStrokeStyle(self, strokestyle):
         &quot;&quot;&quot;Set the stroke style.&quot;&quot;&quot;
@@ -254,12 +269,28 @@ from pyfeyn2.render.pyx.utils import Visible
         else:
             self.points = []</div>
 
-<div class="viewcode-block" id="Blob.addLabel"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/blobs/index.html#pyfeyn2.render.pyx.blobs.Blob.addLabel">[docs]</a>    def addLabel(self, text, displace=-0.15, angle=0, size=pyx.text.size.normalsize):
+<div class="viewcode-block" id="Blob.addLabel"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/blobs/index.html#pyfeyn2.render.pyx.blobs.Blob.addLabel">[docs]</a>    def addLabel(
+        self,
+        text,
+        displace=-0.15,
+        angle=0,
+        size=pyx.text.size.normalsize,
+        halign=CENTER,
+        valign=None,
+    ):
         &quot;&quot;&quot;Add a label.&quot;&quot;&quot;
         if config.getOptions().DEBUG:
             print(&quot;Adding label: &quot; + text)
         self.labels.append(
-            PointLabel(text=text, point=self, displace=displace, angle=angle, size=size)
+            PointLabel(
+                text=text,
+                point=self,
+                displace=displace,
+                angle=angle,
+                size=size,
+                halign=halign,
+                valign=valign,
+            )
         )
         if config.getOptions().DEBUG:
             print(&quot;Labels = &quot; + str(self.labels))
@@ -283,29 +314,32 @@ from pyfeyn2.render.pyx.utils import Visible
         y=None,
         center=None,
         radius=None,
-        fill=[pyx.color.rgb.white],
-        stroke=[pyx.color.rgb.black],
-        points=None,
+        fill=[WHITE],
+        stroke=[BLACK],
+        points=[],
+        blob=None,
+        labels=[],
+        **kwargs
     ):
+        xx = 0
+        yy = 0
+        if x is not None and y is not None:
+            xx = x
+            yy = y
+        elif center is not None:
+            xx = center.getX()
+            yy = center.getY()
+        else:
+            raise Exception(&quot;No center specified for blob.&quot;)
+
         &quot;&quot;&quot;Constructor.&quot;&quot;&quot;
+        Blob.__init__(self, xx, yy, [], points, fill, stroke, blob, labels)
+
         if radius:
             self.radius = float(radius)
         else:
             raise Exception(&quot;No (or zero) radius specified for blob.&quot;)
 
-        if x is not None and y is not None:
-            self.setXY(x, y)
-        elif center is not None:
-            self.setXY(center.getX(), center.getY())
-        else:
-            raise Exception(&quot;No center specified for blob.&quot;)
-
-        self.setPoints(points)
-        self.fillstyles = fill
-        self.strokestyles = stroke
-        self.layeroffset = 1000
-        self.trafos = []
-        self.labels = []
         ## Add this to the current diagram automatically
         FeynDiagram.currentDiagram.add(self)
 
@@ -334,19 +368,27 @@ from pyfeyn2.render.pyx.utils import Visible
         center=None,
         xradius=None,
         yradius=None,
-        fill=[pyx.color.rgb.white],
-        stroke=[pyx.color.rgb.black],
-        points=None,
+        fill=[WHITE],
+        stroke=[BLACK],
+        trafos=[],
+        points=[],
+        blob=None,
+        labels=[],
+        **kwargs
     ):
-        &quot;&quot;&quot;Constructor.&quot;&quot;&quot;
-        self.layeroffset = 1000
-
+        xx = 0
+        yy = 0
         if x is not None and y is not None:
-            self.setXY(x, y)
+            xx = x
+            yy = y
         elif center is not None:
-            self.setXY(center.getX(), center.getY())
+            xx = center.getX()
+            yy = center.getY()
         else:
             raise Exception(&quot;No center specified for blob.&quot;)
+
+        &quot;&quot;&quot;Constructor.&quot;&quot;&quot;
+        Blob.__init__(self, xx, yy, trafos, points, fill, stroke, blob, labels)
 
         self.xrad = None
         if xradius:
@@ -363,11 +405,6 @@ from pyfeyn2.render.pyx.utils import Visible
         else:
             raise Exception(&quot;No viable candidate for y-radius&quot;)
 
-        self.setPoints(points)
-        self.fillstyles = fill
-        self.strokestyles = stroke
-        self.trafos = []
-        self.labels = []
         ## Add this to the current diagram automatically
         FeynDiagram.currentDiagram.add(self)
 

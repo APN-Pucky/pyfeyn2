@@ -80,7 +80,7 @@ Functions
 
 
 
-.. py:class:: Label(text, pos=None, x=None, y=None, size=pyx.text.size.normalsize)
+.. py:class:: Label(text, pos=None, x=None, y=None, size=pyx.text.size.normalsize, halign=CENTER, valign=None)
 
    Bases: :py:obj:`pyfeyn2.render.pyx.utils.Visible`
 
@@ -94,7 +94,7 @@ Functions
 
 
 
-.. py:class:: PointLabel(point, text, displace=0.3, angle=0, size=pyx.text.size.normalsize)
+.. py:class:: PointLabel(point, text, displace=0.3, angle=0, size=pyx.text.size.normalsize, halign=CENTER, valign=None)
 
    Bases: :py:obj:`Label`
 
@@ -118,7 +118,7 @@ Functions
 
 
 
-.. py:class:: LineLabel(line, text, pos=0.5, displace=0.3, angle=0, size=pyx.text.size.normalsize)
+.. py:class:: LineLabel(line, text, pos=0.5, displace=0.3, angle=0, size=pyx.text.size.normalsize, halign=CENTER, valign=None)
 
    Bases: :py:obj:`Label`
 

@@ -32,13 +32,13 @@ Attributes
    pyfeyn2.render.pyx.blobs.NamedBlob
 
 
-.. py:class:: Blob
+.. py:class:: Blob(x, y, trafos=[], points=[], fill=[], stroke=[], blob=None, labels=[], **kwargs)
 
    Bases: :py:obj:`pyfeyn2.render.pyx.points.Point`, :py:obj:`pyfeyn2.render.pyx.utils.Visible`
 
    Base class for all blob-like objects in Feynman diagrams
 
-   Dysfunctional constructor, since this is an abstract base class.
+   Constructor.
 
    .. py:method:: setStrokeStyle(strokestyle)
 
@@ -75,7 +75,7 @@ Attributes
       Set the points to which this blob is attached.
 
 
-   .. py:method:: addLabel(text, displace=-0.15, angle=0, size=pyx.text.size.normalsize)
+   .. py:method:: addLabel(text, displace=-0.15, angle=0, size=pyx.text.size.normalsize, halign=CENTER, valign=None)
 
       Add a label.
 
@@ -86,7 +86,7 @@ Attributes
 
 
 
-.. py:class:: Circle(x=None, y=None, center=None, radius=None, fill=[pyx.color.rgb.white], stroke=[pyx.color.rgb.black], points=None)
+.. py:class:: Circle(x=None, y=None, center=None, radius=None, fill=[WHITE], stroke=[BLACK], points=[], blob=None, labels=[], **kwargs)
 
    Bases: :py:obj:`Blob`
 
@@ -110,7 +110,7 @@ Attributes
 
 
 
-.. py:class:: Ellipse(x=None, y=None, center=None, xradius=None, yradius=None, fill=[pyx.color.rgb.white], stroke=[pyx.color.rgb.black], points=None)
+.. py:class:: Ellipse(x=None, y=None, center=None, xradius=None, yradius=None, fill=[WHITE], stroke=[BLACK], trafos=[], points=[], blob=None, labels=[], **kwargs)
 
    Bases: :py:obj:`Blob`
 

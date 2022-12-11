@@ -68,13 +68,16 @@
           
 
           
+            
+            <img src="../../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
+          
           </a>
 
           
             
             
               <div class="version">
-                2.0.4
+                2.0.6
               </div>
             
           
@@ -112,16 +115,13 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../feynml/index.html">FeynML</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Examples:</span></p>
+<p class="caption" role="heading"><span class="caption-text">Gallery:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../examples/ASCII.html">ASCII</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../examples/All.html">All</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../examples/Dot.html">Dot</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../examples/FeynML.html">FeynML</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../examples/FeynMP.html">FeynMP</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../examples/MPL.html">Matplotlib</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../examples/PyX.html">PyX</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../examples/tikzfeynman.html">TIKZ-Feynman</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../gallery/index.html">Gallery</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Renderers:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../renderers/index.html">Renderers</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Module:</span></p>
 <ul>
@@ -176,6 +176,8 @@
         
           <li><a href="../../../index.html">Module code</a> &raquo;</li>
         
+          <li><a href="../../../pyfeyn2.html">pyfeyn2</a> &raquo;</li>
+        
       <li>pyfeyn2.render.pyx.points</li>
     
     
@@ -202,6 +204,7 @@ import pyx
 from pyfeyn2.render.pyx import config
 from pyfeyn2.render.pyx.deco import PointLabel
 from pyfeyn2.render.pyx.diagrams import FeynDiagram
+from pyfeyn2.render.pyx.paint import BLACK
 from pyfeyn2.render.pyx.utils import Visible
 
 
@@ -221,11 +224,13 @@ from pyfeyn2.render.pyx.utils import Visible
 <div class="viewcode-block" id="Point"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/points/index.html#pyfeyn2.render.pyx.points.Point">[docs]</a>class Point:
     &quot;&quot;&quot;Base class for all pointlike objects in Feynman diagrams.&quot;&quot;&quot;
 
-    def __init__(self, x, y, blob=None):
+    def __init__(self, x, y, blob=None, labels=None, **kwargs):
         &quot;&quot;&quot;Constructor.&quot;&quot;&quot;
+        if labels is None:
+            labels = []
         self.setXY(x, y)
         self.setBlob(blob)
-        self.labels = []
+        self.labels = labels
 
 <div class="viewcode-block" id="Point.addLabel"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/points/index.html#pyfeyn2.render.pyx.points.Point.addLabel">[docs]</a>    def addLabel(self, text, displace=0.3, angle=0, size=pyx.text.size.normalsize):
         &quot;&quot;&quot;Add a LaTeX label to this point, either via parameters or actually as
@@ -361,18 +366,30 @@ from pyfeyn2.render.pyx.utils import Visible
 
     def __init__(
         self,
-        xpos,
-        ypos,
+        x=None,
+        y=None,
+        center=None,
         mark=None,
+        fill=[BLACK],
+        stroke=[BLACK],
         blob=None,
-        fill=[pyx.color.rgb.black],
-        stroke=[pyx.color.rgb.black],
+        labels=[],
+        **kwargs
     ):
         &quot;&quot;&quot;Constructor.&quot;&quot;&quot;
-        self.setXY(xpos, ypos)
-        self.labels = []
+        xx = 0
+        yy = 0
+        if x is not None and y is not None:
+            xx = x
+            yy = y
+        elif center is not None:
+            xx = center.getX()
+            yy = center.getY()
+        else:
+            raise Exception(&quot;No center specified for blob.&quot;)
+
+        Point.__init__(self, xx, yy, blob, labels)
         self.setMark(copy(mark))
-        self.setBlob(blob)
         self.layeroffset = 1000
         self.fillstyles = copy(fill)  # lists are mutable --
         self.strokestyles = copy(stroke)  # hence make a copy!
@@ -418,13 +435,13 @@ from pyfeyn2.render.pyx.utils import Visible
 
 <div class="viewcode-block" id="DecoratedPoint.setFillstyles"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/points/index.html#pyfeyn2.render.pyx.points.DecoratedPoint.setFillstyles">[docs]</a>    def setFillstyles(self, styles):
         &quot;&quot;&quot;Set the fillstyles for the marker or blob attached to this point.&quot;&quot;&quot;
-        if styles is not None:
-            self.fillstyles = styles
+        self.fillstyles = styles
         return self</div>
 
 <div class="viewcode-block" id="DecoratedPoint.addFillstyles"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/points/index.html#pyfeyn2.render.pyx.points.DecoratedPoint.addFillstyles">[docs]</a>    def addFillstyles(self, styles):
         &quot;&quot;&quot;Add fillstyles to the marker or blob attached to this point.&quot;&quot;&quot;
-        self.fillstyles.add(styles)
+        if styles is not None:
+            self.fillstyles.add(styles)
         return self</div>
 
 <div class="viewcode-block" id="DecoratedPoint.addFillstyle"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/points/index.html#pyfeyn2.render.pyx.points.DecoratedPoint.addFillstyle">[docs]</a>    def addFillstyle(self, style):

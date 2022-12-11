@@ -9,6 +9,7 @@ A CSS-like semi-colon separated list of style properties. The following properti
 
 .. include:: ../../shared/style_tab.rst
 
+.. include:: ../../shared/attribute/style.rst
 
 .. toctree::
    :glob:

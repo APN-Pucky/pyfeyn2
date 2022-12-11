@@ -20,6 +20,90 @@ Submodules
    :maxdepth: 1
 
    feynmandiagram/index.rst
+   mkfeyndiag/index.rst
    particles/index.rst
 
+
+Package Contents
+----------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   pyfeyn2.PyxRender
+
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   pyfeyn2.package
+   pyfeyn2.__version__
+   pyfeyn2.renders
+   pyfeyn2.styles
+   pyfeyn2.types
+   pyfeyn2.attributes
+
+
+.. py:class:: PyxRender(fd=None, *args, **kwargs)
+
+   Bases: :py:obj:`pyfeyn2.render.render.Render`
+
+   .. py:method:: render(file=None, show=True, resolution=200, width=None, height=None, clean_up=False)
+
+      Render the diagram.
+
+
+   .. py:method:: apply_layout(stylestring, obj)
+
+      Apply the decorators encoded in a style string to an object.
+
+
+   .. py:method:: valid_type(typ: str)
+      :staticmethod:
+
+
+   .. py:method:: valid_attribute(attr: str) -> bool
+      :staticmethod:
+
+
+   .. py:method:: valid_style(style: str) -> bool
+      :staticmethod:
+
+
+
+.. py:data:: package
+   :annotation: = pyfeyn2
+
+   
+
+.. py:data:: __version__
+   
+
+   
+
+.. py:data:: renders
+   
+
+   
+
+.. py:data:: styles
+   :annotation: = ['color', 'opacity', 'arrow-pos', 'parallel-arrow-sense', 'parallel-arrow-displace']
+
+   
+
+.. py:data:: types
+   :annotation: = ['fermion', 'boson', 'vector', 'scalar', 'photon', 'higgs', 'gluon', 'ghost', 'graviton',...
+
+   
+
+.. py:data:: attributes
+   :annotation: = ['x', 'y', 'bend', 'label', 'pdgid', 'sense', 'target', 'source', 'style', 'id', 'type', 'text',...
+
+   
 

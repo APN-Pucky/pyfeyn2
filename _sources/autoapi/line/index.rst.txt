@@ -1,0 +1,25 @@
+:py:mod:`line`
+==============
+
+.. py:module:: line
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   line.ASCIILine
+
+
+
+
+.. py:class:: ASCIILine(style, begin=' ', end=' ')
+
+   .. py:method:: draw(pane, isrc, itar, scalex=1, scaley=1, kickx=0, kicky=0)
+
+
+

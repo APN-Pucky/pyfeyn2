@@ -68,13 +68,16 @@
           
 
           
+            
+            <img src="../../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
+          
           </a>
 
           
             
             
               <div class="version">
-                2.0.4
+                2.0.6
               </div>
             
           
@@ -112,16 +115,13 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../feynml/index.html">FeynML</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Examples:</span></p>
+<p class="caption" role="heading"><span class="caption-text">Gallery:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../examples/ASCII.html">ASCII</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../examples/All.html">All</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../examples/Dot.html">Dot</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../examples/FeynML.html">FeynML</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../examples/FeynMP.html">FeynMP</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../examples/MPL.html">Matplotlib</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../examples/PyX.html">PyX</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../examples/tikzfeynman.html">TIKZ-Feynman</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../gallery/index.html">Gallery</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Renderers:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../renderers/index.html">Renderers</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Module:</span></p>
 <ul>
@@ -176,6 +176,8 @@
         
           <li><a href="../../../index.html">Module code</a> &raquo;</li>
         
+          <li><a href="../../../pyfeyn2.html">pyfeyn2</a> &raquo;</li>
+        
       <li>pyfeyn2.render.pyx.pyxrender</li>
     
     
@@ -192,7 +194,9 @@
            <div itemprop="articleBody">
             
   <h1>Source code for pyfeyn2.render.pyx.pyxrender</h1><div class="highlight"><pre>
-<span></span>import pyx
+<span></span>import os
+
+import pyx
 from IPython.display import display
 from pyx import *
 from wand.image import Image as WImage
@@ -201,26 +205,23 @@ from wand.image import Image as WImage
 from pyfeyn2.render.pyx.deco import Arrow, PointLabel
 from pyfeyn2.render.pyx.diagrams import FeynDiagram
 from pyfeyn2.render.pyx.lines import Line, NamedLine
-from pyfeyn2.render.pyx.points import (
-    SQUARE,
-    CircleMark,
-    DecoratedPoint,
-    NamedMark,
-    Point,
-    SquareMark,
-)
+from pyfeyn2.render.pyx.points import SQUARE, DecoratedPoint, NamedMark, Point
 from pyfeyn2.render.render import Render
 
 
-<div class="viewcode-block" id="PyxRender"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/pyxrender/index.html#pyfeyn2.render.pyx.pyxrender.PyxRender">[docs]</a>class PyxRender(Render):
+<div class="viewcode-block" id="PyxRender"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/pyxrender/index.html#pyfeyn2.PyxRender">[docs]</a>class PyxRender(Render):
     def __init__(self, fd=None, *args, **kwargs):
         super().__init__(fd, *args, **kwargs)
 
-<div class="viewcode-block" id="PyxRender.render"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/pyxrender/index.html#pyfeyn2.render.pyx.pyxrender.PyxRender.render">[docs]</a>    def render(self, file=None, show=True, resolution=100, width=None, height=None):
+<div class="viewcode-block" id="PyxRender.render"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/pyxrender/index.html#pyfeyn2.PyxRender.render">[docs]</a>    def render(self, file=None, show=True, resolution=200, width=None, height=None,clean_up=False):
+        delete = False
+        if file is None:
+            file = &quot;tmp.pdf&quot;
+            delete = True
         pyxfd = FeynDiagram()
         for v in self.fd.vertices:
             dp = DecoratedPoint(v.x, v.y)
-            dp = self.apply_layout(v.style, dp)
+            dp = self.apply_layout(v.raw_style(), dp)
             if v.label is not None:
                 dp.setFillstyles(PointLabel(dp, v.label, displace=3, angle=90))
             pyxfd.add(dp)
@@ -231,7 +232,7 @@ from pyfeyn2.render.render import Render
             elif l.sense[:3] == &quot;out&quot; or l.sense[:9] == &quot;anti-in&quot;:
                 nl = NamedLine[l.type](Point(tar.x, tar.y), Point(l.x, l.y))
             nl = nl.bend(l.bend)
-            nl = self.apply_layout(v.style, nl)
+            nl = self.apply_layout(v.raw_style(), nl)
             nl = nl.addLabel(l.label)
 
         for p in self.fd.propagators:
@@ -239,15 +240,20 @@ from pyfeyn2.render.render import Render
             tar = self.fd.get_point(p.target)
             nl = NamedLine[p.type](Point(src.x, src.y), Point(tar.x, tar.y))
             nl = nl.bend(p.bend)
-            nl = self.apply_layout(v.style, nl)
-            nl = nl.addLabel(l.label)
+            nl = self.apply_layout(v.raw_style(), nl)
+            nl = nl.addLabel(p.label)
         pyxfd.draw(file)
         wi = WImage(filename=file, resolution=resolution, width=width, height=height)
+        if delete:
+            os.remove(file)
         if show:
             display(wi)
+        if clean_up:
+            # TODO: clean up
+            pass
         return wi</div>
 
-<div class="viewcode-block" id="PyxRender.apply_layout"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/pyxrender/index.html#pyfeyn2.render.pyx.pyxrender.PyxRender.apply_layout">[docs]</a>    def apply_layout(self, stylestring, obj):
+<div class="viewcode-block" id="PyxRender.apply_layout"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/pyxrender/index.html#pyfeyn2.PyxRender.apply_layout">[docs]</a>    def apply_layout(self, stylestring, obj):
         &quot;&quot;&quot;Apply the decorators encoded in a style string to an object.&quot;&quot;&quot;
         if stylestring is None:
             return obj
@@ -277,11 +283,11 @@ from pyfeyn2.render.render import Render
         ):
             try:
                 marktype = NamedMark[styledict[&quot;mark-shape&quot;]]
-            except:
+            except Exception:
                 marktype = SQUARE
             try:
                 marksize = float(styledict[&quot;mark-size&quot;])
-            except:
+            except Exception:
                 marksize = 0.075
             obj.setMark(marktype(size=marksize))
         if (
@@ -292,19 +298,19 @@ from pyfeyn2.render.render import Render
         ) and isinstance(obj, Line):
             try:
                 arrsize = pyx.unit.length(float(styledict[&quot;arrow-size&quot;]), unit=&quot;cm&quot;)
-            except:
+            except Exception:
                 arrsize = 6 * pyx.unit.v_pt
             try:
                 arrangle = float(styledict[&quot;arrow-angle&quot;])
-            except:
+            except Exception:
                 arrangle = 45
             try:
                 arrconstrict = float(styledict[&quot;arrow-constrict&quot;])
-            except:
+            except Exception:
                 arrconstrict = 0.8
             try:
                 arrpos = float(styledict[&quot;arrow-pos&quot;])
-            except:
+            except Exception:
                 arrpos = 0.5
             obj.addArrow(arrow=Arrow(arrpos, arrsize, arrangle, arrconstrict))
         if (
@@ -320,31 +326,31 @@ from pyfeyn2.render.render import Render
                 arrsize = pyx.unit.length(
                     float(styledict[&quot;parallel-arrow-size&quot;]), unit=&quot;cm&quot;
                 )
-            except:
+            except Exception:
                 arrsize = 6 * pyx.unit.v_pt
             try:
                 arrangle = float(styledict[&quot;parallel-arrow-angle&quot;])
-            except:
+            except Exception:
                 arrangle = 45
             try:
                 arrconstrict = float(styledict[&quot;parallel-arrow-constrict&quot;])
-            except:
+            except Exception:
                 arrconstrict = 0.8
             try:
                 arrpos = float(styledict[&quot;parallel-arrow-pos&quot;])
-            except:
+            except Exception:
                 arrpos = 0.5
             try:
                 arrlen = float(styledict[&quot;parallel-arrow-length&quot;])
-            except:
+            except Exception:
                 arrlen = 0.5 * pyx.unit.v_cm
             try:
                 arrdisp = float(styledict[&quot;parallel-arrow-displace&quot;])
-            except:
+            except Exception:
                 arrdisp = 0.3
             try:
                 arrsense = int(styledict[&quot;parallel-arrow-sense&quot;])
-            except:
+            except Exception:
                 arrsense = +1
             obj.addParallelArrow(
                 arrpos, arrdisp, arrlen, arrsize, arrangle, arrconstrict, arrsense
@@ -358,21 +364,26 @@ from pyfeyn2.render.render import Render
                 obj.set3D(True)
         return obj</div>
 
-<div class="viewcode-block" id="PyxRender.valid_type"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/pyxrender/index.html#pyfeyn2.render.pyx.pyxrender.PyxRender.valid_type">[docs]</a>    def valid_type(self, typ: str):
+    @staticmethod
+<div class="viewcode-block" id="PyxRender.valid_type"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/pyxrender/index.html#pyfeyn2.PyxRender.valid_type">[docs]</a>    def valid_type(typ: str):
         if typ.lower() in NamedLine:
             return True
         return False</div>
 
-<div class="viewcode-block" id="PyxRender.valid_attribute"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/pyxrender/index.html#pyfeyn2.render.pyx.pyxrender.PyxRender.valid_attribute">[docs]</a>    def valid_attribute(self, attr: str) -&gt; bool:
-        return super().valid_attribute(attr) or attr.lower() in [
+    @staticmethod
+<div class="viewcode-block" id="PyxRender.valid_attribute"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/pyxrender/index.html#pyfeyn2.PyxRender.valid_attribute">[docs]</a>    def valid_attribute(attr: str) -&gt; bool:
+        return super(PyxRender,PyxRender).valid_attribute(attr) or attr.lower() in [
             &quot;style&quot;,
             &quot;type&quot;,
             &quot;bend&quot;,
             &quot;label&quot;,
+            &quot;x&quot;,
+            &quot;y&quot;,
         ]</div>
 
-<div class="viewcode-block" id="PyxRender.valid_style"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/pyxrender/index.html#pyfeyn2.render.pyx.pyxrender.PyxRender.valid_style">[docs]</a>    def valid_style(self, attr: str) -&gt; bool:
-        return super().valid_style(attr) or attr.lower() in [
+    @staticmethod
+<div class="viewcode-block" id="PyxRender.valid_style"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/pyx/pyxrender/index.html#pyfeyn2.PyxRender.valid_style">[docs]</a>    def valid_style(style: str) -&gt; bool:
+        return super(PyxRender,PyxRender).valid_style(style) or style.lower() in [
             &quot;arrow-pos&quot;,
             &quot;parallel-arrow-sense&quot;,
             &quot;parallel-arrow-displace&quot;,
