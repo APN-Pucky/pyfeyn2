@@ -105,6 +105,8 @@ class FeynmanRender(Render):
             plt.show()
         if file is not None:
             plt.savefig(file)
+        if clean_up:
+            plt.close()
 
     @staticmethod
     def valid_attribute(attr: str) -> bool:

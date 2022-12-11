@@ -17,7 +17,7 @@ class PyxRender(Render):
     def __init__(self, fd=None, *args, **kwargs):
         super().__init__(fd, *args, **kwargs)
 
-    def render(self, file=None, show=True, resolution=200, width=None, height=None):
+    def render(self, file=None, show=True, resolution=200, width=None, height=None,clean_up=False):
         delete = False
         if file is None:
             file = "tmp.pdf"
@@ -52,6 +52,9 @@ class PyxRender(Render):
             os.remove(file)
         if show:
             display(wi)
+        if clean_up:
+            # TODO: clean up
+            pass
         return wi
 
     def apply_layout(self, stylestring, obj):
