@@ -372,7 +372,7 @@ Attributes
 
 
 
-.. py:class:: Phantom(point1, point2, amplitude=0.25, frequency=1.0, extras=0, invert=False, styles=[], arcthrupoint=None, is3D=False, arrows=[], labels=[], **kwargs)
+.. py:class:: Phantom(point1, point2, amplitude=0.25, frequency=1.0, extras=0, invert=False, styles=None, arcthrupoint=None, is3D=False, arrows=None, labels=None, **kwargs)
 
    Bases: :py:obj:`DecoratedLine`
 
