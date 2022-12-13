@@ -1,0 +1,36 @@
+:py:mod:`qgraf`
+===============
+
+.. py:module:: qgraf
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   qgraf.get_style
+   qgraf.get_example_model
+   qgraf.get_example_process
+
+
+
+.. py:function:: get_style() -> str
+
+   Get the style for qgraf to produce feynml.
+
+
+.. py:function:: get_example_model() -> str
+
+   Get an example model for qgraf.
+
+
+.. py:function:: get_example_process() -> str
+
+   Get an example process for qgraf.
+
+
