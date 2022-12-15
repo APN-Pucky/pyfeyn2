@@ -82,7 +82,7 @@
             
             
               <div class="version">
-                2.0.6-7-g76808f4
+                2.0.6-11-ga0ed198
               </div>
             
           
@@ -521,7 +521,7 @@ div.rendered_html tbody tr:hover {
 <span class="n">v1</span> <span class="o">=</span> <span class="n">Vertex</span><span class="p">(</span><span class="s2">&quot;v1&quot;</span><span class="p">)</span>
 <span class="n">v2</span> <span class="o">=</span> <span class="n">Vertex</span><span class="p">(</span><span class="s2">&quot;v2&quot;</span><span class="p">)</span>
 <span class="n">p1</span> <span class="o">=</span> <span class="n">Propagator</span><span class="p">(</span><span class="s2">&quot;p1&quot;</span><span class="p">)</span>
-<span class="n">l1</span> <span class="o">=</span> <span class="n">Leg</span><span class="p">(</span><span class="s2">&quot;l1&quot;</span><span class="p">)</span>
+<span class="n">l1</span> <span class="o">=</span> <span class="n">Leg</span><span class="p">(</span><span class="s2">&quot;l1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set_incoming</span><span class="p">()</span>
 <span class="n">p1</span><span class="o">.</span><span class="n">set_source</span><span class="p">(</span><span class="n">v1</span><span class="p">)</span>
 <span class="n">p1</span><span class="o">.</span><span class="n">set_target</span><span class="p">(</span><span class="n">v2</span><span class="p">)</span>
 <span class="n">fd</span><span class="o">.</span><span class="n">propagators</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p1</span><span class="p">)</span>
@@ -542,10 +542,22 @@ div.rendered_html tbody tr:hover {
 <div class="highlight"><pre>
 &lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;
 &lt;diagram&gt;
-  &lt;propagator id=&#34;p1&#34; style=&#34;&#34; pdgid=&#34;21&#34; type=&#34;&#34; source=&#34;v1&#34; target=&#34;v2&#34;/&gt;
-  &lt;vertex id=&#34;v1&#34; style=&#34;&#34;/&gt;
-  &lt;vertex id=&#34;v2&#34; style=&#34;&#34;/&gt;
-  &lt;leg id=&#34;l1&#34; style=&#34;&#34; pdgid=&#34;21&#34; type=&#34;&#34; target=&#34;&#34; sense=&#34;&#34;/&gt;
+  &lt;propagator style=&#34;&#34;&gt;
+    &lt;id&gt;p1&lt;/id&gt;
+    &lt;source&gt;v1&lt;/source&gt;
+    &lt;target&gt;v2&lt;/target&gt;
+  &lt;/propagator&gt;
+  &lt;vertex style=&#34;&#34;&gt;
+    &lt;id&gt;v1&lt;/id&gt;
+  &lt;/vertex&gt;
+  &lt;vertex style=&#34;&#34;&gt;
+    &lt;id&gt;v2&lt;/id&gt;
+  &lt;/vertex&gt;
+  &lt;leg style=&#34;&#34;&gt;
+    &lt;id&gt;l1&lt;/id&gt;
+    &lt;target/&gt;
+    &lt;sense&gt;incoming&lt;/sense&gt;
+  &lt;/leg&gt;
 &lt;/diagram&gt;
 
 </pre></div></div>
@@ -583,10 +595,22 @@ div.rendered_html tbody tr:hover {
     &lt;description&gt;Simple single test diagram&lt;/description&gt;
   &lt;/head&gt;
   &lt;diagram&gt;
-    &lt;propagator id=&#34;p1&#34; style=&#34;&#34; pdgid=&#34;21&#34; type=&#34;&#34; source=&#34;v1&#34; target=&#34;v2&#34;/&gt;
-    &lt;vertex id=&#34;v1&#34; style=&#34;&#34;/&gt;
-    &lt;vertex id=&#34;v2&#34; style=&#34;&#34;/&gt;
-    &lt;leg id=&#34;l1&#34; style=&#34;&#34; pdgid=&#34;21&#34; type=&#34;&#34; target=&#34;&#34; sense=&#34;&#34;/&gt;
+    &lt;propagator style=&#34;&#34;&gt;
+      &lt;id&gt;p1&lt;/id&gt;
+      &lt;source&gt;v1&lt;/source&gt;
+      &lt;target&gt;v2&lt;/target&gt;
+    &lt;/propagator&gt;
+    &lt;vertex style=&#34;&#34;&gt;
+      &lt;id&gt;v1&lt;/id&gt;
+    &lt;/vertex&gt;
+    &lt;vertex style=&#34;&#34;&gt;
+      &lt;id&gt;v2&lt;/id&gt;
+    &lt;/vertex&gt;
+    &lt;leg style=&#34;&#34;&gt;
+      &lt;id&gt;l1&lt;/id&gt;
+      &lt;target/&gt;
+      &lt;sense&gt;incoming&lt;/sense&gt;
+    &lt;/leg&gt;
   &lt;/diagram&gt;
 &lt;/feynml&gt;
 
@@ -615,15 +639,30 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-FeynML(head=[Head(metas=[Meta(name=&#39;creator&#39;, value=&#39;PyFeyn&#39;)], description=&#39;\n   A sample diagram showing a QCD correction to the Drell-Yan process.\n   &#39;)], diagrams=[FeynmanDiagram(propagators=[Propagator(id=&#39;P2&#39;, style=cssutils.css.CSSStyleDeclaration(cssText=&#39;&#39;), pdgid=21, type=&#39;photon&#39;, latexname=None, bend=None, label=&#39;Z&#39;, momentum=None, tension=None, length=None, source=&#39;V0&#39;, target=&#39;V1&#39;), Propagator(id=&#39;P4&#39;, style=cssutils.css.CSSStyleDeclaration(cssText=&#39;&#39;), pdgid=21, type=&#39;fermion&#39;, latexname=None, bend=None, label=None, momentum=None, tension=None, length=None, source=&#39;V5&#39;, target=&#39;V1&#39;), Propagator(id=&#39;P5&#39;, style=cssutils.css.CSSStyleDeclaration(cssText=&#39;&#39;), pdgid=21, type=&#39;fermion&#39;, latexname=None, bend=None, label=None, momentum=None, tension=None, length=None, source=&#39;V1&#39;, target=&#39;V6&#39;), Propagator(id=&#39;P7&#39;, style=cssutils.css.CSSStyleDeclaration(cssText=&#39;parallel-arrow-displace: 0.2&#39;), pdgid=21, type=&#39;gluon&#39;, latexname=None, bend=0.5, label=&#39;g&#39;, momentum=None, tension=None, length=None, source=&#39;V5&#39;, target=&#39;V6&#39;)], vertices=[Vertex(id=&#39;V0&#39;, style=cssutils.css.CSSStyleDeclaration(cssText=&#39;&#39;), x=-2.0, y=0.0, z=None, label=None), Vertex(id=&#39;V1&#39;, style=cssutils.css.CSSStyleDeclaration(cssText=&#39;&#39;), x=2.0, y=0.0, z=None, label=None), Vertex(id=&#39;V5&#39;, style=cssutils.css.CSSStyleDeclaration(cssText=&#39;&#39;), x=3.0, y=-1.0, z=None, label=None), Vertex(id=&#39;V6&#39;, style=cssutils.css.CSSStyleDeclaration(cssText=&#39;&#39;), x=3.0, y=1.0, z=None, label=None)], legs=[Leg(id=&#39;E0&#39;, style=cssutils.css.CSSStyleDeclaration(cssText=&#39;arrow-pos: 0.53&#39;), pdgid=21, type=&#39;fermion&#39;, latexname=None, bend=None, label=&#39;e-&#39;, momentum=None, tension=None, length=None, target=&#39;V0&#39;, x=-4.0, y=2.0, z=None, sense=&#39;incoming&#39;), Leg(id=&#39;E1&#39;, style=cssutils.css.CSSStyleDeclaration(cssText=&#39;arrow-pos: 0.53; parallel-arrow-displace: -0.06; parallel-arrow-sense: -1&#39;), pdgid=21, type=&#39;fermion&#39;, latexname=None, bend=None, label=&#39;e+&#39;, momentum=None, tension=None, length=None, target=&#39;V0&#39;, x=-4.0, y=-2.0, z=None, sense=&#39;outgoing&#39;), Leg(id=&#39;E2&#39;, style=cssutils.css.CSSStyleDeclaration(cssText=&#39;arrow-pos: 0.53; parallel-arrow-displace: -0.06; parallel-arrow-sense: -1&#39;), pdgid=21, type=&#39;fermion&#39;, latexname=None, bend=None, label=&#39;q+&#39;, momentum=None, tension=None, length=None, target=&#39;V5&#39;, x=4.0, y=-2.0, z=None, sense=&#39;incoming&#39;), Leg(id=&#39;E3&#39;, style=cssutils.css.CSSStyleDeclaration(cssText=&#39;arrow-pos: 0.53&#39;), pdgid=21, type=&#39;fermion&#39;, latexname=None, bend=None, label=&#39;q-&#39;, momentum=None, tension=None, length=None, target=&#39;V6&#39;, x=4.0, y=2.0, z=None, sense=&#39;outgoing&#39;)], labels=[Label(id=&#39;L0&#39;, text=&#39;Drell-Yan QCD vertex correction&#39;, x=0.0, y=2.0, z=None)])])
+FeynML(head=[Head(metas=[Meta(name=&#39;creator&#39;, value=&#39;PyFeyn&#39;)], description=&#39;\n   A sample diagram showing a QCD correction to the Drell-Yan process.\n   &#39;)], diagrams=[FeynmanDiagram(propagators=[Propagator(id=&#39;Propagator5&#39;, id2=None, pdgid=None, name=None, type=&#39;photon&#39;, particle=None, style=cssutils.css.CSSStyleDeclaration(cssText=&#39;&#39;), bend=None, label=&#39;Z&#39;, momentum=None, tension=None, length=None, source=&#39;&#39;, target=&#39;&#39;), Propagator(id=&#39;Propagator7&#39;, id2=None, pdgid=None, name=None, type=&#39;fermion&#39;, particle=None, style=cssutils.css.CSSStyleDeclaration(cssText=&#39;&#39;), bend=None, label=None, momentum=None, tension=None, length=None, source=&#39;&#39;, target=&#39;&#39;), Propagator(id=&#39;Propagator9&#39;, id2=None, pdgid=None, name=None, type=&#39;fermion&#39;, particle=None, style=cssutils.css.CSSStyleDeclaration(cssText=&#39;&#39;), bend=None, label=None, momentum=None, tension=None, length=None, source=&#39;&#39;, target=&#39;&#39;), Propagator(id=&#39;Propagator10&#39;, id2=None, pdgid=None, name=None, type=&#39;gluon&#39;, particle=None, style=cssutils.css.CSSStyleDeclaration(cssText=&#39;parallel-arrow-displace: 0.2&#39;), bend=0.5, label=&#39;g&#39;, momentum=None, tension=None, length=None, source=&#39;&#39;, target=&#39;&#39;)], vertices=[Vertex(id=&#39;Vertex1&#39;, id2=None, style=cssutils.css.CSSStyleDeclaration(cssText=&#39;&#39;), x=-2.0, y=0.0, z=None, label=None), Vertex(id=&#39;Vertex2&#39;, id2=None, style=cssutils.css.CSSStyleDeclaration(cssText=&#39;&#39;), x=2.0, y=0.0, z=None, label=None), Vertex(id=&#39;Vertex6&#39;, id2=None, style=cssutils.css.CSSStyleDeclaration(cssText=&#39;&#39;), x=3.0, y=-1.0, z=None, label=None), Vertex(id=&#39;Vertex8&#39;, id2=None, style=cssutils.css.CSSStyleDeclaration(cssText=&#39;&#39;), x=3.0, y=1.0, z=None, label=None)], legs=[Leg(id=&#39;Leg3&#39;, id2=None, pdgid=None, name=None, type=&#39;fermion&#39;, particle=None, style=cssutils.css.CSSStyleDeclaration(cssText=&#39;arrow-pos: 0.53&#39;), bend=None, label=&#39;e-&#39;, momentum=None, tension=None, length=None, target=&#39;&#39;, x=-4.0, y=2.0, z=None, sense=&#39;&#39;), Leg(id=&#39;Leg4&#39;, id2=None, pdgid=None, name=None, type=&#39;fermion&#39;, particle=None, style=cssutils.css.CSSStyleDeclaration(cssText=&#39;arrow-pos: 0.53; parallel-arrow-displace: -0.06; parallel-arrow-sense: -1&#39;), bend=None, label=&#39;e+&#39;, momentum=None, tension=None, length=None, target=&#39;&#39;, x=-4.0, y=-2.0, z=None, sense=&#39;&#39;), Leg(id=&#39;Leg11&#39;, id2=None, pdgid=None, name=None, type=&#39;fermion&#39;, particle=None, style=cssutils.css.CSSStyleDeclaration(cssText=&#39;arrow-pos: 0.53; parallel-arrow-displace: -0.06; parallel-arrow-sense: -1&#39;), bend=None, label=&#39;q+&#39;, momentum=None, tension=None, length=None, target=&#39;&#39;, x=4.0, y=-2.0, z=None, sense=&#39;&#39;), Leg(id=&#39;Leg12&#39;, id2=None, pdgid=None, name=None, type=&#39;fermion&#39;, particle=None, style=cssutils.css.CSSStyleDeclaration(cssText=&#39;arrow-pos: 0.53&#39;), bend=None, label=&#39;q-&#39;, momentum=None, tension=None, length=None, target=&#39;&#39;, x=4.0, y=2.0, z=None, sense=&#39;&#39;)], labels=[Label(id=&#39;Label0&#39;, id2=None, text=&#39;Drell-Yan QCD vertex correction&#39;, x=0.0, y=2.0, z=None)])])
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/feynml_FeynML_7_1.png" src="../_images/feynml_FeynML_7_1.png" />
-</div>
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">UnboundLocalError</span>                         Traceback (most recent call last)
+Cell <span class="ansi-green-fg">In[4], line 8</span>
+<span class="ansi-green-intense-fg ansi-bold">      6</span> fml <span style="color: rgb(98,98,98)">=</span> parser<span style="color: rgb(98,98,98)">.</span>from_string(xml_string, FeynML)
+<span class="ansi-green-intense-fg ansi-bold">      7</span> <span style="color: rgb(0,135,0)">print</span>(fml)
+<span class="ansi-green-fg">----&gt; 8</span> wimg <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">PyxRender</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">fml</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">diagrams</span><span class="ansi-yellow-bg">[</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">0</span><span class="ansi-yellow-bg">]</span><span class="ansi-yellow-bg">)</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">render</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">)</span>
+
+File <span class="ansi-green-fg">~/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/pyx/pyxrender.py:38</span>, in <span class="ansi-cyan-fg">PyxRender.render</span><span class="ansi-blue-fg">(self, file, show, resolution, width, height, clean_up)</span>
+<span class="ansi-green-intense-fg ansi-bold">     36</span> <span class="ansi-bold" style="color: rgb(0,135,0)">elif</span> l<span style="color: rgb(98,98,98)">.</span>sense[:<span style="color: rgb(98,98,98)">3</span>] <span style="color: rgb(98,98,98)">==</span> <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">out</span><span style="color: rgb(175,0,0)">&#34;</span> <span class="ansi-bold" style="color: rgb(175,0,255)">or</span> l<span style="color: rgb(98,98,98)">.</span>sense[:<span style="color: rgb(98,98,98)">9</span>] <span style="color: rgb(98,98,98)">==</span> <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">anti-in</span><span style="color: rgb(175,0,0)">&#34;</span>:
+<span class="ansi-green-intense-fg ansi-bold">     37</span>     nl <span style="color: rgb(98,98,98)">=</span> NamedLine[l<span style="color: rgb(98,98,98)">.</span>type](Point(tar<span style="color: rgb(98,98,98)">.</span>x, tar<span style="color: rgb(98,98,98)">.</span>y), Point(l<span style="color: rgb(98,98,98)">.</span>x, l<span style="color: rgb(98,98,98)">.</span>y))
+<span class="ansi-green-fg">---&gt; 38</span> nl <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">nl</span><span style="color: rgb(98,98,98)">.</span>bend(l<span style="color: rgb(98,98,98)">.</span>bend)
+<span class="ansi-green-intense-fg ansi-bold">     39</span> nl <span style="color: rgb(98,98,98)">=</span> <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>apply_layout(v<span style="color: rgb(98,98,98)">.</span>raw_style(), nl)
+<span class="ansi-green-intense-fg ansi-bold">     40</span> nl <span style="color: rgb(98,98,98)">=</span> nl<span style="color: rgb(98,98,98)">.</span>addLabel(l<span style="color: rgb(98,98,98)">.</span>label)
+
+<span class="ansi-red-fg">UnboundLocalError</span>: local variable &#39;nl&#39; referenced before assignment
+</pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:

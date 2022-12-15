@@ -15,7 +15,6 @@ Functions
 
    qgraf.get_style
    qgraf.get_example_model
-   qgraf.get_example_process
 
 
 
@@ -27,10 +26,5 @@ Functions
 .. py:function:: get_example_model() -> str
 
    Get an example model for qgraf.
-
-
-.. py:function:: get_example_process() -> str
-
-   Get an example process for qgraf.
 
 
