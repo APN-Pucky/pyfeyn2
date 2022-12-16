@@ -41,12 +41,12 @@ Attributes
 
 .. autoapisummary::
 
-   pyfeyn2.feynmandiagram.global_id
+   pyfeyn2.feynmandiagram.id
    pyfeyn2.feynmandiagram.CSSString
    pyfeyn2.feynmandiagram.aliasMeta
 
 
-.. py:data:: global_id
+.. py:data:: id
    :annotation: = 0
 
    
