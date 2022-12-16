@@ -57,6 +57,13 @@
 .. toctree::
    :glob:
    :maxdepth: 3
+   :caption: Interfaces:
+
+   interfaces/*.ipynb
+
+.. toctree::
+   :glob:
+   :maxdepth: 3
    :caption: Module:
 
    autoapi/index
