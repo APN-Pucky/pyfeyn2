@@ -17,7 +17,7 @@ Functions
 
 
 
-.. py:function:: auto_bend(ifd, deepcopy=False)
+.. py:function:: auto_bend(ifd)
 
    Automatically bend lines to avoid overlaps.
 
