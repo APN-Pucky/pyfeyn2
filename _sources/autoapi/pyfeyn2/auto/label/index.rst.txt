@@ -1,0 +1,36 @@
+:py:mod:`pyfeyn2.auto.label`
+============================
+
+.. py:module:: pyfeyn2.auto.label
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   pyfeyn2.auto.label.auto_label_propagators
+   pyfeyn2.auto.label.auto_label
+   pyfeyn2.auto.label.auto_label_propagators
+
+
+
+.. py:function:: auto_label_propagators(ifd)
+
+   Automatically label vertices.
+
+
+.. py:function:: auto_label(objs)
+
+   Automatically label objects.
+
+
+.. py:function:: auto_label_propagators(ifd)
+
+   Automatically label propagators.
+
+

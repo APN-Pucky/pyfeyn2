@@ -1,0 +1,22 @@
+:py:mod:`hepmc`
+===============
+
+.. py:module:: hepmc
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   hepmc.event_to_feynml
+
+
+
+.. py:function:: event_to_feynml(event)
+
+

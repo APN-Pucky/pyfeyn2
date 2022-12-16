@@ -77,7 +77,7 @@
             
             
               <div class="version">
-                2.0.6
+                2.0.7
               </div>
             
           
@@ -196,7 +196,7 @@
   <h1>Source code for pyfeyn2.particles</h1><div class="highlight"><pre>
 <span></span>from typing import List, Tuple
 
-from particle import PDGID
+from particle import PDGID, Particle
 from particle.converters.bimap import DirectionalMaps
 
 PDG2LaTeXNameMap, LaTeX2PDGNameMap = DirectionalMaps(
@@ -227,6 +227,36 @@ PDG2Name2IDMap, PDGID2NameMap = DirectionalMaps(
     global PDG2LaTeXNameMap
     pdgid = PDG2LaTeXNameMap[pid]
     return pdgid</div>
+
+
+<div class="viewcode-block" id="get_particle"><a class="viewcode-back" href="../../autoapi/pyfeyn2/particles/index.html#pyfeyn2.particles.get_particle">[docs]</a>def get_particle(**kwargs) -&gt; Particle:
+    try:
+        (particle,) = Particle.finditer(
+            **kwargs
+        )  # throws an error if &lt; 1 or &gt; 1 particle is found
+        return particle
+    except ValueError:
+        return None</div>
+
+
+<div class="viewcode-block" id="name_cache"><a class="viewcode-back" href="../../autoapi/pyfeyn2/particles/index.html#pyfeyn2.particles.name_cache">[docs]</a>name_cache = {}</div>
+
+
+<div class="viewcode-block" id="get_either_particle"><a class="viewcode-back" href="../../autoapi/pyfeyn2/particles/index.html#pyfeyn2.particles.get_either_particle">[docs]</a>def get_either_particle(cache=True, **kwargs) -&gt; Particle:
+    global name_cache
+    if cache:
+        if str(kwargs) in name_cache:
+            return name_cache[str(kwargs)]
+    for k, v in kwargs.items():
+        p = get_particle(**{k: v})
+        if p is not None:
+            if cache:
+                name_cache[str(kwargs)] = p
+            return p
+
+    if cache:
+        name_cache[str(kwargs)] = None
+    return None</div>
 </pre></div>
 
            </div>

@@ -77,7 +77,7 @@
             
             
               <div class="version">
-                2.0.6
+                2.0.7
               </div>
             
           
@@ -199,9 +199,10 @@ from dataclasses import dataclass, field
 from typing import List, Optional, Union
 
 import cssutils
+from particle import Particle
 from xsdata.formats.converter import Converter, converter
 
-from pyfeyn2.particles import get_name
+from pyfeyn2.particles import get_either_particle, get_name
 
 # We don&#39;t want to see the cssutils warnings, since we have custom properties
 cssutils.log.setLevel(logging.CRITICAL)
@@ -210,45 +211,14 @@ cssutils.log.setLevel(logging.CRITICAL)
 # from pyfeyn2.propagator import Propagator
 # from pyfeyn2.vertex import Vertex
 
-
-@dataclass
-<div class="viewcode-block" id="PDG"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.PDG">[docs]</a>class PDG:
-<div class="viewcode-block" id="PDG.pdgid"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.PDG.pdgid">[docs]</a>    pdgid: Optional[int] = field(
-        default=21, metadata={&quot;xml_attribute&quot;: True, &quot;type&quot;: &quot;Attribute&quot;}
-    )</div>
-<div class="viewcode-block" id="PDG.type"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.PDG.type">[docs]</a>    type: Optional[str] = field(
-        default=&quot;&quot;, metadata={&quot;xml_attribute&quot;: True, &quot;type&quot;: &quot;Attribute&quot;}
-    )</div>
-<div class="viewcode-block" id="PDG.latexname"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.PDG.latexname">[docs]</a>    latexname: Optional[str] = field(
-        default=None, metadata={&quot;xml_attribute&quot;: True, &quot;type&quot;: &quot;Attribute&quot;}
-    )</div>
-
-<div class="viewcode-block" id="PDG._sync_latexname"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.PDG._sync_latexname">[docs]</a>    def _sync_latexname(self):
-        &quot;&quot;&quot;Sync the latexname with the pdgid&quot;&quot;&quot;
-        if self.pdgid is not None:
-            self.latexname = get_name(self.pdgid)</div>
-
-    # def __post_init__(self):
-    #    self._sync_latexname()
-
-<div class="viewcode-block" id="PDG.set_pdgid"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.PDG.set_pdgid">[docs]</a>    def set_pdgid(self, pdgid):
-        self.pdgid = pdgid
-        self._sync_latexname()
-        return self</div>
-
-<div class="viewcode-block" id="PDG.set_type"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.PDG.set_type">[docs]</a>    def set_type(self, typ):
-        self.type = typ
-        return self</div></div>
-
-
+# Global counter for unique ids
 <div class="viewcode-block" id="id"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.id">[docs]</a>id = 0</div>
 
 
 @dataclass
 <div class="viewcode-block" id="Identifiable"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Identifiable">[docs]</a>class Identifiable:
-<div class="viewcode-block" id="Identifiable.id"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Identifiable.id">[docs]</a>    id: Optional[str] = field(
-        default=None, metadata={&quot;xml_attribute&quot;: True, &quot;type&quot;: &quot;Attribute&quot;}
-    )</div>
+<div class="viewcode-block" id="Identifiable.id"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Identifiable.id">[docs]</a>    id: Optional[str] = field(default=None, metadata={&quot;name&quot;: &quot;id&quot;, &quot;namespace&quot;: &quot;&quot;})</div>
+<div class="viewcode-block" id="Identifiable.id2"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Identifiable.id2">[docs]</a>    id2: Optional[str] = field(default=None, metadata={&quot;name&quot;: &quot;id2&quot;, &quot;namespace&quot;: &quot;&quot;})</div>
 
 <div class="viewcode-block" id="Identifiable.__post_init__"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Identifiable.__post_init__">[docs]</a>    def __post_init__(self):
         global id
@@ -256,6 +226,69 @@ cssutils.log.setLevel(logging.CRITICAL)
             # use some global counter to generate unique id
             self.id = self.__class__.__name__ + str(id)
             id = id + 1</div></div>
+
+
+@dataclass
+<div class="viewcode-block" id="PDG"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.PDG">[docs]</a>class PDG(Identifiable):
+<div class="viewcode-block" id="PDG.pdgid"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.PDG.pdgid">[docs]</a>    pdgid: Optional[int] = field(default=None, metadata={})</div>
+<div class="viewcode-block" id="PDG.name"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.PDG.name">[docs]</a>    name: Optional[str] = field(default=None, metadata={})</div>
+<div class="viewcode-block" id="PDG.type"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.PDG.type">[docs]</a>    type: Optional[str] = field(
+        default=None, metadata={&quot;xml_attribute&quot;: True, &quot;type&quot;: &quot;Attribute&quot;}
+    )</div>
+
+    # TODO check SUSY
+<div class="viewcode-block" id="PDG.particle"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.PDG.particle">[docs]</a>    particle: Optional[Particle] = field(default=None, metadata={&quot;type&quot;: &quot;Ignore&quot;})</div>
+
+<div class="viewcode-block" id="PDG._sync"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.PDG._sync">[docs]</a>    def _sync(self):
+        &quot;&quot;&quot;Sync the particle with the pdgid, name etc.&quot;&quot;&quot;
+        if self.pdgid is not None:
+            self.particle = Particle.from_pdgid(self.pdgid)
+            self.name = self.particle.name
+        elif self.name is not None:
+            self.particle = get_either_particle(
+                programmatic_name=self.name,
+                name=self.name,
+                evtgen_name=self.name,
+                html_name=self.name,
+                latex_name=self.name,
+            )
+            if self.particle is None:
+                raise ValueError(f&quot;Particle {self.name} not found&quot;)
+            self.pdgid = self.particle.pdgid
+
+        if self.pdgid is not None and self.type is None:
+            # TODO infere type from pdgid
+            if self.pdgid in range(1, 7):
+                self.type = &quot;fermion&quot;
+            elif self.pdgid == 22:
+                self.type = &quot;photon&quot;
+            elif self.pdgid == 21:
+                self.type = &quot;gluon&quot;
+            elif self.pdgid in range(11, 19):
+                self.type = &quot;fermion&quot;
+            elif abs(self.pdgid) == 24:
+                self.type = &quot;boson&quot;
+            elif self.pdgid == 23:
+                self.type = &quot;boson&quot;
+            elif self.pdgid == 25:
+                self.type = &quot;higgs&quot;
+            else:
+                raise NotImplementedError(
+                    f&quot;Inferring type from pdgid not implemented for pdgid {self.pdgid} &quot;
+                )</div>
+
+<div class="viewcode-block" id="PDG.__post_init__"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.PDG.__post_init__">[docs]</a>    def __post_init__(self):
+        super().__post_init__()
+        self._sync()</div>
+
+<div class="viewcode-block" id="PDG.set_pdgid"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.PDG.set_pdgid">[docs]</a>    def set_pdgid(self, pdgid):
+        self.pdgid = pdgid
+        self._sync()
+        return self</div>
+
+<div class="viewcode-block" id="PDG.set_type"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.PDG.set_type">[docs]</a>    def set_type(self, typ):
+        self.type = typ
+        return self</div></div>
 
 
 @dataclass
@@ -350,9 +383,7 @@ converter.register_converter(CSSString, CSSConverter())
 
 @dataclass
 <div class="viewcode-block" id="Targeting"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Targeting">[docs]</a>class Targeting:
-<div class="viewcode-block" id="Targeting.target"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Targeting.target">[docs]</a>    target: Optional[str] = field(
-        default=&quot;&quot;, metadata={&quot;xml_attribute&quot;: True, &quot;type&quot;: &quot;Attribute&quot;}
-    )</div>
+<div class="viewcode-block" id="Targeting.target"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Targeting.target">[docs]</a>    target: Optional[str] = field(default=&quot;&quot;, metadata={})</div>
 
 <div class="viewcode-block" id="Targeting.set_target"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Targeting.set_target">[docs]</a>    def set_target(self, target):
         self.target = target.id
@@ -361,9 +392,7 @@ converter.register_converter(CSSString, CSSConverter())
 
 @dataclass
 <div class="viewcode-block" id="Sourcing"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Sourcing">[docs]</a>class Sourcing:
-<div class="viewcode-block" id="Sourcing.source"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Sourcing.source">[docs]</a>    source: Optional[str] = field(
-        default=&quot;&quot;, metadata={&quot;xml_attribute&quot;: True, &quot;type&quot;: &quot;Attribute&quot;}
-    )</div>
+<div class="viewcode-block" id="Sourcing.source"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Sourcing.source">[docs]</a>    source: Optional[str] = field(default=&quot;&quot;, metadata={})</div>
 
 <div class="viewcode-block" id="Sourcing.set_source"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Sourcing.set_source">[docs]</a>    def set_source(self, source):
         self.source = source.id
@@ -384,10 +413,8 @@ converter.register_converter(CSSString, CSSConverter())
 
 
 @dataclass
-<div class="viewcode-block" id="Connector"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Connector">[docs]</a>class Connector(Labeled, Bending, PDG, Styled, Identifiable):
-<div class="viewcode-block" id="Connector.momentum"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Connector.momentum">[docs]</a>    momentum: Optional[str] = field(
-        default=None, metadata={&quot;xml_attribute&quot;: True, &quot;type&quot;: &quot;Attribute&quot;}
-    )</div>
+<div class="viewcode-block" id="Connector"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Connector">[docs]</a>class Connector(Labeled, Bending, Styled, PDG):
+<div class="viewcode-block" id="Connector.momentum"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Connector.momentum">[docs]</a>    momentum: Optional[str] = field(default=None, metadata={})</div>
 <div class="viewcode-block" id="Connector.tension"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Connector.tension">[docs]</a>    tension: Optional[float] = field(
         default=None, metadata={&quot;xml_attribute&quot;: True, &quot;type&quot;: &quot;Attribute&quot;}
     )</div>
@@ -412,9 +439,7 @@ converter.register_converter(CSSString, CSSConverter())
 
 @dataclass
 <div class="viewcode-block" id="Leg"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Leg">[docs]</a>class Leg(Point, Targeting, Connector):
-<div class="viewcode-block" id="Leg.sense"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Leg.sense">[docs]</a>    sense: str = field(
-        default=&quot;&quot;, metadata={&quot;xml_attribute&quot;: True, &quot;type&quot;: &quot;Attribute&quot;}
-    )</div>
+<div class="viewcode-block" id="Leg.sense"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Leg.sense">[docs]</a>    sense: str = field(default=None, metadata={})</div>
 
 <div class="viewcode-block" id="Leg.set_incoming"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Leg.set_incoming">[docs]</a>    def set_incoming(self):
         self.sense = &quot;incoming&quot;
@@ -471,7 +496,7 @@ converter.register_converter(CSSString, CSSConverter())
                 raise Exception(&quot;Unknown type: &quot; + str(type(a)) + &quot; &quot; + str(a))
         return self</div>
 
-<div class="viewcode-block" id="FeynmanDiagram.get_point"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.FeynmanDiagram.get_point">[docs]</a>    def get_point(self, id):
+<div class="viewcode-block" id="FeynmanDiagram.get_vertex"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.FeynmanDiagram.get_vertex">[docs]</a>    def get_vertex(self, id):
         for v in self.vertices:
             if v.id == id:
                 return v

@@ -14,7 +14,17 @@ Functions
 .. autoapisummary::
 
    pyfeyn2.particles.get_name
+   pyfeyn2.particles.get_particle
+   pyfeyn2.particles.get_either_particle
 
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   pyfeyn2.particles.name_cache
 
 
 .. py:function:: get_name(pid: int) -> str
@@ -33,5 +43,16 @@ Functions
    'g'
    >>> get_name(1000022)
    '\\tilde{\\chi}_{1}^{0}'
+
+
+.. py:function:: get_particle(**kwargs) -> particle.Particle
+
+
+.. py:data:: name_cache
+   
+
+   
+
+.. py:function:: get_either_particle(cache=True, **kwargs) -> particle.Particle
 
 

@@ -12,8 +12,8 @@ Classes
 
 .. autoapisummary::
 
-   pyfeyn2.feynmandiagram.PDG
    pyfeyn2.feynmandiagram.Identifiable
+   pyfeyn2.feynmandiagram.PDG
    pyfeyn2.feynmandiagram.Labeled
    pyfeyn2.feynmandiagram.Texted
    pyfeyn2.feynmandiagram.Point
@@ -46,35 +46,6 @@ Attributes
    pyfeyn2.feynmandiagram.aliasMeta
 
 
-.. py:class:: PDG
-
-   .. py:attribute:: pdgid
-      :annotation: :Optional[int]
-
-      
-
-   .. py:attribute:: type
-      :annotation: :Optional[str]
-
-      
-
-   .. py:attribute:: latexname
-      :annotation: :Optional[str]
-
-      
-
-   .. py:method:: _sync_latexname()
-
-      Sync the latexname with the pdgid
-
-
-   .. py:method:: set_pdgid(pdgid)
-
-
-   .. py:method:: set_type(typ)
-
-
-
 .. py:data:: id
    :annotation: = 0
 
@@ -87,7 +58,51 @@ Attributes
 
       
 
+   .. py:attribute:: id2
+      :annotation: :Optional[str]
+
+      
+
    .. py:method:: __post_init__()
+
+
+
+.. py:class:: PDG
+
+   Bases: :py:obj:`Identifiable`
+
+   .. py:attribute:: pdgid
+      :annotation: :Optional[int]
+
+      
+
+   .. py:attribute:: name
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: type
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: particle
+      :annotation: :Optional[particle.Particle]
+
+      
+
+   .. py:method:: _sync()
+
+      Sync the particle with the pdgid, name etc.
+
+
+   .. py:method:: __post_init__()
+
+
+   .. py:method:: set_pdgid(pdgid)
+
+
+   .. py:method:: set_type(typ)
 
 
 
@@ -225,7 +240,7 @@ Attributes
 
 .. py:class:: Connector
 
-   Bases: :py:obj:`Labeled`, :py:obj:`Bending`, :py:obj:`PDG`, :py:obj:`Styled`, :py:obj:`Identifiable`
+   Bases: :py:obj:`Labeled`, :py:obj:`Bending`, :py:obj:`Styled`, :py:obj:`PDG`
 
    .. py:attribute:: momentum
       :annotation: :Optional[str]
@@ -311,7 +326,7 @@ Attributes
    .. py:method:: add(*fd_all: List[Union[Propagator, Vertex, Leg, Label]])
 
 
-   .. py:method:: get_point(id)
+   .. py:method:: get_vertex(id)
 
 
    .. py:method:: get_bounding_box()

@@ -1,0 +1,18 @@
+:py:mod:`pyfeyn2.auto`
+======================
+
+.. py:module:: pyfeyn2.auto
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   bend/index.rst
+   label/index.rst
+   position/index.rst
+   reshuffle/index.rst
+
+
