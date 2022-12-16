@@ -1,0 +1,6 @@
+:py:mod:`pyfeyn2.auto.reshuffle`
+================================
+
+.. py:module:: pyfeyn2.auto.reshuffle
+
+

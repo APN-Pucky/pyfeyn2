@@ -19,6 +19,14 @@ Functions
 
 
 
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   pyfeyn2.particles.name_cache
+
+
 .. py:function:: get_name(pid: int) -> str
 
    Get the latex name of a particle.
@@ -40,6 +48,11 @@ Functions
 .. py:function:: get_particle(**kwargs) -> particle.Particle
 
 
-.. py:function:: get_either_particle(**kwargs) -> particle.Particle
+.. py:data:: name_cache
+   
+
+   
+
+.. py:function:: get_either_particle(cache=True, **kwargs) -> particle.Particle
 
 

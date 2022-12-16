@@ -326,7 +326,7 @@ Attributes
    .. py:method:: add(*fd_all: List[Union[Propagator, Vertex, Leg, Label]])
 
 
-   .. py:method:: get_point(id)
+   .. py:method:: get_vertex(id)
 
 
    .. py:method:: get_bounding_box()

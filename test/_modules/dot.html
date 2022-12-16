@@ -77,7 +77,7 @@
             
             
               <div class="version">
-                2.0.6-27-g1fdaa6c
+                2.0.6-37-gb85952f
               </div>
             
           
@@ -195,82 +195,19 @@
 <span></span>import copy
 
 import dot2tex
-from pylatex import Command
-from pylatex.utils import NoEscape
 
-from pyfeyn2.feynmandiagram import Connector
-from pyfeyn2.render.latex.latex import LatexRender
 
-# workaround for dot2tex bug in math mode labels
 <div class="viewcode-block" id="REPLACE_THIS_WITH_A_BACKSLASH"><a class="viewcode-back" href="../autoapi/dot/index.html#dot.REPLACE_THIS_WITH_A_BACKSLASH">[docs]</a>REPLACE_THIS_WITH_A_BACKSLASH = &quot;¬&quot;</div>
-# https://tikz.dev/tikz-decorations
-<div class="viewcode-block" id="map_feyn_to_tikz"><a class="viewcode-back" href="../autoapi/dot/index.html#dot.map_feyn_to_tikz">[docs]</a>map_feyn_to_tikz = {
-    &quot;vector&quot;: &quot;decorate,decoration=snake&quot;,
-    &quot;boson&quot;: &quot;decorate,decoration=snake&quot;,
-    &quot;photon&quot;: &quot;decorate,decoration=snake&quot;,
-    &quot;gluon&quot;: &quot;decorate,decoration={coil,aspect=0.3,segment length=1mm}&quot;,
-    &quot;ghost&quot;: &quot;dotted&quot;,
-    &quot;fermion&quot;: &quot;decorate,postaction={decorate,draw,red,decoration={markings,mark=at position 0.5 with {\\arrow{&gt;}}}}&quot;,
-    &quot;higgs&quot;: &quot;densely dashed&quot;,
-    &quot;scalar&quot;: &quot;densely dashed&quot;,
-    &quot;slepton&quot;: &quot;densely dashed&quot;,
-    &quot;squark&quot;: &quot;densely dashed&quot;,
-    &quot;zigzag&quot;: &quot;decorate,decoration=zigzag&quot;,
-    &quot;phantom&quot;: &quot;draw=none&quot;,
-}</div>
 
 
-<div class="viewcode-block" id="stylize_connect"><a class="viewcode-back" href="../autoapi/dot/index.html#dot.stylize_connect">[docs]</a>def stylize_connect(c: Connector) -&gt; str:
-    style = &#39;style=&quot;{}&quot;,texmode=&quot;raw&quot;&#39;.format(map_feyn_to_tikz[c.type])
-    if c.label is None:
-        label = &quot;&quot;
-    else:
-        label = c.label.replace(&quot;\\&quot;, REPLACE_THIS_WITH_A_BACKSLASH)
-    if c.length is not None:
-        style += f&quot;,len={c.length}&quot;
-    style += f&#39;,label=&quot;{label}&quot;&#39;
-    return style</div>
+<div class="viewcode-block" id="_fake_styler"><a class="viewcode-back" href="../autoapi/dot/index.html#dot._fake_styler">[docs]</a>def _fake_styler(p):
+    return &#39;style=&quot;draw=none&quot;&#39;</div>
 
 
-<div class="viewcode-block" id="feynman_adjust_points"><a class="viewcode-back" href="../autoapi/dot/index.html#dot.feynman_adjust_points">[docs]</a>def feynman_adjust_points(feyndiag, size=5, delete_vertices=True):
-    # deepcopy
-    fd = copy.deepcopy(feyndiag)
-    if delete_vertices:
-        for v in fd.vertices:
-            v.x = None
-            v.y = None
-    norm = size
-    dot = feynman_to_dot(fd)
-    positions = dot_to_positions(dot)
-    mmax = 0
-    for _, p in positions.items():
-        if p[0] &gt; mmax:
-            mmax = p[0]
-        if p[1] &gt; mmax:
-            mmax = p[1]
-    for v in fd.vertices:
-        if v.id in positions:
-            v.x = positions[v.id][0] / mmax * norm
-            v.y = positions[v.id][1] / mmax * norm
-    for l in fd.legs:
-        l.x = positions[l.id][0] / mmax * norm
-        l.y = positions[l.id][1] / mmax * norm
-    return fd</div>
-
-
-<div class="viewcode-block" id="dot_to_positions"><a class="viewcode-back" href="../autoapi/dot/index.html#dot.dot_to_positions">[docs]</a>def dot_to_positions(dot):
-    return dot2tex.dot2tex(dot, format=&quot;positions&quot;)</div>
-
-
-<div class="viewcode-block" id="dot_to_tikz"><a class="viewcode-back" href="../autoapi/dot/index.html#dot.dot_to_tikz">[docs]</a>def dot_to_tikz(dot):
-    ret = dot2tex.dot2tex(dot, format=&quot;tikz&quot;, figonly=True)
-    ret = ret.replace(REPLACE_THIS_WITH_A_BACKSLASH, &quot;\\&quot;)
-    return ret</div>
-
-
-<div class="viewcode-block" id="feynman_to_dot"><a class="viewcode-back" href="../autoapi/dot/index.html#dot.feynman_to_dot">[docs]</a>def feynman_to_dot(fd):
-    # TODO better use pydot? still alive?
+<div class="viewcode-block" id="feynman_to_dot"><a class="viewcode-back" href="../autoapi/dot/index.html#dot.feynman_to_dot">[docs]</a>def feynman_to_dot(fd, resubstituteslash=True, styler=_fake_styler):
+    # TODO better use pydot? still alive? or grpahviz?
     # TODO style pick neato or dot or whatever
+    thestyle = &quot;&quot;
     src = &quot;graph G {\n&quot;
     src += &quot;rankdir=LR;\n&quot;
     src += &quot;layout=neato;\n&quot;
@@ -283,20 +220,22 @@ from pyfeyn2.render.latex.latex import LatexRender
         if l.x is not None and l.y is not None:
             src += f&#39;\t\t{l.id} [ pos=&quot;{l.x},{l.y}!&quot;];\n&#39;
     for p in fd.propagators:
-        style = stylize_connect(p)
-        src += &quot;edge [{}];\n&quot;.format(style)
+        if styler is not None:
+            thestyle = styler(p)
+        src += &quot;edge [{}];\n&quot;.format(thestyle)
         src += f&quot;\t\t{p.source} -- {p.target};\n&quot;
     rank_in = &quot;{rank=min; &quot;
     rank_out = &quot;{rank=max; &quot;
 
     for l in fd.legs:
-        style = stylize_connect(l)
+        if styler is not None:
+            thestyle = styler(l)
         if l.sense == &quot;incoming&quot;:
-            src += &quot;edge [{}];\n&quot;.format(style)
+            src += &quot;edge [{}];\n&quot;.format(thestyle)
             src += f&quot;\t\t{l.id} -- {l.target};\n&quot;
             rank_in += f&quot;{l.id} &quot;
         elif l.sense == &quot;outgoing&quot;:
-            src += &quot;edge [{}];\n&quot;.format(style)
+            src += &quot;edge [{}];\n&quot;.format(thestyle)
             src += f&quot;\t\t{l.target} -- {l.id};\n&quot;
             rank_out += f&quot;{l.id} ;&quot;
         else:
@@ -305,57 +244,19 @@ from pyfeyn2.render.latex.latex import LatexRender
     src += rank_in + &quot;}\n&quot;
     src += rank_out + &quot;}\n&quot;
     src += &quot;}&quot;
+    if resubstituteslash:
+        src = src.replace(REPLACE_THIS_WITH_A_BACKSLASH, &quot;\\&quot;)
     return src</div>
 
 
-<div class="viewcode-block" id="DotRender"><a class="viewcode-back" href="../autoapi/dot/index.html#dot.DotRender">[docs]</a>class DotRender(LatexRender):
-    def __init__(
-        self,
-        fd=None,
-        documentclass=&quot;standalone&quot;,
-        document_options=None,
-        *args,
-        **kwargs,
-    ):
-        if document_options is None:
-            document_options = [&quot;preview&quot;, &quot;crop&quot;, &quot;tikz&quot;]
-        super().__init__(
-            *args,
-            fd=fd,
-            documentclass=documentclass,
-            document_options=document_options,
-            **kwargs,
-        )
-        # super(Render,self).__init__(*args, fd=fd,**kwargs)
-        self.preamble.append(Command(&quot;usepackage&quot;, NoEscape(&quot;tikz&quot;)))
-        self.preamble.append(
-            Command(&quot;usetikzlibrary&quot;, NoEscape(&quot;snakes,arrows,shapes&quot;))
-        )
-        self.preamble.append(Command(&quot;usepackage&quot;, NoEscape(&quot;amsmath&quot;)))
-        self.preamble.append(
-            Command(&quot;usetikzlibrary&quot;, NoEscape(&quot;decorations.markings&quot;))
-        )
-        if fd is not None:
-            self.set_feynman_diagram(fd)
+<div class="viewcode-block" id="dot_to_positions"><a class="viewcode-back" href="../autoapi/dot/index.html#dot.dot_to_positions">[docs]</a>def dot_to_positions(dot):
+    return dot2tex.dot2tex(dot, format=&quot;positions&quot;)</div>
 
-<div class="viewcode-block" id="DotRender.set_feynman_diagram"><a class="viewcode-back" href="../autoapi/dot/index.html#dot.DotRender.set_feynman_diagram">[docs]</a>    def set_feynman_diagram(self, fd):
-        super().set_feynman_diagram(fd)
-        self.src_dot = feynman_to_dot(fd)
-        self.set_src_diag(dot_to_tikz(self.src_dot))
-        self.src_dot = self.src_dot.replace(REPLACE_THIS_WITH_A_BACKSLASH, &quot;\\&quot;)</div>
 
-<div class="viewcode-block" id="DotRender.get_src_dot"><a class="viewcode-back" href="../autoapi/dot/index.html#dot.DotRender.get_src_dot">[docs]</a>    def get_src_dot(self):
-        return self.src_dot</div>
-
-    @staticmethod
-<div class="viewcode-block" id="DotRender.valid_attribute"><a class="viewcode-back" href="../autoapi/dot/index.html#dot.DotRender.valid_attribute">[docs]</a>    def valid_attribute( attr: str) -&gt; bool:
-        return super(DotRender,DotRender).valid_attribute(attr) or attr in [&quot;x&quot;, &quot;y&quot;, &quot;label&quot;]</div>
-
-    @staticmethod
-<div class="viewcode-block" id="DotRender.valid_type"><a class="viewcode-back" href="../autoapi/dot/index.html#dot.DotRender.valid_type">[docs]</a>    def valid_type( typ):
-        if typ.lower() in map_feyn_to_tikz:
-            return True
-        return False</div></div>
+<div class="viewcode-block" id="dot_to_tikz"><a class="viewcode-back" href="../autoapi/dot/index.html#dot.dot_to_tikz">[docs]</a>def dot_to_tikz(dot):
+    ret = dot2tex.dot2tex(dot, format=&quot;tikz&quot;, figonly=True)
+    ret = ret.replace(REPLACE_THIS_WITH_A_BACKSLASH, &quot;\\&quot;)
+    return ret</div>
 </pre></div>
 
            </div>

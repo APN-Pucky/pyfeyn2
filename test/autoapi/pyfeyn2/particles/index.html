@@ -52,7 +52,7 @@
     
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="latex" href="../../latex/index.html" />
+    <link rel="next" title="mpl" href="../../mpl/index.html" />
     <link rel="prev" title="pyfeyn2.mkfeyndiag" href="../mkfeyndiag/index.html" /> 
 </head>
 
@@ -80,7 +80,7 @@
             
             
               <div class="version">
-                2.0.6-27-g1fdaa6c
+                2.0.6-37-gb85952f
               </div>
             
           
@@ -140,11 +140,6 @@
 <li class="toctree-l3"><a class="reference internal" href="../index.html#package-contents">Package Contents</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../latex/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">latex</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../dot/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dot</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../feynmp/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">feynmp</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../metapost/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">metapost</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../tikzfeynman/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">tikzfeynman</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../mpl/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mpl</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../feynmanrender/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">feynmanrender</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../asciipdf/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">asciipdf</span></code></a></li>
@@ -155,7 +150,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../../unicode/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">unicode</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../ascii/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ascii</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../unicodepdf/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">unicodepdf</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../dot/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">dot</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../qgraf/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">qgraf</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hepmc/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">hepmc</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -272,6 +269,16 @@
 </tr>
 </tbody>
 </table>
+</section>
+<section id="attributes">
+<h3>Attributes<a class="headerlink" href="#attributes" title="Permalink to this heading">¶</a></h3>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.particles.name_cache" title="pyfeyn2.particles.name_cache"><code class="xref py py-obj docutils literal notranslate"><span class="pre">name_cache</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
 <dl class="py function">
 <dt class="sig sig-object py" id="pyfeyn2.particles.get_name">
 <span class="sig-prename descclassname"><span class="pre">pyfeyn2.particles.</span></span><span class="sig-name descname"><span class="pre">get_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../../../_modules/pyfeyn2/particles.html#get_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.particles.get_name" title="Permalink to this definition">¶</a></dt>
@@ -301,9 +308,14 @@
 <span class="sig-prename descclassname"><span class="pre">pyfeyn2.particles.</span></span><span class="sig-name descname"><span class="pre">get_particle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">particle.Particle</span></span></span><a class="reference internal" href="../../../_modules/pyfeyn2/particles.html#get_particle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.particles.get_particle" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+<dl class="py data">
+<dt class="sig sig-object py" id="pyfeyn2.particles.name_cache">
+<span class="sig-prename descclassname"><span class="pre">pyfeyn2.particles.</span></span><span class="sig-name descname"><span class="pre">name_cache</span></span><a class="reference internal" href="../../../_modules/pyfeyn2/particles.html#name_cache"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.particles.name_cache" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="py function">
 <dt class="sig sig-object py" id="pyfeyn2.particles.get_either_particle">
-<span class="sig-prename descclassname"><span class="pre">pyfeyn2.particles.</span></span><span class="sig-name descname"><span class="pre">get_either_particle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">particle.Particle</span></span></span><a class="reference internal" href="../../../_modules/pyfeyn2/particles.html#get_either_particle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.particles.get_either_particle" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pyfeyn2.particles.</span></span><span class="sig-name descname"><span class="pre">get_either_particle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cache</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">particle.Particle</span></span></span><a class="reference internal" href="../../../_modules/pyfeyn2/particles.html#get_either_particle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.particles.get_either_particle" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </section>
@@ -316,7 +328,7 @@
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="../../latex/index.html" class="btn btn-neutral float-right" title="latex" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../../mpl/index.html" class="btn btn-neutral float-right" title="mpl" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
         <a href="../mkfeyndiag/index.html" class="btn btn-neutral float-left" title="pyfeyn2.mkfeyndiag" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 

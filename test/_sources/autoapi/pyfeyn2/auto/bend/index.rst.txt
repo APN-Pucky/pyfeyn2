@@ -1,0 +1,24 @@
+:py:mod:`pyfeyn2.auto.bend`
+===========================
+
+.. py:module:: pyfeyn2.auto.bend
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   pyfeyn2.auto.bend.auto_bend
+
+
+
+.. py:function:: auto_bend(ifd, deepcopy=False)
+
+   Automatically bend lines to avoid overlaps.
+
+

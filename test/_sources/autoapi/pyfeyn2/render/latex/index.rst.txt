@@ -1,0 +1,19 @@
+:py:mod:`pyfeyn2.render.latex`
+==============================
+
+.. py:module:: pyfeyn2.render.latex
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   dot/index.rst
+   feynmp/index.rst
+   latex/index.rst
+   metapost/index.rst
+   tikzfeynman/index.rst
+
+
