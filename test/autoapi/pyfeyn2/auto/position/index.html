@@ -80,7 +80,7 @@
             
             
               <div class="version">
-                2.0.7-6-g5b5086a
+                2.0.7-31-gde48c39
               </div>
             
           
@@ -125,6 +125,10 @@
 <p class="caption" role="heading"><span class="caption-text">Renderers:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../renderers/index.html">Renderers</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Interfaces:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../interfaces/index.html">Interfaces</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Module:</span></p>
 <ul class="current">
@@ -265,6 +269,9 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.auto.position.feynman_adjust_points" title="pyfeyn2.auto.position.feynman_adjust_points"><code class="xref py py-obj docutils literal notranslate"><span class="pre">feynman_adjust_points</span></code></a>(feyndiag[, size, delete_vertices])</p></td>
 <td><p>Adjust the points of the vertices and legs using Dot language algorithms.</p></td>
 </tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.auto.position.remove_unnecessary_vertices" title="pyfeyn2.auto.position.remove_unnecessary_vertices"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_unnecessary_vertices</span></code></a>(feyndiag)</p></td>
+<td><p>Remove vertices that are only connected to two vertices with the same propagator.</p></td>
+</tr>
 </tbody>
 </table>
 <dl class="py function">
@@ -277,6 +284,12 @@
 <dt class="sig sig-object py" id="pyfeyn2.auto.position.feynman_adjust_points">
 <span class="sig-prename descclassname"><span class="pre">pyfeyn2.auto.position.</span></span><span class="sig-name descname"><span class="pre">feynman_adjust_points</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">feyndiag</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delete_vertices</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/pyfeyn2/auto/position.html#feynman_adjust_points"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.auto.position.feynman_adjust_points" title="Permalink to this definition">¶</a></dt>
 <dd><p>Adjust the points of the vertices and legs using Dot language algorithms.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyfeyn2.auto.position.remove_unnecessary_vertices">
+<span class="sig-prename descclassname"><span class="pre">pyfeyn2.auto.position.</span></span><span class="sig-name descname"><span class="pre">remove_unnecessary_vertices</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">feyndiag</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/pyfeyn2/auto/position.html#remove_unnecessary_vertices"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.auto.position.remove_unnecessary_vertices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove vertices that are only connected to two vertices with the same propagator.</p>
 </dd></dl>
 
 </section>

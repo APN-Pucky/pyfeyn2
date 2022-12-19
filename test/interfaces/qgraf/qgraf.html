@@ -53,7 +53,9 @@
 
     
     <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" /> 
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="API Reference" href="../../autoapi/index.html" />
+    <link rel="prev" title="HepMC" href="../hepmc/hepmc.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -80,7 +82,7 @@
             
             
               <div class="version">
-                2.0.7-6-g5b5086a
+                2.0.7-31-gde48c39
               </div>
             
           
@@ -125,6 +127,15 @@
 <p class="caption" role="heading"><span class="caption-text">Renderers:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../renderers/index.html">Renderers</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Interfaces:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Interfaces</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../dot/dot.html">Dot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hepmc/hepmc.html">HepMC</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">QGraf</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Module:</span></p>
 <ul>
@@ -176,6 +187,8 @@
   <ul class="wy-breadcrumbs">
     
       <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Interfaces</a> &raquo;</li>
         
       <li>QGraf</li>
     
@@ -635,13 +648,15 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span> <span class="nn">subprocess</span>
+<span class="kn">import</span> <span class="nn">shlex</span>
+
 <span class="kn">from</span> <span class="nn">xsdata.formats.dataclass.parsers</span> <span class="kn">import</span> <span class="n">XmlParser</span>
 <span class="kn">from</span> <span class="nn">pyfeyn2.render.latex.feynmp</span> <span class="kn">import</span> <span class="n">FeynmpRender</span>
 <span class="kn">from</span> <span class="nn">pyfeyn2.render.latex.tikzfeynman</span> <span class="kn">import</span> <span class="n">TikzFeynmanRender</span>
 <span class="kn">from</span> <span class="nn">pyfeyn2.render.pyx.pyxrender</span> <span class="kn">import</span> <span class="n">PyxRender</span>
 <span class="kn">from</span> <span class="nn">pyfeyn2.feynmandiagram</span> <span class="kn">import</span> <span class="n">FeynML</span>
-<span class="kn">import</span> <span class="nn">subprocess</span>
-<span class="kn">import</span> <span class="nn">shlex</span>
+
 <span class="kn">from</span> <span class="nn">pyfeyn2.auto.bend</span> <span class="kn">import</span> <span class="n">auto_bend</span>
 <span class="kn">from</span> <span class="nn">pyfeyn2.auto.label</span> <span class="kn">import</span> <span class="n">auto_label</span>
 <span class="kn">from</span> <span class="nn">pyfeyn2.auto.position</span> <span class="kn">import</span> <span class="n">feynman_adjust_points</span>
@@ -810,6 +825,10 @@ File <span class="ansi-green-fg">/usr/lib/python3.9/subprocess.py:1121</span>, i
            
           </div>
           <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../../autoapi/index.html" class="btn btn-neutral float-right" title="API Reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../hepmc/hepmc.html" class="btn btn-neutral float-left" title="HepMC" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
 
   <hr/>
 

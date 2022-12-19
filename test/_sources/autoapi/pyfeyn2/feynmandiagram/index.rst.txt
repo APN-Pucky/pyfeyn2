@@ -41,12 +41,12 @@ Attributes
 
 .. autoapisummary::
 
-   pyfeyn2.feynmandiagram.id
+   pyfeyn2.feynmandiagram.global_id
    pyfeyn2.feynmandiagram.CSSString
    pyfeyn2.feynmandiagram.aliasMeta
 
 
-.. py:data:: id
+.. py:data:: global_id
    :annotation: = 0
 
    
@@ -91,6 +91,21 @@ Attributes
 
       
 
+   .. py:attribute:: set_pdgid
+      
+
+      
+
+   .. py:attribute:: set_type
+      
+
+      
+
+   .. py:attribute:: set_name
+      
+
+      
+
    .. py:method:: _sync()
 
       Sync the particle with the pdgid, name etc.
@@ -99,10 +114,13 @@ Attributes
    .. py:method:: __post_init__()
 
 
-   .. py:method:: set_pdgid(pdgid)
+   .. py:method:: with_pdgid(pdgid)
 
 
-   .. py:method:: set_type(typ)
+   .. py:method:: with_name(name)
+
+
+   .. py:method:: with_type(typ)
 
 
 
@@ -113,7 +131,12 @@ Attributes
 
       
 
-   .. py:method:: set_label(label)
+   .. py:attribute:: set_label
+      
+
+      
+
+   .. py:method:: with_label(label)
 
 
 
@@ -124,7 +147,12 @@ Attributes
 
       
 
-   .. py:method:: set_text(text)
+   .. py:attribute:: set_text
+      
+
+      
+
+   .. py:method:: with_text(text)
 
 
 
@@ -145,13 +173,28 @@ Attributes
 
       
 
-   .. py:method:: set_point(p)
+   .. py:attribute:: set_point
+      
+
+      
+
+   .. py:attribute:: set_xy
+      
+
+      
+
+   .. py:attribute:: set_xyz
+      
+
+      
+
+   .. py:method:: with_point(p)
 
 
-   .. py:method:: set_xy(x, y)
+   .. py:method:: with_xy(x, y)
 
 
-   .. py:method:: set_xyz(x, y, z)
+   .. py:method:: with_xyz(x, y, z)
 
 
 
@@ -210,7 +253,12 @@ Attributes
 
       
 
-   .. py:method:: set_target(target)
+   .. py:attribute:: set_target
+      
+
+      
+
+   .. py:method:: with_target(target)
 
 
 
@@ -221,7 +269,12 @@ Attributes
 
       
 
-   .. py:method:: set_source(source)
+   .. py:attribute:: set_source
+      
+
+      
+
+   .. py:method:: with_source(source)
 
 
 
@@ -257,13 +310,28 @@ Attributes
 
       
 
-   .. py:method:: set_momentum(momentum)
+   .. py:attribute:: set_momentum
+      
+
+      
+
+   .. py:attribute:: set_tension
+      
+
+      
+
+   .. py:attribute:: set_length
+      
+
+      
+
+   .. py:method:: with_momentum(momentum)
 
 
-   .. py:method:: set_tension(tension)
+   .. py:method:: with_tension(tension)
 
 
-   .. py:method:: set_length(length)
+   .. py:method:: with_length(length)
 
 
 
@@ -276,10 +344,33 @@ Attributes
 
       
 
-   .. py:method:: set_incoming()
+   .. py:attribute:: external
+      :annotation: :Optional[str]
+
+      
+
+   .. py:attribute:: set_external
+      
+
+      
+
+   .. py:attribute:: set_incoming
+      
+
+      
+
+   .. py:attribute:: set_outgoing
+      
+
+      
+
+   .. py:method:: with_external(external)
 
 
-   .. py:method:: set_outgoing()
+   .. py:method:: with_incoming()
+
+
+   .. py:method:: with_outgoing()
 
 
 
@@ -327,6 +418,12 @@ Attributes
 
 
    .. py:method:: get_vertex(id)
+
+
+   .. py:method:: get_connections(vertex)
+
+
+   .. py:method:: remove_propagator(propagator)
 
 
    .. py:method:: get_bounding_box()

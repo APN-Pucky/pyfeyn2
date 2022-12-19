@@ -80,7 +80,7 @@
             
             
               <div class="version">
-                2.0.7-6-g5b5086a
+                2.0.7-31-gde48c39
               </div>
             
           
@@ -125,6 +125,10 @@
 <p class="caption" role="heading"><span class="caption-text">Renderers:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../renderers/index.html">Renderers</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Interfaces:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../interfaces/index.html">Interfaces</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Module:</span></p>
 <ul class="current">
@@ -259,24 +263,33 @@
 <h3>Functions<a class="headerlink" href="#functions" title="Permalink to this heading">¶</a></h3>
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.auto.label.auto_label" title="pyfeyn2.auto.label.auto_label"><code class="xref py py-obj docutils literal notranslate"><span class="pre">auto_label</span></code></a>(objs)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.auto.label.auto_label" title="pyfeyn2.auto.label.auto_label"><code class="xref py py-obj docutils literal notranslate"><span class="pre">auto_label</span></code></a>(objs[, override])</p></td>
 <td><p>Automatically label objects.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.auto.label.auto_label_propagators" title="pyfeyn2.auto.label.auto_label_propagators"><code class="xref py py-obj docutils literal notranslate"><span class="pre">auto_label_propagators</span></code></a>(ifd)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.auto.label.auto_label_propagators" title="pyfeyn2.auto.label.auto_label_propagators"><code class="xref py py-obj docutils literal notranslate"><span class="pre">auto_label_propagators</span></code></a>(ifd[, override])</p></td>
 <td><p>Automatically label propagators.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.auto.label.auto_label_legs" title="pyfeyn2.auto.label.auto_label_legs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">auto_label_legs</span></code></a>(ifd[, override])</p></td>
+<td><p>Automatically label legs.</p></td>
 </tr>
 </tbody>
 </table>
 <dl class="py function">
 <dt class="sig sig-object py" id="pyfeyn2.auto.label.auto_label">
-<span class="sig-prename descclassname"><span class="pre">pyfeyn2.auto.label.</span></span><span class="sig-name descname"><span class="pre">auto_label</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">objs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/pyfeyn2/auto/label.html#auto_label"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.auto.label.auto_label" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pyfeyn2.auto.label.</span></span><span class="sig-name descname"><span class="pre">auto_label</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">objs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">override</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/pyfeyn2/auto/label.html#auto_label"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.auto.label.auto_label" title="Permalink to this definition">¶</a></dt>
 <dd><p>Automatically label objects.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="pyfeyn2.auto.label.auto_label_propagators">
-<span class="sig-prename descclassname"><span class="pre">pyfeyn2.auto.label.</span></span><span class="sig-name descname"><span class="pre">auto_label_propagators</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ifd</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/pyfeyn2/auto/label.html#auto_label_propagators"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.auto.label.auto_label_propagators" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pyfeyn2.auto.label.</span></span><span class="sig-name descname"><span class="pre">auto_label_propagators</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ifd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">override</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/pyfeyn2/auto/label.html#auto_label_propagators"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.auto.label.auto_label_propagators" title="Permalink to this definition">¶</a></dt>
 <dd><p>Automatically label propagators.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyfeyn2.auto.label.auto_label_legs">
+<span class="sig-prename descclassname"><span class="pre">pyfeyn2.auto.label.</span></span><span class="sig-name descname"><span class="pre">auto_label_legs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ifd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">override</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/pyfeyn2/auto/label.html#auto_label_legs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.auto.label.auto_label_legs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Automatically label legs.</p>
 </dd></dl>
 
 </section>

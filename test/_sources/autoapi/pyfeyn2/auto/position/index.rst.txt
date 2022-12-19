@@ -15,6 +15,7 @@ Functions
 
    pyfeyn2.auto.position.scale_positions
    pyfeyn2.auto.position.feynman_adjust_points
+   pyfeyn2.auto.position.remove_unnecessary_vertices
 
 
 
@@ -26,5 +27,10 @@ Functions
 .. py:function:: feynman_adjust_points(feyndiag, size=5, delete_vertices=True)
 
    Adjust the points of the vertices and legs using Dot language algorithms.
+
+
+.. py:function:: remove_unnecessary_vertices(feyndiag)
+
+   Remove vertices that are only connected to two vertices with the same propagator.
 
 

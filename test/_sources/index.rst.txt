@@ -59,7 +59,7 @@
    :maxdepth: 3
    :caption: Interfaces:
 
-   interfaces/*.ipynb
+   interfaces/*
 
 .. toctree::
    :glob:

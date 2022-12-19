@@ -80,7 +80,7 @@
             
             
               <div class="version">
-                2.0.7-6-g5b5086a
+                2.0.7-31-gde48c39
               </div>
             
           
@@ -126,6 +126,10 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../renderers/index.html">Renderers</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">Interfaces:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../interfaces/index.html">Interfaces</a></li>
+</ul>
 <p class="caption" role="heading"><span class="caption-text">Module:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../../index.html">API Reference</a><ul class="current">
@@ -135,6 +139,7 @@
 <li class="toctree-l4 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfeyn2.feynmandiagram</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../mkfeyndiag/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfeyn2.mkfeyndiag</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../particles/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfeyn2.particles</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../util/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pyfeyn2.util</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../index.html#package-contents">Package Contents</a></li>
@@ -325,7 +330,7 @@
 <h3>Attributes<a class="headerlink" href="#attributes" title="Permalink to this heading">¶</a></h3>
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.id" title="pyfeyn2.feynmandiagram.id"><code class="xref py py-obj docutils literal notranslate"><span class="pre">id</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.global_id" title="pyfeyn2.feynmandiagram.global_id"><code class="xref py py-obj docutils literal notranslate"><span class="pre">global_id</span></code></a></p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.CSSString" title="pyfeyn2.feynmandiagram.CSSString"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CSSString</span></code></a></p></td>
@@ -337,8 +342,8 @@
 </tbody>
 </table>
 <dl class="py data">
-<dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.id">
-<span class="sig-prename descclassname"><span class="pre">pyfeyn2.feynmandiagram.</span></span><span class="sig-name descname"><span class="pre">id</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">0</span></em><a class="reference internal" href="../../../_modules/pyfeyn2/feynmandiagram.html#id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.id" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.global_id">
+<span class="sig-prename descclassname"><span class="pre">pyfeyn2.feynmandiagram.</span></span><span class="sig-name descname"><span class="pre">global_id</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">0</span></em><a class="reference internal" href="../../../_modules/pyfeyn2/feynmandiagram.html#global_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.global_id" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py class">
@@ -385,6 +390,21 @@
 <span class="sig-name descname"><span class="pre">particle</span></span><em class="property"><span class="w"> </span><span class="pre">:Optional[particle.Particle]</span></em><a class="reference internal" href="../../../_modules/pyfeyn2/feynmandiagram.html#PDG.particle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.PDG.particle" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.PDG.set_pdgid">
+<span class="sig-name descname"><span class="pre">set_pdgid</span></span><a class="reference internal" href="../../../_modules/pyfeyn2/feynmandiagram.html#PDG.set_pdgid"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.PDG.set_pdgid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.PDG.set_type">
+<span class="sig-name descname"><span class="pre">set_type</span></span><a class="reference internal" href="../../../_modules/pyfeyn2/feynmandiagram.html#PDG.set_type"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.PDG.set_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.PDG.set_name">
+<span class="sig-name descname"><span class="pre">set_name</span></span><a class="reference internal" href="../../../_modules/pyfeyn2/feynmandiagram.html#PDG.set_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.PDG.set_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.PDG._sync">
 <span class="sig-name descname"><span class="pre">_sync</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/pyfeyn2/feynmandiagram.html#PDG._sync"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.PDG._sync" title="Permalink to this definition">¶</a></dt>
@@ -397,13 +417,18 @@
 <dd></dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.PDG.set_pdgid">
-<span class="sig-name descname"><span class="pre">set_pdgid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pdgid</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/pyfeyn2/feynmandiagram.html#PDG.set_pdgid"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.PDG.set_pdgid" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.PDG.with_pdgid">
+<span class="sig-name descname"><span class="pre">with_pdgid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pdgid</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/pyfeyn2/feynmandiagram.html#PDG.with_pdgid"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.PDG.with_pdgid" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.PDG.set_type">
-<span class="sig-name descname"><span class="pre">set_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">typ</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/pyfeyn2/feynmandiagram.html#PDG.set_type"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.PDG.set_type" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.PDG.with_name">
+<span class="sig-name descname"><span class="pre">with_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/pyfeyn2/feynmandiagram.html#PDG.with_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.PDG.with_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.PDG.with_type">
+<span class="sig-name descname"><span class="pre">with_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">typ</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/pyfeyn2/feynmandiagram.html#PDG.with_type"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.PDG.with_type" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -416,9 +441,14 @@
 <span class="sig-name descname"><span class="pre">label</span></span><em class="property"><span class="w"> </span><span class="pre">:Optional[str]</span></em><a class="reference internal" href="../../../_modules/pyfeyn2/feynmandiagram.html#Labeled.label"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.Labeled.label" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="py attribute">
 <dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Labeled.set_label">
-<span class="sig-name descname"><span class="pre">set_label</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/pyfeyn2/feynmandiagram.html#Labeled.set_label"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.Labeled.set_label" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">set_label</span></span><a class="reference internal" href="../../../_modules/pyfeyn2/feynmandiagram.html#Labeled.set_label"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.Labeled.set_label" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Labeled.with_label">
+<span class="sig-name descname"><span class="pre">with_label</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/pyfeyn2/feynmandiagram.html#Labeled.with_label"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.Labeled.with_label" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -431,9 +461,14 @@
 <span class="sig-name descname"><span class="pre">text</span></span><em class="property"><span class="w"> </span><span class="pre">:Optional[str]</span></em><a class="reference internal" href="../../../_modules/pyfeyn2/feynmandiagram.html#Texted.text"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.Texted.text" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="py attribute">
 <dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Texted.set_text">
-<span class="sig-name descname"><span class="pre">set_text</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/pyfeyn2/feynmandiagram.html#Texted.set_text"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.Texted.set_text" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">set_text</span></span><a class="reference internal" href="../../../_modules/pyfeyn2/feynmandiagram.html#Texted.set_text"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.Texted.set_text" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Texted.with_text">
+<span class="sig-name descname"><span class="pre">with_text</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/pyfeyn2/feynmandiagram.html#Texted.with_text"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.Texted.with_text" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -456,19 +491,34 @@
 <span class="sig-name descname"><span class="pre">z</span></span><em class="property"><span class="w"> </span><span class="pre">:Optional[float]</span></em><a class="reference internal" href="../../../_modules/pyfeyn2/feynmandiagram.html#Point.z"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.Point.z" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="py attribute">
 <dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Point.set_point">
-<span class="sig-name descname"><span class="pre">set_point</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">p</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/pyfeyn2/feynmandiagram.html#Point.set_point"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.Point.set_point" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">set_point</span></span><a class="reference internal" href="../../../_modules/pyfeyn2/feynmandiagram.html#Point.set_point"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.Point.set_point" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="py attribute">
 <dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Point.set_xy">
-<span class="sig-name descname"><span class="pre">set_xy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/pyfeyn2/feynmandiagram.html#Point.set_xy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.Point.set_xy" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">set_xy</span></span><a class="reference internal" href="../../../_modules/pyfeyn2/feynmandiagram.html#Point.set_xy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.Point.set_xy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Point.set_xyz">
+<span class="sig-name descname"><span class="pre">set_xyz</span></span><a class="reference internal" href="../../../_modules/pyfeyn2/feynmandiagram.html#Point.set_xyz"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.Point.set_xyz" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Point.set_xyz">
-<span class="sig-name descname"><span class="pre">set_xyz</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/pyfeyn2/feynmandiagram.html#Point.set_xyz"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.Point.set_xyz" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Point.with_point">
+<span class="sig-name descname"><span class="pre">with_point</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">p</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/pyfeyn2/feynmandiagram.html#Point.with_point"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.Point.with_point" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Point.with_xy">
+<span class="sig-name descname"><span class="pre">with_xy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/pyfeyn2/feynmandiagram.html#Point.with_xy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.Point.with_xy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Point.with_xyz">
+<span class="sig-name descname"><span class="pre">with_xyz</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/pyfeyn2/feynmandiagram.html#Point.with_xyz"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.Point.with_xyz" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -540,9 +590,14 @@
 <span class="sig-name descname"><span class="pre">target</span></span><em class="property"><span class="w"> </span><span class="pre">:Optional[str]</span></em><a class="reference internal" href="../../../_modules/pyfeyn2/feynmandiagram.html#Targeting.target"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.Targeting.target" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="py attribute">
 <dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Targeting.set_target">
-<span class="sig-name descname"><span class="pre">set_target</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/pyfeyn2/feynmandiagram.html#Targeting.set_target"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.Targeting.set_target" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">set_target</span></span><a class="reference internal" href="../../../_modules/pyfeyn2/feynmandiagram.html#Targeting.set_target"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.Targeting.set_target" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Targeting.with_target">
+<span class="sig-name descname"><span class="pre">with_target</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/pyfeyn2/feynmandiagram.html#Targeting.with_target"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.Targeting.with_target" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -555,9 +610,14 @@
 <span class="sig-name descname"><span class="pre">source</span></span><em class="property"><span class="w"> </span><span class="pre">:Optional[str]</span></em><a class="reference internal" href="../../../_modules/pyfeyn2/feynmandiagram.html#Sourcing.source"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.Sourcing.source" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="py attribute">
 <dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Sourcing.set_source">
-<span class="sig-name descname"><span class="pre">set_source</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/pyfeyn2/feynmandiagram.html#Sourcing.set_source"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.Sourcing.set_source" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">set_source</span></span><a class="reference internal" href="../../../_modules/pyfeyn2/feynmandiagram.html#Sourcing.set_source"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.Sourcing.set_source" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Sourcing.with_source">
+<span class="sig-name descname"><span class="pre">with_source</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/pyfeyn2/feynmandiagram.html#Sourcing.with_source"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.Sourcing.with_source" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -598,19 +658,34 @@
 <span class="sig-name descname"><span class="pre">length</span></span><em class="property"><span class="w"> </span><span class="pre">:Optional[float]</span></em><a class="reference internal" href="../../../_modules/pyfeyn2/feynmandiagram.html#Connector.length"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.Connector.length" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="py attribute">
 <dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Connector.set_momentum">
-<span class="sig-name descname"><span class="pre">set_momentum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">momentum</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/pyfeyn2/feynmandiagram.html#Connector.set_momentum"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.Connector.set_momentum" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">set_momentum</span></span><a class="reference internal" href="../../../_modules/pyfeyn2/feynmandiagram.html#Connector.set_momentum"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.Connector.set_momentum" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="py attribute">
 <dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Connector.set_tension">
-<span class="sig-name descname"><span class="pre">set_tension</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tension</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/pyfeyn2/feynmandiagram.html#Connector.set_tension"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.Connector.set_tension" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">set_tension</span></span><a class="reference internal" href="../../../_modules/pyfeyn2/feynmandiagram.html#Connector.set_tension"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.Connector.set_tension" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Connector.set_length">
+<span class="sig-name descname"><span class="pre">set_length</span></span><a class="reference internal" href="../../../_modules/pyfeyn2/feynmandiagram.html#Connector.set_length"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.Connector.set_length" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Connector.set_length">
-<span class="sig-name descname"><span class="pre">set_length</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">length</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/pyfeyn2/feynmandiagram.html#Connector.set_length"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.Connector.set_length" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Connector.with_momentum">
+<span class="sig-name descname"><span class="pre">with_momentum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">momentum</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/pyfeyn2/feynmandiagram.html#Connector.with_momentum"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.Connector.with_momentum" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Connector.with_tension">
+<span class="sig-name descname"><span class="pre">with_tension</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tension</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/pyfeyn2/feynmandiagram.html#Connector.with_tension"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.Connector.with_tension" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Connector.with_length">
+<span class="sig-name descname"><span class="pre">with_length</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">length</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/pyfeyn2/feynmandiagram.html#Connector.with_length"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.Connector.with_length" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -624,14 +699,39 @@
 <span class="sig-name descname"><span class="pre">sense</span></span><em class="property"><span class="w"> </span><span class="pre">:str</span></em><a class="reference internal" href="../../../_modules/pyfeyn2/feynmandiagram.html#Leg.sense"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.Leg.sense" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Leg.external">
+<span class="sig-name descname"><span class="pre">external</span></span><em class="property"><span class="w"> </span><span class="pre">:Optional[str]</span></em><a class="reference internal" href="../../../_modules/pyfeyn2/feynmandiagram.html#Leg.external"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.Leg.external" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Leg.set_external">
+<span class="sig-name descname"><span class="pre">set_external</span></span><a class="reference internal" href="../../../_modules/pyfeyn2/feynmandiagram.html#Leg.set_external"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.Leg.set_external" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
 <dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Leg.set_incoming">
-<span class="sig-name descname"><span class="pre">set_incoming</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/pyfeyn2/feynmandiagram.html#Leg.set_incoming"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.Leg.set_incoming" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">set_incoming</span></span><a class="reference internal" href="../../../_modules/pyfeyn2/feynmandiagram.html#Leg.set_incoming"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.Leg.set_incoming" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Leg.set_outgoing">
+<span class="sig-name descname"><span class="pre">set_outgoing</span></span><a class="reference internal" href="../../../_modules/pyfeyn2/feynmandiagram.html#Leg.set_outgoing"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.Leg.set_outgoing" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Leg.set_outgoing">
-<span class="sig-name descname"><span class="pre">set_outgoing</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/pyfeyn2/feynmandiagram.html#Leg.set_outgoing"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.Leg.set_outgoing" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Leg.with_external">
+<span class="sig-name descname"><span class="pre">with_external</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">external</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/pyfeyn2/feynmandiagram.html#Leg.with_external"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.Leg.with_external" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Leg.with_incoming">
+<span class="sig-name descname"><span class="pre">with_incoming</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/pyfeyn2/feynmandiagram.html#Leg.with_incoming"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.Leg.with_incoming" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Leg.with_outgoing">
+<span class="sig-name descname"><span class="pre">with_outgoing</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/pyfeyn2/feynmandiagram.html#Leg.with_outgoing"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.Leg.with_outgoing" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -689,6 +789,16 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.FeynmanDiagram.get_vertex">
 <span class="sig-name descname"><span class="pre">get_vertex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/pyfeyn2/feynmandiagram.html#FeynmanDiagram.get_vertex"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.FeynmanDiagram.get_vertex" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.FeynmanDiagram.get_connections">
+<span class="sig-name descname"><span class="pre">get_connections</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vertex</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/pyfeyn2/feynmandiagram.html#FeynmanDiagram.get_connections"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.FeynmanDiagram.get_connections" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.FeynmanDiagram.remove_propagator">
+<span class="sig-name descname"><span class="pre">remove_propagator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">propagator</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/pyfeyn2/feynmandiagram.html#FeynmanDiagram.remove_propagator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.FeynmanDiagram.remove_propagator" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">

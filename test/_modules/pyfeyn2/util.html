@@ -4,11 +4,10 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>&lt;no title&gt; &mdash; pyfeyn2  documentation</title>
+  <title>pyfeyn2.util &mdash; pyfeyn2  documentation</title>
   
 
   
@@ -46,8 +45,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -80,7 +77,7 @@
             
             
               <div class="version">
-                2.0.7-6-g5b5086a
+                2.0.7-31-gde48c39
               </div>
             
           
@@ -125,6 +122,10 @@
 <p class="caption" role="heading"><span class="caption-text">Renderers:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../renderers/index.html">Renderers</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Interfaces:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../interfaces/index.html">Interfaces</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Module:</span></p>
 <ul>
@@ -177,14 +178,14 @@
     
       <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>&lt;no title&gt;</li>
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+          <li><a href="../pyfeyn2.html">pyfeyn2</a> &raquo;</li>
+        
+      <li>pyfeyn2.util</li>
     
     
       <li class="wy-breadcrumbs-aside">
-        
-          
-            <a href="../../_sources/interfaces/hepmc/Untitled.ipynb.txt" rel="nofollow"> View page source</a>
-          
         
       </li>
     
@@ -196,31 +197,26 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
+  <h1>Source code for pyfeyn2.util</h1><div class="highlight"><pre>
+<span></span># TODO split in to own package
+<div class="viewcode-block" id="withify"><a class="viewcode-back" href="../../autoapi/pyfeyn2/util/index.html#pyfeyn2.util.withify">[docs]</a>def withify(prefix=&quot;with_&quot;, sufix=&quot;&quot;, override=False):
+    &quot;&quot;&quot;Decorator to add with_ methods to a class.&quot;&quot;&quot;
 
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
+    def _withify(cls):
+        inst = cls()
+        for k in inst.__annotations__.keys():
+            fun = prefix + k + sufix
+            if override or not hasattr(cls, fun):
 
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
+                def tmp(self, value):
+                    self.__dict__[k] = value
+                    return self
 
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
+                setattr(cls, fun, tmp)
+        return cls
 
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-
+    return _withify</div>
+</pre></div>
 
            </div>
            

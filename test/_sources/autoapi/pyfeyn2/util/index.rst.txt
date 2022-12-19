@@ -1,0 +1,24 @@
+:py:mod:`pyfeyn2.util`
+======================
+
+.. py:module:: pyfeyn2.util
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   pyfeyn2.util.withify
+
+
+
+.. py:function:: withify(prefix='with_', sufix='', override=False)
+
+   Decorator to add with_ methods to a class.
+
+

@@ -53,7 +53,9 @@
 
     
     <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" /> 
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="QGraf" href="../qgraf/qgraf.html" />
+    <link rel="prev" title="Dot" href="../dot/dot.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -80,7 +82,7 @@
             
             
               <div class="version">
-                2.0.7-6-g5b5086a
+                2.0.7-31-gde48c39
               </div>
             
           
@@ -125,6 +127,15 @@
 <p class="caption" role="heading"><span class="caption-text">Renderers:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../renderers/index.html">Renderers</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Interfaces:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Interfaces</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../dot/dot.html">Dot</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">HepMC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qgraf/qgraf.html">QGraf</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Module:</span></p>
 <ul>
@@ -176,6 +187,8 @@
   <ul class="wy-breadcrumbs">
     
       <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Interfaces</a> &raquo;</li>
         
       <li>HepMC</li>
     
@@ -16590,6 +16603,1456 @@ event number = 0</title>
 </pre></div>
 </div>
 </div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyfeyn2.interface.hepmc</span> <span class="k">as</span> <span class="nn">hepmc</span>
+
+<span class="kn">from</span> <span class="nn">pyfeyn2.render.latex.tikzfeynman</span> <span class="kn">import</span> <span class="n">TikzFeynmanRender</span>
+<span class="kn">from</span> <span class="nn">pyfeyn2.render.pyx.pyxrender</span> <span class="kn">import</span> <span class="n">PyxRender</span>
+<span class="kn">from</span> <span class="nn">pyfeyn2.feynmandiagram</span> <span class="kn">import</span> <span class="n">FeynML</span>
+
+<span class="kn">from</span> <span class="nn">pyfeyn2.auto.bend</span> <span class="kn">import</span> <span class="n">auto_bend</span>
+<span class="kn">from</span> <span class="nn">pyfeyn2.auto.label</span> <span class="kn">import</span> <span class="n">auto_label</span>
+<span class="kn">from</span> <span class="nn">pyfeyn2.auto.position</span> <span class="kn">import</span> <span class="n">feynman_adjust_points</span><span class="p">,</span><span class="n">remove_unnecessary_vertices</span>
+
+<span class="n">fd</span> <span class="o">=</span> <span class="n">hepmc</span><span class="o">.</span><span class="n">event_to_feynman</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
+<span class="n">fd</span><span class="o">.</span><span class="n">legs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xy</span><span class="p">(</span><span class="o">-</span><span class="mi">8</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">set_external</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$\textcolor</span><span class="si">{red}{p}</span><span class="s2">$&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;red&quot;</span>
+<span class="n">fd</span><span class="o">.</span><span class="n">legs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xy</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">set_external</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$\textcolor</span><span class="si">{red}{p}</span><span class="s2">$&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;red&quot;</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">remove_unnecessary_vertices</span><span class="p">(</span><span class="n">fd</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">feynman_adjust_points</span><span class="p">(</span><span class="n">d</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">auto_bend</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+<span class="n">auto_label</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">propagators</span><span class="p">)</span>
+<span class="n">auto_label</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">legs</span><span class="p">)</span>
+<span class="c1">#print(d)</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">TikzFeynmanRender</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+<span class="c1">#print(t.get_src())</span>
+<span class="n">t</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/feynmandiagram.py:81: UserWarning: Inferring type from pdgid not implemented for pdgid 2212
+  warnings.warn(
+/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/feynmandiagram.py:81: UserWarning: Inferring type from pdgid not implemented for pdgid -2
+  warnings.warn(
+/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/feynmandiagram.py:81: UserWarning: Inferring type from pdgid not implemented for pdgid 2103
+  warnings.warn(
+/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/feynmandiagram.py:81: UserWarning: Inferring type from pdgid not implemented for pdgid 2203
+  warnings.warn(
+/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/feynmandiagram.py:81: UserWarning: Inferring type from pdgid not implemented for pdgid -3
+  warnings.warn(
+/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/feynmandiagram.py:81: UserWarning: Inferring type from pdgid not implemented for pdgid -211
+  warnings.warn(
+/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/feynmandiagram.py:81: UserWarning: Inferring type from pdgid not implemented for pdgid 211
+  warnings.warn(
+/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/feynmandiagram.py:81: UserWarning: Inferring type from pdgid not implemented for pdgid 111
+  warnings.warn(
+/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/feynmandiagram.py:81: UserWarning: Inferring type from pdgid not implemented for pdgid 321
+  warnings.warn(
+/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/feynmandiagram.py:81: UserWarning: Inferring type from pdgid not implemented for pdgid 221
+  warnings.warn(
+/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/feynmandiagram.py:81: UserWarning: Inferring type from pdgid not implemented for pdgid -311
+  warnings.warn(
+/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/feynmandiagram.py:81: UserWarning: Inferring type from pdgid not implemented for pdgid 113
+  warnings.warn(
+/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/feynmandiagram.py:81: UserWarning: Inferring type from pdgid not implemented for pdgid 311
+  warnings.warn(
+/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/feynmandiagram.py:81: UserWarning: Inferring type from pdgid not implemented for pdgid -313
+  warnings.warn(
+/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/feynmandiagram.py:81: UserWarning: Inferring type from pdgid not implemented for pdgid 2224
+  warnings.warn(
+/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/feynmandiagram.py:81: UserWarning: Inferring type from pdgid not implemented for pdgid -2212
+  warnings.warn(
+/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/feynmandiagram.py:81: UserWarning: Inferring type from pdgid not implemented for pdgid 331
+  warnings.warn(
+/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/feynmandiagram.py:81: UserWarning: Inferring type from pdgid not implemented for pdgid 2114
+  warnings.warn(
+/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/feynmandiagram.py:81: UserWarning: Inferring type from pdgid not implemented for pdgid -213
+  warnings.warn(
+/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/feynmandiagram.py:81: UserWarning: Inferring type from pdgid not implemented for pdgid 2112
+  warnings.warn(
+/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/feynmandiagram.py:81: UserWarning: Inferring type from pdgid not implemented for pdgid -1114
+  warnings.warn(
+/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/feynmandiagram.py:81: UserWarning: Inferring type from pdgid not implemented for pdgid 213
+  warnings.warn(
+/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/feynmandiagram.py:81: UserWarning: Inferring type from pdgid not implemented for pdgid 223
+  warnings.warn(
+/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/feynmandiagram.py:81: UserWarning: Inferring type from pdgid not implemented for pdgid 323
+  warnings.warn(
+/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/feynmandiagram.py:81: UserWarning: Inferring type from pdgid not implemented for pdgid -321
+  warnings.warn(
+/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/feynmandiagram.py:81: UserWarning: Inferring type from pdgid not implemented for pdgid -2214
+  warnings.warn(
+/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/feynmandiagram.py:81: UserWarning: Inferring type from pdgid not implemented for pdgid 2214
+  warnings.warn(
+/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/feynmandiagram.py:81: UserWarning: Inferring type from pdgid not implemented for pdgid -323
+  warnings.warn(
+/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/feynmandiagram.py:81: UserWarning: Inferring type from pdgid not implemented for pdgid 130
+  warnings.warn(
+/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/feynmandiagram.py:81: UserWarning: Inferring type from pdgid not implemented for pdgid 310
+  warnings.warn(
+/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/feynmandiagram.py:81: UserWarning: Inferring type from pdgid not implemented for pdgid -2112
+  warnings.warn(
+/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/feynmandiagram.py:81: UserWarning: Inferring type from pdgid not implemented for pdgid -3114
+  warnings.warn(
+/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/feynmandiagram.py:81: UserWarning: Inferring type from pdgid not implemented for pdgid 313
+  warnings.warn(
+/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/feynmandiagram.py:81: UserWarning: Inferring type from pdgid not implemented for pdgid -3122
+  warnings.warn(
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/interfaces_hepmc_hepmc_6_1.png" src="../../_images/interfaces_hepmc_hepmc_6_1.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/interfaces_hepmc_hepmc_6_2.png" src="../../_images/interfaces_hepmc_hepmc_6_2.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span><span class="o">.</span><span class="n">src_diag</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+NoEscape(\begin{tikzpicture}
+\begin{feynman}
+        \vertex (Vertexm1) [] at (10.560465508517456,8.1887333445775);
+        \vertex (Vertexm1clone) [] at (10.560465508517456,8.1887333445775);
+        \vertex (Vertexm2) [] at (9.99055489964581,10.887164783268679);
+        \vertex (Vertexm2clone) [] at (9.99055489964581,10.887164783268679);
+        \vertex (Vertexm18) [] at (11.964412211165458,8.603305785123966);
+        \vertex (Vertexm18clone) [] at (11.964412211165458,8.603305785123966);
+        \vertex (Vertexm19) [] at (12.170180468881767,8.452184179456907);
+        \vertex (Vertexm19clone) [] at (12.170180468881767,8.452184179456907);
+        \vertex (Vertexm24) [] at (10.857311519649182,10.062067802327544);
+        \vertex (Vertexm24clone) [] at (10.857311519649182,10.062067802327544);
+        \vertex (Vertexm27) [] at (12.136785292629447,8.290268173385055);
+        \vertex (Vertexm27clone) [] at (12.136785292629447,8.290268173385055);
+        \vertex (Vertexm25) [] at (11.263619497385733,7.885646820711757);
+        \vertex (Vertexm25clone) [] at (11.263619497385733,7.885646820711757);
+        \vertex (Vertexm31) [] at (10.082307303086523,6.935402260077584);
+        \vertex (Vertexm31clone) [] at (10.082307303086523,6.935402260077584);
+        \vertex (Vertexm32) [] at (10.636700961376286,6.353685275763198);
+        \vertex (Vertexm32clone) [] at (10.636700961376286,6.353685275763198);
+        \vertex (Vertexm38) [] at (10.750548153145555,10.480856805532131);
+        \vertex (Vertexm38clone) [] at (10.750548153145555,10.480856805532131);
+        \vertex (Vertexm39) [] at (10.0549839770619,9.812615955473099);
+        \vertex (Vertexm39clone) [] at (10.0549839770619,9.812615955473099);
+        \vertex (Vertexm41) [] at (9.391128352167312,10.406139315230226);
+        \vertex (Vertexm41clone) [] at (9.391128352167312,10.406139315230226);
+        \vertex (Vertexm50) [] at (9.195479844830496,8.34677011300388);
+        \vertex (Vertexm50clone) [] at (9.195479844830496,8.34677011300388);
+        \vertex (Vertexm48) [] at (9.198178444931692,7.889863383369877);
+        \vertex (Vertexm48clone) [] at (9.198178444931692,7.889863383369877);
+        \vertex (Vertexm59) [] at (9.39450160229381,10.219598583234946);
+        \vertex (Vertexm59clone) [] at (9.39450160229381,10.219598583234946);
+        \vertex (Vertexm64) [] at (10.694046213526732,8.048912126834205);
+        \vertex (Vertexm64clone) [] at (10.694046213526732,8.048912126834205);
+        \vertex (Vertexm66) [] at (10.560128183504807,8.893236633496373);
+        \vertex (Vertexm66clone) [] at (10.560128183504807,8.893236633496373);
+        \vertex (Vertexm68) [] at (11.137965930173724,11.567717996289426);
+        \vertex (Vertexm68clone) [] at (11.137965930173724,11.567717996289426);
+        \vertex (Vertexm179) [] at (10.988362287063588,10.215382020576826);
+        \vertex (Vertexm179clone) [] at (10.988362287063588,10.215382020576826);
+        \vertex (Vertexm73) [] at (9.903356383875865,11.089391128352169);
+        \vertex (Vertexm73clone) [] at (9.903356383875865,11.089391128352169);
+        \vertex (Vertexm67) [] at (9.654747849553043,11.454714117051779);
+        \vertex (Vertexm67clone) [] at (9.654747849553043,11.454714117051779);
+        \vertex (Vertexm70) [] at (8.880418283015686,9.813627930511048);
+        \vertex (Vertexm70clone) [] at (8.880418283015686,9.813627930511048);
+        \vertex (Vertexm81) [] at (10.430089391128352,9.102546803845506);
+        \vertex (Vertexm81clone) [] at (10.430089391128352,9.102546803845506);
+        \vertex (Vertexm84) [] at (9.154832180806206,8.827120931017035);
+        \vertex (Vertexm84clone) [] at (9.154832180806206,8.827120931017035);
+        \vertex (Vertexm157) [] at (11.146061730477314,8.985157699443414);
+        \vertex (Vertexm157clone) [] at (11.146061730477314,8.985157699443414);
+        \vertex (Vertexm89) [] at (12.546803845505144,9.713611064260414);
+        \vertex (Vertexm89clone) [] at (12.546803845505144,9.713611064260414);
+        \vertex (Vertexm90) [] at (13.399898802496207,8.456906729634003);
+        \vertex (Vertexm90clone) [] at (13.399898802496207,8.456906729634003);
+        \vertex (Vertexm92) [] at (11.884297520661157,12.62776184854107);
+        \vertex (Vertexm92clone) [] at (11.884297520661157,12.62776184854107);
+        \vertex (Vertexm93) [] at (10.48288075560803,13.288412885815484);
+        \vertex (Vertexm93clone) [] at (10.48288075560803,13.288412885815484);
+        \vertex (Vertexm94) [] at (9.742789677854613,11.767751728790692);
+        \vertex (Vertexm94clone) [] at (9.742789677854613,11.767751728790692);
+        \vertex (Vertexm95) [] at (10.847023106763366,10.874009107775342);
+        \vertex (Vertexm95clone) [] at (10.847023106763366,10.874009107775342);
+        \vertex (Vertexm88) [] at (9.581042334289087,9.79912295496711);
+        \vertex (Vertexm88clone) [] at (9.581042334289087,9.79912295496711);
+        \vertex (Vertexm155) [] at (9.865744644965424,10.50632484398718);
+        \vertex (Vertexm155clone) [] at (9.865744644965424,10.50632484398718);
+        \vertex (Vertexm108) [] at (10.421487603305785,11.486591330747176);
+        \vertex (Vertexm108clone) [] at (10.421487603305785,11.486591330747176);
+        \vertex (Vertexm109) [] at (11.020408163265307,13.462472592342724);
+        \vertex (Vertexm109clone) [] at (11.020408163265307,13.462472592342724);
+        \vertex (Vertexm110) [] at (10.424017540900659,13.13054477989543);
+        \vertex (Vertexm110clone) [] at (10.424017540900659,13.13054477989543);
+        \vertex (Vertexm111) [] at (10.777365491651206,11.175577669084163);
+        \vertex (Vertexm111clone) [] at (10.777365491651206,11.175577669084163);
+        \vertex (Vertexm100) [] at (9.318603474447631,10.426716141001858);
+        \vertex (Vertexm100clone) [] at (9.318603474447631,10.426716141001858);
+        \vertex (Vertexm117) [] at (10.346432787991231,9.764041153651542);
+        \vertex (Vertexm117clone) [] at (10.346432787991231,9.764041153651542);
+        \vertex (Vertexm123) [] at (11.538370720188901,9.741440377804015);
+        \vertex (Vertexm123clone) [] at (11.538370720188901,9.741440377804015);
+        \vertex (Vertexm107) [] at (11.569404621352675,10.993590824759655);
+        \vertex (Vertexm107clone) [] at (11.569404621352675,10.993590824759655);
+        \vertex (Vertexm126) [] at (10.282172373081464,9.984651711924439);
+        \vertex (Vertexm126clone) [] at (10.282172373081464,9.984651711924439);
+        \vertex (Vertexm127) [] at (10.516950581885647,8.37493675156013);
+        \vertex (Vertexm127clone) [] at (10.516950581885647,8.37493675156013);
+        \vertex (Vertexm129) [] at (9.024793388429753,8.968628773823578);
+        \vertex (Vertexm129clone) [] at (9.024793388429753,8.968628773823578);
+        \vertex (Vertexm133) [] at (11.31270028672626,12.819699780738743);
+        \vertex (Vertexm133clone) [] at (11.31270028672626,12.819699780738743);
+        \vertex (Vertexm116) [] at (9.881767583066285,11.668409512565358);
+        \vertex (Vertexm116clone) [] at (9.881767583066285,11.668409512565358);
+        \vertex (Vertexm186) [] at (12.003541912632823,8.686962388261088);
+        \vertex (Vertexm186clone) [] at (12.003541912632823,8.686962388261088);
+        \vertex (Vertexm139) [] at (10.82695226851071,7.8358913813459266);
+        \vertex (Vertexm139clone) [] at (10.82695226851071,7.8358913813459266);
+        \vertex (Vertexm140) [] at (9.381851914319446,8.602799797604993);
+        \vertex (Vertexm140clone) [] at (9.381851914319446,8.602799797604993);
+        \vertex (Vertexm141) [] at (10.710575139146567,8.602125147579693);
+        \vertex (Vertexm141clone) [] at (10.710575139146567,8.602125147579693);
+        \vertex (Vertexm124) [] at (8.934052960026987,10.084499915668747);
+        \vertex (Vertexm124clone) [] at (8.934052960026987,10.084499915668747);
+        \vertex (Vertexm151) [] at (10.936414235115532,8.141507842806545);
+        \vertex (Vertexm151clone) [] at (10.936414235115532,8.141507842806545);
+        \vertex (Vertexm131) [] at (9.795918367346939,8.98498903693709);
+        \vertex (Vertexm131clone) [] at (9.795918367346939,8.98498903693709);
+        \vertex (Vertexm165) [] at (9.021082813290606,8.475122280317086);
+        \vertex (Vertexm165clone) [] at (9.021082813290606,8.475122280317086);
+        \vertex (Vertexm142) [] at (8.760667903525047,9.531961544948558);
+        \vertex (Vertexm142clone) [] at (8.760667903525047,9.531961544948558);
+        \vertex (Vertexm149) [] at (9.112666554224996,12.024793388429753);
+        \vertex (Vertexm149clone) [] at (9.112666554224996,12.024793388429753);
+        \vertex (Vertexm184) [] at (13.258222297183337,9.402934727610052);
+        \vertex (Vertexm184clone) [] at (13.258222297183337,9.402934727610052);
+        \vertex (Vertexm185) [] at (12.418283015685613,9.895429246078598);
+        \vertex (Vertexm185clone) [] at (12.418283015685613,9.895429246078598);
+        \vertex (Vertexm188) [] at (12.316410861865407,8.333277112497893);
+        \vertex (Vertexm188clone) [] at (12.316410861865407,8.333277112497893);
+        \vertex (Vertexm160) [] at (9.231910946196662,5.579524371732164);
+        \vertex (Vertexm160clone) [] at (9.231910946196662,5.579524371732164);
+        \vertex (Vertexm161) [] at (11.306628436498567,4.907066959015011);
+        \vertex (Vertexm161clone) [] at (11.306628436498567,4.907066959015011);
+        \vertex (Vertexm162) [] at (10.700624051273405,5.28065441052454);
+        \vertex (Vertexm162clone) [] at (10.700624051273405,5.28065441052454);
+        \vertex (Vertexm189) [] at (9.32872322482712,5.455051442064429);
+        \vertex (Vertexm189clone) [] at (9.32872322482712,5.455051442064429);
+        \vertex (Vertexm164) [] at (9.547309833024118,5.14555574295834);
+        \vertex (Vertexm164clone) [] at (9.547309833024118,5.14555574295834);
+        \vertex (Vertexm190) [] at (10.947545960532974,4.947714623039299);
+        \vertex (Vertexm190clone) [] at (10.947545960532974,4.947714623039299);
+        \vertex (Vertexm166) [] at (9.667903525046382,5.365997638724911);
+        \vertex (Vertexm166clone) [] at (9.667903525046382,5.365997638724911);
+        \vertex (Vertexm167) [] at (11.792545117220442,5.47562826783606);
+        \vertex (Vertexm167clone) [] at (11.792545117220442,5.47562826783606);
+        \vertex (Vertexm168) [] at (11.621015348288076,5.349131388092427);
+        \vertex (Vertexm168clone) [] at (11.621015348288076,5.349131388092427);
+        \vertex (Vertexm169) [] at (12.095125653567214,5.69219092595716);
+        \vertex (Vertexm169clone) [] at (12.095125653567214,5.69219092595716);
+        \vertex (Vertexm191) [] at (10.311856974194637,5.158036768426379);
+        \vertex (Vertexm191clone) [] at (10.311856974194637,5.158036768426379);
+        \vertex (Vertexm192) [] at (10.043346264125486,4.9898802496205095);
+        \vertex (Vertexm192clone) [] at (10.043346264125486,4.9898802496205095);
+        \vertex (Vertexm193) [] at (12.072187552707035,5.437173216393996);
+        \vertex (Vertexm193clone) [] at (12.072187552707035,5.437173216393996);
+        \vertex (Vertexm194) [] at (12.133918030021926,10.790689829650868);
+        \vertex (Vertexm194clone) [] at (12.133918030021926,10.790689829650868);
+        \vertex (Vertexm200) [] at (13.441389779052118,10.325687299713275);
+        \vertex (Vertexm200clone) [] at (13.441389779052118,10.325687299713275);
+        \vertex (Vertexm204) [] at (12.107100691516276,12.965930173722382);
+        \vertex (Vertexm204clone) [] at (12.107100691516276,12.965930173722382);
+        \vertex (Vertexm209) [] at (12.736717827626919,8.382863889357395);
+        \vertex (Vertexm209clone) [] at (12.736717827626919,8.382863889357395);
+        \vertex (Vertexm210) [] at (7.471074380165289,9.295834036093776);
+        \vertex (Vertexm210clone) [] at (7.471074380165289,9.295834036093776);
+        \vertex (Vertexm211) [] at (7.721875527070332,9.3536852757632);
+        \vertex (Vertexm211clone) [] at (7.721875527070332,9.3536852757632);
+        \vertex (Vertexm212) [] at (7.660313712261765,9.908247596559285);
+        \vertex (Vertexm212clone) [] at (7.660313712261765,9.908247596559285);
+        \vertex (Vertexm213) [] at (8.74650025299376,8.091415078428065);
+        \vertex (Vertexm213clone) [] at (8.74650025299376,8.091415078428065);
+        \vertex (Vertexm214) [] at (7.567212008770451,10.455051442064429);
+        \vertex (Vertexm214clone) [] at (7.567212008770451,10.455051442064429);
+        \vertex (Vertexm216) [] at (8.01146905043009,8.260414909765558);
+        \vertex (Vertexm216clone) [] at (8.01146905043009,8.260414909765558);
+        \vertex (Vertexm217) [] at (7.427390791027156,10.134592680047225);
+        \vertex (Vertexm217clone) [] at (7.427390791027156,10.134592680047225);
+        \vertex (Vertexm215) [] at (8.048068814302582,8.69286557598246);
+        \vertex (Vertexm215clone) [] at (8.048068814302582,8.69286557598246);
+        \vertex (Vertexm219) [] at (7.394838927306459,9.819868443245067);
+        \vertex (Vertexm219clone) [] at (7.394838927306459,9.819868443245067);
+        \vertex (Vertexm221) [] at (7.652386574464497,10.568729971327375);
+        \vertex (Vertexm221clone) [] at (7.652386574464497,10.568729971327375);
+        \vertex (Vertexm218) [] at (8.595547309833025,8.129870129870131);
+        \vertex (Vertexm218clone) [] at (8.595547309833025,8.129870129870131);
+        \vertex (Vertexm222) [] at (7.417102378141339,8.956316410861865);
+        \vertex (Vertexm222clone) [] at (7.417102378141339,8.956316410861865);
+        \vertex (Vertexm220) [] at (8.417777028166638,8.20610558272896);
+        \vertex (Vertexm220clone) [] at (8.417777028166638,8.20610558272896);
+        \vertex (Vertexm223) [] at (7.415078428065441,9.543599257884972);
+        \vertex (Vertexm223clone) [] at (7.415078428065441,9.543599257884972);
+        \vertex (Vertexm225) [] at (7.8476977567886665,9.008433125316243);
+        \vertex (Vertexm225clone) [] at (7.8476977567886665,9.008433125316243);
+        \vertex (Vertexm226) [] at (7.890032045876202,8.471917692696914);
+        \vertex (Vertexm226clone) [] at (7.890032045876202,8.471917692696914);
+        \vertex (Vertexm224) [] at (8.25383707201889,8.438691178950918);
+        \vertex (Vertexm224clone) [] at (8.25383707201889,8.438691178950918);
+        \vertex (Vertexm231) [] at (7.50379490639231,10.228875021082814);
+        \vertex (Vertexm231clone) [] at (7.50379490639231,10.228875021082814);
+        \vertex (Vertexm232) [] at (7.699106088716478,8.758137965930175);
+        \vertex (Vertexm232clone) [] at (7.699106088716478,8.758137965930175);
+        \vertex (Vertexm227) [] at (7.803002192612583,12.035925113847192);
+        \vertex (Vertexm227clone) [] at (7.803002192612583,12.035925113847192);
+        \vertex (Vertexm228) [] at (8.062742452352843,12.453870804520156);
+        \vertex (Vertexm228clone) [] at (8.062742452352843,12.453870804520156);
+        \vertex (Vertexm229) [] at (8.51914319446787,12.871479170180468);
+        \vertex (Vertexm229clone) [] at (8.51914319446787,12.871479170180468);
+        \vertex (Vertexm230) [] at (8.402766065103727,13.100691516275933);
+        \vertex (Vertexm230clone) [] at (8.402766065103727,13.100691516275933);
+        \vertex (Vertexm234) [] at (9.109799291617474,13.534997470062407);
+        \vertex (Vertexm234clone) [] at (9.109799291617474,13.534997470062407);
+        \vertex (Vertexm235) [] at (9.403272052622702,13.675324675324676);
+        \vertex (Vertexm235clone) [] at (9.403272052622702,13.675324675324676);
+        \vertex (Vertexm233) [] at (8.750210828132905,13.185697419463654);
+        \vertex (Vertexm233clone) [] at (8.750210828132905,13.185697419463654);
+        \vertex (Vertexm238) [] at (7.95682239838084,12.876201720357566);
+        \vertex (Vertexm238clone) [] at (7.95682239838084,12.876201720357566);
+        \vertex (Vertexm240) [] at (7.640580199021758,12.587788834542081);
+        \vertex (Vertexm240clone) [] at (7.640580199021758,12.587788834542081);
+        \vertex (Vertexm236) [] at (8.170349131388093,12.69978073874178);
+        \vertex (Vertexm236clone) [] at (8.170349131388093,12.69978073874178);
+        \vertex (Vertexm237) [] at (9.65390453702142,13.33631303761174);
+        \vertex (Vertexm237clone) [] at (9.65390453702142,13.33631303761174);
+        \vertex (Vertexm242) [] at (8.724742789677855,12.934390285039637);
+        \vertex (Vertexm242clone) [] at (8.724742789677855,12.934390285039637);
+        \vertex (Vertexm239) [] at (9.172541743970315,13.197841119919042);
+        \vertex (Vertexm239clone) [] at (9.172541743970315,13.197841119919042);
+        \vertex (Vertexm243) [] at (7.823410355877889,12.232248271209311);
+        \vertex (Vertexm243clone) [] at (7.823410355877889,12.232248271209311);
+        \vertex (Vertexm241) [] at (9.439703153988868,13.3794906392309);
+        \vertex (Vertexm241clone) [] at (9.439703153988868,13.3794906392309);
+        \vertex (Vertexm244) [] at (7.5756451340866935,12.106088716478327);
+        \vertex (Vertexm244clone) [] at (7.5756451340866935,12.106088716478327);
+        \vertex (Vertexm245) [] at (8.731657952437175,13.43666722887502);
+        \vertex (Vertexm245clone) [] at (8.731657952437175,13.43666722887502);
+        \vertex (Vertexm246) [] at (11.84854106932029,12.298363973688648);
+        \vertex (Vertexm246clone) [] at (11.84854106932029,12.298363973688648);
+        \vertex (Vertexm247) [] at (13.214538708045202,10.031371226176422);
+        \vertex (Vertexm247clone) [] at (13.214538708045202,10.031371226176422);
+        \vertex (Vertexm252) [] at (12.367178276269186,10.740765727778715);
+        \vertex (Vertexm252clone) [] at (12.367178276269186,10.740765727778715);
+        \vertex (Vertexm253) [] at (13.411705177938945,9.816663855624894);
+        \vertex (Vertexm253clone) [] at (13.411705177938945,9.816663855624894);
+        \vertex (Vertexm254) [] at (13.387417777028167,9.342553550345759);
+        \vertex (Vertexm254clone) [] at (13.387417777028167,9.342553550345759);
+        \vertex (Vertexm266) [] at (13.116545791870466,9.432956653735875);
+        \vertex (Vertexm266clone) [] at (13.116545791870466,9.432956653735875);
+        \vertex (Vertexm258) [] at (11.890369370888852,3.4867599932535);
+        \vertex (Vertexm258clone) [] at (11.890369370888852,3.4867599932535);
+        \vertex (Vertexm259) [] at (12.649856636869625,3.767245741271716);
+        \vertex (Vertexm259clone) [] at (12.649856636869625,3.767245741271716);
+        \vertex (Vertexm260) [] at (10.364648338674314,3.3238320121437006);
+        \vertex (Vertexm260clone) [] at (10.364648338674314,3.3238320121437006);
+        \vertex (Vertexm261) [] at (8.557598245909935,3.590824759655929);
+        \vertex (Vertexm261clone) [] at (8.557598245909935,3.590824759655929);
+        \vertex (Vertexm262) [] at (10.968460111317256,3.3034238488783947);
+        \vertex (Vertexm262clone) [] at (10.968460111317256,3.3034238488783947);
+        \vertex (Vertexm263) [] at (11.602293810086017,3.4459436667228878);
+        \vertex (Vertexm263clone) [] at (11.602293810086017,3.4459436667228878);
+        \vertex (Vertexm264) [] at (9.412379827964244,3.4275594535334797);
+        \vertex (Vertexm264clone) [] at (9.412379827964244,3.4275594535334797);
+        \vertex (Vertexm265) [] at (13.395344914825436,4.191937932197672);
+        \vertex (Vertexm265clone) [] at (13.395344914825436,4.191937932197672);
+        \vertex (Vertexm267) [] at (12.018046888176759,9.307303086523866);
+        \vertex (Vertexm267clone) [] at (12.018046888176759,9.307303086523866);
+        \vertex (Vertexm269) [] at (14.995614774835555,12.597908584921571);
+        \vertex (Vertexm269clone) [] at (14.995614774835555,12.597908584921571);
+        \vertex (Vertexm271) [] at (13.844493169168494,13.603305785123966);
+        \vertex (Vertexm271clone) [] at (13.844493169168494,13.603305785123966);
+        \vertex (Vertexm272) [] at (13.73772980266487,11.11418451678192);
+        \vertex (Vertexm272clone) [] at (13.73772980266487,11.11418451678192);
+        \vertex (Vertexm275) [] at (13.357058525889695,8.741946365322988);
+        \vertex (Vertexm275clone) [] at (13.357058525889695,8.741946365322988);
+        \vertex (Vertexm274) [] at (12.26800472255018,10.455220104570754);
+        \vertex (Vertexm274clone) [] at (12.26800472255018,10.455220104570754);
+        \vertex (Vertexm285) [] at (12.290942823410356,13.515095294316072);
+        \vertex (Vertexm285clone) [] at (12.290942823410356,13.515095294316072);
+        \vertex (Vertexm284) [] at (12.192443919716647,11.447967616798786);
+        \vertex (Vertexm284clone) [] at (12.192443919716647,11.447967616798786);
+        \vertex (Vertexm289) [] at (12.188902007083824,11.146905043008939);
+        \vertex (Vertexm289clone) [] at (12.188902007083824,11.146905043008939);
+        \vertex (Vertexm290) [] at (11.895260583572272,10.445269016697587);
+        \vertex (Vertexm290clone) [] at (11.895260583572272,10.445269016697587);
+        \vertex (Vertexm315) [] at (12.567380671276776,8.544948557935571);
+        \vertex (Vertexm315clone) [] at (12.567380671276776,8.544948557935571);
+        \vertex (Vertexm296) [] at (5.629954461123293,9.57244054646652);
+        \vertex (Vertexm296clone) [] at (5.629954461123293,9.57244054646652);
+        \vertex (Vertexm297) [] at (5.928149772305616,11.237814133918029);
+        \vertex (Vertexm297clone) [] at (5.928149772305616,11.237814133918029);
+        \vertex (Vertexm298) [] at (6.426716141001856,7.303929836397369);
+        \vertex (Vertexm298clone) [] at (6.426716141001856,7.303929836397369);
+        \vertex (Vertexm299) [] at (5.814639905548997,10.979591836734695);
+        \vertex (Vertexm299clone) [] at (5.814639905548997,10.979591836734695);
+        \vertex (Vertexm300) [] at (5.671782762691854,10.391971664698938);
+        \vertex (Vertexm300clone) [] at (5.671782762691854,10.391971664698938);
+        \vertex (Vertexm301) [] at (5.74683757800641,10.7298026648676);
+        \vertex (Vertexm301clone) [] at (5.74683757800641,10.7298026648676);
+        \vertex (Vertexm302) [] at (5.866756620003373,8.032214538708045);
+        \vertex (Vertexm302clone) [] at (5.866756620003373,8.032214538708045);
+        \vertex (Vertexm303) [] at (5.830325518637207,8.431944678697926);
+        \vertex (Vertexm303clone) [] at (5.830325518637207,8.431944678697926);
+        \vertex (Vertexm304) [] at (5.601113172541744,9.339180300219262);
+        \vertex (Vertexm304clone) [] at (5.601113172541744,9.339180300219262);
+        \vertex (Vertexm305) [] at (6.84820374430764,6.907741609040311);
+        \vertex (Vertexm305clone) [] at (6.84820374430764,6.907741609040311);
+        \vertex (Vertexm306) [] at (5.625400573452522,10.088716478326866);
+        \vertex (Vertexm306clone) [] at (5.625400573452522,10.088716478326866);
+        \vertex (Vertexm307) [] at (5.969303423848879,8.198347107438016);
+        \vertex (Vertexm307clone) [] at (5.969303423848879,8.198347107438016);
+        \vertex (Vertexm308) [] at (8.111148591668073,15.29279811097993);
+        \vertex (Vertexm308clone) [] at (8.111148591668073,15.29279811097993);
+        \vertex (Vertexm309) [] at (8.963062911114859,15.570753921403274);
+        \vertex (Vertexm309clone) [] at (8.963062911114859,15.570753921403274);
+        \vertex (Vertexm310) [] at (6.242030696576151,13.82830156856131);
+        \vertex (Vertexm310clone) [] at (6.242030696576151,13.82830156856131);
+        \vertex (Vertexm311) [] at (6.2249957834373415,13.911958171698434);
+        \vertex (Vertexm311clone) [] at (6.2249957834373415,13.911958171698434);
+        \vertex (Vertexm312) [] at (9.193287232248274,15.53027491988531);
+        \vertex (Vertexm312clone) [] at (9.193287232248274,15.53027491988531);
+        \vertex (Vertexm313) [] at (5.7606679035250465,12.826108955979088);
+        \vertex (Vertexm313clone) [] at (5.7606679035250465,12.826108955979088);
+        \vertex (Vertexm314) [] at (7.372069488952606,14.923933209647497);
+        \vertex (Vertexm314clone) [] at (7.372069488952606,14.923933209647497);
+        \vertex (Vertexm320) [] at (13.074717490301907,11.208635520323831);
+        \vertex (Vertexm320clone) [] at (13.074717490301907,11.208635520323831);
+        \vertex (Vertexm327) [] at (7.289087535840784,2.620340698262776);
+        \vertex (Vertexm327clone) [] at (7.289087535840784,2.620340698262776);
+        \vertex (Vertexm328) [] at (8.592342722212852,2.012987012987013);
+        \vertex (Vertexm328clone) [] at (8.592342722212852,2.012987012987013);
+        \vertex (Vertexm329) [] at (11.488783943329397,1.715635014336313);
+        \vertex (Vertexm329clone) [] at (11.488783943329397,1.715635014336313);
+        \vertex (Vertexm340) [] at (12.794737729802666,10.693877551020407);
+        \vertex (Vertexm340clone) [] at (12.794737729802666,10.693877551020407);
+        \vertex (Vertexm341) [] at (12.818013155675494,10.998313374936753);
+        \vertex (Vertexm341clone) [] at (12.818013155675494,10.998313374936753);
+        \vertex (Vertexm347) [] at (12.778208804182832,9.943498060381177);
+        \vertex (Vertexm347clone) [] at (12.778208804182832,9.943498060381177);
+        \vertex (Vertexm348) [] at (12.634508348794064,11.916174734356552);
+        \vertex (Vertexm348clone) [] at (12.634508348794064,11.916174734356552);
+        \vertex (Vertexm353) [] at (11.558610220947882,12.084837240681397);
+        \vertex (Vertexm353clone) [] at (11.558610220947882,12.084837240681397);
+        \vertex (Vertexm351) [] at (12.461966604823749,11.840107944004048);
+        \vertex (Vertexm351clone) [] at (12.461966604823749,11.840107944004048);
+        \vertex (Vertexm359) [] at (11.212683420475628,12.553381683251812);
+        \vertex (Vertexm359clone) [] at (11.212683420475628,12.553381683251812);
+        \vertex (Vertexm362) [] at (13.091415078428065,10.677517287906898);
+        \vertex (Vertexm362clone) [] at (13.091415078428065,10.677517287906898);
+        \vertex (Vertexm360) [] at (12.924439197166471,10.361443751054143);
+        \vertex (Vertexm360clone) [] at (12.924439197166471,10.361443751054143);
+        \vertex (Vertexm368) [] at (13.151121605667061,9.702816663855625);
+        \vertex (Vertexm368clone) [] at (13.151121605667061,9.702816663855625);
+        \vertex (Vertexm364) [] at (13.398886827458256,10.051610726935403);
+        \vertex (Vertexm364clone) [] at (13.398886827458256,10.051610726935403);
+        \vertex (Vertexm365) [] at (4.204418957665711,7.527238994771462);
+        \vertex (Vertexm365clone) [] at (4.204418957665711,7.527238994771462);
+        \vertex (Vertexm409) [] at (12.988024962050934,10.044695564176083);
+        \vertex (Vertexm409clone) [] at (12.988024962050934,10.044695564176083);
+        \vertex (Vertexm386) [] at (13.047394164277282,11.52470905717659);
+        \vertex (Vertexm386clone) [] at (13.047394164277282,11.52470905717659);
+        \vertex (Vertexm398) [] at (12.644628099173556,11.407994602799798);
+        \vertex (Vertexm398clone) [] at (12.644628099173556,11.407994602799798);
+        \vertex (Vertexm401) [] at (14.236464833867434,11.253499747006241);
+        \vertex (Vertexm401clone) [] at (14.236464833867434,11.253499747006241);
+        \vertex (Vertexm394) [] at (13.37392477652218,10.997132737392478);
+        \vertex (Vertexm394clone) [] at (13.37392477652218,10.997132737392478);
+        \vertex (Vertexm414) [] at (2.580536346770113,8.024118738404454);
+        \vertex (Vertexm414clone) [] at (2.580536346770113,8.024118738404454);
+        \vertex (Vertexm415) [] at (3.2548490470568394,6.340698262776185);
+        \vertex (Vertexm415clone) [] at (3.2548490470568394,6.340698262776185);
+        \vertex (Vertexm425) [] at (12.856805532130206,12.397200202395007);
+        \vertex (Vertexm425clone) [] at (12.856805532130206,12.397200202395007);
+        \vertex (Vertexm427) [] at (14.615786810592006,10.107438016528924);
+        \vertex (Vertexm427clone) [] at (14.615786810592006,10.107438016528924);
+        \vertex (Vertexm429) [] at (14.733513240006745,10.735031202563672);
+        \vertex (Vertexm429clone) [] at (14.733513240006745,10.735031202563672);
+        \vertex (Vertexm428) [] at (13.287569573283859,12.607016360263115);
+        \vertex (Vertexm428clone) [] at (13.287569573283859,12.607016360263115);
+        \vertex (Vertexm430) [] at (14.737392477652218,10.95850902344409);
+        \vertex (Vertexm430clone) [] at (14.737392477652218,10.95850902344409);
+        \vertex (Vertexm431) [] at (14.30595378647327,9.74616292798111);
+        \vertex (Vertexm431clone) [] at (14.30595378647327,9.74616292798111);
+        \vertex (Vertexm432) [] at (14.483892730645977,11.673975375274077);
+        \vertex (Vertexm432clone) [] at (14.483892730645977,11.673975375274077);
+        \vertex (Vertexm435) [] at (14.15702479338843,9.606341710237814);
+        \vertex (Vertexm435clone) [] at (14.15702479338843,9.606341710237814);
+        \vertex (Vertexm433) [] at (14.54730983302412,10.355034575813796);
+        \vertex (Vertexm433clone) [] at (14.54730983302412,10.355034575813796);
+        \vertex (Vertexm434) [] at (14.27711249789172,9.909596896609884);
+        \vertex (Vertexm434clone) [] at (14.27711249789172,9.909596896609884);
+        \vertex (Vertexm436) [] at (14.180806206780233,11.978579861696746);
+        \vertex (Vertexm436clone) [] at (14.180806206780233,11.978579861696746);
+        \vertex (Vertexm437) [] at (14.491819868443246,11.861022094788328);
+        \vertex (Vertexm437clone) [] at (14.491819868443246,11.861022094788328);
+        \vertex (Vertexm439) [] at (14.35267330072525,11.766908416259065);
+        \vertex (Vertexm439clone) [] at (14.35267330072525,11.766908416259065);
+        \vertex (Vertexm438) [] at (14.166638556248948,11.47107438016529);
+        \vertex (Vertexm438clone) [] at (14.166638556248948,11.47107438016529);
+        \vertex (Vertexm440) [] at (14.027997976049924,12.304435823916345);
+        \vertex (Vertexm440clone) [] at (14.027997976049924,12.304435823916345);
+        \vertex (Vertexm441) [] at (13.73604317760162,12.424186203406984);
+        \vertex (Vertexm441clone) [] at (13.73604317760162,12.424186203406984);
+        \vertex (Vertexm443) [] at (14.711755776690843,10.635014336313038);
+        \vertex (Vertexm443clone) [] at (14.711755776690843,10.635014336313038);
+        \vertex (Vertexm442) [] at (13.934390285039635,12.036093776353518);
+        \vertex (Vertexm442clone) [] at (13.934390285039635,12.036093776353518);
+        \vertex (Vertexm447) [] at (13.977905211671446,9.606173047731488);
+        \vertex (Vertexm447clone) [] at (13.977905211671446,9.606173047731488);
+        \vertex (Vertexm444) [] at (13.172035756451342,12.358239163433971);
+        \vertex (Vertexm444clone) [] at (13.172035756451342,12.358239163433971);
+        \vertex (Vertexm445) [] at (13.84466183167482,9.706864564007422);
+        \vertex (Vertexm445clone) [] at (13.84466183167482,9.706864564007422);
+        \vertex (Vertexm446) [] at (13.605835722718842,12.277618485410695);
+        \vertex (Vertexm446clone) [] at (13.605835722718842,12.277618485410695);
+        \vertex (Vertexm450) [] at (14.31826614943498,12.077416090403103);
+        \vertex (Vertexm450clone) [] at (14.31826614943498,12.077416090403103);
+        \vertex (Vertexm448) [] at (13.010963062911113,12.531624219935908);
+        \vertex (Vertexm448clone) [] at (13.010963062911113,12.531624219935908);
+        \vertex (Vertexm449) [] at (14.469219092595715,10.937088885140833);
+        \vertex (Vertexm449clone) [] at (14.469219092595715,10.937088885140833);
+        \vertex (Vertexm451) [] at (14.07825940293473,11.760161916006071);
+        \vertex (Vertexm451clone) [] at (14.07825940293473,11.760161916006071);
+        \vertex (Vertexm452) [] at (14.749367515601282,11.316916849384382);
+        \vertex (Vertexm452clone) [] at (14.749367515601282,11.316916849384382);
+        \vertex (Vertexm453) [] at (14.40630797773655,10.074548827795581);
+        \vertex (Vertexm453clone) [] at (14.40630797773655,10.074548827795581);
+        \vertex (Vertexm454) [] at (14.615449485579354,11.163771293641425);
+        \vertex (Vertexm454clone) [] at (14.615449485579354,11.163771293641425);
+        \vertex (Vertexm455) [] at (13.495024456063419,12.52049249451847);
+        \vertex (Vertexm455clone) [] at (13.495024456063419,12.52049249451847);
+        \vertex (Vertexm456) [] at (15.890200708382526,8.911114859166808);
+        \vertex (Vertexm456clone) [] at (15.890200708382526,8.911114859166808);
+        \vertex (Vertexm457) [] at (16.43211334120425,10.800640917524035);
+        \vertex (Vertexm457clone) [] at (16.43211334120425,10.800640917524035);
+        \vertex (Vertexm458) [] at (13.60819699780739,14.502445606341713);
+        \vertex (Vertexm458clone) [] at (13.60819699780739,14.502445606341713);
+        \vertex (Vertexm459) [] at (16.35925113847192,10.10406476640243);
+        \vertex (Vertexm459clone) [] at (16.35925113847192,10.10406476640243);
+        \vertex (Vertexm460) [] at (15.614774835554057,8.571428571428573);
+        \vertex (Vertexm460clone) [] at (15.614774835554057,8.571428571428573);
+        \vertex (Vertexm461) [] at (14.106257378984653,14.155844155844155);
+        \vertex (Vertexm461clone) [] at (14.106257378984653,14.155844155844155);
+        \vertex (Vertexm462) [] at (15.427053466014504,8.366503626243887);
+        \vertex (Vertexm462clone) [] at (15.427053466014504,8.366503626243887);
+        \vertex (Vertexm463) [] at (16.27778714791702,11.771630966436161);
+        \vertex (Vertexm463clone) [] at (16.27778714791702,11.771630966436161);
+        \vertex (Vertexm464) [] at (15.925619834710744,12.626075223477821);
+        \vertex (Vertexm464clone) [] at (15.925619834710744,12.626075223477821);
+        \vertex (Vertexm465) [] at (15.343396862877384,13.434643278799124);
+        \vertex (Vertexm465clone) [] at (15.343396862877384,13.434643278799124);
+        \vertex (Vertexm466) [] at (16.271040647664027,11.897453196154494);
+        \vertex (Vertexm466clone) [] at (16.271040647664027,11.897453196154494);
+        \vertex (Vertexm467) [] at (15.243885984145724,13.546129195479846);
+        \vertex (Vertexm467clone) [] at (15.243885984145724,13.546129195479846);
+        \vertex (Vertexm468) [] at (14.99274751222803,13.741777702816664);
+        \vertex (Vertexm468clone) [] at (14.99274751222803,13.741777702816664);
+        \vertex (Vertexm469) [] at (16.415584415584416,11.30544779895429);
+        \vertex (Vertexm469clone) [] at (16.415584415584416,11.30544779895429);
+        \vertex (Vertexm470) [] at (15.56367009613763,13.232079608702985);
+        \vertex (Vertexm470clone) [] at (15.56367009613763,13.232079608702985);
+        \vertex (Vertexm471) [] at (16.40175409006578,10.55118907066959);
+        \vertex (Vertexm471clone) [] at (16.40175409006578,10.55118907066959);
+        \vertex (Vertexm472) [] at (15.905548996458087,12.750042165626583);
+        \vertex (Vertexm472clone) [] at (15.905548996458087,12.750042165626583);
+        \vertex (Vertexm473) [] at (16.2437173216394,9.855287569573285);
+        \vertex (Vertexm473clone) [] at (16.2437173216394,9.855287569573285);
+        \vertex (Vertexm474) [] at (14.564850733681903,14.038117726429416);
+        \vertex (Vertexm474clone) [] at (14.564850733681903,14.038117726429416);
+        \vertex (Vertexm475) [] at (14.377804014167651,15.94046213526733);
+        \vertex (Vertexm475clone) [] at (14.377804014167651,15.94046213526733);
+        \vertex (Vertexm476) [] at (13.817675830662843,16.083656603137126);
+        \vertex (Vertexm476clone) [] at (13.817675830662843,16.083656603137126);
+        \vertex (Vertexm477) [] at (17.982796424354866,9.840613931523023);
+        \vertex (Vertexm477clone) [] at (17.982796424354866,9.840613931523023);
+        \vertex (Leg1) [label=$\textcolor{red}{p}$,text=red] at (0.5700286726260752,9.471917692696914);
+        \vertex (Leg9) [label=$\textcolor{red}{p}$,text=red] at (20.0,9.471917692696914);
+        \vertex (Leg53) [] at (9.90841625906561,5.865744644965424);
+        \vertex (Leg54) [] at (11.476134255355035,5.89863383369877);
+        \vertex (Leg55) [] at (10.321470737055154,5.754596053297352);
+        \vertex (Leg57) [] at (9.642772811603981,5.839095968966099);
+        \vertex (Leg64) [] at (10.90285039635689,5.696407488615281);
+        \vertex (Leg65) [] at (10.06999494012481,5.641254849047057);
+        \vertex (Leg68) [] at (11.17304773148929,5.893911283521673);
+        \vertex (Leg71) [] at (10.596221959858322,5.664361612413559);
+        \vertex (Leg72) [] at (11.237139483892731,5.602968460111317);
+        \vertex (Leg73) [] at (11.71968291448811,5.915331421824929);
+        \vertex (Leg243) [] at (8.48254343059538,8.900151796255694);
+        \vertex (Leg246) [] at (8.082644628099175,10.559116208466858);
+        \vertex (Leg249) [] at (8.741271715297689,8.510204081632653);
+        \vertex (Leg251) [] at (8.345420812953282,10.350649350649352);
+        \vertex (Leg257) [] at (8.705009276437849,8.755270703322651);
+        \vertex (Leg259) [] at (8.045201551695058,10.313206274245237);
+        \vertex (Leg262) [] at (8.710406476640244,9.153651543261933);
+        \vertex (Leg264) [] at (8.054477989542924,9.697082138640582);
+        \vertex (Leg265) [] at (8.285545623207963,10.54562320796087);
+        \vertex (Leg266) [] at (8.375611401585427,10.102040816326532);
+        \vertex (Leg267) [] at (8.086523865744645,10.027154663518301);
+        \vertex (Leg268) [] at (8.21099679541238,9.404621352673301);
+        \vertex (Leg269) [] at (8.337999662674987,9.158205430932703);
+        \vertex (Leg271) [] at (8.344408837915331,9.743127002867261);
+        \vertex (Leg285) [] at (8.857480182155507,12.369708213864058);
+        \vertex (Leg288) [] at (8.236296171361106,11.867599932534997);
+        \vertex (Leg289) [] at (9.39652555236971,12.62776184854107);
+        \vertex (Leg290) [] at (8.452690166975882,11.939618822735707);
+        \vertex (Leg294) [] at (9.505650193961884,12.825771630966438);
+        \vertex (Leg300) [] at (9.159554730983304,12.554899645808737);
+        \vertex (Leg301) [] at (8.58492157193456,12.142013830325517);
+        \vertex (Leg316) [] at (7.864395344914826,4.4037780401416775);
+        \vertex (Leg317) [] at (8.602968460111317,4.015854275594536);
+        \vertex (Leg321) [] at (10.288075560802834,3.5945353347950753);
+        \vertex (Leg322) [] at (8.418620340698263,4.056839264631472);
+        \vertex (Leg323) [] at (7.991735537190082,4.30258053634677);
+        \vertex (Leg327) [] at (8.242199359082477,4.197166469893743);
+        \vertex (Leg328) [] at (9.545623207960872,3.6864564007421152);
+        \vertex (Leg329) [] at (12.302411873840445,3.915837409343903);
+        \vertex (Leg330) [] at (12.937088885140833,4.214538708045202);
+        \vertex (Leg331) [] at (13.198009782425366,4.441389779052117);
+        \vertex (Leg332) [] at (12.046044864226683,3.8094113678529267);
+        \vertex (Leg333) [] at (13.0291786135942,4.305110473941643);
+        \vertex (Leg334) [] at (13.473604317760163,4.598920559959521);
+        \vertex (Leg335) [] at (10.663349637375612,3.566200033732501);
+        \vertex (Leg336) [] at (9.280823073030865,3.7525721032214543);
+        \vertex (Leg337) [] at (8.92308989711587,3.8687805700792715);
+        \vertex (Leg338) [] at (10.925451172204419,3.5801990217574637);
+        \vertex (Leg340) [] at (12.6496879743633,4.069657615112161);
+        \vertex (Leg366) [] at (6.523697082138641,7.700792713779727);
+        \vertex (Leg368) [] at (5.98886827458256,9.947883285545622);
+        \vertex (Leg369) [] at (6.536515432619328,7.94147411030528);
+        \vertex (Leg370) [] at (6.207454882779558,10.959858323494686);
+        \vertex (Leg371) [] at (5.986001011975039,9.196997807387417);
+        \vertex (Leg372) [] at (7.761342553550347,6.640748861528083);
+        \vertex (Leg373) [] at (8.174903019058863,6.611738910440209);
+        \vertex (Leg374) [] at (6.007758475290943,10.462809917355374);
+        \vertex (Leg376) [] at (7.414235115533817,6.737561140158544);
+        \vertex (Leg377) [] at (6.808062067802327,7.387249114521842);
+        \vertex (Leg379) [] at (5.867768595041322,9.883116883116884);
+        \vertex (Leg381) [] at (6.264800134930005,8.318603474447631);
+        \vertex (Leg382) [] at (7.358239163433968,7.014336313037612);
+        \vertex (Leg383) [] at (5.969809411367853,8.864564007421151);
+        \vertex (Leg385) [] at (6.295159386068478,11.331927812447294);
+        \vertex (Leg387) [] at (7.561308821049081,6.744307640411536);
+        \vertex (Leg388) [] at (8.289762185866081,6.60060718502277);
+        \vertex (Leg391) [] at (7.981109799291618,6.630966436161241);
+        \vertex (Leg392) [] at (7.185191431944679,6.96862877382358);
+        \vertex (Leg393) [] at (5.909259571597234,9.02158880080958);
+        \vertex (Leg395) [] at (7.0505987518974536,7.293641423511553);
+        \vertex (Leg396) [] at (6.003373250126497,9.279473772980266);
+        \vertex (Leg397) [] at (6.3118569741946375,7.874346432787992);
+        \vertex (Leg399) [] at (6.47039973013999,7.875527070332265);
+        \vertex (Leg400) [] at (7.7260920897284535,6.828470231067634);
+        \vertex (Leg401) [] at (6.101872153820206,10.860178782256703);
+        \vertex (Leg403) [] at (6.876370382863889,7.23258559622196);
+        \vertex (Leg405) [] at (6.591330747174904,13.606004385225166);
+        \vertex (Leg406) [] at (5.945859335469725,12.494687131050767);
+        \vertex (Leg407) [] at (7.351998650699949,14.311688311688311);
+        \vertex (Leg408) [] at (6.259065609714961,13.153988868274581);
+        \vertex (Leg409) [] at (7.02192612582223,14.174734356552538);
+        \vertex (Leg410) [] at (8.684263788159893,14.958677685950414);
+        \vertex (Leg411) [] at (8.11907572946534,14.949401248102546);
+        \vertex (Leg412) [] at (7.196829144881093,14.528756957328387);
+        \vertex (Leg413) [] at (9.489795918367346,15.32619328723225);
+        \vertex (Leg415) [] at (8.780232754258728,15.191937932197675);
+        \vertex (Leg416) [] at (9.80435149266318,15.350143363130378);
+        \vertex (Leg418) [] at (8.462809917355372,15.115365154326195);
+        \vertex (Leg419) [] at (7.163771293641425,14.371394838927307);
+        \vertex (Leg420) [] at (7.701804688817676,14.784280654410525);
+        \vertex (Leg422) [] at (6.7213695395513575,14.059031877213695);
+        \vertex (Leg423) [] at (5.968628773823578,12.872659807724744);
+        \vertex (Leg425) [] at (6.3632990386237145,13.358913813459267);
+        \vertex (Leg426) [] at (7.554562320796087,14.605329735199867);
+        \vertex (Leg427) [] at (9.563501433631304,15.17338505650194);
+        \vertex (Leg428) [] at (9.917186709394501,15.238826108955978);
+        \vertex (Leg429) [] at (8.392646314724239,14.899139821217744);
+        \vertex (Leg430) [] at (6.934052960026986,13.967110811266657);
+        \vertex (Leg431) [] at (9.25215044695564,15.108281329060551);
+        \vertex (Leg432) [] at (7.951425198178446,14.727778714791704);
+        \vertex (Leg433) [] at (6.0543093270366,12.680215888008096);
+        \vertex (Leg434) [] at (6.424692190925958,13.51104739416428);
+        \vertex (Leg437) [] at (6.115702479338844,13.056164614606175);
+        \vertex (Leg438) [] at (9.045538876707708,15.223983808399392);
+        \vertex (Leg458) [] at (12.964243548659134,2.2153820205768255);
+        \vertex (Leg459) [] at (12.05920053972002,1.93557092258391);
+        \vertex (Leg460) [] at (14.012312362961714,2.78377466689155);
+        \vertex (Leg461) [] at (13.35790183842132,2.377298026648676);
+        \vertex (Leg462) [] at (9.462809917355372,1.9531118232416933);
+        \vertex (Leg463) [] at (10.498060381177263,1.7928824422330916);
+        \vertex (Leg467) [] at (11.17271040647664,1.8426378815989206);
+        \vertex (Leg468) [] at (12.650193961882275,2.127677517287907);
+        \vertex (Leg469) [] at (9.5403946702648,1.8729971327373927);
+        \vertex (Leg470) [] at (8.091415078428065,2.3408669252825094);
+        \vertex (Leg471) [] at (14.466689155000845,3.0676336650362623);
+        \vertex (Leg472) [] at (13.827626918536012,2.62708719851577);
+        \vertex (Leg511) [] at (3.9576657109124644,10.055489964580875);
+        \vertex (Leg512) [] at (4.0446955641760844,8.87738235790184);
+        \vertex (Leg513) [] at (4.100185528756957,11.186372069488952);
+        \vertex (Leg514) [] at (4.386237139483892,12.061224489795919);
+        \vertex (Leg515) [] at (5.592680047225501,5.896609883622871);
+        \vertex (Leg516) [] at (4.802664867599933,6.88682745825603);
+        \vertex (Leg517) [] at (4.293472761005229,11.828470231067634);
+        \vertex (Leg518) [] at (4.035081801315568,10.91954798448305);
+        \vertex (Leg519) [] at (3.943329397874853,9.941474110305279);
+        \vertex (Leg520) [] at (4.134255355034576,11.29313543599258);
+        \vertex (Leg521) [] at (4.216731320627424,11.615955473098332);
+        \vertex (Leg522) [] at (3.984483049418115,10.49434980603812);
+        \vertex (Leg524) [] at (4.996458087367179,6.657109124641592);
+        \vertex (Leg525) [] at (4.155844155844156,8.408669252825097);
+        \vertex (Leg526) [] at (4.1878900320458765,8.279811097992917);
+        \vertex (Leg527) [] at (3.9372575476471585,9.551357733175914);
+        \vertex (Leg528) [] at (5.927475122280317,5.617304773148929);
+        \vertex (Leg529) [] at (5.358576488446618,6.145555742958341);
+        \vertex (Leg530) [] at (3.9898802496205095,10.685613088210491);
+        \vertex (Leg531) [] at (3.9831337493675156,9.392983639736887);
+        \vertex (Leg532) [] at (4.883622870635858,6.784786641929498);
+        \vertex (Leg533) [] at (4.370045538876709,7.7857986169674485);
+        \vertex (Leg534) [] at (6.979760499241019,16.506156181480858);
+        \vertex (Leg535) [] at (7.642098161578682,16.81447124304267);
+        \vertex (Leg536) [] at (8.795075054815316,17.117557766908416);
+        \vertex (Leg537) [] at (8.143531792882442,16.980941136785294);
+        \vertex (Leg538) [] at (4.8107606679035255,14.55641760836566);
+        \vertex (Leg539) [] at (5.58947545960533,15.4874346432788);
+        \vertex (Leg540) [] at (5.39483892730646,15.317085511890706);
+        \vertex (Leg541) [] at (4.9097655591162095,14.74127171529769);
+        \vertex (Leg542) [] at (9.057007927137798,17.12430426716141);
+        \vertex (Leg543) [] at (8.019227525721032,16.901669758812616);
+        \vertex (Leg544) [] at (4.506999494012482,14.023781413391806);
+        \vertex (Leg545) [] at (6.104570753921403,15.948726598077247);
+        \vertex (Leg546) [] at (6.732669927475122,16.38370720188902);
+        \vertex (Leg560) [] at (6.983302411873841,1.1913138809242705);
+        \vertex (Leg561) [] at (6.219598583234946,1.6620678023275426);
+        \vertex (Leg562) [] at (7.991904199696407,0.7427053466014505);
+        \vertex (Leg563) [] at (9.046213526733007,0.48871647832686793);
+        \vertex (Leg564) [] at (12.419632315736212,0.4940968122786305);
+        \vertex (Leg565) [] at (11.042671614100186,0.3035925113847192);
+        \vertex (Leg593) [] at (11.403609377635354,14.727947377298028);
+        \vertex (Leg662) [] at (12.663518299881938,12.08837915331422);
+        \vertex (Leg663) [] at (14.014673638050262,10.137797267667398);
+        \vertex (Leg665) [] at (14.075729465339855,10.361275088547817);
+        \vertex (Leg666) [] at (12.932029009951089,12.00944510035419);
+        \vertex (Leg669) [] at (12.803508180131558,12.199696407488617);
+        \vertex (Leg671) [] at (13.867599932535,10.564344746162927);
+        \vertex (Leg672) [] at (13.73469387755102,10.220947883285545);
+        \vertex (Leg673) [] at (14.218080620678023,10.733007252487772);
+        \vertex (Leg674) [] at (14.225670433462643,10.52082981953112);
+        \vertex (Leg676) [] at (12.815651880586946,11.512059369202225);
+        \vertex (Leg678) [] at (13.696576151121606,10.70888851408332);
+        \vertex (Leg682) [] at (13.818687805700794,9.97250801146905);
+        \vertex (Leg684) [] at (13.13189407994603,10.836060043852251);
+        \vertex (Leg691) [] at (13.243379996626752,11.723224827120934);
+        \vertex (Leg692) [] at (13.405801990217576,11.978579861696746);
+        \vertex (Leg693) [] at (12.860684769775679,11.747006240512734);
+        \vertex (Leg694) [] at (13.565525383707202,11.530106257378986);
+        \vertex (Leg696) [] at (14.02192612582223,11.051610726935404);
+        \vertex (Leg698) [] at (13.575982459099343,11.780738741777704);
+        \vertex (Leg699) [] at (13.74447630291786,11.353853938269523);
+        \vertex (Leg708) [] at (13.163096643616125,12.069994940124811);
+        \vertex (Leg714) [] at (1.327036599763873,7.509866756620004);
+        \vertex (Leg715) [] at (1.1403946702648002,8.620172035756452);
+        \vertex (Leg716) [] at (1.8701298701298703,6.108449991566875);
+        \vertex (Leg717) [] at (2.4564007421150276,5.149434980603812);
+        \vertex (Leg718) [] at (12.759318603474448,14.165457918704673);
+        \vertex (Leg719) [] at (16.19632315736212,10.267330072524878);
+        \vertex (Leg720) [] at (15.376960701636026,8.689323663349638);
+        \vertex (Leg723) [] at (16.0509360769101,9.674312700286727);
+        \vertex (Leg725) [] at (15.978579861696744,12.198515769944343);
+        \vertex (Leg727) [] at (15.023950075898128,8.36835891381346);
+        \vertex (Leg729) [] at (16.165457918704675,11.378310001686625);
+        \vertex (Leg730) [] at (16.16781919379322,10.946196660482375);
+        \vertex (Leg732) [] at (14.739247765221792,8.086186540731996);
+        \vertex (Leg734) [] at (16.14184516781919,10.075392140327207);
+        \vertex (Leg735) [] at (15.56788665879575,8.890200708382528);
+        \vertex (Leg736) [] at (14.946365322988699,8.24793388429752);
+        \vertex (Leg737) [] at (15.725754764715806,9.052285376960702);
+        \vertex (Leg738) [] at (13.965592848709731,13.979760499241019);
+        \vertex (Leg742) [] at (14.309664361612413,13.829482206105583);
+        \vertex (Leg744) [] at (15.933715635014337,9.970821386405802);
+        \vertex (Leg745) [] at (13.727272727272728,13.935233597571262);
+        \vertex (Leg746) [] at (15.800134930005061,12.495530443582393);
+        \vertex (Leg747) [] at (14.034407151290269,14.07134424017541);
+        \vertex (Leg749) [] at (13.473435655253837,14.201045707539215);
+        \vertex (Leg751) [] at (15.983471074380164,9.501770956316411);
+        \vertex (Leg753) [] at (14.793051104739419,13.598920559959522);
+        \vertex (Leg754) [] at (15.965930173722382,12.126834204756282);
+        \vertex (Leg755) [] at (15.13155675493338,8.325855962219599);
+        \vertex (Leg756) [] at (14.613594198009785,8.057007927137796);
+        \vertex (Leg757) [] at (13.061730477314892,14.204250295159387);
+        \vertex (Leg758) [] at (14.812615955473099,8.19531118232417);
+        \vertex (Leg759) [] at (15.374262101534828,13.07556080283353);
+        \vertex (Leg760) [] at (13.260583572271884,14.130544779895429);
+        \vertex (Leg761) [] at (14.403440715129028,13.871985157699445);
+        \vertex (Leg762) [] at (16.152639568223986,11.537021420138302);
+        \vertex (Leg764) [] at (12.776859504132233,14.251644459436667);
+        \vertex (Leg765) [] at (13.273233260246249,14.27677517287907);
+        \vertex (Leg766) [] at (15.442233091583741,12.862034069826278);
+        \vertex (Leg767) [] at (15.698262776184855,9.283521673132062);
+        \vertex (Leg768) [] at (16.068476977567887,11.64665204924945);
+        \vertex (Leg769) [] at (14.592680047225503,13.684263788159894);
+        \vertex (Leg772) [] at (15.895597908584921,9.289593523359757);
+        \vertex (Leg773) [] at (15.24270534660145,8.544948557935571);
+        \vertex (Leg774) [] at (15.0312025636701,13.262101534828808);
+        \vertex (Leg776) [] at (13.002867262607525,14.261932872322484);
+        \vertex (Leg778) [] at (17.40428402766065,8.381177264294148);
+        \vertex (Leg779) [] at (17.122617642098163,7.9052116714454375);
+        \vertex (Leg780) [] at (17.954123798279646,11.642941474110305);
+        \vertex (Leg781) [] at (17.940630797773657,10.06746500252994);
+        \vertex (Leg784) [] at (17.972676673975375,10.298532636194974);
+        \vertex (Leg785) [] at (17.65559116208467,8.999156687468375);
+        \vertex (Leg786) [] at (16.658627087198518,7.36903356383876);
+        \vertex (Leg787) [] at (17.082138640580197,7.896103896103897);
+        \vertex (Leg788) [] at (13.97773654916512,15.869961207623543);
+        \vertex (Leg789) [] at (14.71344240175409,15.675493337831002);
+        \vertex (Leg790) [] at (16.478664192949907,7.198347107438017);
+        \vertex (Leg791) [] at (16.916849384381855,7.667397537527409);
+        \vertex (Leg792) [] at (17.795581042334288,12.358407825940294);
+        \vertex (Leg793) [] at (17.9456906729634,11.324169337156349);
+        \vertex (Leg794) [] at (16.76876370382864,14.306291111485919);
+        \vertex (Leg795) [] at (15.334457750042166,15.399392814977231);
+        \vertex (Leg796) [] at (17.10406476640243,13.84263788159892);
+        \vertex (Leg797) [] at (17.73992241524709,12.603305785123968);
+        \vertex (Leg798) [] at (17.96593017372238,11.140158542755946);
+        \vertex (Leg799) [] at (15.527576319784114,15.315398886827458);
+        \vertex (Leg800) [] at (17.161410018552875,13.712093101703493);
+        \vertex (Leg801) [] at (15.605329735199867,15.296846011131727);
+        \vertex (Leg802) [] at (16.688480350818015,14.319615449485578);
+        \vertex (Leg803) [] at (17.694383538539384,12.602631135098669);
+        \vertex (Leg804) [] at (18.013155675493337,11.365491651205936);
+        \vertex (Leg805) [] at (16.94046213526733,14.091921065947039);
+        \vertex (Leg806) [] at (15.991904199696407,15.005903187721369);
+        \vertex (Leg808) [] at (16.530780907404285,14.49789171867094);
+        \vertex (Leg809) [] at (17.438016528925623,13.297351998650699);
+        \vertex (Leg810) [] at (17.502108281329065,8.684263788159893);
+        \vertex (Leg811) [] at (17.80064091752404,9.475459605329736);
+        \vertex (Leg812) [] at (16.09714960364311,14.923933209647497);
+        \vertex (Leg813) [] at (14.929161747343567,15.644459436667228);
+        \vertex (Leg814) [] at (15.816832518131218,16.91010288412886);
+        \vertex (Leg815) [] at (14.253331084499916,17.486928655759822);
+        \vertex (Leg816) [] at (14.44257041659639,17.453196154494858);
+        \vertex (Leg817) [] at (15.189576657109125,17.195142519817846);
+        \vertex (Leg818) [] at (19.458593354697253,10.325349974700625);
+        \vertex (Leg819) [] at (19.181986844324506,8.88514083319278);
+        \diagram*{
+                (Vertexm1) -- [fermion,edge label=$u$] (Vertexm18),
+                (Vertexm1) -- [gluon,edge label=$g$] (Vertexm19),
+                (Vertexm1) -- [plain,edge label=$(ud)_{1}$] (Vertexm32),
+                (Vertexm2) -- [gluon,edge label=$g$] (Vertexm38),
+                (Vertexm2) -- [fermion,edge label=$d$] (Vertexm24),
+                (Vertexm2) -- [gluon,edge label=$g$] (Vertexm39),
+                (Vertexm2) -- [plain,edge label=$(uu)_{1}$] (Vertexm142),
+                (Vertexm2) -- [plain,edge label=$\overline{s}$] (Vertexm149),
+                (Vertexm18) -- [fermion,edge label=$u$] (Vertexm123),
+                (Vertexm18) -- [gluon,edge label=$g$] (Vertexm184),
+                (Vertexm19) -- [gluon,edge label=$g$] (Vertexm185),
+                (Vertexm1) -- [gluon,edge label=$g$] (Vertexm188),
+                (Vertexm1) -- [fermion,edge label=$u$] (Vertexm155),
+                (Vertexm1) -- [gluon,edge label=$g$] (Vertexm27),
+                (Vertexm1) -- [plain,edge label=$\overline{u}$] (Vertexm157),
+                (Vertexm24) -- [fermion,edge label=$d$] (Vertexm25),
+                (Vertexm27) -- [gluon,edge label=$g$] (Vertexm25),
+                (Vertexm25) -- [fermion,edge label=$d$] (Vertexm31),
+                (Vertexm31) -- [fermion,edge label=$d$] (Vertexm32),
+                (Vertexm32) -- [plain,edge label=$\pi^{0}$] (Vertexm160),
+                (Vertexm32) -- [plain,edge label=$\eta$] (Vertexm161),
+                (Vertexm32) -- [plain,edge label=$\overline{K}^{0}$] (Vertexm162),
+                (Vertexm32) -- [plain,edge label=$\rho(770)^{0}$] (Vertexm189),
+                (Vertexm32) -- [plain,edge label=$K^{0}$] (Vertexm164),
+                (Vertexm32) -- [plain,edge label=$\overline{K}^{*}(892)^{0}$] (Vertexm190),
+                (Vertexm32) -- [plain,edge label=$\eta$] (Vertexm166),
+                (Vertexm32) -- [plain,edge label=$\eta$] (Vertexm167),
+                (Vertexm32) -- [plain,edge label=$\pi^{0}$] (Vertexm168),
+                (Vertexm32) -- [plain,edge label=$\pi^{0}$] (Vertexm169),
+                (Vertexm32) -- [plain,edge label=$\Delta(1232)^{++}$] (Vertexm191),
+                (Vertexm32) -- [plain,edge label=$\eta^\prime(958)$] (Vertexm192),
+                (Vertexm32) -- [plain,edge label=$\Delta(1232)^{0}$] (Vertexm193),
+                (Vertexm38) -- [gluon,edge label=$g$] (Vertexm155),
+                (Vertexm38) -- [gluon,edge label=$g$] (Vertexm194),
+                (Vertexm39) -- [gluon,edge label=$g$] (Vertexm157),
+                (Vertexm2) -- [gluon,edge label=$g$] (Vertexm41),
+                (Vertexm41) -- [gluon,edge label=$g$] (Vertexm179),
+                (Vertexm41) -- [gluon,edge label=$g$] (Vertexm142),
+                (Vertexm39) -- [gluon,edge label=$g$] (Vertexm50),
+                (Vertexm50) -- [gluon,edge label=$g$] (Vertexm48),
+                (Vertexm31) -- [gluon,edge label=$g$] (Vertexm48),
+                (Vertexm48) -- [gluon,edge label=$g$] (Vertexm142),
+                (Vertexm50) -- [gluon,edge label=$g$] (Vertexm142),
+                (Vertexm2) -- [gluon,edge label=$g$] (Vertexm59),
+                (Vertexm59) -- [gluon,edge label=$g$] (Vertexm142),
+                (Vertexm25) -- [gluon,edge label=$g$] (Vertexm64),
+                (Vertexm64) -- [gluon,edge label=$g$] (Vertexm66),
+                (Vertexm66) -- [gluon,edge label=$g$] (Vertexm68),
+                (Vertexm68) -- [gluon,edge label=$g$] (Vertexm67),
+                (Vertexm179) -- [gluon,edge label=$g$] (Vertexm73),
+                (Vertexm73) -- [gluon,edge label=$g$] (Vertexm67),
+                (Vertexm67) -- [gluon,edge label=$g$] (Vertexm70),
+                (Vertexm66) -- [gluon,edge label=$g$] (Vertexm70),
+                (Vertexm70) -- [gluon,edge label=$g$] (Vertexm142),
+                (Vertexm59) -- [gluon,edge label=$g$] (Vertexm81),
+                (Vertexm81) -- [gluon,edge label=$g$] (Vertexm186),
+                (Vertexm81) -- [gluon,edge label=$g$] (Vertexm84),
+                (Vertexm84) -- [gluon,edge label=$g$,bend right] (Vertexm142),
+                (Vertexm157) -- [plain,edge label=$\overline{u}$] (Vertexm89),
+                (Vertexm89) -- [gluon,edge label=$g$] (Vertexm90),
+                (Vertexm90) -- [gluon,edge label=$g$] (Vertexm200),
+                (Vertexm90) -- [gluon,edge label=$g$] (Vertexm92),
+                (Vertexm92) -- [gluon,edge label=$g$] (Vertexm93),
+                (Vertexm93) -- [gluon,edge label=$g$] (Vertexm94),
+                (Vertexm94) -- [gluon,edge label=$g$] (Vertexm95),
+                (Vertexm95) -- [gluon,edge label=$g$] (Vertexm88),
+                (Vertexm73) -- [gluon,edge label=$g$] (Vertexm88),
+                (Vertexm88) -- [gluon,edge label=$g$] (Vertexm142),
+                (Vertexm84) -- [gluon,edge label=$g$,bend left] (Vertexm142),
+                (Vertexm94) -- [gluon,edge label=$g$] (Vertexm100),
+                (Vertexm155) -- [gluon,edge label=$g$] (Vertexm108),
+                (Vertexm108) -- [gluon,edge label=$g$] (Vertexm109),
+                (Vertexm109) -- [gluon,edge label=$g$] (Vertexm110),
+                (Vertexm109) -- [gluon,edge label=$g$] (Vertexm204),
+                (Vertexm110) -- [gluon,edge label=$g$] (Vertexm133),
+                (Vertexm110) -- [gluon,edge label=$g$] (Vertexm111),
+                (Vertexm111) -- [gluon,edge label=$g$] (Vertexm100),
+                (Vertexm100) -- [gluon,edge label=$g$] (Vertexm142),
+                (Vertexm64) -- [gluon,edge label=$g$] (Vertexm117),
+                (Vertexm117) -- [gluon,edge label=$g$] (Vertexm142),
+                (Vertexm2) -- [fermion,edge label=$s$] (Vertexm107),
+                (Vertexm123) -- [fermion,edge label=$u$] (Vertexm107),
+                (Vertexm107) -- [fermion,edge label=$u$] (Vertexm126),
+                (Vertexm126) -- [gluon,edge label=$g$] (Vertexm127),
+                (Vertexm127) -- [gluon,edge label=$g$] (Vertexm129),
+                (Vertexm129) -- [gluon,edge label=$g$,bend right] (Vertexm142),
+                (Vertexm133) -- [gluon,edge label=$g$] (Vertexm116),
+                (Vertexm93) -- [gluon,edge label=$g$] (Vertexm116),
+                (Vertexm116) -- [gluon,edge label=$g$] (Vertexm124),
+                (Vertexm186) -- [gluon,edge label=$g$] (Vertexm139),
+                (Vertexm139) -- [gluon,edge label=$g$] (Vertexm140),
+                (Vertexm139) -- [gluon,edge label=$g$] (Vertexm151),
+                (Vertexm140) -- [gluon,edge label=$g$] (Vertexm141),
+                (Vertexm141) -- [gluon,edge label=$g$] (Vertexm209),
+                (Vertexm141) -- [gluon,edge label=$g$] (Vertexm124),
+                (Vertexm124) -- [gluon,edge label=$g$] (Vertexm142),
+                (Vertexm140) -- [gluon,edge label=$g$] (Vertexm142),
+                (Vertexm157) -- [gluon,edge label=$g$] (Vertexm131),
+                (Vertexm151) -- [gluon,edge label=$g$] (Vertexm131),
+                (Vertexm131) -- [gluon,edge label=$g$] (Vertexm142),
+                (Vertexm129) -- [gluon,edge label=$g$,bend left] (Vertexm142),
+                (Vertexm127) -- [gluon,edge label=$g$] (Vertexm165),
+                (Vertexm165) -- [gluon,edge label=$g$,bend right] (Vertexm142),
+                (Vertexm165) -- [gluon,edge label=$g$,bend left] (Vertexm142),
+                (Vertexm126) -- [fermion,edge label=$u$] (Vertexm142),
+                (Vertexm142) -- [plain,edge label=$\rho(770)^{-}$] (Vertexm210),
+                (Vertexm142) -- [plain,edge label=$\rho(770)^{0}$] (Vertexm211),
+                (Vertexm142) -- [plain,edge label=$\rho(770)^{0}$] (Vertexm212),
+                (Vertexm142) -- [plain,edge label=$\overline{\Delta}(1232)^{+}$] (Vertexm213),
+                (Vertexm142) -- [plain,edge label=$\rho(770)^{+}$] (Vertexm214),
+                (Vertexm142) -- [plain,edge label=$\omega(782)$] (Vertexm216),
+                (Vertexm142) -- [plain,edge label=$\rho(770)^{+}$] (Vertexm217),
+                (Vertexm142) -- [plain,edge label=$\eta$] (Vertexm215),
+                (Vertexm142) -- [plain,edge label=$\rho(770)^{-}$] (Vertexm219),
+                (Vertexm142) -- [plain,edge label=$K^{*}(892)^{+}$] (Vertexm221),
+                (Vertexm142) -- [plain,edge label=$\pi^{0}$] (Vertexm218),
+                (Vertexm142) -- [plain,edge label=$\overline{K}^{*}(892)^{0}$] (Vertexm222),
+                (Vertexm142) -- [plain,edge label=$\pi^{0}$] (Vertexm220),
+                (Vertexm142) -- [plain,edge label=$\rho(770)^{+}$] (Vertexm223),
+                (Vertexm142) -- [plain,edge label=$\Delta(1232)^{++}$] (Vertexm225),
+                (Vertexm142) -- [plain,edge label=$\overline{\Delta}(1232)^{-}$] (Vertexm226),
+                (Vertexm142) -- [plain,edge label=$\eta$] (Vertexm224),
+                (Vertexm142) -- [plain,edge label=$\Delta(1232)^{+}$] (Vertexm231),
+                (Vertexm142) -- [plain,edge label=$\rho(770)^{+}$] (Vertexm232),
+                (Vertexm155) -- [fermion,edge label=$u$] (Vertexm149),
+                (Vertexm149) -- [plain,edge label=$\pi^{0}$] (Vertexm227),
+                (Vertexm149) -- [plain,edge label=$\pi^{0}$] (Vertexm228),
+                (Vertexm149) -- [plain,edge label=$\pi^{0}$] (Vertexm229),
+                (Vertexm149) -- [plain,edge label=$\pi^{0}$] (Vertexm230),
+                (Vertexm149) -- [plain,edge label=$\rho(770)^{+}$] (Vertexm234),
+                (Vertexm149) -- [plain,edge label=$\omega(782)$] (Vertexm235),
+                (Vertexm149) -- [plain,edge label=$\pi^{0}$] (Vertexm233),
+                (Vertexm149) -- [plain,edge label=$\rho(770)^{+}$] (Vertexm238),
+                (Vertexm149) -- [plain,edge label=$\omega(782)$] (Vertexm240),
+                (Vertexm149) -- [plain,edge label=$\pi^{0}$] (Vertexm236),
+                (Vertexm149) -- [plain,edge label=$\pi^{0}$] (Vertexm237),
+                (Vertexm149) -- [plain,edge label=$\rho(770)^{0}$] (Vertexm242),
+                (Vertexm149) -- [plain,edge label=$\pi^{0}$] (Vertexm239),
+                (Vertexm149) -- [plain,edge label=$\rho(770)^{0}$] (Vertexm243),
+                (Vertexm149) -- [plain,edge label=$K^{0}$] (Vertexm241),
+                (Vertexm149) -- [plain,edge label=$K^{*}(892)^{-}$] (Vertexm244),
+                (Vertexm149) -- [plain,edge label=$K^{*}(892)^{+}$] (Vertexm245),
+                (Vertexm123) -- [gluon,edge label=$g$] (Vertexm246),
+                (Vertexm184) -- [gluon,edge label=$g$] (Vertexm247),
+                (Vertexm19) -- [gluon,edge label=$g$] (Vertexm254),
+                (Vertexm27) -- [gluon,edge label=$g$] (Vertexm266),
+                (Vertexm161) -- [plain,edge label=$\pi^{0}$] (Vertexm258),
+                (Vertexm161) -- [plain,edge label=$\pi^{0}$] (Vertexm259),
+                (Vertexm161) -- [plain,edge label=$\pi^{0}$] (Vertexm260),
+                (Vertexm164) -- [plain,edge label=$K_{S}^{0}$] (Vertexm261),
+                (Vertexm190) -- [plain,edge label=$\overline{K}^{0}$] (Vertexm262),
+                (Vertexm190) -- [plain,edge label=$\pi^{0}$] (Vertexm263),
+                (Vertexm192) -- [plain,edge label=$\eta$] (Vertexm264),
+                (Vertexm193) -- [plain,edge label=$\pi^{0}$] (Vertexm265),
+                (Vertexm194) -- [gluon,edge label=$g$] (Vertexm267),
+                (Vertexm24) -- [gluon,edge label=$g$] (Vertexm274),
+                (Vertexm185) -- [gluon,edge label=$g$] (Vertexm179),
+                (Vertexm188) -- [gluon,edge label=$g$] (Vertexm186),
+                (Vertexm95) -- [gluon,edge label=$g$] (Vertexm284),
+                (Vertexm111) -- [gluon,edge label=$g$] (Vertexm289),
+                (Vertexm117) -- [gluon,edge label=$g$] (Vertexm290),
+                (Vertexm151) -- [gluon,edge label=$g$] (Vertexm315),
+                (Vertexm210) -- [plain,edge label=$\pi^{0}$] (Vertexm296),
+                (Vertexm214) -- [plain,edge label=$\pi^{0}$] (Vertexm297),
+                (Vertexm216) -- [plain,edge label=$\pi^{0}$] (Vertexm298),
+                (Vertexm217) -- [plain,edge label=$\pi^{0}$] (Vertexm299),
+                (Vertexm219) -- [plain,edge label=$\pi^{0}$] (Vertexm300),
+                (Vertexm221) -- [plain,edge label=$\pi^{0}$] (Vertexm301),
+                (Vertexm222) -- [plain,edge label=$\overline{K}^{0}$] (Vertexm302),
+                (Vertexm222) -- [plain,edge label=$\pi^{0}$] (Vertexm303),
+                (Vertexm223) -- [plain,edge label=$\pi^{0}$] (Vertexm304),
+                (Vertexm226) -- [plain,edge label=$\pi^{0}$] (Vertexm305),
+                (Vertexm231) -- [plain,edge label=$\pi^{0}$] (Vertexm306),
+                (Vertexm232) -- [plain,edge label=$\pi^{0}$] (Vertexm307),
+                (Vertexm234) -- [plain,edge label=$\pi^{0}$] (Vertexm308),
+                (Vertexm235) -- [plain,edge label=$\pi^{0}$] (Vertexm309),
+                (Vertexm238) -- [plain,edge label=$\pi^{0}$] (Vertexm310),
+                (Vertexm240) -- [plain,edge label=$\pi^{0}$] (Vertexm311),
+                (Vertexm241) -- [plain,edge label=$K_{S}^{0}$] (Vertexm312),
+                (Vertexm244) -- [plain,edge label=$\overline{K}^{0}$] (Vertexm313),
+                (Vertexm245) -- [plain,edge label=$\pi^{0}$] (Vertexm314),
+                (Vertexm246) -- [gluon,edge label=$g$] (Vertexm269),
+                (Vertexm247) -- [gluon,edge label=$g$] (Vertexm320),
+                (Vertexm179) -- [gluon,edge label=$g$] (Vertexm252),
+                (Vertexm252) -- [gluon,edge label=$g$] (Vertexm253),
+                (Vertexm253) -- [gluon,edge label=$g$] (Vertexm254),
+                (Vertexm261) -- [plain,edge label=$\pi^{0}$] (Vertexm327),
+                (Vertexm261) -- [plain,edge label=$\pi^{0}$] (Vertexm328),
+                (Vertexm262) -- [plain,edge label=$K_{S}^{0}$] (Vertexm329),
+                (Vertexm269) -- [gluon,edge label=$g$] (Vertexm271),
+                (Vertexm271) -- [gluon,edge label=$g$] (Vertexm272),
+                (Vertexm272) -- [gluon,edge label=$g$] (Vertexm275),
+                (Vertexm275) -- [gluon,edge label=$g$] (Vertexm274),
+                (Vertexm68) -- [gluon,edge label=$g$] (Vertexm289),
+                (Vertexm200) -- [gluon,edge label=$g$] (Vertexm340),
+                (Vertexm92) -- [gluon,edge label=$g$] (Vertexm341),
+                (Vertexm271) -- [gluon,edge label=$g$] (Vertexm285),
+                (Vertexm285) -- [gluon,edge label=$g$] (Vertexm284),
+                (Vertexm204) -- [gluon,edge label=$g$] (Vertexm347),
+                (Vertexm204) -- [gluon,edge label=$g$] (Vertexm348),
+                (Vertexm133) -- [gluon,edge label=$g$] (Vertexm351),
+                (Vertexm267) -- [gluon,edge label=$g$] (Vertexm290),
+                (Vertexm107) -- [photon,edge label=$\gamma$] (Vertexm359),
+                (Vertexm209) -- [gluon,edge label=$g$] (Vertexm360),
+                (Vertexm209) -- [gluon,edge label=$g$] (Vertexm364),
+                (Vertexm302) -- [plain,edge label=$K_{S}^{0}$] (Vertexm365),
+                (Vertexm254) -- [gluon,edge label=$g$] (Vertexm394),
+                (Vertexm267) -- [gluon,edge label=$g$] (Vertexm398),
+                (Vertexm275) -- [gluon,edge label=$g$] (Vertexm341),
+                (Vertexm274) -- [gluon,edge label=$g$] (Vertexm394),
+                (Vertexm89) -- [plain,edge label=$\overline{u}$] (Vertexm394),
+                (Vertexm200) -- [gluon,edge label=$g$] (Vertexm394),
+                (Vertexm315) -- [gluon,edge label=$g$] (Vertexm340),
+                (Vertexm285) -- [gluon,edge label=$g$] (Vertexm398),
+                (Vertexm284) -- [gluon,edge label=$g$] (Vertexm394),
+                (Vertexm108) -- [gluon,edge label=$g$] (Vertexm353),
+                (Vertexm188) -- [gluon,edge label=$g$] (Vertexm347),
+                (Vertexm320) -- [gluon,edge label=$g$] (Vertexm348),
+                (Vertexm353) -- [gluon,edge label=$g$] (Vertexm351),
+                (Vertexm289) -- [gluon,edge label=$g$] (Vertexm394),
+                (Vertexm290) -- [gluon,edge label=$g$] (Vertexm394),
+                (Vertexm315) -- [gluon,edge label=$g$] (Vertexm409),
+                (Vertexm353) -- [gluon,edge label=$g$] (Vertexm362),
+                (Vertexm362) -- [gluon,edge label=$g$] (Vertexm360),
+                (Vertexm186) -- [gluon,edge label=$g$] (Vertexm368),
+                (Vertexm368) -- [gluon,edge label=$g$] (Vertexm364),
+                (Vertexm365) -- [plain,edge label=$\pi^{0}$] (Vertexm414),
+                (Vertexm365) -- [plain,edge label=$\pi^{0}$] (Vertexm415),
+                (Vertexm247) -- [gluon,edge label=$g$] (Vertexm394),
+                (Vertexm252) -- [gluon,edge label=$g$] (Vertexm394),
+                (Vertexm266) -- [gluon,edge label=$g$] (Vertexm394),
+                (Vertexm409) -- [gluon,edge label=$g$] (Vertexm394),
+                (Vertexm368) -- [gluon,edge label=$g$] (Vertexm394),
+                (Vertexm246) -- [gluon,edge label=$g$] (Vertexm386),
+                (Vertexm386) -- [gluon,edge label=$g$,bend right] (Vertexm394),
+                (Vertexm386) -- [gluon,edge label=$g$,bend left] (Vertexm394),
+                (Vertexm194) -- [gluon,edge label=$g$] (Vertexm394),
+                (Vertexm398) -- [gluon,edge label=$g$] (Vertexm394),
+                (Vertexm362) -- [gluon,edge label=$g$] (Vertexm394),
+                (Vertexm269) -- [gluon,edge label=$g$] (Vertexm401),
+                (Vertexm401) -- [gluon,edge label=$g$,bend right] (Vertexm394),
+                (Vertexm401) -- [gluon,edge label=$g$,bend left] (Vertexm394),
+                (Vertexm107) -- [fermion,edge label=$s$] (Vertexm394),
+                (Vertexm341) -- [gluon,edge label=$g$] (Vertexm394),
+                (Vertexm360) -- [gluon,edge label=$g$] (Vertexm394),
+                (Vertexm272) -- [gluon,edge label=$g$] (Vertexm394),
+                (Vertexm364) -- [gluon,edge label=$g$] (Vertexm394),
+                (Vertexm351) -- [gluon,edge label=$g$] (Vertexm394),
+                (Vertexm347) -- [gluon,edge label=$g$] (Vertexm394),
+                (Vertexm340) -- [gluon,edge label=$g$] (Vertexm394),
+                (Vertexm184) -- [gluon,edge label=$g$] (Vertexm394),
+                (Vertexm348) -- [gluon,edge label=$g$] (Vertexm394),
+                (Vertexm185) -- [gluon,edge label=$g$] (Vertexm394),
+                (Vertexm253) -- [gluon,edge label=$g$] (Vertexm394),
+                (Vertexm320) -- [gluon,edge label=$g$] (Vertexm394),
+                (Vertexm394) -- [plain,edge label=$\overline{K}^{0}$] (Vertexm425),
+                (Vertexm394) -- [plain,edge label=$\omega(782)$] (Vertexm427),
+                (Vertexm394) -- [plain,edge label=$\overline{\Sigma}(1385)^{+}$] (Vertexm429),
+                (Vertexm394) -- [plain,edge label=$K^{0}$] (Vertexm428),
+                (Vertexm394) -- [plain,edge label=$\rho(770)^{+}$] (Vertexm430),
+                (Vertexm394) -- [plain,edge label=$\rho(770)^{+}$] (Vertexm431),
+                (Vertexm394) -- [plain,edge label=$\omega(782)$] (Vertexm432),
+                (Vertexm394) -- [plain,edge label=$\rho(770)^{-}$] (Vertexm435),
+                (Vertexm394) -- [plain,edge label=$\pi^{0}$] (Vertexm433),
+                (Vertexm394) -- [plain,edge label=$\pi^{0}$] (Vertexm434),
+                (Vertexm394) -- [plain,edge label=$\rho(770)^{-}$] (Vertexm436),
+                (Vertexm394) -- [plain,edge label=$\overline{K}^{*}(892)^{0}$] (Vertexm437),
+                (Vertexm394) -- [plain,edge label=$\rho(770)^{-}$] (Vertexm439),
+                (Vertexm394) -- [plain,edge label=$\pi^{0}$] (Vertexm438),
+                (Vertexm394) -- [plain,edge label=$\eta^\prime(958)$] (Vertexm440),
+                (Vertexm394) -- [plain,edge label=$\rho(770)^{+}$] (Vertexm441),
+                (Vertexm394) -- [plain,edge label=$\rho(770)^{-}$] (Vertexm443),
+                (Vertexm394) -- [plain,edge label=$\pi^{0}$] (Vertexm442),
+                (Vertexm394) -- [plain,edge label=$K^{*}(892)^{0}$] (Vertexm447),
+                (Vertexm394) -- [plain,edge label=$K^{0}$] (Vertexm444),
+                (Vertexm394) -- [plain,edge label=$\overline{K}^{0}$] (Vertexm445),
+                (Vertexm394) -- [plain,edge label=$\pi^{0}$] (Vertexm446),
+                (Vertexm394) -- [plain,edge label=$\omega(782)$] (Vertexm450),
+                (Vertexm394) -- [plain,edge label=$\pi^{0}$] (Vertexm448),
+                (Vertexm394) -- [plain,edge label=$\eta$] (Vertexm449),
+                (Vertexm394) -- [plain,edge label=$K^{*}(892)^{0}$] (Vertexm451),
+                (Vertexm394) -- [plain,edge label=$\overline{K}^{*}(892)^{0}$] (Vertexm452),
+                (Vertexm394) -- [plain,edge label=$\rho(770)^{0}$] (Vertexm453),
+                (Vertexm394) -- [plain,edge label=$\Delta(1232)^{+}$] (Vertexm454),
+                (Vertexm394) -- [plain,edge label=$\overline{\Delta}(1232)^{-}$] (Vertexm455),
+                (Vertexm266) -- [gluon,edge label=$g$] (Vertexm409),
+                (Vertexm427) -- [plain,edge label=$\pi^{0}$] (Vertexm456),
+                (Vertexm429) -- [plain,edge label=$\overline{\Lambda}$] (Vertexm457),
+                (Vertexm428) -- [plain,edge label=$K_{S}^{0}$] (Vertexm458),
+                (Vertexm430) -- [plain,edge label=$\pi^{0}$] (Vertexm459),
+                (Vertexm431) -- [plain,edge label=$\pi^{0}$] (Vertexm460),
+                (Vertexm432) -- [plain,edge label=$\pi^{0}$] (Vertexm461),
+                (Vertexm435) -- [plain,edge label=$\pi^{0}$] (Vertexm462),
+                (Vertexm436) -- [plain,edge label=$\pi^{0}$] (Vertexm463),
+                (Vertexm437) -- [plain,edge label=$\overline{K}^{0}$] (Vertexm464),
+                (Vertexm437) -- [plain,edge label=$\pi^{0}$] (Vertexm465),
+                (Vertexm439) -- [plain,edge label=$\pi^{0}$] (Vertexm466),
+                (Vertexm440) -- [plain,edge label=$\eta$] (Vertexm467),
+                (Vertexm441) -- [plain,edge label=$\pi^{0}$] (Vertexm468),
+                (Vertexm443) -- [plain,edge label=$\pi^{0}$] (Vertexm469),
+                (Vertexm450) -- [plain,edge label=$\pi^{0}$] (Vertexm470),
+                (Vertexm452) -- [plain,edge label=$\overline{K}^{0}$] (Vertexm471),
+                (Vertexm452) -- [plain,edge label=$\pi^{0}$] (Vertexm472),
+                (Vertexm454) -- [plain,edge label=$\pi^{0}$] (Vertexm473),
+                (Vertexm455) -- [plain,edge label=$\pi^{0}$] (Vertexm474),
+                (Vertexm458) -- [plain,edge label=$\pi^{0}$] (Vertexm475),
+                (Vertexm458) -- [plain,edge label=$\pi^{0}$] (Vertexm476),
+                (Vertexm471) -- [plain,edge label=$K_{S}^{0}$] (Vertexm477),
+                (Leg1) -- [plain,edge label=$p$,red] (Vertexm1),
+                (Leg9) -- [plain,edge label=$p$,red] (Vertexm2),
+                (Vertexm32) -- [plain,edge label=$\pi^{-}$] (Leg53),
+                (Vertexm32) -- [plain,edge label=$\pi^{+}$] (Leg54),
+                (Vertexm32) -- [plain,edge label=$\pi^{-}$] (Leg55),
+                (Vertexm32) -- [plain,edge label=$K^{+}$] (Leg57),
+                (Vertexm32) -- [plain,edge label=$\pi^{-}$] (Leg64),
+                (Vertexm32) -- [plain,edge label=$\pi^{+}$] (Leg65),
+                (Vertexm32) -- [plain,edge label=$\pi^{-}$] (Leg68),
+                (Vertexm32) -- [plain,edge label=$\pi^{-}$] (Leg71),
+                (Vertexm32) -- [plain,edge label=$\overline{p}$] (Leg72),
+                (Vertexm32) -- [plain,edge label=$\pi^{+}$] (Leg73),
+                (Vertexm142) -- [plain,edge label=$\pi^{+}$] (Leg243),
+                (Vertexm142) -- [plain,edge label=$n$] (Leg246),
+                (Vertexm142) -- [plain,edge label=$\pi^{-}$] (Leg249),
+                (Vertexm142) -- [plain,edge label=$\pi^{-}$] (Leg251),
+                (Vertexm142) -- [plain,edge label=$K^{-}$] (Leg257),
+                (Vertexm142) -- [plain,edge label=$K^{+}$] (Leg259),
+                (Vertexm142) -- [plain,edge label=$\pi^{-}$] (Leg262),
+                (Vertexm142) -- [plain,edge label=$\pi^{-}$] (Leg264),
+                (Vertexm142) -- [plain,edge label=$\pi^{+}$] (Leg265),
+                (Vertexm142) -- [plain,edge label=$n$] (Leg266),
+                (Vertexm142) -- [plain,edge label=$\overline{p}$] (Leg267),
+                (Vertexm142) -- [plain,edge label=$\pi^{+}$] (Leg268),
+                (Vertexm142) -- [plain,edge label=$\pi^{-}$] (Leg269),
+                (Vertexm142) -- [plain,edge label=$\pi^{-}$] (Leg271),
+                (Vertexm149) -- [plain,edge label=$\pi^{+}$] (Leg285),
+                (Vertexm149) -- [plain,edge label=$\pi^{-}$] (Leg288),
+                (Vertexm149) -- [plain,edge label=$p$] (Leg289),
+                (Vertexm149) -- [plain,edge label=$\overline{p}$] (Leg290),
+                (Vertexm149) -- [plain,edge label=$\pi^{-}$] (Leg294),
+                (Vertexm149) -- [plain,edge label=$\pi^{-}$] (Leg300),
+                (Vertexm149) -- [plain,edge label=$\pi^{+}$] (Leg301),
+                (Vertexm160) -- [photon,edge label=$\gamma$] (Leg316),
+                (Vertexm160) -- [photon,edge label=$\gamma$] (Leg317),
+                (Vertexm162) -- [plain,edge label=$K_{L}^{0}$] (Leg321),
+                (Vertexm189) -- [plain,edge label=$\pi^{+}$] (Leg322),
+                (Vertexm189) -- [plain,edge label=$\pi^{-}$] (Leg323),
+                (Vertexm166) -- [photon,edge label=$\gamma$] (Leg327),
+                (Vertexm166) -- [photon,edge label=$\gamma$] (Leg328),
+                (Vertexm167) -- [photon,edge label=$\gamma$] (Leg329),
+                (Vertexm167) -- [photon,edge label=$\gamma$] (Leg330),
+                (Vertexm168) -- [photon,edge label=$\gamma$] (Leg331),
+                (Vertexm168) -- [photon,edge label=$\gamma$] (Leg332),
+                (Vertexm169) -- [photon,edge label=$\gamma$] (Leg333),
+                (Vertexm169) -- [photon,edge label=$\gamma$] (Leg334),
+                (Vertexm191) -- [plain,edge label=$p$] (Leg335),
+                (Vertexm191) -- [plain,edge label=$\pi^{+}$] (Leg336),
+                (Vertexm192) -- [plain,edge label=$\pi^{+}$] (Leg337),
+                (Vertexm192) -- [plain,edge label=$\pi^{-}$] (Leg338),
+                (Vertexm193) -- [plain,edge label=$n$] (Leg340),
+                (Vertexm210) -- [plain,edge label=$\pi^{-}$] (Leg366),
+                (Vertexm211) -- [plain,edge label=$\pi^{+}$] (Leg368),
+                (Vertexm211) -- [plain,edge label=$\pi^{-}$] (Leg369),
+                (Vertexm212) -- [plain,edge label=$\pi^{+}$] (Leg370),
+                (Vertexm212) -- [plain,edge label=$\pi^{-}$] (Leg371),
+                (Vertexm213) -- [plain,edge label=$\overline{n}$] (Leg372),
+                (Vertexm213) -- [plain,edge label=$\pi^{+}$] (Leg373),
+                (Vertexm214) -- [plain,edge label=$\pi^{+}$] (Leg374),
+                (Vertexm216) -- [plain,edge label=$\pi^{+}$] (Leg376),
+                (Vertexm216) -- [plain,edge label=$\pi^{-}$] (Leg377),
+                (Vertexm217) -- [plain,edge label=$\pi^{+}$] (Leg379),
+                (Vertexm215) -- [photon,edge label=$\gamma$] (Leg381),
+                (Vertexm215) -- [photon,edge label=$\gamma$] (Leg382),
+                (Vertexm219) -- [plain,edge label=$\pi^{-}$] (Leg383),
+                (Vertexm221) -- [plain,edge label=$K^{+}$] (Leg385),
+                (Vertexm218) -- [photon,edge label=$\gamma$] (Leg387),
+                (Vertexm218) -- [photon,edge label=$\gamma$] (Leg388),
+                (Vertexm220) -- [photon,edge label=$\gamma$] (Leg391),
+                (Vertexm220) -- [photon,edge label=$\gamma$] (Leg392),
+                (Vertexm223) -- [plain,edge label=$\pi^{+}$] (Leg393),
+                (Vertexm225) -- [plain,edge label=$p$] (Leg395),
+                (Vertexm225) -- [plain,edge label=$\pi^{+}$] (Leg396),
+                (Vertexm226) -- [plain,edge label=$\overline{p}$] (Leg397),
+                (Vertexm224) -- [photon,edge label=$\gamma$] (Leg399),
+                (Vertexm224) -- [photon,edge label=$\gamma$] (Leg400),
+                (Vertexm231) -- [plain,edge label=$p$] (Leg401),
+                (Vertexm232) -- [plain,edge label=$\pi^{+}$] (Leg403),
+                (Vertexm227) -- [photon,edge label=$\gamma$] (Leg405),
+                (Vertexm227) -- [photon,edge label=$\gamma$] (Leg406),
+                (Vertexm228) -- [photon,edge label=$\gamma$] (Leg407),
+                (Vertexm228) -- [photon,edge label=$\gamma$] (Leg408),
+                (Vertexm229) -- [photon,edge label=$\gamma$] (Leg409),
+                (Vertexm229) -- [photon,edge label=$\gamma$] (Leg410),
+                (Vertexm230) -- [photon,edge label=$\gamma$] (Leg411),
+                (Vertexm230) -- [photon,edge label=$\gamma$] (Leg412),
+                (Vertexm234) -- [plain,edge label=$\pi^{+}$] (Leg413),
+                (Vertexm235) -- [plain,edge label=$\pi^{+}$] (Leg415),
+                (Vertexm235) -- [plain,edge label=$\pi^{-}$] (Leg416),
+                (Vertexm233) -- [photon,edge label=$\gamma$] (Leg418),
+                (Vertexm233) -- [photon,edge label=$\gamma$] (Leg419),
+                (Vertexm238) -- [plain,edge label=$\pi^{+}$] (Leg420),
+                (Vertexm240) -- [plain,edge label=$\pi^{+}$] (Leg422),
+                (Vertexm240) -- [plain,edge label=$\pi^{-}$] (Leg423),
+                (Vertexm236) -- [photon,edge label=$\gamma$] (Leg425),
+                (Vertexm236) -- [photon,edge label=$\gamma$] (Leg426),
+                (Vertexm237) -- [photon,edge label=$\gamma$] (Leg427),
+                (Vertexm237) -- [photon,edge label=$\gamma$] (Leg428),
+                (Vertexm242) -- [plain,edge label=$\pi^{+}$] (Leg429),
+                (Vertexm242) -- [plain,edge label=$\pi^{-}$] (Leg430),
+                (Vertexm239) -- [photon,edge label=$\gamma$] (Leg431),
+                (Vertexm239) -- [photon,edge label=$\gamma$] (Leg432),
+                (Vertexm243) -- [plain,edge label=$\pi^{+}$] (Leg433),
+                (Vertexm243) -- [plain,edge label=$\pi^{-}$] (Leg434),
+                (Vertexm244) -- [plain,edge label=$\pi^{-}$] (Leg437),
+                (Vertexm245) -- [plain,edge label=$K^{+}$] (Leg438),
+                (Vertexm258) -- [photon,edge label=$\gamma$] (Leg458),
+                (Vertexm258) -- [photon,edge label=$\gamma$] (Leg459),
+                (Vertexm259) -- [photon,edge label=$\gamma$] (Leg460),
+                (Vertexm259) -- [photon,edge label=$\gamma$] (Leg461),
+                (Vertexm260) -- [photon,edge label=$\gamma$] (Leg462),
+                (Vertexm260) -- [photon,edge label=$\gamma$] (Leg463),
+                (Vertexm263) -- [photon,edge label=$\gamma$] (Leg467),
+                (Vertexm263) -- [photon,edge label=$\gamma$] (Leg468),
+                (Vertexm264) -- [photon,edge label=$\gamma$] (Leg469),
+                (Vertexm264) -- [photon,edge label=$\gamma$] (Leg470),
+                (Vertexm265) -- [photon,edge label=$\gamma$] (Leg471),
+                (Vertexm265) -- [photon,edge label=$\gamma$] (Leg472),
+                (Vertexm296) -- [photon,edge label=$\gamma$] (Leg511),
+                (Vertexm296) -- [photon,edge label=$\gamma$] (Leg512),
+                (Vertexm297) -- [photon,edge label=$\gamma$] (Leg513),
+                (Vertexm297) -- [photon,edge label=$\gamma$] (Leg514),
+                (Vertexm298) -- [photon,edge label=$\gamma$] (Leg515),
+                (Vertexm298) -- [photon,edge label=$\gamma$] (Leg516),
+                (Vertexm299) -- [photon,edge label=$\gamma$] (Leg517),
+                (Vertexm299) -- [photon,edge label=$\gamma$] (Leg518),
+                (Vertexm300) -- [photon,edge label=$\gamma$] (Leg519),
+                (Vertexm300) -- [photon,edge label=$\gamma$] (Leg520),
+                (Vertexm301) -- [photon,edge label=$\gamma$] (Leg521),
+                (Vertexm301) -- [photon,edge label=$\gamma$] (Leg522),
+                (Vertexm303) -- [photon,edge label=$\gamma$] (Leg524),
+                (Vertexm303) -- [photon,edge label=$\gamma$] (Leg525),
+                (Vertexm304) -- [photon,edge label=$\gamma$] (Leg526),
+                (Vertexm304) -- [photon,edge label=$\gamma$] (Leg527),
+                (Vertexm305) -- [photon,edge label=$\gamma$] (Leg528),
+                (Vertexm305) -- [photon,edge label=$\gamma$] (Leg529),
+                (Vertexm306) -- [photon,edge label=$\gamma$] (Leg530),
+                (Vertexm306) -- [photon,edge label=$\gamma$] (Leg531),
+                (Vertexm307) -- [photon,edge label=$\gamma$] (Leg532),
+                (Vertexm307) -- [photon,edge label=$\gamma$] (Leg533),
+                (Vertexm308) -- [photon,edge label=$\gamma$] (Leg534),
+                (Vertexm308) -- [photon,edge label=$\gamma$] (Leg535),
+                (Vertexm309) -- [photon,edge label=$\gamma$] (Leg536),
+                (Vertexm309) -- [photon,edge label=$\gamma$] (Leg537),
+                (Vertexm310) -- [photon,edge label=$\gamma$] (Leg538),
+                (Vertexm310) -- [photon,edge label=$\gamma$] (Leg539),
+                (Vertexm311) -- [photon,edge label=$\gamma$] (Leg540),
+                (Vertexm311) -- [photon,edge label=$\gamma$] (Leg541),
+                (Vertexm312) -- [plain,edge label=$\pi^{+}$] (Leg542),
+                (Vertexm312) -- [plain,edge label=$\pi^{-}$] (Leg543),
+                (Vertexm313) -- [plain,edge label=$K_{L}^{0}$] (Leg544),
+                (Vertexm314) -- [photon,edge label=$\gamma$] (Leg545),
+                (Vertexm314) -- [photon,edge label=$\gamma$] (Leg546),
+                (Vertexm327) -- [photon,edge label=$\gamma$] (Leg560),
+                (Vertexm327) -- [photon,edge label=$\gamma$] (Leg561),
+                (Vertexm328) -- [photon,edge label=$\gamma$] (Leg562),
+                (Vertexm328) -- [photon,edge label=$\gamma$] (Leg563),
+                (Vertexm329) -- [plain,edge label=$\pi^{+}$] (Leg564),
+                (Vertexm329) -- [plain,edge label=$\pi^{-}$] (Leg565),
+                (Vertexm359) -- [photon,edge label=$\gamma$] (Leg593),
+                (Vertexm394) -- [plain,edge label=$\pi^{-}$] (Leg662),
+                (Vertexm394) -- [plain,edge label=$\pi^{+}$] (Leg663),
+                (Vertexm394) -- [plain,edge label=$n$] (Leg665),
+                (Vertexm394) -- [plain,edge label=$K^{-}$] (Leg666),
+                (Vertexm394) -- [plain,edge label=$K^{-}$] (Leg669),
+                (Vertexm394) -- [plain,edge label=$\pi^{-}$] (Leg671),
+                (Vertexm394) -- [plain,edge label=$\pi^{+}$] (Leg672),
+                (Vertexm394) -- [plain,edge label=$n$] (Leg673),
+                (Vertexm394) -- [plain,edge label=$\overline{p}$] (Leg674),
+                (Vertexm394) -- [plain,edge label=$\pi^{-}$] (Leg676),
+                (Vertexm394) -- [plain,edge label=$\pi^{+}$] (Leg678),
+                (Vertexm394) -- [plain,edge label=$\pi^{+}$] (Leg682),
+                (Vertexm394) -- [plain,edge label=$K^{+}$] (Leg684),
+                (Vertexm394) -- [plain,edge label=$\pi^{+}$] (Leg691),
+                (Vertexm394) -- [plain,edge label=$\pi^{-}$] (Leg692),
+                (Vertexm394) -- [plain,edge label=$\pi^{+}$] (Leg693),
+                (Vertexm394) -- [plain,edge label=$\pi^{-}$] (Leg694),
+                (Vertexm394) -- [plain,edge label=$\pi^{+}$] (Leg696),
+                (Vertexm394) -- [plain,edge label=$K^{-}$] (Leg698),
+                (Vertexm394) -- [plain,edge label=$\pi^{+}$] (Leg699),
+                (Vertexm394) -- [plain,edge label=$\pi^{-}$] (Leg708),
+                (Vertexm414) -- [photon,edge label=$\gamma$] (Leg714),
+                (Vertexm414) -- [photon,edge label=$\gamma$] (Leg715),
+                (Vertexm415) -- [photon,edge label=$\gamma$] (Leg716),
+                (Vertexm415) -- [photon,edge label=$\gamma$] (Leg717),
+                (Vertexm425) -- [plain,edge label=$K_{L}^{0}$] (Leg718),
+                (Vertexm427) -- [plain,edge label=$\pi^{+}$] (Leg719),
+                (Vertexm427) -- [plain,edge label=$\pi^{-}$] (Leg720),
+                (Vertexm429) -- [plain,edge label=$\pi^{+}$] (Leg723),
+                (Vertexm430) -- [plain,edge label=$\pi^{+}$] (Leg725),
+                (Vertexm431) -- [plain,edge label=$\pi^{+}$] (Leg727),
+                (Vertexm432) -- [plain,edge label=$\pi^{+}$] (Leg729),
+                (Vertexm432) -- [plain,edge label=$\pi^{-}$] (Leg730),
+                (Vertexm435) -- [plain,edge label=$\pi^{-}$] (Leg732),
+                (Vertexm433) -- [photon,edge label=$\gamma$] (Leg734),
+                (Vertexm433) -- [photon,edge label=$\gamma$] (Leg735),
+                (Vertexm434) -- [photon,edge label=$\gamma$] (Leg736),
+                (Vertexm434) -- [photon,edge label=$\gamma$] (Leg737),
+                (Vertexm436) -- [plain,edge label=$\pi^{-}$] (Leg738),
+                (Vertexm439) -- [plain,edge label=$\pi^{-}$] (Leg742),
+                (Vertexm438) -- [photon,edge label=$\gamma$] (Leg744),
+                (Vertexm438) -- [photon,edge label=$\gamma$] (Leg745),
+                (Vertexm440) -- [plain,edge label=$\pi^{+}$] (Leg746),
+                (Vertexm440) -- [plain,edge label=$\pi^{-}$] (Leg747),
+                (Vertexm441) -- [plain,edge label=$\pi^{+}$] (Leg749),
+                (Vertexm443) -- [plain,edge label=$\pi^{-}$] (Leg751),
+                (Vertexm442) -- [photon,edge label=$\gamma$] (Leg753),
+                (Vertexm442) -- [photon,edge label=$\gamma$] (Leg754),
+                (Vertexm447) -- [plain,edge label=$K^{+}$] (Leg755),
+                (Vertexm447) -- [plain,edge label=$\pi^{-}$] (Leg756),
+                (Vertexm444) -- [plain,edge label=$K_{L}^{0}$] (Leg757),
+                (Vertexm445) -- [plain,edge label=$K_{L}^{0}$] (Leg758),
+                (Vertexm446) -- [photon,edge label=$\gamma$] (Leg759),
+                (Vertexm446) -- [photon,edge label=$\gamma$] (Leg760),
+                (Vertexm450) -- [plain,edge label=$\pi^{+}$] (Leg761),
+                (Vertexm450) -- [plain,edge label=$\pi^{-}$] (Leg762),
+                (Vertexm448) -- [photon,edge label=$\gamma$] (Leg764),
+                (Vertexm448) -- [photon,edge label=$\gamma$] (Leg765),
+                (Vertexm449) -- [photon,edge label=$\gamma$] (Leg766),
+                (Vertexm449) -- [photon,edge label=$\gamma$] (Leg767),
+                (Vertexm451) -- [plain,edge label=$K^{+}$] (Leg768),
+                (Vertexm451) -- [plain,edge label=$\pi^{-}$] (Leg769),
+                (Vertexm453) -- [plain,edge label=$\pi^{+}$] (Leg772),
+                (Vertexm453) -- [plain,edge label=$\pi^{-}$] (Leg773),
+                (Vertexm454) -- [plain,edge label=$p$] (Leg774),
+                (Vertexm455) -- [plain,edge label=$\overline{p}$] (Leg776),
+                (Vertexm456) -- [photon,edge label=$\gamma$] (Leg778),
+                (Vertexm456) -- [photon,edge label=$\gamma$] (Leg779),
+                (Vertexm457) -- [plain,edge label=$\overline{p}$] (Leg780),
+                (Vertexm457) -- [plain,edge label=$\pi^{+}$] (Leg781),
+                (Vertexm459) -- [photon,edge label=$\gamma$] (Leg784),
+                (Vertexm459) -- [photon,edge label=$\gamma$] (Leg785),
+                (Vertexm460) -- [photon,edge label=$\gamma$] (Leg786),
+                (Vertexm460) -- [photon,edge label=$\gamma$] (Leg787),
+                (Vertexm461) -- [photon,edge label=$\gamma$] (Leg788),
+                (Vertexm461) -- [photon,edge label=$\gamma$] (Leg789),
+                (Vertexm462) -- [photon,edge label=$\gamma$] (Leg790),
+                (Vertexm462) -- [photon,edge label=$\gamma$] (Leg791),
+                (Vertexm463) -- [photon,edge label=$\gamma$] (Leg792),
+                (Vertexm463) -- [photon,edge label=$\gamma$] (Leg793),
+                (Vertexm464) -- [plain,edge label=$K_{L}^{0}$] (Leg794),
+                (Vertexm465) -- [photon,edge label=$\gamma$] (Leg795),
+                (Vertexm465) -- [photon,edge label=$\gamma$] (Leg796),
+                (Vertexm466) -- [photon,edge label=$\gamma$] (Leg797),
+                (Vertexm466) -- [photon,edge label=$\gamma$] (Leg798),
+                (Vertexm467) -- [photon,edge label=$\gamma$] (Leg799),
+                (Vertexm467) -- [photon,edge label=$\gamma$] (Leg800),
+                (Vertexm468) -- [photon,edge label=$\gamma$] (Leg801),
+                (Vertexm468) -- [photon,edge label=$\gamma$] (Leg802),
+                (Vertexm469) -- [photon,edge label=$\gamma$] (Leg803),
+                (Vertexm469) -- [photon,edge label=$\gamma$] (Leg804),
+                (Vertexm470) -- [photon,edge label=$\gamma$] (Leg805),
+                (Vertexm470) -- [photon,edge label=$\gamma$] (Leg806),
+                (Vertexm472) -- [photon,edge label=$\gamma$] (Leg808),
+                (Vertexm472) -- [photon,edge label=$\gamma$] (Leg809),
+                (Vertexm473) -- [photon,edge label=$\gamma$] (Leg810),
+                (Vertexm473) -- [photon,edge label=$\gamma$] (Leg811),
+                (Vertexm474) -- [photon,edge label=$\gamma$] (Leg812),
+                (Vertexm474) -- [photon,edge label=$\gamma$] (Leg813),
+                (Vertexm475) -- [photon,edge label=$\gamma$] (Leg814),
+                (Vertexm475) -- [photon,edge label=$\gamma$] (Leg815),
+                (Vertexm476) -- [photon,edge label=$\gamma$] (Leg816),
+                (Vertexm476) -- [photon,edge label=$\gamma$] (Leg817),
+                (Vertexm477) -- [plain,edge label=$\pi^{+}$] (Leg818),
+                (Vertexm477) -- [plain,edge label=$\pi^{-}$] (Leg819),
+        };
+\end{feynman}
+\end{tikzpicture}
+)
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
 </section>
 
 
@@ -16597,6 +18060,10 @@ event number = 0</title>
            
           </div>
           <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../qgraf/qgraf.html" class="btn btn-neutral float-right" title="QGraf" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../dot/dot.html" class="btn btn-neutral float-left" title="Dot" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
 
   <hr/>
 

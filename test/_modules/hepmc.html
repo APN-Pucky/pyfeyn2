@@ -77,7 +77,7 @@
             
             
               <div class="version">
-                2.0.7-6-g5b5086a
+                2.0.7-31-gde48c39
               </div>
             
           
@@ -122,6 +122,10 @@
 <p class="caption" role="heading"><span class="caption-text">Renderers:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../renderers/index.html">Renderers</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Interfaces:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../interfaces/index.html">Interfaces</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Module:</span></p>
 <ul>
@@ -193,23 +197,58 @@
             
   <h1>Source code for hepmc</h1><div class="highlight"><pre>
 <span></span>import pyhepmc
-
 from pyhepmc import GenEvent, GenParticle, GenVertex
 
+from pyfeyn2.feynmandiagram import FeynmanDiagram, Leg, Propagator, Vertex
 
-<div class="viewcode-block" id="event_to_feynml"><a class="viewcode-back" href="../autoapi/hepmc/index.html#hepmc.event_to_feynml">[docs]</a>def event_to_feynml(event):
+
+<div class="viewcode-block" id="_vertex_id_wrap"><a class="viewcode-back" href="../autoapi/hepmc/index.html#hepmc._vertex_id_wrap">[docs]</a>def _vertex_id_wrap(id):
+    return &quot;Vertex&quot; + str(id).replace(&quot;-&quot;, &quot;m&quot;)</div>
+
+
+<div class="viewcode-block" id="event_to_feynman"><a class="viewcode-back" href="../autoapi/hepmc/index.html#hepmc.event_to_feynman">[docs]</a>def event_to_feynman(event):
+    fd = FeynmanDiagram()
+    for v in event.vertices:
+        v = Vertex(id=_vertex_id_wrap(v.id))
+        fd.add(v)
     for p in event.particles:
         # TODO first create all vertices?
         if p.status == 4:
             # incoming Leg
-
-            pass
-        elif p.pid== 1:
+            fd.add(
+                Leg(
+                    id=&quot;Leg&quot; + str(p.id).replace(&quot;-&quot;, &quot;m&quot;),
+                    pdgid=p.pid,
+                    target=_vertex_id_wrap(p.end_vertex.id),
+                    sense=&quot;incoming&quot;,
+                )
+            )
+        elif p.status == 1:
             # outgoing Leg
-            pass
-        else:   
+            fd.add(
+                Leg(
+                    id=&quot;Leg&quot; + str(p.id).replace(&quot;-&quot;, &quot;m&quot;),
+                    pdgid=p.pid,
+                    target=_vertex_id_wrap(p.production_vertex.id),
+                    sense=&quot;outgoing&quot;,
+                )
+            )
+        else:
             # Propagator
-            pass</div>
+            fd.add(
+                Propagator(
+                    id=&quot;Propagator&quot; + str(p.id).replace(&quot;-&quot;, &quot;m&quot;),
+                    pdgid=p.pid,
+                    source=_vertex_id_wrap(p.production_vertex.id),
+                    target=_vertex_id_wrap(p.end_vertex.id),
+                )
+            )
+    return fd</div>
+
+
+<div class="viewcode-block" id="hepmc_to_feynml"><a class="viewcode-back" href="../autoapi/hepmc/index.html#hepmc.hepmc_to_feynml">[docs]</a>def hepmc_to_feynml(hepmc_file):
+    # TODO: use pyhepmc
+    pass</div>
 </pre></div>
 
            </div>

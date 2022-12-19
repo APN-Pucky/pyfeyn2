@@ -77,7 +77,7 @@
             
             
               <div class="version">
-                2.0.7-6-g5b5086a
+                2.0.7-31-gde48c39
               </div>
             
           
@@ -122,6 +122,10 @@
 <p class="caption" role="heading"><span class="caption-text">Renderers:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../renderers/index.html">Renderers</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Interfaces:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../interfaces/index.html">Interfaces</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Module:</span></p>
 <ul>
@@ -197,7 +201,7 @@
 <span></span>from pylatex import Command
 from pylatex.utils import NoEscape
 
-from pyfeyn2.feynmandiagram import Connector, Vertex
+from pyfeyn2.feynmandiagram import Connector, Leg, Vertex
 from pyfeyn2.render.latex.latex import LatexRender
 
 # converte FeynmanDiagram to tikz-feynman
@@ -226,6 +230,7 @@ from pyfeyn2.render.latex.latex import LatexRender
     &quot;higgs&quot;: &quot;scalar&quot;,
     &quot;vector&quot;: &quot;boson&quot;,
     &quot;phantom&quot;: &quot;draw=none&quot;,
+    &quot;line&quot;: &quot;plain&quot;,
 }</div>
 
 
@@ -245,7 +250,7 @@ from pyfeyn2.render.latex.latex import LatexRender
     if c.bend is not None and c.bend:
         if c.style.getProperty(&quot;bend-direction&quot;) is not None:
             style += &quot;,bend &quot; + str(c.style.getProperty(&quot;bend-direction&quot;).value)
-        if ( c.style.getProperty(&quot;bend-loop&quot;) is not None):
+        if c.style.getProperty(&quot;bend-loop&quot;) is not None:
             style += (
                 &quot;,loop , in=&quot;
                 + str(c.style.getProperty(&quot;bend-in&quot;).value)
@@ -261,8 +266,16 @@ from pyfeyn2.render.latex.latex import LatexRender
 <div class="viewcode-block" id="stylize_node"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/latex/tikzfeynman/index.html#pyfeyn2.stylize_node">[docs]</a>def stylize_node(v: Vertex):
     style = &quot;&quot;
     if v.label is not None:
-        style += &quot;label=&quot; + v.label
-    return style</div>
+        style += &quot;label=&quot; + v.label + &quot;,&quot;
+
+    return style[:-1]</div>
+
+
+<div class="viewcode-block" id="stylize_leg_node"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/latex/tikzfeynman/index.html#pyfeyn2.stylize_leg_node">[docs]</a>def stylize_leg_node(l: Leg):
+    style = &quot;&quot;
+    if l.external is not None:
+        style += &quot;label=&quot; + l.external + &quot;,&quot;
+    return style[:-1]</div>
 
 
 <div class="viewcode-block" id="get_line"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/latex/tikzfeynman/index.html#pyfeyn2.get_line">[docs]</a>def get_line(source_id, target_id, style):
@@ -281,7 +294,7 @@ from pyfeyn2.render.latex.latex import LatexRender
         src += f&quot;\t\\vertex ({v.id}) [{style}] at ({v.x},{v.y});\n&quot;
         src += f&quot;\t\\vertex ({v.id}clone) [{style}] at ({v.x},{v.y});\n&quot;
     for l in fd.legs:
-        # style = stylize_node(l)
+        style = stylize_leg_node(l)
         src += f&quot;\t\\vertex ({l.id}) [{style}] at ({l.x},{l.y});\n&quot;
     src += &quot;\t\\diagram*{\n&quot;
     for p in fd.propagators:

@@ -23,6 +23,7 @@ Functions
 
    pyfeyn2.render.latex.tikzfeynman.stylize_connect
    pyfeyn2.render.latex.tikzfeynman.stylize_node
+   pyfeyn2.render.latex.tikzfeynman.stylize_leg_node
    pyfeyn2.render.latex.tikzfeynman.get_line
    pyfeyn2.render.latex.tikzfeynman.feynman_to_tikz_feynman
 
@@ -45,6 +46,9 @@ Attributes
 
 
 .. py:function:: stylize_node(v: pyfeyn2.feynmandiagram.Vertex)
+
+
+.. py:function:: stylize_leg_node(l: pyfeyn2.feynmandiagram.Leg)
 
 
 .. py:function:: get_line(source_id, target_id, style)

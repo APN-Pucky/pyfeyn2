@@ -23,6 +23,7 @@ Submodules
    feynmandiagram/index.rst
    mkfeyndiag/index.rst
    particles/index.rst
+   util/index.rst
 
 
 Package Contents

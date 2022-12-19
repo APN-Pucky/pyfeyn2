@@ -15,16 +15,22 @@ Functions
 
    pyfeyn2.auto.label.auto_label
    pyfeyn2.auto.label.auto_label_propagators
+   pyfeyn2.auto.label.auto_label_legs
 
 
 
-.. py:function:: auto_label(objs)
+.. py:function:: auto_label(objs, override=False)
 
    Automatically label objects.
 
 
-.. py:function:: auto_label_propagators(ifd)
+.. py:function:: auto_label_propagators(ifd, override=False)
 
    Automatically label propagators.
+
+
+.. py:function:: auto_label_legs(ifd, override=False)
+
+   Automatically label legs.
 
 

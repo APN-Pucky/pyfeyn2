@@ -13,10 +13,18 @@ Functions
 
 .. autoapisummary::
 
-   hepmc.event_to_feynml
+   hepmc._vertex_id_wrap
+   hepmc.event_to_feynman
+   hepmc.hepmc_to_feynml
 
 
 
-.. py:function:: event_to_feynml(event)
+.. py:function:: _vertex_id_wrap(id)
+
+
+.. py:function:: event_to_feynman(event)
+
+
+.. py:function:: hepmc_to_feynml(hepmc_file)
 
 

@@ -77,7 +77,7 @@
             
             
               <div class="version">
-                2.0.7-6-g5b5086a
+                2.0.7-31-gde48c39
               </div>
             
           
@@ -122,6 +122,10 @@
 <p class="caption" role="heading"><span class="caption-text">Renderers:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../renderers/index.html">Renderers</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Interfaces:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../interfaces/index.html">Interfaces</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Module:</span></p>
 <ul>
@@ -196,7 +200,6 @@
 
 import dot2tex
 
-
 <div class="viewcode-block" id="REPLACE_THIS_WITH_A_BACKSLASH"><a class="viewcode-back" href="../autoapi/dot/index.html#dot.REPLACE_THIS_WITH_A_BACKSLASH">[docs]</a>REPLACE_THIS_WITH_A_BACKSLASH = &quot;¬&quot;</div>
 
 
@@ -250,7 +253,8 @@ import dot2tex
 
 
 <div class="viewcode-block" id="dot_to_positions"><a class="viewcode-back" href="../autoapi/dot/index.html#dot.dot_to_positions">[docs]</a>def dot_to_positions(dot):
-    return dot2tex.dot2tex(dot, format=&quot;positions&quot;)</div>
+    ret = dot2tex.dot2tex(dot, format=&quot;positions&quot;)
+    return ret</div>
 
 
 <div class="viewcode-block" id="dot_to_tikz"><a class="viewcode-back" href="../autoapi/dot/index.html#dot.dot_to_tikz">[docs]</a>def dot_to_tikz(dot):
