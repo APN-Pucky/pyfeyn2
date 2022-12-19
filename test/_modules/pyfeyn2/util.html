@@ -77,7 +77,7 @@
             
             
               <div class="version">
-                2.0.7-31-gde48c39
+                2.0.7-36-g06f4852
               </div>
             
           
@@ -198,7 +198,11 @@
            <div itemprop="articleBody">
             
   <h1>Source code for pyfeyn2.util</h1><div class="highlight"><pre>
-<span></span># TODO split in to own package
+<span></span>from importlib.metadata import version as _version
+
+from deprecation import deprecated as _deprecated
+
+# TODO split in to own package
 <div class="viewcode-block" id="withify"><a class="viewcode-back" href="../../autoapi/pyfeyn2/util/index.html#pyfeyn2.util.withify">[docs]</a>def withify(prefix=&quot;with_&quot;, sufix=&quot;&quot;, override=False):
     &quot;&quot;&quot;Decorator to add with_ methods to a class.&quot;&quot;&quot;
 
@@ -206,9 +210,9 @@
         inst = cls()
         for k in inst.__annotations__.keys():
             fun = prefix + k + sufix
+            ok = k
             if override or not hasattr(cls, fun):
-
-                def tmp(self, value):
+                def tmp(self, value,k=ok):
                     self.__dict__[k] = value
                     return self
 
@@ -216,6 +220,35 @@
         return cls
 
     return _withify</div>
+
+
+<div class="viewcode-block" id="deprecated"><a class="viewcode-back" href="../../autoapi/pyfeyn2/util/index.html#pyfeyn2.util.deprecated">[docs]</a>def deprecated(
+    version=None, deprecated_in=None, removed_in=None, reason=None, details=None
+):
+    # merge details and reason
+    if details is None:
+        details = reason
+    elif reason is not None:
+        details = reason + &quot; &quot; + details
+
+    # merge deprecated_in and version
+    if version is None:
+        version = deprecated_in
+
+    # increment minor version
+    if removed_in is None:
+        removed_in = &quot;.&quot;.join(
+            version.split(&quot;.&quot;)[:-2]
+            + [str(int(version.split(&quot;.&quot;)[-2]) + 1)]
+            + [version.split(&quot;.&quot;)[-1]]
+        )
+
+    return _deprecated(
+        deprecated_in=version,
+        removed_in=removed_in,
+        current_version=_version(&quot;pyfeyn2&quot;),
+        details=details,
+    )</div>
 </pre></div>
 
            </div>

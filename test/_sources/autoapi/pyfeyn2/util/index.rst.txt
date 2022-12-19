@@ -14,11 +14,15 @@ Functions
 .. autoapisummary::
 
    pyfeyn2.util.withify
+   pyfeyn2.util.deprecated
 
 
 
 .. py:function:: withify(prefix='with_', sufix='', override=False)
 
    Decorator to add with_ methods to a class.
+
+
+.. py:function:: deprecated(version=None, deprecated_in=None, removed_in=None, reason=None, details=None)
 
 

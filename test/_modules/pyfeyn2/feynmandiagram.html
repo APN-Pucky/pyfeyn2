@@ -77,7 +77,7 @@
             
             
               <div class="version">
-                2.0.7-31-gde48c39
+                2.0.7-36-g06f4852
               </div>
             
           
@@ -204,12 +204,11 @@ from dataclasses import dataclass, field
 from typing import List, Optional, Union
 
 import cssutils
-from deprecated import deprecated
 from particle import Particle
 from xsdata.formats.converter import Converter, converter
 
 from pyfeyn2.particles import get_either_particle, get_name
-from pyfeyn2.util import withify
+from pyfeyn2.util import deprecated, withify
 
 # We don&#39;t want to see the cssutils warnings, since we have custom properties
 cssutils.log.setLevel(logging.CRITICAL)
@@ -222,6 +221,7 @@ cssutils.log.setLevel(logging.CRITICAL)
 <div class="viewcode-block" id="global_id"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.global_id">[docs]</a>global_id = 0</div>
 
 
+@withify()
 @dataclass
 <div class="viewcode-block" id="Identifiable"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Identifiable">[docs]</a>class Identifiable:
 <div class="viewcode-block" id="Identifiable.id"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Identifiable.id">[docs]</a>    id: Optional[str] = field(default=None, metadata={&quot;name&quot;: &quot;id&quot;, &quot;namespace&quot;: &quot;&quot;})</div>
@@ -235,6 +235,7 @@ cssutils.log.setLevel(logging.CRITICAL)
             global_id = global_id + 1</div></div>
 
 
+@withify()
 @dataclass
 <div class="viewcode-block" id="PDG"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.PDG">[docs]</a>class PDG(Identifiable):
 <div class="viewcode-block" id="PDG.pdgid"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.PDG.pdgid">[docs]</a>    pdgid: Optional[int] = field(default=None, metadata={})</div>
@@ -289,52 +290,52 @@ cssutils.log.setLevel(logging.CRITICAL)
         super().__post_init__()
         self._sync()</div>
 
-<div class="viewcode-block" id="PDG.with_pdgid"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.PDG.with_pdgid">[docs]</a>    def with_pdgid(self, pdgid):
-        self.pdgid = pdgid
-        self._sync()
-        return self</div>
+    # def with_pdgid(self, pdgid):
+    #    self.pdgid = pdgid
+    #    self._sync()
+    #    return self
 
-<div class="viewcode-block" id="PDG.with_name"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.PDG.with_name">[docs]</a>    def with_name(self, name):
-        self.name = name
-        self._sync()
-        return self</div>
+    # def with_name(self, name):
+    #    self.name = name
+    #    self._sync()
+    #    return self
 
     # TODO: remove these deprecated methods
-<div class="viewcode-block" id="PDG.with_type"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.PDG.with_type">[docs]</a>    def with_type(self, typ):
-        self.type = typ
-        return self</div>
+    @deprecated(version=&quot;2.0.8&quot;, reason=&quot;Use with_...() instead&quot;)
+<div class="viewcode-block" id="PDG.set_pdgig"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.PDG.set_pdgig">[docs]</a>    def set_pdgig(self, *args, **kwargs):
+        return self.with_pdgid(*args, **kwargs)</div>
 
-<div class="viewcode-block" id="PDG.set_pdgid"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.PDG.set_pdgid">[docs]</a>    set_pdgid = deprecated(with_pdgid)</div>
-<div class="viewcode-block" id="PDG.set_type"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.PDG.set_type">[docs]</a>    set_type = deprecated(with_type)</div>
-<div class="viewcode-block" id="PDG.set_name"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.PDG.set_name">[docs]</a>    set_name = deprecated(with_name)</div></div>
+    @deprecated(version=&quot;2.0.8&quot;, reason=&quot;Use with_...() instead&quot;)
+<div class="viewcode-block" id="PDG.set_type"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.PDG.set_type">[docs]</a>    def set_type(self, *args, **kwargs):
+        return self.with_type(*args, **kwargs)</div>
+
+    @deprecated(version=&quot;2.0.8&quot;, reason=&quot;Use with_...() instead&quot;)
+<div class="viewcode-block" id="PDG.set_name"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.PDG.set_name">[docs]</a>    def set_name(self, *args, **kwargs):
+        return self.with_name(*args, **kwargs)</div></div>
 
 
+@withify()
 @dataclass
 <div class="viewcode-block" id="Labeled"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Labeled">[docs]</a>class Labeled:
 <div class="viewcode-block" id="Labeled.label"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Labeled.label">[docs]</a>    label: Optional[str] = field(
         default=None, metadata={&quot;xml_attribute&quot;: True, &quot;type&quot;: &quot;Attribute&quot;}
     )</div>
 
-    # TODO: remove these deprecated methods
-<div class="viewcode-block" id="Labeled.with_label"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Labeled.with_label">[docs]</a>    def with_label(self, label):
-        self.label = label
-        return self</div>
-
-<div class="viewcode-block" id="Labeled.set_label"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Labeled.set_label">[docs]</a>    set_label = deprecated(with_label)</div></div>
+    @deprecated(version=&quot;2.0.8&quot;, reason=&quot;Use with_...() instead&quot;)
+<div class="viewcode-block" id="Labeled.set_label"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Labeled.set_label">[docs]</a>    def set_label(self, *args, **kwargs):
+        return self.with_label(*args, **kwargs)</div></div>
 
 
+@withify()
 @dataclass
 <div class="viewcode-block" id="Texted"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Texted">[docs]</a>class Texted:
 <div class="viewcode-block" id="Texted.text"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Texted.text">[docs]</a>    text: Optional[str] = field(
         default=&quot;&quot;, metadata={&quot;xml_attribute&quot;: True, &quot;type&quot;: &quot;Attribute&quot;}
     )</div>
 
-    # TODO: remove these deprecated methods
-<div class="viewcode-block" id="Texted.with_text"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Texted.with_text">[docs]</a>    def with_text(self, text):
-        self.text = text
-        return self</div>
-
-<div class="viewcode-block" id="Texted.set_text"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Texted.set_text">[docs]</a>    set_text = deprecated(with_text)</div></div>
+    @deprecated(version=&quot;2.0.8&quot;, reason=&quot;Use with_...() instead&quot;)
+<div class="viewcode-block" id="Texted.set_text"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Texted.set_text">[docs]</a>    def set_text(self, *args, **kwargs):
+        return self.with_text(*args, **kwargs)</div></div>
 
 
 @dataclass
@@ -366,12 +367,46 @@ cssutils.log.setLevel(logging.CRITICAL)
         return self</div>
 
     # TODO: remove these deprecated methods
-<div class="viewcode-block" id="Point.set_point"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Point.set_point">[docs]</a>    set_point = deprecated(with_point)</div>
-<div class="viewcode-block" id="Point.set_xy"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Point.set_xy">[docs]</a>    set_xy = deprecated(with_xy)</div>
-<div class="viewcode-block" id="Point.set_xyz"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Point.set_xyz">[docs]</a>    set_xyz = deprecated(with_xyz)</div></div>
+
+    @deprecated(version=&quot;2.0.8&quot;, reason=&quot;Use with_...() instead&quot;)
+<div class="viewcode-block" id="Point.set_point"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Point.set_point">[docs]</a>    def set_point(self, *args, **kwargs):
+        return self.with_point(*args, **kwargs)</div>
+
+    @deprecated(version=&quot;2.0.8&quot;, reason=&quot;Use with_...() instead&quot;)
+<div class="viewcode-block" id="Point.set_xy"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Point.set_xy">[docs]</a>    def set_xy(self, *args, **kwargs):
+        return self.with_xy(*args, **kwargs)</div>
+
+    @deprecated(version=&quot;2.0.8&quot;, reason=&quot;Use with_...() instead&quot;)
+<div class="viewcode-block" id="Point.set_xyz"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Point.set_xyz">[docs]</a>    def set_xyz(self, *args, **kwargs):
+        return self.with_xyz(*args, **kwargs)</div></div>
 
 
 <div class="viewcode-block" id="CSSString"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.CSSString">[docs]</a>CSSString = cssutils.css.CSSStyleDeclaration</div>
+<div class="viewcode-block" id="CSSSheet"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.CSSSheet">[docs]</a>CSSSheet = cssutils.css.CSSStyleSheet</div>
+
+
+<div class="viewcode-block" id="CSSStringConverter"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.CSSStringConverter">[docs]</a>class CSSStringConverter(Converter):
+    @staticmethod
+<div class="viewcode-block" id="CSSStringConverter.deserialize"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.CSSStringConverter.deserialize">[docs]</a>    def deserialize(value: str, **kwargs) -&gt; CSSString:
+        return cssutils.parseStyle(value)</div>
+
+    @staticmethod
+<div class="viewcode-block" id="CSSStringConverter.serialize"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.CSSStringConverter.serialize">[docs]</a>    def serialize(value: CSSString, **kwargs) -&gt; str:
+        return value.cssText.replace(&quot;\n&quot;, &quot; &quot;)</div></div>
+
+
+<div class="viewcode-block" id="CSSSheetConverter"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.CSSSheetConverter">[docs]</a>class CSSSheetConverter(Converter):
+    @staticmethod
+<div class="viewcode-block" id="CSSSheetConverter.deserialize"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.CSSSheetConverter.deserialize">[docs]</a>    def deserialize(value: str, **kwargs) -&gt; CSSSheet:
+        return cssutils.parseString(value)</div>
+
+    @staticmethod
+<div class="viewcode-block" id="CSSSheetConverter.serialize"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.CSSSheetConverter.serialize">[docs]</a>    def serialize(value: CSSSheet, **kwargs) -&gt; str:
+        return value.cssText.decode(&quot;utf-8&quot;)  # .replace(&quot;\n&quot;, &quot; &quot;)</div></div>
+
+
+converter.register_converter(CSSString, CSSStringConverter())
+converter.register_converter(CSSSheet, CSSSheetConverter())
 
 
 @dataclass
@@ -381,26 +416,27 @@ cssutils.log.setLevel(logging.CRITICAL)
         metadata={&quot;name&quot;: &quot;style&quot;, &quot;xml_attribute&quot;: True, &quot;type&quot;: &quot;Attribute&quot;},
     )</div>
 
+<div class="viewcode-block" id="Styled.clazz"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Styled.clazz">[docs]</a>    clazz: Optional[str] = field(
+        default=None,
+        metadata={&quot;name&quot;: &quot;class&quot;, &quot;xml_attribute&quot;: True, &quot;type&quot;: &quot;Attribute&quot;},
+    )</div>
+
 <div class="viewcode-block" id="Styled.raw_style"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Styled.raw_style">[docs]</a>    def raw_style(self):
         return self.style.cssText.replace(&quot;\n&quot;, &quot; &quot;)</div>
 
 <div class="viewcode-block" id="Styled.put_style"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Styled.put_style">[docs]</a>    def put_style(self, key, value):
         if self.style is not None:
             self.style.setProperty(key, value)
+        return self</div>
+
+<div class="viewcode-block" id="Styled.with_style"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Styled.with_style">[docs]</a>    def with_style(self, style):
+        if style is not None:
+            self.style = cssutils.parseStyle(style)
+        return self</div>
+
+<div class="viewcode-block" id="Styled.with_class"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Styled.with_class">[docs]</a>    def with_class(self, clazz):
+        self.clazz = clazz
         return self</div></div>
-
-
-<div class="viewcode-block" id="CSSConverter"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.CSSConverter">[docs]</a>class CSSConverter(Converter):
-    @staticmethod
-<div class="viewcode-block" id="CSSConverter.deserialize"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.CSSConverter.deserialize">[docs]</a>    def deserialize(value: str, **kwargs) -&gt; CSSString:
-        return cssutils.parseStyle(value)</div>
-
-    @staticmethod
-<div class="viewcode-block" id="CSSConverter.serialize"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.CSSConverter.serialize">[docs]</a>    def serialize(value: CSSString, **kwargs) -&gt; str:
-        return value.cssText.replace(&quot;\n&quot;, &quot; &quot;)</div></div>
-
-
-converter.register_converter(CSSString, CSSConverter())
 
 
 @dataclass
@@ -414,32 +450,38 @@ converter.register_converter(CSSString, CSSConverter())
 <div class="viewcode-block" id="Targeting"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Targeting">[docs]</a>class Targeting:
 <div class="viewcode-block" id="Targeting.target"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Targeting.target">[docs]</a>    target: Optional[str] = field(default=&quot;&quot;, metadata={})</div>
 
-    # TODO: remove these deprecated methods
 <div class="viewcode-block" id="Targeting.with_target"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Targeting.with_target">[docs]</a>    def with_target(self, target):
-        self.target = target.id
+        if isinstance(target, str):
+            self.target = target
+        else:
+            self.target = target.id
         return self</div>
 
-<div class="viewcode-block" id="Targeting.set_target"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Targeting.set_target">[docs]</a>    set_target = deprecated(with_target)</div></div>
+    @deprecated(version=&quot;2.0.8&quot;, reason=&quot;Use with_...() instead&quot;)
+<div class="viewcode-block" id="Targeting.set_target"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Targeting.set_target">[docs]</a>    def set_target(self, *args, **kwargs):
+        return self.with_target(*args, **kwargs)</div></div>
 
 
 @dataclass
 <div class="viewcode-block" id="Sourcing"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Sourcing">[docs]</a>class Sourcing:
 <div class="viewcode-block" id="Sourcing.source"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Sourcing.source">[docs]</a>    source: Optional[str] = field(default=&quot;&quot;, metadata={})</div>
 
-    # TODO: remove these deprecated methods
 <div class="viewcode-block" id="Sourcing.with_source"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Sourcing.with_source">[docs]</a>    def with_source(self, source):
-        self.source = source.id
+        if isinstance(source, str):
+            self.source = source
+        else:
+            self.source = source.id
         return self</div>
 
-<div class="viewcode-block" id="Sourcing.set_source"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Sourcing.set_source">[docs]</a>    set_source = deprecated(with_source)</div></div>
+    @deprecated(version=&quot;2.0.8&quot;, reason=&quot;Use with_...() instead&quot;)
+<div class="viewcode-block" id="Sourcing.set_source"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Sourcing.set_source">[docs]</a>    def set_source(self, *args, **kwargs):
+        return self.with_source(*args, **kwargs)</div></div>
 
 
 @dataclass
 <div class="viewcode-block" id="Line"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Line">[docs]</a>class Line(Targeting, Sourcing):
 <div class="viewcode-block" id="Line.connect"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Line.connect">[docs]</a>    def connect(self, source, target):
-        self.set_source(source)
-        self.set_target(target)
-        return self</div></div>
+        return self.with_source(source.id).set_target(target.id)</div></div>
 
 
 @withify()
@@ -448,6 +490,7 @@ converter.register_converter(CSSString, CSSConverter())
     pass</div>
 
 
+@withify()
 @dataclass
 <div class="viewcode-block" id="Connector"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Connector">[docs]</a>class Connector(Labeled, Bending, Styled, PDG):
 <div class="viewcode-block" id="Connector.momentum"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Connector.momentum">[docs]</a>    momentum: Optional[str] = field(default=None, metadata={})</div>
@@ -458,22 +501,17 @@ converter.register_converter(CSSString, CSSConverter())
         default=None, metadata={&quot;xml_attribute&quot;: True, &quot;type&quot;: &quot;Attribute&quot;}
     )</div>
 
-    # TODO: remove these deprecated methods
-<div class="viewcode-block" id="Connector.with_momentum"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Connector.with_momentum">[docs]</a>    def with_momentum(self, momentum):
-        self.momentum = momentum
-        return self</div>
+    @deprecated(version=&quot;2.0.8&quot;, reason=&quot;Use with_...() instead&quot;)
+<div class="viewcode-block" id="Connector.set_momentum"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Connector.set_momentum">[docs]</a>    def set_momentum(self, *args, **kwargs):
+        return self.with_momentum(*args, **kwargs)</div>
 
-<div class="viewcode-block" id="Connector.with_tension"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Connector.with_tension">[docs]</a>    def with_tension(self, tension):
-        self.tension = tension
-        return self</div>
+    @deprecated(version=&quot;2.0.8&quot;, reason=&quot;Use with_...() instead&quot;)
+<div class="viewcode-block" id="Connector.set_tension"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Connector.set_tension">[docs]</a>    def set_tension(self, *args, **kwargs):
+        return self.with_tension(*args, **kwargs)</div>
 
-<div class="viewcode-block" id="Connector.with_length"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Connector.with_length">[docs]</a>    def with_length(self, length):
-        self.length = length
-        return self</div>
-
-<div class="viewcode-block" id="Connector.set_momentum"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Connector.set_momentum">[docs]</a>    set_momentum = deprecated(with_momentum)</div>
-<div class="viewcode-block" id="Connector.set_tension"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Connector.set_tension">[docs]</a>    set_tension = deprecated(with_tension)</div>
-<div class="viewcode-block" id="Connector.set_length"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Connector.set_length">[docs]</a>    set_length = deprecated(with_length)</div></div>
+    @deprecated(version=&quot;2.0.8&quot;, reason=&quot;Use with_...() instead&quot;)
+<div class="viewcode-block" id="Connector.set_length"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Connector.set_length">[docs]</a>    def set_length(self, *args, **kwargs):
+        return self.with_length(*args, **kwargs)</div></div>
 
 
 @withify()
@@ -485,10 +523,6 @@ converter.register_converter(CSSString, CSSConverter())
         default=None, metadata={&quot;xml_attribute&quot;: True, &quot;type&quot;: &quot;Attribute&quot;}
     )</div>
 
-<div class="viewcode-block" id="Leg.with_external"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Leg.with_external">[docs]</a>    def with_external(self, external):
-        self.external = external
-        return self</div>
-
 <div class="viewcode-block" id="Leg.with_incoming"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Leg.with_incoming">[docs]</a>    def with_incoming(self):
         self.sense = &quot;incoming&quot;
         return self</div>
@@ -497,9 +531,17 @@ converter.register_converter(CSSString, CSSConverter())
         self.sense = &quot;outgoing&quot;
         return self</div>
 
-<div class="viewcode-block" id="Leg.set_external"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Leg.set_external">[docs]</a>    set_external = deprecated(with_external)</div>
-<div class="viewcode-block" id="Leg.set_incoming"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Leg.set_incoming">[docs]</a>    set_incoming = deprecated(with_incoming)</div>
-<div class="viewcode-block" id="Leg.set_outgoing"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Leg.set_outgoing">[docs]</a>    set_outgoing = deprecated(with_outgoing)</div></div>
+    @deprecated(version=&quot;2.0.8&quot;, reason=&quot;Use with_...() instead&quot;)
+<div class="viewcode-block" id="Leg.set_external"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Leg.set_external">[docs]</a>    def set_external(self, *args, **kwargs):
+        return self.with_external(*args, **kwargs)</div>
+
+    @deprecated(version=&quot;2.0.8&quot;, reason=&quot;Use with_...() instead&quot;)
+<div class="viewcode-block" id="Leg.set_incoming"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Leg.set_incoming">[docs]</a>    def set_incoming(self, *args, **kwargs):
+        return self.with_incoming(*args, **kwargs)</div>
+
+    @deprecated(version=&quot;2.0.8&quot;, reason=&quot;Use with_...() instead&quot;)
+<div class="viewcode-block" id="Leg.set_outgoing"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Leg.set_outgoing">[docs]</a>    def set_outgoing(self, *args, **kwargs):
+        return self.with_outgoing(*args, **kwargs)</div></div>
 
 
 @withify()
@@ -535,6 +577,16 @@ converter.register_converter(CSSString, CSSConverter())
 <div class="viewcode-block" id="FeynmanDiagram.labels"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.FeynmanDiagram.labels">[docs]</a>    labels: List[Label] = field(
         default_factory=list,
         metadata={&quot;name&quot;: &quot;label&quot;, &quot;type&quot;: &quot;Element&quot;, &quot;namespace&quot;: &quot;&quot;},
+    )</div>
+
+<div class="viewcode-block" id="FeynmanDiagram.sheet"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.FeynmanDiagram.sheet">[docs]</a>    sheet: CSSSheet = field(
+        default_factory=lambda: cssutils.parseString(&quot;&quot;),
+        metadata={
+            &quot;name&quot;: &quot;style&quot;,
+            &quot;xml_attribute&quot;: True,
+            &quot;type&quot;: &quot;Attribute&quot;,
+            &quot;namespace&quot;: &quot;&quot;,
+        },
     )</div>
 
 <div class="viewcode-block" id="FeynmanDiagram.add"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.FeynmanDiagram.add">[docs]</a>    def add(self, *fd_all: List[Union[Propagator, Vertex, Leg, Label]]):
@@ -586,7 +638,81 @@ converter.register_converter(CSSString, CSSConverter())
             min_y = min(min_y, l.y)
             max_x = max(max_x, l.x)
             max_y = max(max_y, l.y)
-        return min_x, min_y, max_x, max_y</div></div>
+        return min_x, min_y, max_x, max_y</div>
+
+<div class="viewcode-block" id="FeynmanDiagram.add_rule"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.FeynmanDiagram.add_rule">[docs]</a>    def add_rule(self, rule: str):
+        self.sheet.add(rule)
+        return self</div>
+
+<div class="viewcode-block" id="FeynmanDiagram.add_rules"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.FeynmanDiagram.add_rules">[docs]</a>    def add_rules(self, rules: str):
+        self.sheet = cssutils.parseString(
+            self.sheet.cssText.decode(&quot;utf-8&quot;) + &quot;\n&quot; + rules
+        )
+        return self</div>
+
+<div class="viewcode-block" id="FeynmanDiagram.with_rule"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.FeynmanDiagram.with_rule">[docs]</a>    def with_rule(self, rule: str):
+        return self.with_rules(rule)</div>
+
+<div class="viewcode-block" id="FeynmanDiagram.with_rules"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.FeynmanDiagram.with_rules">[docs]</a>    def with_rules(self, rules: str):
+        self.sheet = cssutils.parseString(rules)
+        return self</div>
+
+<div class="viewcode-block" id="FeynmanDiagram._get_rule_style"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.FeynmanDiagram._get_rule_style">[docs]</a>    def _get_rule_style(self, selectorText: str) -&gt; cssutils.css.CSSStyleDeclaration:
+        ret = None
+        for rule in self.sheet:
+            if rule.selectorText == selectorText and rule.type == rule.STYLE_RULE:
+                ret = rule.style
+        if ret:
+            return ret
+        else:
+            return cssutils.css.CSSStyleDeclaration()</div>
+
+<div class="viewcode-block" id="FeynmanDiagram._get_class_style"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.FeynmanDiagram._get_class_style">[docs]</a>    def _get_class_style(self, obj: Styled) -&gt; cssutils.css.CSSStyleDeclaration:
+        cssstr = &quot;&quot;
+        cssstr += self._get_rule_style(type(obj).__name__.lower()).cssText + &quot;;&quot;
+        clazzes = []
+        # pdgid is a special case of a class
+        if isinstance(obj, PDG):
+            if obj.pdgid:
+                clazzes += [&quot;pdgid&quot; + str(int(obj.pdgid))]
+        if obj.clazz:
+            clazzes += obj.clazz.split()
+
+        # first pure classes
+        for clazz in clazzes:
+            # css class
+            cssstr += self._get_rule_style(&quot;.&quot; + clazz).cssText + &quot;;&quot;
+        # then element + class
+        for clazz in clazzes:
+            # css element + class
+            cssstr += (
+                self._get_rule_style(type(obj).__name__.lower() + &quot;.&quot; + clazz).cssText
+                + &quot;;&quot;
+            )
+
+        return cssutils.css.CSSStyleDeclaration(cssText=cssstr)</div>
+
+<div class="viewcode-block" id="FeynmanDiagram.get_style"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.FeynmanDiagram.get_style">[docs]</a>    def get_style(self, obj) -&gt; cssutils.css.CSSStyleDeclaration:
+        &quot;&quot;&quot;Get the style of an object.
+
+        This is prefered over accessing the style attribute directly, sicne it includes class and pdgid definitions.
+        &quot;&quot;&quot;
+        # selectorText is string
+        cssstr = &quot;&quot;
+        # global style
+        cssstr += self._get_rule_style(&quot;*&quot;).cssText + &quot;;&quot;
+        if isinstance(obj, str):
+            cssstr += self._get_rule_style(obj).cssText + &quot;;&quot;
+        if isinstance(obj, Styled):
+            # css class
+            cssstr += self._get_class_style(obj).cssText + &quot;;&quot;
+        if isinstance(obj, Identifiable):
+            # css id
+            cssstr += self._get_rule_style(&quot;#&quot; + obj.id).cssText + &quot;;&quot;
+        if isinstance(obj, Styled):
+            # specific attribute style
+            cssstr += obj.style.cssText + &quot;;&quot;
+        return cssutils.css.CSSStyleDeclaration(cssText=cssstr)</div></div>
 
 
 @dataclass
@@ -614,10 +740,10 @@ converter.register_converter(CSSString, CSSConverter())
         default_factory=list,
         metadata={&quot;name&quot;: &quot;meta&quot;, &quot;namespace&quot;: &quot;&quot;},
     )</div>
+<div class="viewcode-block" id="Head.description"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Head.description">[docs]</a>    description: Optional[str] = field(default=&quot;&quot;, metadata={&quot;type&quot;: &quot;Element&quot;})</div></div>
 
-<div class="viewcode-block" id="Head.description"><a class="viewcode-back" href="../../autoapi/pyfeyn2/feynmandiagram/index.html#pyfeyn2.feynmandiagram.Head.description">[docs]</a>    description: Optional[str] = field(
-        default=&quot;&quot;, metadata={&quot;xml_attribute&quot;: True, &quot;type&quot;: &quot;Element&quot;}
-    )</div></div>
+    # TODO setup style ?
+    # style: Optional[str] = field(default=&quot;&quot;, metadata={&quot;type&quot;: &quot;Element&quot;})
 
 
 @dataclass

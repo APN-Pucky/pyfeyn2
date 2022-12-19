@@ -77,7 +77,7 @@
             
             
               <div class="version">
-                2.0.7-31-gde48c39
+                2.0.7-36-g06f4852
               </div>
             
           
@@ -201,7 +201,7 @@
 <span></span>from pylatex import Command
 from pylatex.utils import NoEscape
 
-from pyfeyn2.feynmandiagram import Connector, Leg, Vertex
+from pyfeyn2.feynmandiagram import Connector, FeynmanDiagram, Leg, Vertex
 from pyfeyn2.render.latex.latex import LatexRender
 
 # converte FeynmanDiagram to tikz-feynman
@@ -234,33 +234,34 @@ from pyfeyn2.render.latex.latex import LatexRender
 }</div>
 
 
-<div class="viewcode-block" id="stylize_connect"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/latex/tikzfeynman/index.html#pyfeyn2.stylize_connect">[docs]</a>def stylize_connect(c: Connector):
-    style = &quot;&quot;
-    style += type_map[c.type]
+<div class="viewcode-block" id="stylize_connect"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/latex/tikzfeynman/index.html#pyfeyn2.stylize_connect">[docs]</a>def stylize_connect(fd: FeynmanDiagram, c: Connector):
+    style = fd.get_style(c)
+    ret = &quot;&quot;
+    ret += type_map[c.type]
 
     if c.label is not None:
-        style += &quot;,edge label=&quot; + c.label
+        ret += &quot;,edge label=&quot; + c.label
     # if c.edge_label_ is not None: style += &quot;,edge label&#39;=&quot; + c.edge_label_
     if c.momentum is not None:
-        style += &quot;,momentum=&quot; + c.momentum
-    if c.style.opacity is not None and c.style.opacity != &quot;&quot;:
-        style += &quot;,opacity=&quot; + str(c.style.opacity)
-    if c.style.color is not None and c.style.color != &quot;&quot;:
-        style += &quot;,&quot; + str(c.style.color)
+        ret += &quot;,momentum=&quot; + c.momentum
+    if style.opacity is not None and style.opacity != &quot;&quot;:
+        ret += &quot;,opacity=&quot; + str(style.opacity)
+    if style.color is not None and style.color != &quot;&quot;:
+        ret += &quot;,&quot; + str(style.color)
     if c.bend is not None and c.bend:
-        if c.style.getProperty(&quot;bend-direction&quot;) is not None:
-            style += &quot;,bend &quot; + str(c.style.getProperty(&quot;bend-direction&quot;).value)
-        if c.style.getProperty(&quot;bend-loop&quot;) is not None:
-            style += (
+        if style.getProperty(&quot;bend-direction&quot;) is not None:
+            ret += &quot;,bend &quot; + str(c.style.getProperty(&quot;bend-direction&quot;).value)
+        if style.getProperty(&quot;bend-loop&quot;) is not None:
+            ret += (
                 &quot;,loop , in=&quot;
-                + str(c.style.getProperty(&quot;bend-in&quot;).value)
+                + str(style.getProperty(&quot;bend-in&quot;).value)
                 + &quot;, out=&quot;
-                + str(c.style.getProperty(&quot;bend-out&quot;).value)
+                + str(style.getProperty(&quot;bend-out&quot;).value)
                 + &quot;, min distance=&quot;
-                + str(c.style.getProperty(&quot;bend-min-distance&quot;).value)
+                + str(style.getProperty(&quot;bend-min-distance&quot;).value)
             )
 
-    return style</div>
+    return ret</div>
 
 
 <div class="viewcode-block" id="stylize_node"><a class="viewcode-back" href="../../../../autoapi/pyfeyn2/render/latex/tikzfeynman/index.html#pyfeyn2.stylize_node">[docs]</a>def stylize_node(v: Vertex):
@@ -298,10 +299,10 @@ from pyfeyn2.render.latex.latex import LatexRender
         src += f&quot;\t\\vertex ({l.id}) [{style}] at ({l.x},{l.y});\n&quot;
     src += &quot;\t\\diagram*{\n&quot;
     for p in fd.propagators:
-        style = stylize_connect(p)
+        style = stylize_connect(fd, p)
         src += get_line(p.source, p.target, style)
     for l in fd.legs:
-        style = stylize_connect(l)
+        style = stylize_connect(fd, l)
         if l.sense[:2] == &quot;in&quot;:
             src += get_line(l.id, l.target, style)
         elif l.sense[:3] == &quot;out&quot;:

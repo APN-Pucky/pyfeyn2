@@ -42,7 +42,7 @@ Attributes
 
    
 
-.. py:function:: stylize_connect(c: pyfeyn2.feynmandiagram.Connector)
+.. py:function:: stylize_connect(fd: pyfeyn2.feynmandiagram.FeynmanDiagram, c: pyfeyn2.feynmandiagram.Connector)
 
 
 .. py:function:: stylize_node(v: pyfeyn2.feynmandiagram.Vertex)
