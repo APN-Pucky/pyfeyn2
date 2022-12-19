@@ -1,0 +1,6 @@
+﻿pyfeyn2
+=======
+
+.. currentmodule:: pyfeyn2
+
+.. automodule:: pyfeyn2

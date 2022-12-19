@@ -61,6 +61,15 @@
 
    interfaces/*
 
+.. autosummary::
+   :toctree: _autosummary
+   :template: custom-module-template.rst
+   :recursive:
+   :caption: Modules:
+
+   pyfeyn2
+
+
 .. toctree::
    :glob:
    :maxdepth: 3
