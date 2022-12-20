@@ -37,7 +37,7 @@
             <img src="../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.0.7-53-g58f87e54
+                2.0.7-54-ga46f8cd4
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -128,7 +128,7 @@
                         pb.style.setProperty(&quot;bend-direction&quot;, &quot;left&quot;)
         elif duplications[i] == 3:
             for j, pb in enumerate(objs):
-                for k, pc in enumerate(objs):
+                for k, _ in enumerate(objs):
                     # pc is the third propagator we keep it straight
                     if i &lt; j and j &lt; k:
                         if pa.target == pb.target and pa.source == pb.source:
