@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pyfeyn2.render.pyx.pyxrender &mdash; pyfeyn2  documentation</title>
+      <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/plot_directive.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/jupyter-sphinx.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/thebelab.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/sphinx_highlight.js"></script>
+        <script src="../../../../_static/thebelab-helper.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../../index.html" class="icon icon-home"> pyfeyn2
+            <img src="../../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                2.0.7-42-g838712a
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Versions:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/pyfeyn2/">Stable</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/pyfeyn2/test/">Dev</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Links:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/APN-Pucky/pyfeyn2">GitHub</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">FeynML:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../feynml/index.html">FeynML</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Gallery:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../gallery/index.html">Gallery</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Renderers:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../renderers/index.html">Renderers</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Interfaces:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../interfaces/index.html">Interfaces</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Modules:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../_autosummary/pyfeyn2.html">pyfeyn2</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">pyfeyn2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">pyfeyn2.render.pyx.pyxrender</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for pyfeyn2.render.pyx.pyxrender</h1><div class="highlight"><pre>
+<span></span>import os
+
+import pyx
+from IPython.display import display
+from pyx import *
+from wand.image import Image as WImage
+
+# from pyfeyn2.feynmandiagram import Line, Point
+from pyfeyn2.render.pyx.deco import Arrow, PointLabel
+from pyfeyn2.render.pyx.diagrams import FeynDiagram
+from pyfeyn2.render.pyx.lines import Line, NamedLine
+from pyfeyn2.render.pyx.points import SQUARE, DecoratedPoint, NamedMark, Point
+from pyfeyn2.render.render import Render
+
+
+<div class="viewcode-block" id="PyxRender"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.pyxrender.PyxRender.html#pyfeyn2.render.pyx.pyxrender.PyxRender">[docs]</a>class PyxRender(Render):
+<div class="viewcode-block" id="PyxRender.__init__"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.pyxrender.PyxRender.html#pyfeyn2.render.pyx.pyxrender.PyxRender.__init__">[docs]</a>    def __init__(self, fd=None, *args, **kwargs):
+        super().__init__(fd, *args, **kwargs)</div>
+
+<div class="viewcode-block" id="PyxRender.render"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.pyxrender.PyxRender.html#pyfeyn2.render.pyx.pyxrender.PyxRender.render">[docs]</a>    def render(
+        self,
+        file=None,
+        show=True,
+        resolution=200,
+        width=None,
+        height=None,
+        clean_up=False,
+    ):
+        delete = False
+        if file is None:
+            file = &quot;tmp.pdf&quot;
+            delete = True
+        pyxfd = FeynDiagram()
+        for v in self.fd.vertices:
+            dp = DecoratedPoint(v.x, v.y)
+            dp = self.apply_layout(v.raw_style(), dp)
+            if v.label is not None:
+                dp.setFillstyles(PointLabel(dp, v.label, displace=3, angle=90))
+            pyxfd.add(dp)
+        for l in self.fd.legs:
+            tar = self.fd.get_vertex(l.target)
+            if l.sense[:2] == &quot;in&quot; or l.sense[:8] == &quot;anti-out&quot;:
+                nl = NamedLine[l.type](Point(l.x, l.y), Point(tar.x, tar.y))
+            elif l.sense[:3] == &quot;out&quot; or l.sense[:9] == &quot;anti-in&quot;:
+                nl = NamedLine[l.type](Point(tar.x, tar.y), Point(l.x, l.y))
+            nl = nl.bend(l.bend)
+            nl = self.apply_layout(v.raw_style(), nl)
+            nl = nl.addLabel(l.label)
+
+        for p in self.fd.propagators:
+            src = self.fd.get_vertex(p.source)
+            tar = self.fd.get_vertex(p.target)
+            nl = NamedLine[p.type](Point(src.x, src.y), Point(tar.x, tar.y))
+            nl = nl.bend(p.bend)
+            nl = self.apply_layout(v.raw_style(), nl)
+            nl = nl.addLabel(p.label)
+        pyxfd.draw(file)
+        wi = WImage(filename=file, resolution=resolution, width=width, height=height)
+        if delete:
+            os.remove(file)
+        if show:
+            display(wi)
+        if clean_up:
+            # TODO: clean up
+            pass
+        return wi</div>
+
+<div class="viewcode-block" id="PyxRender.apply_layout"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.pyxrender.PyxRender.html#pyfeyn2.render.pyx.pyxrender.PyxRender.apply_layout">[docs]</a>    def apply_layout(self, stylestring, obj):
+        &quot;&quot;&quot;Apply the decorators encoded in a style string to an object.&quot;&quot;&quot;
+        if stylestring is None:
+            return obj
+        styleelements = stylestring.split(&quot;;&quot;)
+        styledict = {}
+        for styling in styleelements:
+            if styling == &quot;&quot;:
+                break
+            s = styling.split(&quot;:&quot;)
+            styledict[s[0].lstrip().rstrip()] = s[1]
+        if &quot;fill-style&quot; in styledict:
+            filltype = styledict[&quot;fill-style&quot;].split()
+            if filltype[0] == &quot;solid&quot;:
+                R, G, B = [
+                    eval(&quot;0x%s&quot; % x) / 255.0
+                    for x in [filltype[1][n : n + 2] for n in (1, 3, 5)]
+                ]
+                obj.fillstyles = [pyx.color.rgb(R, G, B)]
+            elif filltype[0] == &quot;hatched&quot;:
+                D, A = float(filltype[1]), int(filltype[2])
+                obj.fillstyles = [pyx.pattern.hatched(D, A)]
+            elif filltype[0] == &quot;crosshatched&quot;:
+                D, A = float(filltype[1]), int(filltype[2])
+                obj.fillstyles = [pyx.pattern.crosshatched(D, A)]
+        if (&quot;mark-shape&quot; in styledict or &quot;mark-size&quot; in styledict) and isinstance(
+            obj, DecoratedPoint
+        ):
+            try:
+                marktype = NamedMark[styledict[&quot;mark-shape&quot;]]
+            except Exception:
+                marktype = SQUARE
+            try:
+                marksize = float(styledict[&quot;mark-size&quot;])
+            except Exception:
+                marksize = 0.075
+            obj.setMark(marktype(size=marksize))
+        if (
+            &quot;arrow-size&quot; in styledict
+            or &quot;arrow-angle&quot; in styledict
+            or &quot;arrow-constrict&quot; in styledict
+            or &quot;arrow-pos&quot; in styledict
+        ) and isinstance(obj, Line):
+            try:
+                arrsize = pyx.unit.length(float(styledict[&quot;arrow-size&quot;]), unit=&quot;cm&quot;)
+            except Exception:
+                arrsize = 6 * pyx.unit.v_pt
+            try:
+                arrangle = float(styledict[&quot;arrow-angle&quot;])
+            except Exception:
+                arrangle = 45
+            try:
+                arrconstrict = float(styledict[&quot;arrow-constrict&quot;])
+            except Exception:
+                arrconstrict = 0.8
+            try:
+                arrpos = float(styledict[&quot;arrow-pos&quot;])
+            except Exception:
+                arrpos = 0.5
+            obj.addArrow(arrow=Arrow(arrpos, arrsize, arrangle, arrconstrict))
+        if (
+            &quot;parallel-arrow-size&quot; in styledict
+            or &quot;parallel-arrow-angle&quot; in styledict
+            or &quot;parallel-arrow-constrict&quot; in styledict
+            or &quot;parallel-arrow-pos&quot; in styledict
+            or &quot;parallel-arrow-length&quot; in styledict
+            or &quot;parallel-arrow-displace&quot; in styledict
+            or &quot;parallel-arrow-sense&quot; in styledict
+        ) and isinstance(obj, Line):
+            try:
+                arrsize = pyx.unit.length(
+                    float(styledict[&quot;parallel-arrow-size&quot;]), unit=&quot;cm&quot;
+                )
+            except Exception:
+                arrsize = 6 * pyx.unit.v_pt
+            try:
+                arrangle = float(styledict[&quot;parallel-arrow-angle&quot;])
+            except Exception:
+                arrangle = 45
+            try:
+                arrconstrict = float(styledict[&quot;parallel-arrow-constrict&quot;])
+            except Exception:
+                arrconstrict = 0.8
+            try:
+                arrpos = float(styledict[&quot;parallel-arrow-pos&quot;])
+            except Exception:
+                arrpos = 0.5
+            try:
+                arrlen = float(styledict[&quot;parallel-arrow-length&quot;])
+            except Exception:
+                arrlen = 0.5 * pyx.unit.v_cm
+            try:
+                arrdisp = float(styledict[&quot;parallel-arrow-displace&quot;])
+            except Exception:
+                arrdisp = 0.3
+            try:
+                arrsense = int(styledict[&quot;parallel-arrow-sense&quot;])
+            except Exception:
+                arrsense = +1
+            obj.addParallelArrow(
+                arrpos, arrdisp, arrlen, arrsize, arrangle, arrconstrict, arrsense
+            )
+        if &quot;is3d&quot; in styledict and isinstance(obj, Line):
+            fwords = [&quot;0&quot;, &quot;no&quot;, &quot;false&quot;, &quot;f&quot;, &quot;off&quot;]
+            twords = [&quot;1&quot;, &quot;yes&quot;, &quot;true&quot;, &quot;t&quot;, &quot;on&quot;]
+            if styledict[&quot;is3d&quot;].lstrip().lower() in fwords:
+                obj.set3D(False)
+            elif styledict[&quot;is3d&quot;].lstrip().lower() in twords:
+                obj.set3D(True)
+        return obj</div>
+
+    @staticmethod
+    def valid_type(typ: str):
+        if typ.lower() in NamedLine:
+            return True
+        return False
+
+    @staticmethod
+    def valid_attribute(attr: str) -&gt; bool:
+        return super(PyxRender, PyxRender).valid_attribute(attr) or attr.lower() in [
+            &quot;style&quot;,
+            &quot;type&quot;,
+            &quot;bend&quot;,
+            &quot;label&quot;,
+            &quot;x&quot;,
+            &quot;y&quot;,
+        ]
+
+    @staticmethod
+    def valid_style(style: str) -&gt; bool:
+        return super(PyxRender, PyxRender).valid_style(style) or style.lower() in [
+            &quot;arrow-pos&quot;,
+            &quot;parallel-arrow-sense&quot;,
+            &quot;parallel-arrow-displace&quot;,
+        ]</div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Alexander Puck Neuwirth.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,1458 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pyfeyn2.render.pyx.lines &mdash; pyfeyn2  documentation</title>
+      <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/plot_directive.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/jupyter-sphinx.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/thebelab.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/sphinx_highlight.js"></script>
+        <script src="../../../../_static/thebelab-helper.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../../index.html" class="icon icon-home"> pyfeyn2
+            <img src="../../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                2.0.7-42-g838712a
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Versions:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/pyfeyn2/">Stable</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/pyfeyn2/test/">Dev</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Links:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/APN-Pucky/pyfeyn2">GitHub</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">FeynML:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../feynml/index.html">FeynML</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Gallery:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../gallery/index.html">Gallery</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Renderers:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../renderers/index.html">Renderers</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Interfaces:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../interfaces/index.html">Interfaces</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Modules:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../_autosummary/pyfeyn2.html">pyfeyn2</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">pyfeyn2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">pyfeyn2.render.pyx.lines</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for pyfeyn2.render.pyx.lines</h1><div class="highlight"><pre>
+<span></span>&quot;&quot;&quot;Various particle line types.&quot;&quot;&quot;
+
+
+import pyx
+from pyx import color
+
+from pyfeyn2.render.pyx import config
+from pyfeyn2.render.pyx.deco import Arrow, LineLabel, ParallelArrow
+from pyfeyn2.render.pyx.diagrams import FeynDiagram
+from pyfeyn2.render.pyx.paint import CENTER
+from pyfeyn2.render.pyx.points import Point
+from pyfeyn2.render.pyx.utils import Visible, defunit
+
+
+## Line base class
+<div class="viewcode-block" id="Line"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.Line.html#pyfeyn2.render.pyx.lines.Line">[docs]</a>class Line(Visible):
+    &quot;Base class for all objects which connect points in Feynman diagrams&quot;
+
+<div class="viewcode-block" id="Line.__init__"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.Line.html#pyfeyn2.render.pyx.lines.Line.__init__">[docs]</a>    def __init__(
+        self,
+        point1,
+        point2,
+        styles=None,
+        arcthrupoint=None,
+        is3D=False,
+        arrows=None,
+        labels=None,
+        **kwargs
+    ):
+        &quot;&quot;&quot;Constructor.&quot;&quot;&quot;
+        self.p1 = point1
+        self.p2 = point2
+        self.styles = styles if styles is not None else []
+        self.arcthrupoint = arcthrupoint
+        self.is3D = is3D
+        self.arrows = arrows if arrows is not None else []
+        self.labels = labels if labels is not None else []
+
+        ## Add this to the current diagram automatically
+        FeynDiagram.currentDiagram.add(self)</div>
+
+<div class="viewcode-block" id="Line.addLabel"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.Line.html#pyfeyn2.render.pyx.lines.Line.addLabel">[docs]</a>    def addLabel(
+        self,
+        text,
+        pos=0.5,
+        displace=-0.25,
+        angle=0,
+        size=pyx.text.size.normalsize,
+        halign=CENTER,
+        valign=None,
+        **kwargs
+    ):
+        &quot;&quot;&quot;Add a LaTeX label to this line, either via parameters or actually as
+        a TeXLabel object.&quot;&quot;&quot;
+        if text is None:
+            return self
+        if config.getOptions().DEBUG:
+            print(&quot;Adding label: &quot; + text)
+        # if text.__class__ == &quot;Label&quot;:
+        #    self.labels.append(label)
+        # else:
+        self.labels.append(
+            LineLabel(
+                text=text,
+                line=self,
+                pos=pos,
+                displace=displace,
+                angle=angle,
+                size=size,
+                halign=halign,
+                valign=valign,
+            )
+        )
+        if config.getOptions().DEBUG:
+            print(&quot;Labels = &quot; + str(self.labels))
+        return self</div>
+
+<div class="viewcode-block" id="Line.addParallelArrow"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.Line.html#pyfeyn2.render.pyx.lines.Line.addParallelArrow">[docs]</a>    def addParallelArrow(
+        self,
+        pos=0.5,
+        displace=0.3,
+        length=0.5 * pyx.unit.v_cm,
+        size=6 * pyx.unit.v_pt,
+        angle=45,
+        constriction=0.8,
+        sense=+1,
+        curved=False,
+        stems=1,
+        stemsep=0.03,
+    ):
+        &quot;&quot;&quot;Add an arrow pointing along the line.&quot;&quot;&quot;
+        self.labels.append(
+            ParallelArrow(
+                self,
+                pos=pos,
+                displace=displace,
+                length=length,
+                size=size,
+                angle=angle,
+                constriction=constriction,
+                sense=sense,
+                curved=curved,
+                stems=stems,
+                stemsep=stemsep,
+            )
+        )
+        return self</div>
+
+<div class="viewcode-block" id="Line.removeLabels"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.Line.html#pyfeyn2.render.pyx.lines.Line.removeLabels">[docs]</a>    def removeLabels(self):
+        &quot;&quot;&quot;Remove the labels from this line.&quot;&quot;&quot;
+        self.labels = []
+        return self</div>
+
+<div class="viewcode-block" id="Line.fracpoint"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.Line.html#pyfeyn2.render.pyx.lines.Line.fracpoint">[docs]</a>    def fracpoint(self, frac):
+        &quot;&quot;&quot;
+        Get a new Point representing the point at the given fraction along
+        the fundamental line (i.e. no truncation or deformation).
+        TODO: Handle units properly.
+        &quot;&quot;&quot;
+        p = self.getPath()  ## no truncation or deformation
+        x, y = p.at(p.begin() + frac * p.arclen())
+        return Point(x / defunit, y / defunit)</div>
+
+<div class="viewcode-block" id="Line.setArrows"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.Line.html#pyfeyn2.render.pyx.lines.Line.setArrows">[docs]</a>    def setArrows(self, arrows):
+        &quot;&quot;&quot;Define the arrows on this line.&quot;&quot;&quot;
+        ## TODO: Check that the arg is a list
+        self.arrows = []
+        for i in arrows:
+            if i.__class__ == &quot;deco.Arrow&quot;:
+                self.arrows.append(i)
+            else:
+                self.arrows.append(Arrow(pos=i))
+        return self</div>
+
+<div class="viewcode-block" id="Line.addArrow"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.Line.html#pyfeyn2.render.pyx.lines.Line.addArrow">[docs]</a>    def addArrow(self, position=0.53, arrow=None):
+        &quot;&quot;&quot;Add an arrow to the line at the specified position, which is a number
+        between 0 and 1, representing the fraction along the line at which the
+        arrow should be placed. The default arrow style can be overridden by
+        explicitly supplying an arrow object as the &#39;arrow&#39; argument, in which
+        case the position argument will be ignored.&quot;&quot;&quot;
+        if arrow:
+            self.arrows.append(arrow)
+        else:
+            self.arrows.append(Arrow(pos=position))
+        return self</div>
+
+<div class="viewcode-block" id="Line.removeArrows"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.Line.html#pyfeyn2.render.pyx.lines.Line.removeArrows">[docs]</a>    def removeArrows(self):
+        &quot;&quot;&quot;Remove all arrows from this line.&quot;&quot;&quot;
+        self.arrows = []
+        return self</div>
+
+<div class="viewcode-block" id="Line.arcThru"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.Line.html#pyfeyn2.render.pyx.lines.Line.arcThru">[docs]</a>    def arcThru(self, arcpoint=None, x=None, y=None):
+        &quot;&quot;&quot;Set the point through which this line will arc. Either pass a Point
+        or set x, y as floats.&quot;&quot;&quot;
+        if arcpoint is not None:
+            self.arcthrupoint = arcpoint
+        elif x is not None and y is not None:
+            self.arcthrupoint = Point(x, y)
+        else:
+            raise Exception(&quot;Tried to set an arcpoint with invalid arguments&quot;)
+        return self</div>
+
+<div class="viewcode-block" id="Line.straighten"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.Line.html#pyfeyn2.render.pyx.lines.Line.straighten">[docs]</a>    def straighten(self):
+        &quot;&quot;&quot;Make this line a straight line between start and end.&quot;&quot;&quot;
+        self.arcthrupoint = None
+        return self</div>
+
+<div class="viewcode-block" id="Line.bend"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.Line.html#pyfeyn2.render.pyx.lines.Line.bend">[docs]</a>    def bend(self, amount):
+        &quot;&quot;&quot;Bend the line to the right by a given distance.&quot;&quot;&quot;
+        if amount is None:
+            return self
+        if amount == 0:
+            self.arcthrupoint = None
+            return self
+        middle = self.p1.midpoint(self.p2)
+        nx = (middle.y() - self.p1.y()) / abs(self.p1.distance(middle))
+        ny = (self.p1.x() - middle.x()) / abs(self.p1.distance(middle))
+        vx = middle.x() - self.p1.x()
+        vy = middle.y() - self.p1.y()
+        if (vx * ny - vy * nx) &gt; 0:
+            nx *= -1
+            ny *= -1
+        arcpoint = Point(middle.x() + amount * nx, middle.y() + amount * ny)
+        if config.getOptions().VDEBUG:
+            FeynDiagram.currentDiagram.currentCanvas.stroke(
+                pyx.path.line(middle.x(), middle.y(), arcpoint.x(), arcpoint.y()),
+                [color.rgb.blue],
+            )
+        self.arcThru(arcpoint)
+        if config.getOptions().DEBUG:
+            print(self.getVisiblePath())
+        if config.getOptions().VDEBUG:
+            FeynDiagram.currentDiagram.currentCanvas.stroke(
+                self.getVisiblePath(), [color.rgb.blue]
+            )
+        return self</div>
+
+<div class="viewcode-block" id="Line.set3D"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.Line.html#pyfeyn2.render.pyx.lines.Line.set3D">[docs]</a>    def set3D(self, is3d):
+        &quot;&quot;&quot;Make this line display in &#39;3D&#39;.&quot;&quot;&quot;
+        self.is3D = is3d
+        return self</div>
+
+<div class="viewcode-block" id="Line.getStyles"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.Line.html#pyfeyn2.render.pyx.lines.Line.getStyles">[docs]</a>    def getStyles(self, stylelist):
+        &quot;&quot;&quot;Get the styles associated with this line.&quot;&quot;&quot;
+        return self.styles</div>
+
+<div class="viewcode-block" id="Line.setStyles"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.Line.html#pyfeyn2.render.pyx.lines.Line.setStyles">[docs]</a>    def setStyles(self, stylelist):
+        &quot;&quot;&quot;Set the styles associated with this line.&quot;&quot;&quot;
+        self.styles = stylelist
+        return self</div>
+
+<div class="viewcode-block" id="Line.addStyle"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.Line.html#pyfeyn2.render.pyx.lines.Line.addStyle">[docs]</a>    def addStyle(self, style):
+        &quot;&quot;&quot;Add a style to this line.&quot;&quot;&quot;
+        self.styles.append(style)
+        return self</div>
+
+<div class="viewcode-block" id="Line.addStyles"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.Line.html#pyfeyn2.render.pyx.lines.Line.addStyles">[docs]</a>    def addStyles(self, stylelist):
+        &quot;&quot;&quot;Add some styles to this line.&quot;&quot;&quot;
+        self.styles = self.styles + stylelist
+        return self</div>
+
+<div class="viewcode-block" id="Line.getPath"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.Line.html#pyfeyn2.render.pyx.lines.Line.getPath">[docs]</a>    def getPath(self):
+        &quot;&quot;&quot;Get the path taken by this line.&quot;&quot;&quot;
+        if self.arcthrupoint is None:
+            ## This is a simple straight line
+            return pyx.path.path(
+                pyx.path.moveto(*(self.p1.getXY())), pyx.path.lineto(*(self.p2.getXY()))
+            )
+        elif self.p1.x() == self.p2.x() and self.p1.y() == self.p2.y():
+            ## This is a tadpole-type loop and needs special care;
+            ## We shall assume that the arcthrupoint is meant to be
+            ## the antipode of the basepoint
+            arccenter = self.p1.midpoint(self.arcthrupoint)
+            arcradius = self.p1.distance(self.arcthrupoint) / 2.0
+
+            ## TODO Why does a circle work and an arc doesn&#39;t?
+            cargs = (arccenter.x(), arccenter.y(), arcradius)
+            circle = pyx.path.circle(*cargs)
+            line = pyx.path.line(self.p1.x(), self.p1.y(), arccenter.x(), arccenter.y())
+            if config.getOptions().VDEBUG:
+                FeynDiagram.currentDiagram.currentCanvas.stroke(line, [color.rgb.green])
+            ass, _ = circle.intersect(line)
+            subpaths = circle.split(ass[0])
+            cpath = subpaths[0]
+            return cpath
+
+            ## or, with an arc...
+            # arcangle1 = arccenter.arg(self.p1)
+            # arcangle2 = arccenter.arg(self.p1) + 360
+            # arcargs = (arccenter.x(), arccenter.y(), arcradius, arcangle1, arcangle2)
+            # return pyx.path.path(pyx.path.arc(*arcargs))
+
+        else:
+            n13, n23 = None, None
+            ## Work out line gradients
+            try:
+                n13 = (self.p1.y() - self.arcthrupoint.y()) / (
+                    self.p1.x() - self.arcthrupoint.x()
+                )
+            except ZeroDivisionError:
+                if config.getOptions().DEBUG:
+                    print(&quot;Grad 1 diverges&quot;)
+                n13 = 1e100
+
+            try:
+                n23 = (self.p2.y() - self.arcthrupoint.y()) / (
+                    self.p2.x() - self.arcthrupoint.x()
+                )
+            except ZeroDivisionError:
+                if config.getOptions().DEBUG:
+                    print(&quot;Grad 2 diverges&quot;)
+                n23 = 1e100
+
+            ## If gradients match,
+            ## then we have a straight line, so bypass the complexity
+            if n13 == n23:
+                return pyx.path.path(
+                    pyx.path.moveto(*(self.p1.getXY())),
+                    pyx.path.lineto(*(self.p2.getXY())),
+                )
+
+            ## Otherwise work out conjugate gradients and midpoints
+            m13, m23 = None, None
+            try:
+                m13 = -1.0 / n13
+            except ZeroDivisionError:
+                m13 = 1e100
+            try:
+                m23 = -1.0 / n23
+            except ZeroDivisionError:
+                m23 = 1e100
+            mid13 = self.p1.midpoint(self.arcthrupoint)
+            mid23 = self.p2.midpoint(self.arcthrupoint)
+
+            ## Line y-intercepts
+            c13 = mid13.y() - m13 * mid13.x()
+            c23 = mid23.y() - m23 * mid23.x()
+
+            ## Find the centre of the arc
+            xcenter = -(c23 - c13) / (m23 - m13)
+            ycenter = m13 * xcenter + c13
+            arccenter = Point(xcenter, ycenter)
+
+            ## Get the angles required for drawing the arc
+            arcradius = arccenter.distance(self.arcthrupoint)
+            arcangle1 = arccenter.arg(self.p1)
+            arcangle2 = arccenter.arg(self.p2)
+            # arcangle3 = arccenter.arg(self.arcthrupoint)
+            arcargs = (arccenter.x(), arccenter.y(), arcradius, arcangle1, arcangle2)
+
+            if config.getOptions().DEBUG and arcangle1 == arcangle2:
+                print(&quot;Arc angles are the same - not drawing anything&quot;)
+
+            ## Calculate cross product to determine direction of arc
+            vec12 = [self.p2.x() - self.p1.x(), self.p2.y() - self.p1.y(), 0.0]
+            vec13 = [
+                self.arcthrupoint.x() - self.p1.x(),
+                self.arcthrupoint.y() - self.p1.y(),
+                0.0,
+            ]
+            crossproductZcoord = vec12[0] * vec13[1] - vec12[1] * vec13[0]
+
+            if crossproductZcoord &lt; 0:
+                return pyx.path.path(
+                    pyx.path.moveto(*(self.p1.getXY())), pyx.path.arc(*arcargs)
+                )
+            else:
+                return pyx.path.path(
+                    pyx.path.moveto(*(self.p1.getXY())), pyx.path.arcn(*arcargs)
+                )</div>
+
+<div class="viewcode-block" id="Line.getVisiblePath"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.Line.html#pyfeyn2.render.pyx.lines.Line.getVisiblePath">[docs]</a>    def getVisiblePath(self):
+        &quot;&quot;&quot;Find the subpath between the endpoints which isn&#39;t overshadowed by a blob of some kind&quot;&quot;&quot;
+        p1path = self.p1.getPath()
+        p2path = self.p2.getPath()
+        vispath = self.getPath()
+        if config.getOptions().VDEBUG:
+            FeynDiagram.currentDiagram.currentCanvas.stroke(vispath, [color.rgb.green])
+        if p1path:
+            ass, bs = p1path.intersect(vispath)
+            for b in bs:
+                subpaths = vispath.split(b)
+                if len(subpaths) &gt; 1:
+                    if config.getOptions().DEBUG:
+                        print(&quot;Num subpaths 1 = %d&quot; % len(subpaths))
+                    subpaths.sort(key=lambda x: pyx.unit.tocm(x.arclen()))
+                    vispath = subpaths[-1]
+                    if config.getOptions().VDEBUG:
+                        FeynDiagram.currentDiagram.currentCanvas.stroke(
+                            subpaths[0], [color.rgb.blue]
+                        )
+                if config.getOptions().VDEBUG:
+                    for a in ass:
+                        ix, iy = p1path.at(a)
+                        FeynDiagram.currentDiagram.currentCanvas.fill(
+                            pyx.path.circle(ix, iy, 0.05), [color.rgb.green]
+                        )
+        if p2path:
+            ass, bs = p2path.intersect(vispath)
+            for b in bs:
+                subpaths = vispath.split(b)
+                if len(subpaths) &gt; 1:
+                    if config.getOptions().DEBUG:
+                        print(&quot;Num subpaths 2 = %d&quot; % len(subpaths))
+                    subpaths.sort(key=lambda x: pyx.unit.tocm(x.arclen()))
+                    vispath = subpaths[-1]
+                    if config.getOptions().VDEBUG:
+                        FeynDiagram.currentDiagram.currentCanvas.stroke(
+                            subpaths[0], [color.rgb.red]
+                        )
+                if config.getOptions().VDEBUG:
+                    for a in ass:
+                        ix, iy = p2path.at(a)
+                        FeynDiagram.currentDiagram.currentCanvas.fill(
+                            pyx.path.circle(ix, iy, 0.05), [color.rgb.blue]
+                        )
+        if config.getOptions().VDEBUG:
+            FeynDiagram.currentDiagram.currentCanvas.stroke(vispath, [color.rgb.red])
+        # return pyx.path.circle(-2,-1,0.2)
+        return vispath</div>
+
+<div class="viewcode-block" id="Line.draw"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.Line.html#pyfeyn2.render.pyx.lines.Line.draw">[docs]</a>    def draw(self, canvas):
+        &quot;&quot;&quot;Drwa this line on the given canvas.&quot;&quot;&quot;
+        path = self.getVisiblePath()
+        styles = self.styles + self.arrows
+        if config.getOptions().DEBUG:
+            print(&quot;Drawing &quot; + str(self.__class__) + &quot; with styles = &quot; + str(styles))
+            print(path)
+        canvas.stroke(path, styles)
+        for l in self.labels:
+            l.draw(canvas)</div></div>
+
+
+## Fermion is an alias for Line
+Fermion = Line
+
+
+<div class="viewcode-block" id="MultiLine"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.MultiLine.html#pyfeyn2.render.pyx.lines.MultiLine">[docs]</a>class MultiLine(Line):
+    &quot;&quot;&quot;A class for drawing multiple parallel straight lines.&quot;&quot;&quot;
+
+<div class="viewcode-block" id="MultiLine.__init__"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.MultiLine.html#pyfeyn2.render.pyx.lines.MultiLine.__init__">[docs]</a>    def __init__(
+        self,
+        point1,
+        point2,
+        n=5,
+        dist=0.2,
+        styles=None,
+        arcthrupoint=None,
+        is3D=False,
+        arrows=None,
+        labels=None,
+        **kwargs
+    ):
+        &quot;&quot;&quot;Constructor.&quot;&quot;&quot;
+        Line.__init__(self, point1, point2, styles, arcthrupoint, is3D, arrows, labels)
+        self.n = n
+        self.dist = dist</div>
+
+<div class="viewcode-block" id="MultiLine.draw"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.MultiLine.html#pyfeyn2.render.pyx.lines.MultiLine.draw">[docs]</a>    def draw(self, canvas):
+        &quot;&quot;&quot;Draw this multiline on the supplied canvas.&quot;&quot;&quot;
+        dist = self.dist
+        n = self.n
+        path = pyx.deformer.parallel(-n / 2.0 * dist).deform(self.getPath())
+        paths = [path]
+        defo = pyx.deformer.parallel(dist)
+        for _ in range(0, n):
+            path = defo.deform(path)
+            paths.append(path)
+        styles = self.styles + self.arrows
+        for p in paths:
+            canvas.stroke(p, styles)
+        for l in self.labels:
+            l.draw(canvas)</div></div>
+
+
+<div class="viewcode-block" id="Scalar"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.Scalar.html#pyfeyn2.render.pyx.lines.Scalar">[docs]</a>class Scalar(Line):
+    &quot;&quot;&quot;A scalar particle line, like a Higgs boson.&quot;&quot;&quot;
+
+<div class="viewcode-block" id="Scalar.__init__"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.Scalar.html#pyfeyn2.render.pyx.lines.Scalar.__init__">[docs]</a>    def __init__(
+        self,
+        point1,
+        point2,
+        linestyle=pyx.style.linestyle.dashed,
+        styles=None,
+        arcthrupoint=None,
+        is3D=False,
+        arrows=None,
+        labels=None,
+        **kwargs
+    ):
+        Line.__init__(self, point1, point2, styles, arcthrupoint, is3D, arrows, labels)
+        self.linestyle = linestyle</div>
+
+<div class="viewcode-block" id="Scalar.draw"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.Scalar.html#pyfeyn2.render.pyx.lines.Scalar.draw">[docs]</a>    def draw(self, canvas):
+        &quot;&quot;&quot;Draw this scalar line on the given canvas.&quot;&quot;&quot;
+        path = self.getVisiblePath()
+        styles = self.styles + [self.linestyle] + self.arrows
+        ## TODO: call base class method?
+        if config.getOptions().DEBUG:
+            print(&quot;Drawing &quot; + str(self.__class__) + &quot; with styles = &quot; + str(styles))
+            print(path)
+        canvas.stroke(path, styles)
+        for l in self.labels:
+            l.draw(canvas)</div></div>
+
+
+## Higgs is an alias for Scalar
+Higgs = Scalar
+
+## Sfermion is also an alias for Scalar
+Sfermion = Scalar
+
+
+<div class="viewcode-block" id="Ghost"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.Ghost.html#pyfeyn2.render.pyx.lines.Ghost">[docs]</a>class Ghost(Scalar):
+    &quot;&quot;&quot;A dotted scalar particle line, like a Yang-Mills ghost particle.&quot;&quot;&quot;
+
+    # same as scalar, but default style is dotted
+<div class="viewcode-block" id="Ghost.__init__"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.Ghost.html#pyfeyn2.render.pyx.lines.Ghost.__init__">[docs]</a>    def __init__(
+        self,
+        point1,
+        point2,
+        linestyle=pyx.style.linestyle.dotted,
+        styles=None,
+        arcthrupoint=None,
+        is3D=False,
+        arrows=None,
+        labels=None,
+        **kwargs
+    ):
+        Scalar.__init__(
+            self, point1, point2, styles, arcthrupoint, is3D, arrows, labels, linestyle
+        )</div></div>
+
+
+## DecoratedLine base class
+<div class="viewcode-block" id="DecoratedLine"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.DecoratedLine.html#pyfeyn2.render.pyx.lines.DecoratedLine">[docs]</a>class DecoratedLine(Line):
+    &quot;&quot;&quot;Base class for spring and sine-like lines&quot;&quot;&quot;
+
+<div class="viewcode-block" id="DecoratedLine.__init__"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.DecoratedLine.html#pyfeyn2.render.pyx.lines.DecoratedLine.__init__">[docs]</a>    def __init__(
+        self,
+        point1,
+        point2,
+        amplitude,
+        frequency,
+        extras,
+        invert,
+        linetype,
+        styles=None,
+        arcthrupoint=None,
+        is3D=False,
+        arrows=None,
+        labels=None,
+        **kwargs
+    ):
+        &quot;&quot;&quot;Constructor.&quot;&quot;&quot;
+        Line.__init__(self, point1, point2, styles, arcthrupoint, is3D, arrows, labels)
+        self.inverted = invert
+        self.arcradius = amplitude
+        self.frequency = frequency
+        self.extras = extras
+        self.linetype = linetype</div>
+
+<div class="viewcode-block" id="DecoratedLine.set3D"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.DecoratedLine.html#pyfeyn2.render.pyx.lines.DecoratedLine.set3D">[docs]</a>    def set3D(self, is3D=True, skipsize=pyx.unit.length(0.04), parity=0):
+        &quot;&quot;&quot;Make this line display in &#39;3D&#39;.&quot;&quot;&quot;
+        self.is3D = is3D
+        self.skipsize3D = skipsize
+        self.parity3D = parity
+        return self</div>
+
+<div class="viewcode-block" id="DecoratedLine.invert"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.DecoratedLine.html#pyfeyn2.render.pyx.lines.DecoratedLine.invert">[docs]</a>    def invert(self):
+        &quot;&quot;&quot;Reflect the decoration in the line itself.&quot;&quot;&quot;
+        self.inverted = not self.inverted
+        return self</div>
+
+<div class="viewcode-block" id="DecoratedLine.getFrequency"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.DecoratedLine.html#pyfeyn2.render.pyx.lines.DecoratedLine.getFrequency">[docs]</a>    def getFrequency(self):
+        &quot;&quot;&quot;Get the rate of occurence of the oscillation.&quot;&quot;&quot;
+        return self.frequency</div>
+
+<div class="viewcode-block" id="DecoratedLine.setFrequency"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.DecoratedLine.html#pyfeyn2.render.pyx.lines.DecoratedLine.setFrequency">[docs]</a>    def setFrequency(self, freq):
+        &quot;&quot;&quot;Set the rate of occurence of the oscillation.&quot;&quot;&quot;
+        self.frequency = freq
+        return self</div>
+
+<div class="viewcode-block" id="DecoratedLine.getAmplitude"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.DecoratedLine.html#pyfeyn2.render.pyx.lines.DecoratedLine.getAmplitude">[docs]</a>    def getAmplitude(self):
+        &quot;&quot;&quot;Get the radius of the oscillation.&quot;&quot;&quot;
+        return self.arcradius</div>
+
+<div class="viewcode-block" id="DecoratedLine.setAmplitude"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.DecoratedLine.html#pyfeyn2.render.pyx.lines.DecoratedLine.setAmplitude">[docs]</a>    def setAmplitude(self, amplitude):
+        &quot;&quot;&quot;Set the radius of the oscillation.&quot;&quot;&quot;
+        self.arcradius = amplitude
+        return self</div>
+
+<div class="viewcode-block" id="DecoratedLine.setExtraCycles"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.DecoratedLine.html#pyfeyn2.render.pyx.lines.DecoratedLine.setExtraCycles">[docs]</a>    def setExtraCycles(self, extras):
+        &quot;&quot;&quot;Add some extra (possibly negative) cycles to the oscillation.&quot;&quot;&quot;
+        self.extras = extras
+        return self</div>
+
+<div class="viewcode-block" id="DecoratedLine.getDeformedPath"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.DecoratedLine.html#pyfeyn2.render.pyx.lines.DecoratedLine.getDeformedPath">[docs]</a>    def getDeformedPath(self):
+        &quot;&quot;&quot;Get the deformed path.&quot;&quot;&quot;
+        return self.getVisiblePath()</div></div>
+
+
+<div class="viewcode-block" id="Gluon"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.Gluon.html#pyfeyn2.render.pyx.lines.Gluon">[docs]</a>class Gluon(DecoratedLine):
+    &quot;&quot;&quot;A line with a cycloid deformation&quot;&quot;&quot;
+
+<div class="viewcode-block" id="Gluon.__init__"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.Gluon.html#pyfeyn2.render.pyx.lines.Gluon.__init__">[docs]</a>    def __init__(
+        self,
+        point1,
+        point2,
+        amplitude=0.15,
+        frequency=1.3,
+        extras=0,
+        invert=False,
+        styles=None,
+        arcthrupoint=None,
+        is3D=False,
+        arrows=None,
+        labels=None,
+        **kwargs
+    ):
+        &quot;&quot;&quot;Constructor.&quot;&quot;&quot;
+        DecoratedLine.__init__(
+            self,
+            point1,
+            point2,
+            amplitude,
+            frequency,
+            extras,
+            invert,
+            &quot;gluon&quot;,
+            styles,
+            arcthrupoint,
+            is3D,
+            arrows,
+            labels,
+        )</div>
+
+<div class="viewcode-block" id="Gluon.getDeformedPath"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.Gluon.html#pyfeyn2.render.pyx.lines.Gluon.getDeformedPath">[docs]</a>    def getDeformedPath(self):
+        &quot;&quot;&quot;Get the path modified by the coil warping.&quot;&quot;&quot;
+        needwindings = (
+            self.frequency
+            * pyx.unit.tocm(self.getVisiblePath().arclen())
+            / pyx.unit.tocm(self.arcradius)
+        )
+        ## Get the whole number of windings and make sure that it&#39;s odd so we
+        ## don&#39;t get a weird double-back thing
+        intwindings = int(needwindings)
+        intwindings += 2 * self.extras
+        if intwindings % 2 == 0:
+            intwindings -= 1
+        # deficit = needwindings - intwindings
+        sign = 1
+        if self.inverted:
+            sign = -1
+        defo = pyx.deformer.cycloid(
+            self.arcradius,
+            intwindings,
+            curvesperhloop=10,
+            skipfirst=0.0,
+            skiplast=0.0,
+            sign=sign,
+        )
+        return defo.deform(self.getVisiblePath())</div>
+
+<div class="viewcode-block" id="Gluon.draw"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.Gluon.html#pyfeyn2.render.pyx.lines.Gluon.draw">[docs]</a>    def draw(self, canvas):
+        &quot;&quot;&quot;Draw the line on the supplied canvas.&quot;&quot;&quot;
+        styles = self.styles + self.arrows
+        if config.getOptions().DEBUG:
+            print(&quot;Drawing &quot; + str(self.__class__) + &quot; with styles = &quot; + str(styles))
+        mypath = self.getDeformedPath()
+        if config.getOptions().DRAFT or not self.is3D:
+            canvas.stroke(mypath, styles)
+        else:
+            para = pyx.deformer.parallel(0.001)
+            _, bs, _ = para.normpath_selfintersections(mypath.normpath(), epsilon=0.01)
+            coil_params = []
+            for b in bs:
+                coil_params.append(b[self.parity3D] - self.skipsize3D)
+                coil_params.append(b[self.parity3D] + self.skipsize3D)
+            pathbits = mypath.split(coil_params)
+            on = True
+            for pathbit in pathbits:
+                if on:
+                    canvas.stroke(pathbit, styles)
+                on = not on
+
+        ## Labels
+        for l in self.labels:
+            l.draw(canvas)</div></div>
+
+
+<div class="viewcode-block" id="Vector"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.Vector.html#pyfeyn2.render.pyx.lines.Vector">[docs]</a>class Vector(DecoratedLine):
+    &quot;&quot;&quot;A line with a sinoid deformation&quot;&quot;&quot;
+
+<div class="viewcode-block" id="Vector.__init__"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.Vector.html#pyfeyn2.render.pyx.lines.Vector.__init__">[docs]</a>    def __init__(
+        self,
+        point1,
+        point2,
+        amplitude=0.25,
+        frequency=1.0,
+        extras=0,
+        invert=False,
+        styles=None,
+        arcthrupoint=None,
+        is3D=False,
+        arrows=None,
+        labels=None,
+        **kwargs
+    ):
+        &quot;&quot;&quot;Constructor.&quot;&quot;&quot;
+        DecoratedLine.__init__(
+            self,
+            point1,
+            point2,
+            amplitude,
+            frequency,
+            extras,
+            invert,
+            &quot;photon&quot;,
+            styles,
+            arcthrupoint,
+            is3D,
+            arrows,
+            labels,
+        )</div>
+
+<div class="viewcode-block" id="Vector.getDeformedPath"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.Vector.html#pyfeyn2.render.pyx.lines.Vector.getDeformedPath">[docs]</a>    def getDeformedPath(self):
+        &quot;&quot;&quot;Get the path with the decorative deformation.&quot;&quot;&quot;
+        intwindings = int(
+            self.frequency
+            * pyx.unit.tocm(self.getVisiblePath().arclen())
+            / pyx.unit.tocm(self.arcradius)
+        )
+        intwindings += self.extras
+        sign = 1
+        if self.inverted:
+            sign = -1
+        defo = pyx.deformer.cycloid(
+            self.arcradius,
+            intwindings,
+            curvesperhloop=5,
+            skipfirst=0.0,
+            skiplast=0.0,
+            turnangle=0,
+            sign=sign,
+        )
+        return defo.deform(self.getVisiblePath())</div>
+
+<div class="viewcode-block" id="Vector.draw"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.Vector.html#pyfeyn2.render.pyx.lines.Vector.draw">[docs]</a>    def draw(self, canvas):
+        &quot;&quot;&quot;Draw the line on the supplied canvas.&quot;&quot;&quot;
+        styles = self.styles + self.arrows
+        if config.getOptions().DEBUG:
+            print(&quot;Drawing &quot; + str(self.__class__) + &quot; with styles = &quot; + str(styles))
+        canvas.stroke(self.getDeformedPath(), styles)
+        for l in self.labels:
+            l.draw(canvas)</div></div>
+
+
+## Photon is an alias for Vector
+Photon = Vector
+
+
+<div class="viewcode-block" id="Graviton"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.Graviton.html#pyfeyn2.render.pyx.lines.Graviton">[docs]</a>class Graviton(DecoratedLine):
+    &quot;&quot;&quot;A line with a double sinoid deformation&quot;&quot;&quot;
+
+<div class="viewcode-block" id="Graviton.__init__"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.Graviton.html#pyfeyn2.render.pyx.lines.Graviton.__init__">[docs]</a>    def __init__(
+        self,
+        point1,
+        point2,
+        amplitude=0.25,
+        frequency=0.6,
+        extras=0,
+        invert=False,
+        styles=None,
+        arcthrupoint=None,
+        is3D=False,
+        arrows=None,
+        labels=None,
+        **kwargs
+    ):
+        &quot;&quot;&quot;Constructor.&quot;&quot;&quot;
+        DecoratedLine.__init__(
+            self,
+            point1,
+            point2,
+            amplitude,
+            frequency,
+            extras,
+            invert,
+            &quot;graviton&quot;,
+            styles,
+            arcthrupoint,
+            is3D,
+            arrows,
+            labels,
+        )</div>
+
+<div class="viewcode-block" id="Graviton.getDeformedPath"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.Graviton.html#pyfeyn2.render.pyx.lines.Graviton.getDeformedPath">[docs]</a>    def getDeformedPath(self):
+        &quot;&quot;&quot;Get the path with the decorative deformation.&quot;&quot;&quot;
+        intwindings = int(
+            self.frequency
+            * pyx.unit.tocm(self.getVisiblePath().arclen())
+            / pyx.unit.tocm(self.arcradius)
+        )
+        intwindings += self.extras
+        sign = 1
+        if self.inverted:
+            sign = -1
+
+        vispath = self.getVisiblePath()
+        # TODO curveradius is not implemented in pyx 0.12
+        # curveradii = vispath.curveradius([i / 10.0 for i in range(0, 11)])
+        curveradii = []
+        mincurveradius = None
+        for curveradius in curveradii:
+            try:
+                curveradius = abs(curveradius / pyx.unit.m)
+                # if config.getOptions().DEBUG:
+                #    print self.__class__, &quot;- curve radius = &quot;, curveradius
+                if mincurveradius is None or curveradius &lt; mincurveradius:
+                    mincurveradius = curveradius
+            except Exception:
+                pass
+        numhloopcurves = 5
+        if mincurveradius is not None:
+            numhloopcurves += int(0.1 / mincurveradius)
+        if config.getOptions().DEBUG:
+            print(
+                self.__class__,
+                &quot;- min curvature radius = &quot;,
+                mincurveradius,
+                &quot;-&gt;&quot;,
+                numhloopcurves,
+                &quot;curves/hloop&quot;,
+            )
+
+        defo = pyx.deformer.cycloid(
+            self.arcradius,
+            intwindings,
+            curvesperhloop=numhloopcurves,
+            skipfirst=0.0,
+            skiplast=0.0,
+            turnangle=0,
+            sign=sign,
+        )
+        return defo.deform(vispath)</div>
+
+<div class="viewcode-block" id="Graviton.draw"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.Graviton.html#pyfeyn2.render.pyx.lines.Graviton.draw">[docs]</a>    def draw(self, canvas):
+        &quot;&quot;&quot;Draw the line on the supplied canvas.&quot;&quot;&quot;
+        styles = self.styles + self.arrows
+        if config.getOptions().DEBUG:
+            print(&quot;Drawing &quot; + str(self.__class__) + &quot; with styles = &quot; + str(styles))
+        mypath1 = self.getDeformedPath(+1)
+        mypath2 = self.getDeformedPath(-1)
+        if self.inverted:
+            mypathtmp = mypath1
+            mypath1 = mypath2
+            mypath2 = mypathtmp
+        if config.getOptions().DRAFT or not self.is3D:
+            canvas.stroke(mypath1, styles)
+            canvas.stroke(mypath2, styles)
+        else:
+            ass, bs = mypath1.intersect(mypath2)
+            params1, params2 = [], []
+
+            parity1 = True
+            if self.parity3D == 0:
+                parity1 = False
+            for a in ass[1:]:  ## TODO: better endpoint cut vetoing
+                if parity1:
+                    params1.append(a - self.skipsize3D)
+                    params1.append(a + self.skipsize3D)
+                parity1 = not parity1
+            pathbits1 = mypath1.split(params1)
+            on = True
+            for pathbit in pathbits1:
+                if on:
+                    canvas.stroke(pathbit, styles)
+                on = not on
+
+            parity2 = False
+            if self.parity3D == 0:
+                parity2 = True
+            for b in bs[1:]:  ## TODO: better endpoint cut vetoing
+                if parity2:
+                    params2.append(b - self.skipsize3D)
+                    params2.append(b + self.skipsize3D)
+                parity2 = not parity2
+            pathbits2 = mypath2.split(params2)
+            on = True
+            for pathbit in pathbits2:
+                if on:
+                    canvas.stroke(pathbit, styles)
+                on = not on
+
+        for l in self.labels:
+            l.draw(canvas)</div></div>
+
+
+<div class="viewcode-block" id="Gaugino"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.Gaugino.html#pyfeyn2.render.pyx.lines.Gaugino">[docs]</a>class Gaugino(DecoratedLine):
+    &quot;&quot;&quot;A line with a sinoid deformation and a normal line&quot;&quot;&quot;
+
+<div class="viewcode-block" id="Gaugino.__init__"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.Gaugino.html#pyfeyn2.render.pyx.lines.Gaugino.__init__">[docs]</a>    def __init__(
+        self,
+        point1,
+        point2,
+        amplitude=0.25,
+        frequency=1.0,
+        extras=0,
+        invert=False,
+        styles=None,
+        arcthrupoint=None,
+        is3D=False,
+        arrows=None,
+        labels=None,
+        **kwargs
+    ):
+        &quot;&quot;&quot;Constructor.&quot;&quot;&quot;
+        DecoratedLine.__init__(
+            self,
+            point1,
+            point2,
+            amplitude,
+            frequency,
+            extras,
+            invert,
+            &quot;gaugino&quot;,
+            styles,
+            arcthrupoint,
+            is3D,
+            arrows,
+            labels,
+        )</div>
+
+<div class="viewcode-block" id="Gaugino.getDeformedPath"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.Gaugino.html#pyfeyn2.render.pyx.lines.Gaugino.getDeformedPath">[docs]</a>    def getDeformedPath(self):
+        &quot;&quot;&quot;Get the path with the decorative deformation.&quot;&quot;&quot;
+        intwindings = int(
+            self.frequency
+            * pyx.unit.tocm(self.getVisiblePath().arclen())
+            / pyx.unit.tocm(self.arcradius)
+        )
+        intwindings += self.extras
+        sign = 1
+        if self.inverted:
+            sign = -1
+
+        vispath = self.getVisiblePath()
+        # TODO curveradius is not implemented in pyx 0.12
+        # curveradii = vispath.curveradius([i / 10.0 for i in range(0, 11)])
+        curveradii = []
+        mincurveradius = None
+        for curveradius in curveradii:
+            try:
+                curveradius = abs(mincurveradius / pyx.unit.m)
+                # if config.getOptions().DEBUG:
+                #    print self.__class__, &quot;- curvature radius = &quot;, curveradius
+                if mincurveradius is None or curveradius &lt; mincurveradius:
+                    mincurveradius = curveradius
+            except:
+                pass
+
+        ## Use curvature info to increase number of curve sections
+        numhloopcurves = 5
+        if mincurveradius is not None:
+            numhloopcurves += int(0.1 / mincurveradius)
+        if config.getOptions().DEBUG:
+            print(
+                self.__class__,
+                &quot;- min curve radius = &quot;,
+                mincurveradius,
+                &quot;-&gt;&quot;,
+                numhloopcurves,
+                &quot;curves/hloop&quot;,
+            )
+
+        defo = pyx.deformer.cycloid(
+            self.arcradius,
+            intwindings,
+            curvesperhloop=numhloopcurves,
+            skipfirst=0.0,
+            skiplast=0.0,
+            turnangle=0,
+            sign=sign,
+        )
+        return defo.deform(vispath)</div>
+
+<div class="viewcode-block" id="Gaugino.draw"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.Gaugino.html#pyfeyn2.render.pyx.lines.Gaugino.draw">[docs]</a>    def draw(self, canvas):
+        &quot;&quot;&quot;Draw the line on the supplied canvas.&quot;&quot;&quot;
+        styles = self.styles + self.arrows
+        if config.getOptions().DEBUG:
+            print(&quot;Drawing &quot; + str(self.__class__) + &quot; with styles = &quot; + str(styles))
+        mypath1 = self.getVisiblePath()
+        mypath2 = self.getDeformedPath()
+        if config.getOptions().DRAFT or not self.is3D:
+            canvas.stroke(mypath1, styles)
+            canvas.stroke(mypath2, styles)
+        else:
+            ass, bs = mypath1.intersect(mypath2)
+            params1, params2 = [], []
+
+            parity1 = True
+            if self.parity3D == 0:
+                parity1 = False
+            for a in ass:
+                if parity1:
+                    params1.append(a - self.skipsize3D)
+                    params1.append(a + self.skipsize3D)
+                parity1 = not parity1
+            pathbits1 = mypath1.split(params1)
+            on = True
+            for pathbit in pathbits1:
+                if on:
+                    canvas.stroke(pathbit, styles)
+                on = not on
+
+            parity2 = False
+            if self.parity3D == 0:
+                parity2 = True
+            for b in bs:
+                if parity2:
+                    params2.append(b - self.skipsize3D)
+                    params2.append(b + self.skipsize3D)
+                parity2 = not parity2
+            pathbits2 = mypath2.split(params2)
+            on = True
+            for pathbit in pathbits2:
+                if on:
+                    canvas.stroke(pathbit, styles)
+                on = not on
+
+        for l in self.labels:
+            l.draw(canvas)</div></div>
+
+
+<div class="viewcode-block" id="Gluino"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.Gluino.html#pyfeyn2.render.pyx.lines.Gluino">[docs]</a>class Gluino(DecoratedLine):
+    &quot;&quot;&quot;A line with a cycloid deformation and a normal line&quot;&quot;&quot;
+
+<div class="viewcode-block" id="Gluino.__init__"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.Gluino.html#pyfeyn2.render.pyx.lines.Gluino.__init__">[docs]</a>    def __init__(
+        self,
+        point1,
+        point2,
+        amplitude=0.25,
+        frequency=1.2,
+        extras=0,
+        invert=False,
+        styles=None,
+        arcthrupoint=None,
+        is3D=False,
+        arrows=None,
+        labels=None,
+        **kwargs
+    ):
+        &quot;&quot;&quot;Constructor.&quot;&quot;&quot;
+        DecoratedLine.__init__(
+            self,
+            point1,
+            point2,
+            amplitude,
+            frequency,
+            extras,
+            invert,
+            &quot;susygluon&quot;,
+            styles,
+            arcthrupoint,
+            is3D,
+            arrows,
+            labels,
+        )</div>
+
+<div class="viewcode-block" id="Gluino.getDeformedPath"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.Gluino.html#pyfeyn2.render.pyx.lines.Gluino.getDeformedPath">[docs]</a>    def getDeformedPath(self):
+        &quot;&quot;&quot;Get the path with the decorative deformation.&quot;&quot;&quot;
+        needwindings = (
+            self.frequency
+            * pyx.unit.tocm(self.getVisiblePath().arclen())
+            / pyx.unit.tocm(self.arcradius)
+        )
+        ## Get the whole number of windings and make sure that it&#39;s odd so we
+        ## don&#39;t get a weird double-back thing
+        intwindings = int(needwindings)
+        intwindings += 2 * self.extras
+        if intwindings % 2 == 0:
+            intwindings -= 1
+        deficit = needwindings - intwindings
+        sign = 1
+        if self.inverted:
+            sign = -1
+
+        ## Get list of curvature radii in the visible path
+        vispath = self.getVisiblePath()
+        # TODO curveradius is deprecated in pyx 0.14
+        # curveradii = vispath.curveradius([i / 10.0 for i in range(0, 11)])
+        curveradii = []
+        mincurveradius = None
+
+        ## Find the maximum curvature (set None if straight line)
+        for curveradius in curveradii:
+            try:
+                curveradius = abs(self.curvature / pyx.unit.m)
+                # if config.getOptions().DEBUG:
+                #    print self.__class__, &quot;- curvature radius = &quot;, curveradius
+                if mincurveradius is None or curveradius &lt; mincurveradius:
+                    mincurveradius = curveradius
+            except:
+                pass
+
+        ## Use curvature info to increase number of curve sections
+        numhloopcurves = 10
+        if mincurveradius is not None:
+            numhloopcurves += int(0.2 / mincurveradius)
+        if config.getOptions().DEBUG:
+            print(
+                self.__class__,
+                &quot;- min curve radius = &quot;,
+                mincurveradius,
+                &quot;-&gt;&quot;,
+                numhloopcurves,
+                &quot;curves/hloop&quot;,
+            )
+
+        defo = pyx.deformer.cycloid(
+            self.arcradius,
+            intwindings,
+            curvesperhloop=numhloopcurves,
+            skipfirst=0.0,
+            skiplast=0.0,
+            sign=sign,
+        )
+        return defo.deform(vispath)</div>
+
+<div class="viewcode-block" id="Gluino.draw"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.Gluino.html#pyfeyn2.render.pyx.lines.Gluino.draw">[docs]</a>    def draw(self, canvas):
+        &quot;&quot;&quot;Draw the line on the supplied canvas.&quot;&quot;&quot;
+        styles = self.styles + self.arrows
+        if config.getOptions().DEBUG:
+            print(&quot;Drawing &quot; + str(self.__class__) + &quot; with styles = &quot; + str(styles))
+        mypath1 = self.getVisiblePath()
+        mypath2 = self.getDeformedPath()
+        if config.getOptions().DRAFT or not self.is3D:
+            canvas.stroke(mypath1, styles)
+            canvas.stroke(mypath2, styles)
+        else:
+            ass, bs = mypath1.intersect(mypath2)
+            params1, params2 = [], []
+
+            parity1 = True
+            if self.parity3D == 0:
+                parity1 = False
+            for a in ass:
+                if parity1:
+                    params1.append(a - self.skipsize3D)
+                    params1.append(a + self.skipsize3D)
+                parity1 = not parity1
+            pathbits1 = mypath1.split(params1)
+            on = True
+            for pathbit in pathbits1:
+                if on:
+                    canvas.stroke(pathbit, styles)
+                on = not on
+
+            parity2 = False
+            if self.parity3D == 0:
+                parity2 = True
+
+            for b in bs:
+                if parity2:
+                    params2.append(b - self.skipsize3D)
+                    params2.append(b + self.skipsize3D)
+                parity2 = not parity2
+            para = pyx.deformer.parallel(0.001)
+            _, sbs, _ = para.normpath_selfintersections(
+                mypath2.normpath(), epsilon=0.01
+            )
+            coil_params = []
+            for b in sbs:
+                coil_params.append(b[self.parity3D] - self.skipsize3D)
+                coil_params.append(b[self.parity3D] + self.skipsize3D)
+            params2 += coil_params
+            params2.sort()
+            pathbits2 = mypath2.split(params2)
+            on = True
+            for pathbit in pathbits2:
+                if on:
+                    canvas.stroke(pathbit, styles)
+                on = not on
+
+        for l in self.labels:
+            l.draw(canvas)</div></div>
+
+
+<div class="viewcode-block" id="Gravitino"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.Gravitino.html#pyfeyn2.render.pyx.lines.Gravitino">[docs]</a>class Gravitino(DecoratedLine):
+    &quot;&quot;&quot;A line with a double sinoid deformation and a simple line&quot;&quot;&quot;
+
+<div class="viewcode-block" id="Gravitino.__init__"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.Gravitino.html#pyfeyn2.render.pyx.lines.Gravitino.__init__">[docs]</a>    def __init__(
+        self,
+        point1,
+        point2,
+        amplitude=0.25,
+        frequency=0.6,
+        extras=0,
+        invert=False,
+        styles=None,
+        arcthrupoint=None,
+        is3D=False,
+        arrows=None,
+        labels=None,
+        **kwargs
+    ):
+        &quot;&quot;&quot;Constructor.&quot;&quot;&quot;
+        DecoratedLine.__init__(
+            self,
+            point1,
+            point2,
+            amplitude,
+            frequency,
+            extras,
+            invert,
+            &quot;gravitino&quot;,
+            styles,
+            arcthrupoint,
+            is3D,
+            arrows,
+            labels,
+        )</div>
+
+<div class="viewcode-block" id="Gravitino.getDeformedPath"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.Gravitino.html#pyfeyn2.render.pyx.lines.Gravitino.getDeformedPath">[docs]</a>    def getDeformedPath(self):
+        &quot;&quot;&quot;Get the path with the decorative deformation.&quot;&quot;&quot;
+        intwindings = int(
+            self.frequency
+            * pyx.unit.tocm(self.getVisiblePath().arclen())
+            / pyx.unit.tocm(self.arcradius)
+        )
+        intwindings += self.extras
+        sign = 1
+        if self.inverted:
+            sign = -1
+        vispath = self.getVisiblePath()
+        # TODO curveradius is deprecated in pyx 0.14
+        # curveradii = vispath.curveradius([i / 10.0 for i in range(0, 11)])
+        curveradii = []
+        mincurveradius = None
+        for curveradius in curveradii:
+            try:
+                curveradius = abs(curveradius / pyx.unit.m)
+                # if config.getOptions().DEBUG:
+                #    print self.__class__, &quot;- curve radius = &quot;, curveradius
+                if mincurveradius is None or curveradius &lt; mincurveradius:
+                    mincurveradius = curveradius
+            except:
+                pass
+        numhloopcurves = 5
+        if mincurveradius is not None:
+            numhloopcurves += int(0.1 / mincurveradius)
+        if config.getOptions().DEBUG:
+            print(
+                self.__class__,
+                &quot;- min curvature radius = &quot;,
+                mincurveradius,
+                &quot;-&gt;&quot;,
+                numhloopcurves,
+                &quot;curves/hloop&quot;,
+            )
+
+        defo = pyx.deformer.cycloid(
+            self.arcradius,
+            intwindings,
+            curvesperhloop=numhloopcurves,
+            skipfirst=0.0,
+            skiplast=0.0,
+            turnangle=0,
+            sign=sign,
+        )
+        return defo.deform(vispath)</div>
+
+<div class="viewcode-block" id="Gravitino.draw"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.Gravitino.html#pyfeyn2.render.pyx.lines.Gravitino.draw">[docs]</a>    def draw(self, canvas):
+        &quot;&quot;&quot;Draw the line on the supplied canvas.&quot;&quot;&quot;
+        styles = self.styles + self.arrows
+        if config.getOptions().DEBUG:
+            print(&quot;Drawing &quot; + str(self.__class__) + &quot; with styles = &quot; + str(styles))
+        mypath = [
+            self.getVisiblePath(),
+            self.getDeformedPath(+1),
+            self.getDeformedPath(-1),
+        ]
+        if self.inverted:
+            mypath = mypath[::-1]
+        if config.getOptions().DRAFT or not self.is3D:
+            for i in range(3):
+                canvas.stroke(mypath[i], styles)
+        else:
+            ass, bs = mypath[0].intersect(mypath[1])
+            ass, cs = mypath[0].intersect(mypath[2])
+            ps = [ass[:], bs[:], cs[:]]
+
+            for i in range(3):
+                params = []
+                for a in range(len(ps[i])):  ## TODO: better endpoint cut vetoing
+                    if (a % 3) != i:
+                        params.append(ps[i][a] - self.skipsize3D)
+                        params.append(ps[i][a] + self.skipsize3D)
+                pathbits = mypath[i].split(params)
+                on = True
+                for pathbit in pathbits:
+                    if on:
+                        canvas.stroke(pathbit, styles)
+                    on = not on
+
+        for l in self.labels:
+            l.draw(canvas)</div></div>
+
+
+<div class="viewcode-block" id="Phantom"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.Phantom.html#pyfeyn2.render.pyx.lines.Phantom">[docs]</a>class Phantom(DecoratedLine):
+    &quot;&quot;&quot;An invisible line.&quot;&quot;&quot;
+
+<div class="viewcode-block" id="Phantom.__init__"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.Phantom.html#pyfeyn2.render.pyx.lines.Phantom.__init__">[docs]</a>    def __init__(
+        self,
+        point1,
+        point2,
+        amplitude=0.25,
+        frequency=1.0,
+        extras=0,
+        invert=False,
+        styles=None,
+        arcthrupoint=None,
+        is3D=False,
+        arrows=None,
+        labels=None,
+        **kwargs
+    ):
+        &quot;&quot;&quot;Constructor.&quot;&quot;&quot;
+        DecoratedLine.__init__(
+            point1,
+            point2,
+            amplitude,
+            frequency,
+            extras,
+            invert,
+            &quot;phantom&quot;,
+            styles,
+            arcthrupoint,
+            is3D,
+            arrows,
+            labels,
+        )</div>
+
+<div class="viewcode-block" id="Phantom.draw"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.Phantom.html#pyfeyn2.render.pyx.lines.Phantom.draw">[docs]</a>    def draw(self, canvas):
+        &quot;&quot;&quot;Draw the line on the supplied canvas (does nothing for a phantom).&quot;&quot;&quot;
+        return</div></div>
+
+
+# A dictionary for mapping FeynML line types to line classes
+NamedLine = {
+    &quot;higgs&quot;: Higgs,
+    &quot;photon&quot;: Photon,
+    &quot;vector&quot;: Photon,
+    &quot;gluon&quot;: Gluon,
+    &quot;fermion&quot;: Fermion,
+    &quot;graviton&quot;: Graviton,
+    &quot;gaugino&quot;: Gaugino,
+    &quot;gluino&quot;: Gluino,
+    &quot;gravitino&quot;: Gravitino,
+    &quot;scalar&quot;: Higgs,
+    &quot;ghost&quot;: Ghost,
+    &quot;phantom&quot;: Phantom,
+    &quot;boson&quot;: Photon,
+}
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Alexander Puck Neuwirth.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

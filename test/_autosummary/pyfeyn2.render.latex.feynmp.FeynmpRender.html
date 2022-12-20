@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pyfeyn2.render.latex.feynmp.FeynmpRender &mdash; pyfeyn2  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/plot_directive.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/jupyter-sphinx.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/thebelab.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/thebelab-helper.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="pyfeyn2.render.latex.latex" href="pyfeyn2.render.latex.latex.html" />
+    <link rel="prev" title="pyfeyn2.render.latex.feynmp.stylize_line" href="pyfeyn2.render.latex.feynmp.stylize_line.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> pyfeyn2
+            <img src="../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                2.0.7-42-g838712a
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Versions:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/pyfeyn2/">Stable</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/pyfeyn2/test/">Dev</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Links:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/APN-Pucky/pyfeyn2">GitHub</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">FeynML:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../feynml/index.html">FeynML</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Gallery:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../gallery/index.html">Gallery</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Renderers:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../renderers/index.html">Renderers</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Interfaces:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../interfaces/index.html">Interfaces</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Modules:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="pyfeyn2.html">pyfeyn2</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="pyfeyn2.auto.html">pyfeyn2.auto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyfeyn2.feynmandiagram.html">pyfeyn2.feynmandiagram</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyfeyn2.mkfeyndiag.html">pyfeyn2.mkfeyndiag</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyfeyn2.particles.html">pyfeyn2.particles</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="pyfeyn2.render.html">pyfeyn2.render</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="pyfeyn2.render.all.html">pyfeyn2.render.all</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="pyfeyn2.render.latex.html">pyfeyn2.render.latex</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="pyfeyn2.render.latex.dot.html">pyfeyn2.render.latex.dot</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="pyfeyn2.render.latex.feynmp.html">pyfeyn2.render.latex.feynmp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyfeyn2.render.latex.latex.html">pyfeyn2.render.latex.latex</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyfeyn2.render.latex.metapost.html">pyfeyn2.render.latex.metapost</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyfeyn2.render.latex.tikzfeynman.html">pyfeyn2.render.latex.tikzfeynman</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pyfeyn2.render.pyx.html">pyfeyn2.render.pyx</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyfeyn2.render.render.html">pyfeyn2.render.render</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyfeyn2.util.html">pyfeyn2.util</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pyfeyn2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="pyfeyn2.html">pyfeyn2</a></li>
+          <li class="breadcrumb-item"><a href="pyfeyn2.render.html">pyfeyn2.render</a></li>
+          <li class="breadcrumb-item"><a href="pyfeyn2.render.latex.html">pyfeyn2.render.latex</a></li>
+          <li class="breadcrumb-item"><a href="pyfeyn2.render.latex.feynmp.html">pyfeyn2.render.latex.feynmp</a></li>
+      <li class="breadcrumb-item active">pyfeyn2.render.latex.feynmp.FeynmpRender</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_autosummary/pyfeyn2.render.latex.feynmp.FeynmpRender.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<section id="pyfeyn2-render-latex-feynmp-feynmprender">
+<h1>pyfeyn2.render.latex.feynmp.FeynmpRender<a class="headerlink" href="#pyfeyn2-render-latex-feynmp-feynmprender" title="Permalink to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyfeyn2.render.latex.feynmp.FeynmpRender">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyfeyn2.render.latex.feynmp.</span></span><span class="sig-name descname"><span class="pre">FeynmpRender</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">documentclass</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'standalone'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">document_options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/latex/feynmp.html#FeynmpRender"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.latex.feynmp.FeynmpRender" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="pyfeyn2.render.latex.metapost.MetaPostRender.html#pyfeyn2.render.latex.metapost.MetaPostRender" title="pyfeyn2.render.latex.metapost.MetaPostRender"><code class="xref py py-class docutils literal notranslate"><span class="pre">MetaPostRender</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.latex.feynmp.FeynmpRender.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">documentclass</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'standalone'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">document_options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/latex/feynmp.html#FeynmpRender.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.latex.feynmp.FeynmpRender.__init__" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>default_filepath</strong> (<em>str</em>) – The default path to save files.</p></li>
+<li><p><strong>documentclass</strong> (str or <cite>~.Command</cite>) – The LaTeX class of the document.</p></li>
+<li><p><strong>document_options</strong> (str or <cite>list</cite>) – The options to supply to the documentclass</p></li>
+<li><p><strong>fontenc</strong> (<em>str</em>) – The option for the fontenc package. If it is <cite>None</cite>, the fontenc
+package will not be loaded at all.</p></li>
+<li><p><strong>inputenc</strong> (<em>str</em>) – The option for the inputenc package. If it is <cite>None</cite>, the inputenc
+package will not be loaded at all.</p></li>
+<li><p><strong>font_size</strong> (<em>str</em>) – The font size to declare as normalsize</p></li>
+<li><p><strong>lmodern</strong> (<em>bool</em>) – Use the Latin Modern font. This is a font that contains more glyphs
+than the standard LaTeX font.</p></li>
+<li><p><strong>textcomp</strong> (<em>bool</em>) – Adds even more glyphs, for instance the Euro (€) sign.</p></li>
+<li><p><strong>page_numbers</strong> (<em>bool</em>) – Adds the ability to add the last page to the document.</p></li>
+<li><p><strong>indent</strong> (<em>bool</em>) – Determines whether or not the document requires indentation. If it
+is <cite>None</cite> it will use the value from the active config. Which is
+<cite>True</cite> by default.</p></li>
+<li><p><strong>geometry_options</strong> (<em>dict</em>) – The options to supply to the geometry package</p></li>
+<li><p><strong>data</strong> (<em>list</em>) – Initial content of the document.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="rubric">Methods</p>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.render.latex.feynmp.FeynmpRender.__init__" title="pyfeyn2.render.latex.feynmp.FeynmpRender.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>([fd, documentclass, document_options])</p></td>
+<td><p><dl class="field-list simple">
+<dt class="field-odd">param default_filepath</dt>
+<dd class="field-odd"><p>The default path to save files.</p>
+</dd>
+</dl>
+</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.render.latex.feynmp.FeynmpRender.add_color" title="pyfeyn2.render.latex.feynmp.FeynmpRender.add_color"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_color</span></code></a>(name, model, description)</p></td>
+<td><p>Add a color that can be used throughout the document.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.render.latex.feynmp.FeynmpRender.append" title="pyfeyn2.render.latex.feynmp.FeynmpRender.append"><code class="xref py py-obj docutils literal notranslate"><span class="pre">append</span></code></a>(item)</p></td>
+<td><p>S.append(value) -- append value to the end of the sequence</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.render.latex.feynmp.FeynmpRender.change_document_style" title="pyfeyn2.render.latex.feynmp.FeynmpRender.change_document_style"><code class="xref py py-obj docutils literal notranslate"><span class="pre">change_document_style</span></code></a>(style)</p></td>
+<td><p>Alternate page style for the entire document.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.render.latex.feynmp.FeynmpRender.change_length" title="pyfeyn2.render.latex.feynmp.FeynmpRender.change_length"><code class="xref py py-obj docutils literal notranslate"><span class="pre">change_length</span></code></a>(parameter, value)</p></td>
+<td><p>Change the length of a certain parameter to a certain value.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.render.latex.feynmp.FeynmpRender.change_page_style" title="pyfeyn2.render.latex.feynmp.FeynmpRender.change_page_style"><code class="xref py py-obj docutils literal notranslate"><span class="pre">change_page_style</span></code></a>(style)</p></td>
+<td><p>Alternate page styles of the current page.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.render.latex.feynmp.FeynmpRender.clear" title="pyfeyn2.render.latex.feynmp.FeynmpRender.clear"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clear</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">copy</span></code>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.render.latex.feynmp.FeynmpRender.count" title="pyfeyn2.render.latex.feynmp.FeynmpRender.count"><code class="xref py py-obj docutils literal notranslate"><span class="pre">count</span></code></a>(value)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.render.latex.feynmp.FeynmpRender.create" title="pyfeyn2.render.latex.feynmp.FeynmpRender.create"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create</span></code></a>(child)</p></td>
+<td><p>Add a LaTeX object to current container, context-manager style.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">demo_propagator</span></code>(d[, show, label])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.render.latex.feynmp.FeynmpRender.dump" title="pyfeyn2.render.latex.feynmp.FeynmpRender.dump"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dump</span></code></a>(file_w)</p></td>
+<td><p>Write the LaTeX representation of the class to a file.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.render.latex.feynmp.FeynmpRender.dump_packages" title="pyfeyn2.render.latex.feynmp.FeynmpRender.dump_packages"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dump_packages</span></code></a>(file_w)</p></td>
+<td><p>Write the LaTeX representation of the packages to a file.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.render.latex.feynmp.FeynmpRender.dumps" title="pyfeyn2.render.latex.feynmp.FeynmpRender.dumps"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dumps</span></code></a>()</p></td>
+<td><p>Represent the document as a string in LaTeX syntax.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.render.latex.feynmp.FeynmpRender.dumps_as_content" title="pyfeyn2.render.latex.feynmp.FeynmpRender.dumps_as_content"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dumps_as_content</span></code></a>()</p></td>
+<td><p>Create a string representation of the object as content.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.render.latex.feynmp.FeynmpRender.dumps_content" title="pyfeyn2.render.latex.feynmp.FeynmpRender.dumps_content"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dumps_content</span></code></a>(**kwargs)</p></td>
+<td><p>Represent the container as a string in LaTeX syntax.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.render.latex.feynmp.FeynmpRender.dumps_packages" title="pyfeyn2.render.latex.feynmp.FeynmpRender.dumps_packages"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dumps_packages</span></code></a>()</p></td>
+<td><p>Represent the packages needed as a string in LaTeX syntax.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.render.latex.feynmp.FeynmpRender.extend" title="pyfeyn2.render.latex.feynmp.FeynmpRender.extend"><code class="xref py py-obj docutils literal notranslate"><span class="pre">extend</span></code></a>(other)</p></td>
+<td><p>S.extend(iterable) -- extend sequence by appending elements from the iterable</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.render.latex.feynmp.FeynmpRender.generate_pdf" title="pyfeyn2.render.latex.feynmp.FeynmpRender.generate_pdf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">generate_pdf</span></code></a>([filepath, clean, clean_tex, ...])</p></td>
+<td><p>Generate a pdf file from the document.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.render.latex.feynmp.FeynmpRender.generate_tex" title="pyfeyn2.render.latex.feynmp.FeynmpRender.generate_tex"><code class="xref py py-obj docutils literal notranslate"><span class="pre">generate_tex</span></code></a>([filepath])</p></td>
+<td><p>Generate a .tex file for the document.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_src</span></code>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_src_diag</span></code>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.render.latex.feynmp.FeynmpRender.index" title="pyfeyn2.render.latex.feynmp.FeynmpRender.index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">index</span></code></a>(value, [start, [stop]])</p></td>
+<td><p>Raises ValueError if the value is not present.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.render.latex.feynmp.FeynmpRender.insert" title="pyfeyn2.render.latex.feynmp.FeynmpRender.insert"><code class="xref py py-obj docutils literal notranslate"><span class="pre">insert</span></code></a>(i, item)</p></td>
+<td><p>S.insert(index, value) -- insert value before index</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.render.latex.feynmp.FeynmpRender.pop" title="pyfeyn2.render.latex.feynmp.FeynmpRender.pop"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pop</span></code></a>([index])</p></td>
+<td><p>Raise IndexError if list is empty or index is out of range.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.render.latex.feynmp.FeynmpRender.remove" title="pyfeyn2.render.latex.feynmp.FeynmpRender.remove"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove</span></code></a>(item)</p></td>
+<td><p>S.remove(value) -- remove first occurrence of value.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.render.latex.feynmp.FeynmpRender.render" title="pyfeyn2.render.latex.feynmp.FeynmpRender.render"><code class="xref py py-obj docutils literal notranslate"><span class="pre">render</span></code></a>([file, show, resolution, width, ...])</p></td>
+<td><p>Render the diagram.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.render.latex.feynmp.FeynmpRender.reverse" title="pyfeyn2.render.latex.feynmp.FeynmpRender.reverse"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reverse</span></code></a>()</p></td>
+<td><p>S.reverse() -- reverse <em>IN PLACE</em></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_feynman_diagram</span></code>(fd)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_src</span></code>(src)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_src_diag</span></code>(src_diag)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.render.latex.feynmp.FeynmpRender.set_variable" title="pyfeyn2.render.latex.feynmp.FeynmpRender.set_variable"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_variable</span></code></a>(name, value)</p></td>
+<td><p>Add a variable which can be used inside the document.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">sort</span></code>(*args, **kwds)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">valid_attribute</span></code>(attr)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">valid_style</span></code>(style)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">valid_type</span></code>(typ)</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes</p>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.render.latex.feynmp.FeynmpRender.begin_paragraph" title="pyfeyn2.render.latex.feynmp.FeynmpRender.begin_paragraph"><code class="xref py py-obj docutils literal notranslate"><span class="pre">begin_paragraph</span></code></a></p></td>
+<td><p>Start a new paragraph before this environment.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">content_separator</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.render.latex.feynmp.FeynmpRender.end_paragraph" title="pyfeyn2.render.latex.feynmp.FeynmpRender.end_paragraph"><code class="xref py py-obj docutils literal notranslate"><span class="pre">end_paragraph</span></code></a></p></td>
+<td><p>Start a new paragraph after this environment.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.render.latex.feynmp.FeynmpRender.escape" title="pyfeyn2.render.latex.feynmp.FeynmpRender.escape"><code class="xref py py-obj docutils literal notranslate"><span class="pre">escape</span></code></a></p></td>
+<td><p>Determine whether or not to escape content of this class.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.render.latex.feynmp.FeynmpRender.latex_name" title="pyfeyn2.render.latex.feynmp.FeynmpRender.latex_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">latex_name</span></code></a></p></td>
+<td><p>Return the name of the class used in LaTeX.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.render.latex.feynmp.FeynmpRender.omit_if_empty" title="pyfeyn2.render.latex.feynmp.FeynmpRender.omit_if_empty"><code class="xref py py-obj docutils literal notranslate"><span class="pre">omit_if_empty</span></code></a></p></td>
+<td><p>Set to true if this full container should be equivalent to an empty string if it has no content.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">packages</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.render.latex.feynmp.FeynmpRender.separate_paragraph" title="pyfeyn2.render.latex.feynmp.FeynmpRender.separate_paragraph"><code class="xref py py-obj docutils literal notranslate"><span class="pre">separate_paragraph</span></code></a></p></td>
+<td><p>Same as enabling <cite>begin_paragraph</cite> and <cite>end_paragraph</cite>, so effectively placing this element in its own paragraph.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.latex.feynmp.FeynmpRender.add_color">
+<span class="sig-name descname"><span class="pre">add_color</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.latex.feynmp.FeynmpRender.add_color" title="Permalink to this definition"></a></dt>
+<dd><p>Add a color that can be used throughout the document.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – Name to set for the color</p></li>
+<li><p><strong>model</strong> (<em>str</em>) – The color model to use when defining the color</p></li>
+<li><p><strong>description</strong> (<em>str</em>) – The values to use to define the color</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.latex.feynmp.FeynmpRender.append">
+<span class="sig-name descname"><span class="pre">append</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.latex.feynmp.FeynmpRender.append" title="Permalink to this definition"></a></dt>
+<dd><p>S.append(value) – append value to the end of the sequence</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyfeyn2.render.latex.feynmp.FeynmpRender.begin_paragraph">
+<span class="sig-name descname"><span class="pre">begin_paragraph</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#pyfeyn2.render.latex.feynmp.FeynmpRender.begin_paragraph" title="Permalink to this definition"></a></dt>
+<dd><p>Start a new paragraph before this environment.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.latex.feynmp.FeynmpRender.change_document_style">
+<span class="sig-name descname"><span class="pre">change_document_style</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">style</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.latex.feynmp.FeynmpRender.change_document_style" title="Permalink to this definition"></a></dt>
+<dd><p>Alternate page style for the entire document.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>style</strong> (<em>str</em>) – value to set for the document style</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.latex.feynmp.FeynmpRender.change_length">
+<span class="sig-name descname"><span class="pre">change_length</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.latex.feynmp.FeynmpRender.change_length" title="Permalink to this definition"></a></dt>
+<dd><p>Change the length of a certain parameter to a certain value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>parameter</strong> (<em>str</em>) – The name of the parameter to change the length for</p></li>
+<li><p><strong>value</strong> (<em>str</em>) – The value to set the parameter to</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.latex.feynmp.FeynmpRender.change_page_style">
+<span class="sig-name descname"><span class="pre">change_page_style</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">style</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.latex.feynmp.FeynmpRender.change_page_style" title="Permalink to this definition"></a></dt>
+<dd><p>Alternate page styles of the current page.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>style</strong> (<em>str</em>) – value to set for the page style of the current page</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.latex.feynmp.FeynmpRender.clear">
+<span class="sig-name descname"><span class="pre">clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span> <span class="pre">--</span> <span class="pre">remove</span> <span class="pre">all</span> <span class="pre">items</span> <span class="pre">from</span> <span class="pre">S</span></span></span><a class="headerlink" href="#pyfeyn2.render.latex.feynmp.FeynmpRender.clear" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.latex.feynmp.FeynmpRender.count">
+<span class="sig-name descname"><span class="pre">count</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">integer</span> <span class="pre">--</span> <span class="pre">return</span> <span class="pre">number</span> <span class="pre">of</span> <span class="pre">occurrences</span> <span class="pre">of</span> <span class="pre">value</span></span></span><a class="headerlink" href="#pyfeyn2.render.latex.feynmp.FeynmpRender.count" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.latex.feynmp.FeynmpRender.create">
+<span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">child</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.latex.feynmp.FeynmpRender.create" title="Permalink to this definition"></a></dt>
+<dd><p>Add a LaTeX object to current container, context-manager style.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>child</strong> (<cite>~.Container</cite>) – An object to be added to the current container</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.latex.feynmp.FeynmpRender.dump">
+<span class="sig-name descname"><span class="pre">dump</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_w</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.latex.feynmp.FeynmpRender.dump" title="Permalink to this definition"></a></dt>
+<dd><p>Write the LaTeX representation of the class to a file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>file_w</strong> (<em>io.TextIOBase</em>) – The file object in which to save the data</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.latex.feynmp.FeynmpRender.dump_packages">
+<span class="sig-name descname"><span class="pre">dump_packages</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_w</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.latex.feynmp.FeynmpRender.dump_packages" title="Permalink to this definition"></a></dt>
+<dd><p>Write the LaTeX representation of the packages to a file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>file_w</strong> (<em>io.TextIOBase</em>) – The file object in which to save the data</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.latex.feynmp.FeynmpRender.dumps">
+<span class="sig-name descname"><span class="pre">dumps</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.latex.feynmp.FeynmpRender.dumps" title="Permalink to this definition"></a></dt>
+<dd><p>Represent the document as a string in LaTeX syntax.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.latex.feynmp.FeynmpRender.dumps_as_content">
+<span class="sig-name descname"><span class="pre">dumps_as_content</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.latex.feynmp.FeynmpRender.dumps_as_content" title="Permalink to this definition"></a></dt>
+<dd><p>Create a string representation of the object as content.</p>
+<p>This is currently only used to add new lines before and after the
+output of the dumps function. These can be added or removed by changing
+the <cite>begin_paragraph</cite>, <cite>end_paragraph</cite> and <cite>separate_paragraph</cite>
+attributes of the class.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.latex.feynmp.FeynmpRender.dumps_content">
+<span class="sig-name descname"><span class="pre">dumps_content</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.latex.feynmp.FeynmpRender.dumps_content" title="Permalink to this definition"></a></dt>
+<dd><p>Represent the container as a string in LaTeX syntax.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>**kwargs</strong> – Arguments that can be passed to <cite>~.dumps_list</cite></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A LaTeX string representing the container</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.latex.feynmp.FeynmpRender.dumps_packages">
+<span class="sig-name descname"><span class="pre">dumps_packages</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.latex.feynmp.FeynmpRender.dumps_packages" title="Permalink to this definition"></a></dt>
+<dd><p>Represent the packages needed as a string in LaTeX syntax.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A LaTeX string representing the packages of the container</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyfeyn2.render.latex.feynmp.FeynmpRender.end_paragraph">
+<span class="sig-name descname"><span class="pre">end_paragraph</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#pyfeyn2.render.latex.feynmp.FeynmpRender.end_paragraph" title="Permalink to this definition"></a></dt>
+<dd><p>Start a new paragraph after this environment.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyfeyn2.render.latex.feynmp.FeynmpRender.escape">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">escape</span></span><a class="headerlink" href="#pyfeyn2.render.latex.feynmp.FeynmpRender.escape" title="Permalink to this definition"></a></dt>
+<dd><p>Determine whether or not to escape content of this class.</p>
+<p>This defaults to <cite>True</cite> for most classes.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.latex.feynmp.FeynmpRender.extend">
+<span class="sig-name descname"><span class="pre">extend</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.latex.feynmp.FeynmpRender.extend" title="Permalink to this definition"></a></dt>
+<dd><p>S.extend(iterable) – extend sequence by appending elements from the iterable</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.latex.feynmp.FeynmpRender.generate_pdf">
+<span class="sig-name descname"><span class="pre">generate_pdf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clean</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clean_tex</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compiler</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compiler_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">silent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.latex.feynmp.FeynmpRender.generate_pdf" title="Permalink to this definition"></a></dt>
+<dd><p>Generate a pdf file from the document.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filepath</strong> (<em>str</em>) – The name of the file (without .pdf), if it is <cite>None</cite> the
+<code class="docutils literal notranslate"><span class="pre">default_filepath</span></code> attribute will be used.</p></li>
+<li><p><strong>clean</strong> (<em>bool</em>) – Whether non-pdf files created that are created during compilation
+should be removed.</p></li>
+<li><p><strong>clean_tex</strong> (<em>bool</em>) – Also remove the generated tex file.</p></li>
+<li><p><strong>compiler</strong> (<cite>str</cite> or <cite>None</cite>) – The name of the LaTeX compiler to use. If it is None, PyLaTeX will
+choose a fitting one on its own. Starting with <code class="docutils literal notranslate"><span class="pre">latexmk</span></code> and then
+<code class="docutils literal notranslate"><span class="pre">pdflatex</span></code>.</p></li>
+<li><p><strong>compiler_args</strong> (<cite>list</cite> or <cite>None</cite>) – Extra arguments that should be passed to the LaTeX compiler. If
+this is None it defaults to an empty list.</p></li>
+<li><p><strong>silent</strong> (<em>bool</em>) – Whether to hide compiler output</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.latex.feynmp.FeynmpRender.generate_tex">
+<span class="sig-name descname"><span class="pre">generate_tex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.latex.feynmp.FeynmpRender.generate_tex" title="Permalink to this definition"></a></dt>
+<dd><p>Generate a .tex file for the document.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>filepath</strong> (<em>str</em>) – The name of the file (without .tex), if this is not supplied the
+default filepath attribute is used as the path.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.latex.feynmp.FeynmpRender.index">
+<span class="sig-name descname"><span class="pre">index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="optional">[</span>, <em class="sig-param"><span class="n"><span class="pre">start</span></span></em><span class="optional">[</span>, <em class="sig-param"><span class="n"><span class="pre">stop</span></span></em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">integer</span> <span class="pre">--</span> <span class="pre">return</span> <span class="pre">first</span> <span class="pre">index</span> <span class="pre">of</span> <span class="pre">value.</span></span></span><a class="headerlink" href="#pyfeyn2.render.latex.feynmp.FeynmpRender.index" title="Permalink to this definition"></a></dt>
+<dd><p>Raises ValueError if the value is not present.</p>
+<p>Supporting start and stop arguments is optional, but
+recommended.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.latex.feynmp.FeynmpRender.insert">
+<span class="sig-name descname"><span class="pre">insert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">item</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.latex.feynmp.FeynmpRender.insert" title="Permalink to this definition"></a></dt>
+<dd><p>S.insert(index, value) – insert value before index</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pyfeyn2.render.latex.feynmp.FeynmpRender.latex_name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">latex_name</span></span><a class="headerlink" href="#pyfeyn2.render.latex.feynmp.FeynmpRender.latex_name" title="Permalink to this definition"></a></dt>
+<dd><p>Return the name of the class used in LaTeX.</p>
+<p>It can be <cite>None</cite> when the class doesn’t have a name.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyfeyn2.render.latex.feynmp.FeynmpRender.omit_if_empty">
+<span class="sig-name descname"><span class="pre">omit_if_empty</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#pyfeyn2.render.latex.feynmp.FeynmpRender.omit_if_empty" title="Permalink to this definition"></a></dt>
+<dd><p>Set to true if this full container should be equivalent to an empty
+string if it has no content.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.latex.feynmp.FeynmpRender.pop">
+<span class="sig-name descname"><span class="pre">pop</span></span><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em><span class="optional">]</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">item</span> <span class="pre">--</span> <span class="pre">remove</span> <span class="pre">and</span> <span class="pre">return</span> <span class="pre">item</span> <span class="pre">at</span> <span class="pre">index</span> <span class="pre">(default</span> <span class="pre">last).</span></span></span><a class="headerlink" href="#pyfeyn2.render.latex.feynmp.FeynmpRender.pop" title="Permalink to this definition"></a></dt>
+<dd><p>Raise IndexError if list is empty or index is out of range.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.latex.feynmp.FeynmpRender.remove">
+<span class="sig-name descname"><span class="pre">remove</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.latex.feynmp.FeynmpRender.remove" title="Permalink to this definition"></a></dt>
+<dd><p>S.remove(value) – remove first occurrence of value.
+Raise ValueError if the value is not present.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.latex.feynmp.FeynmpRender.render">
+<span class="sig-name descname"><span class="pre">render</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resolution</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clean_up</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.latex.feynmp.FeynmpRender.render" title="Permalink to this definition"></a></dt>
+<dd><p>Render the diagram.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.latex.feynmp.FeynmpRender.reverse">
+<span class="sig-name descname"><span class="pre">reverse</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.latex.feynmp.FeynmpRender.reverse" title="Permalink to this definition"></a></dt>
+<dd><p>S.reverse() – reverse <em>IN PLACE</em></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyfeyn2.render.latex.feynmp.FeynmpRender.separate_paragraph">
+<span class="sig-name descname"><span class="pre">separate_paragraph</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#pyfeyn2.render.latex.feynmp.FeynmpRender.separate_paragraph" title="Permalink to this definition"></a></dt>
+<dd><p>Same as enabling <cite>begin_paragraph</cite> and <cite>end_paragraph</cite>, so
+effectively placing this element in its own paragraph.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.latex.feynmp.FeynmpRender.set_variable">
+<span class="sig-name descname"><span class="pre">set_variable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.latex.feynmp.FeynmpRender.set_variable" title="Permalink to this definition"></a></dt>
+<dd><p>Add a variable which can be used inside the document.</p>
+<p>Variables are defined before the preamble. If a variable with that name
+has already been set, the new value will override it for future uses.
+This is done by appending <code class="docutils literal notranslate"><span class="pre">\renewcommand</span></code> to the document.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – The name to set for the variable</p></li>
+<li><p><strong>value</strong> (<em>str</em>) – The value to set for the variable</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="pyfeyn2.render.latex.feynmp.stylize_line.html" class="btn btn-neutral float-left" title="pyfeyn2.render.latex.feynmp.stylize_line" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="pyfeyn2.render.latex.latex.html" class="btn btn-neutral float-right" title="pyfeyn2.render.latex.latex" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Alexander Puck Neuwirth.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

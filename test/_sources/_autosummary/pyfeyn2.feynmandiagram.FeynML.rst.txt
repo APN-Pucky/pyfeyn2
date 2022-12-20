@@ -1,0 +1,33 @@
+pyfeyn2.feynmandiagram.FeynML
+=============================
+
+.. currentmodule:: pyfeyn2.feynmandiagram
+
+.. autoclass:: FeynML
+   :members:                                   
+   :show-inheritance:                           
+   :inherited-members:                         
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~FeynML.__init__
+      ~FeynML.get_diagram
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~FeynML.head
+      ~FeynML.diagrams
+   
+   

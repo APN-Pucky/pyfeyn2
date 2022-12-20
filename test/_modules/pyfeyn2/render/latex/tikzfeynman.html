@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pyfeyn2.render.latex.tikzfeynman &mdash; pyfeyn2  documentation</title>
+      <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/plot_directive.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/jupyter-sphinx.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/thebelab.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/sphinx_highlight.js"></script>
+        <script src="../../../../_static/thebelab-helper.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../../index.html" class="icon icon-home"> pyfeyn2
+            <img src="../../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                2.0.7-42-g838712a
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Versions:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/pyfeyn2/">Stable</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/pyfeyn2/test/">Dev</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Links:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/APN-Pucky/pyfeyn2">GitHub</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">FeynML:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../feynml/index.html">FeynML</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Gallery:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../gallery/index.html">Gallery</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Renderers:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../renderers/index.html">Renderers</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Interfaces:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../interfaces/index.html">Interfaces</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Modules:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../_autosummary/pyfeyn2.html">pyfeyn2</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">pyfeyn2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">pyfeyn2.render.latex.tikzfeynman</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for pyfeyn2.render.latex.tikzfeynman</h1><div class="highlight"><pre>
+<span></span>from pylatex import Command
+from pylatex.utils import NoEscape
+
+from pyfeyn2.feynmandiagram import Connector, FeynmanDiagram, Leg, Vertex
+from pyfeyn2.render.latex.latex import LatexRender
+
+# converte FeynmanDiagram to tikz-feynman
+
+type_map = {
+    &quot;gluon&quot;: &quot;gluon&quot;,
+    &quot;ghost&quot;: &quot;ghost&quot;,
+    &quot;photon&quot;: &quot;photon&quot;,
+    &quot;boson&quot;: &quot;photon&quot;,
+    &quot;fermion&quot;: &quot;fermion&quot;,
+    &quot;anti fermion&quot;: &quot;anti fermion&quot;,
+    &quot;charged boson&quot;: &quot;charged boson&quot;,
+    &quot;anti charged boson&quot;: &quot;anti charged boson&quot;,
+    &quot;scalar&quot;: &quot;scalar&quot;,
+    &quot;charged scalar&quot;: &quot;charged scalar&quot;,
+    &quot;anti charged scalar&quot;: &quot;anti charged scalar&quot;,
+    &quot;majorana&quot;: &quot;majorana&quot;,
+    &quot;anti majorana&quot;: &quot;anti majorana&quot;,
+    # SUSY
+    &quot;gaugino&quot;: &quot;plain,boson&quot;,
+    &quot;chargino&quot;: &quot;plain,boson&quot;,
+    &quot;neutralino&quot;: &quot;plain,boson&quot;,
+    &quot;squark&quot;: &quot;charged scalar&quot;,
+    &quot;slepton&quot;: &quot;charged scalar&quot;,
+    &quot;gluino&quot;: &quot;plain,gluon&quot;,
+    &quot;higgs&quot;: &quot;scalar&quot;,
+    &quot;vector&quot;: &quot;boson&quot;,
+    &quot;phantom&quot;: &quot;draw=none&quot;,
+    &quot;line&quot;: &quot;plain&quot;,
+}
+
+
+<div class="viewcode-block" id="stylize_connect"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.latex.tikzfeynman.stylize_connect.html#pyfeyn2.render.latex.tikzfeynman.stylize_connect">[docs]</a>def stylize_connect(fd: FeynmanDiagram, c: Connector):
+    style = fd.get_style(c)
+    ret = &quot;&quot;
+    ret += type_map[c.type]
+
+    if c.label is not None:
+        ret += &quot;,edge label=&quot; + c.label
+    # if c.edge_label_ is not None: style += &quot;,edge label&#39;=&quot; + c.edge_label_
+    if c.momentum is not None:
+        ret += &quot;,momentum=&quot; + c.momentum
+    if style.opacity is not None and style.opacity != &quot;&quot;:
+        ret += &quot;,opacity=&quot; + str(style.opacity)
+    if style.color is not None and style.color != &quot;&quot;:
+        ret += &quot;,&quot; + str(style.color)
+    if c.bend is not None and c.bend:
+        if style.getProperty(&quot;bend-direction&quot;) is not None:
+            ret += &quot;,bend &quot; + str(style.getProperty(&quot;bend-direction&quot;).value)
+        if style.getProperty(&quot;bend-loop&quot;) is not None:
+            ret += (
+                &quot;,loop , in=&quot;
+                + str(style.getProperty(&quot;bend-in&quot;).value)
+                + &quot;, out=&quot;
+                + str(style.getProperty(&quot;bend-out&quot;).value)
+                + &quot;, min distance=&quot;
+                + str(style.getProperty(&quot;bend-min-distance&quot;).value)
+            )
+
+    return ret</div>
+
+
+<div class="viewcode-block" id="stylize_node"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.latex.tikzfeynman.stylize_node.html#pyfeyn2.render.latex.tikzfeynman.stylize_node">[docs]</a>def stylize_node(v: Vertex):
+    style = &quot;&quot;
+    if v.label is not None:
+        style += &quot;label=&quot; + v.label + &quot;,&quot;
+
+    return style[:-1]</div>
+
+
+<div class="viewcode-block" id="stylize_leg_node"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.latex.tikzfeynman.stylize_leg_node.html#pyfeyn2.render.latex.tikzfeynman.stylize_leg_node">[docs]</a>def stylize_leg_node(l: Leg):
+    style = &quot;&quot;
+    if l.external is not None:
+        style += &quot;label=&quot; + l.external + &quot;,&quot;
+    return style[:-1]</div>
+
+
+<div class="viewcode-block" id="get_line"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.latex.tikzfeynman.get_line.html#pyfeyn2.render.latex.tikzfeynman.get_line">[docs]</a>def get_line(source_id, target_id, style):
+    # Fix self-loop
+    if source_id == target_id:
+        return f&quot;\t\t({source_id}) -- [{style}] ({target_id}clone),\n&quot;
+    else:
+        return f&quot;\t\t({source_id}) -- [{style}] ({target_id}),\n&quot;</div>
+
+
+<div class="viewcode-block" id="feynman_to_tikz_feynman"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.latex.tikzfeynman.feynman_to_tikz_feynman.html#pyfeyn2.render.latex.tikzfeynman.feynman_to_tikz_feynman">[docs]</a>def feynman_to_tikz_feynman(fd):
+    src = &quot;\\begin{tikzpicture}\n&quot;
+    src += &quot;\\begin{feynman}\n&quot;
+    for v in fd.vertices:
+        style = stylize_node(v)
+        src += f&quot;\t\\vertex ({v.id}) [{style}] at ({v.x},{v.y});\n&quot;
+        src += f&quot;\t\\vertex ({v.id}clone) [{style}] at ({v.x},{v.y});\n&quot;
+    for l in fd.legs:
+        style = stylize_leg_node(l)
+        src += f&quot;\t\\vertex ({l.id}) [{style}] at ({l.x},{l.y});\n&quot;
+    src += &quot;\t\\diagram*{\n&quot;
+    for p in fd.propagators:
+        style = stylize_connect(fd, p)
+        src += get_line(p.source, p.target, style)
+    for l in fd.legs:
+        style = stylize_connect(fd, l)
+        if l.sense[:2] == &quot;in&quot;:
+            src += get_line(l.id, l.target, style)
+        elif l.sense[:3] == &quot;out&quot;:
+            src += get_line(l.target, l.id, style)
+        else:
+            raise Exception(&quot;Unknown sense&quot;)
+    src += &quot;\t};\n&quot;
+    src += &quot;\\end{feynman}\n&quot;
+    src += &quot;\\end{tikzpicture}\n&quot;
+    return src</div>
+
+
+<div class="viewcode-block" id="TikzFeynmanRender"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.latex.tikzfeynman.TikzFeynmanRender.html#pyfeyn2.render.latex.tikzfeynman.TikzFeynmanRender">[docs]</a>class TikzFeynmanRender(LatexRender):
+<div class="viewcode-block" id="TikzFeynmanRender.__init__"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.latex.tikzfeynman.TikzFeynmanRender.html#pyfeyn2.render.latex.tikzfeynman.TikzFeynmanRender.__init__">[docs]</a>    def __init__(
+        self,
+        fd=None,
+        documentclass=&quot;standalone&quot;,
+        document_options=None,
+        *args,
+        **kwargs,
+    ):
+        if document_options is None:
+            document_options = [&quot;preview&quot;, &quot;crop&quot;, &quot;tikz&quot;]
+        super().__init__(
+            *args,
+            fd=fd,
+            documentclass=documentclass,
+            document_options=document_options,
+            **kwargs,
+        )
+        self.preamble.append(Command(&quot;RequirePackage&quot;, &quot;luatex85&quot;))
+        self.preamble.append(
+            Command(&quot;usepackage&quot;, NoEscape(&quot;tikz-feynman&quot;), &quot;compat=1.1.0&quot;)
+        )
+        if fd is not None:
+            self.set_feynman_diagram(fd)</div>
+
+    def set_feynman_diagram(self, fd):
+        super().set_feynman_diagram(fd)
+        self.set_src_diag(NoEscape(feynman_to_tikz_feynman(fd)))
+
+    @staticmethod
+    def valid_styles(style: str) -&gt; bool:
+        return super(TikzFeynmanRender, TikzFeynmanRender).valid_styles(
+            style
+        ) or style in [&quot;color&quot;, &quot;opacity&quot;]
+
+    @staticmethod
+    def valid_attribute(attr: str) -&gt; bool:
+        return super(TikzFeynmanRender, TikzFeynmanRender).valid_attribute(
+            attr
+        ) or attr in [&quot;x&quot;, &quot;y&quot;, &quot;label&quot;, &quot;style&quot;, &quot;momentum&quot;]
+
+    @staticmethod
+    def valid_type(typ):
+        if typ.lower() in type_map:
+            return True
+        return False</div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Alexander Puck Neuwirth.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
