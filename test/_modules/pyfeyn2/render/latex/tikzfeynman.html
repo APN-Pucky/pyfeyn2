@@ -37,7 +37,7 @@
             <img src="../../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.0.7-42-g838712a
+                2.0.7-43-g42257a2b
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
@@ -133,6 +133,7 @@ type_map = {
     &quot;gluino&quot;: &quot;plain,gluon&quot;,
     &quot;higgs&quot;: &quot;scalar&quot;,
     &quot;vector&quot;: &quot;boson&quot;,
+    # UTIL
     &quot;phantom&quot;: &quot;draw=none&quot;,
     &quot;line&quot;: &quot;plain&quot;,
 }
@@ -252,7 +253,7 @@ type_map = {
     def valid_styles(style: str) -&gt; bool:
         return super(TikzFeynmanRender, TikzFeynmanRender).valid_styles(
             style
-        ) or style in [&quot;color&quot;, &quot;opacity&quot;]
+        ) or style in [&quot;color&quot;, &quot;opacity&quot;, &quot;bend-direction&quot;,&quot;bend-in&quot;,&quot;bend-out&quot;,&quot;bend-loop&quot;,&quot;bend-min-distance&quot;]
 
     @staticmethod
     def valid_attribute(attr: str) -&gt; bool:
