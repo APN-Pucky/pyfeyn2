@@ -37,7 +37,7 @@
             <img src="../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.0.7-62-g72248078
+                2.1.0-1-gdf1bbbe1
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -102,7 +102,9 @@
            <div itemprop="articleBody">
              
   <h1>Source code for pyfeyn2.util</h1><div class="highlight"><pre>
-<span></span>from deprecation import deprecated as _deprecated
+<span></span>from importlib.metadata import version as _version
+
+from deprecation import deprecated as _deprecated
 
 
 # TODO split in to own package
@@ -128,12 +130,7 @@
     return _withify</div>
 
 
-<div class="viewcode-block" id="deprecated"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.util.deprecated.html#pyfeyn2.util.deprecated">[docs]</a>@_deprecated(
-    deprecated_in=&quot;2.0.7.1&quot;,
-    removed_in=&quot;2.1&quot;,
-    details=&quot;Use smpl.doc.deprecate instead? Better split smpl.doc into its own package.&quot;,
-)
-def deprecated(
+<div class="viewcode-block" id="deprecated"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.util.deprecated.html#pyfeyn2.util.deprecated">[docs]</a>def deprecated(
     version=None, deprecated_in=None, removed_in=None, reason=None, details=None
 ):
     # merge details and reason
@@ -149,15 +146,21 @@ def deprecated(
     # increment minor version
     if removed_in is None:
         removed_in = &quot;.&quot;.join(
-            [version.split(&quot;.&quot;)[0]] + [str(int(version.split(&quot;.&quot;)[1]) + 2)]
+            [version.split(&quot;.&quot;)[0]] + [str(int(version.split(&quot;.&quot;)[1]) + 2)] + [&quot;0&quot;]
         )
 
     return _deprecated(
         deprecated_in=version,
         removed_in=removed_in,
-        # current_version=_version(&quot;pyfeyn2&quot;),
+        current_version=_version(&quot;pyfeyn2&quot;),
         details=details,
     )</div>
+
+
+deprecated = deprecated(
+    deprecated_in=&quot;2.0.7.1&quot;,
+    details=&quot;Use smpl.doc.deprecate instead? Better split smpl.doc into its own package.&quot;,
+)(deprecated)
 </pre></div>
 
            </div>
