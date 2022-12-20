@@ -1,5 +1,20 @@
 .. _vertex:
+
 Vertex
 ====================
+| Implementation: :py:class:`pyfeyn2.feynmandiagram.Vertex`
 
-Required attributes: :ref:`id`
+
+.. code-block:: xml
+
+	<vertex>
+		<id>vertex0</id>
+	</vertex>
+
+Required elements: 
+
+.. toctree::
+   :glob:
+   :maxdepth: 3
+
+   id.rst

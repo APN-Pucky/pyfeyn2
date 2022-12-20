@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pyfeyn2.render.pyx.blobs.Ellipse &mdash; pyfeyn2  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/plot_directive.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/jupyter-sphinx.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/thebelab.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/thebelab-helper.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="pyfeyn2.render.pyx.config" href="pyfeyn2.render.pyx.config.html" />
+    <link rel="prev" title="pyfeyn2.render.pyx.blobs.Circle" href="pyfeyn2.render.pyx.blobs.Circle.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> pyfeyn2
+            <img src="../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                2.1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Versions:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/pyfeyn2/">Stable</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/pyfeyn2/test/">Dev</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Links:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/APN-Pucky/pyfeyn2">GitHub</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">FeynML:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../feynml/index.html">FeynML</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Gallery:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../gallery/index.html">Gallery</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Renderers:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../renderers/index.html">Renderers</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Interfaces:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../interfaces/index.html">Interfaces</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Modules:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="pyfeyn2.html">pyfeyn2</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="pyfeyn2.auto.html">pyfeyn2.auto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyfeyn2.feynmandiagram.html">pyfeyn2.feynmandiagram</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyfeyn2.mkfeyndiag.html">pyfeyn2.mkfeyndiag</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyfeyn2.particles.html">pyfeyn2.particles</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="pyfeyn2.render.html">pyfeyn2.render</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="pyfeyn2.render.all.html">pyfeyn2.render.all</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyfeyn2.render.latex.html">pyfeyn2.render.latex</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="pyfeyn2.render.pyx.html">pyfeyn2.render.pyx</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="pyfeyn2.render.pyx.blobs.html">pyfeyn2.render.pyx.blobs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyfeyn2.render.pyx.config.html">pyfeyn2.render.pyx.config</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyfeyn2.render.pyx.deco.html">pyfeyn2.render.pyx.deco</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyfeyn2.render.pyx.diagrams.html">pyfeyn2.render.pyx.diagrams</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyfeyn2.render.pyx.lines.html">pyfeyn2.render.pyx.lines</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyfeyn2.render.pyx.paint.html">pyfeyn2.render.pyx.paint</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyfeyn2.render.pyx.points.html">pyfeyn2.render.pyx.points</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyfeyn2.render.pyx.pyxrender.html">pyfeyn2.render.pyx.pyxrender</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyfeyn2.render.pyx.utils.html">pyfeyn2.render.pyx.utils</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pyfeyn2.render.render.html">pyfeyn2.render.render</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyfeyn2.types.html">pyfeyn2.types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyfeyn2.util.html">pyfeyn2.util</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pyfeyn2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="pyfeyn2.html">pyfeyn2</a></li>
+          <li class="breadcrumb-item"><a href="pyfeyn2.render.html">pyfeyn2.render</a></li>
+          <li class="breadcrumb-item"><a href="pyfeyn2.render.pyx.html">pyfeyn2.render.pyx</a></li>
+          <li class="breadcrumb-item"><a href="pyfeyn2.render.pyx.blobs.html">pyfeyn2.render.pyx.blobs</a></li>
+      <li class="breadcrumb-item active">pyfeyn2.render.pyx.blobs.Ellipse</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_autosummary/pyfeyn2.render.pyx.blobs.Ellipse.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<section id="pyfeyn2-render-pyx-blobs-ellipse">
+<h1>pyfeyn2.render.pyx.blobs.Ellipse<a class="headerlink" href="#pyfeyn2-render-pyx-blobs-ellipse" title="Permalink to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.blobs.Ellipse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyfeyn2.render.pyx.blobs.</span></span><span class="sig-name descname"><span class="pre">Ellipse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">x=None,</span> <span class="pre">y=None,</span> <span class="pre">center=None,</span> <span class="pre">xradius=None,</span> <span class="pre">yradius=None,</span> <span class="pre">fill=[&lt;pyx.color.cmyk</span> <span class="pre">object&gt;],</span> <span class="pre">stroke=[&lt;pyx.color.cmyk</span> <span class="pre">object&gt;],</span> <span class="pre">trafos=[],</span> <span class="pre">points=[],</span> <span class="pre">blob=None,</span> <span class="pre">labels=[],</span> <span class="pre">**kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/blobs.html#Ellipse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.blobs.Ellipse" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="pyfeyn2.render.pyx.blobs.Blob.html#pyfeyn2.render.pyx.blobs.Blob" title="pyfeyn2.render.pyx.blobs.Blob"><code class="xref py py-class docutils literal notranslate"><span class="pre">Blob</span></code></a></p>
+<p>An elliptical blob</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.blobs.Ellipse.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">x=None,</span> <span class="pre">y=None,</span> <span class="pre">center=None,</span> <span class="pre">xradius=None,</span> <span class="pre">yradius=None,</span> <span class="pre">fill=[&lt;pyx.color.cmyk</span> <span class="pre">object&gt;],</span> <span class="pre">stroke=[&lt;pyx.color.cmyk</span> <span class="pre">object&gt;],</span> <span class="pre">trafos=[],</span> <span class="pre">points=[],</span> <span class="pre">blob=None,</span> <span class="pre">labels=[],</span> <span class="pre">**kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/blobs.html#Ellipse.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.blobs.Ellipse.__init__" title="Permalink to this definition"></a></dt>
+<dd><p>Constructor.</p>
+</dd></dl>
+
+<p class="rubric">Methods</p>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.render.pyx.blobs.Ellipse.__init__" title="pyfeyn2.render.pyx.blobs.Ellipse.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>([x, y, center, xradius, yradius, ...])</p></td>
+<td><p>Constructor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.render.pyx.blobs.Ellipse.addLabel" title="pyfeyn2.render.pyx.blobs.Ellipse.addLabel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">addLabel</span></code></a>(text[, displace, angle, size, ...])</p></td>
+<td><p>Add a label.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.render.pyx.blobs.Ellipse.addTrafo" title="pyfeyn2.render.pyx.blobs.Ellipse.addTrafo"><code class="xref py py-obj docutils literal notranslate"><span class="pre">addTrafo</span></code></a>(trafo)</p></td>
+<td><p>Add a transformation.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.render.pyx.blobs.Ellipse.arg" title="pyfeyn2.render.pyx.blobs.Ellipse.arg"><code class="xref py py-obj docutils literal notranslate"><span class="pre">arg</span></code></a>(otherpoint)</p></td>
+<td><p>Return the angle between the x-axis and the straight line defined by this point and the argument (cf.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.render.pyx.blobs.Ellipse.clearFillStyles" title="pyfeyn2.render.pyx.blobs.Ellipse.clearFillStyles"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clearFillStyles</span></code></a>()</p></td>
+<td><p>Remove all the current fill styles.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.render.pyx.blobs.Ellipse.clearLabels" title="pyfeyn2.render.pyx.blobs.Ellipse.clearLabels"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clearLabels</span></code></a>()</p></td>
+<td><p>Remove all current labels.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.render.pyx.blobs.Ellipse.clearStrokeStyles" title="pyfeyn2.render.pyx.blobs.Ellipse.clearStrokeStyles"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clearStrokeStyles</span></code></a>()</p></td>
+<td><p>Remove all the current stroke styles.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.render.pyx.blobs.Ellipse.clearTrafos" title="pyfeyn2.render.pyx.blobs.Ellipse.clearTrafos"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clearTrafos</span></code></a>()</p></td>
+<td><p>Remove transformations.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.render.pyx.blobs.Ellipse.distance" title="pyfeyn2.render.pyx.blobs.Ellipse.distance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">distance</span></code></a>(otherpoint)</p></td>
+<td><p>Calculate the distance between this point and the argument.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.render.pyx.blobs.Ellipse.draw" title="pyfeyn2.render.pyx.blobs.Ellipse.draw"><code class="xref py py-obj docutils literal notranslate"><span class="pre">draw</span></code></a>(canvas)</p></td>
+<td><p>Draw this blob on the given canvas.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.render.pyx.blobs.Ellipse.getBlob" title="pyfeyn2.render.pyx.blobs.Ellipse.getBlob"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getBlob</span></code></a>()</p></td>
+<td><p>Get the attached blob.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.render.pyx.blobs.Ellipse.getDepth" title="pyfeyn2.render.pyx.blobs.Ellipse.getDepth"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getDepth</span></code></a>()</p></td>
+<td><p>Return the depth at which this instance lives.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.render.pyx.blobs.Ellipse.getPath" title="pyfeyn2.render.pyx.blobs.Ellipse.getPath"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getPath</span></code></a>()</p></td>
+<td><p>Get the path for this blob.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.render.pyx.blobs.Ellipse.getVisiblePath" title="pyfeyn2.render.pyx.blobs.Ellipse.getVisiblePath"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getVisiblePath</span></code></a>()</p></td>
+<td><p>Return the visible path of this instance.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.render.pyx.blobs.Ellipse.getX" title="pyfeyn2.render.pyx.blobs.Ellipse.getX"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getX</span></code></a>()</p></td>
+<td><p>Return the x-coordinate of this point.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.render.pyx.blobs.Ellipse.getXRadius" title="pyfeyn2.render.pyx.blobs.Ellipse.getXRadius"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getXRadius</span></code></a>()</p></td>
+<td><p>Get the component of the radius in the x-direction.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.render.pyx.blobs.Ellipse.getXY" title="pyfeyn2.render.pyx.blobs.Ellipse.getXY"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getXY</span></code></a>()</p></td>
+<td><p>Return the x and y coordinates of this point as a 2-tuple.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.render.pyx.blobs.Ellipse.getXYRadius" title="pyfeyn2.render.pyx.blobs.Ellipse.getXYRadius"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getXYRadius</span></code></a>()</p></td>
+<td><p>Get the components of the radius in the x and y directions at the same time.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.render.pyx.blobs.Ellipse.getY" title="pyfeyn2.render.pyx.blobs.Ellipse.getY"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getY</span></code></a>()</p></td>
+<td><p>Return the y-coordinate of this point.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.render.pyx.blobs.Ellipse.getYRadius" title="pyfeyn2.render.pyx.blobs.Ellipse.getYRadius"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getYRadius</span></code></a>()</p></td>
+<td><p>Get the component of the radius in the y-direction.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.render.pyx.blobs.Ellipse.intercept" title="pyfeyn2.render.pyx.blobs.Ellipse.intercept"><code class="xref py py-obj docutils literal notranslate"><span class="pre">intercept</span></code></a>(otherpoint)</p></td>
+<td><p>Return the y-intercept of the straight line defined by this point and the argument.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.render.pyx.blobs.Ellipse.isVisible" title="pyfeyn2.render.pyx.blobs.Ellipse.isVisible"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isVisible</span></code></a>()</p></td>
+<td><p>Check if this instance is visible.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.render.pyx.blobs.Ellipse.midpoint" title="pyfeyn2.render.pyx.blobs.Ellipse.midpoint"><code class="xref py py-obj docutils literal notranslate"><span class="pre">midpoint</span></code></a>(otherpoint)</p></td>
+<td><p>Return the point midway between this point and the argument.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.render.pyx.blobs.Ellipse.removeLabels" title="pyfeyn2.render.pyx.blobs.Ellipse.removeLabels"><code class="xref py py-obj docutils literal notranslate"><span class="pre">removeLabels</span></code></a>()</p></td>
+<td><p>Remove all labels from this point.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.render.pyx.blobs.Ellipse.setBlob" title="pyfeyn2.render.pyx.blobs.Ellipse.setBlob"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setBlob</span></code></a>(blob)</p></td>
+<td><p>Set the attached blob.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.render.pyx.blobs.Ellipse.setDepth" title="pyfeyn2.render.pyx.blobs.Ellipse.setDepth"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setDepth</span></code></a>(depth)</p></td>
+<td><p>Set the depth at which this instance lives.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.render.pyx.blobs.Ellipse.setFillStyle" title="pyfeyn2.render.pyx.blobs.Ellipse.setFillStyle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setFillStyle</span></code></a>(fillstyle)</p></td>
+<td><p>Set the fill style.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.render.pyx.blobs.Ellipse.setPoints" title="pyfeyn2.render.pyx.blobs.Ellipse.setPoints"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setPoints</span></code></a>(points)</p></td>
+<td><p>Set the points to which this blob is attached.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.render.pyx.blobs.Ellipse.setStrokeStyle" title="pyfeyn2.render.pyx.blobs.Ellipse.setStrokeStyle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setStrokeStyle</span></code></a>(strokestyle)</p></td>
+<td><p>Set the stroke style.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.render.pyx.blobs.Ellipse.setX" title="pyfeyn2.render.pyx.blobs.Ellipse.setX"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setX</span></code></a>(x)</p></td>
+<td><p>Set the x-coordinate of this point.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.render.pyx.blobs.Ellipse.setXRadius" title="pyfeyn2.render.pyx.blobs.Ellipse.setXRadius"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setXRadius</span></code></a>(xrad)</p></td>
+<td><p>Set the component of the radius in the x-direction.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.render.pyx.blobs.Ellipse.setXY" title="pyfeyn2.render.pyx.blobs.Ellipse.setXY"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setXY</span></code></a>(xpos, ypos)</p></td>
+<td><p>Set the x and y coordinates of this point.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.render.pyx.blobs.Ellipse.setXYRadius" title="pyfeyn2.render.pyx.blobs.Ellipse.setXYRadius"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setXYRadius</span></code></a>(xrad, yrad)</p></td>
+<td><p>Get the components of the radius in the x and y directions at the same time.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.render.pyx.blobs.Ellipse.setY" title="pyfeyn2.render.pyx.blobs.Ellipse.setY"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setY</span></code></a>(y)</p></td>
+<td><p>Set the y-coordinate of this point.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.render.pyx.blobs.Ellipse.setYRadius" title="pyfeyn2.render.pyx.blobs.Ellipse.setYRadius"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setYRadius</span></code></a>(yrad)</p></td>
+<td><p>Set the component of the radius in the y-direction.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.render.pyx.blobs.Ellipse.tangent" title="pyfeyn2.render.pyx.blobs.Ellipse.tangent"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tangent</span></code></a>(otherpoint)</p></td>
+<td><p>Return the tangent of the straight line defined by this point and the argument.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.render.pyx.blobs.Ellipse.x" title="pyfeyn2.render.pyx.blobs.Ellipse.x"><code class="xref py py-obj docutils literal notranslate"><span class="pre">x</span></code></a>()</p></td>
+<td><p>Alias for getX().</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.render.pyx.blobs.Ellipse.xy" title="pyfeyn2.render.pyx.blobs.Ellipse.xy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">xy</span></code></a>()</p></td>
+<td><p>Alias for getXY().</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.render.pyx.blobs.Ellipse.y" title="pyfeyn2.render.pyx.blobs.Ellipse.y"><code class="xref py py-obj docutils literal notranslate"><span class="pre">y</span></code></a>()</p></td>
+<td><p>Alias for getY().</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes</p>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">blobshape</span></code></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.blobs.Ellipse.addLabel">
+<span class="sig-name descname"><span class="pre">addLabel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">displace=-0.15</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angle=0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size=&lt;pyx.text.size</span> <span class="pre">object&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">halign=&lt;pyx.text.halign</span> <span class="pre">object&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">valign=None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.blobs.Ellipse.addLabel" title="Permalink to this definition"></a></dt>
+<dd><p>Add a label.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.blobs.Ellipse.addTrafo">
+<span class="sig-name descname"><span class="pre">addTrafo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trafo</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.blobs.Ellipse.addTrafo" title="Permalink to this definition"></a></dt>
+<dd><p>Add a transformation.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.blobs.Ellipse.arg">
+<span class="sig-name descname"><span class="pre">arg</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">otherpoint</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.blobs.Ellipse.arg" title="Permalink to this definition"></a></dt>
+<dd><p>Return the angle between the x-axis and the straight line defined
+by this point and the argument (cf. complex numbers).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.blobs.Ellipse.clearFillStyles">
+<span class="sig-name descname"><span class="pre">clearFillStyles</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.blobs.Ellipse.clearFillStyles" title="Permalink to this definition"></a></dt>
+<dd><p>Remove all the current fill styles.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.blobs.Ellipse.clearLabels">
+<span class="sig-name descname"><span class="pre">clearLabels</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.blobs.Ellipse.clearLabels" title="Permalink to this definition"></a></dt>
+<dd><p>Remove all current labels.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.blobs.Ellipse.clearStrokeStyles">
+<span class="sig-name descname"><span class="pre">clearStrokeStyles</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.blobs.Ellipse.clearStrokeStyles" title="Permalink to this definition"></a></dt>
+<dd><p>Remove all the current stroke styles.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.blobs.Ellipse.clearTrafos">
+<span class="sig-name descname"><span class="pre">clearTrafos</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.blobs.Ellipse.clearTrafos" title="Permalink to this definition"></a></dt>
+<dd><p>Remove transformations.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.blobs.Ellipse.distance">
+<span class="sig-name descname"><span class="pre">distance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">otherpoint</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.blobs.Ellipse.distance" title="Permalink to this definition"></a></dt>
+<dd><p>Calculate the distance between this point and the argument.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.blobs.Ellipse.draw">
+<span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">canvas</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/blobs.html#Ellipse.draw"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.blobs.Ellipse.draw" title="Permalink to this definition"></a></dt>
+<dd><p>Draw this blob on the given canvas.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.blobs.Ellipse.getBlob">
+<span class="sig-name descname"><span class="pre">getBlob</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.blobs.Ellipse.getBlob" title="Permalink to this definition"></a></dt>
+<dd><p>Get the attached blob.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.blobs.Ellipse.getDepth">
+<span class="sig-name descname"><span class="pre">getDepth</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.blobs.Ellipse.getDepth" title="Permalink to this definition"></a></dt>
+<dd><p>Return the depth at which this instance lives.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.blobs.Ellipse.getPath">
+<span class="sig-name descname"><span class="pre">getPath</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/blobs.html#Ellipse.getPath"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.blobs.Ellipse.getPath" title="Permalink to this definition"></a></dt>
+<dd><p>Get the path for this blob.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.blobs.Ellipse.getVisiblePath">
+<span class="sig-name descname"><span class="pre">getVisiblePath</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.blobs.Ellipse.getVisiblePath" title="Permalink to this definition"></a></dt>
+<dd><p>Return the visible path of this instance.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.blobs.Ellipse.getX">
+<span class="sig-name descname"><span class="pre">getX</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.blobs.Ellipse.getX" title="Permalink to this definition"></a></dt>
+<dd><p>Return the x-coordinate of this point.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.blobs.Ellipse.getXRadius">
+<span class="sig-name descname"><span class="pre">getXRadius</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/blobs.html#Ellipse.getXRadius"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.blobs.Ellipse.getXRadius" title="Permalink to this definition"></a></dt>
+<dd><p>Get the component of the radius in the x-direction.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.blobs.Ellipse.getXY">
+<span class="sig-name descname"><span class="pre">getXY</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.blobs.Ellipse.getXY" title="Permalink to this definition"></a></dt>
+<dd><p>Return the x and y coordinates of this point as a 2-tuple.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.blobs.Ellipse.getXYRadius">
+<span class="sig-name descname"><span class="pre">getXYRadius</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/blobs.html#Ellipse.getXYRadius"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.blobs.Ellipse.getXYRadius" title="Permalink to this definition"></a></dt>
+<dd><p>Get the components of the radius in the x and y
+directions at the same time.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.blobs.Ellipse.getY">
+<span class="sig-name descname"><span class="pre">getY</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.blobs.Ellipse.getY" title="Permalink to this definition"></a></dt>
+<dd><p>Return the y-coordinate of this point.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.blobs.Ellipse.getYRadius">
+<span class="sig-name descname"><span class="pre">getYRadius</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/blobs.html#Ellipse.getYRadius"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.blobs.Ellipse.getYRadius" title="Permalink to this definition"></a></dt>
+<dd><p>Get the component of the radius in the y-direction.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.blobs.Ellipse.intercept">
+<span class="sig-name descname"><span class="pre">intercept</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">otherpoint</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.blobs.Ellipse.intercept" title="Permalink to this definition"></a></dt>
+<dd><p>Return the y-intercept of the straight line defined by this point and the argument.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.blobs.Ellipse.isVisible">
+<span class="sig-name descname"><span class="pre">isVisible</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.blobs.Ellipse.isVisible" title="Permalink to this definition"></a></dt>
+<dd><p>Check if this instance is visible.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.blobs.Ellipse.midpoint">
+<span class="sig-name descname"><span class="pre">midpoint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">otherpoint</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.blobs.Ellipse.midpoint" title="Permalink to this definition"></a></dt>
+<dd><p>Return the point midway between this point and the argument.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.blobs.Ellipse.removeLabels">
+<span class="sig-name descname"><span class="pre">removeLabels</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.blobs.Ellipse.removeLabels" title="Permalink to this definition"></a></dt>
+<dd><p>Remove all labels from this point.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.blobs.Ellipse.setBlob">
+<span class="sig-name descname"><span class="pre">setBlob</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">blob</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.blobs.Ellipse.setBlob" title="Permalink to this definition"></a></dt>
+<dd><p>Set the attached blob.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.blobs.Ellipse.setDepth">
+<span class="sig-name descname"><span class="pre">setDepth</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">depth</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.blobs.Ellipse.setDepth" title="Permalink to this definition"></a></dt>
+<dd><p>Set the depth at which this instance lives.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.blobs.Ellipse.setFillStyle">
+<span class="sig-name descname"><span class="pre">setFillStyle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fillstyle</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.blobs.Ellipse.setFillStyle" title="Permalink to this definition"></a></dt>
+<dd><p>Set the fill style.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.blobs.Ellipse.setPoints">
+<span class="sig-name descname"><span class="pre">setPoints</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">points</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.blobs.Ellipse.setPoints" title="Permalink to this definition"></a></dt>
+<dd><p>Set the points to which this blob is attached.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.blobs.Ellipse.setStrokeStyle">
+<span class="sig-name descname"><span class="pre">setStrokeStyle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">strokestyle</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.blobs.Ellipse.setStrokeStyle" title="Permalink to this definition"></a></dt>
+<dd><p>Set the stroke style.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.blobs.Ellipse.setX">
+<span class="sig-name descname"><span class="pre">setX</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.blobs.Ellipse.setX" title="Permalink to this definition"></a></dt>
+<dd><p>Set the x-coordinate of this point.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.blobs.Ellipse.setXRadius">
+<span class="sig-name descname"><span class="pre">setXRadius</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xrad</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/blobs.html#Ellipse.setXRadius"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.blobs.Ellipse.setXRadius" title="Permalink to this definition"></a></dt>
+<dd><p>Set the component of the radius in the x-direction.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.blobs.Ellipse.setXY">
+<span class="sig-name descname"><span class="pre">setXY</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xpos</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ypos</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.blobs.Ellipse.setXY" title="Permalink to this definition"></a></dt>
+<dd><p>Set the x and y coordinates of this point.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.blobs.Ellipse.setXYRadius">
+<span class="sig-name descname"><span class="pre">setXYRadius</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xrad</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yrad</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/blobs.html#Ellipse.setXYRadius"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.blobs.Ellipse.setXYRadius" title="Permalink to this definition"></a></dt>
+<dd><p>Get the components of the radius in the x and y
+directions at the same time.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.blobs.Ellipse.setY">
+<span class="sig-name descname"><span class="pre">setY</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.blobs.Ellipse.setY" title="Permalink to this definition"></a></dt>
+<dd><p>Set the y-coordinate of this point.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.blobs.Ellipse.setYRadius">
+<span class="sig-name descname"><span class="pre">setYRadius</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">yrad</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/blobs.html#Ellipse.setYRadius"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.blobs.Ellipse.setYRadius" title="Permalink to this definition"></a></dt>
+<dd><p>Set the component of the radius in the y-direction.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.blobs.Ellipse.tangent">
+<span class="sig-name descname"><span class="pre">tangent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">otherpoint</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.blobs.Ellipse.tangent" title="Permalink to this definition"></a></dt>
+<dd><p>Return the tangent of the straight line defined by this point and the argument.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.blobs.Ellipse.x">
+<span class="sig-name descname"><span class="pre">x</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.blobs.Ellipse.x" title="Permalink to this definition"></a></dt>
+<dd><p>Alias for getX().</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.blobs.Ellipse.xy">
+<span class="sig-name descname"><span class="pre">xy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.blobs.Ellipse.xy" title="Permalink to this definition"></a></dt>
+<dd><p>Alias for getXY().</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.blobs.Ellipse.y">
+<span class="sig-name descname"><span class="pre">y</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.blobs.Ellipse.y" title="Permalink to this definition"></a></dt>
+<dd><p>Alias for getY().</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="pyfeyn2.render.pyx.blobs.Circle.html" class="btn btn-neutral float-left" title="pyfeyn2.render.pyx.blobs.Circle" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="pyfeyn2.render.pyx.config.html" class="btn btn-neutral float-right" title="pyfeyn2.render.pyx.config" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Alexander Puck Neuwirth.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

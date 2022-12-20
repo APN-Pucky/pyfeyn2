@@ -1,6 +1,6 @@
 .. _label:
 
-Label
+label
 =====
 | Format: String
 | Elements: :ref:`leg`, :ref:`propagator`

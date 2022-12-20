@@ -5,7 +5,7 @@
    "id": "896a74d6",
    "metadata": {},
    "source": [
-    "# Higgsino"
+    "# higgsino"
    ]
   },
   {

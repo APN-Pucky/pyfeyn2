@@ -1,237 +1,237 @@
 {
- "cells": [
-  {
-   "cell_type": "markdown",
-   "id": "e6727008",
-   "metadata": {},
-   "source": [
-    "## Write FeynmanDiagram"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "id": "2c94293d",
-   "metadata": {},
-   "source": [
-    "Convenient saving and loading of style independent feynman diagrams as XML or FeynML."
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 1,
-   "id": "8fe30ac6",
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "from xsdata.formats.dataclass.parsers import XmlParser\n",
-    "from xsdata.formats.dataclass.serializers import XmlSerializer\n",
-    "from xsdata.formats.dataclass.serializers.config import SerializerConfig\n",
-    "\n",
-    "from pyfeyn2.feynmandiagram import (\n",
-    "    FeynmanDiagram,\n",
-    "    FeynML,\n",
-    "    Head,\n",
-    "    Leg,\n",
-    "    Meta,\n",
-    "    Propagator,\n",
-    "    Vertex,\n",
-    ")"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 2,
-   "id": "48bb6b54",
-   "metadata": {},
-   "outputs": [
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n",
-      "<diagram>\n",
-      "  <propagator style=\"\">\n",
-      "    <id>p1</id>\n",
-      "    <source>v1</source>\n",
-      "    <target>v2</target>\n",
-      "  </propagator>\n",
-      "  <vertex style=\"\">\n",
-      "    <id>v1</id>\n",
-      "  </vertex>\n",
-      "  <vertex style=\"\">\n",
-      "    <id>v2</id>\n",
-      "  </vertex>\n",
-      "  <leg style=\"\">\n",
-      "    <id>l1</id>\n",
-      "    <target/>\n",
-      "    <sense>incoming</sense>\n",
-      "  </leg>\n",
-      "</diagram>\n",
-      "\n"
-     ]
-    }
-   ],
-   "source": [
-    "fd = FeynmanDiagram()\n",
-    "v1 = Vertex(\"v1\")\n",
-    "v2 = Vertex(\"v2\")\n",
-    "p1 = Propagator(\"p1\")\n",
-    "l1 = Leg(\"l1\").set_incoming()\n",
-    "p1.set_source(v1)\n",
-    "p1.set_target(v2)\n",
-    "fd.propagators.append(p1)\n",
-    "fd.vertices.append(v1)\n",
-    "fd.vertices.append(v2)\n",
-    "fd.legs.append(l1)\n",
-    "\n",
-    "config = SerializerConfig(pretty_print=True)\n",
-    "serializer = XmlSerializer(config=config)\n",
-    "print(serializer.render(fd))"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "id": "0077a833",
-   "metadata": {},
-   "source": [
-    "## Write FeynML"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 3,
-   "id": "de4d72df",
-   "metadata": {
-    "scrolled": false
-   },
-   "outputs": [
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n",
-      "<feynml>\n",
-      "  <head>\n",
-      "    <meta name=\"pyfeyn2\" value=\"test\"/>\n",
-      "    <description>Simple single test diagram</description>\n",
-      "  </head>\n",
-      "  <diagram>\n",
-      "    <propagator style=\"\">\n",
-      "      <id>p1</id>\n",
-      "      <source>v1</source>\n",
-      "      <target>v2</target>\n",
-      "    </propagator>\n",
-      "    <vertex style=\"\">\n",
-      "      <id>v1</id>\n",
-      "    </vertex>\n",
-      "    <vertex style=\"\">\n",
-      "      <id>v2</id>\n",
-      "    </vertex>\n",
-      "    <leg style=\"\">\n",
-      "      <id>l1</id>\n",
-      "      <target/>\n",
-      "      <sense>incoming</sense>\n",
-      "    </leg>\n",
-      "  </diagram>\n",
-      "</feynml>\n",
-      "\n"
-     ]
-    }
-   ],
-   "source": [
-    "fml = FeynML(\n",
-    "        head=Head(\n",
-    "            metas=Meta(name=\"pyfeyn2\", value=\"test\"),\n",
-    "            description=\"Simple single test diagram\",\n",
-    "        ),\n",
-    "        diagrams=fd,\n",
-    "    )\n",
-    "\n",
-    "config = SerializerConfig(pretty_print=True)\n",
-    "serializer = XmlSerializer(config=config)\n",
-    "print(serializer.render(fml))"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "id": "a84a35de",
-   "metadata": {},
-   "source": [
-    "## Read FeynML"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 4,
-   "id": "84801155",
-   "metadata": {
-    "scrolled": false
-   },
-   "outputs": [
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "FeynML(head=[Head(metas=[Meta(name='creator', value='PyFeyn')], description='\\n   A sample diagram showing a QCD correction to the Drell-Yan process.\\n   ')], diagrams=[FeynmanDiagram(propagators=[Propagator(id='Propagator5', id2=None, pdgid=None, name=None, type='photon', particle=None, style=cssutils.css.CSSStyleDeclaration(cssText=''), bend=None, label='Z', momentum=None, tension=None, length=None, source='', target=''), Propagator(id='Propagator7', id2=None, pdgid=None, name=None, type='fermion', particle=None, style=cssutils.css.CSSStyleDeclaration(cssText=''), bend=None, label=None, momentum=None, tension=None, length=None, source='', target=''), Propagator(id='Propagator9', id2=None, pdgid=None, name=None, type='fermion', particle=None, style=cssutils.css.CSSStyleDeclaration(cssText=''), bend=None, label=None, momentum=None, tension=None, length=None, source='', target=''), Propagator(id='Propagator10', id2=None, pdgid=None, name=None, type='gluon', particle=None, style=cssutils.css.CSSStyleDeclaration(cssText='parallel-arrow-displace: 0.2'), bend=0.5, label='g', momentum=None, tension=None, length=None, source='', target='')], vertices=[Vertex(id='Vertex1', id2=None, style=cssutils.css.CSSStyleDeclaration(cssText=''), x=-2.0, y=0.0, z=None, label=None), Vertex(id='Vertex2', id2=None, style=cssutils.css.CSSStyleDeclaration(cssText=''), x=2.0, y=0.0, z=None, label=None), Vertex(id='Vertex6', id2=None, style=cssutils.css.CSSStyleDeclaration(cssText=''), x=3.0, y=-1.0, z=None, label=None), Vertex(id='Vertex8', id2=None, style=cssutils.css.CSSStyleDeclaration(cssText=''), x=3.0, y=1.0, z=None, label=None)], legs=[Leg(id='Leg3', id2=None, pdgid=None, name=None, type='fermion', particle=None, style=cssutils.css.CSSStyleDeclaration(cssText='arrow-pos: 0.53'), bend=None, label='e-', momentum=None, tension=None, length=None, target='', x=-4.0, y=2.0, z=None, sense=''), Leg(id='Leg4', id2=None, pdgid=None, name=None, type='fermion', particle=None, style=cssutils.css.CSSStyleDeclaration(cssText='arrow-pos: 0.53; parallel-arrow-displace: -0.06; parallel-arrow-sense: -1'), bend=None, label='e+', momentum=None, tension=None, length=None, target='', x=-4.0, y=-2.0, z=None, sense=''), Leg(id='Leg11', id2=None, pdgid=None, name=None, type='fermion', particle=None, style=cssutils.css.CSSStyleDeclaration(cssText='arrow-pos: 0.53; parallel-arrow-displace: -0.06; parallel-arrow-sense: -1'), bend=None, label='q+', momentum=None, tension=None, length=None, target='', x=4.0, y=-2.0, z=None, sense=''), Leg(id='Leg12', id2=None, pdgid=None, name=None, type='fermion', particle=None, style=cssutils.css.CSSStyleDeclaration(cssText='arrow-pos: 0.53'), bend=None, label='q-', momentum=None, tension=None, length=None, target='', x=4.0, y=2.0, z=None, sense='')], labels=[Label(id='Label0', id2=None, text='Drell-Yan QCD vertex correction', x=0.0, y=2.0, z=None)])])\n"
-     ]
-    },
-    {
-     "ename": "UnboundLocalError",
-     "evalue": "local variable 'nl' referenced before assignment",
-     "output_type": "error",
-     "traceback": [
-      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
-      "\u001b[0;31mUnboundLocalError\u001b[0m                         Traceback (most recent call last)",
-      "Cell \u001b[0;32mIn[4], line 8\u001b[0m\n\u001b[1;32m      6\u001b[0m fml \u001b[38;5;241m=\u001b[39m parser\u001b[38;5;241m.\u001b[39mfrom_string(xml_string, FeynML)\n\u001b[1;32m      7\u001b[0m \u001b[38;5;28mprint\u001b[39m(fml)\n\u001b[0;32m----> 8\u001b[0m wimg \u001b[38;5;241m=\u001b[39m \u001b[43mPyxRender\u001b[49m\u001b[43m(\u001b[49m\u001b[43mfml\u001b[49m\u001b[38;5;241;43m.\u001b[39;49m\u001b[43mdiagrams\u001b[49m\u001b[43m[\u001b[49m\u001b[38;5;241;43m0\u001b[39;49m\u001b[43m]\u001b[49m\u001b[43m)\u001b[49m\u001b[38;5;241;43m.\u001b[39;49m\u001b[43mrender\u001b[49m\u001b[43m(\u001b[49m\u001b[43m)\u001b[49m\n",
-      "File \u001b[0;32m~/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/pyx/pyxrender.py:38\u001b[0m, in \u001b[0;36mPyxRender.render\u001b[0;34m(self, file, show, resolution, width, height, clean_up)\u001b[0m\n\u001b[1;32m     36\u001b[0m \u001b[38;5;28;01melif\u001b[39;00m l\u001b[38;5;241m.\u001b[39msense[:\u001b[38;5;241m3\u001b[39m] \u001b[38;5;241m==\u001b[39m \u001b[38;5;124m\"\u001b[39m\u001b[38;5;124mout\u001b[39m\u001b[38;5;124m\"\u001b[39m \u001b[38;5;129;01mor\u001b[39;00m l\u001b[38;5;241m.\u001b[39msense[:\u001b[38;5;241m9\u001b[39m] \u001b[38;5;241m==\u001b[39m \u001b[38;5;124m\"\u001b[39m\u001b[38;5;124manti-in\u001b[39m\u001b[38;5;124m\"\u001b[39m:\n\u001b[1;32m     37\u001b[0m     nl \u001b[38;5;241m=\u001b[39m NamedLine[l\u001b[38;5;241m.\u001b[39mtype](Point(tar\u001b[38;5;241m.\u001b[39mx, tar\u001b[38;5;241m.\u001b[39my), Point(l\u001b[38;5;241m.\u001b[39mx, l\u001b[38;5;241m.\u001b[39my))\n\u001b[0;32m---> 38\u001b[0m nl \u001b[38;5;241m=\u001b[39m \u001b[43mnl\u001b[49m\u001b[38;5;241m.\u001b[39mbend(l\u001b[38;5;241m.\u001b[39mbend)\n\u001b[1;32m     39\u001b[0m nl \u001b[38;5;241m=\u001b[39m \u001b[38;5;28mself\u001b[39m\u001b[38;5;241m.\u001b[39mapply_layout(v\u001b[38;5;241m.\u001b[39mraw_style(), nl)\n\u001b[1;32m     40\u001b[0m nl \u001b[38;5;241m=\u001b[39m nl\u001b[38;5;241m.\u001b[39maddLabel(l\u001b[38;5;241m.\u001b[39mlabel)\n",
-      "\u001b[0;31mUnboundLocalError\u001b[0m: local variable 'nl' referenced before assignment"
-     ]
-    }
-   ],
-   "source": [
-    "from pathlib import Path\n",
-    "from pyfeyn2.render.pyx.pyxrender import PyxRender\n",
-    "\n",
-    "xml_string = Path(\"test.fml\").read_text()\n",
-    "parser = XmlParser()\n",
-    "fml = parser.from_string(xml_string, FeynML)\n",
-    "print(fml)\n",
-    "wimg = PyxRender(fml.diagrams[0]).render()"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "id": "c792aa32",
-   "metadata": {},
-   "outputs": [],
-   "source": []
-  }
- ],
- "metadata": {
-  "kernelspec": {
-   "display_name": "Python 3 (ipykernel)",
-   "language": "python",
-   "name": "python3"
-  },
-  "language_info": {
-   "codemirror_mode": {
-    "name": "ipython",
-    "version": 3
-   },
-   "file_extension": ".py",
-   "mimetype": "text/x-python",
-   "name": "python",
-   "nbconvert_exporter": "python",
-   "pygments_lexer": "ipython3",
-   "version": "3.9.16"
-  },
-  "vscode": {
-   "interpreter": {
-    "hash": "31f2aee4e71d21fbe5cf8b01ff0e069b9275f58929596ceb00d14d90e3e16cd6"
-   }
-  }
- },
- "nbformat": 4,
- "nbformat_minor": 5
+        "cells": [
+                {
+                        "cell_type": "markdown",
+                        "id": "e6727008",
+                        "metadata": {},
+                        "source": [
+                                "## Write FeynmanDiagram"
+                        ]
+                },
+                {
+                        "cell_type": "markdown",
+                        "id": "2c94293d",
+                        "metadata": {},
+                        "source": [
+                                "Convenient saving and loading of style independent feynman diagrams as XML or FeynML."
+                        ]
+                },
+                {
+                        "cell_type": "code",
+                        "execution_count": 1,
+                        "id": "8fe30ac6",
+                        "metadata": {},
+                        "outputs": [],
+                        "source": [
+                                "from xsdata.formats.dataclass.parsers import XmlParser\n",
+                                "from xsdata.formats.dataclass.serializers import XmlSerializer\n",
+                                "from xsdata.formats.dataclass.serializers.config import SerializerConfig\n",
+                                "\n",
+                                "from pyfeyn2.feynmandiagram import (\n",
+                                "    FeynmanDiagram,\n",
+                                "    FeynML,\n",
+                                "    Head,\n",
+                                "    Leg,\n",
+                                "    Meta,\n",
+                                "    Propagator,\n",
+                                "    Vertex,\n",
+                                ")"
+                        ]
+                },
+                {
+                        "cell_type": "code",
+                        "execution_count": 2,
+                        "id": "48bb6b54",
+                        "metadata": {},
+                        "outputs": [
+                                {
+                                        "name": "stdout",
+                                        "output_type": "stream",
+                                        "text": [
+                                                "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n",
+                                                "<diagram>\n",
+                                                "  <propagator style=\"\">\n",
+                                                "    <id>p1</id>\n",
+                                                "    <source>v1</source>\n",
+                                                "    <target>v2</target>\n",
+                                                "  </propagator>\n",
+                                                "  <vertex style=\"\">\n",
+                                                "    <id>v1</id>\n",
+                                                "  </vertex>\n",
+                                                "  <vertex style=\"\">\n",
+                                                "    <id>v2</id>\n",
+                                                "  </vertex>\n",
+                                                "  <leg style=\"\">\n",
+                                                "    <id>l1</id>\n",
+                                                "    <target/>\n",
+                                                "    <sense>incoming</sense>\n",
+                                                "  </leg>\n",
+                                                "</diagram>\n",
+                                                "\n"
+                                        ]
+                                }
+                        ],
+                        "source": [
+                                "fd = FeynmanDiagram()\n",
+                                "v1 = Vertex(\"v1\")\n",
+                                "v2 = Vertex(\"v2\")\n",
+                                "p1 = Propagator(\"p1\")\n",
+                                "l1 = Leg(\"l1\").with_incoming()\n",
+                                "p1.with_source(v1)\n",
+                                "p1.with_target(v2)\n",
+                                "fd.propagators.append(p1)\n",
+                                "fd.vertices.append(v1)\n",
+                                "fd.vertices.append(v2)\n",
+                                "fd.legs.append(l1)\n",
+                                "\n",
+                                "config = SerializerConfig(pretty_print=True)\n",
+                                "serializer = XmlSerializer(config=config)\n",
+                                "print(serializer.render(fd))"
+                        ]
+                },
+                {
+                        "cell_type": "markdown",
+                        "id": "0077a833",
+                        "metadata": {},
+                        "source": [
+                                "## Write FeynML"
+                        ]
+                },
+                {
+                        "cell_type": "code",
+                        "execution_count": 3,
+                        "id": "de4d72df",
+                        "metadata": {
+                                "scrolled": false
+                        },
+                        "outputs": [
+                                {
+                                        "name": "stdout",
+                                        "output_type": "stream",
+                                        "text": [
+                                                "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n",
+                                                "<feynml>\n",
+                                                "  <head>\n",
+                                                "    <meta name=\"pyfeyn2\" value=\"test\"/>\n",
+                                                "    <description>Simple single test diagram</description>\n",
+                                                "  </head>\n",
+                                                "  <diagram>\n",
+                                                "    <propagator style=\"\">\n",
+                                                "      <id>p1</id>\n",
+                                                "      <source>v1</source>\n",
+                                                "      <target>v2</target>\n",
+                                                "    </propagator>\n",
+                                                "    <vertex style=\"\">\n",
+                                                "      <id>v1</id>\n",
+                                                "    </vertex>\n",
+                                                "    <vertex style=\"\">\n",
+                                                "      <id>v2</id>\n",
+                                                "    </vertex>\n",
+                                                "    <leg style=\"\">\n",
+                                                "      <id>l1</id>\n",
+                                                "      <target/>\n",
+                                                "      <sense>incoming</sense>\n",
+                                                "    </leg>\n",
+                                                "  </diagram>\n",
+                                                "</feynml>\n",
+                                                "\n"
+                                        ]
+                                }
+                        ],
+                        "source": [
+                                "fml = FeynML(\n",
+                                "        head=Head(\n",
+                                "            metas=Meta(name=\"pyfeyn2\", value=\"test\"),\n",
+                                "            description=\"Simple single test diagram\",\n",
+                                "        ),\n",
+                                "        diagrams=fd,\n",
+                                "    )\n",
+                                "\n",
+                                "config = SerializerConfig(pretty_print=True)\n",
+                                "serializer = XmlSerializer(config=config)\n",
+                                "print(serializer.render(fml))"
+                        ]
+                },
+                {
+                        "cell_type": "markdown",
+                        "id": "a84a35de",
+                        "metadata": {},
+                        "source": [
+                                "## Read FeynML"
+                        ]
+                },
+                {
+                        "cell_type": "code",
+                        "execution_count": 4,
+                        "id": "84801155",
+                        "metadata": {
+                                "scrolled": false
+                        },
+                        "outputs": [
+                                {
+                                        "name": "stdout",
+                                        "output_type": "stream",
+                                        "text": [
+                                                "FeynML(head=[Head(metas=[Meta(name='creator', value='PyFeyn')], description='\\n   A sample diagram showing a QCD correction to the Drell-Yan process.\\n   ')], diagrams=[FeynmanDiagram(propagators=[Propagator(id='Propagator5', id2=None, pdgid=None, name=None, type='photon', particle=None, style=cssutils.css.CSSStyleDeclaration(cssText=''), bend=None, label='Z', momentum=None, tension=None, length=None, source='', target=''), Propagator(id='Propagator7', id2=None, pdgid=None, name=None, type='fermion', particle=None, style=cssutils.css.CSSStyleDeclaration(cssText=''), bend=None, label=None, momentum=None, tension=None, length=None, source='', target=''), Propagator(id='Propagator9', id2=None, pdgid=None, name=None, type='fermion', particle=None, style=cssutils.css.CSSStyleDeclaration(cssText=''), bend=None, label=None, momentum=None, tension=None, length=None, source='', target=''), Propagator(id='Propagator10', id2=None, pdgid=None, name=None, type='gluon', particle=None, style=cssutils.css.CSSStyleDeclaration(cssText='parallel-arrow-displace: 0.2'), bend=0.5, label='g', momentum=None, tension=None, length=None, source='', target='')], vertices=[Vertex(id='Vertex1', id2=None, style=cssutils.css.CSSStyleDeclaration(cssText=''), x=-2.0, y=0.0, z=None, label=None), Vertex(id='Vertex2', id2=None, style=cssutils.css.CSSStyleDeclaration(cssText=''), x=2.0, y=0.0, z=None, label=None), Vertex(id='Vertex6', id2=None, style=cssutils.css.CSSStyleDeclaration(cssText=''), x=3.0, y=-1.0, z=None, label=None), Vertex(id='Vertex8', id2=None, style=cssutils.css.CSSStyleDeclaration(cssText=''), x=3.0, y=1.0, z=None, label=None)], legs=[Leg(id='Leg3', id2=None, pdgid=None, name=None, type='fermion', particle=None, style=cssutils.css.CSSStyleDeclaration(cssText='arrow-pos: 0.53'), bend=None, label='e-', momentum=None, tension=None, length=None, target='', x=-4.0, y=2.0, z=None, sense=''), Leg(id='Leg4', id2=None, pdgid=None, name=None, type='fermion', particle=None, style=cssutils.css.CSSStyleDeclaration(cssText='arrow-pos: 0.53; parallel-arrow-displace: -0.06; parallel-arrow-sense: -1'), bend=None, label='e+', momentum=None, tension=None, length=None, target='', x=-4.0, y=-2.0, z=None, sense=''), Leg(id='Leg11', id2=None, pdgid=None, name=None, type='fermion', particle=None, style=cssutils.css.CSSStyleDeclaration(cssText='arrow-pos: 0.53; parallel-arrow-displace: -0.06; parallel-arrow-sense: -1'), bend=None, label='q+', momentum=None, tension=None, length=None, target='', x=4.0, y=-2.0, z=None, sense=''), Leg(id='Leg12', id2=None, pdgid=None, name=None, type='fermion', particle=None, style=cssutils.css.CSSStyleDeclaration(cssText='arrow-pos: 0.53'), bend=None, label='q-', momentum=None, tension=None, length=None, target='', x=4.0, y=2.0, z=None, sense='')], labels=[Label(id='Label0', id2=None, text='Drell-Yan QCD vertex correction', x=0.0, y=2.0, z=None)])])\n"
+                                        ]
+                                },
+                                {
+                                        "ename": "UnboundLocalError",
+                                        "evalue": "local variable 'nl' referenced before assignment",
+                                        "output_type": "error",
+                                        "traceback": [
+                                                "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+                                                "\u001b[0;31mUnboundLocalError\u001b[0m                         Traceback (most recent call last)",
+                                                "Cell \u001b[0;32mIn[4], line 8\u001b[0m\n\u001b[1;32m      6\u001b[0m fml \u001b[38;5;241m=\u001b[39m parser\u001b[38;5;241m.\u001b[39mfrom_string(xml_string, FeynML)\n\u001b[1;32m      7\u001b[0m \u001b[38;5;28mprint\u001b[39m(fml)\n\u001b[0;32m----> 8\u001b[0m wimg \u001b[38;5;241m=\u001b[39m \u001b[43mPyxRender\u001b[49m\u001b[43m(\u001b[49m\u001b[43mfml\u001b[49m\u001b[38;5;241;43m.\u001b[39;49m\u001b[43mdiagrams\u001b[49m\u001b[43m[\u001b[49m\u001b[38;5;241;43m0\u001b[39;49m\u001b[43m]\u001b[49m\u001b[43m)\u001b[49m\u001b[38;5;241;43m.\u001b[39;49m\u001b[43mrender\u001b[49m\u001b[43m(\u001b[49m\u001b[43m)\u001b[49m\n",
+                                                "File \u001b[0;32m~/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/pyx/pyxrender.py:38\u001b[0m, in \u001b[0;36mPyxRender.render\u001b[0;34m(self, file, show, resolution, width, height, clean_up)\u001b[0m\n\u001b[1;32m     36\u001b[0m \u001b[38;5;28;01melif\u001b[39;00m l\u001b[38;5;241m.\u001b[39msense[:\u001b[38;5;241m3\u001b[39m] \u001b[38;5;241m==\u001b[39m \u001b[38;5;124m\"\u001b[39m\u001b[38;5;124mout\u001b[39m\u001b[38;5;124m\"\u001b[39m \u001b[38;5;129;01mor\u001b[39;00m l\u001b[38;5;241m.\u001b[39msense[:\u001b[38;5;241m9\u001b[39m] \u001b[38;5;241m==\u001b[39m \u001b[38;5;124m\"\u001b[39m\u001b[38;5;124manti-in\u001b[39m\u001b[38;5;124m\"\u001b[39m:\n\u001b[1;32m     37\u001b[0m     nl \u001b[38;5;241m=\u001b[39m NamedLine[l\u001b[38;5;241m.\u001b[39mtype](Point(tar\u001b[38;5;241m.\u001b[39mx, tar\u001b[38;5;241m.\u001b[39my), Point(l\u001b[38;5;241m.\u001b[39mx, l\u001b[38;5;241m.\u001b[39my))\n\u001b[0;32m---> 38\u001b[0m nl \u001b[38;5;241m=\u001b[39m \u001b[43mnl\u001b[49m\u001b[38;5;241m.\u001b[39mbend(l\u001b[38;5;241m.\u001b[39mbend)\n\u001b[1;32m     39\u001b[0m nl \u001b[38;5;241m=\u001b[39m \u001b[38;5;28mself\u001b[39m\u001b[38;5;241m.\u001b[39mapply_layout(v\u001b[38;5;241m.\u001b[39mraw_style(), nl)\n\u001b[1;32m     40\u001b[0m nl \u001b[38;5;241m=\u001b[39m nl\u001b[38;5;241m.\u001b[39maddLabel(l\u001b[38;5;241m.\u001b[39mlabel)\n",
+                                                "\u001b[0;31mUnboundLocalError\u001b[0m: local variable 'nl' referenced before assignment"
+                                        ]
+                                }
+                        ],
+                        "source": [
+                                "from pathlib import Path\n",
+                                "from pyfeyn2.render.pyx.pyxrender import PyxRender\n",
+                                "\n",
+                                "xml_string = Path(\"test.fml\").read_text()\n",
+                                "parser = XmlParser()\n",
+                                "fml = parser.from_string(xml_string, FeynML)\n",
+                                "print(fml)\n",
+                                "wimg = PyxRender(fml.diagrams[0]).render()"
+                        ]
+                },
+                {
+                        "cell_type": "code",
+                        "execution_count": null,
+                        "id": "c792aa32",
+                        "metadata": {},
+                        "outputs": [],
+                        "source": []
+                }
+        ],
+        "metadata": {
+                "kernelspec": {
+                        "display_name": "Python 3 (ipykernel)",
+                        "language": "python",
+                        "name": "python3"
+                },
+                "language_info": {
+                        "codemirror_mode": {
+                                "name": "ipython",
+                                "version": 3
+                        },
+                        "file_extension": ".py",
+                        "mimetype": "text/x-python",
+                        "name": "python",
+                        "nbconvert_exporter": "python",
+                        "pygments_lexer": "ipython3",
+                        "version": "3.9.16"
+                },
+                "vscode": {
+                        "interpreter": {
+                                "hash": "31f2aee4e71d21fbe5cf8b01ff0e069b9275f58929596ceb00d14d90e3e16cd6"
+                        }
+                }
+        },
+        "nbformat": 4,
+        "nbformat_minor": 5
 }

@@ -57,6 +57,22 @@
 .. toctree::
    :glob:
    :maxdepth: 3
+   :caption: Interfaces:
+
+   interfaces/*
+
+.. autosummary::
+   :toctree: _autosummary
+   :template: custom-module-template.rst
+   :recursive:
+   :caption: Modules:
+
+   pyfeyn2
+
+
+.. toctree::
+   :glob:
+   :maxdepth: 3
    :caption: Module:
 
    autoapi/index

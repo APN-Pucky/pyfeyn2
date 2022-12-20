@@ -1,41 +1,19 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
   <title>TikZ-Feynman &mdash; pyfeyn2  documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/plot_directive.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/jupyter-sphinx.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/thebelab.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/plot_directive.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/jupyter-sphinx.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/thebelab.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
@@ -48,46 +26,24 @@
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    
-    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
-
-    
+    <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Feynman" href="../../mpl/feynman/feynman.html" />
     <link rel="prev" title="Latex" href="../index.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="../../../index.html" class="icon icon-home"> pyfeyn2
-          
-
-          
-            
             <img src="../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
-          
           </a>
-
-          
-            
-            
               <div class="version">
-                2.0.7
+                2.1.0
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -95,18 +51,7 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Versions:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/pyfeyn2/">Stable</a></li>
@@ -140,7 +85,10 @@
 </ul>
 </li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">TikZ-Feynman</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Simple-Case">Simple Case</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Simple-Case">Simple Case</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Style">Style</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#Complicated-Case">Complicated Case</a></li>
 </ul>
 </li>
@@ -154,80 +102,41 @@
 </ul>
 </li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Module:</span></p>
+<p class="caption" role="heading"><span class="caption-text">Interfaces:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../autoapi/index.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../interfaces/index.html">Interfaces</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Modules:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/pyfeyn2.html">pyfeyn2</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../../index.html">pyfeyn2</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
-        
-          <li><a href="../../index.html">Renderers</a> &raquo;</li>
-        
-          <li><a href="../index.html">Latex</a> &raquo;</li>
-        
-      <li>TikZ-Feynman</li>
-    
-    
+      <li><a href="../../../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Renderers</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Latex</a></li>
+      <li class="breadcrumb-item active">TikZ-Feynman</li>
       <li class="wy-breadcrumbs-aside">
-        
-          
             <a href="../../../_sources/renderers/latex/tikz/tikzfeynman.ipynb.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   
 <style>
 /* CSS for nbsphinx extension */
@@ -508,44 +417,116 @@ div.rendered_html tbody tr:hover {
 }
 </style>
 <section id="TikZ-Feynman">
-<h1>TikZ-Feynman<a class="headerlink" href="#TikZ-Feynman" title="Permalink to this heading">¶</a></h1>
-<div class="nbinput nblast docutils container">
+<h1>TikZ-Feynman<a class="headerlink" href="#TikZ-Feynman" title="Permalink to this heading"></a></h1>
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyfeyn2.feynmandiagram</span> <span class="kn">import</span> <span class="n">FeynmanDiagram</span><span class="p">,</span> <span class="n">Leg</span><span class="p">,</span> <span class="n">Propagator</span><span class="p">,</span> <span class="n">Vertex</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyfeyn2.feynmandiagram</span> <span class="kn">import</span> <span class="n">FeynmanDiagram</span><span class="p">,</span> <span class="n">Leg</span><span class="p">,</span> <span class="n">Propagator</span><span class="p">,</span> <span class="n">Vertex</span><span class="p">,</span> <span class="n">Line</span><span class="p">,</span><span class="n">PDG</span>
 <span class="kn">from</span> <span class="nn">pyfeyn2.render.latex.tikzfeynman</span> <span class="kn">import</span> <span class="n">TikzFeynmanRender</span>
-<span class="kn">from</span> <span class="nn">pyfeyn2.render.latex.dot</span> <span class="kn">import</span> <span class="n">feynman_adjust_points</span>
+<span class="kn">from</span> <span class="nn">pyfeyn2.auto.position</span> <span class="kn">import</span> <span class="n">feynman_adjust_points</span>
 <span class="kn">import</span> <span class="nn">pyfeyn2</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">pyfeyn2</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+2.0.7.46
+</pre></div></div>
+</div>
 <section id="Simple-Case">
-<h2>Simple Case<a class="headerlink" href="#Simple-Case" title="Permalink to this heading">¶</a></h2>
+<h2>Simple Case<a class="headerlink" href="#Simple-Case" title="Permalink to this heading"></a></h2>
 <p>We set the positions of all vertices here.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fd</span> <span class="o">=</span> <span class="n">FeynmanDiagram</span><span class="p">()</span>
-<span class="n">v1</span> <span class="o">=</span> <span class="n">Vertex</span><span class="p">(</span><span class="s2">&quot;v1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set_xy</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="n">v2</span> <span class="o">=</span> <span class="n">Vertex</span><span class="p">(</span><span class="s2">&quot;v2&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set_xy</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="n">p1</span> <span class="o">=</span> <span class="n">Propagator</span><span class="p">(</span><span class="s2">&quot;p1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">)</span><span class="o">.</span><span class="n">set_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span>
-<span class="n">l1</span> <span class="o">=</span> <span class="n">Leg</span><span class="p">(</span><span class="s2">&quot;l1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set_target</span><span class="p">(</span><span class="n">v1</span><span class="p">)</span><span class="o">.</span><span class="n">set_xy</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">set_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set_incoming</span><span class="p">()</span>
-<span class="n">l2</span> <span class="o">=</span> <span class="n">Leg</span><span class="p">(</span><span class="s2">&quot;l2&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set_target</span><span class="p">(</span><span class="n">v1</span><span class="p">)</span><span class="o">.</span><span class="n">set_xy</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">set_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set_incoming</span><span class="p">()</span>
-<span class="n">l3</span> <span class="o">=</span> <span class="n">Leg</span><span class="p">(</span><span class="s2">&quot;l3&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set_target</span><span class="p">(</span><span class="n">v2</span><span class="p">)</span><span class="o">.</span><span class="n">set_xy</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">set_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set_outgoing</span><span class="p">()</span>
-<span class="n">l4</span> <span class="o">=</span> <span class="n">Leg</span><span class="p">(</span><span class="s2">&quot;l4&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set_target</span><span class="p">(</span><span class="n">v2</span><span class="p">)</span><span class="o">.</span><span class="n">set_xy</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">set_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set_outgoing</span><span class="p">()</span>
-<span class="n">p1</span><span class="o">.</span><span class="n">set_source</span><span class="p">(</span><span class="n">v1</span><span class="p">)</span>
-<span class="n">p1</span><span class="o">.</span><span class="n">set_target</span><span class="p">(</span><span class="n">v2</span><span class="p">)</span>
-<span class="n">fd</span><span class="o">.</span><span class="n">propagators</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p1</span><span class="p">)</span>
-<span class="n">fd</span><span class="o">.</span><span class="n">vertices</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">])</span>
-<span class="n">fd</span><span class="o">.</span><span class="n">legs</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">l1</span><span class="p">,</span> <span class="n">l2</span><span class="p">,</span> <span class="n">l3</span><span class="p">,</span> <span class="n">l4</span><span class="p">])</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">v1</span> <span class="o">=</span> <span class="n">Vertex</span><span class="p">(</span><span class="s2">&quot;v1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">with_xy</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">v2</span> <span class="o">=</span> <span class="n">Vertex</span><span class="p">(</span><span class="s2">&quot;v2&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">with_xy</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="n">fd</span> <span class="o">=</span> <span class="n">FeynmanDiagram</span><span class="p">()</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
+    <span class="n">v1</span><span class="p">,</span><span class="n">v2</span><span class="p">,</span>
+    <span class="n">Propagator</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;g&quot;</span><span class="p">,</span><span class="n">bend</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">),</span>
+    <span class="n">Leg</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;g&quot;</span><span class="p">,</span><span class="n">bend</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">with_target</span><span class="p">(</span><span class="n">v1</span><span class="p">)</span><span class="o">.</span><span class="n">with_xy</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">with_incoming</span><span class="p">(),</span>
+    <span class="n">Leg</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;g&quot;</span><span class="p">,</span><span class="n">bend</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">with_target</span><span class="p">(</span><span class="n">v1</span><span class="p">)</span><span class="o">.</span><span class="n">with_xy</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">with_incoming</span><span class="p">()</span><span class="o">.</span><span class="n">with_class</span><span class="p">(</span><span class="s2">&quot;notred&quot;</span><span class="p">),</span>
+    <span class="n">Leg</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;g&quot;</span><span class="p">,</span><span class="n">bend</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">with_target</span><span class="p">(</span><span class="n">v2</span><span class="p">)</span><span class="o">.</span><span class="n">with_xy</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">with_outgoing</span><span class="p">()</span><span class="o">.</span><span class="n">with_class</span><span class="p">(</span><span class="s2">&quot;red&quot;</span><span class="p">),</span>
+    <span class="n">Leg</span><span class="p">(</span><span class="s2">&quot;myid1&quot;</span><span class="p">,</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;g&quot;</span><span class="p">,</span><span class="n">bend</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">with_target</span><span class="p">(</span><span class="n">v2</span><span class="p">)</span><span class="o">.</span><span class="n">with_xy</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">with_outgoing</span><span class="p">()</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<section id="Style">
+<h3>Style<a class="headerlink" href="#Style" title="Permalink to this heading"></a></h3>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fd</span> <span class="o">=</span> <span class="n">fd</span><span class="o">.</span><span class="n">with_rule</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">* {</span>
+<span class="s2">    bend-direction: left;</span>
+<span class="s2">    color: green;</span>
+<span class="s2">}</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fd</span><span class="o">.</span><span class="n">add_rules</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">.red {</span>
+<span class="s2">    color: red;</span>
+<span class="s2">}</span>
+<span class="s2">.notred {</span>
+<span class="s2">    color: blue;</span>
+<span class="s2">}</span>
+<span class="s2">#myid1 {</span>
+<span class="s2">    color: gray;</span>
+<span class="s2">}</span>
+<span class="s2">[pdgid=&quot;21&quot;] {</span>
+<span class="s2">    color: black;</span>
+<span class="s2">}</span>
+<span class="s2">#myid2 {</span>
+<span class="s2">    color: gray;</span>
+<span class="s2">}</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+<span class="n">fd</span><span class="o">.</span><span class="n">sheet</span><span class="o">.</span><span class="n">cssText</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+b&#39;* {\n    bend-direction: left;\n    color: green\n    }\n.red {\n    color: red\n    }\n.notred {\n    color: blue\n    }\n#myid1 {\n    color: gray\n    }\n[pdgid=&#34;21&#34;] {\n    color: black\n    }\n#myid2 {\n    color: gray\n    }&#39;
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fd</span><span class="o">.</span><span class="n">to_xml</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;\n&lt;diagram default_style=&#34;true&#34; style=&#34;* {&amp;#10;    bend-direction: left;&amp;#10;    color: green&amp;#10;    }&amp;#10;.red {&amp;#10;    color: red&amp;#10;    }&amp;#10;.notred {&amp;#10;    color: blue&amp;#10;    }&amp;#10;#myid1 {&amp;#10;    color: gray&amp;#10;    }&amp;#10;[pdgid=&amp;quot;21&amp;quot;] {&amp;#10;    color: black&amp;#10;    }&amp;#10;#myid2 {&amp;#10;    color: gray&amp;#10;    }&#34;&gt;\n  &lt;propagator id=&#34;Propagator6&#34; pdgid=&#34;21&#34; type=&#34;gluon&#34; style=&#34;&#34; bend=&#34;true&#34;&gt;\n    &lt;name&gt;g&lt;/name&gt;\n    &lt;source&gt;v1&lt;/source&gt;\n    &lt;target&gt;v2&lt;/target&gt;\n  &lt;/propagator&gt;\n  &lt;vertex id=&#34;v1&#34; style=&#34;&#34; x=&#34;-1.0&#34; y=&#34;0.0&#34;/&gt;\n  &lt;vertex id=&#34;v2&#34; style=&#34;&#34; x=&#34;1.0&#34; y=&#34;0.0&#34;/&gt;\n  &lt;leg id=&#34;Leg7&#34; pdgid=&#34;21&#34; type=&#34;gluon&#34; style=&#34;&#34; bend=&#34;true&#34; x=&#34;-2.0&#34; y=&#34;1.0&#34;&gt;\n    &lt;name&gt;g&lt;/name&gt;\n    &lt;target&gt;v1&lt;/target&gt;\n    &lt;sense&gt;incoming&lt;/sense&gt;\n  &lt;/leg&gt;\n  &lt;leg id=&#34;Leg8&#34; pdgid=&#34;21&#34; type=&#34;gluon&#34; style=&#34;&#34; class=&#34;notred&#34; bend=&#34;true&#34; x=&#34;-2.0&#34; y=&#34;-1.0&#34;&gt;\n    &lt;name&gt;g&lt;/name&gt;\n    &lt;target&gt;v1&lt;/target&gt;\n    &lt;sense&gt;incoming&lt;/sense&gt;\n  &lt;/leg&gt;\n  &lt;leg id=&#34;Leg9&#34; pdgid=&#34;21&#34; type=&#34;gluon&#34; style=&#34;&#34; class=&#34;red&#34; bend=&#34;true&#34; x=&#34;2.0&#34; y=&#34;1.0&#34;&gt;\n    &lt;name&gt;g&lt;/name&gt;\n    &lt;target&gt;v2&lt;/target&gt;\n    &lt;sense&gt;outgoing&lt;/sense&gt;\n  &lt;/leg&gt;\n  &lt;leg id=&#34;myid1&#34; pdgid=&#34;21&#34; type=&#34;gluon&#34; style=&#34;&#34; bend=&#34;true&#34; x=&#34;2.0&#34; y=&#34;-1.0&#34;&gt;\n    &lt;name&gt;g&lt;/name&gt;\n    &lt;target&gt;v2&lt;/target&gt;\n    &lt;sense&gt;outgoing&lt;/sense&gt;\n  &lt;/leg&gt;\n&lt;/diagram&gt;\n&#39;
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tfd</span> <span class="o">=</span> <span class="n">TikzFeynmanRender</span><span class="p">(</span><span class="n">fd</span><span class="p">)</span>
@@ -573,17 +554,19 @@ div.rendered_html tbody tr:hover {
 \begin{tikzpicture}
 \begin{feynman}
         \vertex (v1) [] at (-1.0,0.0);
+        \vertex (v1clone) [] at (-1.0,0.0);
         \vertex (v2) [] at (1.0,0.0);
-        \vertex (l1) [] at (-2.0,1.0);
-        \vertex (l2) [] at (-2.0,-1.0);
-        \vertex (l3) [] at (2.0,1.0);
-        \vertex (l4) [] at (2.0,-1.0);
+        \vertex (v2clone) [] at (1.0,0.0);
+        \vertex (Leg7) [] at (-2.0,1.0);
+        \vertex (Leg8) [] at (-2.0,-1.0);
+        \vertex (Leg9) [] at (2.0,1.0);
+        \vertex (myid1) [] at (2.0,-1.0);
         \diagram*{
-                (v1) -- [gluon,opacity=,] (v2),
-                (l1) -- [gluon,opacity=,] (v1),
-                (l2) -- [gluon,opacity=,] (v1),
-                (v2) -- [gluon,opacity=,] (l3),
-                (v2) -- [gluon,opacity=,] (l4),
+                (v1) -- [gluon,black,bend left] (v2),
+                (Leg7) -- [gluon,black,bend left] (v1),
+                (Leg8) -- [gluon,blue,bend left] (v1),
+                (v2) -- [gluon,red,bend left] (Leg9),
+                (v2) -- [gluon,gray,bend left] (myid1),
         };
 \end{feynman}
 \end{tikzpicture}
@@ -592,7 +575,7 @@ div.rendered_html tbody tr:hover {
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tfd</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="s2">&quot;test.pdf&quot;</span><span class="p">)</span>
@@ -603,41 +586,48 @@ div.rendered_html tbody tr:hover {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/renderers_latex_tikz_tikzfeynman_6_0.png" src="../../../_images/renderers_latex_tikz_tikzfeynman_6_0.png" />
+<img alt="../../../_images/renderers_latex_tikz_tikzfeynman_10_0.png" src="../../../_images/renderers_latex_tikz_tikzfeynman_10_0.png" />
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/renderers_latex_tikz_tikzfeynman_6_1.png" src="../../../_images/renderers_latex_tikz_tikzfeynman_6_1.png" />
+<img alt="../../../_images/renderers_latex_tikz_tikzfeynman_10_1.png" src="../../../_images/renderers_latex_tikz_tikzfeynman_10_1.png" />
 </div>
 </div>
 </section>
+</section>
 <section id="Complicated-Case">
-<h2>Complicated Case<a class="headerlink" href="#Complicated-Case" title="Permalink to this heading">¶</a></h2>
+<h2>Complicated Case<a class="headerlink" href="#Complicated-Case" title="Permalink to this heading"></a></h2>
 <p>We only set the positions of the Legs here.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fd</span> <span class="o">=</span> <span class="n">FeynmanDiagram</span><span class="p">()</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fd</span> <span class="o">=</span> <span class="n">FeynmanDiagram</span><span class="p">()</span><span class="o">.</span><span class="n">with_rules</span><span class="p">(</span>
+    <span class="sd">&quot;&quot;&quot; * {color: red;}</span>
+<span class="sd">        [type=fermion] {color: blue; line: gluon}</span>
+<span class="sd">        #p1 {color: green;}</span>
+<span class="sd">        :not([type=fermion]) { color : black; line: fermion}&quot;&quot;&quot;</span><span class="p">)</span>
 <span class="n">v1</span> <span class="o">=</span> <span class="n">Vertex</span><span class="p">(</span><span class="s2">&quot;v1&quot;</span><span class="p">)</span>
 <span class="n">v2</span> <span class="o">=</span> <span class="n">Vertex</span><span class="p">(</span><span class="s2">&quot;v2&quot;</span><span class="p">)</span>
 <span class="n">v3</span> <span class="o">=</span> <span class="n">Vertex</span><span class="p">(</span><span class="s2">&quot;v3&quot;</span><span class="p">)</span>
 <span class="n">v4</span> <span class="o">=</span> <span class="n">Vertex</span><span class="p">(</span><span class="s2">&quot;v4&quot;</span><span class="p">)</span>
-<span class="n">p1</span> <span class="o">=</span> <span class="n">Propagator</span><span class="p">(</span><span class="s2">&quot;p1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">)</span><span class="o">.</span><span class="n">set_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span>
-<span class="n">p2</span> <span class="o">=</span> <span class="n">Propagator</span><span class="p">(</span><span class="s2">&quot;p2&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span> <span class="n">v3</span><span class="p">)</span><span class="o">.</span><span class="n">set_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span>
-<span class="n">p3</span> <span class="o">=</span> <span class="n">Propagator</span><span class="p">(</span><span class="s2">&quot;p3&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">v3</span><span class="p">,</span> <span class="n">v2</span><span class="p">)</span><span class="o">.</span><span class="n">set_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span>
-<span class="n">p4</span> <span class="o">=</span> <span class="n">Propagator</span><span class="p">(</span><span class="s2">&quot;p4&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">v4</span><span class="p">,</span> <span class="n">v3</span><span class="p">)</span><span class="o">.</span><span class="n">set_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span>
-<span class="n">p5</span> <span class="o">=</span> <span class="n">Propagator</span><span class="p">(</span><span class="s2">&quot;p5&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">v4</span><span class="p">,</span> <span class="n">v2</span><span class="p">)</span><span class="o">.</span><span class="n">set_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span>
-<span class="n">l1</span> <span class="o">=</span> <span class="n">Leg</span><span class="p">(</span><span class="s2">&quot;l1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set_target</span><span class="p">(</span><span class="n">v1</span><span class="p">)</span><span class="o">.</span><span class="n">set_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set_incoming</span><span class="p">()</span><span class="o">.</span><span class="n">set_xy</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">l2</span> <span class="o">=</span> <span class="n">Leg</span><span class="p">(</span><span class="s2">&quot;l2&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set_target</span><span class="p">(</span><span class="n">v1</span><span class="p">)</span><span class="o">.</span><span class="n">set_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set_incoming</span><span class="p">()</span><span class="o">.</span><span class="n">set_xy</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">l3</span> <span class="o">=</span> <span class="n">Leg</span><span class="p">(</span><span class="s2">&quot;l3&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set_target</span><span class="p">(</span><span class="n">v2</span><span class="p">)</span><span class="o">.</span><span class="n">set_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set_outgoing</span><span class="p">()</span><span class="o">.</span><span class="n">set_xy</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">l4</span> <span class="o">=</span> <span class="n">Leg</span><span class="p">(</span><span class="s2">&quot;l4&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set_target</span><span class="p">(</span><span class="n">v3</span><span class="p">)</span><span class="o">.</span><span class="n">set_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set_outgoing</span><span class="p">()</span><span class="o">.</span><span class="n">set_xy</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="n">l5</span> <span class="o">=</span> <span class="n">Leg</span><span class="p">(</span><span class="s2">&quot;l5&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set_target</span><span class="p">(</span><span class="n">v4</span><span class="p">)</span><span class="o">.</span><span class="n">set_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set_outgoing</span><span class="p">()</span><span class="o">.</span><span class="n">set_xy</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">l6</span> <span class="o">=</span> <span class="n">Leg</span><span class="p">(</span><span class="s2">&quot;l6&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set_target</span><span class="p">(</span><span class="n">v4</span><span class="p">)</span><span class="o">.</span><span class="n">set_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set_outgoing</span><span class="p">()</span><span class="o">.</span><span class="n">set_xy</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">p1</span> <span class="o">=</span> <span class="n">Propagator</span><span class="p">(</span><span class="s2">&quot;p1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">)</span><span class="o">.</span><span class="n">with_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span>
+<span class="n">p2</span> <span class="o">=</span> <span class="n">Propagator</span><span class="p">(</span><span class="s2">&quot;p2&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span> <span class="n">v3</span><span class="p">)</span><span class="o">.</span><span class="n">with_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span>
+<span class="n">p3</span> <span class="o">=</span> <span class="n">Propagator</span><span class="p">(</span><span class="s2">&quot;p3&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">v3</span><span class="p">,</span> <span class="n">v2</span><span class="p">)</span><span class="o">.</span><span class="n">with_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span>
+<span class="n">p4</span> <span class="o">=</span> <span class="n">Propagator</span><span class="p">(</span><span class="s2">&quot;p4&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">v4</span><span class="p">,</span> <span class="n">v3</span><span class="p">)</span><span class="o">.</span><span class="n">with_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span>
+<span class="n">p5</span> <span class="o">=</span> <span class="n">Propagator</span><span class="p">(</span><span class="s2">&quot;p5&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">v4</span><span class="p">,</span> <span class="n">v2</span><span class="p">)</span><span class="o">.</span><span class="n">with_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span>
+<span class="n">l1</span> <span class="o">=</span> <span class="n">Leg</span><span class="p">(</span><span class="s2">&quot;l1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">with_target</span><span class="p">(</span><span class="n">v1</span><span class="p">)</span><span class="o">.</span><span class="n">with_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">with_incoming</span><span class="p">()</span><span class="o">.</span><span class="n">with_xy</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">l2</span> <span class="o">=</span> <span class="n">Leg</span><span class="p">(</span><span class="s2">&quot;l2&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">with_target</span><span class="p">(</span><span class="n">v1</span><span class="p">)</span><span class="o">.</span><span class="n">with_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">with_incoming</span><span class="p">()</span><span class="o">.</span><span class="n">with_xy</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">l3</span> <span class="o">=</span> <span class="n">Leg</span><span class="p">(</span><span class="s2">&quot;l3&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">with_target</span><span class="p">(</span><span class="n">v2</span><span class="p">)</span><span class="o">.</span><span class="n">with_type</span><span class="p">(</span><span class="s2">&quot;fermion&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">with_outgoing</span><span class="p">()</span><span class="o">.</span><span class="n">with_xy</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">with_class</span><span class="p">(</span><span class="s2">&quot;blue&quot;</span><span class="p">)</span>
+<span class="n">l4</span> <span class="o">=</span> <span class="n">Leg</span><span class="p">(</span><span class="s2">&quot;l4&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">with_target</span><span class="p">(</span><span class="n">v3</span><span class="p">)</span><span class="o">.</span><span class="n">with_type</span><span class="p">(</span><span class="s2">&quot;fermion&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">with_outgoing</span><span class="p">()</span><span class="o">.</span><span class="n">with_xy</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">l5</span> <span class="o">=</span> <span class="n">Leg</span><span class="p">(</span><span class="s2">&quot;l5&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">with_target</span><span class="p">(</span><span class="n">v4</span><span class="p">)</span><span class="o">.</span><span class="n">with_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">with_outgoing</span><span class="p">()</span><span class="o">.</span><span class="n">with_xy</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">l6</span> <span class="o">=</span> <span class="n">Leg</span><span class="p">(</span><span class="s2">&quot;l6&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">with_target</span><span class="p">(</span><span class="n">v4</span><span class="p">)</span><span class="o">.</span><span class="n">with_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">with_outgoing</span><span class="p">()</span><span class="o">.</span><span class="n">with_xy</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">l6</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;orange&quot;</span>
 
 <span class="n">fd</span><span class="o">.</span><span class="n">propagators</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="n">p3</span><span class="p">,</span> <span class="n">p4</span><span class="p">,</span> <span class="n">p5</span><span class="p">])</span>
 <span class="n">fd</span><span class="o">.</span><span class="n">vertices</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">,</span> <span class="n">v3</span><span class="p">,</span> <span class="n">v4</span><span class="p">])</span>
@@ -647,7 +637,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <p>Now calculate the positions of vertices.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ffd</span><span class="o">=</span> <span class="n">feynman_adjust_points</span><span class="p">(</span><span class="n">fd</span><span class="p">)</span>
@@ -655,7 +645,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">TikzFeynmanRender</span><span class="p">(</span><span class="n">ffd</span><span class="p">)</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
@@ -666,66 +656,16 @@ div.rendered_html tbody tr:hover {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/renderers_latex_tikz_tikzfeynman_12_0.png" src="../../../_images/renderers_latex_tikz_tikzfeynman_12_0.png" />
+<img alt="../../../_images/renderers_latex_tikz_tikzfeynman_16_0.png" src="../../../_images/renderers_latex_tikz_tikzfeynman_16_0.png" />
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/renderers_latex_tikz_tikzfeynman_12_1.png" src="../../../_images/renderers_latex_tikz_tikzfeynman_12_1.png" />
+<img alt="../../../_images/renderers_latex_tikz_tikzfeynman_16_1.png" src="../../../_images/renderers_latex_tikz_tikzfeynman_16_1.png" />
 </div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyfeyn2.render.dot</span> <span class="kn">import</span> <span class="n">DotRender</span><span class="p">,</span> <span class="n">feynman_to_dot</span>
-<span class="n">fd</span> <span class="o">=</span> <span class="n">FeynmanDiagram</span><span class="p">()</span>
-
-<span class="n">v1</span> <span class="o">=</span> <span class="n">Vertex</span><span class="p">()</span>
-<span class="n">v2</span> <span class="o">=</span> <span class="n">Vertex</span><span class="p">()</span>
-<span class="n">v3</span> <span class="o">=</span> <span class="n">Vertex</span><span class="p">()</span>
-<span class="n">v4</span> <span class="o">=</span> <span class="n">Vertex</span><span class="p">()</span>
-<span class="n">v5</span> <span class="o">=</span> <span class="n">Vertex</span><span class="p">()</span>
-<span class="n">v6</span> <span class="o">=</span> <span class="n">Vertex</span><span class="p">()</span>
-
-<span class="n">p1</span> <span class="o">=</span> <span class="n">Propagator</span><span class="p">()</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">)</span><span class="o">.</span><span class="n">set_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span>
-<span class="n">p2</span> <span class="o">=</span> <span class="n">Propagator</span><span class="p">()</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">v2</span><span class="p">,</span> <span class="n">v3</span><span class="p">)</span><span class="o">.</span><span class="n">set_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span>
-<span class="n">p3</span> <span class="o">=</span> <span class="n">Propagator</span><span class="p">()</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span> <span class="n">v4</span><span class="p">)</span><span class="o">.</span><span class="n">set_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span>
-<span class="n">p4</span> <span class="o">=</span> <span class="n">Propagator</span><span class="p">()</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">v2</span><span class="p">,</span> <span class="n">v5</span><span class="p">)</span><span class="o">.</span><span class="n">set_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span>
-<span class="n">p5</span> <span class="o">=</span> <span class="n">Propagator</span><span class="p">()</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">v3</span><span class="p">,</span> <span class="n">v6</span><span class="p">)</span><span class="o">.</span><span class="n">set_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span>
-<span class="n">p6</span> <span class="o">=</span> <span class="n">Propagator</span><span class="p">()</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">v5</span><span class="p">,</span> <span class="n">v6</span><span class="p">)</span><span class="o">.</span><span class="n">set_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span>
-<span class="n">p7</span> <span class="o">=</span> <span class="n">Propagator</span><span class="p">()</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">v4</span><span class="p">,</span> <span class="n">v5</span><span class="p">)</span><span class="o">.</span><span class="n">set_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span>
-<span class="n">p8</span> <span class="o">=</span> <span class="n">Propagator</span><span class="p">()</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">v4</span><span class="p">,</span> <span class="n">v6</span><span class="p">)</span><span class="o">.</span><span class="n">set_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span>
-
-<span class="n">l1</span> <span class="o">=</span> <span class="n">Leg</span><span class="p">()</span><span class="o">.</span><span class="n">set_target</span><span class="p">(</span><span class="n">v1</span><span class="p">)</span><span class="o">.</span><span class="n">set_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set_incoming</span><span class="p">()</span><span class="o">.</span><span class="n">set_xy</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="n">l2</span> <span class="o">=</span> <span class="n">Leg</span><span class="p">()</span><span class="o">.</span><span class="n">set_target</span><span class="p">(</span><span class="n">v3</span><span class="p">)</span><span class="o">.</span><span class="n">set_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set_outgoing</span><span class="p">()</span><span class="o">.</span><span class="n">set_xy</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-
-<span class="n">fd</span><span class="o">.</span><span class="n">propagators</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="n">p3</span><span class="p">,</span> <span class="n">p4</span><span class="p">,</span> <span class="n">p5</span><span class="p">,</span> <span class="n">p6</span><span class="p">,</span> <span class="n">p7</span><span class="p">,</span> <span class="n">p8</span><span class="p">])</span>
-<span class="n">fd</span><span class="o">.</span><span class="n">vertices</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">,</span> <span class="n">v3</span><span class="p">,</span> <span class="n">v4</span><span class="p">,</span> <span class="n">v5</span><span class="p">,</span> <span class="n">v6</span><span class="p">])</span>
-<span class="n">fd</span><span class="o">.</span><span class="n">legs</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">l1</span><span class="p">,</span> <span class="n">l2</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">feynman_to_dot</span><span class="p">(</span><span class="n">fd</span><span class="p">))</span>
-<span class="n">ffd</span><span class="o">=</span> <span class="n">feynman_adjust_points</span><span class="p">(</span><span class="n">fd</span><span class="p">)</span>
-<span class="n">TikzFeynmanRender</span><span class="p">(</span><span class="n">ffd</span><span class="p">)</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">ModuleNotFoundError</span>                       Traceback (most recent call last)
-Cell <span class="ansi-green-fg">In[8], line 1</span>
-<span class="ansi-green-fg">----&gt; 1</span> <span class="ansi-bold" style="color: rgb(0,135,0)">from</span> <span class="ansi-bold" style="color: rgb(0,0,255)">pyfeyn2</span><span class="ansi-bold" style="color: rgb(0,0,255)">.</span><span class="ansi-bold" style="color: rgb(0,0,255)">render</span><span class="ansi-bold" style="color: rgb(0,0,255)">.</span><span class="ansi-bold" style="color: rgb(0,0,255)">dot</span> <span class="ansi-bold" style="color: rgb(0,135,0)">import</span> DotRender, feynman_to_dot
-<span class="ansi-green-intense-fg ansi-bold">      2</span> fd <span style="color: rgb(98,98,98)">=</span> FeynmanDiagram()
-<span class="ansi-green-intense-fg ansi-bold">      4</span> v1 <span style="color: rgb(98,98,98)">=</span> Vertex()
-
-<span class="ansi-red-fg">ModuleNotFoundError</span>: No module named &#39;pyfeyn2.render.dot&#39;
-</pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
@@ -740,50 +680,33 @@ Cell <span class="ansi-green-fg">In[8], line 1</span>
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="../../mpl/feynman/feynman.html" class="btn btn-neutral float-right" title="Feynman" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="../index.html" class="btn btn-neutral float-left" title="Latex" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../mpl/feynman/feynman.html" class="btn btn-neutral float-right" title="Feynman" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2022, Alexander Puck Neuwirth.
-
-    </p>
+    <p>&#169; Copyright 2022, Alexander Puck Neuwirth.</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

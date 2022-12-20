@@ -1,289 +1,289 @@
 {
- "cells": [
-  {
-   "cell_type": "markdown",
-   "id": "8755f09e",
-   "metadata": {},
-   "source": [
-    "# Unicode"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "id": "4c4fe0ff",
-   "metadata": {},
-   "source": [
-    "## Characters/String"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 1,
-   "id": "00b27fa3",
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "from pyfeyn2.feynmandiagram import FeynmanDiagram, Leg, Propagator, Vertex\n",
-    "from pyfeyn2.render.text.unicode import UnicodeRender\n",
-    "from pyfeyn2.render.latex.dot import feynman_adjust_points"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 2,
-   "id": "b2236bc4",
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "fd = FeynmanDiagram()\n",
-    "v1 = Vertex(\"v1\")\n",
-    "v2 = Vertex(\"v2\")\n",
-    "v3 = Vertex(\"v3\")\n",
-    "v4 = Vertex(\"v4\")\n",
-    "p1 = Propagator(\"p1\").connect(v2, v1).set_type(\"fermion\")\n",
-    "p2 = Propagator(\"p2\").connect(v1, v3).set_type(\"fermion\").set_label('äöü')\n",
-    "p3 = Propagator(\"p3\").connect(v3, v2).set_type(\"fermion\")\n",
-    "p4 = Propagator(\"p4\").connect(v4, v3).set_type(\"gluon\")\n",
-    "p5 = Propagator(\"p5\").connect(v4, v2).set_type(\"gluon\")\n",
-    "l1 = Leg(\"l1\").set_target(v1).set_type(\"photon\").set_incoming().set_xy(-2, 1).set_label(\"$\\\\gamma$\")\n",
-    "l2 = Leg(\"l2\").set_target(v1).set_type(\"gluon\").set_incoming().set_xy(-2, -1).set_label(\"$\\\\alpha$\")\n",
-    "l3 = Leg(\"l3\").set_target(v2).set_type(\"gluon\").set_outgoing().set_xy(2, -2).set_label(\"$\\\\beta$\")\n",
-    "l4 = Leg(\"l4\").set_target(v3).set_type(\"gluon\").set_outgoing().set_xy(2, 2)\n",
-    "l5 = Leg(\"l5\").set_target(v4).set_type(\"gluon\").set_outgoing().set_xy(2, 1)\n",
-    "l6 = Leg(\"l6\").set_target(v4).set_type(\"gluon\").set_outgoing().set_xy(2, -1)\n",
-    "\n",
-    "fd.propagators.extend([p1, p2, p3, p4, p5])\n",
-    "fd.vertices.extend([v1, v2, v3, v4])\n",
-    "fd.legs.extend([l1, l2, l3, l4, l5, l6])\n",
-    "fd= feynman_adjust_points(fd)"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 3,
-   "id": "7ffda508",
-   "metadata": {},
-   "outputs": [
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "                                                                                \n",
-      "                                                                                \n",
-      "                                                                                \n",
-      "                                                                                \n",
-      "                                                                                \n",
-      "                                                                                \n",
-      "                                                                             OO*\n",
-      "                                                                       OOOOOO   \n",
-      "                γ                                                OOOOOO         \n",
-      "                                        äöü                 OOOOO               \n",
-      "       *~~~~                                          OOOOOO                 OO*\n",
-      "            ~~~~~~~~~                          →→→→*OOO                  OOOO   \n",
-      "                     ~~~~~~~~~         →→→→→→→→    ↓   OOOOOOOO      OOOO       \n",
-      "                α             ~OOO*→→→→            ↓           OOO*OO           \n",
-      "                        OOOOOOO        ←←←←←←←←    ↓   OOOOOOOO     OOO         \n",
-      "                  OOOOOO                       ←←←←*OOO                OOOO     \n",
-      "           OOOOOOO                                    OOOOO                OOO  \n",
-      "       *OOO                                                OOOOβ              O*\n",
-      "                                                               OOOOO            \n",
-      "                                                                    OOOO        \n",
-      "                                                                        OOOOO   \n",
-      "                                                                             OO*\n",
-      "                                                                                \n",
-      "                                                                                \n",
-      "                                                                                \n",
-      "                                                                                \n",
-      "                                                                                \n",
-      "                                                                                \n",
-      "                                                                                \n",
-      "                                                                                \n",
-      "\n"
-     ]
-    }
-   ],
-   "source": [
-    "tfd = UnicodeRender(fd)\n",
-    "s= tfd.render(show=False,height=30,width=80)\n",
-    "print(s)"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "id": "05c464b2",
-   "metadata": {},
-   "source": [
-    "## PDF"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 4,
-   "id": "c79ef31d",
-   "metadata": {},
-   "outputs": [
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "                                        \n",
-      "                                        \n",
-      "                                        \n",
-      "                                        \n",
-      "                                        \n",
-      "                                        \n",
-      "                                      O*\n",
-      "                                   OOO  \n",
-      "       γ             ü          OOO     \n",
-      "                   äö         OO        \n",
-      "   *~~                     OOO        O*\n",
-      "      ~~~~              →*O         OO  \n",
-      "          ~~~~~    →→→→→ ↓ OOOO   OO    \n",
-      "       α       ~O*→      ↓     O*O      \n",
-      "            OOOO   ←←←←← ↓ OOOO  OO     \n",
-      "         OOO            ←*O        OO   \n",
-      "     OOOO                  OO        OO \n",
-      "   *O                        OO β      *\n",
-      "                               OOO      \n",
-      "                                  OO    \n",
-      "                                    OO  \n",
-      "                                      O*\n",
-      "                                        \n",
-      "                                        \n",
-      "                                        \n",
-      "                                        \n",
-      "                                        \n",
-      "                                        \n",
-      "                                        \n",
-      "                                        \n",
-      "\n"
-     ]
-    },
-    {
-     "data": {
-      "image/png": "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ty7DmocsVGEZYohhedtAHveqy13Vuj6GNePTFYneuSr90i9Vulkr1e9VSLjyDXYHw5qpr1urdaJXb4dA3lzLG67z6F5F/VzXPmHeHUpSGGuip7iOWy00tX4oQl399rno9tppJ4WJpnq94VK/3auQcm3rlj+sGZ+uTPSGuVba6JaRvO/3KiRcOaTTwbBmfLpybHV8Cgs96k2/b7XQo3sVEvp4c4jkZdmuTvTGbXxQFcbWO4AmPbUuycuCdUv07sS7BkXqoXXjRmtNQxVGetQi8iJDYeq3z4W31/5tv6kqHozL1M+nqf6o0ofetdGT9Q6hQf32ueT2qsJ7eNOLnngwLhN5XTQIKz3zdW9l4zPMgEu0LuAST5gBlzjqAi7RuoBLtC7gEq0LuETr4oKx1XyZQnloXUhLTfRHvzX5+k6M+imn54A166w/ZV3psdWMsS6xOOoiPbaaL1MoEK2L9NhqxlgXiNZFemw1X6ZQIFoX6bHVfJlCgfgMMxRW2ulBlZbaxIemU07PAWscddEUvb8mnI+b4qgLuMRRF3CJ1gVconUBl2hdwCVaF3CJ1gVconUBl2hdXCEdzkdutC6ukQ7nIzfrwDDlr9LhfCp/cdRFe+lwPrKjddFeOpyP7GhdtJcO5yM7WhftpcP5yI7QH66QDucjN466uEY6nI/MOOoCLnHUBVyidQGXaF3AJVoXcInWBVyidQGXaF1kwXDt3Ghd5MFw7dysU4fUEIvh2vmLoy5yYLh2drQucmC4dna0LnJguHZ2tC5yYLh2diSHkAXDtXPjqIs8GK6dGUddwCWOuoBLtC7gEq0LuETrAi7RuoBLtC7gEq2LgoR5IBJ4IVoXRk7C+NOwUqVRWJEsugQfyYCRsNJID9pqpfVh+Mk+hv8Q+YzzBTjqwkQYa6KnuI5bLTQ9nLg7FC5A68JGU/h+qmc9a2a9NB/+sV4A7tS38H04nBT3wQTC+BfhqAsbhO87onVhg/B9R7zCDCOE77vhqAsrhO87+T+Fv9W9lCu3RgAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAyMi0xMi0xMVQxNDo0OToyNCswMDowML3BONEAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMjItMTItMTFUMTQ6NDk6MjQrMDA6MDDMnIBtAAAAKHRFWHRkYXRlOnRpbWVzdGFtcAAyMDIyLTEyLTExVDE0OjQ5OjI0KzAwOjAwm4mhsgAAAC10RVh0aWNjOmNvcHlyaWdodABDb3B5cmlnaHQgQXJ0aWZleCBTb2Z0d2FyZSAyMDExCLrFtAAAADF0RVh0aWNjOmRlc2NyaXB0aW9uAEFydGlmZXggU29mdHdhcmUgc1JHQiBJQ0MgUHJvZmlsZRMMAYYAAAATdEVYdHBkZjpWZXJzaW9uAFBERi0xLjVTNlrBAAAASnRFWHRzaWduYXR1cmUAZDIwOTk4N2Q5MmNhOWRhMWVmMDMzOWZkMWY4ODc5MWZlMTg5YzM4MmYzM2VhYzQxYmQxODk2NGE3NGNhN2IzY+DGyZ8AAAAASUVORK5CYII=\n",
-      "text/plain": [
-       "<wand.image.Image: d209987 'PDF' (477x259)>"
-      ]
-     },
-     "metadata": {},
-     "output_type": "display_data"
-    }
-   ],
-   "source": [
-    "from pyfeyn2.render.text.unicodepdf import UnicodePDFRender\n",
-    "tfd = UnicodePDFRender(fd)\n",
-    "tfd.render(show=True,height=30,width=40)"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 5,
-   "id": "cec929fe",
-   "metadata": {},
-   "outputs": [
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "\\documentclass[preview]{standalone}%\n",
-      "\\usepackage[T1]{fontenc}%\n",
-      "\\usepackage[utf8]{inputenc}%\n",
-      "\\usepackage{lmodern}%\n",
-      "\\usepackage{textcomp}%\n",
-      "\\usepackage{lastpage}%\n",
-      "%\n",
-      "\\usepackage{listings}%\n",
-      "\\usepackage{fontspec}%\n",
-      "\\usepackage{minted}%\n",
-      "\n",
-      "\\setmonofont{LiberationMono}[\n",
-      "  Extension=.ttf,\n",
-      "  UprightFont=*-Regular,\n",
-      "  ItalicFont=*-Italic,\n",
-      "  BoldFont=*-Bold,\n",
-      "  BoldItalicFont=*-BoldItalic,\n",
-      "]\n",
-      "\n",
-      "\\frenchspacing\n",
-      "            %\n",
-      "%\n",
-      "\\begin{document}%\n",
-      "\\normalsize%\n",
-      "\\begin{minted}{text}\n",
-      "                                        \n",
-      "                                        \n",
-      "                                        \n",
-      "                                        \n",
-      "                                        \n",
-      "                                        \n",
-      "                                      O*\n",
-      "                                   OOO  \n",
-      "       γ             ü          OOO     \n",
-      "                   äö         OO        \n",
-      "   *~~                     OOO        O*\n",
-      "      ~~~~              →*O         OO  \n",
-      "          ~~~~~    →→→→→ ↓ OOOO   OO    \n",
-      "       α       ~O*→      ↓     O*O      \n",
-      "            OOOO   ←←←←← ↓ OOOO  OO     \n",
-      "         OOO            ←*O        OO   \n",
-      "     OOOO                  OO        OO \n",
-      "   *O                        OO β      *\n",
-      "                               OOO      \n",
-      "                                  OO    \n",
-      "                                    OO  \n",
-      "                                      O*\n",
-      "                                        \n",
-      "                                        \n",
-      "                                        \n",
-      "                                        \n",
-      "                                        \n",
-      "                                        \n",
-      "                                        \n",
-      "                                        \n",
-      "\\end{minted}\n",
-      "%\n",
-      "\\end{document}\n"
-     ]
-    }
-   ],
-   "source": [
-    "print(tfd.get_src())"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "id": "7b9e7f88",
-   "metadata": {},
-   "outputs": [],
-   "source": []
-  }
- ],
- "metadata": {
-  "kernelspec": {
-   "display_name": "Python 3 (ipykernel)",
-   "language": "python",
-   "name": "python3"
-  },
-  "language_info": {
-   "codemirror_mode": {
-    "name": "ipython",
-    "version": 3
-   },
-   "file_extension": ".py",
-   "mimetype": "text/x-python",
-   "name": "python",
-   "nbconvert_exporter": "python",
-   "pygments_lexer": "ipython3",
-   "version": "3.9.16"
-  },
-  "vscode": {
-   "interpreter": {
-    "hash": "31f2aee4e71d21fbe5cf8b01ff0e069b9275f58929596ceb00d14d90e3e16cd6"
-   }
-  }
- },
- "nbformat": 4,
- "nbformat_minor": 5
+        "cells": [
+                {
+                        "cell_type": "markdown",
+                        "id": "8755f09e",
+                        "metadata": {},
+                        "source": [
+                                "# Unicode"
+                        ]
+                },
+                {
+                        "cell_type": "markdown",
+                        "id": "4c4fe0ff",
+                        "metadata": {},
+                        "source": [
+                                "## Characters/String"
+                        ]
+                },
+                {
+                        "cell_type": "code",
+                        "execution_count": 1,
+                        "id": "00b27fa3",
+                        "metadata": {},
+                        "outputs": [],
+                        "source": [
+                                "from pyfeyn2.feynmandiagram import FeynmanDiagram, Leg, Propagator, Vertex\n",
+                                "from pyfeyn2.render.text.unicode import UnicodeRender\n",
+                                "from pyfeyn2.render.latex.dot import feynman_adjust_points"
+                        ]
+                },
+                {
+                        "cell_type": "code",
+                        "execution_count": 2,
+                        "id": "b2236bc4",
+                        "metadata": {},
+                        "outputs": [],
+                        "source": [
+                                "fd = FeynmanDiagram()\n",
+                                "v1 = Vertex(\"v1\")\n",
+                                "v2 = Vertex(\"v2\")\n",
+                                "v3 = Vertex(\"v3\")\n",
+                                "v4 = Vertex(\"v4\")\n",
+                                "p1 = Propagator(\"p1\").connect(v2, v1).with_type(\"fermion\")\n",
+                                "p2 = Propagator(\"p2\").connect(v1, v3).with_type(\"fermion\").set_label('äöü')\n",
+                                "p3 = Propagator(\"p3\").connect(v3, v2).with_type(\"fermion\")\n",
+                                "p4 = Propagator(\"p4\").connect(v4, v3).with_type(\"gluon\")\n",
+                                "p5 = Propagator(\"p5\").connect(v4, v2).with_type(\"gluon\")\n",
+                                "l1 = Leg(\"l1\").with_target(v1).with_type(\"photon\").with_incoming().with_xy(-2, 1).set_label(\"$\\\\gamma$\")\n",
+                                "l2 = Leg(\"l2\").with_target(v1).with_type(\"gluon\").with_incoming().with_xy(-2, -1).set_label(\"$\\\\alpha$\")\n",
+                                "l3 = Leg(\"l3\").with_target(v2).with_type(\"gluon\").with_outgoing().with_xy(2, -2).set_label(\"$\\\\beta$\")\n",
+                                "l4 = Leg(\"l4\").with_target(v3).with_type(\"gluon\").with_outgoing().with_xy(2, 2)\n",
+                                "l5 = Leg(\"l5\").with_target(v4).with_type(\"gluon\").with_outgoing().with_xy(2, 1)\n",
+                                "l6 = Leg(\"l6\").with_target(v4).with_type(\"gluon\").with_outgoing().with_xy(2, -1)\n",
+                                "\n",
+                                "fd.propagators.extend([p1, p2, p3, p4, p5])\n",
+                                "fd.vertices.extend([v1, v2, v3, v4])\n",
+                                "fd.legs.extend([l1, l2, l3, l4, l5, l6])\n",
+                                "fd= feynman_adjust_points(fd)"
+                        ]
+                },
+                {
+                        "cell_type": "code",
+                        "execution_count": 3,
+                        "id": "7ffda508",
+                        "metadata": {},
+                        "outputs": [
+                                {
+                                        "name": "stdout",
+                                        "output_type": "stream",
+                                        "text": [
+                                                "                                                                                \n",
+                                                "                                                                                \n",
+                                                "                                                                                \n",
+                                                "                                                                                \n",
+                                                "                                                                                \n",
+                                                "                                                                                \n",
+                                                "                                                                             OO*\n",
+                                                "                                                                       OOOOOO   \n",
+                                                "                γ                                                OOOOOO         \n",
+                                                "                                        äöü                 OOOOO               \n",
+                                                "       *~~~~                                          OOOOOO                 OO*\n",
+                                                "            ~~~~~~~~~                          →→→→*OOO                  OOOO   \n",
+                                                "                     ~~~~~~~~~         →→→→→→→→    ↓   OOOOOOOO      OOOO       \n",
+                                                "                α             ~OOO*→→→→            ↓           OOO*OO           \n",
+                                                "                        OOOOOOO        ←←←←←←←←    ↓   OOOOOOOO     OOO         \n",
+                                                "                  OOOOOO                       ←←←←*OOO                OOOO     \n",
+                                                "           OOOOOOO                                    OOOOO                OOO  \n",
+                                                "       *OOO                                                OOOOβ              O*\n",
+                                                "                                                               OOOOO            \n",
+                                                "                                                                    OOOO        \n",
+                                                "                                                                        OOOOO   \n",
+                                                "                                                                             OO*\n",
+                                                "                                                                                \n",
+                                                "                                                                                \n",
+                                                "                                                                                \n",
+                                                "                                                                                \n",
+                                                "                                                                                \n",
+                                                "                                                                                \n",
+                                                "                                                                                \n",
+                                                "                                                                                \n",
+                                                "\n"
+                                        ]
+                                }
+                        ],
+                        "source": [
+                                "tfd = UnicodeRender(fd)\n",
+                                "s= tfd.render(show=False,height=30,width=80)\n",
+                                "print(s)"
+                        ]
+                },
+                {
+                        "cell_type": "markdown",
+                        "id": "05c464b2",
+                        "metadata": {},
+                        "source": [
+                                "## PDF"
+                        ]
+                },
+                {
+                        "cell_type": "code",
+                        "execution_count": 4,
+                        "id": "c79ef31d",
+                        "metadata": {},
+                        "outputs": [
+                                {
+                                        "name": "stdout",
+                                        "output_type": "stream",
+                                        "text": [
+                                                "                                        \n",
+                                                "                                        \n",
+                                                "                                        \n",
+                                                "                                        \n",
+                                                "                                        \n",
+                                                "                                        \n",
+                                                "                                      O*\n",
+                                                "                                   OOO  \n",
+                                                "       γ             ü          OOO     \n",
+                                                "                   äö         OO        \n",
+                                                "   *~~                     OOO        O*\n",
+                                                "      ~~~~              →*O         OO  \n",
+                                                "          ~~~~~    →→→→→ ↓ OOOO   OO    \n",
+                                                "       α       ~O*→      ↓     O*O      \n",
+                                                "            OOOO   ←←←←← ↓ OOOO  OO     \n",
+                                                "         OOO            ←*O        OO   \n",
+                                                "     OOOO                  OO        OO \n",
+                                                "   *O                        OO β      *\n",
+                                                "                               OOO      \n",
+                                                "                                  OO    \n",
+                                                "                                    OO  \n",
+                                                "                                      O*\n",
+                                                "                                        \n",
+                                                "                                        \n",
+                                                "                                        \n",
+                                                "                                        \n",
+                                                "                                        \n",
+                                                "                                        \n",
+                                                "                                        \n",
+                                                "                                        \n",
+                                                "\n"
+                                        ]
+                                },
+                                {
+                                        "data": {
+                                                "image/png": "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ty7DmocsVGEZYohhedtAHveqy13Vuj6GNePTFYneuSr90i9Vulkr1e9VSLjyDXYHw5qpr1urdaJXb4dA3lzLG67z6F5F/VzXPmHeHUpSGGuip7iOWy00tX4oQl399rno9tppJ4WJpnq94VK/3auQcm3rlj+sGZ+uTPSGuVba6JaRvO/3KiRcOaTTwbBmfLpybHV8Cgs96k2/b7XQo3sVEvp4c4jkZdmuTvTGbXxQFcbWO4AmPbUuycuCdUv07sS7BkXqoXXjRmtNQxVGetQi8iJDYeq3z4W31/5tv6kqHozL1M+nqf6o0ofetdGT9Q6hQf32ueT2qsJ7eNOLnngwLhN5XTQIKz3zdW9l4zPMgEu0LuAST5gBlzjqAi7RuoBLtC7gEq0LuETr4oKx1XyZQnloXUhLTfRHvzX5+k6M+imn54A166w/ZV3psdWMsS6xOOoiPbaaL1MoEK2L9NhqxlgXiNZFemw1X6ZQIFoX6bHVfJlCgfgMMxRW2ulBlZbaxIemU07PAWscddEUvb8mnI+b4qgLuMRRF3CJ1gVconUBl2hdwCVaF3CJ1gVconUBl2hdXCEdzkdutC6ukQ7nIzfrwDDlr9LhfCp/cdRFe+lwPrKjddFeOpyP7GhdtJcO5yM7WhftpcP5yI7QH66QDucjN466uEY6nI/MOOoCLnHUBVyidQGXaF3AJVoXcInWBVyidQGXaF1kwXDt3Ghd5MFw7dysU4fUEIvh2vmLoy5yYLh2drQucmC4dna0LnJguHZ2tC5yYLh2diSHkAXDtXPjqIs8GK6dGUddwCWOuoBLtC7gEq0LuETrAi7RuoBLtC7gEq2LgoR5IBJ4IVoXRk7C+NOwUqVRWJEsugQfyYCRsNJID9pqpfVh+Mk+hv8Q+YzzBTjqwkQYa6KnuI5bLTQ9nLg7FC5A68JGU/h+qmc9a2a9NB/+sV4A7tS38H04nBT3wQTC+BfhqAsbhO87onVhg/B9R7zCDCOE77vhqAsrhO87+T+Fv9W9lCu3RgAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAyMi0xMi0xMVQxNDo0OToyNCswMDowML3BONEAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMjItMTItMTFUMTQ6NDk6MjQrMDA6MDDMnIBtAAAAKHRFWHRkYXRlOnRpbWVzdGFtcAAyMDIyLTEyLTExVDE0OjQ5OjI0KzAwOjAwm4mhsgAAAC10RVh0aWNjOmNvcHlyaWdodABDb3B5cmlnaHQgQXJ0aWZleCBTb2Z0d2FyZSAyMDExCLrFtAAAADF0RVh0aWNjOmRlc2NyaXB0aW9uAEFydGlmZXggU29mdHdhcmUgc1JHQiBJQ0MgUHJvZmlsZRMMAYYAAAATdEVYdHBkZjpWZXJzaW9uAFBERi0xLjVTNlrBAAAASnRFWHRzaWduYXR1cmUAZDIwOTk4N2Q5MmNhOWRhMWVmMDMzOWZkMWY4ODc5MWZlMTg5YzM4MmYzM2VhYzQxYmQxODk2NGE3NGNhN2IzY+DGyZ8AAAAASUVORK5CYII=\n",
+                                                "text/plain": [
+                                                        "<wand.image.Image: d209987 'PDF' (477x259)>"
+                                                ]
+                                        },
+                                        "metadata": {},
+                                        "output_type": "display_data"
+                                }
+                        ],
+                        "source": [
+                                "from pyfeyn2.render.text.unicodepdf import UnicodePDFRender\n",
+                                "tfd = UnicodePDFRender(fd)\n",
+                                "tfd.render(show=True,height=30,width=40)"
+                        ]
+                },
+                {
+                        "cell_type": "code",
+                        "execution_count": 5,
+                        "id": "cec929fe",
+                        "metadata": {},
+                        "outputs": [
+                                {
+                                        "name": "stdout",
+                                        "output_type": "stream",
+                                        "text": [
+                                                "\\documentclass[preview]{standalone}%\n",
+                                                "\\usepackage[T1]{fontenc}%\n",
+                                                "\\usepackage[utf8]{inputenc}%\n",
+                                                "\\usepackage{lmodern}%\n",
+                                                "\\usepackage{textcomp}%\n",
+                                                "\\usepackage{lastpage}%\n",
+                                                "%\n",
+                                                "\\usepackage{listings}%\n",
+                                                "\\usepackage{fontspec}%\n",
+                                                "\\usepackage{minted}%\n",
+                                                "\n",
+                                                "\\setmonofont{LiberationMono}[\n",
+                                                "  Extension=.ttf,\n",
+                                                "  UprightFont=*-Regular,\n",
+                                                "  ItalicFont=*-Italic,\n",
+                                                "  BoldFont=*-Bold,\n",
+                                                "  BoldItalicFont=*-BoldItalic,\n",
+                                                "]\n",
+                                                "\n",
+                                                "\\frenchspacing\n",
+                                                "            %\n",
+                                                "%\n",
+                                                "\\begin{document}%\n",
+                                                "\\normalsize%\n",
+                                                "\\begin{minted}{text}\n",
+                                                "                                        \n",
+                                                "                                        \n",
+                                                "                                        \n",
+                                                "                                        \n",
+                                                "                                        \n",
+                                                "                                        \n",
+                                                "                                      O*\n",
+                                                "                                   OOO  \n",
+                                                "       γ             ü          OOO     \n",
+                                                "                   äö         OO        \n",
+                                                "   *~~                     OOO        O*\n",
+                                                "      ~~~~              →*O         OO  \n",
+                                                "          ~~~~~    →→→→→ ↓ OOOO   OO    \n",
+                                                "       α       ~O*→      ↓     O*O      \n",
+                                                "            OOOO   ←←←←← ↓ OOOO  OO     \n",
+                                                "         OOO            ←*O        OO   \n",
+                                                "     OOOO                  OO        OO \n",
+                                                "   *O                        OO β      *\n",
+                                                "                               OOO      \n",
+                                                "                                  OO    \n",
+                                                "                                    OO  \n",
+                                                "                                      O*\n",
+                                                "                                        \n",
+                                                "                                        \n",
+                                                "                                        \n",
+                                                "                                        \n",
+                                                "                                        \n",
+                                                "                                        \n",
+                                                "                                        \n",
+                                                "                                        \n",
+                                                "\\end{minted}\n",
+                                                "%\n",
+                                                "\\end{document}\n"
+                                        ]
+                                }
+                        ],
+                        "source": [
+                                "print(tfd.get_src())"
+                        ]
+                },
+                {
+                        "cell_type": "code",
+                        "execution_count": null,
+                        "id": "7b9e7f88",
+                        "metadata": {},
+                        "outputs": [],
+                        "source": []
+                }
+        ],
+        "metadata": {
+                "kernelspec": {
+                        "display_name": "Python 3 (ipykernel)",
+                        "language": "python",
+                        "name": "python3"
+                },
+                "language_info": {
+                        "codemirror_mode": {
+                                "name": "ipython",
+                                "version": 3
+                        },
+                        "file_extension": ".py",
+                        "mimetype": "text/x-python",
+                        "name": "python",
+                        "nbconvert_exporter": "python",
+                        "pygments_lexer": "ipython3",
+                        "version": "3.9.16"
+                },
+                "vscode": {
+                        "interpreter": {
+                                "hash": "31f2aee4e71d21fbe5cf8b01ff0e069b9275f58929596ceb00d14d90e3e16cd6"
+                        }
+                }
+        },
+        "nbformat": 4,
+        "nbformat_minor": 5
 }

@@ -1,214 +1,214 @@
 {
- "cells": [
-  {
-   "cell_type": "markdown",
-   "id": "8755f09e",
-   "metadata": {},
-   "source": [
-    "# ASCII"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "id": "4c4fe0ff",
-   "metadata": {},
-   "source": [
-    "## Characters/String"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 1,
-   "id": "00b27fa3",
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "from pyfeyn2.feynmandiagram import FeynmanDiagram, Leg, Propagator, Vertex\n",
-    "from pyfeyn2.render.text.ascii import ASCIIRender\n",
-    "from pyfeyn2.render.latex.dot import feynman_adjust_points"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 2,
-   "id": "b2236bc4",
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "fd = FeynmanDiagram()\n",
-    "v1 = Vertex(\"v1\")\n",
-    "v2 = Vertex(\"v2\")\n",
-    "v3 = Vertex(\"v3\")\n",
-    "v4 = Vertex(\"v4\")\n",
-    "p1 = Propagator(\"p1\").connect(v2, v1).set_type(\"fermion\")\n",
-    "p2 = Propagator(\"p2\").connect(v1, v3).set_type(\"fermion\")\n",
-    "p3 = Propagator(\"p3\").connect(v3, v2).set_type(\"fermion\")\n",
-    "p4 = Propagator(\"p4\").connect(v4, v3).set_type(\"gluon\")\n",
-    "p5 = Propagator(\"p5\").connect(v4, v2).set_type(\"gluon\")\n",
-    "l1 = Leg(\"l1\").set_target(v1).set_type(\"gluon\").set_incoming().set_xy(-2, 1)\n",
-    "l2 = Leg(\"l2\").set_target(v1).set_type(\"gluon\").set_incoming().set_xy(-2, -1)\n",
-    "l3 = Leg(\"l3\").set_target(v2).set_type(\"gluon\").set_outgoing().set_xy(2, -2)\n",
-    "l4 = Leg(\"l4\").set_target(v3).set_type(\"gluon\").set_outgoing().set_xy(2, 2)\n",
-    "l5 = Leg(\"l5\").set_target(v4).set_type(\"gluon\").set_outgoing().set_xy(2, 1)\n",
-    "l6 = Leg(\"l6\").set_target(v4).set_type(\"gluon\").set_outgoing().set_xy(2, -1)\n",
-    "\n",
-    "fd.propagators.extend([p1, p2, p3, p4, p5])\n",
-    "fd.vertices.extend([v1, v2, v3, v4])\n",
-    "fd.legs.extend([l1, l2, l3, l4, l5, l6])\n",
-    "fd= feynman_adjust_points(fd)"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 3,
-   "id": "7ffda508",
-   "metadata": {},
-   "outputs": [
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "                                                                                \n",
-      "                                                                                \n",
-      "                                                                                \n",
-      "                                                                                \n",
-      "                                                                                \n",
-      "                                                                                \n",
-      "                                                                             OO*\n",
-      "                                                                       OOOOOO   \n",
-      "                                                                 OOOOOO         \n",
-      "                                                            OOOOO               \n",
-      "      *OOOO                                           OOOOOO                 OO*\n",
-      "           OOOOOOOOO                           ----*OOO                  OOOO   \n",
-      "                    OOOOOOOOOO         -->---->    |   OOOOOOOO      OOOO       \n",
-      "                              OOOO*->--            v           OOO*OO           \n",
-      "                        OOOOOOO        <----<--    |   OOOOOOOO     OOO         \n",
-      "                 OOOOOOO                       --<-*OOO                OOOO     \n",
-      "          OOOOOOO                                     OOOOO                OOO  \n",
-      "      *OOO                                                 OOOO               O*\n",
-      "                                                               OOOOO            \n",
-      "                                                                    OOOO        \n",
-      "                                                                        OOOOO   \n",
-      "                                                                             OO*\n",
-      "                                                                                \n",
-      "                                                                                \n",
-      "                                                                                \n",
-      "                                                                                \n",
-      "                                                                                \n",
-      "                                                                                \n",
-      "                                                                                \n",
-      "                                                                                \n",
-      "\n"
-     ]
-    }
-   ],
-   "source": [
-    "tfd = ASCIIRender(fd)\n",
-    "s= tfd.render(show=False,height=30,width=80)\n",
-    "print(s)"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "id": "05c464b2",
-   "metadata": {},
-   "source": [
-    "## PDF"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 4,
-   "id": "c79ef31d",
-   "metadata": {},
-   "outputs": [
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "                                        \n",
-      "                                        \n",
-      "                                        \n",
-      "                                        \n",
-      "                                        \n",
-      "                                        \n",
-      "                                      O*\n",
-      "                                   OOO  \n",
-      "                                OOO     \n",
-      "                              OO        \n",
-      "   *OO                     OOO        O*\n",
-      "      OOOO             >-*O         OO  \n",
-      "          OOOO     ----  | OOOO   OO    \n",
-      "              OO*->      v     O*O      \n",
-      "            OOO    ----  | OOOO  OO     \n",
-      "        OOOO           <-*O        OO   \n",
-      "     OOO                   OO        OO \n",
-      "   *O                        OO        *\n",
-      "                               OOO      \n",
-      "                                  OO    \n",
-      "                                    OO  \n",
-      "                                      O*\n",
-      "                                        \n",
-      "                                        \n",
-      "                                        \n",
-      "                                        \n",
-      "                                        \n",
-      "                                        \n",
-      "                                        \n",
-      "                                        \n",
-      "\n"
-     ]
-    },
-    {
-     "data": {
-      "image/png": "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\n",
-      "text/plain": [
-       "<wand.image.Image: ab47385 'PDF' (332x365)>"
-      ]
-     },
-     "metadata": {},
-     "output_type": "display_data"
-    }
-   ],
-   "source": [
-    "from pyfeyn2.render.text.asciipdf import ASCIIPDFRender\n",
-    "tfd = ASCIIPDFRender(fd)\n",
-    "tfd.render(show=True,height=30,width=40)"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "id": "cec929fe",
-   "metadata": {},
-   "outputs": [],
-   "source": []
-  }
- ],
- "metadata": {
-  "kernelspec": {
-   "display_name": "Python 3 (ipykernel)",
-   "language": "python",
-   "name": "python3"
-  },
-  "language_info": {
-   "codemirror_mode": {
-    "name": "ipython",
-    "version": 3
-   },
-   "file_extension": ".py",
-   "mimetype": "text/x-python",
-   "name": "python",
-   "nbconvert_exporter": "python",
-   "pygments_lexer": "ipython3",
-   "version": "3.9.16"
-  },
-  "vscode": {
-   "interpreter": {
-    "hash": "31f2aee4e71d21fbe5cf8b01ff0e069b9275f58929596ceb00d14d90e3e16cd6"
-   }
-  }
- },
- "nbformat": 4,
- "nbformat_minor": 5
+        "cells": [
+                {
+                        "cell_type": "markdown",
+                        "id": "8755f09e",
+                        "metadata": {},
+                        "source": [
+                                "# ASCII"
+                        ]
+                },
+                {
+                        "cell_type": "markdown",
+                        "id": "4c4fe0ff",
+                        "metadata": {},
+                        "source": [
+                                "## Characters/String"
+                        ]
+                },
+                {
+                        "cell_type": "code",
+                        "execution_count": 1,
+                        "id": "00b27fa3",
+                        "metadata": {},
+                        "outputs": [],
+                        "source": [
+                                "from pyfeyn2.feynmandiagram import FeynmanDiagram, Leg, Propagator, Vertex\n",
+                                "from pyfeyn2.render.text.ascii import ASCIIRender\n",
+                                "from pyfeyn2.render.latex.dot import feynman_adjust_points"
+                        ]
+                },
+                {
+                        "cell_type": "code",
+                        "execution_count": 2,
+                        "id": "b2236bc4",
+                        "metadata": {},
+                        "outputs": [],
+                        "source": [
+                                "fd = FeynmanDiagram()\n",
+                                "v1 = Vertex(\"v1\")\n",
+                                "v2 = Vertex(\"v2\")\n",
+                                "v3 = Vertex(\"v3\")\n",
+                                "v4 = Vertex(\"v4\")\n",
+                                "p1 = Propagator(\"p1\").connect(v2, v1).with_type(\"fermion\")\n",
+                                "p2 = Propagator(\"p2\").connect(v1, v3).with_type(\"fermion\")\n",
+                                "p3 = Propagator(\"p3\").connect(v3, v2).with_type(\"fermion\")\n",
+                                "p4 = Propagator(\"p4\").connect(v4, v3).with_type(\"gluon\")\n",
+                                "p5 = Propagator(\"p5\").connect(v4, v2).with_type(\"gluon\")\n",
+                                "l1 = Leg(\"l1\").with_target(v1).with_type(\"gluon\").with_incoming().with_xy(-2, 1)\n",
+                                "l2 = Leg(\"l2\").with_target(v1).with_type(\"gluon\").with_incoming().with_xy(-2, -1)\n",
+                                "l3 = Leg(\"l3\").with_target(v2).with_type(\"gluon\").with_outgoing().with_xy(2, -2)\n",
+                                "l4 = Leg(\"l4\").with_target(v3).with_type(\"gluon\").with_outgoing().with_xy(2, 2)\n",
+                                "l5 = Leg(\"l5\").with_target(v4).with_type(\"gluon\").with_outgoing().with_xy(2, 1)\n",
+                                "l6 = Leg(\"l6\").with_target(v4).with_type(\"gluon\").with_outgoing().with_xy(2, -1)\n",
+                                "\n",
+                                "fd.propagators.extend([p1, p2, p3, p4, p5])\n",
+                                "fd.vertices.extend([v1, v2, v3, v4])\n",
+                                "fd.legs.extend([l1, l2, l3, l4, l5, l6])\n",
+                                "fd= feynman_adjust_points(fd)"
+                        ]
+                },
+                {
+                        "cell_type": "code",
+                        "execution_count": 3,
+                        "id": "7ffda508",
+                        "metadata": {},
+                        "outputs": [
+                                {
+                                        "name": "stdout",
+                                        "output_type": "stream",
+                                        "text": [
+                                                "                                                                                \n",
+                                                "                                                                                \n",
+                                                "                                                                                \n",
+                                                "                                                                                \n",
+                                                "                                                                                \n",
+                                                "                                                                                \n",
+                                                "                                                                             OO*\n",
+                                                "                                                                       OOOOOO   \n",
+                                                "                                                                 OOOOOO         \n",
+                                                "                                                            OOOOO               \n",
+                                                "      *OOOO                                           OOOOOO                 OO*\n",
+                                                "           OOOOOOOOO                           ----*OOO                  OOOO   \n",
+                                                "                    OOOOOOOOOO         -->---->    |   OOOOOOOO      OOOO       \n",
+                                                "                              OOOO*->--            v           OOO*OO           \n",
+                                                "                        OOOOOOO        <----<--    |   OOOOOOOO     OOO         \n",
+                                                "                 OOOOOOO                       --<-*OOO                OOOO     \n",
+                                                "          OOOOOOO                                     OOOOO                OOO  \n",
+                                                "      *OOO                                                 OOOO               O*\n",
+                                                "                                                               OOOOO            \n",
+                                                "                                                                    OOOO        \n",
+                                                "                                                                        OOOOO   \n",
+                                                "                                                                             OO*\n",
+                                                "                                                                                \n",
+                                                "                                                                                \n",
+                                                "                                                                                \n",
+                                                "                                                                                \n",
+                                                "                                                                                \n",
+                                                "                                                                                \n",
+                                                "                                                                                \n",
+                                                "                                                                                \n",
+                                                "\n"
+                                        ]
+                                }
+                        ],
+                        "source": [
+                                "tfd = ASCIIRender(fd)\n",
+                                "s= tfd.render(show=False,height=30,width=80)\n",
+                                "print(s)"
+                        ]
+                },
+                {
+                        "cell_type": "markdown",
+                        "id": "05c464b2",
+                        "metadata": {},
+                        "source": [
+                                "## PDF"
+                        ]
+                },
+                {
+                        "cell_type": "code",
+                        "execution_count": 4,
+                        "id": "c79ef31d",
+                        "metadata": {},
+                        "outputs": [
+                                {
+                                        "name": "stdout",
+                                        "output_type": "stream",
+                                        "text": [
+                                                "                                        \n",
+                                                "                                        \n",
+                                                "                                        \n",
+                                                "                                        \n",
+                                                "                                        \n",
+                                                "                                        \n",
+                                                "                                      O*\n",
+                                                "                                   OOO  \n",
+                                                "                                OOO     \n",
+                                                "                              OO        \n",
+                                                "   *OO                     OOO        O*\n",
+                                                "      OOOO             >-*O         OO  \n",
+                                                "          OOOO     ----  | OOOO   OO    \n",
+                                                "              OO*->      v     O*O      \n",
+                                                "            OOO    ----  | OOOO  OO     \n",
+                                                "        OOOO           <-*O        OO   \n",
+                                                "     OOO                   OO        OO \n",
+                                                "   *O                        OO        *\n",
+                                                "                               OOO      \n",
+                                                "                                  OO    \n",
+                                                "                                    OO  \n",
+                                                "                                      O*\n",
+                                                "                                        \n",
+                                                "                                        \n",
+                                                "                                        \n",
+                                                "                                        \n",
+                                                "                                        \n",
+                                                "                                        \n",
+                                                "                                        \n",
+                                                "                                        \n",
+                                                "\n"
+                                        ]
+                                },
+                                {
+                                        "data": {
+                                                "image/png": "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\n",
+                                                "text/plain": [
+                                                        "<wand.image.Image: ab47385 'PDF' (332x365)>"
+                                                ]
+                                        },
+                                        "metadata": {},
+                                        "output_type": "display_data"
+                                }
+                        ],
+                        "source": [
+                                "from pyfeyn2.render.text.asciipdf import ASCIIPDFRender\n",
+                                "tfd = ASCIIPDFRender(fd)\n",
+                                "tfd.render(show=True,height=30,width=40)"
+                        ]
+                },
+                {
+                        "cell_type": "code",
+                        "execution_count": null,
+                        "id": "cec929fe",
+                        "metadata": {},
+                        "outputs": [],
+                        "source": []
+                }
+        ],
+        "metadata": {
+                "kernelspec": {
+                        "display_name": "Python 3 (ipykernel)",
+                        "language": "python",
+                        "name": "python3"
+                },
+                "language_info": {
+                        "codemirror_mode": {
+                                "name": "ipython",
+                                "version": 3
+                        },
+                        "file_extension": ".py",
+                        "mimetype": "text/x-python",
+                        "name": "python",
+                        "nbconvert_exporter": "python",
+                        "pygments_lexer": "ipython3",
+                        "version": "3.9.16"
+                },
+                "vscode": {
+                        "interpreter": {
+                                "hash": "31f2aee4e71d21fbe5cf8b01ff0e069b9275f58929596ceb00d14d90e3e16cd6"
+                        }
+                }
+        },
+        "nbformat": 4,
+        "nbformat_minor": 5
 }
