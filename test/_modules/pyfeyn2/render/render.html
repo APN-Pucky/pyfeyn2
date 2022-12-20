@@ -37,7 +37,7 @@
             <img src="../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.0.7-57-gf81a83b8
+                2.0.7-58-g4b31d12c
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -168,17 +168,17 @@ from pyfeyn2.feynmandiagram import FeynmanDiagram, Leg, Propagator, Vertex
         fd = FeynmanDiagram().add(
             v1,
             v2,
-            Propagator().connect(v1, v2).set_type(d).set_label(label).set_tension(0.0),
+            Propagator().connect(v1, v2).with_type(d).set_label(label).set_tension(0.0),
             Leg()
             .with_target(v1)
             .set_point(v1)
-            .set_type(&quot;phantom&quot;)
+            .with_type(&quot;phantom&quot;)
             .with_incoming()
             .set_length(0.0),
             Leg()
             .with_target(v2)
             .set_point(v2)
-            .set_type(&quot;phantom&quot;)
+            .with_type(&quot;phantom&quot;)
             .with_outgoing()
             .set_length(0.0),
         )

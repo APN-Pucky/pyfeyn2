@@ -42,7 +42,7 @@
             <img src="../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.0.7-57-gf81a83b8
+                2.0.7-58-g4b31d12c
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -625,17 +625,17 @@ FeynmanDiagram(default_style=True, propagators=[Propagator(id=&#39;Propagator7&#
 <span class="n">v2</span> <span class="o">=</span> <span class="n">Vertex</span><span class="p">(</span><span class="s2">&quot;v2&quot;</span><span class="p">)</span>
 <span class="n">v3</span> <span class="o">=</span> <span class="n">Vertex</span><span class="p">(</span><span class="s2">&quot;v3&quot;</span><span class="p">)</span>
 <span class="n">v4</span> <span class="o">=</span> <span class="n">Vertex</span><span class="p">(</span><span class="s2">&quot;v4&quot;</span><span class="p">)</span>
-<span class="n">p1</span> <span class="o">=</span> <span class="n">Propagator</span><span class="p">(</span><span class="s2">&quot;p1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">)</span><span class="o">.</span><span class="n">set_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span>
-<span class="n">p2</span> <span class="o">=</span> <span class="n">Propagator</span><span class="p">(</span><span class="s2">&quot;p2&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span> <span class="n">v3</span><span class="p">)</span><span class="o">.</span><span class="n">set_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span>
-<span class="n">p3</span> <span class="o">=</span> <span class="n">Propagator</span><span class="p">(</span><span class="s2">&quot;p3&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">v3</span><span class="p">,</span> <span class="n">v2</span><span class="p">)</span><span class="o">.</span><span class="n">set_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span>
-<span class="n">p4</span> <span class="o">=</span> <span class="n">Propagator</span><span class="p">(</span><span class="s2">&quot;p4&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">v4</span><span class="p">,</span> <span class="n">v3</span><span class="p">)</span><span class="o">.</span><span class="n">set_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span>
-<span class="n">p5</span> <span class="o">=</span> <span class="n">Propagator</span><span class="p">(</span><span class="s2">&quot;p5&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">v4</span><span class="p">,</span> <span class="n">v2</span><span class="p">)</span><span class="o">.</span><span class="n">set_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span>
-<span class="n">l1</span> <span class="o">=</span> <span class="n">Leg</span><span class="p">(</span><span class="s2">&quot;l1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">with_target</span><span class="p">(</span><span class="n">v1</span><span class="p">)</span><span class="o">.</span><span class="n">set_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">with_incoming</span><span class="p">()</span><span class="o">.</span><span class="n">with_xy</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">l2</span> <span class="o">=</span> <span class="n">Leg</span><span class="p">(</span><span class="s2">&quot;l2&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">with_target</span><span class="p">(</span><span class="n">v1</span><span class="p">)</span><span class="o">.</span><span class="n">set_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">with_incoming</span><span class="p">()</span><span class="o">.</span><span class="n">with_xy</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">l3</span> <span class="o">=</span> <span class="n">Leg</span><span class="p">(</span><span class="s2">&quot;l3&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">with_target</span><span class="p">(</span><span class="n">v2</span><span class="p">)</span><span class="o">.</span><span class="n">set_type</span><span class="p">(</span><span class="s2">&quot;fermion&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">with_outgoing</span><span class="p">()</span><span class="o">.</span><span class="n">with_xy</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">l4</span> <span class="o">=</span> <span class="n">Leg</span><span class="p">(</span><span class="s2">&quot;l4&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">with_target</span><span class="p">(</span><span class="n">v3</span><span class="p">)</span><span class="o">.</span><span class="n">set_type</span><span class="p">(</span><span class="s2">&quot;fermion&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">with_outgoing</span><span class="p">()</span><span class="o">.</span><span class="n">with_xy</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="n">l5</span> <span class="o">=</span> <span class="n">Leg</span><span class="p">(</span><span class="s2">&quot;l5&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">with_target</span><span class="p">(</span><span class="n">v4</span><span class="p">)</span><span class="o">.</span><span class="n">set_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">with_outgoing</span><span class="p">()</span><span class="o">.</span><span class="n">with_xy</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">l6</span> <span class="o">=</span> <span class="n">Leg</span><span class="p">(</span><span class="s2">&quot;l6&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">with_target</span><span class="p">(</span><span class="n">v4</span><span class="p">)</span><span class="o">.</span><span class="n">set_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">with_outgoing</span><span class="p">()</span><span class="o">.</span><span class="n">with_xy</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">p1</span> <span class="o">=</span> <span class="n">Propagator</span><span class="p">(</span><span class="s2">&quot;p1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">)</span><span class="o">.</span><span class="n">with_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span>
+<span class="n">p2</span> <span class="o">=</span> <span class="n">Propagator</span><span class="p">(</span><span class="s2">&quot;p2&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span> <span class="n">v3</span><span class="p">)</span><span class="o">.</span><span class="n">with_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span>
+<span class="n">p3</span> <span class="o">=</span> <span class="n">Propagator</span><span class="p">(</span><span class="s2">&quot;p3&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">v3</span><span class="p">,</span> <span class="n">v2</span><span class="p">)</span><span class="o">.</span><span class="n">with_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span>
+<span class="n">p4</span> <span class="o">=</span> <span class="n">Propagator</span><span class="p">(</span><span class="s2">&quot;p4&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">v4</span><span class="p">,</span> <span class="n">v3</span><span class="p">)</span><span class="o">.</span><span class="n">with_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span>
+<span class="n">p5</span> <span class="o">=</span> <span class="n">Propagator</span><span class="p">(</span><span class="s2">&quot;p5&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">v4</span><span class="p">,</span> <span class="n">v2</span><span class="p">)</span><span class="o">.</span><span class="n">with_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span>
+<span class="n">l1</span> <span class="o">=</span> <span class="n">Leg</span><span class="p">(</span><span class="s2">&quot;l1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">with_target</span><span class="p">(</span><span class="n">v1</span><span class="p">)</span><span class="o">.</span><span class="n">with_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">with_incoming</span><span class="p">()</span><span class="o">.</span><span class="n">with_xy</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">l2</span> <span class="o">=</span> <span class="n">Leg</span><span class="p">(</span><span class="s2">&quot;l2&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">with_target</span><span class="p">(</span><span class="n">v1</span><span class="p">)</span><span class="o">.</span><span class="n">with_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">with_incoming</span><span class="p">()</span><span class="o">.</span><span class="n">with_xy</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">l3</span> <span class="o">=</span> <span class="n">Leg</span><span class="p">(</span><span class="s2">&quot;l3&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">with_target</span><span class="p">(</span><span class="n">v2</span><span class="p">)</span><span class="o">.</span><span class="n">with_type</span><span class="p">(</span><span class="s2">&quot;fermion&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">with_outgoing</span><span class="p">()</span><span class="o">.</span><span class="n">with_xy</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">l4</span> <span class="o">=</span> <span class="n">Leg</span><span class="p">(</span><span class="s2">&quot;l4&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">with_target</span><span class="p">(</span><span class="n">v3</span><span class="p">)</span><span class="o">.</span><span class="n">with_type</span><span class="p">(</span><span class="s2">&quot;fermion&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">with_outgoing</span><span class="p">()</span><span class="o">.</span><span class="n">with_xy</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">l5</span> <span class="o">=</span> <span class="n">Leg</span><span class="p">(</span><span class="s2">&quot;l5&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">with_target</span><span class="p">(</span><span class="n">v4</span><span class="p">)</span><span class="o">.</span><span class="n">with_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">with_outgoing</span><span class="p">()</span><span class="o">.</span><span class="n">with_xy</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">l6</span> <span class="o">=</span> <span class="n">Leg</span><span class="p">(</span><span class="s2">&quot;l6&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">with_target</span><span class="p">(</span><span class="n">v4</span><span class="p">)</span><span class="o">.</span><span class="n">with_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">with_outgoing</span><span class="p">()</span><span class="o">.</span><span class="n">with_xy</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="n">l6</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;black&quot;</span>
 
@@ -651,63 +651,63 @@ FeynmanDiagram(default_style=True, propagators=[Propagator(id=&#39;Propagator7&#
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
 /tmp/ipykernel_22998/900790511.py:6: DeprecatedWarning: set_type is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
-  p1 = Propagator(&#34;p1&#34;).connect(v1, v2).set_type(&#34;gluon&#34;)
+  p1 = Propagator(&#34;p1&#34;).connect(v1, v2).with_type(&#34;gluon&#34;)
 /tmp/ipykernel_22998/900790511.py:7: DeprecatedWarning: set_type is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
-  p2 = Propagator(&#34;p2&#34;).connect(v1, v3).set_type(&#34;gluon&#34;)
+  p2 = Propagator(&#34;p2&#34;).connect(v1, v3).with_type(&#34;gluon&#34;)
 /tmp/ipykernel_22998/900790511.py:8: DeprecatedWarning: set_type is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
-  p3 = Propagator(&#34;p3&#34;).connect(v3, v2).set_type(&#34;gluon&#34;)
+  p3 = Propagator(&#34;p3&#34;).connect(v3, v2).with_type(&#34;gluon&#34;)
 /tmp/ipykernel_22998/900790511.py:9: DeprecatedWarning: set_type is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
-  p4 = Propagator(&#34;p4&#34;).connect(v4, v3).set_type(&#34;gluon&#34;)
+  p4 = Propagator(&#34;p4&#34;).connect(v4, v3).with_type(&#34;gluon&#34;)
 /tmp/ipykernel_22998/900790511.py:10: DeprecatedWarning: set_type is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
-  p5 = Propagator(&#34;p5&#34;).connect(v4, v2).set_type(&#34;gluon&#34;)
+  p5 = Propagator(&#34;p5&#34;).connect(v4, v2).with_type(&#34;gluon&#34;)
 /tmp/ipykernel_22998/900790511.py:11: DeprecatedWarning: set_target is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
-  l1 = Leg(&#34;l1&#34;).with_target(v1).set_type(&#34;gluon&#34;).with_incoming().with_xy(-2, 1)
+  l1 = Leg(&#34;l1&#34;).with_target(v1).with_type(&#34;gluon&#34;).with_incoming().with_xy(-2, 1)
 /tmp/ipykernel_22998/900790511.py:11: DeprecatedWarning: set_type is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
-  l1 = Leg(&#34;l1&#34;).with_target(v1).set_type(&#34;gluon&#34;).with_incoming().with_xy(-2, 1)
+  l1 = Leg(&#34;l1&#34;).with_target(v1).with_type(&#34;gluon&#34;).with_incoming().with_xy(-2, 1)
 /tmp/ipykernel_22998/900790511.py:11: DeprecatedWarning: set_incoming is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
-  l1 = Leg(&#34;l1&#34;).with_target(v1).set_type(&#34;gluon&#34;).with_incoming().with_xy(-2, 1)
+  l1 = Leg(&#34;l1&#34;).with_target(v1).with_type(&#34;gluon&#34;).with_incoming().with_xy(-2, 1)
 /tmp/ipykernel_22998/900790511.py:11: DeprecatedWarning: set_xy is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
-  l1 = Leg(&#34;l1&#34;).with_target(v1).set_type(&#34;gluon&#34;).with_incoming().with_xy(-2, 1)
+  l1 = Leg(&#34;l1&#34;).with_target(v1).with_type(&#34;gluon&#34;).with_incoming().with_xy(-2, 1)
 /tmp/ipykernel_22998/900790511.py:12: DeprecatedWarning: set_target is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
-  l2 = Leg(&#34;l2&#34;).with_target(v1).set_type(&#34;gluon&#34;).with_incoming().with_xy(-2, -1)
+  l2 = Leg(&#34;l2&#34;).with_target(v1).with_type(&#34;gluon&#34;).with_incoming().with_xy(-2, -1)
 /tmp/ipykernel_22998/900790511.py:12: DeprecatedWarning: set_type is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
-  l2 = Leg(&#34;l2&#34;).with_target(v1).set_type(&#34;gluon&#34;).with_incoming().with_xy(-2, -1)
+  l2 = Leg(&#34;l2&#34;).with_target(v1).with_type(&#34;gluon&#34;).with_incoming().with_xy(-2, -1)
 /tmp/ipykernel_22998/900790511.py:12: DeprecatedWarning: set_incoming is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
-  l2 = Leg(&#34;l2&#34;).with_target(v1).set_type(&#34;gluon&#34;).with_incoming().with_xy(-2, -1)
+  l2 = Leg(&#34;l2&#34;).with_target(v1).with_type(&#34;gluon&#34;).with_incoming().with_xy(-2, -1)
 /tmp/ipykernel_22998/900790511.py:12: DeprecatedWarning: set_xy is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
-  l2 = Leg(&#34;l2&#34;).with_target(v1).set_type(&#34;gluon&#34;).with_incoming().with_xy(-2, -1)
+  l2 = Leg(&#34;l2&#34;).with_target(v1).with_type(&#34;gluon&#34;).with_incoming().with_xy(-2, -1)
 /tmp/ipykernel_22998/900790511.py:13: DeprecatedWarning: set_target is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
-  l3 = Leg(&#34;l3&#34;).with_target(v2).set_type(&#34;fermion&#34;).with_outgoing().with_xy(2, -2)
+  l3 = Leg(&#34;l3&#34;).with_target(v2).with_type(&#34;fermion&#34;).with_outgoing().with_xy(2, -2)
 /tmp/ipykernel_22998/900790511.py:13: DeprecatedWarning: set_type is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
-  l3 = Leg(&#34;l3&#34;).with_target(v2).set_type(&#34;fermion&#34;).with_outgoing().with_xy(2, -2)
+  l3 = Leg(&#34;l3&#34;).with_target(v2).with_type(&#34;fermion&#34;).with_outgoing().with_xy(2, -2)
 /tmp/ipykernel_22998/900790511.py:13: DeprecatedWarning: set_outgoing is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
-  l3 = Leg(&#34;l3&#34;).with_target(v2).set_type(&#34;fermion&#34;).with_outgoing().with_xy(2, -2)
+  l3 = Leg(&#34;l3&#34;).with_target(v2).with_type(&#34;fermion&#34;).with_outgoing().with_xy(2, -2)
 /tmp/ipykernel_22998/900790511.py:13: DeprecatedWarning: set_xy is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
-  l3 = Leg(&#34;l3&#34;).with_target(v2).set_type(&#34;fermion&#34;).with_outgoing().with_xy(2, -2)
+  l3 = Leg(&#34;l3&#34;).with_target(v2).with_type(&#34;fermion&#34;).with_outgoing().with_xy(2, -2)
 /tmp/ipykernel_22998/900790511.py:14: DeprecatedWarning: set_target is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
-  l4 = Leg(&#34;l4&#34;).with_target(v3).set_type(&#34;fermion&#34;).with_outgoing().with_xy(2, 2)
+  l4 = Leg(&#34;l4&#34;).with_target(v3).with_type(&#34;fermion&#34;).with_outgoing().with_xy(2, 2)
 /tmp/ipykernel_22998/900790511.py:14: DeprecatedWarning: set_type is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
-  l4 = Leg(&#34;l4&#34;).with_target(v3).set_type(&#34;fermion&#34;).with_outgoing().with_xy(2, 2)
+  l4 = Leg(&#34;l4&#34;).with_target(v3).with_type(&#34;fermion&#34;).with_outgoing().with_xy(2, 2)
 /tmp/ipykernel_22998/900790511.py:14: DeprecatedWarning: set_outgoing is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
-  l4 = Leg(&#34;l4&#34;).with_target(v3).set_type(&#34;fermion&#34;).with_outgoing().with_xy(2, 2)
+  l4 = Leg(&#34;l4&#34;).with_target(v3).with_type(&#34;fermion&#34;).with_outgoing().with_xy(2, 2)
 /tmp/ipykernel_22998/900790511.py:14: DeprecatedWarning: set_xy is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
-  l4 = Leg(&#34;l4&#34;).with_target(v3).set_type(&#34;fermion&#34;).with_outgoing().with_xy(2, 2)
+  l4 = Leg(&#34;l4&#34;).with_target(v3).with_type(&#34;fermion&#34;).with_outgoing().with_xy(2, 2)
 /tmp/ipykernel_22998/900790511.py:15: DeprecatedWarning: set_target is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
-  l5 = Leg(&#34;l5&#34;).with_target(v4).set_type(&#34;gluon&#34;).with_outgoing().with_xy(2, 1)
+  l5 = Leg(&#34;l5&#34;).with_target(v4).with_type(&#34;gluon&#34;).with_outgoing().with_xy(2, 1)
 /tmp/ipykernel_22998/900790511.py:15: DeprecatedWarning: set_type is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
-  l5 = Leg(&#34;l5&#34;).with_target(v4).set_type(&#34;gluon&#34;).with_outgoing().with_xy(2, 1)
+  l5 = Leg(&#34;l5&#34;).with_target(v4).with_type(&#34;gluon&#34;).with_outgoing().with_xy(2, 1)
 /tmp/ipykernel_22998/900790511.py:15: DeprecatedWarning: set_outgoing is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
-  l5 = Leg(&#34;l5&#34;).with_target(v4).set_type(&#34;gluon&#34;).with_outgoing().with_xy(2, 1)
+  l5 = Leg(&#34;l5&#34;).with_target(v4).with_type(&#34;gluon&#34;).with_outgoing().with_xy(2, 1)
 /tmp/ipykernel_22998/900790511.py:15: DeprecatedWarning: set_xy is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
-  l5 = Leg(&#34;l5&#34;).with_target(v4).set_type(&#34;gluon&#34;).with_outgoing().with_xy(2, 1)
+  l5 = Leg(&#34;l5&#34;).with_target(v4).with_type(&#34;gluon&#34;).with_outgoing().with_xy(2, 1)
 /tmp/ipykernel_22998/900790511.py:16: DeprecatedWarning: set_target is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
-  l6 = Leg(&#34;l6&#34;).with_target(v4).set_type(&#34;gluon&#34;).with_outgoing().with_xy(2, -1)
+  l6 = Leg(&#34;l6&#34;).with_target(v4).with_type(&#34;gluon&#34;).with_outgoing().with_xy(2, -1)
 /tmp/ipykernel_22998/900790511.py:16: DeprecatedWarning: set_type is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
-  l6 = Leg(&#34;l6&#34;).with_target(v4).set_type(&#34;gluon&#34;).with_outgoing().with_xy(2, -1)
+  l6 = Leg(&#34;l6&#34;).with_target(v4).with_type(&#34;gluon&#34;).with_outgoing().with_xy(2, -1)
 /tmp/ipykernel_22998/900790511.py:16: DeprecatedWarning: set_outgoing is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
-  l6 = Leg(&#34;l6&#34;).with_target(v4).set_type(&#34;gluon&#34;).with_outgoing().with_xy(2, -1)
+  l6 = Leg(&#34;l6&#34;).with_target(v4).with_type(&#34;gluon&#34;).with_outgoing().with_xy(2, -1)
 /tmp/ipykernel_22998/900790511.py:16: DeprecatedWarning: set_xy is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
-  l6 = Leg(&#34;l6&#34;).with_target(v4).set_type(&#34;gluon&#34;).with_outgoing().with_xy(2, -1)
+  l6 = Leg(&#34;l6&#34;).with_target(v4).with_type(&#34;gluon&#34;).with_outgoing().with_xy(2, -1)
 </pre></div></div>
 </div>
 <p>Now calculate the positions of vertices.</p>
