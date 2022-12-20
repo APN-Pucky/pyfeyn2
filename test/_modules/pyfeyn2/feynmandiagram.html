@@ -37,7 +37,7 @@
             <img src="../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.0.7-55-g88a911d7
+                2.0.7-57-gf81a83b8
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -403,7 +403,7 @@ class Sourcing:
 <div class="viewcode-block" id="Line"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.Line.html#pyfeyn2.feynmandiagram.Line">[docs]</a>@dataclass
 class Line(Targeting, Sourcing):
     def connect(self, source, target):
-        return self.with_source(source.id).set_target(target.id)</div>
+        return self.with_source(source.id).with_target(target.id)</div>
 
 
 <div class="viewcode-block" id="Vertex"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.Vertex.html#pyfeyn2.feynmandiagram.Vertex">[docs]</a>@withify()

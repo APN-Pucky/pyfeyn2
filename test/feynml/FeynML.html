@@ -42,7 +42,7 @@
             <img src="../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.0.7-55-g88a911d7
+                2.0.7-57-gf81a83b8
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -428,9 +428,9 @@ div.rendered_html tbody tr:hover {
 <span class="n">v1</span> <span class="o">=</span> <span class="n">Vertex</span><span class="p">(</span><span class="s2">&quot;v1&quot;</span><span class="p">)</span>
 <span class="n">v2</span> <span class="o">=</span> <span class="n">Vertex</span><span class="p">(</span><span class="s2">&quot;v2&quot;</span><span class="p">)</span>
 <span class="n">p1</span> <span class="o">=</span> <span class="n">Propagator</span><span class="p">(</span><span class="s2">&quot;p1&quot;</span><span class="p">)</span>
-<span class="n">l1</span> <span class="o">=</span> <span class="n">Leg</span><span class="p">(</span><span class="s2">&quot;l1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set_incoming</span><span class="p">()</span>
-<span class="n">p1</span><span class="o">.</span><span class="n">set_source</span><span class="p">(</span><span class="n">v1</span><span class="p">)</span>
-<span class="n">p1</span><span class="o">.</span><span class="n">set_target</span><span class="p">(</span><span class="n">v2</span><span class="p">)</span>
+<span class="n">l1</span> <span class="o">=</span> <span class="n">Leg</span><span class="p">(</span><span class="s2">&quot;l1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">with_incoming</span><span class="p">()</span>
+<span class="n">p1</span><span class="o">.</span><span class="n">with_source</span><span class="p">(</span><span class="n">v1</span><span class="p">)</span>
+<span class="n">p1</span><span class="o">.</span><span class="n">with_target</span><span class="p">(</span><span class="n">v2</span><span class="p">)</span>
 <span class="n">fd</span><span class="o">.</span><span class="n">propagators</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p1</span><span class="p">)</span>
 <span class="n">fd</span><span class="o">.</span><span class="n">vertices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v1</span><span class="p">)</span>
 <span class="n">fd</span><span class="o">.</span><span class="n">vertices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v2</span><span class="p">)</span>

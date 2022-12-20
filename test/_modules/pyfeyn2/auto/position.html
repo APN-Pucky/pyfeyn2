@@ -37,7 +37,7 @@
             <img src="../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.0.7-55-g88a911d7
+                2.0.7-57-gf81a83b8
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -114,10 +114,10 @@ from pyfeyn2.interface.dot import dot_to_positions, feynman_to_dot
     return fd</div>
 
 
-<div class="viewcode-block" id="feynman_adjust_points"><a class="viewcode-back" href="../../../_autosummary/pyfeyn2.auto.position.feynman_adjust_points.html#pyfeyn2.auto.position.feynman_adjust_points">[docs]</a>def feynman_adjust_points(feyndiag, size=5, delete_vertices=True):
+<div class="viewcode-block" id="feynman_adjust_points"><a class="viewcode-back" href="../../../_autosummary/pyfeyn2.auto.position.feynman_adjust_points.html#pyfeyn2.auto.position.feynman_adjust_points">[docs]</a>def feynman_adjust_points(feyndiag, size=5, override_vertices=True):
     &quot;&quot;&quot;Adjust the points of the vertices and legs using Dot language algorithms.&quot;&quot;&quot;
     fd = feyndiag
-    if delete_vertices:
+    if override_vertices:
         for v in fd.vertices:
             v.x = None
             v.y = None
