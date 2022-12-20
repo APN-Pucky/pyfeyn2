@@ -40,7 +40,7 @@
             <img src="../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.0.7-58-g4b31d12c
+                2.0.7-61-g96360d6d
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -196,20 +196,26 @@
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_rules</span></code>(rules)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_bounding_box</span></code>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.FeynmanDiagram.from_xml" title="pyfeyn2.feynmandiagram.FeynmanDiagram.from_xml"><code class="xref py py-obj docutils literal notranslate"><span class="pre">from_xml</span></code></a>(xml)</p></td>
+<td><p>Load self from XML.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_bounding_box</span></code>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_connections</span></code>(vertex)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_connections</span></code>(vertex)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.FeynmanDiagram.get_style" title="pyfeyn2.feynmandiagram.FeynmanDiagram.get_style"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_style</span></code></a>(obj)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.FeynmanDiagram.get_style" title="pyfeyn2.feynmandiagram.FeynmanDiagram.get_style"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_style</span></code></a>(obj)</p></td>
 <td><p>Get the style of an object.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_vertex</span></code>(idd)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_vertex</span></code>(idd)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_propagator</span></code>(propagator)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_propagator</span></code>(propagator)</p></td>
 <td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.FeynmanDiagram.to_xml" title="pyfeyn2.feynmandiagram.FeynmanDiagram.to_xml"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_xml</span></code></a>()</p></td>
+<td><p>Return self as XML.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.FeynmanDiagram.with_default_style" title="pyfeyn2.feynmandiagram.FeynmanDiagram.with_default_style"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_default_style</span></code></a>(value[, k])</p></td>
 <td><p>Set default_style to <cite>value</cite> and return self.</p></td>
@@ -265,10 +271,22 @@
 </tbody>
 </table>
 <dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.FeynmanDiagram.from_xml">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_xml</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xml</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/feynmandiagram.html#FeynmanDiagram.from_xml"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.FeynmanDiagram.from_xml" title="Permalink to this definition"></a></dt>
+<dd><p>Load self from XML.</p>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.FeynmanDiagram.get_style">
 <span class="sig-name descname"><span class="pre">get_style</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">CSSStyleDeclaration</span></span></span><a class="reference internal" href="../_modules/pyfeyn2/feynmandiagram.html#FeynmanDiagram.get_style"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.FeynmanDiagram.get_style" title="Permalink to this definition"></a></dt>
 <dd><p>Get the style of an object.</p>
 <p>This is prefered over accessing the style attribute directly, sicne it includes class and pdgid definitions.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.FeynmanDiagram.to_xml">
+<span class="sig-name descname"><span class="pre">to_xml</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../_modules/pyfeyn2/feynmandiagram.html#FeynmanDiagram.to_xml"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.FeynmanDiagram.to_xml" title="Permalink to this definition"></a></dt>
+<dd><p>Return self as XML.</p>
 </dd></dl>
 
 <dl class="py method">

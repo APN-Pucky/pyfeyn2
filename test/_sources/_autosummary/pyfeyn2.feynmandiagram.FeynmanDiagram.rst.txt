@@ -20,11 +20,13 @@ pyfeyn2.feynmandiagram.FeynmanDiagram
       ~FeynmanDiagram.add
       ~FeynmanDiagram.add_rule
       ~FeynmanDiagram.add_rules
+      ~FeynmanDiagram.from_xml
       ~FeynmanDiagram.get_bounding_box
       ~FeynmanDiagram.get_connections
       ~FeynmanDiagram.get_style
       ~FeynmanDiagram.get_vertex
       ~FeynmanDiagram.remove_propagator
+      ~FeynmanDiagram.to_xml
       ~FeynmanDiagram.with_default_style
       ~FeynmanDiagram.with_labels
       ~FeynmanDiagram.with_legs

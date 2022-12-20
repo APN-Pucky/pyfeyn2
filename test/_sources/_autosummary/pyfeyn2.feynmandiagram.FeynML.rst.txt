@@ -17,7 +17,9 @@ pyfeyn2.feynmandiagram.FeynML
    .. autosummary::
    
       ~FeynML.__init__
+      ~FeynML.from_xml
       ~FeynML.get_diagram
+      ~FeynML.to_xml
    
    
 

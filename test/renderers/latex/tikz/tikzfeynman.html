@@ -42,7 +42,7 @@
             <img src="../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.0.7-58-g4b31d12c
+                2.0.7-61-g96360d6d
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -435,13 +435,13 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-2.0.7.29
+2.0.7.46
 </pre></div></div>
 </div>
 <section id="Simple-Case">
 <h2>Simple Case<a class="headerlink" href="#Simple-Case" title="Permalink to this heading"></a></h2>
 <p>We set the positions of all vertices here.</p>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
@@ -458,41 +458,6 @@ div.rendered_html tbody tr:hover {
 <span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-/tmp/ipykernel_22998/2728759477.py:1: DeprecatedWarning: set_xy is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
-  v1 = Vertex(&#34;v1&#34;).with_xy(-1, 0)
-/tmp/ipykernel_22998/2728759477.py:2: DeprecatedWarning: set_xy is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
-  v2 = Vertex(&#34;v2&#34;).with_xy(1, 0)
-/tmp/ipykernel_22998/2728759477.py:7: DeprecatedWarning: set_target is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
-  Leg(name=&#34;g&#34;,bend=True).with_target(v1).with_xy(-2, 1).with_incoming(),
-/tmp/ipykernel_22998/2728759477.py:7: DeprecatedWarning: set_xy is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
-  Leg(name=&#34;g&#34;,bend=True).with_target(v1).with_xy(-2, 1).with_incoming(),
-/tmp/ipykernel_22998/2728759477.py:7: DeprecatedWarning: set_incoming is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
-  Leg(name=&#34;g&#34;,bend=True).with_target(v1).with_xy(-2, 1).with_incoming(),
-/tmp/ipykernel_22998/2728759477.py:8: DeprecatedWarning: set_target is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
-  Leg(name=&#34;g&#34;,bend=True).with_target(v1).with_xy(-2, -1).with_incoming().with_class(&#34;notred&#34;),
-/tmp/ipykernel_22998/2728759477.py:8: DeprecatedWarning: set_xy is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
-  Leg(name=&#34;g&#34;,bend=True).with_target(v1).with_xy(-2, -1).with_incoming().with_class(&#34;notred&#34;),
-/tmp/ipykernel_22998/2728759477.py:8: DeprecatedWarning: set_incoming is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
-  Leg(name=&#34;g&#34;,bend=True).with_target(v1).with_xy(-2, -1).with_incoming().with_class(&#34;notred&#34;),
-/tmp/ipykernel_22998/2728759477.py:9: DeprecatedWarning: set_target is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
-  Leg(name=&#34;g&#34;,bend=True).with_target(v2).with_xy(2, 1).with_outgoing().with_class(&#34;red&#34;),
-/tmp/ipykernel_22998/2728759477.py:9: DeprecatedWarning: set_xy is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
-  Leg(name=&#34;g&#34;,bend=True).with_target(v2).with_xy(2, 1).with_outgoing().with_class(&#34;red&#34;),
-/tmp/ipykernel_22998/2728759477.py:9: DeprecatedWarning: set_outgoing is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
-  Leg(name=&#34;g&#34;,bend=True).with_target(v2).with_xy(2, 1).with_outgoing().with_class(&#34;red&#34;),
-/tmp/ipykernel_22998/2728759477.py:10: DeprecatedWarning: set_target is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
-  Leg(&#34;myid1&#34;,name=&#34;g&#34;,bend=True).with_target(v2).with_xy(2, -1).with_outgoing()
-/tmp/ipykernel_22998/2728759477.py:10: DeprecatedWarning: set_xy is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
-  Leg(&#34;myid1&#34;,name=&#34;g&#34;,bend=True).with_target(v2).with_xy(2, -1).with_outgoing()
-/tmp/ipykernel_22998/2728759477.py:10: DeprecatedWarning: set_outgoing is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
-  Leg(&#34;myid1&#34;,name=&#34;g&#34;,bend=True).with_target(v2).with_xy(2, -1).with_outgoing()
-</pre></div></div>
 </div>
 <section id="Style">
 <h3>Style<a class="headerlink" href="#Style" title="Permalink to this heading"></a></h3>
@@ -523,10 +488,14 @@ div.rendered_html tbody tr:hover {
 <span class="s2">#myid1 {</span>
 <span class="s2">    color: gray;</span>
 <span class="s2">}</span>
-<span class="s2">.pdgid21 {</span>
+<span class="s2">[pdgid=&quot;21&quot;] {</span>
 <span class="s2">    color: black;</span>
 <span class="s2">}</span>
+<span class="s2">#myid2 {</span>
+<span class="s2">    color: gray;</span>
+<span class="s2">}</span>
 <span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+<span class="n">fd</span><span class="o">.</span><span class="n">sheet</span><span class="o">.</span><span class="n">cssText</span>
 </pre></div>
 </div>
 </div>
@@ -536,11 +505,28 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-FeynmanDiagram(default_style=True, propagators=[Propagator(id=&#39;Propagator7&#39;, id2=None, pdgid=&lt;PDGID: 21&gt;, name=&#39;g&#39;, type=&#39;gluon&#39;, particle=&lt;Particle: name=&#34;g&#34;, pdgid=21, mass=0.0 MeV&gt;, style=cssutils.css.CSSStyleDeclaration(cssText=&#39;&#39;), clazz=None, bend=True, label=None, momentum=None, tension=None, length=None, source=&#39;v1&#39;, target=&#39;v2&#39;)], vertices=[Vertex(id=&#39;v1&#39;, id2=None, style=cssutils.css.CSSStyleDeclaration(cssText=&#39;&#39;), clazz=None, x=-1.0, y=0.0, z=None, label=None), Vertex(id=&#39;v2&#39;, id2=None, style=cssutils.css.CSSStyleDeclaration(cssText=&#39;&#39;), clazz=None, x=1.0, y=0.0, z=None, label=None)], legs=[Leg(id=&#39;Leg8&#39;, id2=None, pdgid=&lt;PDGID: 21&gt;, name=&#39;g&#39;, type=&#39;gluon&#39;, particle=&lt;Particle: name=&#34;g&#34;, pdgid=21, mass=0.0 MeV&gt;, style=cssutils.css.CSSStyleDeclaration(cssText=&#39;&#39;), clazz=None, bend=True, label=None, momentum=None, tension=None, length=None, target=&#39;v1&#39;, x=-2.0, y=1.0, z=None, sense=&#39;incoming&#39;, external=None), Leg(id=&#39;Leg9&#39;, id2=None, pdgid=&lt;PDGID: 21&gt;, name=&#39;g&#39;, type=&#39;gluon&#39;, particle=&lt;Particle: name=&#34;g&#34;, pdgid=21, mass=0.0 MeV&gt;, style=cssutils.css.CSSStyleDeclaration(cssText=&#39;&#39;), clazz=&#39;notred&#39;, bend=True, label=None, momentum=None, tension=None, length=None, target=&#39;v1&#39;, x=-2.0, y=-1.0, z=None, sense=&#39;incoming&#39;, external=None), Leg(id=&#39;Leg10&#39;, id2=None, pdgid=&lt;PDGID: 21&gt;, name=&#39;g&#39;, type=&#39;gluon&#39;, particle=&lt;Particle: name=&#34;g&#34;, pdgid=21, mass=0.0 MeV&gt;, style=cssutils.css.CSSStyleDeclaration(cssText=&#39;&#39;), clazz=&#39;red&#39;, bend=True, label=None, momentum=None, tension=None, length=None, target=&#39;v2&#39;, x=2.0, y=1.0, z=None, sense=&#39;outgoing&#39;, external=None), Leg(id=&#39;myid1&#39;, id2=None, pdgid=&lt;PDGID: 21&gt;, name=&#39;g&#39;, type=&#39;gluon&#39;, particle=&lt;Particle: name=&#34;g&#34;, pdgid=21, mass=0.0 MeV&gt;, style=cssutils.css.CSSStyleDeclaration(cssText=&#39;&#39;), clazz=None, bend=True, label=None, momentum=None, tension=None, length=None, target=&#39;v2&#39;, x=2.0, y=-1.0, z=None, sense=&#39;outgoing&#39;, external=None)], labels=[], sheet=cssutils.css.CSSStyleSheet(href=None, media=None, title=None))
+b&#39;* {\n    bend-direction: left;\n    color: green\n    }\n.red {\n    color: red\n    }\n.notred {\n    color: blue\n    }\n#myid1 {\n    color: gray\n    }\n[pdgid=&#34;21&#34;] {\n    color: black\n    }\n#myid2 {\n    color: gray\n    }&#39;
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fd</span><span class="o">.</span><span class="n">to_xml</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;\n&lt;diagram default_style=&#34;true&#34; style=&#34;* {&amp;#10;    bend-direction: left;&amp;#10;    color: green&amp;#10;    }&amp;#10;.red {&amp;#10;    color: red&amp;#10;    }&amp;#10;.notred {&amp;#10;    color: blue&amp;#10;    }&amp;#10;#myid1 {&amp;#10;    color: gray&amp;#10;    }&amp;#10;[pdgid=&amp;quot;21&amp;quot;] {&amp;#10;    color: black&amp;#10;    }&amp;#10;#myid2 {&amp;#10;    color: gray&amp;#10;    }&#34;&gt;\n  &lt;propagator id=&#34;Propagator6&#34; pdgid=&#34;21&#34; type=&#34;gluon&#34; style=&#34;&#34; bend=&#34;true&#34;&gt;\n    &lt;name&gt;g&lt;/name&gt;\n    &lt;source&gt;v1&lt;/source&gt;\n    &lt;target&gt;v2&lt;/target&gt;\n  &lt;/propagator&gt;\n  &lt;vertex id=&#34;v1&#34; style=&#34;&#34; x=&#34;-1.0&#34; y=&#34;0.0&#34;/&gt;\n  &lt;vertex id=&#34;v2&#34; style=&#34;&#34; x=&#34;1.0&#34; y=&#34;0.0&#34;/&gt;\n  &lt;leg id=&#34;Leg7&#34; pdgid=&#34;21&#34; type=&#34;gluon&#34; style=&#34;&#34; bend=&#34;true&#34; x=&#34;-2.0&#34; y=&#34;1.0&#34;&gt;\n    &lt;name&gt;g&lt;/name&gt;\n    &lt;target&gt;v1&lt;/target&gt;\n    &lt;sense&gt;incoming&lt;/sense&gt;\n  &lt;/leg&gt;\n  &lt;leg id=&#34;Leg8&#34; pdgid=&#34;21&#34; type=&#34;gluon&#34; style=&#34;&#34; class=&#34;notred&#34; bend=&#34;true&#34; x=&#34;-2.0&#34; y=&#34;-1.0&#34;&gt;\n    &lt;name&gt;g&lt;/name&gt;\n    &lt;target&gt;v1&lt;/target&gt;\n    &lt;sense&gt;incoming&lt;/sense&gt;\n  &lt;/leg&gt;\n  &lt;leg id=&#34;Leg9&#34; pdgid=&#34;21&#34; type=&#34;gluon&#34; style=&#34;&#34; class=&#34;red&#34; bend=&#34;true&#34; x=&#34;2.0&#34; y=&#34;1.0&#34;&gt;\n    &lt;name&gt;g&lt;/name&gt;\n    &lt;target&gt;v2&lt;/target&gt;\n    &lt;sense&gt;outgoing&lt;/sense&gt;\n  &lt;/leg&gt;\n  &lt;leg id=&#34;myid1&#34; pdgid=&#34;21&#34; type=&#34;gluon&#34; style=&#34;&#34; bend=&#34;true&#34; x=&#34;2.0&#34; y=&#34;-1.0&#34;&gt;\n    &lt;name&gt;g&lt;/name&gt;\n    &lt;target&gt;v2&lt;/target&gt;\n    &lt;sense&gt;outgoing&lt;/sense&gt;\n  &lt;/leg&gt;\n&lt;/diagram&gt;\n&#39;
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tfd</span> <span class="o">=</span> <span class="n">TikzFeynmanRender</span><span class="p">(</span><span class="n">fd</span><span class="p">)</span>
@@ -571,15 +557,15 @@ FeynmanDiagram(default_style=True, propagators=[Propagator(id=&#39;Propagator7&#
         \vertex (v1clone) [] at (-1.0,0.0);
         \vertex (v2) [] at (1.0,0.0);
         \vertex (v2clone) [] at (1.0,0.0);
-        \vertex (Leg8) [] at (-2.0,1.0);
-        \vertex (Leg9) [] at (-2.0,-1.0);
-        \vertex (Leg10) [] at (2.0,1.0);
+        \vertex (Leg7) [] at (-2.0,1.0);
+        \vertex (Leg8) [] at (-2.0,-1.0);
+        \vertex (Leg9) [] at (2.0,1.0);
         \vertex (myid1) [] at (2.0,-1.0);
         \diagram*{
                 (v1) -- [gluon,black,bend left] (v2),
-                (Leg8) -- [gluon,black,bend left] (v1),
-                (Leg9) -- [gluon,blue,bend left] (v1),
-                (v2) -- [gluon,red,bend left] (Leg10),
+                (Leg7) -- [gluon,black,bend left] (v1),
+                (Leg8) -- [gluon,blue,bend left] (v1),
+                (v2) -- [gluon,red,bend left] (Leg9),
                 (v2) -- [gluon,gray,bend left] (myid1),
         };
 \end{feynman}
@@ -589,7 +575,7 @@ FeynmanDiagram(default_style=True, propagators=[Propagator(id=&#39;Propagator7&#
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tfd</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="s2">&quot;test.pdf&quot;</span><span class="p">)</span>
@@ -600,15 +586,15 @@ FeynmanDiagram(default_style=True, propagators=[Propagator(id=&#39;Propagator7&#
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/renderers_latex_tikz_tikzfeynman_9_0.png" src="../../../_images/renderers_latex_tikz_tikzfeynman_9_0.png" />
+<img alt="../../../_images/renderers_latex_tikz_tikzfeynman_10_0.png" src="../../../_images/renderers_latex_tikz_tikzfeynman_10_0.png" />
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/renderers_latex_tikz_tikzfeynman_9_1.png" src="../../../_images/renderers_latex_tikz_tikzfeynman_9_1.png" />
+<img alt="../../../_images/renderers_latex_tikz_tikzfeynman_10_1.png" src="../../../_images/renderers_latex_tikz_tikzfeynman_10_1.png" />
 </div>
 </div>
 </section>
@@ -616,11 +602,15 @@ FeynmanDiagram(default_style=True, propagators=[Propagator(id=&#39;Propagator7&#
 <section id="Complicated-Case">
 <h2>Complicated Case<a class="headerlink" href="#Complicated-Case" title="Permalink to this heading"></a></h2>
 <p>We only set the positions of the Legs here.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fd</span> <span class="o">=</span> <span class="n">FeynmanDiagram</span><span class="p">()</span><span class="o">.</span><span class="n">with_rules</span><span class="p">(</span><span class="s2">&quot;* {color: red;} </span><span class="se">\n</span><span class="s2">.fermion {color: blue;}&quot;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fd</span> <span class="o">=</span> <span class="n">FeynmanDiagram</span><span class="p">()</span><span class="o">.</span><span class="n">with_rules</span><span class="p">(</span>
+    <span class="sd">&quot;&quot;&quot; * {color: red;}</span>
+<span class="sd">        [type=fermion] {color: blue; line: gluon}</span>
+<span class="sd">        #p1 {color: green;}</span>
+<span class="sd">        :not([type=fermion]) { color : black; line: fermion}&quot;&quot;&quot;</span><span class="p">)</span>
 <span class="n">v1</span> <span class="o">=</span> <span class="n">Vertex</span><span class="p">(</span><span class="s2">&quot;v1&quot;</span><span class="p">)</span>
 <span class="n">v2</span> <span class="o">=</span> <span class="n">Vertex</span><span class="p">(</span><span class="s2">&quot;v2&quot;</span><span class="p">)</span>
 <span class="n">v3</span> <span class="o">=</span> <span class="n">Vertex</span><span class="p">(</span><span class="s2">&quot;v3&quot;</span><span class="p">)</span>
@@ -632,12 +622,12 @@ FeynmanDiagram(default_style=True, propagators=[Propagator(id=&#39;Propagator7&#
 <span class="n">p5</span> <span class="o">=</span> <span class="n">Propagator</span><span class="p">(</span><span class="s2">&quot;p5&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">v4</span><span class="p">,</span> <span class="n">v2</span><span class="p">)</span><span class="o">.</span><span class="n">with_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span>
 <span class="n">l1</span> <span class="o">=</span> <span class="n">Leg</span><span class="p">(</span><span class="s2">&quot;l1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">with_target</span><span class="p">(</span><span class="n">v1</span><span class="p">)</span><span class="o">.</span><span class="n">with_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">with_incoming</span><span class="p">()</span><span class="o">.</span><span class="n">with_xy</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">l2</span> <span class="o">=</span> <span class="n">Leg</span><span class="p">(</span><span class="s2">&quot;l2&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">with_target</span><span class="p">(</span><span class="n">v1</span><span class="p">)</span><span class="o">.</span><span class="n">with_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">with_incoming</span><span class="p">()</span><span class="o">.</span><span class="n">with_xy</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">l3</span> <span class="o">=</span> <span class="n">Leg</span><span class="p">(</span><span class="s2">&quot;l3&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">with_target</span><span class="p">(</span><span class="n">v2</span><span class="p">)</span><span class="o">.</span><span class="n">with_type</span><span class="p">(</span><span class="s2">&quot;fermion&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">with_outgoing</span><span class="p">()</span><span class="o">.</span><span class="n">with_xy</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">l3</span> <span class="o">=</span> <span class="n">Leg</span><span class="p">(</span><span class="s2">&quot;l3&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">with_target</span><span class="p">(</span><span class="n">v2</span><span class="p">)</span><span class="o">.</span><span class="n">with_type</span><span class="p">(</span><span class="s2">&quot;fermion&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">with_outgoing</span><span class="p">()</span><span class="o">.</span><span class="n">with_xy</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">with_class</span><span class="p">(</span><span class="s2">&quot;blue&quot;</span><span class="p">)</span>
 <span class="n">l4</span> <span class="o">=</span> <span class="n">Leg</span><span class="p">(</span><span class="s2">&quot;l4&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">with_target</span><span class="p">(</span><span class="n">v3</span><span class="p">)</span><span class="o">.</span><span class="n">with_type</span><span class="p">(</span><span class="s2">&quot;fermion&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">with_outgoing</span><span class="p">()</span><span class="o">.</span><span class="n">with_xy</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="n">l5</span> <span class="o">=</span> <span class="n">Leg</span><span class="p">(</span><span class="s2">&quot;l5&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">with_target</span><span class="p">(</span><span class="n">v4</span><span class="p">)</span><span class="o">.</span><span class="n">with_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">with_outgoing</span><span class="p">()</span><span class="o">.</span><span class="n">with_xy</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">l6</span> <span class="o">=</span> <span class="n">Leg</span><span class="p">(</span><span class="s2">&quot;l6&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">with_target</span><span class="p">(</span><span class="n">v4</span><span class="p">)</span><span class="o">.</span><span class="n">with_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">with_outgoing</span><span class="p">()</span><span class="o">.</span><span class="n">with_xy</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 
-<span class="n">l6</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;black&quot;</span>
+<span class="n">l6</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;orange&quot;</span>
 
 <span class="n">fd</span><span class="o">.</span><span class="n">propagators</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="n">p3</span><span class="p">,</span> <span class="n">p4</span><span class="p">,</span> <span class="n">p5</span><span class="p">])</span>
 <span class="n">fd</span><span class="o">.</span><span class="n">vertices</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">,</span> <span class="n">v3</span><span class="p">,</span> <span class="n">v4</span><span class="p">])</span>
@@ -645,74 +635,9 @@ FeynmanDiagram(default_style=True, propagators=[Propagator(id=&#39;Propagator7&#
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-/tmp/ipykernel_22998/900790511.py:6: DeprecatedWarning: set_type is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
-  p1 = Propagator(&#34;p1&#34;).connect(v1, v2).with_type(&#34;gluon&#34;)
-/tmp/ipykernel_22998/900790511.py:7: DeprecatedWarning: set_type is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
-  p2 = Propagator(&#34;p2&#34;).connect(v1, v3).with_type(&#34;gluon&#34;)
-/tmp/ipykernel_22998/900790511.py:8: DeprecatedWarning: set_type is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
-  p3 = Propagator(&#34;p3&#34;).connect(v3, v2).with_type(&#34;gluon&#34;)
-/tmp/ipykernel_22998/900790511.py:9: DeprecatedWarning: set_type is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
-  p4 = Propagator(&#34;p4&#34;).connect(v4, v3).with_type(&#34;gluon&#34;)
-/tmp/ipykernel_22998/900790511.py:10: DeprecatedWarning: set_type is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
-  p5 = Propagator(&#34;p5&#34;).connect(v4, v2).with_type(&#34;gluon&#34;)
-/tmp/ipykernel_22998/900790511.py:11: DeprecatedWarning: set_target is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
-  l1 = Leg(&#34;l1&#34;).with_target(v1).with_type(&#34;gluon&#34;).with_incoming().with_xy(-2, 1)
-/tmp/ipykernel_22998/900790511.py:11: DeprecatedWarning: set_type is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
-  l1 = Leg(&#34;l1&#34;).with_target(v1).with_type(&#34;gluon&#34;).with_incoming().with_xy(-2, 1)
-/tmp/ipykernel_22998/900790511.py:11: DeprecatedWarning: set_incoming is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
-  l1 = Leg(&#34;l1&#34;).with_target(v1).with_type(&#34;gluon&#34;).with_incoming().with_xy(-2, 1)
-/tmp/ipykernel_22998/900790511.py:11: DeprecatedWarning: set_xy is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
-  l1 = Leg(&#34;l1&#34;).with_target(v1).with_type(&#34;gluon&#34;).with_incoming().with_xy(-2, 1)
-/tmp/ipykernel_22998/900790511.py:12: DeprecatedWarning: set_target is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
-  l2 = Leg(&#34;l2&#34;).with_target(v1).with_type(&#34;gluon&#34;).with_incoming().with_xy(-2, -1)
-/tmp/ipykernel_22998/900790511.py:12: DeprecatedWarning: set_type is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
-  l2 = Leg(&#34;l2&#34;).with_target(v1).with_type(&#34;gluon&#34;).with_incoming().with_xy(-2, -1)
-/tmp/ipykernel_22998/900790511.py:12: DeprecatedWarning: set_incoming is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
-  l2 = Leg(&#34;l2&#34;).with_target(v1).with_type(&#34;gluon&#34;).with_incoming().with_xy(-2, -1)
-/tmp/ipykernel_22998/900790511.py:12: DeprecatedWarning: set_xy is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
-  l2 = Leg(&#34;l2&#34;).with_target(v1).with_type(&#34;gluon&#34;).with_incoming().with_xy(-2, -1)
-/tmp/ipykernel_22998/900790511.py:13: DeprecatedWarning: set_target is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
-  l3 = Leg(&#34;l3&#34;).with_target(v2).with_type(&#34;fermion&#34;).with_outgoing().with_xy(2, -2)
-/tmp/ipykernel_22998/900790511.py:13: DeprecatedWarning: set_type is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
-  l3 = Leg(&#34;l3&#34;).with_target(v2).with_type(&#34;fermion&#34;).with_outgoing().with_xy(2, -2)
-/tmp/ipykernel_22998/900790511.py:13: DeprecatedWarning: set_outgoing is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
-  l3 = Leg(&#34;l3&#34;).with_target(v2).with_type(&#34;fermion&#34;).with_outgoing().with_xy(2, -2)
-/tmp/ipykernel_22998/900790511.py:13: DeprecatedWarning: set_xy is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
-  l3 = Leg(&#34;l3&#34;).with_target(v2).with_type(&#34;fermion&#34;).with_outgoing().with_xy(2, -2)
-/tmp/ipykernel_22998/900790511.py:14: DeprecatedWarning: set_target is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
-  l4 = Leg(&#34;l4&#34;).with_target(v3).with_type(&#34;fermion&#34;).with_outgoing().with_xy(2, 2)
-/tmp/ipykernel_22998/900790511.py:14: DeprecatedWarning: set_type is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
-  l4 = Leg(&#34;l4&#34;).with_target(v3).with_type(&#34;fermion&#34;).with_outgoing().with_xy(2, 2)
-/tmp/ipykernel_22998/900790511.py:14: DeprecatedWarning: set_outgoing is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
-  l4 = Leg(&#34;l4&#34;).with_target(v3).with_type(&#34;fermion&#34;).with_outgoing().with_xy(2, 2)
-/tmp/ipykernel_22998/900790511.py:14: DeprecatedWarning: set_xy is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
-  l4 = Leg(&#34;l4&#34;).with_target(v3).with_type(&#34;fermion&#34;).with_outgoing().with_xy(2, 2)
-/tmp/ipykernel_22998/900790511.py:15: DeprecatedWarning: set_target is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
-  l5 = Leg(&#34;l5&#34;).with_target(v4).with_type(&#34;gluon&#34;).with_outgoing().with_xy(2, 1)
-/tmp/ipykernel_22998/900790511.py:15: DeprecatedWarning: set_type is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
-  l5 = Leg(&#34;l5&#34;).with_target(v4).with_type(&#34;gluon&#34;).with_outgoing().with_xy(2, 1)
-/tmp/ipykernel_22998/900790511.py:15: DeprecatedWarning: set_outgoing is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
-  l5 = Leg(&#34;l5&#34;).with_target(v4).with_type(&#34;gluon&#34;).with_outgoing().with_xy(2, 1)
-/tmp/ipykernel_22998/900790511.py:15: DeprecatedWarning: set_xy is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
-  l5 = Leg(&#34;l5&#34;).with_target(v4).with_type(&#34;gluon&#34;).with_outgoing().with_xy(2, 1)
-/tmp/ipykernel_22998/900790511.py:16: DeprecatedWarning: set_target is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
-  l6 = Leg(&#34;l6&#34;).with_target(v4).with_type(&#34;gluon&#34;).with_outgoing().with_xy(2, -1)
-/tmp/ipykernel_22998/900790511.py:16: DeprecatedWarning: set_type is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
-  l6 = Leg(&#34;l6&#34;).with_target(v4).with_type(&#34;gluon&#34;).with_outgoing().with_xy(2, -1)
-/tmp/ipykernel_22998/900790511.py:16: DeprecatedWarning: set_outgoing is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
-  l6 = Leg(&#34;l6&#34;).with_target(v4).with_type(&#34;gluon&#34;).with_outgoing().with_xy(2, -1)
-/tmp/ipykernel_22998/900790511.py:16: DeprecatedWarning: set_xy is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
-  l6 = Leg(&#34;l6&#34;).with_target(v4).with_type(&#34;gluon&#34;).with_outgoing().with_xy(2, -1)
-</pre></div></div>
-</div>
 <p>Now calculate the positions of vertices.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ffd</span><span class="o">=</span> <span class="n">feynman_adjust_points</span><span class="p">(</span><span class="n">fd</span><span class="p">)</span>
@@ -720,7 +645,7 @@ FeynmanDiagram(default_style=True, propagators=[Propagator(id=&#39;Propagator7&#
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">TikzFeynmanRender</span><span class="p">(</span><span class="n">ffd</span><span class="p">)</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
@@ -731,15 +656,23 @@ FeynmanDiagram(default_style=True, propagators=[Propagator(id=&#39;Propagator7&#
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/renderers_latex_tikz_tikzfeynman_15_0.png" src="../../../_images/renderers_latex_tikz_tikzfeynman_15_0.png" />
+<img alt="../../../_images/renderers_latex_tikz_tikzfeynman_16_0.png" src="../../../_images/renderers_latex_tikz_tikzfeynman_16_0.png" />
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/renderers_latex_tikz_tikzfeynman_15_1.png" src="../../../_images/renderers_latex_tikz_tikzfeynman_15_1.png" />
+<img alt="../../../_images/renderers_latex_tikz_tikzfeynman_16_1.png" src="../../../_images/renderers_latex_tikz_tikzfeynman_16_1.png" />
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
 </div>
 </div>
 </section>

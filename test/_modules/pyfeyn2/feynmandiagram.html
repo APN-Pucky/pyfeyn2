@@ -37,7 +37,7 @@
             <img src="../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.0.7-58-g4b31d12c
+                2.0.7-61-g96360d6d
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -108,8 +108,13 @@ from dataclasses import dataclass, field
 from typing import List, Optional, Union
 
 import cssutils
+from cssselect import GenericTranslator, SelectorError
+from lxml import etree
 from particle import Particle
 from xsdata.formats.converter import Converter, converter
+from xsdata.formats.dataclass.parsers import XmlParser
+from xsdata.formats.dataclass.serializers import XmlSerializer
+from xsdata.formats.dataclass.serializers.config import SerializerConfig
 
 from pyfeyn2.particles import get_either_particle
 from pyfeyn2.types import get_default_sheet
@@ -130,7 +135,7 @@ global_id = 0
 @dataclass
 class Identifiable:
     id: Optional[str] = field(
-        default=None, metadata={&quot;name&quot;: &quot;id&quot;, &quot;namespace&quot;: &quot;&quot;, &quot;type&quot;: &quot;Element&quot;}
+        default=None, metadata={&quot;name&quot;: &quot;id&quot;, &quot;namespace&quot;: &quot;&quot;, &quot;type&quot;: &quot;Attribute&quot;}
     )
     # id2: Optional[str] = field(default=None, metadata={&quot;name&quot;: &quot;id2&quot;, &quot;namespace&quot;: &quot;&quot;})
 
@@ -145,7 +150,9 @@ class Identifiable:
 <div class="viewcode-block" id="PDG"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.PDG.html#pyfeyn2.feynmandiagram.PDG">[docs]</a>@withify()
 @dataclass
 class PDG(Identifiable):
-    pdgid: Optional[int] = field(default=None, metadata={&quot;type&quot;: &quot;Element&quot;})
+    pdgid: Optional[int] = field(
+        default=None, metadata={&quot;name&quot;: &quot;pdgid&quot;, &quot;namespace&quot;: &quot;&quot;, &quot;type&quot;: &quot;Attribute&quot;}
+    )
     &quot;&quot;&quot;PDG ID of the particle&quot;&quot;&quot;
     name: Optional[str] = field(default=None, metadata={&quot;type&quot;: &quot;Element&quot;})
     &quot;&quot;&quot;Name of the particle&quot;&quot;&quot;
@@ -172,7 +179,7 @@ class PDG(Identifiable):
             )
             if self.particle is None:
                 raise ValueError(f&quot;Particle {self.name} not found&quot;)
-            self.pdgid = self.particle.pdgid
+            self.pdgid = int(self.particle.pdgid)
 
         if self.pdgid is not None and self.type is None:
             # TODO infere type from pdgid
@@ -593,49 +600,6 @@ class FeynmanDiagram:
         self.sheet = cssutils.parseString(rules)
         return self
 
-    def _get_rule_style(self, selectorText: str) -&gt; cssutils.css.CSSStyleDeclaration:
-        ret = []
-        if self.default_style:
-            sheets = [get_default_sheet(), self.sheet]
-        else:
-            sheets = [self.sheet]
-        for sheet in sheets:
-            for rule in sheet:
-                if rule.type == rule.STYLE_RULE and rule.selectorText == selectorText:
-                    ret += [rule.style]
-        if ret:
-            return cssutils.css.CSSStyleDeclaration(
-                cssText=&quot;;&quot;.join([r.cssText for r in ret])
-            )
-        else:
-            return cssutils.css.CSSStyleDeclaration()
-
-    def _get_class_style(self, obj: Styled) -&gt; cssutils.css.CSSStyleDeclaration:
-        css = []
-        css += [self._get_rule_style(type(obj).__name__.lower())]
-        clazzes = []
-        # pdgid is a special case of a class
-        if isinstance(obj, PDG):
-            if obj.pdgid:
-                clazzes += [&quot;pdgid&quot; + str(int(obj.pdgid))]
-            if obj.type:
-                clazzes += [obj.type]
-        if obj.clazz:
-            clazzes += obj.clazz.split()
-
-        # first pure classes
-        for clazz in clazzes:
-            # css class
-            css += [self._get_rule_style(&quot;.&quot; + clazz)]
-        # then element + class
-        for clazz in clazzes:
-            # css element + class
-            css += [self._get_rule_style(type(obj).__name__.lower() + &quot;.&quot; + clazz)]
-
-        return cssutils.css.CSSStyleDeclaration(
-            cssText=&quot;;&quot;.join([c.cssText for c in css])
-        )
-
 <div class="viewcode-block" id="FeynmanDiagram.get_style"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.FeynmanDiagram.html#pyfeyn2.feynmandiagram.FeynmanDiagram.get_style">[docs]</a>    def get_style(self, obj) -&gt; cssutils.css.CSSStyleDeclaration:
         &quot;&quot;&quot;Get the style of an object.
 
@@ -644,21 +608,71 @@ class FeynmanDiagram:
         # selectorText is string
         css = []
         # global style
-        css += [self._get_rule_style(&quot;*&quot;)]
+        css += [self._get_obj_style(obj)]
         if isinstance(obj, str):
             css += [self._get_rule_style(obj)]
-        if isinstance(obj, Styled):
-            # css class
-            css += [self._get_class_style(obj)]
-        if isinstance(obj, Identifiable):
-            # css id
-            css += [self._get_rule_style(&quot;#&quot; + obj.id)]
         if isinstance(obj, Styled):
             # specific attribute style
             css += [obj.style]
         return cssutils.css.CSSStyleDeclaration(
             cssText=&quot;;&quot;.join([c.cssText for c in css])
-        )</div></div>
+        )</div>
+
+    def _get_obj_style(self, obj: Identifiable) -&gt; cssutils.css.CSSStyleDeclaration:
+        document = etree.XML(self.to_xml().encode(&quot;ascii&quot;))
+
+        def lambdaselector(s, obj=obj, document=document):
+            expression = GenericTranslator().css_to_xpath(s)
+            return obj.id in [e.get(&quot;id&quot;) for e in document.xpath(expression)]
+
+        return self._get_style(lambdaselector)
+
+    def _get_style(self, lambdaselector) -&gt; cssutils.css.CSSStyleDeclaration:
+
+        ret = []
+
+        if self.default_style:
+            sheets = [get_default_sheet(), self.sheet]
+        else:
+            sheets = [self.sheet]
+        for sheet in sheets:
+            id = []
+            cls = []
+            rest = []
+            glob = []
+            for rule in sheet:
+                if rule.type == rule.STYLE_RULE:
+                    s = rule.selectorText
+                    if lambdaselector(s):
+                        if s.startswith(&quot;#&quot;):
+                            id.append(rule)
+                        elif s.startswith(&quot;[&quot;):
+                            rest.append(rule)
+                        elif s.startswith(&quot;:&quot;):
+                            rest.append(rule)
+                        elif s.startswith(&quot;*&quot;):
+                            glob.append(rule)
+                        elif s.contains(&quot;.&quot;):
+                            cls.append(rule)
+                        else:
+                            rest.append(rule)
+            ret += reversed(id + cls + rest + glob)
+        # sort rules by priority
+        return cssutils.css.CSSStyleDeclaration(
+            cssText=&quot;;&quot;.join([r.style.cssText for r in ret])
+        )
+
+<div class="viewcode-block" id="FeynmanDiagram.to_xml"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.FeynmanDiagram.html#pyfeyn2.feynmandiagram.FeynmanDiagram.to_xml">[docs]</a>    def to_xml(self) -&gt; str:
+        &quot;&quot;&quot;Return self as XML.&quot;&quot;&quot;
+        config = SerializerConfig(pretty_print=True)
+        serializer = XmlSerializer(config=config)
+        return serializer.render(self)</div>
+
+<div class="viewcode-block" id="FeynmanDiagram.from_xml"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.FeynmanDiagram.html#pyfeyn2.feynmandiagram.FeynmanDiagram.from_xml">[docs]</a>    @classmethod
+    def from_xml(cls, xml: str):
+        &quot;&quot;&quot;Load self from XML.&quot;&quot;&quot;
+        parser = XmlParser()
+        return parser.from_string(xml, cls)</div></div>
 
 
 <div class="viewcode-block" id="Meta"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.Meta.html#pyfeyn2.feynmandiagram.Meta">[docs]</a>@dataclass
@@ -710,7 +724,19 @@ class FeynML:
         for d in self.diagrams:
             if d.id == idd:
                 return d
-        return None</div>
+        return None
+
+<div class="viewcode-block" id="FeynML.to_xml"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.FeynML.html#pyfeyn2.feynmandiagram.FeynML.to_xml">[docs]</a>    def to_xml(self) -&gt; str:
+        &quot;&quot;&quot;Return self as XML.&quot;&quot;&quot;
+        config = SerializerConfig(pretty_print=True)
+        serializer = XmlSerializer(config=config)
+        return serializer.render(self)</div>
+
+<div class="viewcode-block" id="FeynML.from_xml"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.FeynML.html#pyfeyn2.feynmandiagram.FeynML.from_xml">[docs]</a>    @classmethod
+    def from_xml(cls, xml: str):
+        &quot;&quot;&quot;Load self from XML.&quot;&quot;&quot;
+        parser = XmlParser()
+        return parser.from_string(xml, cls)</div></div>
 </pre></div>
 
            </div>

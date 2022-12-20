@@ -28,7 +28,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Leg" href="leg.html" />
-    <link rel="prev" title="pyfeyn2 2.0.7-58-g4b31d12c documentation" href="../index.html" /> 
+    <link rel="prev" title="pyfeyn2 2.0.7-61-g96360d6d documentation" href="../index.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -40,7 +40,7 @@
             <img src="../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.0.7-58-g4b31d12c
+                2.0.7-61-g96360d6d
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -79,6 +79,7 @@
 <li class="toctree-l3"><a class="reference internal" href="attributes/z.html">z</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#css">CSS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#examples">Examples</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="FeynML.html">Write FeynmanDiagram</a></li>
 <li class="toctree-l3"><a class="reference internal" href="FeynML.html#Write-FeynML">Write FeynML</a></li>
@@ -292,6 +293,34 @@ However, it does have several benefits:</p>
 </div>
 <p>The attributes provide additional information and metadata about the elements.</p>
 </section>
+<section id="css">
+<h2>CSS<a class="headerlink" href="#css" title="Permalink to this heading"></a></h2>
+<p>To style the diagram, the following CSS classes are available:</p>
+<div class="highlight-css notranslate"><div class="highlight"><pre><span></span>/* General */
+* { ... }                              /* all elements */
+#`id` { ... }                          /* the element with id */
+
+/* diagram */
+vertex { ... }                         /* all vertices */
+propagator { ... }                     /* all propagators */
+leg { ... }                            /* all legs */
+
+/* attributes */
+[type=`type`] { ... }                  /* everything of given type */
+[pdgid=&quot;`pdgid`&quot;] { ... }              /* all pdg particles of given id*/
+</pre></div>
+</div>
+<p>Variables in single quotes are replaced by the actual value.
+The available css declarations are listed in the <a class="reference internal" href="attributes/style.html#style"><span class="std std-ref">style</span></a>.
+For a list of types see <a class="reference internal" href="attributes/type.html#type"><span class="std std-ref">type</span></a>.</p>
+<p>With the <a class="reference internal" href="attributes/class.html#class"><span class="std std-ref">class</span></a> attribute, the user can add custom classes to the elements.
+These or above classes can also be applied to a subset of the diagram e.g.</p>
+<div class="highlight-css notranslate"><div class="highlight"><pre><span></span>propagator:not([pdgid=&quot;-24&quot;]) { ... }  /* all propagators except W- bosons */
+</pre></div>
+</div>
+<p>The groupings of CSS are often more practical than looping through the elements in the diagram adjusting their style.
+For more advanced CSS selectors see <a class="reference external" href="https://www.w3schools.com/cssref/css_selectors.php">https://www.w3schools.com/cssref/css_selectors.php</a>.</p>
+</section>
 <section id="examples">
 <h2>Examples<a class="headerlink" href="#examples" title="Permalink to this heading"></a></h2>
 <div class="toctree-wrapper compound">
@@ -301,6 +330,7 @@ However, it does have several benefits:</p>
 <li class="toctree-l1"><a class="reference internal" href="FeynML.html#Read-FeynML">Read FeynML</a></li>
 </ul>
 </div>
+<p>More examples can be found in the <a class="reference internal" href="../gallery/index.html#gallery"><span class="std std-ref">Gallery</span></a> and the different renderers are listed in <a class="reference internal" href="../renderers/index.html#renderers"><span class="std std-ref">Renderers</span></a>.</p>
 </section>
 </section>
 
@@ -308,7 +338,7 @@ However, it does have several benefits:</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../index.html" class="btn btn-neutral float-left" title="pyfeyn2 2.0.7-58-g4b31d12c documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../index.html" class="btn btn-neutral float-left" title="pyfeyn2 2.0.7-61-g96360d6d documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="leg.html" class="btn btn-neutral float-right" title="Leg" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
