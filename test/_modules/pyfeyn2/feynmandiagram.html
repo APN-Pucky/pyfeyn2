@@ -37,7 +37,7 @@
             <img src="../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.0.7-51-gc8b0ad3f
+                2.0.7-53-g58f87e54
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -111,12 +111,8 @@ import cssutils
 from particle import Particle
 from xsdata.formats.converter import Converter, converter
 
-from pyfeyn2.particles import get_either_particle, get_name
+from pyfeyn2.particles import get_either_particle
 from pyfeyn2.types import get_default_sheet
-
-# from deprecated.sphinx import deprecated
-# from deprecation import deprecated as _deprecated
-# deprecated = lambda version,reason: _deprecated(deprecated_in=version,details=reason)
 from pyfeyn2.util import deprecated, withify
 
 # We don&#39;t want to see the cssutils warnings, since we have custom properties
@@ -710,9 +706,9 @@ class FeynML:
         metadata={&quot;name&quot;: &quot;diagram&quot;, &quot;type&quot;: &quot;Element&quot;, &quot;namespace&quot;: &quot;&quot;},
     )
 
-    def get_diagram(self, id):
+    def get_diagram(self, idd):
         for d in self.diagrams:
-            if d.id == id:
+            if d.id == idd:
                 return d
         return None</div>
 </pre></div>

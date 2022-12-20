@@ -37,7 +37,7 @@
             <img src="../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.0.7-51-gc8b0ad3f
+                2.0.7-53-g58f87e54
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -102,10 +102,7 @@
            <div itemprop="articleBody">
              
   <h1>Source code for pyfeyn2.auto.bend</h1><div class="highlight"><pre>
-<span></span>import copy
-
-
-# TODO bend legs?
+<span></span># TODO bend legs?
 <div class="viewcode-block" id="auto_bend"><a class="viewcode-back" href="../../../_autosummary/pyfeyn2.auto.bend.auto_bend.html#pyfeyn2.auto.bend.auto_bend">[docs]</a>def auto_bend(ifd):
     &quot;&quot;&quot;Automatically bend lines to avoid overlaps.&quot;&quot;&quot;
     fd = ifd
@@ -124,14 +121,10 @@
             for j, pb in enumerate(objs):
                 if i &lt; j:
                     if pa.target == pb.target and pa.source == pb.source:
-                        pa.bend = True
                         pa.style.setProperty(&quot;bend-direction&quot;, &quot;right&quot;)
-                        pb.bend = True
                         pb.style.setProperty(&quot;bend-direction&quot;, &quot;left&quot;)
                     if pa.target == pb.source and pa.source == pb.target:
-                        pa.bend = True
                         pa.style.setProperty(&quot;bend-direction&quot;, &quot;left&quot;)
-                        pb.bend = True
                         pb.style.setProperty(&quot;bend-direction&quot;, &quot;left&quot;)
         elif duplications[i] == 3:
             for j, pb in enumerate(objs):
@@ -139,14 +132,10 @@
                     # pc is the third propagator we keep it straight
                     if i &lt; j and j &lt; k:
                         if pa.target == pb.target and pa.source == pb.source:
-                            pa.bend = True
                             pa.style.setProperty(&quot;bend-direction&quot;, &quot;right&quot;)
-                            pb.bend = True
                             pb.style.setProperty(&quot;bend-direction&quot;, &quot;left&quot;)
                         if pa.target == pb.source and pa.source == pb.target:
-                            pa.bend = True
                             pa.style.setProperty(&quot;bend-direction&quot;, &quot;left&quot;)
-                            pb.bend = True
                             pb.style.setProperty(&quot;bend-direction&quot;, &quot;left&quot;)
 
         else:
@@ -171,16 +160,16 @@
                 sumrefx += r.x - me.x
                 sumrefy += r.y - me.y
 
-            dir = &quot;up&quot;
+            dire = &quot;up&quot;
             if sumrefy &gt; 0:
-                dir = &quot;down&quot;
+                dire = &quot;down&quot;
             else:
-                dir = &quot;up&quot;
+                dire = &quot;up&quot;
 
-            if dir == &quot;up&quot;:
+            if dire == &quot;up&quot;:
                 b_in = 45
                 b_out = 135
-            if dir == &quot;down&quot;:
+            if dire == &quot;down&quot;:
                 b_in = -45
                 b_out = -135
             p.style.setProperty(&quot;bend-in&quot;, b_in)

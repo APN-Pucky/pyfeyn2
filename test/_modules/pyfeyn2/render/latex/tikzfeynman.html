@@ -37,7 +37,7 @@
             <img src="../../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.0.7-51-gc8b0ad3f
+                2.0.7-53-g58f87e54
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
@@ -159,18 +159,17 @@ type_map = {
         ret += &quot;,opacity=&quot; + str(style.opacity)
     if style.color is not None and style.color != &quot;&quot;:
         ret += &quot;,&quot; + str(style.color)
-    if c.bend is not None and c.bend:
-        if style.getProperty(&quot;bend-direction&quot;) is not None:
-            ret += &quot;,bend &quot; + str(style.getProperty(&quot;bend-direction&quot;).value)
-        if style.getProperty(&quot;bend-loop&quot;) is not None:
-            ret += (
-                &quot;,loop , in=&quot;
-                + str(style.getProperty(&quot;bend-in&quot;).value)
-                + &quot;, out=&quot;
-                + str(style.getProperty(&quot;bend-out&quot;).value)
-                + &quot;, min distance=&quot;
-                + str(style.getProperty(&quot;bend-min-distance&quot;).value)
-            )
+    if style.getProperty(&quot;bend-direction&quot;) is not None:
+        ret += &quot;,bend &quot; + str(style.getProperty(&quot;bend-direction&quot;).value)
+    if style.getProperty(&quot;bend-loop&quot;) is not None:
+        ret += (
+            &quot;,loop , in=&quot;
+            + str(style.getProperty(&quot;bend-in&quot;).value)
+            + &quot;, out=&quot;
+            + str(style.getProperty(&quot;bend-out&quot;).value)
+            + &quot;, min distance=&quot;
+            + str(style.getProperty(&quot;bend-min-distance&quot;).value)
+        )
 
     return ret</div>
 
