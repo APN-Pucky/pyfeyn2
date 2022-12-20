@@ -37,7 +37,7 @@
             <img src="../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.0.7-61-g96360d6d
+                2.0.7-62-g72248078
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -576,11 +576,11 @@ class FeynmanDiagram:
             min_y = min(min_y, v.y)
             max_x = max(max_x, v.x)
             max_y = max(max_y, v.y)
-        for l in self.legs:
-            min_x = min(min_x, l.x)
-            min_y = min(min_y, l.y)
-            max_x = max(max_x, l.x)
-            max_y = max(max_y, l.y)
+        for leg in self.legs:
+            min_x = min(min_x, leg.x)
+            min_y = min(min_y, leg.y)
+            max_x = max(max_x, leg.x)
+            max_y = max(max_y, leg.y)
         return min_x, min_y, max_x, max_y
 
     def add_rule(self, rule: str):
@@ -622,7 +622,11 @@ class FeynmanDiagram:
         document = etree.XML(self.to_xml().encode(&quot;ascii&quot;))
 
         def lambdaselector(s, obj=obj, document=document):
-            expression = GenericTranslator().css_to_xpath(s)
+            try:
+                expression = GenericTranslator().css_to_xpath(s)
+            except SelectorError:
+                warnings.warn(&quot;Invalid selector: &quot; + s)
+                return False
             return obj.id in [e.get(&quot;id&quot;) for e in document.xpath(expression)]
 
         return self._get_style(lambdaselector)
@@ -636,7 +640,7 @@ class FeynmanDiagram:
         else:
             sheets = [self.sheet]
         for sheet in sheets:
-            id = []
+            idd = []
             cls = []
             rest = []
             glob = []
@@ -645,7 +649,7 @@ class FeynmanDiagram:
                     s = rule.selectorText
                     if lambdaselector(s):
                         if s.startswith(&quot;#&quot;):
-                            id.append(rule)
+                            idd.append(rule)
                         elif s.startswith(&quot;[&quot;):
                             rest.append(rule)
                         elif s.startswith(&quot;:&quot;):
@@ -656,7 +660,7 @@ class FeynmanDiagram:
                             cls.append(rule)
                         else:
                             rest.append(rule)
-            ret += reversed(id + cls + rest + glob)
+            ret += reversed(idd + cls + rest + glob)
         # sort rules by priority
         return cssutils.css.CSSStyleDeclaration(
             cssText=&quot;;&quot;.join([r.style.cssText for r in ret])
@@ -688,7 +692,7 @@ class Meta:
     )</div>
 
 
-aliasMeta = Meta
+alias_meta = Meta
 
 
 <div class="viewcode-block" id="Head"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.Head.html#pyfeyn2.feynmandiagram.Head">[docs]</a>@dataclass
@@ -696,7 +700,7 @@ class Head:
     class Meta:
         name = &quot;head&quot;
 
-    metas: List[aliasMeta] = field(
+    metas: List[alias_meta] = field(
         default_factory=list,
         metadata={&quot;name&quot;: &quot;meta&quot;, &quot;namespace&quot;: &quot;&quot;},
     )

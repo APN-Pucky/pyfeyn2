@@ -37,7 +37,7 @@
             <img src="../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.0.7-61-g96360d6d
+                2.0.7-62-g72248078
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -180,7 +180,7 @@ def _auto_bend_3(i, fd):
 
     # count duplications
     for i, pa in enumerate(objs):
-        for j, pb in enumerate(objs):
+        for _, pb in enumerate(objs):
             if pa.target == pb.target and pa.source == pb.source:
                 duplications[i] += 1
             if pa.target == pb.source and pa.source == pb.target:

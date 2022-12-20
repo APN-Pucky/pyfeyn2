@@ -1,9 +1,9 @@
-pyfeyn2.feynmandiagram.aliasMeta
-================================
+pyfeyn2.feynmandiagram.alias\_meta
+==================================
 
 .. currentmodule:: pyfeyn2.feynmandiagram
 
-.. autoclass:: aliasMeta
+.. autoclass:: alias_meta
    :members:                                   
    :show-inheritance:                           
    :inherited-members:                         
@@ -16,7 +16,7 @@ pyfeyn2.feynmandiagram.aliasMeta
 
    .. autosummary::
    
-      ~aliasMeta.__init__
+      ~alias_meta.__init__
    
    
 
@@ -26,7 +26,7 @@ pyfeyn2.feynmandiagram.aliasMeta
 
    .. autosummary::
    
-      ~aliasMeta.name
-      ~aliasMeta.value
+      ~alias_meta.name
+      ~alias_meta.value
    
    

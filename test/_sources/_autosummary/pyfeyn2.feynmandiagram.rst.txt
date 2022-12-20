@@ -40,7 +40,7 @@ pyfeyn2.feynmandiagram
       Targeting
       Texted
       Vertex
-      aliasMeta
+      alias_meta
    
    
 
