@@ -51,8 +51,11 @@ pyfeyn2.render.latex.dot.DotRender
       ~DotRender.set_variable
       ~DotRender.sort
       ~DotRender.valid_attribute
+      ~DotRender.valid_attributes
       ~DotRender.valid_style
+      ~DotRender.valid_styles
       ~DotRender.valid_type
+      ~DotRender.valid_types
    
    
 

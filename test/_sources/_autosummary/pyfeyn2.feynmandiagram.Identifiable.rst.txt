@@ -18,7 +18,6 @@ pyfeyn2.feynmandiagram.Identifiable
    
       ~Identifiable.__init__
       ~Identifiable.with_id
-      ~Identifiable.with_id2
    
    
 
@@ -29,6 +28,5 @@ pyfeyn2.feynmandiagram.Identifiable
    .. autosummary::
    
       ~Identifiable.id
-      ~Identifiable.id2
    
    

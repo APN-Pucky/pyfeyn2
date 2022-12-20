@@ -22,7 +22,6 @@ pyfeyn2.feynmandiagram.Label
       ~Label.set_xy
       ~Label.set_xyz
       ~Label.with_id
-      ~Label.with_id2
       ~Label.with_point
       ~Label.with_text
       ~Label.with_x
@@ -40,7 +39,6 @@ pyfeyn2.feynmandiagram.Label
    .. autosummary::
    
       ~Label.id
-      ~Label.id2
       ~Label.text
       ~Label.x
       ~Label.y

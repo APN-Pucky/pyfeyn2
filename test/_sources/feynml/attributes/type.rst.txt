@@ -1,6 +1,6 @@
 .. _type:
 
-Type
+type
 ====
 | Format: String
 | Elements: :ref:`leg`, :ref:`propagator`

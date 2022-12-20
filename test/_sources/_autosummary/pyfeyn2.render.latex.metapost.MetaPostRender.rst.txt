@@ -50,8 +50,11 @@ pyfeyn2.render.latex.metapost.MetaPostRender
       ~MetaPostRender.set_variable
       ~MetaPostRender.sort
       ~MetaPostRender.valid_attribute
+      ~MetaPostRender.valid_attributes
       ~MetaPostRender.valid_style
+      ~MetaPostRender.valid_styles
       ~MetaPostRender.valid_type
+      ~MetaPostRender.valid_types
    
    
 

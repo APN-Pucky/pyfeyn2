@@ -27,7 +27,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Label" href="label.html" />
+    <link rel="next" title="Source" href="source.html" />
     <link rel="prev" title="Vertex" href="vertex.html" /> 
 </head>
 
@@ -40,7 +40,7 @@
             <img src="../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.0.7-43-g42257a2b
+                2.0.7-50-ga7bd7d6d
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -66,8 +66,15 @@
 <li class="toctree-l2 current"><a class="reference internal" href="index.html#elements">Elements</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="leg.html">Leg</a></li>
 <li class="toctree-l3"><a class="reference internal" href="vertex.html">Vertex</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Propagator</a></li>
-<li class="toctree-l3"><a class="reference internal" href="label.html">Label</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Propagator</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="id.html">ID</a></li>
+<li class="toctree-l4"><a class="reference internal" href="source.html">Source</a></li>
+<li class="toctree-l4"><a class="reference internal" href="target.html">Target</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pdgid.html">PDGID</a></li>
+<li class="toctree-l4"><a class="reference internal" href="name.html">Name</a></li>
+<li class="toctree-l4"><a class="reference internal" href="momentum.html">Momentum</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#attributes">Attributes</a></li>
@@ -141,9 +148,34 @@
     text-align: unset;
 }
 </style>
-<section id="id1">
-<h1>Propagator<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h1>
-<p>Required attributes: <a class="reference internal" href="attributes/id.html#id"><span class="std std-ref">ID</span></a>, <a class="reference internal" href="attributes/type.html#type"><span class="std std-ref">Type</span></a></p>
+<section id="propagator">
+<span id="id1"></span><h1>Propagator<a class="headerlink" href="#propagator" title="Permalink to this heading"></a></h1>
+<div class="line-block">
+<div class="line">Implementation: <a class="reference internal" href="../_autosummary/pyfeyn2.feynmandiagram.Propagator.html#pyfeyn2.feynmandiagram.Propagator" title="pyfeyn2.feynmandiagram.Propagator"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyfeyn2.feynmandiagram.Propagator</span></code></a></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;propagator&gt;</span>
+        <span class="nt">&lt;id&gt;</span>prop0<span class="nt">&lt;/id&gt;</span>
+        <span class="nt">&lt;source&gt;</span>vertex0<span class="nt">&lt;/source&gt;</span>
+        <span class="nt">&lt;target&gt;</span>vertex_1<span class="nt">&lt;/target&gt;</span>
+<span class="nt">&lt;/propagator&gt;</span>
+</pre></div>
+</div>
+<p>Required elements:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="id.html">ID</a></li>
+<li class="toctree-l1"><a class="reference internal" href="source.html">Source</a></li>
+<li class="toctree-l1"><a class="reference internal" href="target.html">Target</a></li>
+</ul>
+</div>
+<p>Optional elements:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pdgid.html">PDGID</a></li>
+<li class="toctree-l1"><a class="reference internal" href="name.html">Name</a></li>
+<li class="toctree-l1"><a class="reference internal" href="momentum.html">Momentum</a></li>
+</ul>
+</div>
 </section>
 
 
@@ -151,7 +183,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="vertex.html" class="btn btn-neutral float-left" title="Vertex" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="label.html" class="btn btn-neutral float-right" title="Label" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="source.html" class="btn btn-neutral float-right" title="Source" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

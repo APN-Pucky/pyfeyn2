@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Style &mdash; pyfeyn2  documentation</title>
+  <title>style &mdash; pyfeyn2  documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/plot_directive.css" type="text/css" />
@@ -28,7 +28,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="arrow-pos" href="style/arrow-pos.html" />
-    <link rel="prev" title="Source" href="source.html" /> 
+    <link rel="prev" title="label" href="label.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -40,7 +40,7 @@
             <img src="../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.0.7-43-g42257a2b
+                2.0.7-50-ga7bd7d6d
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -65,27 +65,30 @@
 <li class="toctree-l2"><a class="reference internal" href="../index.html#why-xml">Why XML?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#elements">Elements</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html#attributes">Attributes</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="bend.html">Bend</a></li>
-<li class="toctree-l3"><a class="reference internal" href="id.html">ID</a></li>
-<li class="toctree-l3"><a class="reference internal" href="label.html">Label</a></li>
-<li class="toctree-l3"><a class="reference internal" href="momentum.html">Momentum</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pdgid.html">PDGID</a></li>
-<li class="toctree-l3"><a class="reference internal" href="sense.html">Sense</a></li>
-<li class="toctree-l3"><a class="reference internal" href="source.html">Source</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Style</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="class.html">class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="label.html">label</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">style</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="style/arrow-pos.html">arrow-pos</a></li>
+<li class="toctree-l4"><a class="reference internal" href="style/bend.html">bend</a></li>
+<li class="toctree-l4"><a class="reference internal" href="style/bend-direction.html">bend-direction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="style/bend-in.html">bend-in</a></li>
+<li class="toctree-l4"><a class="reference internal" href="style/bend-loop.html">bend-loop</a></li>
+<li class="toctree-l4"><a class="reference internal" href="style/bend-min-distance.html">bend-min-distance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="style/bend-out.html">bend-out</a></li>
 <li class="toctree-l4"><a class="reference internal" href="style/color.html">color</a></li>
+<li class="toctree-l4"><a class="reference internal" href="style/length.html">length</a></li>
+<li class="toctree-l4"><a class="reference internal" href="style/line.html">line</a></li>
+<li class="toctree-l4"><a class="reference internal" href="style/momentum-arrow.html">momentum-arrow</a></li>
 <li class="toctree-l4"><a class="reference internal" href="style/opacity.html">opacity</a></li>
 <li class="toctree-l4"><a class="reference internal" href="style/parallel-arrow-displace.html">parallel-arrow-displace</a></li>
 <li class="toctree-l4"><a class="reference internal" href="style/parallel-arrow-sense.html">parallel-arrow-sense</a></li>
+<li class="toctree-l4"><a class="reference internal" href="style/tension.html">tension</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="target.html">Target</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tension.html">Tension</a></li>
-<li class="toctree-l3"><a class="reference internal" href="text.html">Text</a></li>
-<li class="toctree-l3"><a class="reference internal" href="type.html">Type</a></li>
-<li class="toctree-l3"><a class="reference internal" href="x.html">X</a></li>
-<li class="toctree-l3"><a class="reference internal" href="y.html">Y</a></li>
+<li class="toctree-l3"><a class="reference internal" href="type.html">type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="x.html">x</a></li>
+<li class="toctree-l3"><a class="reference internal" href="y.html">y</a></li>
+<li class="toctree-l3"><a class="reference internal" href="z.html">z</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../index.html#examples">Examples</a></li>
@@ -124,7 +127,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home"></a></li>
           <li class="breadcrumb-item"><a href="../index.html">FeynML</a></li>
-      <li class="breadcrumb-item active">Style</li>
+      <li class="breadcrumb-item active">style</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/feynml/attributes/style.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -159,10 +162,11 @@
 }
 </style>
 <section id="style">
-<span id="id1"></span><h1>Style<a class="headerlink" href="#style" title="Permalink to this heading"></a></h1>
+<span id="id1"></span><h1>style<a class="headerlink" href="#style" title="Permalink to this heading"></a></h1>
 <div class="line-block">
 <div class="line">Format: String</div>
-<div class="line">Valid on: <span class="xref std std-ref">leg</span>, <span class="xref std std-ref">propagator</span></div>
+<div class="line">Valid on: <a class="reference internal" href="../leg.html#leg"><span class="std std-ref">Leg</span></a>, <a class="reference internal" href="../propagator.html#propagator"><span class="std std-ref">Propagator</span></a></div>
+<div class="line">Implementation: <a class="reference internal" href="../../_autosummary/pyfeyn2.feynmandiagram.PDG.html#pyfeyn2.feynmandiagram.PDG" title="pyfeyn2.feynmandiagram.PDG"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyfeyn2.feynmandiagram.PDG</span></code></a></div>
 </div>
 <p>A CSS-like semi-colon separated list of style properties. The following properties are supported per implementation:</p>
 <table class="docutils align-default">
@@ -178,7 +182,7 @@
 <col style="width: 12%" />
 </colgroup>
 <thead>
-<tr class="row-odd"><th class="head"><p><a class="reference internal" href="#style"><span class="std std-ref">Style</span></a></p></th>
+<tr class="row-odd"><th class="head"><p><a class="reference internal" href="#style"><span class="std std-ref">style</span></a></p></th>
 <th class="head"><p>pyx</p></th>
 <th class="head"><p>feynmp</p></th>
 <th class="head"><p>tikz</p></th>
@@ -190,10 +194,90 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><a class="reference internal" href="style/color.html#color"><span class="std std-ref">color</span></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="style/arrow-pos.html#arrow-pos"><span class="std std-ref">arrow-pos</span></a></p></td>
+<td><p>✔</p></td>
 <td><p>✖</p></td>
 <td><p>✖</p></td>
 <td><p>✖</p></td>
+<td><p>✖</p></td>
+<td><p>✖</p></td>
+<td><p>✖</p></td>
+<td><p>✖</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="style/bend.html#bend"><span class="std std-ref">bend</span></a></p></td>
+<td><p>✖</p></td>
+<td><p>✖</p></td>
+<td><p>✔</p></td>
+<td><p>✖</p></td>
+<td><p>✖</p></td>
+<td><p>✖</p></td>
+<td><p>✖</p></td>
+<td><p>✖</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="style/bend-direction.html#bend-direction"><span class="std std-ref">bend-direction</span></a></p></td>
+<td><p>✖</p></td>
+<td><p>✖</p></td>
+<td><p>✔</p></td>
+<td><p>✖</p></td>
+<td><p>✖</p></td>
+<td><p>✖</p></td>
+<td><p>✖</p></td>
+<td><p>✖</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="style/bend-in.html#bend-in"><span class="std std-ref">bend-in</span></a></p></td>
+<td><p>✖</p></td>
+<td><p>✖</p></td>
+<td><p>✔</p></td>
+<td><p>✖</p></td>
+<td><p>✖</p></td>
+<td><p>✖</p></td>
+<td><p>✖</p></td>
+<td><p>✖</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="style/bend-loop.html#bend-loop"><span class="std std-ref">bend-loop</span></a></p></td>
+<td><p>✖</p></td>
+<td><p>✖</p></td>
+<td><p>✔</p></td>
+<td><p>✖</p></td>
+<td><p>✖</p></td>
+<td><p>✖</p></td>
+<td><p>✖</p></td>
+<td><p>✖</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="style/bend-min-distance.html#bend-min-distance"><span class="std std-ref">bend-min-distance</span></a></p></td>
+<td><p>✖</p></td>
+<td><p>✖</p></td>
+<td><p>✔</p></td>
+<td><p>✖</p></td>
+<td><p>✖</p></td>
+<td><p>✖</p></td>
+<td><p>✖</p></td>
+<td><p>✖</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="style/bend-out.html#bend-out"><span class="std std-ref">bend-out</span></a></p></td>
+<td><p>✖</p></td>
+<td><p>✖</p></td>
+<td><p>✔</p></td>
+<td><p>✖</p></td>
+<td><p>✖</p></td>
+<td><p>✖</p></td>
+<td><p>✖</p></td>
+<td><p>✖</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="style/color.html#color"><span class="std std-ref">color</span></a></p></td>
+<td><p>✖</p></td>
+<td><p>✖</p></td>
+<td><p>✔</p></td>
+<td><p>✖</p></td>
+<td><p>✖</p></td>
+<td><p>✖</p></td>
+<td><p>✖</p></td>
+<td><p>✖</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="style/momentum-arrow.html#momentum-arrow"><span class="std std-ref">momentum-arrow</span></a></p></td>
+<td><p>✖</p></td>
+<td><p>✖</p></td>
+<td><p>✔</p></td>
 <td><p>✖</p></td>
 <td><p>✖</p></td>
 <td><p>✖</p></td>
@@ -203,14 +287,14 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="style/opacity.html#opacity"><span class="std std-ref">opacity</span></a></p></td>
 <td><p>✖</p></td>
 <td><p>✖</p></td>
-<td><p>✖</p></td>
+<td><p>✔</p></td>
 <td><p>✖</p></td>
 <td><p>✖</p></td>
 <td><p>✖</p></td>
 <td><p>✖</p></td>
 <td><p>✖</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="style/arrow-pos.html#arrow-pos"><span class="std std-ref">arrow-pos</span></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="style/parallel-arrow-displace.html#parallel-arrow-displace"><span class="std std-ref">parallel-arrow-displace</span></a></p></td>
 <td><p>✔</p></td>
 <td><p>✖</p></td>
 <td><p>✖</p></td>
@@ -230,52 +314,42 @@
 <td><p>✖</p></td>
 <td><p>✖</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="style/parallel-arrow-displace.html#parallel-arrow-displace"><span class="std std-ref">parallel-arrow-displace</span></a></p></td>
+</tbody>
+</table>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 9%" />
+<col style="width: 11%" />
+<col style="width: 12%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 12%" />
+<col style="width: 11%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><a class="reference internal" href="../index.html#attributes"><span class="std std-ref">Attributes</span></a></p></th>
+<th class="head"><p>pyx</p></th>
+<th class="head"><p>feynmp</p></th>
+<th class="head"><p>tikz</p></th>
+<th class="head"><p>dot</p></th>
+<th class="head"><p>feynman</p></th>
+<th class="head"><p>mpl</p></th>
+<th class="head"><p>ascii</p></th>
+<th class="head"><p>unicode</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="#style"><span class="std std-ref">style</span></a></p></td>
+<td><p>✔</p></td>
+<td><p>✖</p></td>
 <td><p>✔</p></td>
 <td><p>✖</p></td>
 <td><p>✖</p></td>
 <td><p>✖</p></td>
 <td><p>✖</p></td>
 <td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-</tr>
-</tbody>
-</table>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 7%" />
-<col style="width: 11%" />
-<col style="width: 12%" />
-<col style="width: 11%" />
-<col style="width: 11%" />
-<col style="width: 13%" />
-<col style="width: 11%" />
-<col style="width: 12%" />
-<col style="width: 13%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p><a class="reference internal" href="#style"><span class="std std-ref">Style</span></a></p></th>
-<th class="head"><p>✔</p></th>
-<th class="head"><p>✖</p></th>
-<th class="head"><p>✔</p></th>
-<th class="head"><p>✖</p></th>
-<th class="head"><p>✖</p></th>
-<th class="head"><p>✖</p></th>
-<th class="head"><p>✖</p></th>
-<th class="head"><p>✖</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
 </tr>
 </tbody>
 </table>
@@ -287,7 +361,7 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="source.html" class="btn btn-neutral float-left" title="Source" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="label.html" class="btn btn-neutral float-left" title="label" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="style/arrow-pos.html" class="btn btn-neutral float-right" title="arrow-pos" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

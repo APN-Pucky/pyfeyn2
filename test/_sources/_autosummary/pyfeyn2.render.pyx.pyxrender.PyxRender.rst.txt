@@ -24,8 +24,11 @@ pyfeyn2.render.pyx.pyxrender.PyxRender
       ~PyxRender.set_feynman_diagram
       ~PyxRender.set_src
       ~PyxRender.valid_attribute
+      ~PyxRender.valid_attributes
       ~PyxRender.valid_style
+      ~PyxRender.valid_styles
       ~PyxRender.valid_type
+      ~PyxRender.valid_types
    
    
 

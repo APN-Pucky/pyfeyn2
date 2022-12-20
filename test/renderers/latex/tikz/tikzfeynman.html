@@ -42,7 +42,7 @@
             <img src="../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.0.7-43-g42257a2b
+                2.0.7-50-ga7bd7d6d
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -435,13 +435,13 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-2.0.7.20
+2.0.7.29
 </pre></div></div>
 </div>
 <section id="Simple-Case">
 <h2>Simple Case<a class="headerlink" href="#Simple-Case" title="Permalink to this heading"></a></h2>
 <p>We set the positions of all vertices here.</p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
@@ -458,6 +458,41 @@ div.rendered_html tbody tr:hover {
 <span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/tmp/ipykernel_22998/2728759477.py:1: DeprecatedWarning: set_xy is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
+  v1 = Vertex(&#34;v1&#34;).set_xy(-1, 0)
+/tmp/ipykernel_22998/2728759477.py:2: DeprecatedWarning: set_xy is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
+  v2 = Vertex(&#34;v2&#34;).set_xy(1, 0)
+/tmp/ipykernel_22998/2728759477.py:7: DeprecatedWarning: set_target is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
+  Leg(name=&#34;g&#34;,bend=True).set_target(v1).set_xy(-2, 1).set_incoming(),
+/tmp/ipykernel_22998/2728759477.py:7: DeprecatedWarning: set_xy is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
+  Leg(name=&#34;g&#34;,bend=True).set_target(v1).set_xy(-2, 1).set_incoming(),
+/tmp/ipykernel_22998/2728759477.py:7: DeprecatedWarning: set_incoming is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
+  Leg(name=&#34;g&#34;,bend=True).set_target(v1).set_xy(-2, 1).set_incoming(),
+/tmp/ipykernel_22998/2728759477.py:8: DeprecatedWarning: set_target is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
+  Leg(name=&#34;g&#34;,bend=True).set_target(v1).set_xy(-2, -1).set_incoming().with_class(&#34;notred&#34;),
+/tmp/ipykernel_22998/2728759477.py:8: DeprecatedWarning: set_xy is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
+  Leg(name=&#34;g&#34;,bend=True).set_target(v1).set_xy(-2, -1).set_incoming().with_class(&#34;notred&#34;),
+/tmp/ipykernel_22998/2728759477.py:8: DeprecatedWarning: set_incoming is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
+  Leg(name=&#34;g&#34;,bend=True).set_target(v1).set_xy(-2, -1).set_incoming().with_class(&#34;notred&#34;),
+/tmp/ipykernel_22998/2728759477.py:9: DeprecatedWarning: set_target is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
+  Leg(name=&#34;g&#34;,bend=True).set_target(v2).set_xy(2, 1).set_outgoing().with_class(&#34;red&#34;),
+/tmp/ipykernel_22998/2728759477.py:9: DeprecatedWarning: set_xy is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
+  Leg(name=&#34;g&#34;,bend=True).set_target(v2).set_xy(2, 1).set_outgoing().with_class(&#34;red&#34;),
+/tmp/ipykernel_22998/2728759477.py:9: DeprecatedWarning: set_outgoing is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
+  Leg(name=&#34;g&#34;,bend=True).set_target(v2).set_xy(2, 1).set_outgoing().with_class(&#34;red&#34;),
+/tmp/ipykernel_22998/2728759477.py:10: DeprecatedWarning: set_target is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
+  Leg(&#34;myid1&#34;,name=&#34;g&#34;,bend=True).set_target(v2).set_xy(2, -1).set_outgoing()
+/tmp/ipykernel_22998/2728759477.py:10: DeprecatedWarning: set_xy is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
+  Leg(&#34;myid1&#34;,name=&#34;g&#34;,bend=True).set_target(v2).set_xy(2, -1).set_outgoing()
+/tmp/ipykernel_22998/2728759477.py:10: DeprecatedWarning: set_outgoing is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
+  Leg(&#34;myid1&#34;,name=&#34;g&#34;,bend=True).set_target(v2).set_xy(2, -1).set_outgoing()
+</pre></div></div>
 </div>
 <section id="Style">
 <h3>Style<a class="headerlink" href="#Style" title="Permalink to this heading"></a></h3>
@@ -501,7 +536,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-FeynmanDiagram(propagators=[Propagator(id=&#39;Propagator7&#39;, id2=None, pdgid=&lt;PDGID: 21&gt;, name=&#39;g&#39;, type=&#39;gluon&#39;, particle=&lt;Particle: name=&#34;g&#34;, pdgid=21, mass=0.0 MeV&gt;, style=cssutils.css.CSSStyleDeclaration(cssText=&#39;&#39;), clazz=None, bend=True, label=None, momentum=None, tension=None, length=None, source=&#39;v1&#39;, target=&#39;v2&#39;)], vertices=[Vertex(id=&#39;v1&#39;, id2=None, style=cssutils.css.CSSStyleDeclaration(cssText=&#39;&#39;), clazz=None, x=-1.0, y=0.0, z=None, label=None), Vertex(id=&#39;v2&#39;, id2=None, style=cssutils.css.CSSStyleDeclaration(cssText=&#39;&#39;), clazz=None, x=1.0, y=0.0, z=None, label=None)], legs=[Leg(id=&#39;Leg8&#39;, id2=None, pdgid=&lt;PDGID: 21&gt;, name=&#39;g&#39;, type=&#39;gluon&#39;, particle=&lt;Particle: name=&#34;g&#34;, pdgid=21, mass=0.0 MeV&gt;, style=cssutils.css.CSSStyleDeclaration(cssText=&#39;&#39;), clazz=None, bend=True, label=None, momentum=None, tension=None, length=None, target=&#39;v1&#39;, x=-2.0, y=1.0, z=None, sense=&#39;incoming&#39;, external=None), Leg(id=&#39;Leg9&#39;, id2=None, pdgid=&lt;PDGID: 21&gt;, name=&#39;g&#39;, type=&#39;gluon&#39;, particle=&lt;Particle: name=&#34;g&#34;, pdgid=21, mass=0.0 MeV&gt;, style=cssutils.css.CSSStyleDeclaration(cssText=&#39;&#39;), clazz=&#39;notred&#39;, bend=True, label=None, momentum=None, tension=None, length=None, target=&#39;v1&#39;, x=-2.0, y=-1.0, z=None, sense=&#39;incoming&#39;, external=None), Leg(id=&#39;Leg10&#39;, id2=None, pdgid=&lt;PDGID: 21&gt;, name=&#39;g&#39;, type=&#39;gluon&#39;, particle=&lt;Particle: name=&#34;g&#34;, pdgid=21, mass=0.0 MeV&gt;, style=cssutils.css.CSSStyleDeclaration(cssText=&#39;&#39;), clazz=&#39;red&#39;, bend=True, label=None, momentum=None, tension=None, length=None, target=&#39;v2&#39;, x=2.0, y=1.0, z=None, sense=&#39;outgoing&#39;, external=None), Leg(id=&#39;myid1&#39;, id2=None, pdgid=&lt;PDGID: 21&gt;, name=&#39;g&#39;, type=&#39;gluon&#39;, particle=&lt;Particle: name=&#34;g&#34;, pdgid=21, mass=0.0 MeV&gt;, style=cssutils.css.CSSStyleDeclaration(cssText=&#39;&#39;), clazz=None, bend=True, label=None, momentum=None, tension=None, length=None, target=&#39;v2&#39;, x=2.0, y=-1.0, z=None, sense=&#39;outgoing&#39;, external=None)], labels=[], sheet=cssutils.css.CSSStyleSheet(href=None, media=None, title=None))
+FeynmanDiagram(default_style=True, propagators=[Propagator(id=&#39;Propagator7&#39;, id2=None, pdgid=&lt;PDGID: 21&gt;, name=&#39;g&#39;, type=&#39;gluon&#39;, particle=&lt;Particle: name=&#34;g&#34;, pdgid=21, mass=0.0 MeV&gt;, style=cssutils.css.CSSStyleDeclaration(cssText=&#39;&#39;), clazz=None, bend=True, label=None, momentum=None, tension=None, length=None, source=&#39;v1&#39;, target=&#39;v2&#39;)], vertices=[Vertex(id=&#39;v1&#39;, id2=None, style=cssutils.css.CSSStyleDeclaration(cssText=&#39;&#39;), clazz=None, x=-1.0, y=0.0, z=None, label=None), Vertex(id=&#39;v2&#39;, id2=None, style=cssutils.css.CSSStyleDeclaration(cssText=&#39;&#39;), clazz=None, x=1.0, y=0.0, z=None, label=None)], legs=[Leg(id=&#39;Leg8&#39;, id2=None, pdgid=&lt;PDGID: 21&gt;, name=&#39;g&#39;, type=&#39;gluon&#39;, particle=&lt;Particle: name=&#34;g&#34;, pdgid=21, mass=0.0 MeV&gt;, style=cssutils.css.CSSStyleDeclaration(cssText=&#39;&#39;), clazz=None, bend=True, label=None, momentum=None, tension=None, length=None, target=&#39;v1&#39;, x=-2.0, y=1.0, z=None, sense=&#39;incoming&#39;, external=None), Leg(id=&#39;Leg9&#39;, id2=None, pdgid=&lt;PDGID: 21&gt;, name=&#39;g&#39;, type=&#39;gluon&#39;, particle=&lt;Particle: name=&#34;g&#34;, pdgid=21, mass=0.0 MeV&gt;, style=cssutils.css.CSSStyleDeclaration(cssText=&#39;&#39;), clazz=&#39;notred&#39;, bend=True, label=None, momentum=None, tension=None, length=None, target=&#39;v1&#39;, x=-2.0, y=-1.0, z=None, sense=&#39;incoming&#39;, external=None), Leg(id=&#39;Leg10&#39;, id2=None, pdgid=&lt;PDGID: 21&gt;, name=&#39;g&#39;, type=&#39;gluon&#39;, particle=&lt;Particle: name=&#34;g&#34;, pdgid=21, mass=0.0 MeV&gt;, style=cssutils.css.CSSStyleDeclaration(cssText=&#39;&#39;), clazz=&#39;red&#39;, bend=True, label=None, momentum=None, tension=None, length=None, target=&#39;v2&#39;, x=2.0, y=1.0, z=None, sense=&#39;outgoing&#39;, external=None), Leg(id=&#39;myid1&#39;, id2=None, pdgid=&lt;PDGID: 21&gt;, name=&#39;g&#39;, type=&#39;gluon&#39;, particle=&lt;Particle: name=&#34;g&#34;, pdgid=21, mass=0.0 MeV&gt;, style=cssutils.css.CSSStyleDeclaration(cssText=&#39;&#39;), clazz=None, bend=True, label=None, momentum=None, tension=None, length=None, target=&#39;v2&#39;, x=2.0, y=-1.0, z=None, sense=&#39;outgoing&#39;, external=None)], labels=[], sheet=cssutils.css.CSSStyleSheet(href=None, media=None, title=None))
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -581,11 +616,11 @@ FeynmanDiagram(propagators=[Propagator(id=&#39;Propagator7&#39;, id2=None, pdgid
 <section id="Complicated-Case">
 <h2>Complicated Case<a class="headerlink" href="#Complicated-Case" title="Permalink to this heading"></a></h2>
 <p>We only set the positions of the Legs here.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fd</span> <span class="o">=</span> <span class="n">FeynmanDiagram</span><span class="p">()</span><span class="o">.</span><span class="n">with_rules</span><span class="p">(</span><span class="s2">&quot;* {color: red;}&quot;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fd</span> <span class="o">=</span> <span class="n">FeynmanDiagram</span><span class="p">()</span><span class="o">.</span><span class="n">with_rules</span><span class="p">(</span><span class="s2">&quot;* {color: red;} </span><span class="se">\n</span><span class="s2">.fermion {color: blue;}&quot;</span><span class="p">)</span>
 <span class="n">v1</span> <span class="o">=</span> <span class="n">Vertex</span><span class="p">(</span><span class="s2">&quot;v1&quot;</span><span class="p">)</span>
 <span class="n">v2</span> <span class="o">=</span> <span class="n">Vertex</span><span class="p">(</span><span class="s2">&quot;v2&quot;</span><span class="p">)</span>
 <span class="n">v3</span> <span class="o">=</span> <span class="n">Vertex</span><span class="p">(</span><span class="s2">&quot;v3&quot;</span><span class="p">)</span>
@@ -597,8 +632,8 @@ FeynmanDiagram(propagators=[Propagator(id=&#39;Propagator7&#39;, id2=None, pdgid
 <span class="n">p5</span> <span class="o">=</span> <span class="n">Propagator</span><span class="p">(</span><span class="s2">&quot;p5&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">v4</span><span class="p">,</span> <span class="n">v2</span><span class="p">)</span><span class="o">.</span><span class="n">set_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span>
 <span class="n">l1</span> <span class="o">=</span> <span class="n">Leg</span><span class="p">(</span><span class="s2">&quot;l1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set_target</span><span class="p">(</span><span class="n">v1</span><span class="p">)</span><span class="o">.</span><span class="n">set_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set_incoming</span><span class="p">()</span><span class="o">.</span><span class="n">set_xy</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">l2</span> <span class="o">=</span> <span class="n">Leg</span><span class="p">(</span><span class="s2">&quot;l2&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set_target</span><span class="p">(</span><span class="n">v1</span><span class="p">)</span><span class="o">.</span><span class="n">set_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set_incoming</span><span class="p">()</span><span class="o">.</span><span class="n">set_xy</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">l3</span> <span class="o">=</span> <span class="n">Leg</span><span class="p">(</span><span class="s2">&quot;l3&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set_target</span><span class="p">(</span><span class="n">v2</span><span class="p">)</span><span class="o">.</span><span class="n">set_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set_outgoing</span><span class="p">()</span><span class="o">.</span><span class="n">set_xy</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">l4</span> <span class="o">=</span> <span class="n">Leg</span><span class="p">(</span><span class="s2">&quot;l4&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set_target</span><span class="p">(</span><span class="n">v3</span><span class="p">)</span><span class="o">.</span><span class="n">set_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set_outgoing</span><span class="p">()</span><span class="o">.</span><span class="n">set_xy</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">l3</span> <span class="o">=</span> <span class="n">Leg</span><span class="p">(</span><span class="s2">&quot;l3&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set_target</span><span class="p">(</span><span class="n">v2</span><span class="p">)</span><span class="o">.</span><span class="n">set_type</span><span class="p">(</span><span class="s2">&quot;fermion&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set_outgoing</span><span class="p">()</span><span class="o">.</span><span class="n">set_xy</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">l4</span> <span class="o">=</span> <span class="n">Leg</span><span class="p">(</span><span class="s2">&quot;l4&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set_target</span><span class="p">(</span><span class="n">v3</span><span class="p">)</span><span class="o">.</span><span class="n">set_type</span><span class="p">(</span><span class="s2">&quot;fermion&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set_outgoing</span><span class="p">()</span><span class="o">.</span><span class="n">set_xy</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="n">l5</span> <span class="o">=</span> <span class="n">Leg</span><span class="p">(</span><span class="s2">&quot;l5&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set_target</span><span class="p">(</span><span class="n">v4</span><span class="p">)</span><span class="o">.</span><span class="n">set_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set_outgoing</span><span class="p">()</span><span class="o">.</span><span class="n">set_xy</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">l6</span> <span class="o">=</span> <span class="n">Leg</span><span class="p">(</span><span class="s2">&quot;l6&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set_target</span><span class="p">(</span><span class="n">v4</span><span class="p">)</span><span class="o">.</span><span class="n">set_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set_outgoing</span><span class="p">()</span><span class="o">.</span><span class="n">set_xy</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 
@@ -610,9 +645,74 @@ FeynmanDiagram(propagators=[Propagator(id=&#39;Propagator7&#39;, id2=None, pdgid
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/tmp/ipykernel_22998/900790511.py:6: DeprecatedWarning: set_type is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
+  p1 = Propagator(&#34;p1&#34;).connect(v1, v2).set_type(&#34;gluon&#34;)
+/tmp/ipykernel_22998/900790511.py:7: DeprecatedWarning: set_type is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
+  p2 = Propagator(&#34;p2&#34;).connect(v1, v3).set_type(&#34;gluon&#34;)
+/tmp/ipykernel_22998/900790511.py:8: DeprecatedWarning: set_type is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
+  p3 = Propagator(&#34;p3&#34;).connect(v3, v2).set_type(&#34;gluon&#34;)
+/tmp/ipykernel_22998/900790511.py:9: DeprecatedWarning: set_type is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
+  p4 = Propagator(&#34;p4&#34;).connect(v4, v3).set_type(&#34;gluon&#34;)
+/tmp/ipykernel_22998/900790511.py:10: DeprecatedWarning: set_type is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
+  p5 = Propagator(&#34;p5&#34;).connect(v4, v2).set_type(&#34;gluon&#34;)
+/tmp/ipykernel_22998/900790511.py:11: DeprecatedWarning: set_target is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
+  l1 = Leg(&#34;l1&#34;).set_target(v1).set_type(&#34;gluon&#34;).set_incoming().set_xy(-2, 1)
+/tmp/ipykernel_22998/900790511.py:11: DeprecatedWarning: set_type is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
+  l1 = Leg(&#34;l1&#34;).set_target(v1).set_type(&#34;gluon&#34;).set_incoming().set_xy(-2, 1)
+/tmp/ipykernel_22998/900790511.py:11: DeprecatedWarning: set_incoming is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
+  l1 = Leg(&#34;l1&#34;).set_target(v1).set_type(&#34;gluon&#34;).set_incoming().set_xy(-2, 1)
+/tmp/ipykernel_22998/900790511.py:11: DeprecatedWarning: set_xy is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
+  l1 = Leg(&#34;l1&#34;).set_target(v1).set_type(&#34;gluon&#34;).set_incoming().set_xy(-2, 1)
+/tmp/ipykernel_22998/900790511.py:12: DeprecatedWarning: set_target is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
+  l2 = Leg(&#34;l2&#34;).set_target(v1).set_type(&#34;gluon&#34;).set_incoming().set_xy(-2, -1)
+/tmp/ipykernel_22998/900790511.py:12: DeprecatedWarning: set_type is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
+  l2 = Leg(&#34;l2&#34;).set_target(v1).set_type(&#34;gluon&#34;).set_incoming().set_xy(-2, -1)
+/tmp/ipykernel_22998/900790511.py:12: DeprecatedWarning: set_incoming is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
+  l2 = Leg(&#34;l2&#34;).set_target(v1).set_type(&#34;gluon&#34;).set_incoming().set_xy(-2, -1)
+/tmp/ipykernel_22998/900790511.py:12: DeprecatedWarning: set_xy is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
+  l2 = Leg(&#34;l2&#34;).set_target(v1).set_type(&#34;gluon&#34;).set_incoming().set_xy(-2, -1)
+/tmp/ipykernel_22998/900790511.py:13: DeprecatedWarning: set_target is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
+  l3 = Leg(&#34;l3&#34;).set_target(v2).set_type(&#34;fermion&#34;).set_outgoing().set_xy(2, -2)
+/tmp/ipykernel_22998/900790511.py:13: DeprecatedWarning: set_type is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
+  l3 = Leg(&#34;l3&#34;).set_target(v2).set_type(&#34;fermion&#34;).set_outgoing().set_xy(2, -2)
+/tmp/ipykernel_22998/900790511.py:13: DeprecatedWarning: set_outgoing is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
+  l3 = Leg(&#34;l3&#34;).set_target(v2).set_type(&#34;fermion&#34;).set_outgoing().set_xy(2, -2)
+/tmp/ipykernel_22998/900790511.py:13: DeprecatedWarning: set_xy is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
+  l3 = Leg(&#34;l3&#34;).set_target(v2).set_type(&#34;fermion&#34;).set_outgoing().set_xy(2, -2)
+/tmp/ipykernel_22998/900790511.py:14: DeprecatedWarning: set_target is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
+  l4 = Leg(&#34;l4&#34;).set_target(v3).set_type(&#34;fermion&#34;).set_outgoing().set_xy(2, 2)
+/tmp/ipykernel_22998/900790511.py:14: DeprecatedWarning: set_type is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
+  l4 = Leg(&#34;l4&#34;).set_target(v3).set_type(&#34;fermion&#34;).set_outgoing().set_xy(2, 2)
+/tmp/ipykernel_22998/900790511.py:14: DeprecatedWarning: set_outgoing is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
+  l4 = Leg(&#34;l4&#34;).set_target(v3).set_type(&#34;fermion&#34;).set_outgoing().set_xy(2, 2)
+/tmp/ipykernel_22998/900790511.py:14: DeprecatedWarning: set_xy is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
+  l4 = Leg(&#34;l4&#34;).set_target(v3).set_type(&#34;fermion&#34;).set_outgoing().set_xy(2, 2)
+/tmp/ipykernel_22998/900790511.py:15: DeprecatedWarning: set_target is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
+  l5 = Leg(&#34;l5&#34;).set_target(v4).set_type(&#34;gluon&#34;).set_outgoing().set_xy(2, 1)
+/tmp/ipykernel_22998/900790511.py:15: DeprecatedWarning: set_type is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
+  l5 = Leg(&#34;l5&#34;).set_target(v4).set_type(&#34;gluon&#34;).set_outgoing().set_xy(2, 1)
+/tmp/ipykernel_22998/900790511.py:15: DeprecatedWarning: set_outgoing is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
+  l5 = Leg(&#34;l5&#34;).set_target(v4).set_type(&#34;gluon&#34;).set_outgoing().set_xy(2, 1)
+/tmp/ipykernel_22998/900790511.py:15: DeprecatedWarning: set_xy is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
+  l5 = Leg(&#34;l5&#34;).set_target(v4).set_type(&#34;gluon&#34;).set_outgoing().set_xy(2, 1)
+/tmp/ipykernel_22998/900790511.py:16: DeprecatedWarning: set_target is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
+  l6 = Leg(&#34;l6&#34;).set_target(v4).set_type(&#34;gluon&#34;).set_outgoing().set_xy(2, -1)
+/tmp/ipykernel_22998/900790511.py:16: DeprecatedWarning: set_type is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
+  l6 = Leg(&#34;l6&#34;).set_target(v4).set_type(&#34;gluon&#34;).set_outgoing().set_xy(2, -1)
+/tmp/ipykernel_22998/900790511.py:16: DeprecatedWarning: set_outgoing is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
+  l6 = Leg(&#34;l6&#34;).set_target(v4).set_type(&#34;gluon&#34;).set_outgoing().set_xy(2, -1)
+/tmp/ipykernel_22998/900790511.py:16: DeprecatedWarning: set_xy is deprecated as of 2.0.7.1 and will be removed in 2.2. Use with...().
+  l6 = Leg(&#34;l6&#34;).set_target(v4).set_type(&#34;gluon&#34;).set_outgoing().set_xy(2, -1)
+</pre></div></div>
+</div>
 <p>Now calculate the positions of vertices.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ffd</span><span class="o">=</span> <span class="n">feynman_adjust_points</span><span class="p">(</span><span class="n">fd</span><span class="p">)</span>
@@ -620,7 +720,7 @@ FeynmanDiagram(propagators=[Propagator(id=&#39;Propagator7&#39;, id2=None, pdgid
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">TikzFeynmanRender</span><span class="p">(</span><span class="n">ffd</span><span class="p">)</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
@@ -635,19 +735,11 @@ FeynmanDiagram(propagators=[Propagator(id=&#39;Propagator7&#39;, id2=None, pdgid
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <img alt="../../../_images/renderers_latex_tikz_tikzfeynman_15_1.png" src="../../../_images/renderers_latex_tikz_tikzfeynman_15_1.png" />
-</div>
-</div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
 </div>
 </div>
 </section>

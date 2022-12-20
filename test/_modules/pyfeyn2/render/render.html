@@ -37,7 +37,7 @@
             <img src="../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.0.7-43-g42257a2b
+                2.0.7-50-ga7bd7d6d
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -102,8 +102,10 @@
            <div itemprop="articleBody">
              
   <h1>Source code for pyfeyn2.render.render</h1><div class="highlight"><pre>
-<span></span>from pyfeyn2.feynmandiagram import FeynmanDiagram, Leg, Propagator, Vertex
-import abc
+<span></span>import abc
+from typing import List
+
+from pyfeyn2.feynmandiagram import FeynmanDiagram, Leg, Propagator, Vertex
 
 
 <div class="viewcode-block" id="Render"><a class="viewcode-back" href="../../../_autosummary/pyfeyn2.render.render.Render.html#pyfeyn2.render.render.Render">[docs]</a>class Render:
@@ -135,19 +137,29 @@ import abc
         &quot;&quot;&quot;
         return</div>
 
-    @staticmethod
-    def valid_style(style: str) -&gt; bool:
-        return False
+    @classmethod
+    def valid_styles(cls) -&gt; List[str]:
+        return []
 
-    @staticmethod
-    def valid_type(typ: str) -&gt; bool:
-        return False
+    @classmethod
+    def valid_types(cls) -&gt; List[str]:
+        return []
 
-    @staticmethod
-    def valid_attribute(attr: str) -&gt; bool:
-        if attr in [&quot;id&quot;, &quot;pdgid&quot;, &quot;sense&quot;, &quot;target&quot;, &quot;source&quot;, &quot;type&quot;]:
-            return True
-        return False
+    @classmethod
+    def valid_attributes(cls) -&gt; List[str]:
+        return [&quot;type&quot;, &quot;class&quot;]
+
+    @classmethod
+    def valid_type(cls, typ: str) -&gt; bool:
+        return typ in cls.valid_types()
+
+    @classmethod
+    def valid_style(cls, style: str) -&gt; bool:
+        return style in cls.valid_styles()
+
+    @classmethod
+    def valid_attribute(cls, attr: str) -&gt; bool:
+        return attr in cls.valid_attributes()
 
     def demo_propagator(self, d, show=True, label=None):
         v1 = Vertex().set_xy(-2, -2)

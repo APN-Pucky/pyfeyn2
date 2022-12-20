@@ -37,7 +37,7 @@
             <img src="../../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.0.7-43-g42257a2b
+                2.0.7-50-ga7bd7d6d
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
@@ -102,7 +102,9 @@
            <div itemprop="articleBody">
              
   <h1>Source code for pyfeyn2.render.latex.tikzfeynman</h1><div class="highlight"><pre>
-<span></span>from pylatex import Command
+<span></span>from typing import List
+
+from pylatex import Command
 from pylatex.utils import NoEscape
 
 from pyfeyn2.feynmandiagram import Connector, FeynmanDiagram, Leg, Vertex
@@ -136,18 +138,22 @@ type_map = {
     # UTIL
     &quot;phantom&quot;: &quot;draw=none&quot;,
     &quot;line&quot;: &quot;plain&quot;,
+    &quot;plain&quot;: &quot;plain&quot;,
 }
 
 
 <div class="viewcode-block" id="stylize_connect"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.latex.tikzfeynman.stylize_connect.html#pyfeyn2.render.latex.tikzfeynman.stylize_connect">[docs]</a>def stylize_connect(fd: FeynmanDiagram, c: Connector):
     style = fd.get_style(c)
     ret = &quot;&quot;
-    ret += type_map[c.type]
+    ret += type_map[style.getProperty(&quot;line&quot;).value]
 
     if c.label is not None:
         ret += &quot;,edge label=&quot; + c.label
     # if c.edge_label_ is not None: style += &quot;,edge label&#39;=&quot; + c.edge_label_
-    if c.momentum is not None:
+    if (
+        style.getProperty(&quot;momentum-arrow&quot;) is not None
+        and style.getProperty(&quot;momentum-arrow&quot;).value == &quot;true&quot;
+    ):
         ret += &quot;,momentum=&quot; + c.momentum
     if style.opacity is not None and style.opacity != &quot;&quot;:
         ret += &quot;,opacity=&quot; + str(style.opacity)
@@ -249,23 +255,32 @@ type_map = {
         super().set_feynman_diagram(fd)
         self.set_src_diag(NoEscape(feynman_to_tikz_feynman(fd)))
 
-    @staticmethod
-    def valid_styles(style: str) -&gt; bool:
-        return super(TikzFeynmanRender, TikzFeynmanRender).valid_styles(
-            style
-        ) or style in [&quot;color&quot;, &quot;opacity&quot;, &quot;bend-direction&quot;,&quot;bend-in&quot;,&quot;bend-out&quot;,&quot;bend-loop&quot;,&quot;bend-min-distance&quot;]
+    @classmethod
+    def valid_styles(cls) -&gt; bool:
+        return super(TikzFeynmanRender, cls).valid_styles() + [
+            &quot;color&quot;,
+            &quot;opacity&quot;,
+            &quot;bend&quot;,
+            &quot;bend-direction&quot;,
+            &quot;bend-in&quot;,
+            &quot;bend-out&quot;,
+            &quot;bend-loop&quot;,
+            &quot;bend-min-distance&quot;,
+            &quot;momentum-arrow&quot;,
+        ]
 
-    @staticmethod
-    def valid_attribute(attr: str) -&gt; bool:
-        return super(TikzFeynmanRender, TikzFeynmanRender).valid_attribute(
-            attr
-        ) or attr in [&quot;x&quot;, &quot;y&quot;, &quot;label&quot;, &quot;style&quot;, &quot;momentum&quot;]
+    @classmethod
+    def valid_attributes(cls) -&gt; List[str]:
+        return super(TikzFeynmanRender, cls).valid_attributes() + [
+            &quot;x&quot;,
+            &quot;y&quot;,
+            &quot;label&quot;,
+            &quot;style&quot;,
+        ]
 
-    @staticmethod
-    def valid_type(typ):
-        if typ.lower() in type_map:
-            return True
-        return False</div>
+    @classmethod
+    def valid_types(cls) -&gt; List[str]:
+        return super(TikzFeynmanRender, cls).valid_types() + list(type_map.keys())</div>
 </pre></div>
 
            </div>

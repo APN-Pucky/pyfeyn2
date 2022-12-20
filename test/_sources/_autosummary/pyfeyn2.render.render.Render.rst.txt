@@ -23,8 +23,11 @@ pyfeyn2.render.render.Render
       ~Render.set_feynman_diagram
       ~Render.set_src
       ~Render.valid_attribute
+      ~Render.valid_attributes
       ~Render.valid_style
+      ~Render.valid_styles
       ~Render.valid_type
+      ~Render.valid_types
    
    
 

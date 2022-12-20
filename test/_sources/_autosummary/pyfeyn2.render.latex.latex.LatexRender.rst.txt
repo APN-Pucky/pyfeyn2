@@ -50,8 +50,11 @@ pyfeyn2.render.latex.latex.LatexRender
       ~LatexRender.set_variable
       ~LatexRender.sort
       ~LatexRender.valid_attribute
+      ~LatexRender.valid_attributes
       ~LatexRender.valid_style
+      ~LatexRender.valid_styles
       ~LatexRender.valid_type
+      ~LatexRender.valid_types
    
    
 

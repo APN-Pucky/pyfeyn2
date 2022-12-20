@@ -37,7 +37,7 @@
             <img src="../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.0.7-43-g42257a2b
+                2.0.7-50-ga7bd7d6d
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -105,12 +105,34 @@
 <span></span>import shutil
 import tempfile
 import traceback
+from typing import List
 
 from matplotlib import pyplot as plt
 from pylatex import Figure, NoEscape, SubFigure
 
 import pyfeyn2
+from pyfeyn2.feynmandiagram import FeynmanDiagram
+from pyfeyn2.render.latex.dot import DotRender
+from pyfeyn2.render.latex.feynmp import FeynmpRender
 from pyfeyn2.render.latex.latex import LatexRender
+from pyfeyn2.render.latex.tikzfeynman import TikzFeynmanRender
+from pyfeyn2.render.mpl.feynmanrender import FeynmanRender
+from pyfeyn2.render.mpl.mpl import MPLRender
+from pyfeyn2.render.pyx.pyxrender import PyxRender
+from pyfeyn2.render.text.asciipdf import ASCIIPDFRender
+from pyfeyn2.render.text.unicodepdf import UnicodePDFRender
+from pyfeyn2.types import get_types
+
+renders = {
+    &quot;pyx&quot;: PyxRender,
+    &quot;feynmp&quot;: FeynmpRender,
+    &quot;tikz&quot;: TikzFeynmanRender,
+    &quot;dot&quot;: DotRender,
+    &quot;feynman&quot;: FeynmanRender,
+    &quot;mpl&quot;: MPLRender,
+    &quot;ascii&quot;: ASCIIPDFRender,
+    &quot;unicode&quot;: UnicodePDFRender,
+}
 
 
 <div class="viewcode-block" id="AllRender"><a class="viewcode-back" href="../../../_autosummary/pyfeyn2.render.all.AllRender.html#pyfeyn2.render.all.AllRender">[docs]</a>class AllRender(LatexRender):
@@ -160,8 +182,8 @@ from pyfeyn2.render.latex.latex import LatexRender
             dynarg = {&quot;show&quot;: False}
 
         with self.create(Figure(position=&quot;h!&quot;)):
-            for i, name in enumerate(pyfeyn2.renders):
-                render = pyfeyn2.renders[name]
+            for i, name in enumerate(renders):
+                render = renders[name]
                 if name == &quot;all&quot;:
                     continue
                 try:
@@ -185,17 +207,22 @@ from pyfeyn2.render.latex.latex import LatexRender
             super().render(file, show, resolution, width, height)
         shutil.rmtree(self.dirpath)</div>
 
-    @staticmethod
-    def valid_style( style: str) -&gt; bool:
-        return True in [r.valid_style(style) for r in pyfeyn2.renders.values()]
+    @classmethod
+    def valid_styles(style: str) -&gt; List[str]:
+        return sorted(
+            list(set([i for r in renders.values() for i in r.valid_styles()]))
+        )
 
-    @staticmethod
-    def valid_attribute( attr: str) -&gt; bool:
-        return True in [r.valid_attribute(attr) for r in pyfeyn2.renders.values()]
+    @classmethod
+    def valid_attributes(attr: str) -&gt; List[str]:
+        return sorted(
+            list(set([i for r in renders.values() for i in r.valid_attributes()]))
+        )
 
-    @staticmethod
-    def valid_type( typ: str) -&gt; bool:
-        return True in [r.valid_type(typ) for r in pyfeyn2.renders.values()]</div>
+    @classmethod
+    def valid_types(typ: str) -&gt; List[str]:
+        return sorted(get_types())</div>
+        # return [i for r in renders.values() for i in r.valid_types()]
 </pre></div>
 
            </div>

@@ -37,7 +37,7 @@
             <img src="../../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.0.7-43-g42257a2b
+                2.0.7-50-ga7bd7d6d
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
@@ -103,17 +103,18 @@
              
   <h1>Source code for pyfeyn2.render.latex.dot</h1><div class="highlight"><pre>
 <span></span>import copy
+from typing import List
 
 import dot2tex
+from pylatex import Command
+from pylatex.utils import NoEscape
+
+from pyfeyn2.feynmandiagram import Connector
 from pyfeyn2.interface.dot import (
     REPLACE_THIS_WITH_A_BACKSLASH,
     dot_to_tikz,
     feynman_to_dot,
 )
-from pylatex import Command
-from pylatex.utils import NoEscape
-
-from pyfeyn2.feynmandiagram import Connector
 from pyfeyn2.render.latex.latex import LatexRender
 
 # workaround for dot2tex bug in math mode labels
@@ -187,19 +188,17 @@ map_feyn_to_tikz = {
     def get_src_dot(self):
         return self.src_dot
 
-    @staticmethod
-    def valid_attribute(attr: str) -&gt; bool:
-        return super(DotRender, DotRender).valid_attribute(attr) or attr in [
+    @classmethod
+    def valid_attributes(cls) -&gt; List[str]:
+        return super(DotRender, cls).valid_attributes() + [
             &quot;x&quot;,
             &quot;y&quot;,
             &quot;label&quot;,
         ]
 
-    @staticmethod
-    def valid_type(typ):
-        if typ.lower() in map_feyn_to_tikz:
-            return True
-        return False</div>
+    @classmethod
+    def valid_types(cls) -&gt; List[str]:
+        return super(DotRender, cls).valid_types() + list(map_feyn_to_tikz.keys())</div>
 </pre></div>
 
            </div>

@@ -33,10 +33,10 @@ pyfeyn2.feynmandiagram.Leg
       ~Leg.set_type
       ~Leg.set_xy
       ~Leg.set_xyz
+      ~Leg.with_bend
       ~Leg.with_class
       ~Leg.with_external
       ~Leg.with_id
-      ~Leg.with_id2
       ~Leg.with_incoming
       ~Leg.with_label
       ~Leg.with_length
@@ -66,7 +66,6 @@ pyfeyn2.feynmandiagram.Leg
       ~Leg.clazz
       ~Leg.external
       ~Leg.id
-      ~Leg.id2
       ~Leg.label
       ~Leg.length
       ~Leg.momentum

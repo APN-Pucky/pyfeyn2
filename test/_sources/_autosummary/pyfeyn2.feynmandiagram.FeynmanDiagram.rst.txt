@@ -25,6 +25,7 @@ pyfeyn2.feynmandiagram.FeynmanDiagram
       ~FeynmanDiagram.get_style
       ~FeynmanDiagram.get_vertex
       ~FeynmanDiagram.remove_propagator
+      ~FeynmanDiagram.with_default_style
       ~FeynmanDiagram.with_labels
       ~FeynmanDiagram.with_legs
       ~FeynmanDiagram.with_propagators
@@ -41,6 +42,7 @@ pyfeyn2.feynmandiagram.FeynmanDiagram
 
    .. autosummary::
    
+      ~FeynmanDiagram.default_style
       ~FeynmanDiagram.propagators
       ~FeynmanDiagram.vertices
       ~FeynmanDiagram.legs

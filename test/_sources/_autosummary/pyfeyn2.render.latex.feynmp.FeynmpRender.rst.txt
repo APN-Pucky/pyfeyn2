@@ -50,8 +50,11 @@ pyfeyn2.render.latex.feynmp.FeynmpRender
       ~FeynmpRender.set_variable
       ~FeynmpRender.sort
       ~FeynmpRender.valid_attribute
+      ~FeynmpRender.valid_attributes
       ~FeynmpRender.valid_style
+      ~FeynmpRender.valid_styles
       ~FeynmpRender.valid_type
+      ~FeynmpRender.valid_types
    
    
 

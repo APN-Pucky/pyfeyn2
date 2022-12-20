@@ -21,7 +21,6 @@ pyfeyn2.feynmandiagram.PDG
       ~PDG.set_pdgig
       ~PDG.set_type
       ~PDG.with_id
-      ~PDG.with_id2
       ~PDG.with_name
       ~PDG.with_particle
       ~PDG.with_pdgid
@@ -36,7 +35,6 @@ pyfeyn2.feynmandiagram.PDG
    .. autosummary::
    
       ~PDG.id
-      ~PDG.id2
       ~PDG.name
       ~PDG.particle
       ~PDG.pdgid

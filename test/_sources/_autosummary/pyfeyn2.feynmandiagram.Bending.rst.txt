@@ -17,6 +17,7 @@ pyfeyn2.feynmandiagram.Bending
    .. autosummary::
    
       ~Bending.__init__
+      ~Bending.with_bend
    
    
 

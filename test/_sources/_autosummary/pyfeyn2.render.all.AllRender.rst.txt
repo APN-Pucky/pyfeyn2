@@ -50,8 +50,11 @@ pyfeyn2.render.all.AllRender
       ~AllRender.set_variable
       ~AllRender.sort
       ~AllRender.valid_attribute
+      ~AllRender.valid_attributes
       ~AllRender.valid_style
+      ~AllRender.valid_styles
       ~AllRender.valid_type
+      ~AllRender.valid_types
    
    
 

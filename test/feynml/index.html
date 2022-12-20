@@ -28,7 +28,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Leg" href="leg.html" />
-    <link rel="prev" title="pyfeyn2 2.0.7-43-g42257a2b documentation" href="../index.html" /> 
+    <link rel="prev" title="pyfeyn2 2.0.7-50-ga7bd7d6d documentation" href="../index.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -40,7 +40,7 @@
             <img src="../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.0.7-43-g42257a2b
+                2.0.7-50-ga7bd7d6d
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -67,24 +67,16 @@
 <li class="toctree-l3"><a class="reference internal" href="leg.html">Leg</a></li>
 <li class="toctree-l3"><a class="reference internal" href="vertex.html">Vertex</a></li>
 <li class="toctree-l3"><a class="reference internal" href="propagator.html">Propagator</a></li>
-<li class="toctree-l3"><a class="reference internal" href="label.html">Label</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#attributes">Attributes</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="attributes/bend.html">Bend</a></li>
-<li class="toctree-l3"><a class="reference internal" href="attributes/id.html">ID</a></li>
-<li class="toctree-l3"><a class="reference internal" href="attributes/label.html">Label</a></li>
-<li class="toctree-l3"><a class="reference internal" href="attributes/momentum.html">Momentum</a></li>
-<li class="toctree-l3"><a class="reference internal" href="attributes/pdgid.html">PDGID</a></li>
-<li class="toctree-l3"><a class="reference internal" href="attributes/sense.html">Sense</a></li>
-<li class="toctree-l3"><a class="reference internal" href="attributes/source.html">Source</a></li>
-<li class="toctree-l3"><a class="reference internal" href="attributes/style.html">Style</a></li>
-<li class="toctree-l3"><a class="reference internal" href="attributes/target.html">Target</a></li>
-<li class="toctree-l3"><a class="reference internal" href="attributes/tension.html">Tension</a></li>
-<li class="toctree-l3"><a class="reference internal" href="attributes/text.html">Text</a></li>
-<li class="toctree-l3"><a class="reference internal" href="attributes/type.html">Type</a></li>
-<li class="toctree-l3"><a class="reference internal" href="attributes/x.html">X</a></li>
-<li class="toctree-l3"><a class="reference internal" href="attributes/y.html">Y</a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributes/class.html">class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributes/label.html">label</a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributes/style.html">style</a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributes/type.html">type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributes/x.html">x</a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributes/y.html">y</a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributes/z.html">z</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#examples">Examples</a><ul>
@@ -163,20 +155,46 @@
 </style>
 <section id="feynml">
 <h1>FeynML<a class="headerlink" href="#feynml" title="Permalink to this heading"></a></h1>
-<p>FeynML is a project to develop an XML dialect for describing Feynman diagrams as used in quantum field theory calculations. The primary aim is to unambiguously describe the structure of a diagram in XML, giving a de facto representation for diagram structure which can be easily translated into another representation.</p>
+<p>FeynML is a project to develop an XML dialect for describing Feynman diagrams as used in quantum field theory calculations.
+The primary aim is to unambiguously describe the structure of a diagram in XML, giving a de facto representation for diagram structure which can be easily translated into another representation.</p>
 <section id="why-xml">
 <h2>Why XML?<a class="headerlink" href="#why-xml" title="Permalink to this heading"></a></h2>
-<p>Okay, XML is a bit of a buzzword. Not everything is best-represented as XML. However, it does have several benefits: it is simple to read and write, both for humans and computers; there are a variety of technologies available for parsing, styling and transforming XML (see e.g. SAX, DOM, CSS, XSLT) and its heirarchical structure maps fairly well into describing graphs. The variety of technologies aspect is probably the most important.</p>
+<p>Okay, XML is a bit of a buzzword. Not everything is best-represented as XML.
+However, it does have several benefits:</p>
+<ul class="simple">
+<li><p>it is simple to read and write, both for humans and computers;</p></li>
+<li><p>there are a variety of technologies available for parsing, styling and transforming XML (see e.g. SAX, DOM, CSS, XSLT)</p></li>
+<li><p>its heirarchical structure maps fairly well into describing graphs.</p></li>
+</ul>
+<p>The variety of technologies aspect is probably the most important.</p>
 </section>
 <section id="elements">
 <span id="id1"></span><h2>Elements<a class="headerlink" href="#elements" title="Permalink to this heading"></a></h2>
-<p>A Feynman diagram is constructed of</p>
+<p>A Feynman diagram is constructed of these the minimal building blocks of a diagram:</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="leg.html">Leg</a></li>
-<li class="toctree-l1"><a class="reference internal" href="vertex.html">Vertex</a></li>
-<li class="toctree-l1"><a class="reference internal" href="propagator.html">Propagator</a></li>
-<li class="toctree-l1"><a class="reference internal" href="label.html">Label</a></li>
+<li class="toctree-l1"><a class="reference internal" href="leg.html">Leg</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="id.html">ID</a></li>
+<li class="toctree-l2"><a class="reference internal" href="target.html">Target</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sense.html">Sense</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pdgid.html">PDGID</a></li>
+<li class="toctree-l2"><a class="reference internal" href="name.html">Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="momentum.html">Momentum</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="vertex.html">Vertex</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="id.html">ID</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="propagator.html">Propagator</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="id.html">ID</a></li>
+<li class="toctree-l2"><a class="reference internal" href="source.html">Source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="target.html">Target</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pdgid.html">PDGID</a></li>
+<li class="toctree-l2"><a class="reference internal" href="name.html">Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="momentum.html">Momentum</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </section>
@@ -185,7 +203,7 @@
 <p>Above buildings blocks come with different attributes, which are described in the following sections</p>
 <table class="docutils align-default">
 <colgroup>
-<col style="width: 8%" />
+<col style="width: 9%" />
 <col style="width: 11%" />
 <col style="width: 12%" />
 <col style="width: 11%" />
@@ -208,47 +226,7 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><a class="reference internal" href="attributes/x.html#x"><span class="std std-ref">X</span></a></p></td>
-<td><p>✔</p></td>
-<td><p>✖</p></td>
-<td><p>✔</p></td>
-<td><p>✔</p></td>
-<td><p>✔</p></td>
-<td><p>✔</p></td>
-<td><p>✔</p></td>
-<td><p>✔</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="attributes/y.html#y"><span class="std std-ref">Y</span></a></p></td>
-<td><p>✔</p></td>
-<td><p>✖</p></td>
-<td><p>✔</p></td>
-<td><p>✔</p></td>
-<td><p>✔</p></td>
-<td><p>✔</p></td>
-<td><p>✔</p></td>
-<td><p>✔</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="attributes/bend.html#bend"><span class="std std-ref">Bend</span></a></p></td>
-<td><p>✔</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="attributes/label.html#label"><span class="std std-ref">Label</span></a></p></td>
-<td><p>✔</p></td>
-<td><p>✔</p></td>
-<td><p>✔</p></td>
-<td><p>✔</p></td>
-<td><p>✔</p></td>
-<td><p>✖</p></td>
-<td><p>✔</p></td>
-<td><p>✔</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="attributes/pdgid.html#pdgid"><span class="std std-ref">PDGID</span></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="attributes/class.html#class"><span class="std std-ref">class</span></a></p></td>
 <td><p>✔</p></td>
 <td><p>✔</p></td>
 <td><p>✔</p></td>
@@ -258,37 +236,17 @@
 <td><p>✔</p></td>
 <td><p>✔</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="attributes/sense.html#sense"><span class="std std-ref">Sense</span></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="attributes/label.html#label"><span class="std std-ref">label</span></a></p></td>
 <td><p>✔</p></td>
 <td><p>✔</p></td>
 <td><p>✔</p></td>
 <td><p>✔</p></td>
 <td><p>✔</p></td>
-<td><p>✔</p></td>
-<td><p>✔</p></td>
-<td><p>✔</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="attributes/target.html#target"><span class="std std-ref">Target</span></a></p></td>
-<td><p>✔</p></td>
-<td><p>✔</p></td>
-<td><p>✔</p></td>
-<td><p>✔</p></td>
-<td><p>✔</p></td>
-<td><p>✔</p></td>
+<td><p>✖</p></td>
 <td><p>✔</p></td>
 <td><p>✔</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="attributes/source.html#source"><span class="std std-ref">Source</span></a></p></td>
-<td><p>✔</p></td>
-<td><p>✔</p></td>
-<td><p>✔</p></td>
-<td><p>✔</p></td>
-<td><p>✔</p></td>
-<td><p>✔</p></td>
-<td><p>✔</p></td>
-<td><p>✔</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="attributes/style.html#style"><span class="std std-ref">Style</span></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="attributes/style.html#style"><span class="std std-ref">style</span></a></p></td>
 <td><p>✔</p></td>
 <td><p>✖</p></td>
 <td><p>✔</p></td>
@@ -298,7 +256,7 @@
 <td><p>✖</p></td>
 <td><p>✖</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="attributes/id.html#id"><span class="std std-ref">ID</span></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="attributes/type.html#type"><span class="std std-ref">type</span></a></p></td>
 <td><p>✔</p></td>
 <td><p>✔</p></td>
 <td><p>✔</p></td>
@@ -308,9 +266,9 @@
 <td><p>✔</p></td>
 <td><p>✔</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="attributes/type.html#type"><span class="std std-ref">Type</span></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="attributes/x.html#x"><span class="std std-ref">x</span></a></p></td>
 <td><p>✔</p></td>
-<td><p>✔</p></td>
+<td><p>✖</p></td>
 <td><p>✔</p></td>
 <td><p>✔</p></td>
 <td><p>✔</p></td>
@@ -318,40 +276,21 @@
 <td><p>✔</p></td>
 <td><p>✔</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="attributes/text.html#text"><span class="std std-ref">Text</span></a></p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="attributes/momentum.html#momentum"><span class="std std-ref">Momentum</span></a></p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="attributes/y.html#y"><span class="std std-ref">y</span></a></p></td>
 <td><p>✔</p></td>
 <td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="attributes/tension.html#tension"><span class="std std-ref">Tension</span></a></p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
 </tr>
 </tbody>
 </table>
 <div class="toctree-wrapper compound">
 </div>
+<p>The attributes provide additional information and metadata about the elements.</p>
 </section>
 <section id="examples">
 <h2>Examples<a class="headerlink" href="#examples" title="Permalink to this heading"></a></h2>
@@ -369,7 +308,7 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../index.html" class="btn btn-neutral float-left" title="pyfeyn2 2.0.7-43-g42257a2b documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../index.html" class="btn btn-neutral float-left" title="pyfeyn2 2.0.7-50-ga7bd7d6d documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="leg.html" class="btn btn-neutral float-right" title="Leg" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

@@ -26,9 +26,9 @@ pyfeyn2.feynmandiagram.Connector
       ~Connector.set_pdgig
       ~Connector.set_tension
       ~Connector.set_type
+      ~Connector.with_bend
       ~Connector.with_class
       ~Connector.with_id
-      ~Connector.with_id2
       ~Connector.with_label
       ~Connector.with_length
       ~Connector.with_momentum
@@ -50,7 +50,6 @@ pyfeyn2.feynmandiagram.Connector
       ~Connector.bend
       ~Connector.clazz
       ~Connector.id
-      ~Connector.id2
       ~Connector.label
       ~Connector.length
       ~Connector.momentum
