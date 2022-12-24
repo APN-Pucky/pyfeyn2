@@ -21,16 +21,19 @@ The variety of technologies aspect is probably the most important.
 
 Elements
 ~~~~~~~~~~
-A Feynman diagram is constructed of these the minimal building blocks of a diagram:
+A Feynman diagram is constructed of these the minimal building blocks of a diagram.
 
 .. toctree::
    :glob:
-   :maxdepth: 3
+   :maxdepth: 2
 
-   leg.rst
-   vertex.rst
-   propagator.rst
-   label.rst
+   elements/leg.rst
+   elements/vertex.rst
+   elements/propagator.rst
+   elements/label.rst
+
+
+These are contained in :ref:`diagram` which in turn is contained in :ref:`feynml`.
 
 .. _attributes:
 

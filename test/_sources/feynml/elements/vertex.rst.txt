@@ -2,6 +2,8 @@
 
 Vertex
 ====================
+| Format: Element
+| Elements: :ref:`diagram`
 | Implementation: :py:class:`pyfeyn2.feynmandiagram.Vertex`
 
 

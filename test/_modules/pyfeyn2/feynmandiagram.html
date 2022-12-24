@@ -37,7 +37,7 @@
             <img src="../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.1.0-1-gdf1bbbe1
+                2.1.0-2-gb64ba477
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -105,6 +105,7 @@
 <span></span>import logging
 import warnings
 from dataclasses import dataclass, field
+from importlib.metadata import version
 from typing import List, Optional, Union
 
 import cssutils
@@ -419,10 +420,25 @@ class Vertex(Labeled, Point, Styled, Identifiable):
     pass</div>
 
 
+# TODO think about withify for sub-classes
+<div class="viewcode-block" id="Momentum"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.Momentum.html#pyfeyn2.feynmandiagram.Momentum">[docs]</a>@dataclass
+class Momentum:
+    class Meta:
+        name = &quot;momentum&quot;
+
+    name: Optional[str] = field(default=None, metadata={&quot;type&quot;: &quot;Element&quot;})
+    px: Optional[float] = field(default=None, metadata={&quot;type&quot;: &quot;Element&quot;})
+    py: Optional[float] = field(default=None, metadata={&quot;type&quot;: &quot;Element&quot;})
+    pz: Optional[float] = field(default=None, metadata={&quot;type&quot;: &quot;Element&quot;})
+    e: Optional[float] = field(default=None, metadata={&quot;type&quot;: &quot;Element&quot;})</div>
+
+
 <div class="viewcode-block" id="Connector"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.Connector.html#pyfeyn2.feynmandiagram.Connector">[docs]</a>@withify()
 @dataclass
 class Connector(Labeled, Bending, Styled, PDG):
-    momentum: Optional[str] = field(default=None, metadata={})
+    momentum: Optional[Momentum] = field(
+        default=None, metadata={&quot;name&quot;: &quot;momentum&quot;, &quot;type&quot;: &quot;Element&quot;}
+    )
     &quot;&quot;&quot;Momentum of the connector&quot;&quot;&quot;
     tension: Optional[float] = field(
         default=None, metadata={&quot;xml_attribute&quot;: True, &quot;type&quot;: &quot;Attribute&quot;}
@@ -679,17 +695,24 @@ class FeynmanDiagram:
         return parser.from_string(xml, cls)</div></div>
 
 
+<div class="viewcode-block" id="Tool"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.Tool.html#pyfeyn2.feynmandiagram.Tool">[docs]</a>@dataclass
+class Tool:
+    class Meta:
+        name = &quot;tool&quot;
+
+    name: Optional[str] = field(default=&quot;pyfeyn2&quot;, metadata={&quot;type&quot;: &quot;Element&quot;})
+    version: Optional[str] = field(
+        default=version(&quot;pyfeyn2&quot;), metadata={&quot;type&quot;: &quot;Element&quot;}
+    )</div>
+
+
 <div class="viewcode-block" id="Meta"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.Meta.html#pyfeyn2.feynmandiagram.Meta">[docs]</a>@dataclass
 class Meta:
     class Meta:
         name = &quot;meta&quot;
 
-    name: Optional[str] = field(
-        default=&quot;&quot;, metadata={&quot;xml_attribute&quot;: True, &quot;type&quot;: &quot;Attribute&quot;}
-    )
-    value: Optional[str] = field(
-        default=&quot;&quot;, metadata={&quot;xml_attribute&quot;: True, &quot;type&quot;: &quot;Attribute&quot;}
-    )</div>
+    name: Optional[str] = field(default=&quot;&quot;, metadata={&quot;type&quot;: &quot;Attribute&quot;})
+    content: Optional[str] = field(default=&quot;&quot;, metadata={&quot;type&quot;: &quot;Attribute&quot;})</div>
 
 
 alias_meta = Meta
@@ -704,10 +727,12 @@ class Head:
         default_factory=list,
         metadata={&quot;name&quot;: &quot;meta&quot;, &quot;namespace&quot;: &quot;&quot;},
     )
-    description: Optional[str] = field(default=&quot;&quot;, metadata={&quot;type&quot;: &quot;Element&quot;})</div>
+    description: Optional[str] = field(default=&quot;&quot;, metadata={&quot;type&quot;: &quot;Element&quot;})
 
-    # TODO setup style ?
-    # style: Optional[str] = field(default=&quot;&quot;, metadata={&quot;type&quot;: &quot;Element&quot;})
+    style: Optional[str] = field(default=&quot;&quot;, metadata={&quot;type&quot;: &quot;Element&quot;})</div>
+
+
+feynml_version = &quot;0.0&quot;
 
 
 <div class="viewcode-block" id="FeynML"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.FeynML.html#pyfeyn2.feynmandiagram.FeynML">[docs]</a>@dataclass
@@ -715,8 +740,21 @@ class FeynML:
     class Meta:
         name = &quot;feynml&quot;
 
-    head: List[Head] = field(
-        default_factory=list, metadata={&quot;name&quot;: &quot;head&quot;, &quot;namespace&quot;: &quot;&quot;}
+    version: Optional[str] = field(
+        default=feynml_version, metadata={&quot;name&quot;: &quot;version&quot;, &quot;type&quot;: &quot;Attribute&quot;}
+    )
+
+    # post init to check version
+    def __post_init__(self):
+        if self.version &lt; feynml_version:
+            warnings.warn(&quot;FeynML version is older than this parser.&quot;)
+        elif self.version &gt; feynml_version:
+            warnings.warn(&quot;FeynML version is newer than this parser.&quot;)
+
+        self.head.metas.append(Meta(&quot;pyfeyn2&quot;, version(&quot;pyfeyn2&quot;)))
+
+    head: Optional[Head] = field(
+        default=None, metadata={&quot;name&quot;: &quot;head&quot;, &quot;namespace&quot;: &quot;&quot;, &quot;type&quot;: &quot;Element&quot;}
     )
 
     diagrams: List[FeynmanDiagram] = field(

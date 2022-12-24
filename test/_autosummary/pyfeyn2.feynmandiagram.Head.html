@@ -40,7 +40,7 @@
             <img src="../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.1.0-1-gdf1bbbe1
+                2.1.0-2-gb64ba477
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -96,6 +96,7 @@
 <li class="toctree-l3"><a class="reference internal" href="pyfeyn2.feynmandiagram.Leg.html">pyfeyn2.feynmandiagram.Leg</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyfeyn2.feynmandiagram.Line.html">pyfeyn2.feynmandiagram.Line</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyfeyn2.feynmandiagram.Meta.html">pyfeyn2.feynmandiagram.Meta</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyfeyn2.feynmandiagram.Momentum.html">pyfeyn2.feynmandiagram.Momentum</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyfeyn2.feynmandiagram.PDG.html">pyfeyn2.feynmandiagram.PDG</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyfeyn2.feynmandiagram.Point.html">pyfeyn2.feynmandiagram.Point</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyfeyn2.feynmandiagram.Propagator.html">pyfeyn2.feynmandiagram.Propagator</a></li>
@@ -103,6 +104,7 @@
 <li class="toctree-l3"><a class="reference internal" href="pyfeyn2.feynmandiagram.Styled.html">pyfeyn2.feynmandiagram.Styled</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyfeyn2.feynmandiagram.Targeting.html">pyfeyn2.feynmandiagram.Targeting</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyfeyn2.feynmandiagram.Texted.html">pyfeyn2.feynmandiagram.Texted</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyfeyn2.feynmandiagram.Tool.html">pyfeyn2.feynmandiagram.Tool</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyfeyn2.feynmandiagram.Vertex.html">pyfeyn2.feynmandiagram.Vertex</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyfeyn2.feynmandiagram.alias_meta.html">pyfeyn2.feynmandiagram.alias_meta</a></li>
 </ul>
@@ -170,11 +172,11 @@
 <h1>pyfeyn2.feynmandiagram.Head<a class="headerlink" href="#pyfeyn2-feynmandiagram-head" title="Permalink to this heading"></a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Head">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyfeyn2.feynmandiagram.</span></span><span class="sig-name descname"><span class="pre">Head</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">metas:</span> <span class="pre">List[pyfeyn2.feynmandiagram.Meta]</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description:</span> <span class="pre">Union[str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/feynmandiagram.html#Head"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.Head" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyfeyn2.feynmandiagram.</span></span><span class="sig-name descname"><span class="pre">Head</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">metas:</span> <span class="pre">List[pyfeyn2.feynmandiagram.Meta]</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description:</span> <span class="pre">Union[str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style:</span> <span class="pre">Union[str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/feynmandiagram.html#Head"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.Head" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Head.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">metas:</span> <span class="pre">~typing.List[~pyfeyn2.feynmandiagram.Meta]</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description:</span> <span class="pre">~typing.Optional[str]</span> <span class="pre">=</span> <span class="pre">''</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#pyfeyn2.feynmandiagram.Head.__init__" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">metas:</span> <span class="pre">~typing.List[~pyfeyn2.feynmandiagram.Meta]</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description:</span> <span class="pre">~typing.Optional[str]</span> <span class="pre">=</span> <span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style:</span> <span class="pre">~typing.Optional[str]</span> <span class="pre">=</span> <span class="pre">''</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#pyfeyn2.feynmandiagram.Head.__init__" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <p class="rubric">Methods</p>
@@ -184,7 +186,7 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Head.__init__" title="pyfeyn2.feynmandiagram.Head.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>([metas, description])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Head.__init__" title="pyfeyn2.feynmandiagram.Head.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>([metas, description, style])</p></td>
 <td><p></p></td>
 </tr>
 </tbody>
@@ -199,7 +201,10 @@
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">description</span></code></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">metas</span></code></p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">style</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">metas</span></code></p></td>
 <td><p></p></td>
 </tr>
 </tbody>

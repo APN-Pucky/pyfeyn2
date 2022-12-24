@@ -32,6 +32,7 @@ pyfeyn2.feynmandiagram
       Leg
       Line
       Meta
+      Momentum
       PDG
       Point
       Propagator
@@ -39,6 +40,7 @@ pyfeyn2.feynmandiagram
       Styled
       Targeting
       Texted
+      Tool
       Vertex
       alias_meta
    

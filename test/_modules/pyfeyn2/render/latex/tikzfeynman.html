@@ -37,7 +37,7 @@
             <img src="../../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.1.0-1-gdf1bbbe1
+                2.1.0-2-gb64ba477
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
@@ -154,7 +154,7 @@ type_map = {
         style.getProperty(&quot;momentum-arrow&quot;) is not None
         and style.getProperty(&quot;momentum-arrow&quot;).value == &quot;true&quot;
     ):
-        ret += &quot;,momentum=&quot; + c.momentum
+        ret += &quot;,momentum=&quot; + c.momentum.name
     if style.opacity is not None and style.opacity != &quot;&quot;:
         ret += &quot;,opacity=&quot; + str(style.opacity)
     if style.color is not None and style.color != &quot;&quot;:

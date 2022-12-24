@@ -40,7 +40,7 @@
             <img src="../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.1.0-1-gdf1bbbe1
+                2.1.0-2-gb64ba477
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -93,6 +93,7 @@
 <li class="toctree-l3"><a class="reference internal" href="pyfeyn2.feynmandiagram.Leg.html">pyfeyn2.feynmandiagram.Leg</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyfeyn2.feynmandiagram.Line.html">pyfeyn2.feynmandiagram.Line</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyfeyn2.feynmandiagram.Meta.html">pyfeyn2.feynmandiagram.Meta</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyfeyn2.feynmandiagram.Momentum.html">pyfeyn2.feynmandiagram.Momentum</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyfeyn2.feynmandiagram.PDG.html">pyfeyn2.feynmandiagram.PDG</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyfeyn2.feynmandiagram.Point.html">pyfeyn2.feynmandiagram.Point</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyfeyn2.feynmandiagram.Propagator.html">pyfeyn2.feynmandiagram.Propagator</a></li>
@@ -100,6 +101,7 @@
 <li class="toctree-l3"><a class="reference internal" href="pyfeyn2.feynmandiagram.Styled.html">pyfeyn2.feynmandiagram.Styled</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyfeyn2.feynmandiagram.Targeting.html">pyfeyn2.feynmandiagram.Targeting</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyfeyn2.feynmandiagram.Texted.html">pyfeyn2.feynmandiagram.Texted</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyfeyn2.feynmandiagram.Tool.html">pyfeyn2.feynmandiagram.Tool</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyfeyn2.feynmandiagram.Vertex.html">pyfeyn2.feynmandiagram.Vertex</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyfeyn2.feynmandiagram.alias_meta.html">pyfeyn2.feynmandiagram.alias_meta</a></li>
 </ul>
@@ -183,13 +185,13 @@
 <tr class="row-even"><td><p><a class="reference internal" href="pyfeyn2.feynmandiagram.Connector.html#pyfeyn2.feynmandiagram.Connector" title="pyfeyn2.feynmandiagram.Connector"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Connector</span></code></a>(id, NoneType] = None, pdgid, ...)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyfeyn2.feynmandiagram.FeynML.html#pyfeyn2.feynmandiagram.FeynML" title="pyfeyn2.feynmandiagram.FeynML"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FeynML</span></code></a>(head, diagrams)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyfeyn2.feynmandiagram.FeynML.html#pyfeyn2.feynmandiagram.FeynML" title="pyfeyn2.feynmandiagram.FeynML"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FeynML</span></code></a>(version, NoneType] =, head, ...)</p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyfeyn2.feynmandiagram.FeynmanDiagram.html#pyfeyn2.feynmandiagram.FeynmanDiagram" title="pyfeyn2.feynmandiagram.FeynmanDiagram"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FeynmanDiagram</span></code></a>(default_style, ...)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyfeyn2.feynmandiagram.Head.html#pyfeyn2.feynmandiagram.Head" title="pyfeyn2.feynmandiagram.Head"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Head</span></code></a>(metas, description, NoneType] =)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyfeyn2.feynmandiagram.Head.html#pyfeyn2.feynmandiagram.Head" title="pyfeyn2.feynmandiagram.Head"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Head</span></code></a>(metas, description, NoneType] =, style, ...)</p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyfeyn2.feynmandiagram.Identifiable.html#pyfeyn2.feynmandiagram.Identifiable" title="pyfeyn2.feynmandiagram.Identifiable"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Identifiable</span></code></a>([id])</p></td>
@@ -207,28 +209,34 @@
 <tr class="row-even"><td><p><a class="reference internal" href="pyfeyn2.feynmandiagram.Line.html#pyfeyn2.feynmandiagram.Line" title="pyfeyn2.feynmandiagram.Line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Line</span></code></a>([source, target])</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyfeyn2.feynmandiagram.Meta.html#pyfeyn2.feynmandiagram.Meta" title="pyfeyn2.feynmandiagram.Meta"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Meta</span></code></a>([name, value])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyfeyn2.feynmandiagram.Meta.html#pyfeyn2.feynmandiagram.Meta" title="pyfeyn2.feynmandiagram.Meta"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Meta</span></code></a>([name, content])</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyfeyn2.feynmandiagram.PDG.html#pyfeyn2.feynmandiagram.PDG" title="pyfeyn2.feynmandiagram.PDG"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PDG</span></code></a>([id, pdgid, name, type, particle])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyfeyn2.feynmandiagram.Momentum.html#pyfeyn2.feynmandiagram.Momentum" title="pyfeyn2.feynmandiagram.Momentum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Momentum</span></code></a>([name, px, py, pz, e])</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyfeyn2.feynmandiagram.Point.html#pyfeyn2.feynmandiagram.Point" title="pyfeyn2.feynmandiagram.Point"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Point</span></code></a>([x, y, z])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyfeyn2.feynmandiagram.PDG.html#pyfeyn2.feynmandiagram.PDG" title="pyfeyn2.feynmandiagram.PDG"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PDG</span></code></a>([id, pdgid, name, type, particle])</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyfeyn2.feynmandiagram.Propagator.html#pyfeyn2.feynmandiagram.Propagator" title="pyfeyn2.feynmandiagram.Propagator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Propagator</span></code></a>(id, NoneType] = None, pdgid, ...)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyfeyn2.feynmandiagram.Point.html#pyfeyn2.feynmandiagram.Point" title="pyfeyn2.feynmandiagram.Point"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Point</span></code></a>([x, y, z])</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyfeyn2.feynmandiagram.Sourcing.html#pyfeyn2.feynmandiagram.Sourcing" title="pyfeyn2.feynmandiagram.Sourcing"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Sourcing</span></code></a>([source])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyfeyn2.feynmandiagram.Propagator.html#pyfeyn2.feynmandiagram.Propagator" title="pyfeyn2.feynmandiagram.Propagator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Propagator</span></code></a>(id, NoneType] = None, pdgid, ...)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyfeyn2.feynmandiagram.Styled.html#pyfeyn2.feynmandiagram.Styled" title="pyfeyn2.feynmandiagram.Styled"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Styled</span></code></a>(style, clazz, NoneType] = None)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyfeyn2.feynmandiagram.Sourcing.html#pyfeyn2.feynmandiagram.Sourcing" title="pyfeyn2.feynmandiagram.Sourcing"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Sourcing</span></code></a>([source])</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyfeyn2.feynmandiagram.Targeting.html#pyfeyn2.feynmandiagram.Targeting" title="pyfeyn2.feynmandiagram.Targeting"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Targeting</span></code></a>([target])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyfeyn2.feynmandiagram.Styled.html#pyfeyn2.feynmandiagram.Styled" title="pyfeyn2.feynmandiagram.Styled"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Styled</span></code></a>(style, clazz, NoneType] = None)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyfeyn2.feynmandiagram.Texted.html#pyfeyn2.feynmandiagram.Texted" title="pyfeyn2.feynmandiagram.Texted"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Texted</span></code></a>([text])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyfeyn2.feynmandiagram.Targeting.html#pyfeyn2.feynmandiagram.Targeting" title="pyfeyn2.feynmandiagram.Targeting"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Targeting</span></code></a>([target])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyfeyn2.feynmandiagram.Texted.html#pyfeyn2.feynmandiagram.Texted" title="pyfeyn2.feynmandiagram.Texted"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Texted</span></code></a>([text])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyfeyn2.feynmandiagram.Tool.html#pyfeyn2.feynmandiagram.Tool" title="pyfeyn2.feynmandiagram.Tool"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Tool</span></code></a>([name, version])</p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyfeyn2.feynmandiagram.Vertex.html#pyfeyn2.feynmandiagram.Vertex" title="pyfeyn2.feynmandiagram.Vertex"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Vertex</span></code></a>(id, NoneType] = None, style, clazz, ...)</p></td>

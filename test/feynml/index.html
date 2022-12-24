@@ -27,8 +27,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Leg" href="leg.html" />
-    <link rel="prev" title="pyfeyn2 2.1.0-1-gdf1bbbe1 documentation" href="../index.html" /> 
+    <link rel="next" title="Leg" href="elements/leg.html" />
+    <link rel="prev" title="pyfeyn2 2.1.0-2-gb64ba477 documentation" href="../index.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -40,7 +40,7 @@
             <img src="../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.1.0-1-gdf1bbbe1
+                2.1.0-2-gb64ba477
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -64,9 +64,9 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">FeynML</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#why-xml">Why XML?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#elements">Elements</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="leg.html">Leg</a></li>
-<li class="toctree-l3"><a class="reference internal" href="vertex.html">Vertex</a></li>
-<li class="toctree-l3"><a class="reference internal" href="propagator.html">Propagator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="elements/leg.html">Leg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="elements/vertex.html">Vertex</a></li>
+<li class="toctree-l3"><a class="reference internal" href="elements/propagator.html">Propagator</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#attributes">Attributes</a><ul>
@@ -171,33 +171,34 @@ However, it does have several benefits:</p>
 </section>
 <section id="elements">
 <span id="id1"></span><h2>Elements<a class="headerlink" href="#elements" title="Permalink to this heading"></a></h2>
-<p>A Feynman diagram is constructed of these the minimal building blocks of a diagram:</p>
+<p>A Feynman diagram is constructed of these the minimal building blocks of a diagram.</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="leg.html">Leg</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="id.html">ID</a></li>
-<li class="toctree-l2"><a class="reference internal" href="target.html">Target</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sense.html">Sense</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pdgid.html">PDGID</a></li>
-<li class="toctree-l2"><a class="reference internal" href="name.html">Name</a></li>
-<li class="toctree-l2"><a class="reference internal" href="momentum.html">Momentum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="elements/leg.html">Leg</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="elements/id.html">ID</a></li>
+<li class="toctree-l2"><a class="reference internal" href="elements/target.html">Target</a></li>
+<li class="toctree-l2"><a class="reference internal" href="elements/sense.html">Sense</a></li>
+<li class="toctree-l2"><a class="reference internal" href="elements/pdgid.html">PDGID</a></li>
+<li class="toctree-l2"><a class="reference internal" href="elements/name.html">Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="elements/momentum/momentum.html">Momentum</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="vertex.html">Vertex</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="id.html">ID</a></li>
+<li class="toctree-l1"><a class="reference internal" href="elements/vertex.html">Vertex</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="elements/id.html">ID</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="propagator.html">Propagator</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="id.html">ID</a></li>
-<li class="toctree-l2"><a class="reference internal" href="source.html">Source</a></li>
-<li class="toctree-l2"><a class="reference internal" href="target.html">Target</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pdgid.html">PDGID</a></li>
-<li class="toctree-l2"><a class="reference internal" href="name.html">Name</a></li>
-<li class="toctree-l2"><a class="reference internal" href="momentum.html">Momentum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="elements/propagator.html">Propagator</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="elements/id.html">ID</a></li>
+<li class="toctree-l2"><a class="reference internal" href="elements/source.html">Source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="elements/target.html">Target</a></li>
+<li class="toctree-l2"><a class="reference internal" href="elements/pdgid.html">PDGID</a></li>
+<li class="toctree-l2"><a class="reference internal" href="elements/name.html">Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="elements/momentum/momentum.html">Momentum</a></li>
 </ul>
 </li>
 </ul>
 </div>
+<p>These are contained in <a class="reference internal" href="elements/diagram.html#diagram"><span class="std std-ref">Diagram</span></a> which in turn is contained in <a class="reference internal" href="elements/feynml.html#feynml"><span class="std std-ref">FeynML</span></a>.</p>
 </section>
 <section id="attributes">
 <span id="id2"></span><h2>Attributes<a class="headerlink" href="#attributes" title="Permalink to this heading"></a></h2>
@@ -338,8 +339,8 @@ For more advanced CSS selectors see <a class="reference external" href="https://
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../index.html" class="btn btn-neutral float-left" title="pyfeyn2 2.1.0-1-gdf1bbbe1 documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="leg.html" class="btn btn-neutral float-right" title="Leg" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../index.html" class="btn btn-neutral float-left" title="pyfeyn2 2.1.0-2-gb64ba477 documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="elements/leg.html" class="btn btn-neutral float-right" title="Leg" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

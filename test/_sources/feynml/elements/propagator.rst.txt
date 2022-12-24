@@ -2,6 +2,8 @@
 
 Propagator
 ====================
+| Format: Element
+| Elements: :ref:`diagram`
 | Implementation: :py:class:`pyfeyn2.feynmandiagram.Propagator`
 
 .. code-block:: xml
@@ -30,4 +32,4 @@ Optional elements:
 
    pdgid.rst
    name.rst
-   momentum.rst
+   momentum/momentum.rst
