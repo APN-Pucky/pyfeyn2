@@ -37,7 +37,7 @@
             <img src="../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.1.0-4-g77750829
+                2.1.0-5-gf6f0de4f
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -189,7 +189,7 @@ default_sheet = cssutils.parseString(
     ret = []
     for rule in default_sheet:
         if rule.type == rule.STYLE_RULE:
-            ret += [rule.selectorText[1:]]
+            ret += [rule.selectorText.split(&quot;=&quot;)[1].strip(&#39;&quot;]&#39;)]
     return sorted(ret)</div>
 </pre></div>
 

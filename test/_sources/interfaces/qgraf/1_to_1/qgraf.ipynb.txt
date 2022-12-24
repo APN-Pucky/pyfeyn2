@@ -5,7 +5,7 @@
    "id": "dd3c9519",
    "metadata": {},
    "source": [
-    "# QGraf"
+    "# 1 to 1 process"
    ]
   },
   {
