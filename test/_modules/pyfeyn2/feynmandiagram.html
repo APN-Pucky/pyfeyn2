@@ -37,7 +37,7 @@
             <img src="../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.1.0-3-g068bb849
+                2.1.0-4-g77750829
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -186,12 +186,16 @@ class PDG(Identifiable):
             # TODO infere type from pdgid
             if self.pdgid in range(1, 7):
                 self.type = &quot;fermion&quot;
+            elif -self.pdgid in range(1, 7):
+                self.type = &quot;anti fermion&quot;
             elif self.pdgid == 22:
                 self.type = &quot;photon&quot;
             elif self.pdgid == 21:
                 self.type = &quot;gluon&quot;
             elif self.pdgid in range(11, 19):
                 self.type = &quot;fermion&quot;
+            elif -self.pdgid in range(11, 19):
+                self.type = &quot;anti fermion&quot;
             elif abs(self.pdgid) == 24:
                 self.type = &quot;boson&quot;
             elif self.pdgid == 23:
@@ -754,7 +758,7 @@ class FeynML:
         self.head.metas.append(Meta(&quot;pyfeyn2&quot;, version(&quot;pyfeyn2&quot;)))
 
     head: Optional[Head] = field(
-        default=None, metadata={&quot;name&quot;: &quot;head&quot;, &quot;namespace&quot;: &quot;&quot;, &quot;type&quot;: &quot;Element&quot;}
+        default=Head(), metadata={&quot;name&quot;: &quot;head&quot;, &quot;namespace&quot;: &quot;&quot;, &quot;type&quot;: &quot;Element&quot;}
     )
 
     diagrams: List[FeynmanDiagram] = field(
