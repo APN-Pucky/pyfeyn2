@@ -63,6 +63,7 @@ To style the diagram, the following CSS classes are available:
    #`id` { ... }                          /* the element with id */
 
    /* diagram */
+   diagram { ... }                         /* all diagrams */
    vertex { ... }                         /* all vertices */
    propagator { ... }                     /* all propagators */
    leg { ... }                            /* all legs */

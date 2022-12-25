@@ -42,7 +42,7 @@
             <img src="../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.1.0-5-gf6f0de4f
+                2.1.0-8-gf99d5c3d
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -403,7 +403,7 @@ div.rendered_html tbody tr:hover {
 <section id="2-to-2-process">
 <h1>2 to 2 process<a class="headerlink" href="#2-to-2-process" title="Permalink to this heading"></a></h1>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">io</span>
@@ -411,7 +411,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyfeyn2.interface</span> <span class="kn">import</span> <span class="n">qgraf</span>
@@ -421,7 +421,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">style</span> <span class="o">=</span> <span class="s2">&quot;tmp.sty&quot;</span>
@@ -546,7 +546,7 @@ div.rendered_html tbody tr:hover {
 <span class="s2"> model = &#39;</span><span class="si">{</span><span class="n">model</span><span class="si">}</span><span class="s2">&#39;;</span>
 <span class="s2"> in= nu_e[p1], nu_e_bar[p2];</span>
 <span class="s2"> out= nu_e[p3], nu_e_bar[p4];</span>
-<span class="s2"> loops= 1;</span>
+<span class="s2"> loops= 2;</span>
 <span class="s2"> loop_momentum= l;</span>
 <span class="s2"> options= notadpole, onshell;</span>
 <span class="s2"> &quot;&quot;&quot;</span>
@@ -556,7 +556,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
@@ -633,7 +633,7 @@ div.rendered_html tbody tr:hover {
   model = &#39;tmp.model&#39;;
   in= nu_e[p1], nu_e_bar[p2];
   out= nu_e[p3], nu_e_bar[p4];
-  loops= 1;
+  loops= 2;
   loop_momentum= l;
   options= notadpole, onshell;
 
@@ -641,15 +641,16 @@ div.rendered_html tbody tr:hover {
 
    #loops    v-degrees          #diagrams
 
-      1
-              -   4^2     ....     0
-             3^2  4^1     ....     0
-             3^4   -      ....     24
+      2
+              -   4^3     ....     0
+             3^2  4^2     ....     0
+             3^4  4^1     ....     20
+             3^6   -      ....     662
 
 
-        total =  24 connected diagrams
+        total =  682 connected diagrams
 
-single photon diags 24
+single photon diags 682
 </pre></div></div>
 </div>
 <div class="nboutput docutils container">
@@ -813,12 +814,218 @@ single photon diags 24
 <img alt="../../_images/interfaces_qgraf_qgraf_2to2_4_23.png" src="../../_images/interfaces_qgraf_qgraf_2to2_4_23.png" />
 </div>
 </div>
-<div class="nboutput nblast docutils container">
+<div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
 <img alt="../../_images/interfaces_qgraf_qgraf_2to2_4_24.png" src="../../_images/interfaces_qgraf_qgraf_2to2_4_24.png" />
 </div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/interfaces_qgraf_qgraf_2to2_4_25.png" src="../../_images/interfaces_qgraf_qgraf_2to2_4_25.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/interfaces_qgraf_qgraf_2to2_4_26.png" src="../../_images/interfaces_qgraf_qgraf_2to2_4_26.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/interfaces_qgraf_qgraf_2to2_4_27.png" src="../../_images/interfaces_qgraf_qgraf_2to2_4_27.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/interfaces_qgraf_qgraf_2to2_4_28.png" src="../../_images/interfaces_qgraf_qgraf_2to2_4_28.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/interfaces_qgraf_qgraf_2to2_4_29.png" src="../../_images/interfaces_qgraf_qgraf_2to2_4_29.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/interfaces_qgraf_qgraf_2to2_4_30.png" src="../../_images/interfaces_qgraf_qgraf_2to2_4_30.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/interfaces_qgraf_qgraf_2to2_4_31.png" src="../../_images/interfaces_qgraf_qgraf_2to2_4_31.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/interfaces_qgraf_qgraf_2to2_4_32.png" src="../../_images/interfaces_qgraf_qgraf_2to2_4_32.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/interfaces_qgraf_qgraf_2to2_4_33.png" src="../../_images/interfaces_qgraf_qgraf_2to2_4_33.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/interfaces_qgraf_qgraf_2to2_4_34.png" src="../../_images/interfaces_qgraf_qgraf_2to2_4_34.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/interfaces_qgraf_qgraf_2to2_4_35.png" src="../../_images/interfaces_qgraf_qgraf_2to2_4_35.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/interfaces_qgraf_qgraf_2to2_4_36.png" src="../../_images/interfaces_qgraf_qgraf_2to2_4_36.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/interfaces_qgraf_qgraf_2to2_4_37.png" src="../../_images/interfaces_qgraf_qgraf_2to2_4_37.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/interfaces_qgraf_qgraf_2to2_4_38.png" src="../../_images/interfaces_qgraf_qgraf_2to2_4_38.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/interfaces_qgraf_qgraf_2to2_4_39.png" src="../../_images/interfaces_qgraf_qgraf_2to2_4_39.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/interfaces_qgraf_qgraf_2to2_4_40.png" src="../../_images/interfaces_qgraf_qgraf_2to2_4_40.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/interfaces_qgraf_qgraf_2to2_4_41.png" src="../../_images/interfaces_qgraf_qgraf_2to2_4_41.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/interfaces_qgraf_qgraf_2to2_4_42.png" src="../../_images/interfaces_qgraf_qgraf_2to2_4_42.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/interfaces_qgraf_qgraf_2to2_4_43.png" src="../../_images/interfaces_qgraf_qgraf_2to2_4_43.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/interfaces_qgraf_qgraf_2to2_4_44.png" src="../../_images/interfaces_qgraf_qgraf_2to2_4_44.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/interfaces_qgraf_qgraf_2to2_4_45.png" src="../../_images/interfaces_qgraf_qgraf_2to2_4_45.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/interfaces_qgraf_qgraf_2to2_4_46.png" src="../../_images/interfaces_qgraf_qgraf_2to2_4_46.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/interfaces_qgraf_qgraf_2to2_4_47.png" src="../../_images/interfaces_qgraf_qgraf_2to2_4_47.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/interfaces_qgraf_qgraf_2to2_4_48.png" src="../../_images/interfaces_qgraf_qgraf_2to2_4_48.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/interfaces_qgraf_qgraf_2to2_4_49.png" src="../../_images/interfaces_qgraf_qgraf_2to2_4_49.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/interfaces_qgraf_qgraf_2to2_4_50.png" src="../../_images/interfaces_qgraf_qgraf_2to2_4_50.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/interfaces_qgraf_qgraf_2to2_4_51.png" src="../../_images/interfaces_qgraf_qgraf_2to2_4_51.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/interfaces_qgraf_qgraf_2to2_4_52.png" src="../../_images/interfaces_qgraf_qgraf_2to2_4_52.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+
+KeyboardInterrupt
+
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:

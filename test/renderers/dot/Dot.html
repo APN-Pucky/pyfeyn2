@@ -42,7 +42,7 @@
             <img src="../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.1.0-5-gf6f0de4f
+                2.1.0-8-gf99d5c3d
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -406,18 +406,26 @@ div.rendered_html tbody tr:hover {
 <p><a class="reference external" href="https://dot2tex.readthedocs.io/en/latest/">https://dot2tex.readthedocs.io/en/latest/</a></p>
 <p><a class="reference external" href="https://github.com/kjellmf/dot2tex">https://github.com/kjellmf/dot2tex</a></p>
 <p><a class="reference external" href="https://graphviz.org/doc/info/lang.html">https://graphviz.org/doc/info/lang.html</a></p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyfeyn2.feynmandiagram</span> <span class="kn">import</span> <span class="n">FeynmanDiagram</span><span class="p">,</span> <span class="n">Leg</span><span class="p">,</span> <span class="n">Propagator</span><span class="p">,</span> <span class="n">Vertex</span>
 <span class="kn">from</span> <span class="nn">pyfeyn2.render.latex.tikzfeynman</span> <span class="kn">import</span> <span class="n">TikzFeynmanRender</span>
-<span class="kn">from</span> <span class="nn">pyfeyn2.render.latex.dot</span> <span class="kn">import</span> <span class="n">feynman_adjust_points</span>
 <span class="kn">from</span> <span class="nn">pyfeyn2.render.latex.dot</span> <span class="kn">import</span> <span class="n">DotRender</span><span class="p">,</span> <span class="n">feynman_to_dot</span>
 <span class="kn">import</span> <span class="nn">pyfeyn2</span>
+<span class="kn">import</span> <span class="nn">copy</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">pyfeyn2</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+2.1.0
+</pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
@@ -428,7 +436,7 @@ div.rendered_html tbody tr:hover {
 <span class="n">v2</span> <span class="o">=</span> <span class="n">Vertex</span><span class="p">(</span><span class="s2">&quot;v2&quot;</span><span class="p">)</span>
 <span class="n">v3</span> <span class="o">=</span> <span class="n">Vertex</span><span class="p">(</span><span class="s2">&quot;v3&quot;</span><span class="p">)</span>
 <span class="n">v4</span> <span class="o">=</span> <span class="n">Vertex</span><span class="p">(</span><span class="s2">&quot;v4&quot;</span><span class="p">)</span>
-<span class="n">p1</span> <span class="o">=</span> <span class="n">Propagator</span><span class="p">(</span><span class="s2">&quot;p1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">v2</span><span class="p">,</span> <span class="n">v1</span><span class="p">)</span><span class="o">.</span><span class="n">with_type</span><span class="p">(</span><span class="s2">&quot;fermion&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s2">&quot;$\mu$&quot;</span><span class="p">)</span>
+<span class="n">p1</span> <span class="o">=</span> <span class="n">Propagator</span><span class="p">(</span><span class="s2">&quot;p1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">v2</span><span class="p">,</span> <span class="n">v1</span><span class="p">)</span><span class="o">.</span><span class="n">with_type</span><span class="p">(</span><span class="s2">&quot;fermion&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">with_label</span><span class="p">(</span><span class="s2">&quot;$\mu$&quot;</span><span class="p">)</span>
 <span class="n">p2</span> <span class="o">=</span> <span class="n">Propagator</span><span class="p">(</span><span class="s2">&quot;p2&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span> <span class="n">v3</span><span class="p">)</span><span class="o">.</span><span class="n">with_type</span><span class="p">(</span><span class="s2">&quot;fermion&quot;</span><span class="p">)</span>
 <span class="n">p3</span> <span class="o">=</span> <span class="n">Propagator</span><span class="p">(</span><span class="s2">&quot;p3&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">v3</span><span class="p">,</span> <span class="n">v2</span><span class="p">)</span><span class="o">.</span><span class="n">with_type</span><span class="p">(</span><span class="s2">&quot;fermion&quot;</span><span class="p">)</span>
 <span class="n">p4</span> <span class="o">=</span> <span class="n">Propagator</span><span class="p">(</span><span class="s2">&quot;p4&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">v4</span><span class="p">,</span> <span class="n">v3</span><span class="p">)</span><span class="o">.</span><span class="n">with_type</span><span class="p">(</span><span class="s2">&quot;gluon&quot;</span><span class="p">)</span>
@@ -468,7 +476,7 @@ div.rendered_html tbody tr:hover {
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 graph G {
-rankdir=LR;
+rankdir=RL;
 layout=neato;
 node [style=&#34;invis&#34;];
                 l1 [ pos=&#34;-2.0,1.0!&#34;];
@@ -589,12 +597,38 @@ edge [style=&#34;decorate,decoration={coil,aspect=0.3,segment length=1mm}&#34;,t
 
 </pre></div></div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ffd</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">fd</span><span class="p">)</span><span class="o">.</span><span class="n">add_rule</span><span class="p">(</span><span class="s2">&quot;diagram { layout : dot ; direction : up}&quot;</span><span class="p">)</span>
+<span class="n">DotRender</span><span class="p">(</span><span class="n">ffd</span><span class="p">)</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">resolution</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span><span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/renderers_dot_Dot_8_0.png" src="../../_images/renderers_dot_Dot_8_0.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ffd</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">fd</span><span class="p">)</span><span class="o">.</span><span class="n">with_style</span><span class="p">(</span><span class="s2">&quot;layout : dot ; direction : right&quot;</span><span class="p">)</span>
+<span class="n">DotRender</span><span class="p">(</span><span class="n">ffd</span><span class="p">)</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">resolution</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span><span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/renderers_dot_Dot_9_0.png" src="../../_images/renderers_dot_Dot_9_0.png" />
 </div>
 </div>
 <div class="nbinput nblast docutils container">
