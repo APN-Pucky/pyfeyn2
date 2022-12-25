@@ -37,7 +37,7 @@
             <img src="../../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.1.0-8-gf99d5c3d
+                2.1.0-9-gb2001eb3
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
@@ -143,6 +143,14 @@ type_map = {
     &quot;plain&quot;: &quot;plain&quot;,
 }
 
+shape_map = {
+    &quot;dot&quot;: &quot;dot&quot;,
+    &quot;square&quot;: &quot;square dot&quot;,
+    &quot;empty&quot;: &quot;empty dot&quot;,
+    &quot;cross&quot;: &quot;crossed dot&quot;,
+    &quot;blob&quot;: &quot;blob&quot;,
+}
+
 
 <div class="viewcode-block" id="stylize_connect"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.latex.tikzfeynman.stylize_connect.html#pyfeyn2.render.latex.tikzfeynman.stylize_connect">[docs]</a>def stylize_connect(fd: FeynmanDiagram, c: Connector):
     style = fd.get_style(c)
@@ -182,19 +190,36 @@ type_map = {
     return ret</div>
 
 
-<div class="viewcode-block" id="stylize_node"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.latex.tikzfeynman.stylize_node.html#pyfeyn2.render.latex.tikzfeynman.stylize_node">[docs]</a>def stylize_node(v: Vertex):
-    style = &quot;&quot;
+<div class="viewcode-block" id="stylize_node"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.latex.tikzfeynman.stylize_node.html#pyfeyn2.render.latex.tikzfeynman.stylize_node">[docs]</a>def stylize_node(fd: FeynmanDiagram, v: Vertex):
+    style = fd.get_style(v)
+    ret = &quot;&quot;
+    suffix = None
     if v.label is not None:
-        style += &quot;label=&quot; + v.label + &quot;,&quot;
+        ret += &quot;label=&quot; + v.label + &quot;,&quot;
+    if style.getProperty(&quot;symbol&quot;) is not None:
+        ret += shape_map[style.getProperty(&quot;symbol&quot;).value] + &quot;,&quot;
+        suffix = &quot;&quot;
 
-    return style[:-1]</div>
+    end = ret[:-1]
+
+    if suffix is not None:
+        suffix = &quot;{&quot; + suffix + &quot;}&quot;
+    else:
+        suffix = &quot;&quot;
+
+    return (
+        f&quot;\t\\vertex ({v.id}) [{end}] at ({v.x},{v.y}) {suffix};\n&quot;
+        + f&quot;\t\\vertex ({v.id}clone) [] at ({v.x},{v.y});\n&quot;
+    )</div>
 
 
 <div class="viewcode-block" id="stylize_leg_node"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.latex.tikzfeynman.stylize_leg_node.html#pyfeyn2.render.latex.tikzfeynman.stylize_leg_node">[docs]</a>def stylize_leg_node(l: Leg):
     style = &quot;&quot;
     if l.external is not None:
         style += &quot;label=&quot; + l.external + &quot;,&quot;
-    return style[:-1]</div>
+    sty = style[:-1]
+
+    return f&quot;\t\\vertex ({l.id}) [{sty}] at ({l.x},{l.y});\n&quot;</div>
 
 
 <div class="viewcode-block" id="get_line"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.latex.tikzfeynman.get_line.html#pyfeyn2.render.latex.tikzfeynman.get_line">[docs]</a>def get_line(source_id, target_id, style):
@@ -211,12 +236,9 @@ type_map = {
     src = &quot;\\begin{tikzpicture}\n&quot;
     src += &quot;\\begin{feynman}\n&quot;
     for v in fd.vertices:
-        style = stylize_node(v)
-        src += f&quot;\t\\vertex ({v.id}) [{style}] at ({v.x},{v.y});\n&quot;
-        src += f&quot;\t\\vertex ({v.id}clone) [{style}] at ({v.x},{v.y});\n&quot;
+        src += stylize_node(fd, v)
     for l in fd.legs:
-        style = stylize_leg_node(l)
-        src += f&quot;\t\\vertex ({l.id}) [{style}] at ({l.x},{l.y});\n&quot;
+        src += stylize_leg_node(l)
     src += f&quot;\t\\diagram{direct}&quot; + &quot;{\n&quot;
     for p in fd.propagators:
         style = stylize_connect(fd, p)

@@ -37,7 +37,7 @@
             <img src="../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.1.0-8-gf99d5c3d
+                2.1.0-9-gb2001eb3
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -160,6 +160,7 @@ class PDG(Identifiable):
     type: Optional[str] = field(
         default=None, metadata={&quot;xml_attribute&quot;: True, &quot;type&quot;: &quot;Attribute&quot;}
     )
+    &quot;&quot;&quot;Type of the particle, e.g. fermion, boson, etc.&quot;&quot;&quot;
 
     # TODO check SUSY
     particle: Optional[Particle] = field(default=None, metadata={&quot;type&quot;: &quot;Ignore&quot;})
@@ -182,7 +183,8 @@ class PDG(Identifiable):
                 raise ValueError(f&quot;Particle {self.name} not found&quot;)
             self.pdgid = int(self.particle.pdgid)
 
-        if self.pdgid is not None and self.type is None:
+        if self.pdgid is not None:
+            tmptype = self.type
             # TODO infere type from pdgid
             if self.pdgid in range(1, 7):
                 self.type = &quot;fermion&quot;
@@ -207,6 +209,11 @@ class PDG(Identifiable):
                     f&quot;Inferring type from pdgid not implemented for pdgid {self.pdgid} &quot;
                 )
                 self.type = &quot;line&quot;
+            if tmptype is not None and self.type != tmptype:
+                warnings.warn(
+                    f&quot;Type {tmptype} is not consistent with pdgid {self.pdgid}, using {self.type} instead. Using {tmptype} now.&quot;
+                )
+                self.type = tmptype
 
     def __post_init__(self):
         super().__post_init__()
@@ -421,7 +428,8 @@ class Line(Targeting, Sourcing):
 <div class="viewcode-block" id="Vertex"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.Vertex.html#pyfeyn2.feynmandiagram.Vertex">[docs]</a>@withify()
 @dataclass
 class Vertex(Labeled, Point, Styled, Identifiable):
-    pass</div>
+    shape: Optional[str] = field(default=None, metadata={&quot;type&quot;: &quot;Attribute&quot;})
+    &quot;&quot;&quot;Shape of the vertex&quot;&quot;&quot;</div>
 
 
 # TODO think about withify for sub-classes
