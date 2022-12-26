@@ -37,7 +37,7 @@
             <img src="../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.1.0-11-gd05d1252
+                2.1.0-12-gc85f0d00
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -638,8 +638,6 @@ class FeynmanDiagram(Styled, Identifiable):
         # global style
         if isinstance(obj, Identifiable):
             css += [self._get_obj_style(obj)]
-        if isinstance(obj, str):
-            css += [self._get_rule_style(obj)]
         if isinstance(obj, Styled):
             # specific attribute style
             css += [obj.style]

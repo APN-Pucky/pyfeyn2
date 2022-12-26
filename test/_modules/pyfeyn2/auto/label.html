@@ -37,7 +37,7 @@
             <img src="../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.1.0-11-gd05d1252
+                2.1.0-12-gc85f0d00
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -108,7 +108,7 @@
 <div class="viewcode-block" id="auto_label"><a class="viewcode-back" href="../../../_autosummary/pyfeyn2.auto.label.auto_label.html#pyfeyn2.auto.label.auto_label">[docs]</a>def auto_label(objs, override=False):
     &quot;&quot;&quot;Automatically label objects.&quot;&quot;&quot;
     for p in objs:
-        if p.label is None or override:
+        if (p.label is None or override) and p.particle is not None:
             p.label = &quot;$&quot; + p.particle.latex_name + &quot;$&quot;</div>
 
 

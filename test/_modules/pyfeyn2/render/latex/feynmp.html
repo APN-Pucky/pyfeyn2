@@ -37,7 +37,7 @@
             <img src="../../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.1.0-11-gd05d1252
+                2.1.0-12-gc85f0d00
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
@@ -132,6 +132,7 @@ type_map = {
     &quot;plain&quot;: [&quot;plain&quot;],
     &quot;plain_arrow&quot;: [&quot;plain_arrow&quot;],
     &quot;fermion&quot;: [&quot;fermion&quot;],
+    &quot;anti fermion&quot;: [&quot;fermion&quot;],
     &quot;electron&quot;: [&quot;electron&quot;],
     &quot;quark&quot;: [&quot;quark&quot;],
     &quot;double&quot;: [&quot;double&quot;],
@@ -164,15 +165,15 @@ type_map = {
 
 
 <div class="viewcode-block" id="feynman_to_feynmp"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.latex.feynmp.feynman_to_feynmp.html#pyfeyn2.render.latex.feynmp.feynman_to_feynmp">[docs]</a>def feynman_to_feynmp(fd):
-    dire = fd.get_style(&quot;direction&quot;).value
+    dire = fd.get_style(fd).getProperty(&quot;direction&quot;).value
     dirin = &quot;&quot;
     dirout = &quot;&quot;
     if dire == &quot;left&quot;:
-        dirin = &quot;left&quot;
-        dirout = &quot;right&quot;
-    elif dire == &quot;right&quot;:
         dirin = &quot;right&quot;
         dirout = &quot;left&quot;
+    elif dire == &quot;right&quot;:
+        dirin = &quot;left&quot;
+        dirout = &quot;right&quot;
     elif dire == &quot;up&quot;:
         dirin = &quot;bottom&quot;
         dirout = &quot;top&quot;
@@ -213,20 +214,35 @@ type_map = {
         tttype = type_map[l.type]
         style = stylize_line(l)
         for ttype in tttype:
-            src += f&quot;\t\t\\fmf{{{ttype}{style}}}{{{l.id},{l.target}}}\n&quot;
+            lid = l.id
+            ltarget = l.target
+            if l.type.startswith(&quot;anti&quot;):
+                lid = l.target
+                ltarget = l.id
+            src += f&quot;\t\t\\fmf{{{ttype}{style}}}{{{lid},{ltarget}}}\n&quot;
             style = &quot;&quot;
     for l in outgoing:
         tttype = type_map[l.type]
         style = stylize_line(l)
         for ttype in tttype:
-            src += f&quot;\t\t\\fmf{{{ttype}{style}}}{{{l.target},{l.id}}}\n&quot;
+            lid = l.id
+            ltarget = l.target
+            if l.type.startswith(&quot;anti&quot;):
+                lid = l.target
+                ltarget = l.id
+            src += f&quot;\t\t\\fmf{{{ttype}{style}}}{{{ltarget},{lid}}}\n&quot;
             style = &quot;&quot;
 
     for p in fd.propagators:
         tttype = type_map[p.type]
         style = stylize_line(p)
         for ttype in tttype:
-            src += f&quot;\t\t\\fmf{{{ttype}{style}}}{{{p.source},{p.target}}}\n&quot;
+            psource = p.source
+            ptarget = p.target
+            if p.type.startswith(&quot;anti&quot;):
+                psource = p.target
+                ptarget = p.source
+            src += f&quot;\t\t\\fmf{{{ttype}{style}}}{{{psource},{ptarget}}}\n&quot;
             style = &quot;&quot;
 
     # Add labels
