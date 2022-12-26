@@ -37,7 +37,7 @@
             <img src="../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.1.0-12-gc85f0d00
+                2.1.0-13-g37ba9eaa
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -130,8 +130,8 @@ default_sheet = cssutils.parseString(
         [shape=empty] {
             symbol : empty;
         }
-        [shape=empty] {
-            symbol : empty;
+        [shape=square] {
+            symbol : square;
         }
         [shape=cross] {
             symbol : cross;
@@ -262,6 +262,15 @@ default_sheet = cssutils.parseString(
     ret = []
     for rule in default_sheet:
         if rule.type == rule.STYLE_RULE and rule.selectorText.startswith(&quot;[type=&quot;):
+            ret += [rule.selectorText.split(&quot;=&quot;)[1].strip(&#39;&quot;]&#39;)]
+    return sorted(ret)</div>
+
+
+<div class="viewcode-block" id="get_shapes"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.types.get_shapes.html#pyfeyn2.types.get_shapes">[docs]</a>def get_shapes() -&gt; List[str]:
+    &quot;&quot;&quot;Return the default shapes.&quot;&quot;&quot;
+    ret = []
+    for rule in default_sheet:
+        if rule.type == rule.STYLE_RULE and rule.selectorText.startswith(&quot;[shape=&quot;):
             ret += [rule.selectorText.split(&quot;=&quot;)[1].strip(&#39;&quot;]&#39;)]
     return sorted(ret)</div>
 </pre></div>

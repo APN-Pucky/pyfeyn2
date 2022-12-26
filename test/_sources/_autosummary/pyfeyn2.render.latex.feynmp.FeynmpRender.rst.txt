@@ -27,6 +27,7 @@ pyfeyn2.render.latex.feynmp.FeynmpRender
       ~FeynmpRender.count
       ~FeynmpRender.create
       ~FeynmpRender.demo_propagator
+      ~FeynmpRender.demo_vertex
       ~FeynmpRender.dump
       ~FeynmpRender.dump_packages
       ~FeynmpRender.dumps
@@ -51,6 +52,8 @@ pyfeyn2.render.latex.feynmp.FeynmpRender
       ~FeynmpRender.sort
       ~FeynmpRender.valid_attribute
       ~FeynmpRender.valid_attributes
+      ~FeynmpRender.valid_shape
+      ~FeynmpRender.valid_shapes
       ~FeynmpRender.valid_style
       ~FeynmpRender.valid_styles
       ~FeynmpRender.valid_type

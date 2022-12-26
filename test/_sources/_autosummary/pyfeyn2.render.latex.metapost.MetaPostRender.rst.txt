@@ -27,6 +27,7 @@ pyfeyn2.render.latex.metapost.MetaPostRender
       ~MetaPostRender.count
       ~MetaPostRender.create
       ~MetaPostRender.demo_propagator
+      ~MetaPostRender.demo_vertex
       ~MetaPostRender.dump
       ~MetaPostRender.dump_packages
       ~MetaPostRender.dumps
@@ -51,6 +52,8 @@ pyfeyn2.render.latex.metapost.MetaPostRender
       ~MetaPostRender.sort
       ~MetaPostRender.valid_attribute
       ~MetaPostRender.valid_attributes
+      ~MetaPostRender.valid_shape
+      ~MetaPostRender.valid_shapes
       ~MetaPostRender.valid_style
       ~MetaPostRender.valid_styles
       ~MetaPostRender.valid_type

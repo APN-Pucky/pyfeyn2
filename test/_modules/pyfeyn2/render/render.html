@@ -37,7 +37,7 @@
             <img src="../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.1.0-12-gc85f0d00
+                2.1.0-13-g37ba9eaa
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -146,12 +146,20 @@ from pyfeyn2.feynmandiagram import FeynmanDiagram, Leg, Propagator, Vertex
         return []
 
     @classmethod
+    def valid_shapes(cls) -&gt; List[str]:
+        return []
+
+    @classmethod
     def valid_attributes(cls) -&gt; List[str]:
         return [&quot;type&quot;, &quot;shape&quot;, &quot;class&quot;]
 
     @classmethod
     def valid_type(cls, typ: str) -&gt; bool:
         return typ in cls.valid_types()
+
+    @classmethod
+    def valid_shape(cls, typ: str) -&gt; bool:
+        return typ in cls.valid_shapes()
 
     @classmethod
     def valid_style(cls, style: str) -&gt; bool:
@@ -181,6 +189,19 @@ from pyfeyn2.feynmandiagram import FeynmanDiagram, Leg, Propagator, Vertex
             .with_type(&quot;phantom&quot;)
             .with_outgoing()
             .set_length(0.0),
+        )
+
+        self.set_feynman_diagram(fd)
+        self.render(show=show)
+
+    def demo_vertex(self, d, show=True, label=None):
+        v1 = Vertex().with_xy(0, 0).with_shape(d)  # .set_label(label)
+
+        fd = FeynmanDiagram().add(
+            v1,
+            Leg().with_target(v1).set_xy(-1, 0).with_type(&quot;line&quot;).with_incoming(),
+            Leg().with_target(v1).set_xy(1, -1).with_type(&quot;line&quot;).with_incoming(),
+            Leg().with_target(v1).set_xy(1, 1).with_type(&quot;line&quot;).with_outgoing(),
         )
 
         self.set_feynman_diagram(fd)
