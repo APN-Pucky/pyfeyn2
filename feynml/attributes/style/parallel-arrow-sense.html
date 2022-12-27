@@ -27,7 +27,7 @@
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="tension" href="tension.html" />
+    <link rel="next" title="symbol" href="symbol.html" />
     <link rel="prev" title="parallel-arrow-displace" href="parallel-arrow-displace.html" /> 
 </head>
 
@@ -40,7 +40,7 @@
             <img src="../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.1.0
+                2.1.1
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -67,6 +67,7 @@
 <li class="toctree-l2 current"><a class="reference internal" href="../../index.html#attributes">Attributes</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../class.html">class</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../label.html">label</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../shape.html">shape</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../style.html">style</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="arrow-pos.html">arrow-pos</a></li>
 <li class="toctree-l4"><a class="reference internal" href="bend.html">bend</a></li>
@@ -76,12 +77,15 @@
 <li class="toctree-l4"><a class="reference internal" href="bend-min-distance.html">bend-min-distance</a></li>
 <li class="toctree-l4"><a class="reference internal" href="bend-out.html">bend-out</a></li>
 <li class="toctree-l4"><a class="reference internal" href="color.html">color</a></li>
+<li class="toctree-l4"><a class="reference internal" href="direction.html">direction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="layout.html">layout</a></li>
 <li class="toctree-l4"><a class="reference internal" href="length.html">length</a></li>
 <li class="toctree-l4"><a class="reference internal" href="line.html">line</a></li>
 <li class="toctree-l4"><a class="reference internal" href="momentum-arrow.html">momentum-arrow</a></li>
 <li class="toctree-l4"><a class="reference internal" href="opacity.html">opacity</a></li>
 <li class="toctree-l4"><a class="reference internal" href="parallel-arrow-displace.html">parallel-arrow-displace</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">parallel-arrow-sense</a></li>
+<li class="toctree-l4"><a class="reference internal" href="symbol.html">symbol</a></li>
 <li class="toctree-l4"><a class="reference internal" href="tension.html">tension</a></li>
 </ul>
 </li>
@@ -166,7 +170,7 @@
 <section id="parallel-arrow-sense">
 <span id="id1"></span><h1>parallel-arrow-sense<a class="headerlink" href="#parallel-arrow-sense" title="Permalink to this heading"></a></h1>
 <div class="line-block">
-<div class="line">Valid on: <a class="reference internal" href="../../leg.html#leg"><span class="std std-ref">Leg</span></a>, <a class="reference internal" href="../../propagator.html#propagator"><span class="std std-ref">Propagator</span></a></div>
+<div class="line">Valid on: <a class="reference internal" href="../../elements/leg.html#leg"><span class="std std-ref">Leg</span></a>, <a class="reference internal" href="../../elements/propagator.html#propagator"><span class="std std-ref">Propagator</span></a></div>
 <div class="line">Format: Integer</div>
 <div class="line">Default: 1</div>
 </div>
@@ -196,14 +200,14 @@
 </thead>
 <tbody>
 <tr class="row-even"><td><p><a class="reference internal" href="#parallel-arrow-sense"><span class="std std-ref">parallel-arrow-sense</span></a></p></td>
-<td><p>✔</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
+<td><p><a href="#id2"><span class="problematic" id="id3">|pyx.style.parallel-arrow-sense|</span></a></p></td>
+<td><p><a href="#id4"><span class="problematic" id="id5">|feynmp.style.parallel-arrow-sense|</span></a></p></td>
+<td><p><a href="#id6"><span class="problematic" id="id7">|tikz.style.parallel-arrow-sense|</span></a></p></td>
+<td><p><a href="#id8"><span class="problematic" id="id9">|dot.style.parallel-arrow-sense|</span></a></p></td>
+<td><p><a href="#id10"><span class="problematic" id="id11">|feynman.style.parallel-arrow-sense|</span></a></p></td>
+<td><p><a href="#id12"><span class="problematic" id="id13">|mpl.style.parallel-arrow-sense|</span></a></p></td>
+<td><p><a href="#id14"><span class="problematic" id="id15">|ascii.style.parallel-arrow-sense|</span></a></p></td>
+<td><p><a href="#id16"><span class="problematic" id="id17">|unicode.style.parallel-arrow-sense|</span></a></p></td>
 </tr>
 </tbody>
 </table>
@@ -214,7 +218,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="parallel-arrow-displace.html" class="btn btn-neutral float-left" title="parallel-arrow-displace" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="tension.html" class="btn btn-neutral float-right" title="tension" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="symbol.html" class="btn btn-neutral float-right" title="symbol" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

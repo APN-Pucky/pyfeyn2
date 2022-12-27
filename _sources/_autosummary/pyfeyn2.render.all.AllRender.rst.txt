@@ -27,6 +27,7 @@ pyfeyn2.render.all.AllRender
       ~AllRender.count
       ~AllRender.create
       ~AllRender.demo_propagator
+      ~AllRender.demo_vertex
       ~AllRender.dump
       ~AllRender.dump_packages
       ~AllRender.dumps
@@ -51,6 +52,8 @@ pyfeyn2.render.all.AllRender
       ~AllRender.sort
       ~AllRender.valid_attribute
       ~AllRender.valid_attributes
+      ~AllRender.valid_shape
+      ~AllRender.valid_shapes
       ~AllRender.valid_style
       ~AllRender.valid_styles
       ~AllRender.valid_type

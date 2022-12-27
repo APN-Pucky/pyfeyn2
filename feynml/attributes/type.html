@@ -27,7 +27,7 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="boson" href="type/boson.html" />
+    <link rel="next" title="anti fermion" href="type/anti%20fermion.html" />
     <link rel="prev" title="tension" href="style/tension.html" /> 
 </head>
 
@@ -40,7 +40,7 @@
             <img src="../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.1.0
+                2.1.1
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -67,8 +67,10 @@
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html#attributes">Attributes</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="class.html">class</a></li>
 <li class="toctree-l3"><a class="reference internal" href="label.html">label</a></li>
+<li class="toctree-l3"><a class="reference internal" href="shape.html">shape</a></li>
 <li class="toctree-l3"><a class="reference internal" href="style.html">style</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">type</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="type/anti%20fermion.html">anti fermion</a></li>
 <li class="toctree-l4"><a class="reference internal" href="type/boson.html">boson</a></li>
 <li class="toctree-l4"><a class="reference internal" href="type/chargino.html">chargino</a></li>
 <li class="toctree-l4"><a class="reference internal" href="type/fermion.html">fermion</a></li>
@@ -80,6 +82,8 @@
 <li class="toctree-l4"><a class="reference internal" href="type/graviton.html">graviton</a></li>
 <li class="toctree-l4"><a class="reference internal" href="type/higgs.html">higgs</a></li>
 <li class="toctree-l4"><a class="reference internal" href="type/higgsino.html">higgsino</a></li>
+<li class="toctree-l4"><a class="reference internal" href="type/line.html">line</a></li>
+<li class="toctree-l4"><a class="reference internal" href="type/majorana.html">majorana</a></li>
 <li class="toctree-l4"><a class="reference internal" href="type/neutralino.html">neutralino</a></li>
 <li class="toctree-l4"><a class="reference internal" href="type/phantom.html">phantom</a></li>
 <li class="toctree-l4"><a class="reference internal" href="type/photon.html">photon</a></li>
@@ -169,38 +173,148 @@
 <span id="id1"></span><h1>type<a class="headerlink" href="#type" title="Permalink to this heading"></a></h1>
 <div class="line-block">
 <div class="line">Format: String</div>
-<div class="line">Elements: <a class="reference internal" href="../leg.html#leg"><span class="std std-ref">Leg</span></a>, <a class="reference internal" href="../propagator.html#propagator"><span class="std std-ref">Propagator</span></a></div>
+<div class="line">Elements: <a class="reference internal" href="../elements/leg.html#leg"><span class="std std-ref">Leg</span></a>, <a class="reference internal" href="../elements/propagator.html#propagator"><span class="std std-ref">Propagator</span></a></div>
 <div class="line">Implementation: <a class="reference internal" href="../../_autosummary/pyfeyn2.feynmandiagram.PDG.html#pyfeyn2.feynmandiagram.PDG" title="pyfeyn2.feynmandiagram.PDG"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyfeyn2.feynmandiagram.PDG</span></code></a></div>
 </div>
 <p>The type indicates the style of the line used to draw.
-Typically this can be inferred from the <a class="reference internal" href="../pdgid.html#pdgid"><span class="std std-ref">PDGID</span></a> of the particle, but it is possible to override this by setting the type explicitly.
+Typically this can be inferred from the <a class="reference internal" href="../elements/pdgid.html#pdgid"><span class="std std-ref">PDGID</span></a> of the particle, but it is possible to override this by setting the type explicitly.
 The following types are available:</p>
 <table class="docutils align-default">
 <colgroup>
-<col style="width: 18%" />
+<col style="width: 19%" />
 <col style="width: 10%" />
+<col style="width: 9%" />
 <col style="width: 11%" />
-<col style="width: 10%" />
-<col style="width: 10%" />
 <col style="width: 11%" />
-<col style="width: 10%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
 <col style="width: 10%" />
 <col style="width: 11%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p><a class="reference internal" href="#type"><span class="std std-ref">type</span></a></p></th>
+<th class="head"><p>tikz</p></th>
 <th class="head"><p>pyx</p></th>
 <th class="head"><p>feynmp</p></th>
-<th class="head"><p>tikz</p></th>
-<th class="head"><p>dot</p></th>
 <th class="head"><p>feynman</p></th>
+<th class="head"><p>dot</p></th>
 <th class="head"><p>mpl</p></th>
 <th class="head"><p>ascii</p></th>
 <th class="head"><p>unicode</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><span class="xref std std-ref">/feynml/attributes/type/type=boson].ipynb</span></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="type/anti%20fermion.html"><span class="std std-ref">anti fermion</span></a></p></td>
+<td><p>✔</p></td>
+<td><p>✖</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>✖</p></td>
+<td><p>✖</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="type/boson.html"><span class="std std-ref">boson</span></a></p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="type/chargino.html"><span class="std std-ref">chargino</span></a></p></td>
+<td><p>✔</p></td>
+<td><p>✖</p></td>
+<td><p>✖</p></td>
+<td><p>✖</p></td>
+<td><p>✖</p></td>
+<td><p>✖</p></td>
+<td><p>✖</p></td>
+<td><p>✖</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="type/fermion.html"><span class="std std-ref">fermion</span></a></p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="type/gaugino.html"><span class="std std-ref">gaugino</span></a></p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>✖</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="type/ghost.html"><span class="std std-ref">ghost</span></a></p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="type/gluino.html"><span class="std std-ref">gluino</span></a></p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>✖</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="type/gluon.html"><span class="std std-ref">gluon</span></a></p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="type/gravitino.html"><span class="std std-ref">gravitino</span></a></p></td>
+<td><p>✖</p></td>
+<td><p>✔</p></td>
+<td><p>✖</p></td>
+<td><p>✖</p></td>
+<td><p>✖</p></td>
+<td><p>✖</p></td>
+<td><p>✖</p></td>
+<td><p>✖</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="type/graviton.html"><span class="std std-ref">graviton</span></a></p></td>
+<td><p>✖</p></td>
+<td><p>✔</p></td>
+<td><p>✖</p></td>
+<td><p>✖</p></td>
+<td><p>✖</p></td>
+<td><p>✖</p></td>
+<td><p>✖</p></td>
+<td><p>✖</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="type/higgs.html"><span class="std std-ref">higgs</span></a></p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="type/higgsino.html"><span class="std std-ref">higgsino</span></a></p></td>
 <td><p>✖</p></td>
 <td><p>✖</p></td>
 <td><p>✖</p></td>
@@ -210,8 +324,18 @@ The following types are available:</p>
 <td><p>✖</p></td>
 <td><p>✖</p></td>
 </tr>
-<tr class="row-odd"><td><p><span class="xref std std-ref">/feynml/attributes/type/type=chargino].ipynb</span></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="type/line.html"><span class="std std-ref">line</span></a></p></td>
+<td><p>✔</p></td>
 <td><p>✖</p></td>
+<td><p>✖</p></td>
+<td><p>✖</p></td>
+<td><p>✖</p></td>
+<td><p>✖</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="type/majorana.html"><span class="std std-ref">majorana</span></a></p></td>
+<td><p>✔</p></td>
 <td><p>✖</p></td>
 <td><p>✖</p></td>
 <td><p>✖</p></td>
@@ -220,18 +344,8 @@ The following types are available:</p>
 <td><p>✖</p></td>
 <td><p>✖</p></td>
 </tr>
-<tr class="row-even"><td><p><span class="xref std std-ref">/feynml/attributes/type/type=fermion].ipynb</span></p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-</tr>
-<tr class="row-odd"><td><p><span class="xref std std-ref">/feynml/attributes/type/type=gaugino].ipynb</span></p></td>
-<td><p>✖</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="type/neutralino.html"><span class="std std-ref">neutralino</span></a></p></td>
+<td><p>✔</p></td>
 <td><p>✖</p></td>
 <td><p>✖</p></td>
 <td><p>✖</p></td>
@@ -240,145 +354,65 @@ The following types are available:</p>
 <td><p>✖</p></td>
 <td><p>✖</p></td>
 </tr>
-<tr class="row-even"><td><p><span class="xref std std-ref">/feynml/attributes/type/type=ghost].ipynb</span></p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="type/phantom.html"><span class="std std-ref">phantom</span></a></p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
 </tr>
-<tr class="row-odd"><td><p><span class="xref std std-ref">/feynml/attributes/type/type=gluino].ipynb</span></p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="type/photon.html"><span class="std std-ref">photon</span></a></p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
 </tr>
-<tr class="row-even"><td><p><span class="xref std std-ref">/feynml/attributes/type/type=gluon].ipynb</span></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="type/scalar.html"><span class="std std-ref">scalar</span></a></p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
 <td><p>✖</p></td>
+<td><p>✔</p></td>
 <td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
 </tr>
-<tr class="row-odd"><td><p><span class="xref std std-ref">/feynml/attributes/type/type=gravitino].ipynb</span></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="type/slepton.html"><span class="std std-ref">slepton</span></a></p></td>
+<td><p>✔</p></td>
 <td><p>✖</p></td>
+<td><p>✔</p></td>
 <td><p>✖</p></td>
+<td><p>✔</p></td>
 <td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
 </tr>
-<tr class="row-even"><td><p><span class="xref std std-ref">/feynml/attributes/type/type=graviton].ipynb</span></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="type/squark.html"><span class="std std-ref">squark</span></a></p></td>
+<td><p>✔</p></td>
 <td><p>✖</p></td>
+<td><p>✔</p></td>
 <td><p>✖</p></td>
+<td><p>✔</p></td>
 <td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
 </tr>
-<tr class="row-odd"><td><p><span class="xref std std-ref">/feynml/attributes/type/type=higgs].ipynb</span></p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-</tr>
-<tr class="row-even"><td><p><span class="xref std std-ref">/feynml/attributes/type/type=higgsino].ipynb</span></p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-</tr>
-<tr class="row-odd"><td><p><span class="xref std std-ref">/feynml/attributes/type/type=neutralino].ipynb</span></p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-</tr>
-<tr class="row-even"><td><p><span class="xref std std-ref">/feynml/attributes/type/type=phantom].ipynb</span></p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-</tr>
-<tr class="row-odd"><td><p><span class="xref std std-ref">/feynml/attributes/type/type=photon].ipynb</span></p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-</tr>
-<tr class="row-even"><td><p><span class="xref std std-ref">/feynml/attributes/type/type=scalar].ipynb</span></p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-</tr>
-<tr class="row-odd"><td><p><span class="xref std std-ref">/feynml/attributes/type/type=slepton].ipynb</span></p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-</tr>
-<tr class="row-even"><td><p><span class="xref std std-ref">/feynml/attributes/type/type=squark].ipynb</span></p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-</tr>
-<tr class="row-odd"><td><p><span class="xref std std-ref">/feynml/attributes/type/type=vector].ipynb</span></p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
-<td><p>✖</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="type/vector.html"><span class="std std-ref">vector</span></a></p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>✖</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
 </tr>
 </tbody>
 </table>
@@ -386,21 +420,21 @@ The following types are available:</p>
 <colgroup>
 <col style="width: 9%" />
 <col style="width: 11%" />
-<col style="width: 12%" />
-<col style="width: 11%" />
 <col style="width: 11%" />
 <col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 11%" />
 <col style="width: 11%" />
 <col style="width: 11%" />
 <col style="width: 12%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p><a class="reference internal" href="../index.html#attributes"><span class="std std-ref">Attributes</span></a></p></th>
+<th class="head"><p>tikz</p></th>
 <th class="head"><p>pyx</p></th>
 <th class="head"><p>feynmp</p></th>
-<th class="head"><p>tikz</p></th>
-<th class="head"><p>dot</p></th>
 <th class="head"><p>feynman</p></th>
+<th class="head"><p>dot</p></th>
 <th class="head"><p>mpl</p></th>
 <th class="head"><p>ascii</p></th>
 <th class="head"><p>unicode</p></th>
@@ -428,7 +462,7 @@ The following types are available:</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="style/tension.html" class="btn btn-neutral float-left" title="tension" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="type/boson.html" class="btn btn-neutral float-right" title="boson" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="type/anti%20fermion.html" class="btn btn-neutral float-right" title="anti fermion" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

@@ -7,4 +7,4 @@ line
 
 The line-style to be used for the edge.
 
-.. include:: ../../../shared/style/length.rst
+.. include:: ../../../shared/style/line.rst

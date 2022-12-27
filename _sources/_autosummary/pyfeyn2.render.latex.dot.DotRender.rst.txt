@@ -27,6 +27,7 @@ pyfeyn2.render.latex.dot.DotRender
       ~DotRender.count
       ~DotRender.create
       ~DotRender.demo_propagator
+      ~DotRender.demo_vertex
       ~DotRender.dump
       ~DotRender.dump_packages
       ~DotRender.dumps
@@ -52,6 +53,8 @@ pyfeyn2.render.latex.dot.DotRender
       ~DotRender.sort
       ~DotRender.valid_attribute
       ~DotRender.valid_attributes
+      ~DotRender.valid_shape
+      ~DotRender.valid_shapes
       ~DotRender.valid_style
       ~DotRender.valid_styles
       ~DotRender.valid_type

@@ -28,7 +28,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="pyfeyn2.feynmandiagram.alias_meta" href="pyfeyn2.feynmandiagram.alias_meta.html" />
-    <link rel="prev" title="pyfeyn2.feynmandiagram.Texted" href="pyfeyn2.feynmandiagram.Texted.html" /> 
+    <link rel="prev" title="pyfeyn2.feynmandiagram.Tool" href="pyfeyn2.feynmandiagram.Tool.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -40,7 +40,7 @@
             <img src="../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.1.0
+                2.1.1
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -93,6 +93,7 @@
 <li class="toctree-l3"><a class="reference internal" href="pyfeyn2.feynmandiagram.Leg.html">pyfeyn2.feynmandiagram.Leg</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyfeyn2.feynmandiagram.Line.html">pyfeyn2.feynmandiagram.Line</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyfeyn2.feynmandiagram.Meta.html">pyfeyn2.feynmandiagram.Meta</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyfeyn2.feynmandiagram.Momentum.html">pyfeyn2.feynmandiagram.Momentum</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyfeyn2.feynmandiagram.PDG.html">pyfeyn2.feynmandiagram.PDG</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyfeyn2.feynmandiagram.Point.html">pyfeyn2.feynmandiagram.Point</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyfeyn2.feynmandiagram.Propagator.html">pyfeyn2.feynmandiagram.Propagator</a></li>
@@ -100,6 +101,7 @@
 <li class="toctree-l3"><a class="reference internal" href="pyfeyn2.feynmandiagram.Styled.html">pyfeyn2.feynmandiagram.Styled</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyfeyn2.feynmandiagram.Targeting.html">pyfeyn2.feynmandiagram.Targeting</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyfeyn2.feynmandiagram.Texted.html">pyfeyn2.feynmandiagram.Texted</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyfeyn2.feynmandiagram.Tool.html">pyfeyn2.feynmandiagram.Tool</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">pyfeyn2.feynmandiagram.Vertex</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#pyfeyn2.feynmandiagram.Vertex"><code class="docutils literal notranslate"><span class="pre">Vertex</span></code></a></li>
 </ul>
@@ -170,11 +172,11 @@
 <h1>pyfeyn2.feynmandiagram.Vertex<a class="headerlink" href="#pyfeyn2-feynmandiagram-vertex" title="Permalink to this heading"></a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Vertex">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyfeyn2.feynmandiagram.</span></span><span class="sig-name descname"><span class="pre">Vertex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id:</span> <span class="pre">Union[str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style:</span> <span class="pre">cssutils.css.cssstyledeclaration.CSSStyleDeclaration</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clazz:</span> <span class="pre">Union[str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x:</span> <span class="pre">Union[float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y:</span> <span class="pre">Union[float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z:</span> <span class="pre">Union[float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label:</span> <span class="pre">Union[str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/feynmandiagram.html#Vertex"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.Vertex" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyfeyn2.feynmandiagram.</span></span><span class="sig-name descname"><span class="pre">Vertex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id:</span> <span class="pre">Union[str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style:</span> <span class="pre">cssutils.css.cssstyledeclaration.CSSStyleDeclaration</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clazz:</span> <span class="pre">Union[str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x:</span> <span class="pre">Union[float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y:</span> <span class="pre">Union[float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z:</span> <span class="pre">Union[float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label:</span> <span class="pre">Union[str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shape:</span> <span class="pre">Union[str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/feynmandiagram.html#Vertex"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.Vertex" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="pyfeyn2.feynmandiagram.Labeled.html#pyfeyn2.feynmandiagram.Labeled" title="pyfeyn2.feynmandiagram.Labeled"><code class="xref py py-class docutils literal notranslate"><span class="pre">Labeled</span></code></a>, <a class="reference internal" href="pyfeyn2.feynmandiagram.Point.html#pyfeyn2.feynmandiagram.Point" title="pyfeyn2.feynmandiagram.Point"><code class="xref py py-class docutils literal notranslate"><span class="pre">Point</span></code></a>, <a class="reference internal" href="pyfeyn2.feynmandiagram.Styled.html#pyfeyn2.feynmandiagram.Styled" title="pyfeyn2.feynmandiagram.Styled"><code class="xref py py-class docutils literal notranslate"><span class="pre">Styled</span></code></a>, <a class="reference internal" href="pyfeyn2.feynmandiagram.Identifiable.html#pyfeyn2.feynmandiagram.Identifiable" title="pyfeyn2.feynmandiagram.Identifiable"><code class="xref py py-class docutils literal notranslate"><span class="pre">Identifiable</span></code></a></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Vertex.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id:</span> <span class="pre">~typing.Optional[str]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style:</span> <span class="pre">~cssutils.css.cssstyledeclaration.CSSStyleDeclaration</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clazz:</span> <span class="pre">~typing.Optional[str]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x:</span> <span class="pre">~typing.Optional[float]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y:</span> <span class="pre">~typing.Optional[float]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z:</span> <span class="pre">~typing.Optional[float]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label:</span> <span class="pre">~typing.Optional[str]</span> <span class="pre">=</span> <span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#pyfeyn2.feynmandiagram.Vertex.__init__" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id:</span> <span class="pre">~typing.Optional[str]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style:</span> <span class="pre">~cssutils.css.cssstyledeclaration.CSSStyleDeclaration</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clazz:</span> <span class="pre">~typing.Optional[str]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x:</span> <span class="pre">~typing.Optional[float]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y:</span> <span class="pre">~typing.Optional[float]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z:</span> <span class="pre">~typing.Optional[float]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label:</span> <span class="pre">~typing.Optional[str]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shape:</span> <span class="pre">~typing.Optional[str]</span> <span class="pre">=</span> <span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#pyfeyn2.feynmandiagram.Vertex.__init__" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <p class="rubric">Methods</p>
@@ -184,7 +186,7 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Vertex.__init__" title="pyfeyn2.feynmandiagram.Vertex.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>([id, style, clazz, x, y, z, label])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Vertex.__init__" title="pyfeyn2.feynmandiagram.Vertex.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>([id, style, clazz, x, y, z, label, ...])</p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">put_style</span></code>(key, value)</p></td>
@@ -229,13 +231,16 @@
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_point</span></code>(p)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_style</span></code>(style)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Vertex.with_shape" title="pyfeyn2.feynmandiagram.Vertex.with_shape"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_shape</span></code></a>(value[, k])</p></td>
+<td><p>Set shape to <cite>value</cite> and return self.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_style</span></code>(style)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_xy</span></code>(x, y)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_xy</span></code>(x, y)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_xyz</span></code>(x, y, z)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_xyz</span></code>(x, y, z)</p></td>
 <td><p></p></td>
 </tr>
 </tbody>
@@ -256,13 +261,16 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Vertex.label" title="pyfeyn2.feynmandiagram.Vertex.label"><code class="xref py py-obj docutils literal notranslate"><span class="pre">label</span></code></a></p></td>
 <td><p>Label the object</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Vertex.x" title="pyfeyn2.feynmandiagram.Vertex.x"><code class="xref py py-obj docutils literal notranslate"><span class="pre">x</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Vertex.shape" title="pyfeyn2.feynmandiagram.Vertex.shape"><code class="xref py py-obj docutils literal notranslate"><span class="pre">shape</span></code></a></p></td>
+<td><p>Shape of the vertex</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Vertex.x" title="pyfeyn2.feynmandiagram.Vertex.x"><code class="xref py py-obj docutils literal notranslate"><span class="pre">x</span></code></a></p></td>
 <td><p>x coordinate</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Vertex.y" title="pyfeyn2.feynmandiagram.Vertex.y"><code class="xref py py-obj docutils literal notranslate"><span class="pre">y</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Vertex.y" title="pyfeyn2.feynmandiagram.Vertex.y"><code class="xref py py-obj docutils literal notranslate"><span class="pre">y</span></code></a></p></td>
 <td><p>y coordinate</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Vertex.z" title="pyfeyn2.feynmandiagram.Vertex.z"><code class="xref py py-obj docutils literal notranslate"><span class="pre">z</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Vertex.z" title="pyfeyn2.feynmandiagram.Vertex.z"><code class="xref py py-obj docutils literal notranslate"><span class="pre">z</span></code></a></p></td>
 <td><p>z coordinate</p></td>
 </tr>
 </tbody>
@@ -283,7 +291,7 @@
 <dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Vertex.set_label">
 <span class="sig-name descname"><span class="pre">set_label</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.feynmandiagram.Vertex.set_label" title="Permalink to this definition"></a></dt>
 <dd><div class="deprecated">
-<p><span class="versionmodified deprecated">Deprecated since version 2.0.7.1: </span>This will be removed in 2.2. Use with…().</p>
+<p><span class="versionmodified deprecated">Deprecated since version 2.0.7.1: </span>This will be removed in 2.2.0. Use with…().</p>
 </div>
 </dd></dl>
 
@@ -291,7 +299,7 @@
 <dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Vertex.set_point">
 <span class="sig-name descname"><span class="pre">set_point</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.feynmandiagram.Vertex.set_point" title="Permalink to this definition"></a></dt>
 <dd><div class="deprecated">
-<p><span class="versionmodified deprecated">Deprecated since version 2.0.7.1: </span>This will be removed in 2.2. Use with…().</p>
+<p><span class="versionmodified deprecated">Deprecated since version 2.0.7.1: </span>This will be removed in 2.2.0. Use with…().</p>
 </div>
 </dd></dl>
 
@@ -299,7 +307,7 @@
 <dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Vertex.set_xy">
 <span class="sig-name descname"><span class="pre">set_xy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.feynmandiagram.Vertex.set_xy" title="Permalink to this definition"></a></dt>
 <dd><div class="deprecated">
-<p><span class="versionmodified deprecated">Deprecated since version 2.0.7.1: </span>This will be removed in 2.2. Use with…().</p>
+<p><span class="versionmodified deprecated">Deprecated since version 2.0.7.1: </span>This will be removed in 2.2.0. Use with…().</p>
 </div>
 </dd></dl>
 
@@ -307,8 +315,14 @@
 <dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Vertex.set_xyz">
 <span class="sig-name descname"><span class="pre">set_xyz</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.feynmandiagram.Vertex.set_xyz" title="Permalink to this definition"></a></dt>
 <dd><div class="deprecated">
-<p><span class="versionmodified deprecated">Deprecated since version 2.0.7.1: </span>This will be removed in 2.2. Use with…().</p>
+<p><span class="versionmodified deprecated">Deprecated since version 2.0.7.1: </span>This will be removed in 2.2.0. Use with…().</p>
 </div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Vertex.shape">
+<span class="sig-name descname"><span class="pre">shape</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#pyfeyn2.feynmandiagram.Vertex.shape" title="Permalink to this definition"></a></dt>
+<dd><p>Shape of the vertex</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -327,6 +341,12 @@
 <dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Vertex.with_label">
 <span class="sig-name descname"><span class="pre">with_label</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'label'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.feynmandiagram.Vertex.with_label" title="Permalink to this definition"></a></dt>
 <dd><p>Set label to <cite>value</cite> and return self.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Vertex.with_shape">
+<span class="sig-name descname"><span class="pre">with_shape</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'shape'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.feynmandiagram.Vertex.with_shape" title="Permalink to this definition"></a></dt>
+<dd><p>Set shape to <cite>value</cite> and return self.</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -355,7 +375,7 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="pyfeyn2.feynmandiagram.Texted.html" class="btn btn-neutral float-left" title="pyfeyn2.feynmandiagram.Texted" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="pyfeyn2.feynmandiagram.Tool.html" class="btn btn-neutral float-left" title="pyfeyn2.feynmandiagram.Tool" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="pyfeyn2.feynmandiagram.alias_meta.html" class="btn btn-neutral float-right" title="pyfeyn2.feynmandiagram.alias_meta" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

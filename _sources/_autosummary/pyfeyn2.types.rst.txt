@@ -15,6 +15,7 @@ pyfeyn2.types
       :toctree:                                         
    
       get_default_sheet
+      get_shapes
       get_types
    
    

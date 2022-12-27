@@ -27,6 +27,7 @@ pyfeyn2.feynmandiagram.Vertex
       ~Vertex.with_id
       ~Vertex.with_label
       ~Vertex.with_point
+      ~Vertex.with_shape
       ~Vertex.with_style
       ~Vertex.with_xy
       ~Vertex.with_xyz
@@ -42,6 +43,7 @@ pyfeyn2.feynmandiagram.Vertex
       ~Vertex.clazz
       ~Vertex.id
       ~Vertex.label
+      ~Vertex.shape
       ~Vertex.x
       ~Vertex.y
       ~Vertex.z

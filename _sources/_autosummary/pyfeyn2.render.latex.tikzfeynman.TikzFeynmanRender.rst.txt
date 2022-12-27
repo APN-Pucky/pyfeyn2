@@ -27,6 +27,7 @@ pyfeyn2.render.latex.tikzfeynman.TikzFeynmanRender
       ~TikzFeynmanRender.count
       ~TikzFeynmanRender.create
       ~TikzFeynmanRender.demo_propagator
+      ~TikzFeynmanRender.demo_vertex
       ~TikzFeynmanRender.dump
       ~TikzFeynmanRender.dump_packages
       ~TikzFeynmanRender.dumps
@@ -51,6 +52,8 @@ pyfeyn2.render.latex.tikzfeynman.TikzFeynmanRender
       ~TikzFeynmanRender.sort
       ~TikzFeynmanRender.valid_attribute
       ~TikzFeynmanRender.valid_attributes
+      ~TikzFeynmanRender.valid_shape
+      ~TikzFeynmanRender.valid_shapes
       ~TikzFeynmanRender.valid_style
       ~TikzFeynmanRender.valid_styles
       ~TikzFeynmanRender.valid_type

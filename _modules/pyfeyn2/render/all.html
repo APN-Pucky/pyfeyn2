@@ -37,7 +37,7 @@
             <img src="../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.1.0
+                2.1.1
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -119,14 +119,14 @@ from pyfeyn2.render.mpl.mpl import MPLRender
 from pyfeyn2.render.pyx.pyxrender import PyxRender
 from pyfeyn2.render.text.asciipdf import ASCIIPDFRender
 from pyfeyn2.render.text.unicodepdf import UnicodePDFRender
-from pyfeyn2.types import get_types
+from pyfeyn2.types import get_shapes, get_types
 
 renders = {
+    &quot;tikz&quot;: TikzFeynmanRender,
     &quot;pyx&quot;: PyxRender,
     &quot;feynmp&quot;: FeynmpRender,
-    &quot;tikz&quot;: TikzFeynmanRender,
-    &quot;dot&quot;: DotRender,
     &quot;feynman&quot;: FeynmanRender,
+    &quot;dot&quot;: DotRender,
     &quot;mpl&quot;: MPLRender,
     &quot;ascii&quot;: ASCIIPDFRender,
     &quot;unicode&quot;: UnicodePDFRender,
@@ -219,8 +219,12 @@ renders = {
 
     @classmethod
     def valid_types(typ: str) -&gt; List[str]:
-        return sorted(get_types())</div>
+        return sorted(get_types())
         # return [i for r in renders.values() for i in r.valid_types()]
+
+    @classmethod
+    def valid_shapes(typ: str) -&gt; List[str]:
+        return sorted(get_shapes())</div>
 </pre></div>
 
            </div>

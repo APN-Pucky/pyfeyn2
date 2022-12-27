@@ -37,7 +37,7 @@
             <img src="../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.1.0
+                2.1.1
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -105,6 +105,7 @@
 <span></span>import logging
 import warnings
 from dataclasses import dataclass, field
+from importlib.metadata import version
 from typing import List, Optional, Union
 
 import cssutils
@@ -159,6 +160,7 @@ class PDG(Identifiable):
     type: Optional[str] = field(
         default=None, metadata={&quot;xml_attribute&quot;: True, &quot;type&quot;: &quot;Attribute&quot;}
     )
+    &quot;&quot;&quot;Type of the particle, e.g. fermion, boson, etc.&quot;&quot;&quot;
 
     # TODO check SUSY
     particle: Optional[Particle] = field(default=None, metadata={&quot;type&quot;: &quot;Ignore&quot;})
@@ -181,16 +183,21 @@ class PDG(Identifiable):
                 raise ValueError(f&quot;Particle {self.name} not found&quot;)
             self.pdgid = int(self.particle.pdgid)
 
-        if self.pdgid is not None and self.type is None:
+        if self.pdgid is not None:
+            tmptype = self.type
             # TODO infere type from pdgid
             if self.pdgid in range(1, 7):
                 self.type = &quot;fermion&quot;
+            elif -self.pdgid in range(1, 7):
+                self.type = &quot;anti fermion&quot;
             elif self.pdgid == 22:
                 self.type = &quot;photon&quot;
             elif self.pdgid == 21:
                 self.type = &quot;gluon&quot;
             elif self.pdgid in range(11, 19):
                 self.type = &quot;fermion&quot;
+            elif -self.pdgid in range(11, 19):
+                self.type = &quot;anti fermion&quot;
             elif abs(self.pdgid) == 24:
                 self.type = &quot;boson&quot;
             elif self.pdgid == 23:
@@ -202,6 +209,11 @@ class PDG(Identifiable):
                     f&quot;Inferring type from pdgid not implemented for pdgid {self.pdgid} &quot;
                 )
                 self.type = &quot;line&quot;
+            if tmptype is not None and self.type != tmptype:
+                warnings.warn(
+                    f&quot;Type {tmptype} is not consistent with pdgid {self.pdgid}, using {self.type} instead. Using {tmptype} now.&quot;
+                )
+                self.type = tmptype
 
     def __post_init__(self):
         super().__post_init__()
@@ -416,13 +428,29 @@ class Line(Targeting, Sourcing):
 <div class="viewcode-block" id="Vertex"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.Vertex.html#pyfeyn2.feynmandiagram.Vertex">[docs]</a>@withify()
 @dataclass
 class Vertex(Labeled, Point, Styled, Identifiable):
-    pass</div>
+    shape: Optional[str] = field(default=None, metadata={&quot;type&quot;: &quot;Attribute&quot;})
+    &quot;&quot;&quot;Shape of the vertex&quot;&quot;&quot;</div>
+
+
+# TODO think about withify for sub-classes
+<div class="viewcode-block" id="Momentum"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.Momentum.html#pyfeyn2.feynmandiagram.Momentum">[docs]</a>@dataclass
+class Momentum:
+    class Meta:
+        name = &quot;momentum&quot;
+
+    name: Optional[str] = field(default=None, metadata={&quot;type&quot;: &quot;Element&quot;})
+    px: Optional[float] = field(default=None, metadata={&quot;type&quot;: &quot;Element&quot;})
+    py: Optional[float] = field(default=None, metadata={&quot;type&quot;: &quot;Element&quot;})
+    pz: Optional[float] = field(default=None, metadata={&quot;type&quot;: &quot;Element&quot;})
+    e: Optional[float] = field(default=None, metadata={&quot;type&quot;: &quot;Element&quot;})</div>
 
 
 <div class="viewcode-block" id="Connector"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.Connector.html#pyfeyn2.feynmandiagram.Connector">[docs]</a>@withify()
 @dataclass
 class Connector(Labeled, Bending, Styled, PDG):
-    momentum: Optional[str] = field(default=None, metadata={})
+    momentum: Optional[Momentum] = field(
+        default=None, metadata={&quot;name&quot;: &quot;momentum&quot;, &quot;type&quot;: &quot;Element&quot;}
+    )
     &quot;&quot;&quot;Momentum of the connector&quot;&quot;&quot;
     tension: Optional[float] = field(
         default=None, metadata={&quot;xml_attribute&quot;: True, &quot;type&quot;: &quot;Attribute&quot;}
@@ -458,6 +486,14 @@ class Leg(Point, Targeting, Connector):
         default=None, metadata={&quot;xml_attribute&quot;: True, &quot;type&quot;: &quot;Attribute&quot;}
     )
     &quot;&quot;&quot;External text for leg&quot;&quot;&quot;
+
+<div class="viewcode-block" id="Leg.is_incoming"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.Leg.html#pyfeyn2.feynmandiagram.Leg.is_incoming">[docs]</a>    def is_incoming(self):
+        &quot;&quot;&quot;Return True if the leg is incoming, False otherwise.&quot;&quot;&quot;
+        return &quot;in&quot; == self.sense[:2] or self.sense[:8] == &quot;anti-out&quot;</div>
+
+<div class="viewcode-block" id="Leg.is_outgoing"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.Leg.html#pyfeyn2.feynmandiagram.Leg.is_outgoing">[docs]</a>    def is_outgoing(self):
+        &quot;&quot;&quot;Return True if the leg is outgoing, False otherwise.&quot;&quot;&quot;
+        return &quot;out&quot; == self.sense[:3] or self.sense[:7] == &quot;anti-in&quot;</div>
 
     def with_incoming(self):
         self.sense = &quot;incoming&quot;
@@ -496,7 +532,7 @@ class Label(Point, Texted, Identifiable):
 
 <div class="viewcode-block" id="FeynmanDiagram"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.FeynmanDiagram.html#pyfeyn2.feynmandiagram.FeynmanDiagram">[docs]</a>@withify()
 @dataclass
-class FeynmanDiagram:
+class FeynmanDiagram(Styled, Identifiable):
     class Meta:
         name = &quot;diagram&quot;
 
@@ -608,9 +644,8 @@ class FeynmanDiagram:
         # selectorText is string
         css = []
         # global style
-        css += [self._get_obj_style(obj)]
-        if isinstance(obj, str):
-            css += [self._get_rule_style(obj)]
+        if isinstance(obj, Identifiable):
+            css += [self._get_obj_style(obj)]
         if isinstance(obj, Styled):
             # specific attribute style
             css += [obj.style]
@@ -656,7 +691,7 @@ class FeynmanDiagram:
                             rest.append(rule)
                         elif s.startswith(&quot;*&quot;):
                             glob.append(rule)
-                        elif s.contains(&quot;.&quot;):
+                        elif &quot;.&quot; in s:
                             cls.append(rule)
                         else:
                             rest.append(rule)
@@ -679,17 +714,24 @@ class FeynmanDiagram:
         return parser.from_string(xml, cls)</div></div>
 
 
+<div class="viewcode-block" id="Tool"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.Tool.html#pyfeyn2.feynmandiagram.Tool">[docs]</a>@dataclass
+class Tool:
+    class Meta:
+        name = &quot;tool&quot;
+
+    name: Optional[str] = field(default=&quot;pyfeyn2&quot;, metadata={&quot;type&quot;: &quot;Element&quot;})
+    version: Optional[str] = field(
+        default=version(&quot;pyfeyn2&quot;), metadata={&quot;type&quot;: &quot;Element&quot;}
+    )</div>
+
+
 <div class="viewcode-block" id="Meta"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.Meta.html#pyfeyn2.feynmandiagram.Meta">[docs]</a>@dataclass
 class Meta:
     class Meta:
         name = &quot;meta&quot;
 
-    name: Optional[str] = field(
-        default=&quot;&quot;, metadata={&quot;xml_attribute&quot;: True, &quot;type&quot;: &quot;Attribute&quot;}
-    )
-    value: Optional[str] = field(
-        default=&quot;&quot;, metadata={&quot;xml_attribute&quot;: True, &quot;type&quot;: &quot;Attribute&quot;}
-    )</div>
+    name: Optional[str] = field(default=&quot;&quot;, metadata={&quot;type&quot;: &quot;Attribute&quot;})
+    content: Optional[str] = field(default=&quot;&quot;, metadata={&quot;type&quot;: &quot;Attribute&quot;})</div>
 
 
 alias_meta = Meta
@@ -704,10 +746,12 @@ class Head:
         default_factory=list,
         metadata={&quot;name&quot;: &quot;meta&quot;, &quot;namespace&quot;: &quot;&quot;},
     )
-    description: Optional[str] = field(default=&quot;&quot;, metadata={&quot;type&quot;: &quot;Element&quot;})</div>
+    description: Optional[str] = field(default=&quot;&quot;, metadata={&quot;type&quot;: &quot;Element&quot;})
 
-    # TODO setup style ?
-    # style: Optional[str] = field(default=&quot;&quot;, metadata={&quot;type&quot;: &quot;Element&quot;})
+    style: Optional[str] = field(default=&quot;&quot;, metadata={&quot;type&quot;: &quot;Element&quot;})</div>
+
+
+feynml_version = &quot;0.0&quot;
 
 
 <div class="viewcode-block" id="FeynML"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.FeynML.html#pyfeyn2.feynmandiagram.FeynML">[docs]</a>@dataclass
@@ -715,8 +759,21 @@ class FeynML:
     class Meta:
         name = &quot;feynml&quot;
 
-    head: List[Head] = field(
-        default_factory=list, metadata={&quot;name&quot;: &quot;head&quot;, &quot;namespace&quot;: &quot;&quot;}
+    version: Optional[str] = field(
+        default=feynml_version, metadata={&quot;name&quot;: &quot;version&quot;, &quot;type&quot;: &quot;Attribute&quot;}
+    )
+
+    # post init to check version
+    def __post_init__(self):
+        if self.version &lt; feynml_version:
+            warnings.warn(&quot;FeynML version is older than this parser.&quot;)
+        elif self.version &gt; feynml_version:
+            warnings.warn(&quot;FeynML version is newer than this parser.&quot;)
+
+        self.head.metas.append(Meta(&quot;pyfeyn2&quot;, version(&quot;pyfeyn2&quot;)))
+
+    head: Optional[Head] = field(
+        default=Head(), metadata={&quot;name&quot;: &quot;head&quot;, &quot;namespace&quot;: &quot;&quot;, &quot;type&quot;: &quot;Element&quot;}
     )
 
     diagrams: List[FeynmanDiagram] = field(

@@ -42,7 +42,7 @@
             <img src="../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.1.0
+                2.1.1
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -435,7 +435,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-2.0.7.46
+2.1.0
 </pre></div></div>
 </div>
 <section id="Simple-Case">
@@ -445,8 +445,8 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">v1</span> <span class="o">=</span> <span class="n">Vertex</span><span class="p">(</span><span class="s2">&quot;v1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">with_xy</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="n">v2</span> <span class="o">=</span> <span class="n">Vertex</span><span class="p">(</span><span class="s2">&quot;v2&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">with_xy</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">v1</span> <span class="o">=</span> <span class="n">Vertex</span><span class="p">(</span><span class="s2">&quot;v1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">with_xy</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">with_shape</span><span class="p">(</span><span class="s2">&quot;blob&quot;</span><span class="p">)</span>
+<span class="n">v2</span> <span class="o">=</span> <span class="n">Vertex</span><span class="p">(</span><span class="s2">&quot;v2&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">with_xy</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">with_style</span><span class="p">(</span><span class="s2">&quot;symbol : dot&quot;</span><span class="p">)</span>
 
 <span class="n">fd</span> <span class="o">=</span> <span class="n">FeynmanDiagram</span><span class="p">()</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
     <span class="n">v1</span><span class="p">,</span><span class="n">v2</span><span class="p">,</span>
@@ -522,7 +522,7 @@ b&#39;* {\n    bend-direction: left;\n    color: green\n    }\n.red {\n    color
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&#39;&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;\n&lt;diagram default_style=&#34;true&#34; style=&#34;* {&amp;#10;    bend-direction: left;&amp;#10;    color: green&amp;#10;    }&amp;#10;.red {&amp;#10;    color: red&amp;#10;    }&amp;#10;.notred {&amp;#10;    color: blue&amp;#10;    }&amp;#10;#myid1 {&amp;#10;    color: gray&amp;#10;    }&amp;#10;[pdgid=&amp;quot;21&amp;quot;] {&amp;#10;    color: black&amp;#10;    }&amp;#10;#myid2 {&amp;#10;    color: gray&amp;#10;    }&#34;&gt;\n  &lt;propagator id=&#34;Propagator6&#34; pdgid=&#34;21&#34; type=&#34;gluon&#34; style=&#34;&#34; bend=&#34;true&#34;&gt;\n    &lt;name&gt;g&lt;/name&gt;\n    &lt;source&gt;v1&lt;/source&gt;\n    &lt;target&gt;v2&lt;/target&gt;\n  &lt;/propagator&gt;\n  &lt;vertex id=&#34;v1&#34; style=&#34;&#34; x=&#34;-1.0&#34; y=&#34;0.0&#34;/&gt;\n  &lt;vertex id=&#34;v2&#34; style=&#34;&#34; x=&#34;1.0&#34; y=&#34;0.0&#34;/&gt;\n  &lt;leg id=&#34;Leg7&#34; pdgid=&#34;21&#34; type=&#34;gluon&#34; style=&#34;&#34; bend=&#34;true&#34; x=&#34;-2.0&#34; y=&#34;1.0&#34;&gt;\n    &lt;name&gt;g&lt;/name&gt;\n    &lt;target&gt;v1&lt;/target&gt;\n    &lt;sense&gt;incoming&lt;/sense&gt;\n  &lt;/leg&gt;\n  &lt;leg id=&#34;Leg8&#34; pdgid=&#34;21&#34; type=&#34;gluon&#34; style=&#34;&#34; class=&#34;notred&#34; bend=&#34;true&#34; x=&#34;-2.0&#34; y=&#34;-1.0&#34;&gt;\n    &lt;name&gt;g&lt;/name&gt;\n    &lt;target&gt;v1&lt;/target&gt;\n    &lt;sense&gt;incoming&lt;/sense&gt;\n  &lt;/leg&gt;\n  &lt;leg id=&#34;Leg9&#34; pdgid=&#34;21&#34; type=&#34;gluon&#34; style=&#34;&#34; class=&#34;red&#34; bend=&#34;true&#34; x=&#34;2.0&#34; y=&#34;1.0&#34;&gt;\n    &lt;name&gt;g&lt;/name&gt;\n    &lt;target&gt;v2&lt;/target&gt;\n    &lt;sense&gt;outgoing&lt;/sense&gt;\n  &lt;/leg&gt;\n  &lt;leg id=&#34;myid1&#34; pdgid=&#34;21&#34; type=&#34;gluon&#34; style=&#34;&#34; bend=&#34;true&#34; x=&#34;2.0&#34; y=&#34;-1.0&#34;&gt;\n    &lt;name&gt;g&lt;/name&gt;\n    &lt;target&gt;v2&lt;/target&gt;\n    &lt;sense&gt;outgoing&lt;/sense&gt;\n  &lt;/leg&gt;\n&lt;/diagram&gt;\n&#39;
+&#39;&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;\n&lt;diagram id=&#34;FeynmanDiagram7&#34; default_style=&#34;true&#34; style=&#34;* {&amp;#10;    bend-direction: left;&amp;#10;    color: green&amp;#10;    }&amp;#10;.red {&amp;#10;    color: red&amp;#10;    }&amp;#10;.notred {&amp;#10;    color: blue&amp;#10;    }&amp;#10;#myid1 {&amp;#10;    color: gray&amp;#10;    }&amp;#10;[pdgid=&amp;quot;21&amp;quot;] {&amp;#10;    color: black&amp;#10;    }&amp;#10;#myid2 {&amp;#10;    color: gray&amp;#10;    }&#34;&gt;\n  &lt;propagator id=&#34;Propagator8&#34; pdgid=&#34;21&#34; type=&#34;gluon&#34; style=&#34;&#34; bend=&#34;true&#34;&gt;\n    &lt;name&gt;g&lt;/name&gt;\n    &lt;source&gt;v1&lt;/source&gt;\n    &lt;target&gt;v2&lt;/target&gt;\n  &lt;/propagator&gt;\n  &lt;vertex id=&#34;v1&#34; style=&#34;&#34; x=&#34;-1.0&#34; y=&#34;0.0&#34; shape=&#34;blob&#34;/&gt;\n  &lt;vertex id=&#34;v2&#34; style=&#34;symbol: dot&#34; x=&#34;1.0&#34; y=&#34;0.0&#34;/&gt;\n  &lt;leg id=&#34;Leg9&#34; pdgid=&#34;21&#34; type=&#34;gluon&#34; style=&#34;&#34; bend=&#34;true&#34; x=&#34;-2.0&#34; y=&#34;1.0&#34;&gt;\n    &lt;name&gt;g&lt;/name&gt;\n    &lt;target&gt;v1&lt;/target&gt;\n    &lt;sense&gt;incoming&lt;/sense&gt;\n  &lt;/leg&gt;\n  &lt;leg id=&#34;Leg10&#34; pdgid=&#34;21&#34; type=&#34;gluon&#34; style=&#34;&#34; class=&#34;notred&#34; bend=&#34;true&#34; x=&#34;-2.0&#34; y=&#34;-1.0&#34;&gt;\n    &lt;name&gt;g&lt;/name&gt;\n    &lt;target&gt;v1&lt;/target&gt;\n    &lt;sense&gt;incoming&lt;/sense&gt;\n  &lt;/leg&gt;\n  &lt;leg id=&#34;Leg11&#34; pdgid=&#34;21&#34; type=&#34;gluon&#34; style=&#34;&#34; class=&#34;red&#34; bend=&#34;true&#34; x=&#34;2.0&#34; y=&#34;1.0&#34;&gt;\n    &lt;name&gt;g&lt;/name&gt;\n    &lt;target&gt;v2&lt;/target&gt;\n    &lt;sense&gt;outgoing&lt;/sense&gt;\n  &lt;/leg&gt;\n  &lt;leg id=&#34;myid1&#34; pdgid=&#34;21&#34; type=&#34;gluon&#34; style=&#34;&#34; bend=&#34;true&#34; x=&#34;2.0&#34; y=&#34;-1.0&#34;&gt;\n    &lt;name&gt;g&lt;/name&gt;\n    &lt;target&gt;v2&lt;/target&gt;\n    &lt;sense&gt;outgoing&lt;/sense&gt;\n  &lt;/leg&gt;\n&lt;/diagram&gt;\n&#39;
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -539,6 +539,27 @@ b&#39;* {\n    bend-direction: left;\n    color: green\n    }\n.red {\n    color
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
+\begin{tikzpicture}
+\begin{feynman}
+        \vertex (v1) [blob] at (-1.0,0.0) {};
+        \vertex (v1clone) [] at (-1.0,0.0);
+        \vertex (v2) [dot] at (1.0,0.0) {};
+        \vertex (v2clone) [] at (1.0,0.0);
+        \vertex (Leg9) [] at (-2.0,1.0);
+        \vertex (Leg10) [] at (-2.0,-1.0);
+        \vertex (Leg11) [] at (2.0,1.0);
+        \vertex (myid1) [] at (2.0,-1.0);
+        \diagram*{
+                (v1) -- [gluon,black,bend left] (v2),
+                (Leg9) -- [gluon,black,bend left] (v1),
+                (Leg10) -- [gluon,blue,bend left] (v1),
+                (v2) -- [gluon,red,bend left] (Leg11),
+                (v2) -- [gluon,gray,bend left] (myid1),
+        };
+ \diagram*{};
+\end{feynman}
+\end{tikzpicture}
+
 \documentclass[preview,crop,tikz]{standalone}%
 \usepackage[T1]{fontenc}%
 \usepackage[utf8]{inputenc}%
@@ -553,21 +574,22 @@ b&#39;* {\n    bend-direction: left;\n    color: green\n    }\n.red {\n    color
 \normalsize%
 \begin{tikzpicture}
 \begin{feynman}
-        \vertex (v1) [] at (-1.0,0.0);
+        \vertex (v1) [blob] at (-1.0,0.0) {};
         \vertex (v1clone) [] at (-1.0,0.0);
-        \vertex (v2) [] at (1.0,0.0);
+        \vertex (v2) [dot] at (1.0,0.0) {};
         \vertex (v2clone) [] at (1.0,0.0);
-        \vertex (Leg7) [] at (-2.0,1.0);
-        \vertex (Leg8) [] at (-2.0,-1.0);
-        \vertex (Leg9) [] at (2.0,1.0);
+        \vertex (Leg9) [] at (-2.0,1.0);
+        \vertex (Leg10) [] at (-2.0,-1.0);
+        \vertex (Leg11) [] at (2.0,1.0);
         \vertex (myid1) [] at (2.0,-1.0);
         \diagram*{
                 (v1) -- [gluon,black,bend left] (v2),
-                (Leg7) -- [gluon,black,bend left] (v1),
-                (Leg8) -- [gluon,blue,bend left] (v1),
-                (v2) -- [gluon,red,bend left] (Leg9),
+                (Leg9) -- [gluon,black,bend left] (v1),
+                (Leg10) -- [gluon,blue,bend left] (v1),
+                (v2) -- [gluon,red,bend left] (Leg11),
                 (v2) -- [gluon,gray,bend left] (myid1),
         };
+ \diagram*{};
 \end{feynman}
 \end{tikzpicture}
 %
@@ -656,7 +678,47 @@ b&#39;* {\n    bend-direction: left;\n    color: green\n    }\n.red {\n    color
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/renderers_latex_tikz_tikzfeynman_16_0.png" src="../../../_images/renderers_latex_tikz_tikzfeynman_16_0.png" />
+<div class="highlight"><pre>
+\begin{tikzpicture}
+\begin{feynman}
+        \vertex (v1) [] at (2.1734920634920636,2.84015873015873) ;
+        \vertex (v1clone) [] at (2.1734920634920636,2.84015873015873);
+        \vertex (v2) [] at (3.23984126984127,2.272539682539682) ;
+        \vertex (v2clone) [] at (3.23984126984127,2.272539682539682);
+        \vertex (v3) [] at (3.2361904761904765,3.4530158730158726) ;
+        \vertex (v3clone) [] at (3.2361904761904765,3.4530158730158726);
+        \vertex (v4) [] at (4.178253968253969,2.805079365079365) ;
+        \vertex (v4clone) [] at (4.178253968253969,2.805079365079365);
+        \vertex (l1) [] at (0.4285714285714286,3.7142857142857144);
+        \vertex (l2) [] at (0.4285714285714286,1.4285714285714284);
+        \vertex (l3) [] at (5.0,0.2857142857142857);
+        \vertex (l4) [] at (5.0,4.857142857142857);
+        \vertex (l5) [] at (5.0,3.7142857142857144);
+        \vertex (l6) [] at (5.0,1.4285714285714284);
+        \diagram*{
+                (v1) -- [fermion,green] (v2),
+                (v1) -- [fermion,black] (v3),
+                (v3) -- [fermion,black] (v2),
+                (v4) -- [fermion,black] (v3),
+                (v4) -- [fermion,black] (v2),
+                (l1) -- [fermion,black] (v1),
+                (l2) -- [fermion,black] (v1),
+                (v2) -- [gluon,blue] (l3),
+                (v3) -- [gluon,blue] (l4),
+                (v4) -- [fermion,black] (l5),
+                (v4) -- [fermion,orange] (l6),
+        };
+ \diagram*{};
+\end{feynman}
+\end{tikzpicture}
+
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../_images/renderers_latex_tikz_tikzfeynman_16_1.png" src="../../../_images/renderers_latex_tikz_tikzfeynman_16_1.png" />
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -664,7 +726,7 @@ b&#39;* {\n    bend-direction: left;\n    color: green\n    }\n.red {\n    color
 </pre></div>
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/renderers_latex_tikz_tikzfeynman_16_1.png" src="../../../_images/renderers_latex_tikz_tikzfeynman_16_1.png" />
+<img alt="../../../_images/renderers_latex_tikz_tikzfeynman_16_2.png" src="../../../_images/renderers_latex_tikz_tikzfeynman_16_2.png" />
 </div>
 </div>
 <div class="nbinput nblast docutils container">

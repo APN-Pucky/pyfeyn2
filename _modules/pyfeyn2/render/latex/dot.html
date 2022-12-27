@@ -37,7 +37,7 @@
             <img src="../../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.1.0
+                2.1.1
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
@@ -107,7 +107,7 @@
 from pylatex import Command
 from pylatex.utils import NoEscape
 
-from pyfeyn2.feynmandiagram import Connector
+from pyfeyn2.feynmandiagram import Connector, FeynmanDiagram
 from pyfeyn2.interface.dot import (
     REPLACE_THIS_WITH_A_BACKSLASH,
     dot_to_tikz,
@@ -133,8 +133,11 @@ map_feyn_to_tikz = {
 }
 
 
-<div class="viewcode-block" id="stylize_connect"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.latex.dot.stylize_connect.html#pyfeyn2.render.latex.dot.stylize_connect">[docs]</a>def stylize_connect(c: Connector) -&gt; str:
-    style = &#39;style=&quot;{}&quot;,texmode=&quot;raw&quot;&#39;.format(map_feyn_to_tikz[c.type])
+<div class="viewcode-block" id="stylize_connect"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.latex.dot.stylize_connect.html#pyfeyn2.render.latex.dot.stylize_connect">[docs]</a>def stylize_connect(fd: FeynmanDiagram, c: Connector) -&gt; str:
+    fstyle = fd.get_style(c)
+    style = &#39;style=&quot;{}&quot;,texmode=&quot;raw&quot;&#39;.format(
+        map_feyn_to_tikz[fstyle.getProperty(&quot;line&quot;).value]
+    )
     if c.label is None:
         label = &quot;&quot;
     else:
@@ -192,11 +195,20 @@ map_feyn_to_tikz = {
             &quot;x&quot;,
             &quot;y&quot;,
             &quot;label&quot;,
+            &quot;style&quot;,
         ]
 
     @classmethod
     def valid_types(cls) -&gt; List[str]:
-        return super(DotRender, cls).valid_types() + list(map_feyn_to_tikz.keys())</div>
+        return super(DotRender, cls).valid_types() + list(map_feyn_to_tikz.keys())
+
+    @classmethod
+    def valid_styles(cls) -&gt; bool:
+        return super(DotRender, cls).valid_styles() + [
+            &quot;line&quot;,
+            &quot;direction&quot;,
+            &quot;layout&quot;,
+        ]</div>
 </pre></div>
 
            </div>

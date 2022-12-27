@@ -27,6 +27,7 @@ pyfeyn2.render.latex.latex.LatexRender
       ~LatexRender.count
       ~LatexRender.create
       ~LatexRender.demo_propagator
+      ~LatexRender.demo_vertex
       ~LatexRender.dump
       ~LatexRender.dump_packages
       ~LatexRender.dumps
@@ -51,6 +52,8 @@ pyfeyn2.render.latex.latex.LatexRender
       ~LatexRender.sort
       ~LatexRender.valid_attribute
       ~LatexRender.valid_attributes
+      ~LatexRender.valid_shape
+      ~LatexRender.valid_shapes
       ~LatexRender.valid_style
       ~LatexRender.valid_styles
       ~LatexRender.valid_type
