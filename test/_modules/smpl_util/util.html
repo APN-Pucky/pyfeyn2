@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>pyfeyn2.util &mdash; pyfeyn2  documentation</title>
+  <title>smpl_util.util &mdash; pyfeyn2  documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/plot_directive.css" type="text/css" />
@@ -37,7 +37,7 @@
             <img src="../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.1.1
+                2.1.1-5-ga6e48db4
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -47,16 +47,7 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Versions:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/pyfeyn2/">Stable</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/pyfeyn2/test/">Dev</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Links:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference external" href="https://github.com/APN-Pucky/pyfeyn2">GitHub</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">FeynML:</span></p>
+              <p class="caption" role="heading"><span class="caption-text">FeynML:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../feynml/index.html">FeynML</a></li>
 </ul>
@@ -76,6 +67,16 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../_autosummary/pyfeyn2.html">pyfeyn2</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">Versions:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://pyfeyn2.readthedocs.io/en/stable/">RTD</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/pyfeyn2/">Stable</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/pyfeyn2/test/">Dev</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Links:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/APN-Pucky/pyfeyn2">GitHub</a></li>
+</ul>
 
         </div>
       </div>
@@ -92,7 +93,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home"></a></li>
           <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
-      <li class="breadcrumb-item active">pyfeyn2.util</li>
+      <li class="breadcrumb-item active">smpl_util.util</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -101,15 +102,92 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <h1>Source code for pyfeyn2.util</h1><div class="highlight"><pre>
-<span></span>from importlib.metadata import version as _version
+  <h1>Source code for smpl_util.util</h1><div class="highlight"><pre>
+<span></span>&quot;&quot;&quot;Simplified general utilities.&quot;&quot;&quot;
+import numpy as np
+import warnings
+from smpl_doc import doc
 
-from deprecation import deprecated as _deprecated
+
+@doc.deprecated(&quot;1.0.3&quot;, &quot;Use `s*n` instead.&quot;)
+def times(s, n):
+    &quot;&quot;&quot;
+    Concats string ``s`` ``n`` times.
+
+    Examples
+    --------
+    &gt;&gt;&gt; times(&quot;hi&quot;,5)
+    &#39;hihihihihi&#39;
+
+    .. deprecated:: 0.0.0
+
+    &quot;&quot;&quot;
+    return s.join([&quot;&quot; for i in range(0, n + 1)])
+
+
+def rename(old, new, warning=True):
+    &quot;&quot;&quot;
+    Annotation to replace the name of a function argument.
+
+    Examples
+    --------
+    &gt;&gt;&gt; @rename(&quot;a&quot;,&quot;b&quot;)
+    ... def f(b):
+    ...     return b
+    &gt;&gt;&gt; f(1)
+    1
+    &gt;&gt;&gt; f(a=1)
+    1
+    &gt;&gt;&gt; f(b=1)
+    1
+    &gt;&gt;&gt; f(b=2,a=1)
+    2
+    &quot;&quot;&quot;
+
+    def wrapper(target):
+        def lammda(*args, **kwargs):
+            if old in kwargs and new in kwargs:
+                if warning:
+                    warnings.warn(
+                        f&quot;Argument {old} and {new} are both set, {new} will be used.&quot;,
+                        DeprecationWarning,
+                    )
+                del kwargs[old]
+            elif old in kwargs:
+                if warning:
+                    warnings.warn(
+                        f&quot;Argument {old} is deprecated, use {new} instead.&quot;,
+                        DeprecationWarning,
+                    )
+                kwargs[new] = kwargs[old]
+                del kwargs[old]
+            return target(*args, **kwargs)
+
+        return lammda
+
+    return wrapper
 
 
 # TODO split in to own package
 <div class="viewcode-block" id="withify"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.util.withify.html#pyfeyn2.util.withify">[docs]</a>def withify(prefix=&quot;with_&quot;, sufix=&quot;&quot;, override=False):
-    &quot;&quot;&quot;Decorator to add with_ methods to a class.&quot;&quot;&quot;
+    &quot;&quot;&quot;
+    Decorator to add with_ methods to a class.
+
+    Examples
+    --------
+
+    &gt;&gt;&gt; from dataclasses import dataclass, field
+    &gt;&gt;&gt; from typing import Optional
+    &gt;&gt;&gt; @withify()
+    ... @dataclass
+    ... class A:
+    ...     a : Optional[int] = field(default=0)
+    ...     b : Optional[int] = field(default=0)
+    ...     c : Optional[int] = field(default=0)
+    &gt;&gt;&gt; a = A(0,0,0)
+    &gt;&gt;&gt; a.with_a(1).with_b(2).with_c(3)
+    A(a=1, b=2, c=3)
+    &quot;&quot;&quot;
 
     def _withify(cls):
         inst = cls()
@@ -130,37 +208,86 @@ from deprecation import deprecated as _deprecated
     return _withify</div>
 
 
-<div class="viewcode-block" id="deprecated"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.util.deprecated.html#pyfeyn2.util.deprecated">[docs]</a>def deprecated(
-    version=None, deprecated_in=None, removed_in=None, reason=None, details=None
-):
-    # merge details and reason
-    if details is None:
-        details = reason
-    elif reason is not None:
-        details = reason + &quot; &quot; + details
+def get(key, ddict, default=None):
+    &quot;&quot;&quot;
+    Returns dict[key] if this exists else default.
 
-    # merge deprecated_in and version
-    if version is None:
-        version = deprecated_in
+    Examples
+    --------
+    &gt;&gt;&gt; d = {&#39;a&#39; : 1 , &#39;b&#39; : 2 , &#39;c&#39; : 3}
+    &gt;&gt;&gt; get(&#39;a&#39;,d,5)
+    1
+    &gt;&gt;&gt; get(&#39;x&#39;,d,5)
+    5
 
-    # increment minor version
-    if removed_in is None:
-        removed_in = &quot;.&quot;.join(
-            [version.split(&quot;.&quot;)[0]] + [str(int(version.split(&quot;.&quot;)[1]) + 2)] + [&quot;0&quot;]
-        )
-
-    return _deprecated(
-        deprecated_in=version,
-        removed_in=removed_in,
-        current_version=_version(&quot;pyfeyn2&quot;),
-        details=details,
-    )</div>
+    &quot;&quot;&quot;
+    if has(key, ddict):
+        return ddict[key]
+    else:
+        return default
 
 
-deprecated = deprecated(
-    deprecated_in=&quot;2.0.7.1&quot;,
-    details=&quot;Use smpl.doc.deprecate instead? Better split smpl.doc into its own package.&quot;,
-)(deprecated)
+def has(key, ddict):
+    &quot;&quot;&quot;
+    Checks if the key is in the dict and not None.
+
+    Examples
+    --------
+    &gt;&gt;&gt; d = {&#39;a&#39; : 1 , &#39;b&#39; : 2 , &#39;c&#39; : 3}
+    &gt;&gt;&gt; has(&#39;a&#39;,d)
+    True
+    &gt;&gt;&gt; has(&#39;x&#39;,d)
+    False
+
+
+    &quot;&quot;&quot;
+    return key in ddict and not ddict[key] is None
+
+
+def true(key, ddict):
+    &quot;&quot;&quot;
+    Checks if the key is in the dict and not None and True.
+
+    Examples
+    --------
+    &gt;&gt;&gt; d = {&#39;a&#39; : True , &#39;b&#39; : True , &#39;c&#39; : False}
+    &gt;&gt;&gt; true(&#39;a&#39;, d)
+    True
+    &gt;&gt;&gt; true(&#39;c&#39;, d)
+    False
+    &gt;&gt;&gt; true(&#39;x&#39;, d)
+    False
+
+    &quot;&quot;&quot;
+    return has(key, ddict) and ddict[key]
+
+
+def find_nearest_index(array, value):
+    &quot;&quot;&quot;
+    Returns the index of the element in ``array`` closest to ``value``
+
+    Examples
+    --------
+    &gt;&gt;&gt; find_nearest_index([1,7,6,2] , 1.9)
+    3
+
+    &quot;&quot;&quot;
+    array = np.asarray(array)
+    idx = (np.abs(array - value)).argmin()
+    return idx
+
+
+def find_nearest(array, value):
+    &quot;&quot;&quot;
+    Return the element in ``array`` closest to ``value``
+
+    Examples
+    --------
+    &gt;&gt;&gt; find_nearest([1,7,6,2] , 1.9)
+    2
+
+    &quot;&quot;&quot;
+    return array[find_nearest_index(array, value)]
 </pre></div>
 
            </div>

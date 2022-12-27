@@ -1,4 +1,4 @@
-pyfeyn2.util.withify
+﻿pyfeyn2.util.withify
 ====================
 
 .. currentmodule:: pyfeyn2.util

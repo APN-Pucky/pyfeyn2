@@ -18,23 +18,6 @@
 
 .. toctree::
    :glob:
-   :hidden:
-   :caption: Versions:
-   :maxdepth: 3
-
-   Stable <https://apn-pucky.github.io/pyfeyn2/>
-   Dev <https://apn-pucky.github.io/pyfeyn2/test/>
-
-.. toctree::
-   :glob:
-   :hidden:
-   :caption: Links:
-   :maxdepth: 3
-
-   GitHub <https://github.com/APN-Pucky/pyfeyn2>
-
-.. toctree::
-   :glob:
    :maxdepth: 3
    :caption: FeynML:
 
@@ -76,6 +59,25 @@
    :caption: Module:
 
    autoapi/index
+
+
+.. toctree::
+   :glob:
+   :hidden:
+   :caption: Versions:
+   :maxdepth: 3
+
+   RTD <https://pyfeyn2.readthedocs.io/en/stable/>
+   Stable <https://apn-pucky.github.io/pyfeyn2/>
+   Dev <https://apn-pucky.github.io/pyfeyn2/test/>
+
+.. toctree::
+   :glob:
+   :hidden:
+   :caption: Links:
+   :maxdepth: 3
+
+   GitHub <https://github.com/APN-Pucky/pyfeyn2>
 
 
 

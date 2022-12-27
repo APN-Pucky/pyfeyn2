@@ -1,4 +1,4 @@
-pyfeyn2.util.deprecated
+﻿pyfeyn2.util.deprecated
 =======================
 
 .. currentmodule:: pyfeyn2.util

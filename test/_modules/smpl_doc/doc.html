@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>smpl_doc.doc &mdash; pyfeyn2  documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/plot_directive.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/jupyter-sphinx.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/thebelab.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/thebelab-helper.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> pyfeyn2
+            <img src="../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                2.1.1-5-ga6e48db4
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">FeynML:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../feynml/index.html">FeynML</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Gallery:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../gallery/index.html">Gallery</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Renderers:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../renderers/index.html">Renderers</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Interfaces:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../interfaces/index.html">Interfaces</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Modules:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../_autosummary/pyfeyn2.html">pyfeyn2</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Versions:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://pyfeyn2.readthedocs.io/en/stable/">RTD</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/pyfeyn2/">Stable</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/pyfeyn2/test/">Dev</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Links:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/APN-Pucky/pyfeyn2">GitHub</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">pyfeyn2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">smpl_doc.doc</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for smpl_doc.doc</h1><div class="highlight"><pre>
+<span></span>&quot;&quot;&quot;Simplified python code documentation.&quot;&quot;&quot;
+from deprecation import deprecated as _deprecated
+
+# from deprecation import deprecated as _deprecated
+
+params = 0
+name = 1
+
+
+def _append(txt):
+    def wrapper(target):
+        if target.__doc__ is None:
+            target.__doc__ = &quot;&quot;
+        target.__doc__ += txt
+        return target
+
+    return wrapper
+
+
+def append(txt):
+    &quot;&quot;&quot;TODO split cases doc/txt/plot?&quot;&quot;&quot;
+    return None
+
+
+def append_str(txt):
+    return _append(txt)
+
+
+def append_plot(*args, xmin=-5, xmax=5):
+    &quot;&quot;&quot;Append a plot to a function.&quot;&quot;&quot;
+    # return _append(&quot;\n\n\t.. plot::\n\t\t:include-source:\n\n\t\t&gt;&gt;&gt; from &quot; + target.__module__ + &quot; import &quot; +target.__name__ + &quot;\n\t\t&gt;&gt;&gt; from smpl import plot\n\t\t&gt;&gt;&gt; plot.function(&quot;+ target.__name__ + &quot;,&quot; + &#39;,&#39;.join([str(a) for a in args]) + &quot;,xmin=&quot;+str(xmin) + &quot;,xmax=&quot; + str(xmax)+&quot;)&quot;)
+
+    def wrapper(target):
+        if target.__doc__ is None:
+            target.__doc__ = &quot;&quot;
+        target.__doc__ += (
+            &quot;\n\n\t.. plot::\n\t\t:include-source:\n\n\t\t&gt;&gt;&gt; from &quot;
+            + target.__module__
+            + &quot; import &quot;
+            + target.__name__
+            + &quot;\n\t\t&gt;&gt;&gt; from smpl import plot\n\t\t&gt;&gt;&gt; plot.function(&quot;
+            + target.__name__
+            + (&quot;,&quot; + &quot;,&quot;.join([str(a) for a in args]) if len(args) &gt; 0 else &quot;&quot;)
+            + &quot;,xmin=&quot;
+            + str(xmin)
+            + &quot;,xmax=&quot;
+            + str(xmax)
+            + &quot;)&quot;
+        )
+        # print(target.__doc__)
+        return target
+
+    return wrapper
+
+
+def append_doc(original):
+    &quot;&quot;&quot;
+    Append doc string of ``original`` to ``target`` object.
+
+    Parameters
+    ----------
+    original : ``class`` or ``function``
+        ``orignal.__doc__`` is appended to the ``__doc__`` of the ``target``
+
+    Examples
+    --------
+    &gt;&gt;&gt; def ho():
+    ...     &#39;&#39;&#39;Ho&#39;&#39;&#39;
+    ...     print(ho.__doc__)
+    &gt;&gt;&gt; @append_doc(ho)
+    ... def hi():
+    ...     &#39;&#39;&#39;Hi&#39;&#39;&#39;
+    ...     print(hi.__doc__)
+    &gt;&gt;&gt; hi()
+    HiHo
+
+    &quot;&quot;&quot;
+    return _append(original.__doc__)
+
+
+def _insert(txt):
+    def wrapper(target):
+        if target.__doc__ is None:
+            target.__doc__ = &quot;&quot;
+        target.__doc__ = txt + target.__doc__
+        return target
+
+    return wrapper
+
+
+def insert_str(txt):
+    return _insert(txt)
+
+
+def insert_doc(original):
+    &quot;&quot;&quot;
+    Inserts the docstring from passed function ``original`` in the ``target`` function docstring.
+
+    Parameters
+    ----------
+    original : ``class`` or ``function``
+        ``orignal.__doc__`` is inserted to the ``__doc__`` of the ``target``
+
+    Examples
+    --------
+    &gt;&gt;&gt; def ho():
+    ...     &#39;&#39;&#39;Ho&#39;&#39;&#39;
+    ...     print(ho.__doc__)
+    &gt;&gt;&gt; @insert_doc(ho)
+    ... def hi():
+    ...     &#39;&#39;&#39;Hi&#39;&#39;&#39;
+    ...     print(hi.__doc__)
+    &gt;&gt;&gt; hi()
+    HoHi
+    &quot;&quot;&quot;
+    return _insert(original.__doc__)
+
+
+def insert_eq():
+    &quot;&quot;&quot;Inserts the function and its parameters and an equal sign.&quot;&quot;&quot;
+
+    def wrapper(target):
+        if target.__doc__ is None:
+            target.__doc__ = &quot;&quot;
+        safe = target.__doc__
+        target.__doc__ = target.__name__ + &quot;(&quot;
+        for v in target.__code__.co_varnames:
+            target.__doc__ += v + &quot;,&quot;
+        target.__doc__ = target.__doc__[:-1]
+        target.__doc__ += &quot;) = &quot; + safe
+        return target
+
+    return wrapper
+
+
+def insert_latex_eq():
+    &quot;&quot;&quot;Inserts latexed code of a oneline function with parameters.&quot;&quot;&quot;
+    return lambda f: insert_eq()(insert_latex()(f))
+
+
+def insert_latex():
+    &quot;&quot;&quot;Inserts latexed code of a oneline function.&quot;&quot;&quot;
+    from smpl import wrap
+
+    def wrapper(target):
+        if target.__doc__ is None:
+            target.__doc__ = wrap.get_latex(target)
+        return target
+
+    return wrapper
+
+
+<div class="viewcode-block" id="deprecated"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.util.deprecated.html#pyfeyn2.util.deprecated">[docs]</a>def deprecated(
+    version=None, deprecated_in=None, removed_in=None, reason=None, details=None
+):
+    # merge details and reason
+    if details is None:
+        details = reason
+    elif reason is not None:
+        details = reason + &quot; &quot; + details
+
+    # merge deprecated_in and version
+    if version is None:
+        version = deprecated_in
+
+    # increment minor version
+    if removed_in is None:
+        removed_in = &quot;.&quot;.join(
+            [version.split(&quot;.&quot;)[0]] + [str(int(version.split(&quot;.&quot;)[1]) + 2)] + [&quot;0&quot;]
+        )
+
+    return _deprecated(
+        deprecated_in=version,
+        removed_in=removed_in,
+        # current_version=_version(&quot;pyfeyn2&quot;),
+        details=details,
+    )</div>
+
+
+tab_len = 20
+
+
+def table_sep(tabs=1):
+    return (
+        &quot;=&quot; * (tab_len - 2)
+        + &quot;  &quot;
+        + &quot;=&quot; * (tab_len - 2)
+        + &quot;  &quot;
+        + &quot;=&quot; * (tab_len - 2)
+        + &quot;\n&quot;
+        + &quot;\t&quot;.join([&quot;&quot; for i in range(0, tabs + 1)])
+    )
+
+
+# @deprecated(version=&quot;1.0.3.1&quot;, reason=&quot;Use :func:`smpl.doc.array_table` instead.&quot;)
+def table(dic, top=True, bottom=True, init=True, tabs=1):
+    &quot;&quot;&quot;
+    Add dict= {&#39;key&#39;: [values...]} to a simple reST table.
+    &quot;&quot;&quot;
+    t = &quot;\t&quot; * tabs
+    rs = &quot;&quot;
+    if init:
+        rs += t
+    if top:
+        rs += table_sep(tabs=tabs)
+    for k, vs in dic.items():
+        rs += str(k)
+        p = str(k)
+        for v in vs:
+            sv = str(v)
+            if &quot;&lt;function &quot; in sv and &quot;at 0x&quot; in sv:
+                sv = sv.split(&quot;&lt;function &quot;)[1].split(&quot;at 0x&quot;)[0]
+            rs += &quot;&quot;.join([&quot; &quot; for i in range(tab_len - len(p))]) + sv
+            p = sv
+        rs += &quot;\n&quot; + t
+    if bottom:
+        rs += table_sep(tabs=tabs) + &quot;\n&quot;
+    else:
+        rs += &quot;&quot;
+    return rs
+
+
+def dict_to_table(dic):
+    rt = []
+    for k, vs in dic.items():
+        rt += [[k, *vs]]
+    return rt
+
+
+def trim_eol_spaces(s):
+    &quot;&quot;&quot;
+    Trim spaces at the end of lines.
+
+    This is only needed for the docstrings, because black does trim them.
+
+    &quot;&quot;&quot;
+    return &quot;\n&quot;.join([l.rstrip() for l in s.split(&quot;\n&quot;)])
+
+
+def array_table(arr, top=True, bottom=True, init=True, tabs=1, header=True):
+    &quot;&quot;&quot;
+    Produces a reST table from a numpy array or normal 2d array.
+
+    Parameters
+    ----------
+    arr : ``numpy.ndarray``, ``list`` or ``dict``
+        2d array or dict
+    top : ``bool``
+        If ``True`` a top line is added.
+    bottom : ``bool``
+        If ``True`` a bottom line is added.
+    init : ``bool``
+        If ``True`` a tab is added at the beginning of each line.
+    tabs : ``int``
+        Number of tabs at the beginning of each line.
+    header : ``bool``
+        If ``True`` the first row is used as header.
+
+    Examples
+    --------
+    &gt;&gt;&gt; print(trim_eol_spaces(array_table([[&quot;a&quot;,&quot;b&quot;],[&quot;hihi&quot;, &quot;hoho&quot;]],tabs=0)))
+    ====== ======
+    a      b
+    ====== ======
+    hihi   hoho
+    ====== ======
+    &lt;BLANKLINE&gt;
+
+    &quot;&quot;&quot;
+    if isinstance(arr, dict):
+        arr = dict_to_table(arr)
+    width = len(arr[0])
+    height = len(arr)
+    widths = [0 for i in range(width)]
+    # maximum width of each column
+    for i in range(0, width):
+        for j in range(0, height):
+            if len(str(arr[j][i])) &gt; widths[i]:
+                widths[i] = len(str(arr[j][i]))
+    rs = &quot;&quot;
+    if init:
+        rs += &quot;\t&quot; * tabs
+    if top:
+        rs += &quot; &quot;.join([&quot;=&quot; * (widths[i] + 2) for i in range(0, width)]) + &quot;\n&quot;
+
+    for i in range(0, height):
+        rs += &quot;\t&quot; * tabs
+        for j in range(0, width):
+            rs += str(arr[i][j]) + &quot; &quot; * (widths[j] - len(str(arr[i][j])) + 3)
+        rs += &quot;\n&quot;
+        if header and i == 0:
+            rs += (
+                &quot;\t&quot; * tabs
+                + &quot; &quot;.join([&quot;=&quot; * (widths[i] + 2) for i in range(0, width)])
+                + &quot;\n&quot;
+            )
+
+    if bottom:
+        rs += &quot;\t&quot; * tabs
+        rs += &quot; &quot;.join([&quot;=&quot; * (widths[i] + 2) for i in range(0, width)]) + &quot;\n&quot;
+    return rs
+
+
+if __name__ == &quot;__main__&quot;:
+    import doctest
+
+    doctest.testmod()
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Alexander Puck Neuwirth.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
