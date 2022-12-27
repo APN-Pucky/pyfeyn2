@@ -37,7 +37,7 @@
             <img src="../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.1.0-14-gfd8d42a6
+                2.1.0-17-ge818c0af
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -486,6 +486,14 @@ class Leg(Point, Targeting, Connector):
         default=None, metadata={&quot;xml_attribute&quot;: True, &quot;type&quot;: &quot;Attribute&quot;}
     )
     &quot;&quot;&quot;External text for leg&quot;&quot;&quot;
+
+<div class="viewcode-block" id="Leg.is_incoming"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.Leg.html#pyfeyn2.feynmandiagram.Leg.is_incoming">[docs]</a>    def is_incoming(self):
+        &quot;&quot;&quot;Return True if the leg is incoming, False otherwise.&quot;&quot;&quot;
+        return &quot;in&quot; == self.sense[:2] or self.sense[:8] == &quot;anti-out&quot;</div>
+
+<div class="viewcode-block" id="Leg.is_outgoing"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.Leg.html#pyfeyn2.feynmandiagram.Leg.is_outgoing">[docs]</a>    def is_outgoing(self):
+        &quot;&quot;&quot;Return True if the leg is outgoing, False otherwise.&quot;&quot;&quot;
+        return &quot;out&quot; == self.sense[:3] or self.sense[:7] == &quot;anti-in&quot;</div>
 
     def with_incoming(self):
         self.sense = &quot;incoming&quot;

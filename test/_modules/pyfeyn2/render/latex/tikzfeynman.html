@@ -37,7 +37,7 @@
             <img src="../../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.1.0-14-gfd8d42a6
+                2.1.0-17-ge818c0af
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
@@ -245,9 +245,9 @@ shape_map = {
         src += get_line(p.source, p.target, style)
     for l in fd.legs:
         style = stylize_connect(fd, l)
-        if l.sense[:2] == &quot;in&quot;:
+        if l.is_incoming():
             src += get_line(l.id, l.target, style)
-        elif l.sense[:3] == &quot;out&quot;:
+        elif l.is_outgoing():
             src += get_line(l.target, l.id, style)
         else:
             raise Exception(&quot;Unknown sense&quot;)
@@ -289,6 +289,8 @@ shape_map = {
     @classmethod
     def valid_styles(cls) -&gt; bool:
         return super(TikzFeynmanRender, cls).valid_styles() + [
+            &quot;line&quot;,
+            &quot;symbol&quot;,
             &quot;color&quot;,
             &quot;opacity&quot;,
             &quot;bend&quot;,

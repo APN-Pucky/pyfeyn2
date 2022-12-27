@@ -37,7 +37,7 @@
             <img src="../../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.1.0-14-gfd8d42a6
+                2.1.0-17-ge818c0af
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
@@ -142,19 +142,27 @@ from pyfeyn2.render.render import Render
                 dp.setFillstyles(PointLabel(dp, v.label, displace=3, angle=90))
             pyxfd.add(dp)
         for l in self.fd.legs:
+            lstyle = self.fd.get_style(l)
             tar = self.fd.get_vertex(l.target)
             if l.sense[:2] == &quot;in&quot; or l.sense[:8] == &quot;anti-out&quot;:
-                nl = NamedLine[l.type](Point(l.x, l.y), Point(tar.x, tar.y))
+                nl = NamedLine[lstyle.getProperty(&quot;line&quot;).value](
+                    Point(l.x, l.y), Point(tar.x, tar.y)
+                )
             elif l.sense[:3] == &quot;out&quot; or l.sense[:9] == &quot;anti-in&quot;:
-                nl = NamedLine[l.type](Point(tar.x, tar.y), Point(l.x, l.y))
+                nl = NamedLine[lstyle.getProperty(&quot;line&quot;).value](
+                    Point(tar.x, tar.y), Point(l.x, l.y)
+                )
             nl = nl.bend(l.bend)
             nl = self.apply_layout(v.raw_style(), nl)
             nl = nl.addLabel(l.label)
 
         for p in self.fd.propagators:
+            pstyle = self.fd.get_style(p)
             src = self.fd.get_vertex(p.source)
             tar = self.fd.get_vertex(p.target)
-            nl = NamedLine[p.type](Point(src.x, src.y), Point(tar.x, tar.y))
+            nl = NamedLine[pstyle.getProperty(&quot;line&quot;).value](
+                Point(src.x, src.y), Point(tar.x, tar.y)
+            )
             nl = nl.bend(p.bend)
             nl = self.apply_layout(v.raw_style(), nl)
             nl = nl.addLabel(p.label)
@@ -297,6 +305,7 @@ from pyfeyn2.render.render import Render
     @classmethod
     def valid_styles(cls):
         return super(PyxRender, cls).valid_styles() + [
+            &quot;line&quot;,
             &quot;arrow-pos&quot;,
             &quot;arrow-sense&quot;,  #           &quot;parallel-arrow-sense&quot;,
             &quot;arrow-displace&quot;,  #           &quot;parallel-arrow-displace&quot;,

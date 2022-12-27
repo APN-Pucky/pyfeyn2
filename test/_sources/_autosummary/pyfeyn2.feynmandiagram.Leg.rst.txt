@@ -17,6 +17,8 @@ pyfeyn2.feynmandiagram.Leg
    .. autosummary::
    
       ~Leg.__init__
+      ~Leg.is_incoming
+      ~Leg.is_outgoing
       ~Leg.put_style
       ~Leg.raw_style
       ~Leg.set_external

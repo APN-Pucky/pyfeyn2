@@ -37,7 +37,7 @@
             <img src="../../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.1.0-14-gfd8d42a6
+                2.1.0-17-ge818c0af
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
@@ -211,7 +211,8 @@ type_map = {
         src += &quot;}\n&quot;
 
     for l in incoming:
-        tttype = type_map[l.type]
+        lstyle = fd.get_style(l)
+        tttype = type_map[lstyle.getProperty(&quot;line&quot;).value]
         style = stylize_line(l)
         for ttype in tttype:
             lid = l.id
@@ -222,7 +223,8 @@ type_map = {
             src += f&quot;\t\t\\fmf{{{ttype}{style}}}{{{lid},{ltarget}}}\n&quot;
             style = &quot;&quot;
     for l in outgoing:
-        tttype = type_map[l.type]
+        lstyle = fd.get_style(l)
+        tttype = type_map[lstyle.getProperty(&quot;line&quot;).value]
         style = stylize_line(l)
         for ttype in tttype:
             lid = l.id
@@ -234,7 +236,8 @@ type_map = {
             style = &quot;&quot;
 
     for p in fd.propagators:
-        tttype = type_map[p.type]
+        pstyle = fd.get_style(p)
+        tttype = type_map[pstyle.getProperty(&quot;line&quot;).value]
         style = stylize_line(p)
         for ttype in tttype:
             psource = p.source
@@ -291,6 +294,7 @@ type_map = {
     @classmethod
     def valid_styles(cls) -&gt; bool:
         return super(FeynmpRender, cls).valid_styles() + [
+            &quot;line&quot;,
             &quot;direction&quot;,
         ]</div>
 </pre></div>
