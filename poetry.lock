@@ -1932,18 +1932,18 @@ plugins = ["importlib-metadata"]
 
 [[package]]
 name = "pyhepmc"
-version = "2.9.0"
+version = "2.10.0"
 description = "Pythonic interface to the HepMC3 C++ library licensed under LGPL-v3."
 category = "main"
 optional = false
-python-versions = ">=3.7"
+python-versions = ">=3.8"
 
 [package.dependencies]
 numpy = "*"
 
 [package.extras]
 doc = ["ipykernel", "ipython", "nbsphinx", "sphinx", "sphinx-rtd-theme"]
-test = ["particle", "pytest"]
+test = ["matplotlib", "particle", "pytest"]
 
 [[package]]
 name = "pylatex"
@@ -3649,6 +3649,7 @@ line-profiler = [
     {file = "line_profiler-4.0.2.tar.gz", hash = "sha256:25e8c9d4248dc48905801851ff8a75b9c74827a0871d118d1104d8e43d7fb0fc"},
 ]
 livereload = [
+    {file = "livereload-2.6.3-py2.py3-none-any.whl", hash = "sha256:ad4ac6f53b2d62bb6ce1a5e6e96f1f00976a32348afedcb4b6d68df2a1d346e4"},
     {file = "livereload-2.6.3.tar.gz", hash = "sha256:776f2f865e59fde56490a56bcc6773b6917366bce0c267c60ee8aaf1a0959869"},
 ]
 lockfile = [
@@ -3671,7 +3672,6 @@ lxml = [
     {file = "lxml-4.9.2-cp310-cp310-musllinux_1_1_x86_64.whl", hash = "sha256:b9cc34af337a97d470040f99ba4282f6e6bac88407d021688a5d585e44a23184"},
     {file = "lxml-4.9.2-cp310-cp310-win32.whl", hash = "sha256:d02a5399126a53492415d4906ab0ad0375a5456cc05c3fc0fc4ca11771745cda"},
     {file = "lxml-4.9.2-cp310-cp310-win_amd64.whl", hash = "sha256:a38486985ca49cfa574a507e7a2215c0c780fd1778bb6290c21193b7211702ab"},
-    {file = "lxml-4.9.2-cp311-cp311-macosx_10_15_universal2.whl", hash = "sha256:6943826a0374fb135bb11843594eda9ae150fba9d1d027d2464c713da7c09afe"},
     {file = "lxml-4.9.2-cp311-cp311-manylinux_2_12_i686.manylinux2010_i686.manylinux_2_24_i686.whl", hash = "sha256:c83203addf554215463b59f6399835201999b5e48019dc17f182ed5ad87205c9"},
     {file = "lxml-4.9.2-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.manylinux_2_24_aarch64.whl", hash = "sha256:2a87fa548561d2f4643c99cd13131acb607ddabb70682dcf1dff5f71f781a4bf"},
     {file = "lxml-4.9.2-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_24_x86_64.whl", hash = "sha256:d6b430a9938a5a5d85fc107d852262ddcd48602c120e3dbb02137c83d212b380"},
@@ -3682,6 +3682,7 @@ lxml = [
     {file = "lxml-4.9.2-cp35-cp35m-manylinux_2_5_i686.manylinux1_i686.whl", hash = "sha256:ca989b91cf3a3ba28930a9fc1e9aeafc2a395448641df1f387a2d394638943b0"},
     {file = "lxml-4.9.2-cp35-cp35m-manylinux_2_5_x86_64.manylinux1_x86_64.whl", hash = "sha256:822068f85e12a6e292803e112ab876bc03ed1f03dddb80154c395f891ca6b31e"},
     {file = "lxml-4.9.2-cp35-cp35m-win32.whl", hash = "sha256:be7292c55101e22f2a3d4d8913944cbea71eea90792bf914add27454a13905df"},
+    {file = "lxml-4.9.2-cp35-cp35m-win_amd64.whl", hash = "sha256:998c7c41910666d2976928c38ea96a70d1aa43be6fe502f21a651e17483a43c5"},
     {file = "lxml-4.9.2-cp36-cp36m-macosx_10_15_x86_64.whl", hash = "sha256:b26a29f0b7fc6f0897f043ca366142d2b609dc60756ee6e4e90b5f762c6adc53"},
     {file = "lxml-4.9.2-cp36-cp36m-manylinux_2_12_i686.manylinux2010_i686.manylinux_2_24_i686.whl", hash = "sha256:ab323679b8b3030000f2be63e22cdeea5b47ee0abd2d6a1dc0c8103ddaa56cd7"},
     {file = "lxml-4.9.2-cp36-cp36m-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:689bb688a1db722485e4610a503e3e9210dcc20c520b45ac8f7533c837be76fe"},
@@ -3691,6 +3692,7 @@ lxml = [
     {file = "lxml-4.9.2-cp36-cp36m-musllinux_1_1_aarch64.whl", hash = "sha256:58bfa3aa19ca4c0f28c5dde0ff56c520fbac6f0daf4fac66ed4c8d2fb7f22e74"},
     {file = "lxml-4.9.2-cp36-cp36m-musllinux_1_1_x86_64.whl", hash = "sha256:bc718cd47b765e790eecb74d044cc8d37d58562f6c314ee9484df26276d36a38"},
     {file = "lxml-4.9.2-cp36-cp36m-win32.whl", hash = "sha256:d5bf6545cd27aaa8a13033ce56354ed9e25ab0e4ac3b5392b763d8d04b08e0c5"},
+    {file = "lxml-4.9.2-cp36-cp36m-win_amd64.whl", hash = "sha256:3ab9fa9d6dc2a7f29d7affdf3edebf6ece6fb28a6d80b14c3b2fb9d39b9322c3"},
     {file = "lxml-4.9.2-cp37-cp37m-macosx_10_15_x86_64.whl", hash = "sha256:05ca3f6abf5cf78fe053da9b1166e062ade3fa5d4f92b4ed688127ea7d7b1d03"},
     {file = "lxml-4.9.2-cp37-cp37m-manylinux_2_12_i686.manylinux2010_i686.manylinux_2_24_i686.whl", hash = "sha256:a5da296eb617d18e497bcf0a5c528f5d3b18dadb3619fbdadf4ed2356ef8d941"},
     {file = "lxml-4.9.2-cp37-cp37m-manylinux_2_17_aarch64.manylinux2014_aarch64.manylinux_2_24_aarch64.whl", hash = "sha256:04876580c050a8c5341d706dd464ff04fd597095cc8c023252566a8826505726"},
@@ -4150,28 +4152,31 @@ pygments = [
     {file = "Pygments-2.13.0.tar.gz", hash = "sha256:56a8508ae95f98e2b9bdf93a6be5ae3f7d8af858b43e02c5a2ff083726be40c1"},
 ]
 pyhepmc = [
-    {file = "pyhepmc-2.9.0-cp310-cp310-macosx_10_9_universal2.whl", hash = "sha256:32bf233b1341187bd4c6729ce03e6f3c634b3c371df141dd07b32849fdb5aa1c"},
-    {file = "pyhepmc-2.9.0-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:bf012a3dd9a8645336c2afd79ed48777023c9b360ed7e4d032b039c204109635"},
-    {file = "pyhepmc-2.9.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:09cdf12230686daf1ff0c33925638c11d93d05f3de9e0f7fb822aeb5695aee74"},
-    {file = "pyhepmc-2.9.0-cp310-cp310-win_amd64.whl", hash = "sha256:fbd2c196c541b2006adab3e1788d6d1b826489e242c6018405d54a3bef71c910"},
-    {file = "pyhepmc-2.9.0-cp37-cp37m-macosx_10_9_x86_64.whl", hash = "sha256:cd984fdafde835c42c26c0484fd908c031958275db174e8d13a62a767913c9be"},
-    {file = "pyhepmc-2.9.0-cp37-cp37m-manylinux_2_12_i686.manylinux2010_i686.whl", hash = "sha256:d4bcfbda5ffcf7aaed73d2326f2f8f526a1af33014997fcd068137aa407bccb5"},
-    {file = "pyhepmc-2.9.0-cp37-cp37m-manylinux_2_12_x86_64.manylinux2010_x86_64.whl", hash = "sha256:365387bb62fb4ddc05474c4a7ff31da40bd0bc3584b266c3f8f5e076a93d3a5a"},
-    {file = "pyhepmc-2.9.0-cp37-cp37m-win32.whl", hash = "sha256:5d4767345d5418636f9c5d22ec87520188cdf00b5a9abf65d6077cb09ca8251a"},
-    {file = "pyhepmc-2.9.0-cp37-cp37m-win_amd64.whl", hash = "sha256:230488ee44de55ed0feac7a384316426aa88dc0420efd91173e01040d7ea3383"},
-    {file = "pyhepmc-2.9.0-cp38-cp38-macosx_10_9_universal2.whl", hash = "sha256:19ab461f7dcbfbb3abe5021f17481bf1517097c630575f45a745f2192c9d0e2b"},
-    {file = "pyhepmc-2.9.0-cp38-cp38-macosx_10_9_x86_64.whl", hash = "sha256:ab73a5510b95a65810c9c109a8fe5de7be203004a9adcc8eb7e1260eb355d593"},
-    {file = "pyhepmc-2.9.0-cp38-cp38-manylinux_2_12_i686.manylinux2010_i686.whl", hash = "sha256:42338dec375cec71d334dfb8df091d673b810b2c478233e462877bb3a2b048c0"},
-    {file = "pyhepmc-2.9.0-cp38-cp38-manylinux_2_12_x86_64.manylinux2010_x86_64.whl", hash = "sha256:1dca87fbe91be4176a679fb9ce75356c8f48a51df8b9beed141ba7c075ee30bf"},
-    {file = "pyhepmc-2.9.0-cp38-cp38-win32.whl", hash = "sha256:6133c98e51bb0a98b14aaf5b0a4eb41bbb81e421cd693196f7522c20f61e45d0"},
-    {file = "pyhepmc-2.9.0-cp38-cp38-win_amd64.whl", hash = "sha256:a0fc4e9a0595a96044a5a9a1114ba578b6df12724515f914fdcfbcd41300316c"},
-    {file = "pyhepmc-2.9.0-cp39-cp39-macosx_10_9_universal2.whl", hash = "sha256:976a73fc21cc56b43f977ac2da48015f13a8a8305fa2c0f37fd0948d0d911b36"},
-    {file = "pyhepmc-2.9.0-cp39-cp39-macosx_10_9_x86_64.whl", hash = "sha256:4c01a2517e3d1aee5ce7439231de92cd973da230f2ef9168cfe500fa809b072f"},
-    {file = "pyhepmc-2.9.0-cp39-cp39-manylinux_2_12_i686.manylinux2010_i686.whl", hash = "sha256:002b429c74b540e754fd5f2e4d5203eed27e6bcaabb7de0ae269817ab3597ef7"},
-    {file = "pyhepmc-2.9.0-cp39-cp39-manylinux_2_12_x86_64.manylinux2010_x86_64.whl", hash = "sha256:725b7ac497d4ed1e124f7b459b1f3f4fa697e94c4ad413394d9d801f9667e544"},
-    {file = "pyhepmc-2.9.0-cp39-cp39-win32.whl", hash = "sha256:9791c9857a8441de2fcea1f0e2750dbcd0accb912f1fecc3a9537ea749d25bf6"},
-    {file = "pyhepmc-2.9.0-cp39-cp39-win_amd64.whl", hash = "sha256:150f536f99cc59f6668f2ad0dd6373dc8371634ff0f2db80f5b5e197c7dc92de"},
-    {file = "pyhepmc-2.9.0.tar.gz", hash = "sha256:cb7ca20c5936825656db53e96151e19a01cc4e07c25e32b89d433dd563eedd0d"},
+    {file = "pyhepmc-2.10.0-cp310-cp310-macosx_10_9_universal2.whl", hash = "sha256:d8d8af86c8bc7bdaa2b3e6b8b1211c9373659eb17e835bd373cbe97e63857181"},
+    {file = "pyhepmc-2.10.0-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:c5d7693d4683f2837f71afa0b2c92330706866e847e9ad58e657ef4c84b79fb0"},
+    {file = "pyhepmc-2.10.0-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:2fef66c65802e9024853c34eca47273e1ffe55d70dad2bf84d74a0d11c5859db"},
+    {file = "pyhepmc-2.10.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:0ebc6c7efd2a7c8211999bc89df992913a2c08c9b6a868f14b5e235eb25d3006"},
+    {file = "pyhepmc-2.10.0-cp310-cp310-win_amd64.whl", hash = "sha256:bec3f7411a44e858299f7b896c34942f5e1f0e801dee4d8f8ccfe8d30e1da6e9"},
+    {file = "pyhepmc-2.10.0-cp311-cp311-macosx_10_9_universal2.whl", hash = "sha256:e7922c47d529a1fa259653491ba8bcc83ef50f43f5b822908bb7899659ad9a61"},
+    {file = "pyhepmc-2.10.0-cp311-cp311-macosx_10_9_x86_64.whl", hash = "sha256:668b1c885cf06184ed792e80093029749052b66f924cc48f7ec6d5282ed3c916"},
+    {file = "pyhepmc-2.10.0-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:5980ddbcd0ee437c4a3cc10a091c3345f185511a6a491bda082dc616789aece5"},
+    {file = "pyhepmc-2.10.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:436e9d9346187602ab34c3a97a3f26cde435f352307c5b2f82b1fbe985a6a8c8"},
+    {file = "pyhepmc-2.10.0-cp311-cp311-win_amd64.whl", hash = "sha256:6df0c345ce76aeffc88d561e879f8fceda0df4fac2d5de8e771238539cb631ef"},
+    {file = "pyhepmc-2.10.0-cp38-cp38-macosx_10_9_universal2.whl", hash = "sha256:cdbb1cc7cdfe4f0466ee05b569f7244bfedc13095da28dc2821d959c48a44ebc"},
+    {file = "pyhepmc-2.10.0-cp38-cp38-macosx_10_9_x86_64.whl", hash = "sha256:a2982307f97bd968092ae53ec3c45287d5f67739cfd1c3549d1a8a8441e7e61f"},
+    {file = "pyhepmc-2.10.0-cp38-cp38-manylinux_2_12_i686.manylinux2010_i686.whl", hash = "sha256:32e6db17d40ad2ad026b9b873c11835898c3b2cf09194ab7803a3ab3311a94b9"},
+    {file = "pyhepmc-2.10.0-cp38-cp38-manylinux_2_12_x86_64.manylinux2010_x86_64.whl", hash = "sha256:9b404ac69c19a31447ee6858f00e85d7cd5fd2a3fdef9810f087c1a124687f2b"},
+    {file = "pyhepmc-2.10.0-cp38-cp38-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:1ffa19ba93846c76e66b938b44cd1831c67b1f0e4c610417062c3feb4c81c35e"},
+    {file = "pyhepmc-2.10.0-cp38-cp38-win32.whl", hash = "sha256:53294369c377a54bf5ba8b7852ea95b7ddee3bb7acaab35ba81a8a10f6b349e1"},
+    {file = "pyhepmc-2.10.0-cp38-cp38-win_amd64.whl", hash = "sha256:b088357b5e2f0c302abc4add33ca59f646cbc8a67640eabcf3cfc5a04164124b"},
+    {file = "pyhepmc-2.10.0-cp39-cp39-macosx_10_9_universal2.whl", hash = "sha256:64add95e48216ed531841559d71adccc1e2f0667d3e125b1d29a3efa87c1b07c"},
+    {file = "pyhepmc-2.10.0-cp39-cp39-macosx_10_9_x86_64.whl", hash = "sha256:8d3222f4edee2ec12000fffcd8a4847e37eb58a1cad01e1b5eeded31b706fa70"},
+    {file = "pyhepmc-2.10.0-cp39-cp39-manylinux_2_12_i686.manylinux2010_i686.whl", hash = "sha256:cb660aa330ae8c7f4e439db178aae38361aa62ffbf27625f2ee54b3a150fd50b"},
+    {file = "pyhepmc-2.10.0-cp39-cp39-manylinux_2_12_x86_64.manylinux2010_x86_64.whl", hash = "sha256:69a51143b41d2a71bd7fb145624fbcf71b38544c212b80dbb446d7ee47ddac86"},
+    {file = "pyhepmc-2.10.0-cp39-cp39-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:e6d74e1a8a6e9634b1d925ff32df122f89470ec9be5599792a7f56605d88d7da"},
+    {file = "pyhepmc-2.10.0-cp39-cp39-win32.whl", hash = "sha256:ea58bed209a4926062d58316724a7826d35be0ecc6d2fa3dd3990e13dcc29fc8"},
+    {file = "pyhepmc-2.10.0-cp39-cp39-win_amd64.whl", hash = "sha256:046d125fa73e24cdefcc17b32313e24be8035dbfb4c26b8713660525d5480027"},
+    {file = "pyhepmc-2.10.0.tar.gz", hash = "sha256:8c9d1969146604266284569017db8a4c03387fabf098f31c68179dc4def388b9"},
 ]
 pylatex = [
     {file = "PyLaTeX-1.4.1.tar.gz", hash = "sha256:d3c12efb8b260771260443dce78d1e9089c09f9d0b92e6273dfca0bf5e7302fb"},
