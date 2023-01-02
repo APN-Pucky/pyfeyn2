@@ -19,8 +19,10 @@ pyfeyn2.render.pyx.lines
       :toctree:                                         
       :template: custom-class-template.rst               
    
+      Arrow
       DecoratedLine
       Fermion
+      FeynDiagram
       Gaugino
       Ghost
       Gluino
@@ -29,12 +31,16 @@ pyfeyn2.render.pyx.lines
       Graviton
       Higgs
       Line
+      LineLabel
       MultiLine
+      ParallelArrow
       Phantom
       Photon
+      Point
       Scalar
       Sfermion
       Vector
+      Visible
    
    
 

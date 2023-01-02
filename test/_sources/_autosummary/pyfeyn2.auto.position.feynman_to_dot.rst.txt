@@ -1,0 +1,6 @@
+pyfeyn2.auto.position.feynman\_to\_dot
+======================================
+
+.. currentmodule:: pyfeyn2.auto.position
+
+.. autofunction:: feynman_to_dot

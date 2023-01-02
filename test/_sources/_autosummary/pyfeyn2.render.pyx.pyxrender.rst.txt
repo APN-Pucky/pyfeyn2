@@ -9,6 +9,14 @@ pyfeyn2.render.pyx.pyxrender
 
    
    
+   .. rubric:: Functions
+
+   .. autosummary::
+      :toctree:                                         
+   
+      display
+      pyxinfo
+   
    
 
    
@@ -19,7 +27,15 @@ pyfeyn2.render.pyx.pyxrender
       :toctree:                                         
       :template: custom-class-template.rst               
    
+      Arrow
+      DecoratedPoint
+      FeynDiagram
+      Line
+      Point
+      PointLabel
       PyxRender
+      Render
+      WImage
    
    
 

@@ -1,0 +1,30 @@
+pyfeyn2.render.pyx.deco.Visible
+===============================
+
+.. currentmodule:: pyfeyn2.render.pyx.deco
+
+.. autoclass:: Visible
+   :members:                                   
+   :show-inheritance:                           
+   :inherited-members:                         
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Visible.__init__
+      ~Visible.getDepth
+      ~Visible.getPath
+      ~Visible.getVisiblePath
+      ~Visible.isVisible
+      ~Visible.setDepth
+   
+   
+
+   
+   
+   

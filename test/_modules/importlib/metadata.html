@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>importlib.metadata &mdash; pyfeyn2  documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/plot_directive.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/jupyter-sphinx.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/thebelab.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/thebelab-helper.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> pyfeyn2
+            <img src="../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                2.2.3-1-gde23f1e8
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">FeynML:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../feynml/index.html">FeynML</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Gallery:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../gallery/index.html">Gallery</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Renderers:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../renderers/index.html">Renderers</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Interfaces:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../interfaces/index.html">Interfaces</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Modules:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../_autosummary/pyfeyn2.html">pyfeyn2</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Versions:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://pyfeyn2.readthedocs.io/en/stable/">RTD</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/pyfeyn2/">Stable</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/pyfeyn2/test/">Dev</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Links:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/APN-Pucky/pyfeyn2">GitHub</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">pyfeyn2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">importlib.metadata</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for importlib.metadata</h1><div class="highlight"><pre>
+<span></span>import io
+import os
+import re
+import abc
+import csv
+import sys
+import email
+import pathlib
+import zipfile
+import operator
+import functools
+import itertools
+import posixpath
+import collections
+
+from configparser import ConfigParser
+from contextlib import suppress
+from importlib import import_module
+from importlib.abc import MetaPathFinder
+from itertools import starmap
+
+
+__all__ = [
+    &#39;Distribution&#39;,
+    &#39;DistributionFinder&#39;,
+    &#39;PackageNotFoundError&#39;,
+    &#39;distribution&#39;,
+    &#39;distributions&#39;,
+    &#39;entry_points&#39;,
+    &#39;files&#39;,
+    &#39;metadata&#39;,
+    &#39;requires&#39;,
+    &#39;version&#39;,
+    ]
+
+
+class PackageNotFoundError(ModuleNotFoundError):
+    &quot;&quot;&quot;The package was not found.&quot;&quot;&quot;
+
+
+class EntryPoint(
+        collections.namedtuple(&#39;EntryPointBase&#39;, &#39;name value group&#39;)):
+    &quot;&quot;&quot;An entry point as defined by Python packaging conventions.
+
+    See `the packaging docs on entry points
+    &lt;https://packaging.python.org/specifications/entry-points/&gt;`_
+    for more information.
+    &quot;&quot;&quot;
+
+    pattern = re.compile(
+        r&#39;(?P&lt;module&gt;[\w.]+)\s*&#39;
+        r&#39;(:\s*(?P&lt;attr&gt;[\w.]+))?\s*&#39;
+        r&#39;(?P&lt;extras&gt;\[.*\])?\s*$&#39;
+        )
+    &quot;&quot;&quot;
+    A regular expression describing the syntax for an entry point,
+    which might look like:
+
+        - module
+        - package.module
+        - package.module:attribute
+        - package.module:object.attribute
+        - package.module:attr [extra1, extra2]
+
+    Other combinations are possible as well.
+
+    The expression is lenient about whitespace around the &#39;:&#39;,
+    following the attr, and following any extras.
+    &quot;&quot;&quot;
+
+    def load(self):
+        &quot;&quot;&quot;Load the entry point from its definition. If only a module
+        is indicated by the value, return that module. Otherwise,
+        return the named object.
+        &quot;&quot;&quot;
+        match = self.pattern.match(self.value)
+        module = import_module(match.group(&#39;module&#39;))
+        attrs = filter(None, (match.group(&#39;attr&#39;) or &#39;&#39;).split(&#39;.&#39;))
+        return functools.reduce(getattr, attrs, module)
+
+    @property
+    def extras(self):
+        match = self.pattern.match(self.value)
+        return list(re.finditer(r&#39;\w+&#39;, match.group(&#39;extras&#39;) or &#39;&#39;))
+
+    @classmethod
+    def _from_config(cls, config):
+        return [
+            cls(name, value, group)
+            for group in config.sections()
+            for name, value in config.items(group)
+            ]
+
+    @classmethod
+    def _from_text(cls, text):
+        config = ConfigParser(delimiters=&#39;=&#39;)
+        # case sensitive: https://stackoverflow.com/q/1611799/812183
+        config.optionxform = str
+        try:
+            config.read_string(text)
+        except AttributeError:  # pragma: nocover
+            # Python 2 has no read_string
+            config.readfp(io.StringIO(text))
+        return EntryPoint._from_config(config)
+
+    def __iter__(self):
+        &quot;&quot;&quot;
+        Supply iter so one may construct dicts of EntryPoints easily.
+        &quot;&quot;&quot;
+        return iter((self.name, self))
+
+    def __reduce__(self):
+        return (
+            self.__class__,
+            (self.name, self.value, self.group),
+            )
+
+
+class PackagePath(pathlib.PurePosixPath):
+    &quot;&quot;&quot;A reference to a path in a package&quot;&quot;&quot;
+
+    def read_text(self, encoding=&#39;utf-8&#39;):
+        with self.locate().open(encoding=encoding) as stream:
+            return stream.read()
+
+    def read_binary(self):
+        with self.locate().open(&#39;rb&#39;) as stream:
+            return stream.read()
+
+    def locate(self):
+        &quot;&quot;&quot;Return a path-like object for this path&quot;&quot;&quot;
+        return self.dist.locate_file(self)
+
+
+class FileHash:
+    def __init__(self, spec):
+        self.mode, _, self.value = spec.partition(&#39;=&#39;)
+
+    def __repr__(self):
+        return &#39;&lt;FileHash mode: {} value: {}&gt;&#39;.format(self.mode, self.value)
+
+
+class Distribution:
+    &quot;&quot;&quot;A Python distribution package.&quot;&quot;&quot;
+
+    @abc.abstractmethod
+    def read_text(self, filename):
+        &quot;&quot;&quot;Attempt to load metadata file given by the name.
+
+        :param filename: The name of the file in the distribution info.
+        :return: The text if found, otherwise None.
+        &quot;&quot;&quot;
+
+    @abc.abstractmethod
+    def locate_file(self, path):
+        &quot;&quot;&quot;
+        Given a path to a file in this distribution, return a path
+        to it.
+        &quot;&quot;&quot;
+
+    @classmethod
+    def from_name(cls, name):
+        &quot;&quot;&quot;Return the Distribution for the given package name.
+
+        :param name: The name of the distribution package to search for.
+        :return: The Distribution instance (or subclass thereof) for the named
+            package, if found.
+        :raises PackageNotFoundError: When the named package&#39;s distribution
+            metadata cannot be found.
+        &quot;&quot;&quot;
+        for resolver in cls._discover_resolvers():
+            dists = resolver(DistributionFinder.Context(name=name))
+            dist = next(dists, None)
+            if dist is not None:
+                return dist
+        else:
+            raise PackageNotFoundError(name)
+
+    @classmethod
+    def discover(cls, **kwargs):
+        &quot;&quot;&quot;Return an iterable of Distribution objects for all packages.
+
+        Pass a ``context`` or pass keyword arguments for constructing
+        a context.
+
+        :context: A ``DistributionFinder.Context`` object.
+        :return: Iterable of Distribution objects for all packages.
+        &quot;&quot;&quot;
+        context = kwargs.pop(&#39;context&#39;, None)
+        if context and kwargs:
+            raise ValueError(&quot;cannot accept context and kwargs&quot;)
+        context = context or DistributionFinder.Context(**kwargs)
+        return itertools.chain.from_iterable(
+            resolver(context)
+            for resolver in cls._discover_resolvers()
+            )
+
+    @staticmethod
+    def at(path):
+        &quot;&quot;&quot;Return a Distribution for the indicated metadata path
+
+        :param path: a string or path-like object
+        :return: a concrete Distribution instance for the path
+        &quot;&quot;&quot;
+        return PathDistribution(pathlib.Path(path))
+
+    @staticmethod
+    def _discover_resolvers():
+        &quot;&quot;&quot;Search the meta_path for resolvers.&quot;&quot;&quot;
+        declared = (
+            getattr(finder, &#39;find_distributions&#39;, None)
+            for finder in sys.meta_path
+            )
+        return filter(None, declared)
+
+    @property
+    def metadata(self):
+        &quot;&quot;&quot;Return the parsed metadata for this Distribution.
+
+        The returned object will have keys that name the various bits of
+        metadata.  See PEP 566 for details.
+        &quot;&quot;&quot;
+        text = (
+            self.read_text(&#39;METADATA&#39;)
+            or self.read_text(&#39;PKG-INFO&#39;)
+            # This last clause is here to support old egg-info files.  Its
+            # effect is to just end up using the PathDistribution&#39;s self._path
+            # (which points to the egg-info file) attribute unchanged.
+            or self.read_text(&#39;&#39;)
+            )
+        return email.message_from_string(text)
+
+    @property
+    def version(self):
+        &quot;&quot;&quot;Return the &#39;Version&#39; metadata for the distribution package.&quot;&quot;&quot;
+        return self.metadata[&#39;Version&#39;]
+
+    @property
+    def entry_points(self):
+        return EntryPoint._from_text(self.read_text(&#39;entry_points.txt&#39;))
+
+    @property
+    def files(self):
+        &quot;&quot;&quot;Files in this distribution.
+
+        :return: List of PackagePath for this distribution or None
+
+        Result is `None` if the metadata file that enumerates files
+        (i.e. RECORD for dist-info or SOURCES.txt for egg-info) is
+        missing.
+        Result may be empty if the metadata exists but is empty.
+        &quot;&quot;&quot;
+        file_lines = self._read_files_distinfo() or self._read_files_egginfo()
+
+        def make_file(name, hash=None, size_str=None):
+            result = PackagePath(name)
+            result.hash = FileHash(hash) if hash else None
+            result.size = int(size_str) if size_str else None
+            result.dist = self
+            return result
+
+        return file_lines and list(starmap(make_file, csv.reader(file_lines)))
+
+    def _read_files_distinfo(self):
+        &quot;&quot;&quot;
+        Read the lines of RECORD
+        &quot;&quot;&quot;
+        text = self.read_text(&#39;RECORD&#39;)
+        return text and text.splitlines()
+
+    def _read_files_egginfo(self):
+        &quot;&quot;&quot;
+        SOURCES.txt might contain literal commas, so wrap each line
+        in quotes.
+        &quot;&quot;&quot;
+        text = self.read_text(&#39;SOURCES.txt&#39;)
+        return text and map(&#39;&quot;{}&quot;&#39;.format, text.splitlines())
+
+    @property
+    def requires(self):
+        &quot;&quot;&quot;Generated requirements specified for this Distribution&quot;&quot;&quot;
+        reqs = self._read_dist_info_reqs() or self._read_egg_info_reqs()
+        return reqs and list(reqs)
+
+    def _read_dist_info_reqs(self):
+        return self.metadata.get_all(&#39;Requires-Dist&#39;)
+
+    def _read_egg_info_reqs(self):
+        source = self.read_text(&#39;requires.txt&#39;)
+        return source and self._deps_from_requires_text(source)
+
+    @classmethod
+    def _deps_from_requires_text(cls, source):
+        section_pairs = cls._read_sections(source.splitlines())
+        sections = {
+            section: list(map(operator.itemgetter(&#39;line&#39;), results))
+            for section, results in
+            itertools.groupby(section_pairs, operator.itemgetter(&#39;section&#39;))
+            }
+        return cls._convert_egg_info_reqs_to_simple_reqs(sections)
+
+    @staticmethod
+    def _read_sections(lines):
+        section = None
+        for line in filter(None, lines):
+            section_match = re.match(r&#39;\[(.*)\]$&#39;, line)
+            if section_match:
+                section = section_match.group(1)
+                continue
+            yield locals()
+
+    @staticmethod
+    def _convert_egg_info_reqs_to_simple_reqs(sections):
+        &quot;&quot;&quot;
+        Historically, setuptools would solicit and store &#39;extra&#39;
+        requirements, including those with environment markers,
+        in separate sections. More modern tools expect each
+        dependency to be defined separately, with any relevant
+        extras and environment markers attached directly to that
+        requirement. This method converts the former to the
+        latter. See _test_deps_from_requires_text for an example.
+        &quot;&quot;&quot;
+        def make_condition(name):
+            return name and &#39;extra == &quot;{name}&quot;&#39;.format(name=name)
+
+        def parse_condition(section):
+            section = section or &#39;&#39;
+            extra, sep, markers = section.partition(&#39;:&#39;)
+            if extra and markers:
+                markers = &#39;({markers})&#39;.format(markers=markers)
+            conditions = list(filter(None, [markers, make_condition(extra)]))
+            return &#39;; &#39; + &#39; and &#39;.join(conditions) if conditions else &#39;&#39;
+
+        for section, deps in sections.items():
+            for dep in deps:
+                yield dep + parse_condition(section)
+
+
+class DistributionFinder(MetaPathFinder):
+    &quot;&quot;&quot;
+    A MetaPathFinder capable of discovering installed distributions.
+    &quot;&quot;&quot;
+
+    class Context:
+        &quot;&quot;&quot;
+        Keyword arguments presented by the caller to
+        ``distributions()`` or ``Distribution.discover()``
+        to narrow the scope of a search for distributions
+        in all DistributionFinders.
+
+        Each DistributionFinder may expect any parameters
+        and should attempt to honor the canonical
+        parameters defined below when appropriate.
+        &quot;&quot;&quot;
+
+        name = None
+        &quot;&quot;&quot;
+        Specific name for which a distribution finder should match.
+        A name of ``None`` matches all distributions.
+        &quot;&quot;&quot;
+
+        def __init__(self, **kwargs):
+            vars(self).update(kwargs)
+
+        @property
+        def path(self):
+            &quot;&quot;&quot;
+            The path that a distribution finder should search.
+
+            Typically refers to Python package paths and defaults
+            to ``sys.path``.
+            &quot;&quot;&quot;
+            return vars(self).get(&#39;path&#39;, sys.path)
+
+    @abc.abstractmethod
+    def find_distributions(self, context=Context()):
+        &quot;&quot;&quot;
+        Find distributions.
+
+        Return an iterable of all Distribution instances capable of
+        loading the metadata for packages matching the ``context``,
+        a DistributionFinder.Context instance.
+        &quot;&quot;&quot;
+
+
+class FastPath:
+    &quot;&quot;&quot;
+    Micro-optimized class for searching a path for
+    children.
+    &quot;&quot;&quot;
+
+    def __init__(self, root):
+        self.root = root
+        self.base = os.path.basename(root).lower()
+
+    def joinpath(self, child):
+        return pathlib.Path(self.root, child)
+
+    def children(self):
+        with suppress(Exception):
+            return os.listdir(self.root or &#39;&#39;)
+        with suppress(Exception):
+            return self.zip_children()
+        return []
+
+    def zip_children(self):
+        zip_path = zipfile.Path(self.root)
+        names = zip_path.root.namelist()
+        self.joinpath = zip_path.joinpath
+
+        return dict.fromkeys(
+            child.split(posixpath.sep, 1)[0]
+            for child in names
+            )
+
+    def is_egg(self, search):
+        base = self.base
+        return (
+            base == search.versionless_egg_name
+            or base.startswith(search.prefix)
+            and base.endswith(&#39;.egg&#39;))
+
+    def search(self, name):
+        for child in self.children():
+            n_low = child.lower()
+            if (n_low in name.exact_matches
+                    or n_low.startswith(name.prefix)
+                    and n_low.endswith(name.suffixes)
+                    # legacy case:
+                    or self.is_egg(name) and n_low == &#39;egg-info&#39;):
+                yield self.joinpath(child)
+
+
+class Prepared:
+    &quot;&quot;&quot;
+    A prepared search for metadata on a possibly-named package.
+    &quot;&quot;&quot;
+    normalized = &#39;&#39;
+    prefix = &#39;&#39;
+    suffixes = &#39;.dist-info&#39;, &#39;.egg-info&#39;
+    exact_matches = [&#39;&#39;][:0]
+    versionless_egg_name = &#39;&#39;
+
+    def __init__(self, name):
+        self.name = name
+        if name is None:
+            return
+        self.normalized = name.lower().replace(&#39;-&#39;, &#39;_&#39;)
+        self.prefix = self.normalized + &#39;-&#39;
+        self.exact_matches = [
+            self.normalized + suffix for suffix in self.suffixes]
+        self.versionless_egg_name = self.normalized + &#39;.egg&#39;
+
+
+class MetadataPathFinder(DistributionFinder):
+    @classmethod
+    def find_distributions(cls, context=DistributionFinder.Context()):
+        &quot;&quot;&quot;
+        Find distributions.
+
+        Return an iterable of all Distribution instances capable of
+        loading the metadata for packages matching ``context.name``
+        (or all names if ``None`` indicated) along the paths in the list
+        of directories ``context.path``.
+        &quot;&quot;&quot;
+        found = cls._search_paths(context.name, context.path)
+        return map(PathDistribution, found)
+
+    @classmethod
+    def _search_paths(cls, name, paths):
+        &quot;&quot;&quot;Find metadata directories in paths heuristically.&quot;&quot;&quot;
+        return itertools.chain.from_iterable(
+            path.search(Prepared(name))
+            for path in map(FastPath, paths)
+            )
+
+
+class PathDistribution(Distribution):
+    def __init__(self, path):
+        &quot;&quot;&quot;Construct a distribution from a path to the metadata directory.
+
+        :param path: A pathlib.Path or similar object supporting
+                     .joinpath(), __div__, .parent, and .read_text().
+        &quot;&quot;&quot;
+        self._path = path
+
+    def read_text(self, filename):
+        with suppress(FileNotFoundError, IsADirectoryError, KeyError,
+                      NotADirectoryError, PermissionError):
+            return self._path.joinpath(filename).read_text(encoding=&#39;utf-8&#39;)
+    read_text.__doc__ = Distribution.read_text.__doc__
+
+    def locate_file(self, path):
+        return self._path.parent / path
+
+
+def distribution(distribution_name):
+    &quot;&quot;&quot;Get the ``Distribution`` instance for the named package.
+
+    :param distribution_name: The name of the distribution package as a string.
+    :return: A ``Distribution`` instance (or subclass thereof).
+    &quot;&quot;&quot;
+    return Distribution.from_name(distribution_name)
+
+
+def distributions(**kwargs):
+    &quot;&quot;&quot;Get all ``Distribution`` instances in the current environment.
+
+    :return: An iterable of ``Distribution`` instances.
+    &quot;&quot;&quot;
+    return Distribution.discover(**kwargs)
+
+
+def metadata(distribution_name):
+    &quot;&quot;&quot;Get the metadata for the named package.
+
+    :param distribution_name: The name of the distribution package to query.
+    :return: An email.Message containing the parsed metadata.
+    &quot;&quot;&quot;
+    return Distribution.from_name(distribution_name).metadata
+
+
+<div class="viewcode-block" id="version"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.version.html#pyfeyn2.feynmandiagram.version">[docs]</a>def version(distribution_name):
+    &quot;&quot;&quot;Get the version string for the named package.
+
+    :param distribution_name: The name of the distribution package to query.
+    :return: The version string for the package as defined in the package&#39;s
+        &quot;Version&quot; metadata key.
+    &quot;&quot;&quot;
+    return distribution(distribution_name).version</div>
+
+
+def entry_points():
+    &quot;&quot;&quot;Return EntryPoint objects for all installed packages.
+
+    :return: EntryPoint objects for all installed packages.
+    &quot;&quot;&quot;
+    eps = itertools.chain.from_iterable(
+        dist.entry_points for dist in distributions())
+    by_group = operator.attrgetter(&#39;group&#39;)
+    ordered = sorted(eps, key=by_group)
+    grouped = itertools.groupby(ordered, by_group)
+    return {
+        group: tuple(eps)
+        for group, eps in grouped
+        }
+
+
+def files(distribution_name):
+    &quot;&quot;&quot;Return a list of files for the named package.
+
+    :param distribution_name: The name of the distribution package to query.
+    :return: List of files composing the distribution.
+    &quot;&quot;&quot;
+    return distribution(distribution_name).files
+
+
+def requires(distribution_name):
+    &quot;&quot;&quot;
+    Return a list of requirements for the named package.
+
+    :return: An iterator of requirements, suitable for
+    packaging.requirement.Requirement.
+    &quot;&quot;&quot;
+    return distribution(distribution_name).requires
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Alexander Puck Neuwirth.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

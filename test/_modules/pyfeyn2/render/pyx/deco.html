@@ -37,7 +37,7 @@
             <img src="../../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.1.1-5-ga6e48db4
+                2.2.3-1-gde23f1e8
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
@@ -115,7 +115,7 @@ from pyfeyn2.render.pyx.paint import CENTER
 from pyfeyn2.render.pyx.utils import Visible
 
 
-<div class="viewcode-block" id="getarrowpath"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.deco.getarrowpath.html#pyfeyn2.render.pyx.deco.getarrowpath">[docs]</a>def getarrowpath(
+<div class="viewcode-block" id="getarrowpath"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.deco.getarrowpath.html#pyfeyn2.render.pyx.blobs.getarrowpath">[docs]</a>def getarrowpath(
     arrowtopath, selfpos, var1, selfsize, var2, selfconstriction, constrictionlen
 ):
     arrowpath = pyx.deco._arrowhead(
@@ -128,17 +128,17 @@ from pyfeyn2.render.pyx.utils import Visible
 
 
 ## Arrow decorator class
-<div class="viewcode-block" id="Arrow"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.deco.Arrow.html#pyfeyn2.render.pyx.deco.Arrow">[docs]</a>class Arrow(pyx.deco.deco, pyx.attr.attr):
+<div class="viewcode-block" id="Arrow"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.pyxrender.Arrow.html#pyfeyn2.render.pyx.blobs.Arrow">[docs]</a>class Arrow(pyx.deco.deco, pyx.attr.attr):
     &quot;&quot;&quot;Arrow for Feynman diagram lines&quot;&quot;&quot;
 
-<div class="viewcode-block" id="Arrow.__init__"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.deco.Arrow.html#pyfeyn2.render.pyx.deco.Arrow.__init__">[docs]</a>    def __init__(self, pos=0.5, size=6 * pyx.unit.v_pt, angle=45, constriction=0.8):
+<div class="viewcode-block" id="Arrow.__init__"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.pyxrender.Arrow.html#pyfeyn2.render.pyx.blobs.Arrow.__init__">[docs]</a>    def __init__(self, pos=0.5, size=6 * pyx.unit.v_pt, angle=45, constriction=0.8):
         &quot;&quot;&quot;Constructor.&quot;&quot;&quot;
         self.pos = pos
         self.size = size
         self.angle = angle
         self.constriction = constriction</div>
 
-<div class="viewcode-block" id="Arrow.decorate"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.deco.Arrow.html#pyfeyn2.render.pyx.deco.Arrow.decorate">[docs]</a>    def decorate(self, dp):
+<div class="viewcode-block" id="Arrow.decorate"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.pyxrender.Arrow.html#pyfeyn2.render.pyx.blobs.Arrow.decorate">[docs]</a>    def decorate(self, dp):
         &quot;&quot;&quot;Attach arrow to a path (usually a line).&quot;&quot;&quot;
         dp.ensurenormpath()
         constrictionlen = (
@@ -159,10 +159,10 @@ from pyfeyn2.render.pyx.utils import Visible
         return dp</div></div>
 
 
-<div class="viewcode-block" id="FreeArrow"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.deco.FreeArrow.html#pyfeyn2.render.pyx.deco.FreeArrow">[docs]</a>class FreeArrow(Visible):
+<div class="viewcode-block" id="FreeArrow"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.deco.FreeArrow.html#pyfeyn2.render.pyx.blobs.FreeArrow">[docs]</a>class FreeArrow(Visible):
     &quot;&quot;&quot;Arrow not attached to any line in a diagram.&quot;&quot;&quot;
 
-<div class="viewcode-block" id="FreeArrow.__init__"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.deco.FreeArrow.html#pyfeyn2.render.pyx.deco.FreeArrow.__init__">[docs]</a>    def __init__(
+<div class="viewcode-block" id="FreeArrow.__init__"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.deco.FreeArrow.html#pyfeyn2.render.pyx.blobs.FreeArrow.__init__">[docs]</a>    def __init__(
         self,
         length=0.5 * pyx.unit.v_cm,
         size=6 * pyx.unit.v_pt,
@@ -189,7 +189,7 @@ from pyfeyn2.render.pyx.utils import Visible
         ## Add this to the current diagram automatically
         FeynDiagram.currentDiagram.add(self)</div>
 
-<div class="viewcode-block" id="FreeArrow.draw"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.deco.FreeArrow.html#pyfeyn2.render.pyx.deco.FreeArrow.draw">[docs]</a>    def draw(self, canvas):
+<div class="viewcode-block" id="FreeArrow.draw"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.deco.FreeArrow.html#pyfeyn2.render.pyx.blobs.FreeArrow.draw">[docs]</a>    def draw(self, canvas):
         &quot;&quot;&quot;Draw this arrow on the supplied canvas.&quot;&quot;&quot;
         endx, endy = self.x - self.length * math.sin(
             self.direction * math.pi / 180.0
@@ -205,10 +205,10 @@ from pyfeyn2.render.pyx.utils import Visible
         canvas.stroke(linepath.path, styles)</div></div>
 
 
-<div class="viewcode-block" id="ParallelArrow"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.deco.ParallelArrow.html#pyfeyn2.render.pyx.deco.ParallelArrow">[docs]</a>class ParallelArrow(Visible):
+<div class="viewcode-block" id="ParallelArrow"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.ParallelArrow.html#pyfeyn2.render.pyx.blobs.ParallelArrow">[docs]</a>class ParallelArrow(Visible):
     &quot;&quot;&quot;Arrow running parallel to a line, for momenta, helicities etc.&quot;&quot;&quot;
 
-<div class="viewcode-block" id="ParallelArrow.__init__"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.deco.ParallelArrow.html#pyfeyn2.render.pyx.deco.ParallelArrow.__init__">[docs]</a>    def __init__(
+<div class="viewcode-block" id="ParallelArrow.__init__"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.ParallelArrow.html#pyfeyn2.render.pyx.blobs.ParallelArrow.__init__">[docs]</a>    def __init__(
         self,
         line,
         pos=0.5,
@@ -235,7 +235,7 @@ from pyfeyn2.render.pyx.utils import Visible
         self.stems = stems
         self.stemsep = stemsep</div>
 
-<div class="viewcode-block" id="ParallelArrow.draw"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.deco.ParallelArrow.html#pyfeyn2.render.pyx.deco.ParallelArrow.draw">[docs]</a>    def draw(self, canvas):
+<div class="viewcode-block" id="ParallelArrow.draw"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.ParallelArrow.html#pyfeyn2.render.pyx.blobs.ParallelArrow.draw">[docs]</a>    def draw(self, canvas):
         &quot;&quot;&quot;Draw this arrow on the supplied canvas.&quot;&quot;&quot;
         p = self.line.getPath()
         posparam = p.begin() + self.pos * p.arclen()
@@ -341,10 +341,10 @@ from pyfeyn2.render.pyx.utils import Visible
 
 
 ## Label
-<div class="viewcode-block" id="Label"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.deco.Label.html#pyfeyn2.render.pyx.deco.Label">[docs]</a>class Label(Visible):
+<div class="viewcode-block" id="Label"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.deco.Label.html#pyfeyn2.render.pyx.blobs.Label">[docs]</a>class Label(Visible):
     &quot;&quot;&quot;General label, unattached to any diagram elements&quot;&quot;&quot;
 
-<div class="viewcode-block" id="Label.__init__"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.deco.Label.html#pyfeyn2.render.pyx.deco.Label.__init__">[docs]</a>    def __init__(
+<div class="viewcode-block" id="Label.__init__"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.deco.Label.html#pyfeyn2.render.pyx.blobs.Label.__init__">[docs]</a>    def __init__(
         self,
         text,
         pos=None,
@@ -371,7 +371,7 @@ from pyfeyn2.render.pyx.utils import Visible
         ## Add this to the current diagram automatically
         FeynDiagram.currentDiagram.add(self)</div>
 
-<div class="viewcode-block" id="Label.draw"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.deco.Label.html#pyfeyn2.render.pyx.deco.Label.draw">[docs]</a>    def draw(self, canvas):
+<div class="viewcode-block" id="Label.draw"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.deco.Label.html#pyfeyn2.render.pyx.blobs.Label.draw">[docs]</a>    def draw(self, canvas):
         &quot;&quot;&quot;Draw this label on the supplied canvas.&quot;&quot;&quot;
         textattrs = pyx.attr.mergeattrs(
             [pyx.text.vshift.mathaxis, self.size] + self.textattrs
@@ -381,10 +381,10 @@ from pyfeyn2.render.pyx.utils import Visible
 
 
 ## PointLabel
-<div class="viewcode-block" id="PointLabel"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.deco.PointLabel.html#pyfeyn2.render.pyx.deco.PointLabel">[docs]</a>class PointLabel(Label):
+<div class="viewcode-block" id="PointLabel"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.pyxrender.PointLabel.html#pyfeyn2.render.pyx.blobs.PointLabel">[docs]</a>class PointLabel(Label):
     &quot;&quot;&quot;Label attached to points on the diagram&quot;&quot;&quot;
 
-<div class="viewcode-block" id="PointLabel.__init__"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.deco.PointLabel.html#pyfeyn2.render.pyx.deco.PointLabel.__init__">[docs]</a>    def __init__(
+<div class="viewcode-block" id="PointLabel.__init__"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.pyxrender.PointLabel.html#pyfeyn2.render.pyx.blobs.PointLabel.__init__">[docs]</a>    def __init__(
         self,
         point,
         text,
@@ -405,16 +405,16 @@ from pyfeyn2.render.pyx.utils import Visible
         if valign is not None:
             self.textattrs.append(valign)</div>
 
-<div class="viewcode-block" id="PointLabel.getPoint"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.deco.PointLabel.html#pyfeyn2.render.pyx.deco.PointLabel.getPoint">[docs]</a>    def getPoint(self):
+<div class="viewcode-block" id="PointLabel.getPoint"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.pyxrender.PointLabel.html#pyfeyn2.render.pyx.blobs.PointLabel.getPoint">[docs]</a>    def getPoint(self):
         &quot;&quot;&quot;Get the point associated with this label.&quot;&quot;&quot;
         return self.point</div>
 
-<div class="viewcode-block" id="PointLabel.setPoint"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.deco.PointLabel.html#pyfeyn2.render.pyx.deco.PointLabel.setPoint">[docs]</a>    def setPoint(self, point):
+<div class="viewcode-block" id="PointLabel.setPoint"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.pyxrender.PointLabel.html#pyfeyn2.render.pyx.blobs.PointLabel.setPoint">[docs]</a>    def setPoint(self, point):
         &quot;&quot;&quot;Set the point associated with this label.&quot;&quot;&quot;
         self.point = point
         return self</div>
 
-<div class="viewcode-block" id="PointLabel.draw"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.deco.PointLabel.html#pyfeyn2.render.pyx.deco.PointLabel.draw">[docs]</a>    def draw(self, canvas):
+<div class="viewcode-block" id="PointLabel.draw"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.pyxrender.PointLabel.html#pyfeyn2.render.pyx.blobs.PointLabel.draw">[docs]</a>    def draw(self, canvas):
         &quot;&quot;&quot;Draw this label on the supplied canvas.&quot;&quot;&quot;
         if config.getOptions().VDEBUG:
             canvas.fill(
@@ -431,10 +431,10 @@ from pyfeyn2.render.pyx.utils import Visible
 
 
 ## LineLabel
-<div class="viewcode-block" id="LineLabel"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.deco.LineLabel.html#pyfeyn2.render.pyx.deco.LineLabel">[docs]</a>class LineLabel(Label):
+<div class="viewcode-block" id="LineLabel"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.LineLabel.html#pyfeyn2.render.pyx.blobs.LineLabel">[docs]</a>class LineLabel(Label):
     &quot;&quot;&quot;Label for Feynman diagram lines&quot;&quot;&quot;
 
-<div class="viewcode-block" id="LineLabel.__init__"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.deco.LineLabel.html#pyfeyn2.render.pyx.deco.LineLabel.__init__">[docs]</a>    def __init__(
+<div class="viewcode-block" id="LineLabel.__init__"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.LineLabel.html#pyfeyn2.render.pyx.blobs.LineLabel.__init__">[docs]</a>    def __init__(
         self,
         line,
         text,
@@ -457,16 +457,16 @@ from pyfeyn2.render.pyx.utils import Visible
         if valign is not None:
             self.textattrs.append(valign)</div>
 
-<div class="viewcode-block" id="LineLabel.getLine"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.deco.LineLabel.html#pyfeyn2.render.pyx.deco.LineLabel.getLine">[docs]</a>    def getLine(self):
+<div class="viewcode-block" id="LineLabel.getLine"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.LineLabel.html#pyfeyn2.render.pyx.blobs.LineLabel.getLine">[docs]</a>    def getLine(self):
         &quot;&quot;&quot;Get the associated line.&quot;&quot;&quot;
         return self.line</div>
 
-<div class="viewcode-block" id="LineLabel.setLine"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.deco.LineLabel.html#pyfeyn2.render.pyx.deco.LineLabel.setLine">[docs]</a>    def setLine(self, line):
+<div class="viewcode-block" id="LineLabel.setLine"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.LineLabel.html#pyfeyn2.render.pyx.blobs.LineLabel.setLine">[docs]</a>    def setLine(self, line):
         &quot;&quot;&quot;Set the associated line.&quot;&quot;&quot;
         self.line = line
         return self</div>
 
-<div class="viewcode-block" id="LineLabel.draw"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.deco.LineLabel.html#pyfeyn2.render.pyx.deco.LineLabel.draw">[docs]</a>    def draw(self, canvas):
+<div class="viewcode-block" id="LineLabel.draw"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.LineLabel.html#pyfeyn2.render.pyx.blobs.LineLabel.draw">[docs]</a>    def draw(self, canvas):
         &quot;&quot;&quot;Draw this label on the supplied canvas.&quot;&quot;&quot;
         p = self.line.getPath()
         # x, y = self.line.fracPoint(self.pos).getXY()
@@ -523,7 +523,7 @@ from pyfeyn2.render.pyx.utils import Visible
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2022, Alexander Puck Neuwirth.</p>
+    <p>&#169; Copyright 2023, Alexander Puck Neuwirth.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

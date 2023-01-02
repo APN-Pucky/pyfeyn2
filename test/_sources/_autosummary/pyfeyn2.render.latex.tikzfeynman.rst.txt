@@ -30,7 +30,14 @@ pyfeyn2.render.latex.tikzfeynman
       :toctree:                                         
       :template: custom-class-template.rst               
    
+      Command
+      Connector
+      FeynmanDiagram
+      LatexRender
+      Leg
+      NoEscape
       TikzFeynmanRender
+      Vertex
    
    
 

@@ -1,0 +1,39 @@
+pyfeyn2.render.all.FeynmanRender
+================================
+
+.. currentmodule:: pyfeyn2.render.all
+
+.. autoclass:: FeynmanRender
+   :members:                                   
+   :show-inheritance:                           
+   :inherited-members:                         
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~FeynmanRender.__init__
+      ~FeynmanRender.demo_propagator
+      ~FeynmanRender.demo_vertex
+      ~FeynmanRender.get_src
+      ~FeynmanRender.render
+      ~FeynmanRender.set_feynman_diagram
+      ~FeynmanRender.set_src
+      ~FeynmanRender.valid_attribute
+      ~FeynmanRender.valid_attributes
+      ~FeynmanRender.valid_shape
+      ~FeynmanRender.valid_shapes
+      ~FeynmanRender.valid_style
+      ~FeynmanRender.valid_styles
+      ~FeynmanRender.valid_type
+      ~FeynmanRender.valid_types
+   
+   
+
+   
+   
+   

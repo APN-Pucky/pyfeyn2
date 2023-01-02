@@ -27,7 +27,11 @@ pyfeyn2.render.latex.feynmp
       :toctree:                                         
       :template: custom-class-template.rst               
    
+      Command
+      Connector
       FeynmpRender
+      MetaPostRender
+      NoEscape
    
    
 

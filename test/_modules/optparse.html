@@ -1,0 +1,1816 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>optparse &mdash; pyfeyn2  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/plot_directive.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/jupyter-sphinx.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/thebelab.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/thebelab-helper.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> pyfeyn2
+            <img src="../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                2.2.3-1-gde23f1e8
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">FeynML:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../feynml/index.html">FeynML</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Gallery:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../gallery/index.html">Gallery</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Renderers:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../renderers/index.html">Renderers</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Interfaces:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../interfaces/index.html">Interfaces</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Modules:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/pyfeyn2.html">pyfeyn2</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Versions:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://pyfeyn2.readthedocs.io/en/stable/">RTD</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/pyfeyn2/">Stable</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/pyfeyn2/test/">Dev</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Links:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/APN-Pucky/pyfeyn2">GitHub</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pyfeyn2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Module code</a></li>
+      <li class="breadcrumb-item active">optparse</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for optparse</h1><div class="highlight"><pre>
+<span></span>&quot;&quot;&quot;A powerful, extensible, and easy-to-use option parser.
+
+By Greg Ward &lt;gward@python.net&gt;
+
+Originally distributed as Optik.
+
+For support, use the optik-users@lists.sourceforge.net mailing list
+(http://lists.sourceforge.net/lists/listinfo/optik-users).
+
+Simple usage example:
+
+   from optparse import OptionParser
+
+   parser = OptionParser()
+   parser.add_option(&quot;-f&quot;, &quot;--file&quot;, dest=&quot;filename&quot;,
+                     help=&quot;write report to FILE&quot;, metavar=&quot;FILE&quot;)
+   parser.add_option(&quot;-q&quot;, &quot;--quiet&quot;,
+                     action=&quot;store_false&quot;, dest=&quot;verbose&quot;, default=True,
+                     help=&quot;don&#39;t print status messages to stdout&quot;)
+
+   (options, args) = parser.parse_args()
+&quot;&quot;&quot;
+
+__version__ = &quot;1.5.3&quot;
+
+__all__ = [&#39;Option&#39;,
+           &#39;make_option&#39;,
+           &#39;SUPPRESS_HELP&#39;,
+           &#39;SUPPRESS_USAGE&#39;,
+           &#39;Values&#39;,
+           &#39;OptionContainer&#39;,
+           &#39;OptionGroup&#39;,
+           &#39;OptionParser&#39;,
+           &#39;HelpFormatter&#39;,
+           &#39;IndentedHelpFormatter&#39;,
+           &#39;TitledHelpFormatter&#39;,
+           &#39;OptParseError&#39;,
+           &#39;OptionError&#39;,
+           &#39;OptionConflictError&#39;,
+           &#39;OptionValueError&#39;,
+           &#39;BadOptionError&#39;,
+           &#39;check_choice&#39;]
+
+__copyright__ = &quot;&quot;&quot;
+Copyright (c) 2001-2006 Gregory P. Ward.  All rights reserved.
+Copyright (c) 2002-2006 Python Software Foundation.  All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are
+met:
+
+  * Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+
+  * Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in the
+    documentation and/or other materials provided with the distribution.
+
+  * Neither the name of the author nor the names of its
+    contributors may be used to endorse or promote products derived from
+    this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS
+IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
+TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
+PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE AUTHOR OR
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+&quot;&quot;&quot;
+
+import sys, os
+import textwrap
+
+def _repr(self):
+    return &quot;&lt;%s at 0x%x: %s&gt;&quot; % (self.__class__.__name__, id(self), self)
+
+
+# This file was generated from:
+#   Id: option_parser.py 527 2006-07-23 15:21:30Z greg
+#   Id: option.py 522 2006-06-11 16:22:03Z gward
+#   Id: help.py 527 2006-07-23 15:21:30Z greg
+#   Id: errors.py 509 2006-04-20 00:58:24Z gward
+
+try:
+    from gettext import gettext, ngettext
+except ImportError:
+    def gettext(message):
+        return message
+
+    def ngettext(singular, plural, n):
+        if n == 1:
+            return singular
+        return plural
+
+_ = gettext
+
+
+class OptParseError (Exception):
+    def __init__(self, msg):
+        self.msg = msg
+
+    def __str__(self):
+        return self.msg
+
+
+class OptionError (OptParseError):
+    &quot;&quot;&quot;
+    Raised if an Option instance is created with invalid or
+    inconsistent arguments.
+    &quot;&quot;&quot;
+
+    def __init__(self, msg, option):
+        self.msg = msg
+        self.option_id = str(option)
+
+    def __str__(self):
+        if self.option_id:
+            return &quot;option %s: %s&quot; % (self.option_id, self.msg)
+        else:
+            return self.msg
+
+class OptionConflictError (OptionError):
+    &quot;&quot;&quot;
+    Raised if conflicting options are added to an OptionParser.
+    &quot;&quot;&quot;
+
+class OptionValueError (OptParseError):
+    &quot;&quot;&quot;
+    Raised if an invalid option value is encountered on the command
+    line.
+    &quot;&quot;&quot;
+
+class BadOptionError (OptParseError):
+    &quot;&quot;&quot;
+    Raised if an invalid option is seen on the command line.
+    &quot;&quot;&quot;
+    def __init__(self, opt_str):
+        self.opt_str = opt_str
+
+    def __str__(self):
+        return _(&quot;no such option: %s&quot;) % self.opt_str
+
+class AmbiguousOptionError (BadOptionError):
+    &quot;&quot;&quot;
+    Raised if an ambiguous option is seen on the command line.
+    &quot;&quot;&quot;
+    def __init__(self, opt_str, possibilities):
+        BadOptionError.__init__(self, opt_str)
+        self.possibilities = possibilities
+
+    def __str__(self):
+        return (_(&quot;ambiguous option: %s (%s?)&quot;)
+                % (self.opt_str, &quot;, &quot;.join(self.possibilities)))
+
+
+class HelpFormatter:
+
+    &quot;&quot;&quot;
+    Abstract base class for formatting option help.  OptionParser
+    instances should use one of the HelpFormatter subclasses for
+    formatting help; by default IndentedHelpFormatter is used.
+
+    Instance attributes:
+      parser : OptionParser
+        the controlling OptionParser instance
+      indent_increment : int
+        the number of columns to indent per nesting level
+      max_help_position : int
+        the maximum starting column for option help text
+      help_position : int
+        the calculated starting column for option help text;
+        initially the same as the maximum
+      width : int
+        total number of columns for output (pass None to constructor for
+        this value to be taken from the $COLUMNS environment variable)
+      level : int
+        current indentation level
+      current_indent : int
+        current indentation level (in columns)
+      help_width : int
+        number of columns available for option help text (calculated)
+      default_tag : str
+        text to replace with each option&#39;s default value, &quot;%default&quot;
+        by default.  Set to false value to disable default value expansion.
+      option_strings : { Option : str }
+        maps Option instances to the snippet of help text explaining
+        the syntax of that option, e.g. &quot;-h, --help&quot; or
+        &quot;-fFILE, --file=FILE&quot;
+      _short_opt_fmt : str
+        format string controlling how short options with values are
+        printed in help text.  Must be either &quot;%s%s&quot; (&quot;-fFILE&quot;) or
+        &quot;%s %s&quot; (&quot;-f FILE&quot;), because those are the two syntaxes that
+        Optik supports.
+      _long_opt_fmt : str
+        similar but for long options; must be either &quot;%s %s&quot; (&quot;--file FILE&quot;)
+        or &quot;%s=%s&quot; (&quot;--file=FILE&quot;).
+    &quot;&quot;&quot;
+
+    NO_DEFAULT_VALUE = &quot;none&quot;
+
+    def __init__(self,
+                 indent_increment,
+                 max_help_position,
+                 width,
+                 short_first):
+        self.parser = None
+        self.indent_increment = indent_increment
+        if width is None:
+            try:
+                width = int(os.environ[&#39;COLUMNS&#39;])
+            except (KeyError, ValueError):
+                width = 80
+            width -= 2
+        self.width = width
+        self.help_position = self.max_help_position = \
+                min(max_help_position, max(width - 20, indent_increment * 2))
+        self.current_indent = 0
+        self.level = 0
+        self.help_width = None          # computed later
+        self.short_first = short_first
+        self.default_tag = &quot;%default&quot;
+        self.option_strings = {}
+        self._short_opt_fmt = &quot;%s %s&quot;
+        self._long_opt_fmt = &quot;%s=%s&quot;
+
+    def set_parser(self, parser):
+        self.parser = parser
+
+    def set_short_opt_delimiter(self, delim):
+        if delim not in (&quot;&quot;, &quot; &quot;):
+            raise ValueError(
+                &quot;invalid metavar delimiter for short options: %r&quot; % delim)
+        self._short_opt_fmt = &quot;%s&quot; + delim + &quot;%s&quot;
+
+    def set_long_opt_delimiter(self, delim):
+        if delim not in (&quot;=&quot;, &quot; &quot;):
+            raise ValueError(
+                &quot;invalid metavar delimiter for long options: %r&quot; % delim)
+        self._long_opt_fmt = &quot;%s&quot; + delim + &quot;%s&quot;
+
+    def indent(self):
+        self.current_indent += self.indent_increment
+        self.level += 1
+
+    def dedent(self):
+        self.current_indent -= self.indent_increment
+        assert self.current_indent &gt;= 0, &quot;Indent decreased below 0.&quot;
+        self.level -= 1
+
+    def format_usage(self, usage):
+        raise NotImplementedError(&quot;subclasses must implement&quot;)
+
+    def format_heading(self, heading):
+        raise NotImplementedError(&quot;subclasses must implement&quot;)
+
+    def _format_text(self, text):
+        &quot;&quot;&quot;
+        Format a paragraph of free-form text for inclusion in the
+        help output at the current indentation level.
+        &quot;&quot;&quot;
+        text_width = max(self.width - self.current_indent, 11)
+        indent = &quot; &quot;*self.current_indent
+        return textwrap.fill(text,
+                             text_width,
+                             initial_indent=indent,
+                             subsequent_indent=indent)
+
+    def format_description(self, description):
+        if description:
+            return self._format_text(description) + &quot;\n&quot;
+        else:
+            return &quot;&quot;
+
+    def format_epilog(self, epilog):
+        if epilog:
+            return &quot;\n&quot; + self._format_text(epilog) + &quot;\n&quot;
+        else:
+            return &quot;&quot;
+
+
+    def expand_default(self, option):
+        if self.parser is None or not self.default_tag:
+            return option.help
+
+        default_value = self.parser.defaults.get(option.dest)
+        if default_value is NO_DEFAULT or default_value is None:
+            default_value = self.NO_DEFAULT_VALUE
+
+        return option.help.replace(self.default_tag, str(default_value))
+
+    def format_option(self, option):
+        # The help for each option consists of two parts:
+        #   * the opt strings and metavars
+        #     eg. (&quot;-x&quot;, or &quot;-fFILENAME, --file=FILENAME&quot;)
+        #   * the user-supplied help string
+        #     eg. (&quot;turn on expert mode&quot;, &quot;read data from FILENAME&quot;)
+        #
+        # If possible, we write both of these on the same line:
+        #   -x      turn on expert mode
+        #
+        # But if the opt string list is too long, we put the help
+        # string on a second line, indented to the same column it would
+        # start in if it fit on the first line.
+        #   -fFILENAME, --file=FILENAME
+        #           read data from FILENAME
+        result = []
+        opts = self.option_strings[option]
+        opt_width = self.help_position - self.current_indent - 2
+        if len(opts) &gt; opt_width:
+            opts = &quot;%*s%s\n&quot; % (self.current_indent, &quot;&quot;, opts)
+            indent_first = self.help_position
+        else:                       # start help on same line as opts
+            opts = &quot;%*s%-*s  &quot; % (self.current_indent, &quot;&quot;, opt_width, opts)
+            indent_first = 0
+        result.append(opts)
+        if option.help:
+            help_text = self.expand_default(option)
+            help_lines = textwrap.wrap(help_text, self.help_width)
+            result.append(&quot;%*s%s\n&quot; % (indent_first, &quot;&quot;, help_lines[0]))
+            result.extend([&quot;%*s%s\n&quot; % (self.help_position, &quot;&quot;, line)
+                           for line in help_lines[1:]])
+        elif opts[-1] != &quot;\n&quot;:
+            result.append(&quot;\n&quot;)
+        return &quot;&quot;.join(result)
+
+    def store_option_strings(self, parser):
+        self.indent()
+        max_len = 0
+        for opt in parser.option_list:
+            strings = self.format_option_strings(opt)
+            self.option_strings[opt] = strings
+            max_len = max(max_len, len(strings) + self.current_indent)
+        self.indent()
+        for group in parser.option_groups:
+            for opt in group.option_list:
+                strings = self.format_option_strings(opt)
+                self.option_strings[opt] = strings
+                max_len = max(max_len, len(strings) + self.current_indent)
+        self.dedent()
+        self.dedent()
+        self.help_position = min(max_len + 2, self.max_help_position)
+        self.help_width = max(self.width - self.help_position, 11)
+
+    def format_option_strings(self, option):
+        &quot;&quot;&quot;Return a comma-separated list of option strings &amp; metavariables.&quot;&quot;&quot;
+        if option.takes_value():
+            metavar = option.metavar or option.dest.upper()
+            short_opts = [self._short_opt_fmt % (sopt, metavar)
+                          for sopt in option._short_opts]
+            long_opts = [self._long_opt_fmt % (lopt, metavar)
+                         for lopt in option._long_opts]
+        else:
+            short_opts = option._short_opts
+            long_opts = option._long_opts
+
+        if self.short_first:
+            opts = short_opts + long_opts
+        else:
+            opts = long_opts + short_opts
+
+        return &quot;, &quot;.join(opts)
+
+class IndentedHelpFormatter (HelpFormatter):
+    &quot;&quot;&quot;Format help with indented section bodies.
+    &quot;&quot;&quot;
+
+    def __init__(self,
+                 indent_increment=2,
+                 max_help_position=24,
+                 width=None,
+                 short_first=1):
+        HelpFormatter.__init__(
+            self, indent_increment, max_help_position, width, short_first)
+
+    def format_usage(self, usage):
+        return _(&quot;Usage: %s\n&quot;) % usage
+
+    def format_heading(self, heading):
+        return &quot;%*s%s:\n&quot; % (self.current_indent, &quot;&quot;, heading)
+
+
+class TitledHelpFormatter (HelpFormatter):
+    &quot;&quot;&quot;Format help with underlined section headers.
+    &quot;&quot;&quot;
+
+    def __init__(self,
+                 indent_increment=0,
+                 max_help_position=24,
+                 width=None,
+                 short_first=0):
+        HelpFormatter.__init__ (
+            self, indent_increment, max_help_position, width, short_first)
+
+    def format_usage(self, usage):
+        return &quot;%s  %s\n&quot; % (self.format_heading(_(&quot;Usage&quot;)), usage)
+
+    def format_heading(self, heading):
+        return &quot;%s\n%s\n&quot; % (heading, &quot;=-&quot;[self.level] * len(heading))
+
+
+def _parse_num(val, type):
+    if val[:2].lower() == &quot;0x&quot;:         # hexadecimal
+        radix = 16
+    elif val[:2].lower() == &quot;0b&quot;:       # binary
+        radix = 2
+        val = val[2:] or &quot;0&quot;            # have to remove &quot;0b&quot; prefix
+    elif val[:1] == &quot;0&quot;:                # octal
+        radix = 8
+    else:                               # decimal
+        radix = 10
+
+    return type(val, radix)
+
+def _parse_int(val):
+    return _parse_num(val, int)
+
+_builtin_cvt = { &quot;int&quot; : (_parse_int, _(&quot;integer&quot;)),
+                 &quot;long&quot; : (_parse_int, _(&quot;integer&quot;)),
+                 &quot;float&quot; : (float, _(&quot;floating-point&quot;)),
+                 &quot;complex&quot; : (complex, _(&quot;complex&quot;)) }
+
+def check_builtin(option, opt, value):
+    (cvt, what) = _builtin_cvt[option.type]
+    try:
+        return cvt(value)
+    except ValueError:
+        raise OptionValueError(
+            _(&quot;option %s: invalid %s value: %r&quot;) % (opt, what, value))
+
+def check_choice(option, opt, value):
+    if value in option.choices:
+        return value
+    else:
+        choices = &quot;, &quot;.join(map(repr, option.choices))
+        raise OptionValueError(
+            _(&quot;option %s: invalid choice: %r (choose from %s)&quot;)
+            % (opt, value, choices))
+
+# Not supplying a default is different from a default of None,
+# so we need an explicit &quot;not supplied&quot; value.
+NO_DEFAULT = (&quot;NO&quot;, &quot;DEFAULT&quot;)
+
+
+class Option:
+    &quot;&quot;&quot;
+    Instance attributes:
+      _short_opts : [string]
+      _long_opts : [string]
+
+      action : string
+      type : string
+      dest : string
+      default : any
+      nargs : int
+      const : any
+      choices : [string]
+      callback : function
+      callback_args : (any*)
+      callback_kwargs : { string : any }
+      help : string
+      metavar : string
+    &quot;&quot;&quot;
+
+    # The list of instance attributes that may be set through
+    # keyword args to the constructor.
+    ATTRS = [&#39;action&#39;,
+             &#39;type&#39;,
+             &#39;dest&#39;,
+             &#39;default&#39;,
+             &#39;nargs&#39;,
+             &#39;const&#39;,
+             &#39;choices&#39;,
+             &#39;callback&#39;,
+             &#39;callback_args&#39;,
+             &#39;callback_kwargs&#39;,
+             &#39;help&#39;,
+             &#39;metavar&#39;]
+
+    # The set of actions allowed by option parsers.  Explicitly listed
+    # here so the constructor can validate its arguments.
+    ACTIONS = (&quot;store&quot;,
+               &quot;store_const&quot;,
+               &quot;store_true&quot;,
+               &quot;store_false&quot;,
+               &quot;append&quot;,
+               &quot;append_const&quot;,
+               &quot;count&quot;,
+               &quot;callback&quot;,
+               &quot;help&quot;,
+               &quot;version&quot;)
+
+    # The set of actions that involve storing a value somewhere;
+    # also listed just for constructor argument validation.  (If
+    # the action is one of these, there must be a destination.)
+    STORE_ACTIONS = (&quot;store&quot;,
+                     &quot;store_const&quot;,
+                     &quot;store_true&quot;,
+                     &quot;store_false&quot;,
+                     &quot;append&quot;,
+                     &quot;append_const&quot;,
+                     &quot;count&quot;)
+
+    # The set of actions for which it makes sense to supply a value
+    # type, ie. which may consume an argument from the command line.
+    TYPED_ACTIONS = (&quot;store&quot;,
+                     &quot;append&quot;,
+                     &quot;callback&quot;)
+
+    # The set of actions which *require* a value type, ie. that
+    # always consume an argument from the command line.
+    ALWAYS_TYPED_ACTIONS = (&quot;store&quot;,
+                            &quot;append&quot;)
+
+    # The set of actions which take a &#39;const&#39; attribute.
+    CONST_ACTIONS = (&quot;store_const&quot;,
+                     &quot;append_const&quot;)
+
+    # The set of known types for option parsers.  Again, listed here for
+    # constructor argument validation.
+    TYPES = (&quot;string&quot;, &quot;int&quot;, &quot;long&quot;, &quot;float&quot;, &quot;complex&quot;, &quot;choice&quot;)
+
+    # Dictionary of argument checking functions, which convert and
+    # validate option arguments according to the option type.
+    #
+    # Signature of checking functions is:
+    #   check(option : Option, opt : string, value : string) -&gt; any
+    # where
+    #   option is the Option instance calling the checker
+    #   opt is the actual option seen on the command-line
+    #     (eg. &quot;-a&quot;, &quot;--file&quot;)
+    #   value is the option argument seen on the command-line
+    #
+    # The return value should be in the appropriate Python type
+    # for option.type -- eg. an integer if option.type == &quot;int&quot;.
+    #
+    # If no checker is defined for a type, arguments will be
+    # unchecked and remain strings.
+    TYPE_CHECKER = { &quot;int&quot;    : check_builtin,
+                     &quot;long&quot;   : check_builtin,
+                     &quot;float&quot;  : check_builtin,
+                     &quot;complex&quot;: check_builtin,
+                     &quot;choice&quot; : check_choice,
+                   }
+
+
+    # CHECK_METHODS is a list of unbound method objects; they are called
+    # by the constructor, in order, after all attributes are
+    # initialized.  The list is created and filled in later, after all
+    # the methods are actually defined.  (I just put it here because I
+    # like to define and document all class attributes in the same
+    # place.)  Subclasses that add another _check_*() method should
+    # define their own CHECK_METHODS list that adds their check method
+    # to those from this class.
+    CHECK_METHODS = None
+
+
+    # -- Constructor/initialization methods ----------------------------
+
+    def __init__(self, *opts, **attrs):
+        # Set _short_opts, _long_opts attrs from &#39;opts&#39; tuple.
+        # Have to be set now, in case no option strings are supplied.
+        self._short_opts = []
+        self._long_opts = []
+        opts = self._check_opt_strings(opts)
+        self._set_opt_strings(opts)
+
+        # Set all other attrs (action, type, etc.) from &#39;attrs&#39; dict
+        self._set_attrs(attrs)
+
+        # Check all the attributes we just set.  There are lots of
+        # complicated interdependencies, but luckily they can be farmed
+        # out to the _check_*() methods listed in CHECK_METHODS -- which
+        # could be handy for subclasses!  The one thing these all share
+        # is that they raise OptionError if they discover a problem.
+        for checker in self.CHECK_METHODS:
+            checker(self)
+
+    def _check_opt_strings(self, opts):
+        # Filter out None because early versions of Optik had exactly
+        # one short option and one long option, either of which
+        # could be None.
+        opts = [opt for opt in opts if opt]
+        if not opts:
+            raise TypeError(&quot;at least one option string must be supplied&quot;)
+        return opts
+
+    def _set_opt_strings(self, opts):
+        for opt in opts:
+            if len(opt) &lt; 2:
+                raise OptionError(
+                    &quot;invalid option string %r: &quot;
+                    &quot;must be at least two characters long&quot; % opt, self)
+            elif len(opt) == 2:
+                if not (opt[0] == &quot;-&quot; and opt[1] != &quot;-&quot;):
+                    raise OptionError(
+                        &quot;invalid short option string %r: &quot;
+                        &quot;must be of the form -x, (x any non-dash char)&quot; % opt,
+                        self)
+                self._short_opts.append(opt)
+            else:
+                if not (opt[0:2] == &quot;--&quot; and opt[2] != &quot;-&quot;):
+                    raise OptionError(
+                        &quot;invalid long option string %r: &quot;
+                        &quot;must start with --, followed by non-dash&quot; % opt,
+                        self)
+                self._long_opts.append(opt)
+
+    def _set_attrs(self, attrs):
+        for attr in self.ATTRS:
+            if attr in attrs:
+                setattr(self, attr, attrs[attr])
+                del attrs[attr]
+            else:
+                if attr == &#39;default&#39;:
+                    setattr(self, attr, NO_DEFAULT)
+                else:
+                    setattr(self, attr, None)
+        if attrs:
+            attrs = sorted(attrs.keys())
+            raise OptionError(
+                &quot;invalid keyword arguments: %s&quot; % &quot;, &quot;.join(attrs),
+                self)
+
+
+    # -- Constructor validation methods --------------------------------
+
+    def _check_action(self):
+        if self.action is None:
+            self.action = &quot;store&quot;
+        elif self.action not in self.ACTIONS:
+            raise OptionError(&quot;invalid action: %r&quot; % self.action, self)
+
+    def _check_type(self):
+        if self.type is None:
+            if self.action in self.ALWAYS_TYPED_ACTIONS:
+                if self.choices is not None:
+                    # The &quot;choices&quot; attribute implies &quot;choice&quot; type.
+                    self.type = &quot;choice&quot;
+                else:
+                    # No type given?  &quot;string&quot; is the most sensible default.
+                    self.type = &quot;string&quot;
+        else:
+            # Allow type objects or builtin type conversion functions
+            # (int, str, etc.) as an alternative to their names.
+            if isinstance(self.type, type):
+                self.type = self.type.__name__
+
+            if self.type == &quot;str&quot;:
+                self.type = &quot;string&quot;
+
+            if self.type not in self.TYPES:
+                raise OptionError(&quot;invalid option type: %r&quot; % self.type, self)
+            if self.action not in self.TYPED_ACTIONS:
+                raise OptionError(
+                    &quot;must not supply a type for action %r&quot; % self.action, self)
+
+    def _check_choice(self):
+        if self.type == &quot;choice&quot;:
+            if self.choices is None:
+                raise OptionError(
+                    &quot;must supply a list of choices for type &#39;choice&#39;&quot;, self)
+            elif not isinstance(self.choices, (tuple, list)):
+                raise OptionError(
+                    &quot;choices must be a list of strings (&#39;%s&#39; supplied)&quot;
+                    % str(type(self.choices)).split(&quot;&#39;&quot;)[1], self)
+        elif self.choices is not None:
+            raise OptionError(
+                &quot;must not supply choices for type %r&quot; % self.type, self)
+
+    def _check_dest(self):
+        # No destination given, and we need one for this action.  The
+        # self.type check is for callbacks that take a value.
+        takes_value = (self.action in self.STORE_ACTIONS or
+                       self.type is not None)
+        if self.dest is None and takes_value:
+
+            # Glean a destination from the first long option string,
+            # or from the first short option string if no long options.
+            if self._long_opts:
+                # eg. &quot;--foo-bar&quot; -&gt; &quot;foo_bar&quot;
+                self.dest = self._long_opts[0][2:].replace(&#39;-&#39;, &#39;_&#39;)
+            else:
+                self.dest = self._short_opts[0][1]
+
+    def _check_const(self):
+        if self.action not in self.CONST_ACTIONS and self.const is not None:
+            raise OptionError(
+                &quot;&#39;const&#39; must not be supplied for action %r&quot; % self.action,
+                self)
+
+    def _check_nargs(self):
+        if self.action in self.TYPED_ACTIONS:
+            if self.nargs is None:
+                self.nargs = 1
+        elif self.nargs is not None:
+            raise OptionError(
+                &quot;&#39;nargs&#39; must not be supplied for action %r&quot; % self.action,
+                self)
+
+    def _check_callback(self):
+        if self.action == &quot;callback&quot;:
+            if not callable(self.callback):
+                raise OptionError(
+                    &quot;callback not callable: %r&quot; % self.callback, self)
+            if (self.callback_args is not None and
+                not isinstance(self.callback_args, tuple)):
+                raise OptionError(
+                    &quot;callback_args, if supplied, must be a tuple: not %r&quot;
+                    % self.callback_args, self)
+            if (self.callback_kwargs is not None and
+                not isinstance(self.callback_kwargs, dict)):
+                raise OptionError(
+                    &quot;callback_kwargs, if supplied, must be a dict: not %r&quot;
+                    % self.callback_kwargs, self)
+        else:
+            if self.callback is not None:
+                raise OptionError(
+                    &quot;callback supplied (%r) for non-callback option&quot;
+                    % self.callback, self)
+            if self.callback_args is not None:
+                raise OptionError(
+                    &quot;callback_args supplied for non-callback option&quot;, self)
+            if self.callback_kwargs is not None:
+                raise OptionError(
+                    &quot;callback_kwargs supplied for non-callback option&quot;, self)
+
+
+    CHECK_METHODS = [_check_action,
+                     _check_type,
+                     _check_choice,
+                     _check_dest,
+                     _check_const,
+                     _check_nargs,
+                     _check_callback]
+
+
+    # -- Miscellaneous methods -----------------------------------------
+
+    def __str__(self):
+        return &quot;/&quot;.join(self._short_opts + self._long_opts)
+
+    __repr__ = _repr
+
+    def takes_value(self):
+        return self.type is not None
+
+    def get_opt_string(self):
+        if self._long_opts:
+            return self._long_opts[0]
+        else:
+            return self._short_opts[0]
+
+
+    # -- Processing methods --------------------------------------------
+
+    def check_value(self, opt, value):
+        checker = self.TYPE_CHECKER.get(self.type)
+        if checker is None:
+            return value
+        else:
+            return checker(self, opt, value)
+
+    def convert_value(self, opt, value):
+        if value is not None:
+            if self.nargs == 1:
+                return self.check_value(opt, value)
+            else:
+                return tuple([self.check_value(opt, v) for v in value])
+
+    def process(self, opt, value, values, parser):
+
+        # First, convert the value(s) to the right type.  Howl if any
+        # value(s) are bogus.
+        value = self.convert_value(opt, value)
+
+        # And then take whatever action is expected of us.
+        # This is a separate method to make life easier for
+        # subclasses to add new actions.
+        return self.take_action(
+            self.action, self.dest, opt, value, values, parser)
+
+    def take_action(self, action, dest, opt, value, values, parser):
+        if action == &quot;store&quot;:
+            setattr(values, dest, value)
+        elif action == &quot;store_const&quot;:
+            setattr(values, dest, self.const)
+        elif action == &quot;store_true&quot;:
+            setattr(values, dest, True)
+        elif action == &quot;store_false&quot;:
+            setattr(values, dest, False)
+        elif action == &quot;append&quot;:
+            values.ensure_value(dest, []).append(value)
+        elif action == &quot;append_const&quot;:
+            values.ensure_value(dest, []).append(self.const)
+        elif action == &quot;count&quot;:
+            setattr(values, dest, values.ensure_value(dest, 0) + 1)
+        elif action == &quot;callback&quot;:
+            args = self.callback_args or ()
+            kwargs = self.callback_kwargs or {}
+            self.callback(self, opt, value, parser, *args, **kwargs)
+        elif action == &quot;help&quot;:
+            parser.print_help()
+            parser.exit()
+        elif action == &quot;version&quot;:
+            parser.print_version()
+            parser.exit()
+        else:
+            raise ValueError(&quot;unknown action %r&quot; % self.action)
+
+        return 1
+
+# class Option
+
+
+SUPPRESS_HELP = &quot;SUPPRESS&quot;+&quot;HELP&quot;
+SUPPRESS_USAGE = &quot;SUPPRESS&quot;+&quot;USAGE&quot;
+
+class Values:
+
+    def __init__(self, defaults=None):
+        if defaults:
+            for (attr, val) in defaults.items():
+                setattr(self, attr, val)
+
+    def __str__(self):
+        return str(self.__dict__)
+
+    __repr__ = _repr
+
+    def __eq__(self, other):
+        if isinstance(other, Values):
+            return self.__dict__ == other.__dict__
+        elif isinstance(other, dict):
+            return self.__dict__ == other
+        else:
+            return NotImplemented
+
+    def _update_careful(self, dict):
+        &quot;&quot;&quot;
+        Update the option values from an arbitrary dictionary, but only
+        use keys from dict that already have a corresponding attribute
+        in self.  Any keys in dict without a corresponding attribute
+        are silently ignored.
+        &quot;&quot;&quot;
+        for attr in dir(self):
+            if attr in dict:
+                dval = dict[attr]
+                if dval is not None:
+                    setattr(self, attr, dval)
+
+    def _update_loose(self, dict):
+        &quot;&quot;&quot;
+        Update the option values from an arbitrary dictionary,
+        using all keys from the dictionary regardless of whether
+        they have a corresponding attribute in self or not.
+        &quot;&quot;&quot;
+        self.__dict__.update(dict)
+
+    def _update(self, dict, mode):
+        if mode == &quot;careful&quot;:
+            self._update_careful(dict)
+        elif mode == &quot;loose&quot;:
+            self._update_loose(dict)
+        else:
+            raise ValueError(&quot;invalid update mode: %r&quot; % mode)
+
+    def read_module(self, modname, mode=&quot;careful&quot;):
+        __import__(modname)
+        mod = sys.modules[modname]
+        self._update(vars(mod), mode)
+
+    def read_file(self, filename, mode=&quot;careful&quot;):
+        vars = {}
+        exec(open(filename).read(), vars)
+        self._update(vars, mode)
+
+    def ensure_value(self, attr, value):
+        if not hasattr(self, attr) or getattr(self, attr) is None:
+            setattr(self, attr, value)
+        return getattr(self, attr)
+
+
+class OptionContainer:
+
+    &quot;&quot;&quot;
+    Abstract base class.
+
+    Class attributes:
+      standard_option_list : [Option]
+        list of standard options that will be accepted by all instances
+        of this parser class (intended to be overridden by subclasses).
+
+    Instance attributes:
+      option_list : [Option]
+        the list of Option objects contained by this OptionContainer
+      _short_opt : { string : Option }
+        dictionary mapping short option strings, eg. &quot;-f&quot; or &quot;-X&quot;,
+        to the Option instances that implement them.  If an Option
+        has multiple short option strings, it will appear in this
+        dictionary multiple times. [1]
+      _long_opt : { string : Option }
+        dictionary mapping long option strings, eg. &quot;--file&quot; or
+        &quot;--exclude&quot;, to the Option instances that implement them.
+        Again, a given Option can occur multiple times in this
+        dictionary. [1]
+      defaults : { string : any }
+        dictionary mapping option destination names to default
+        values for each destination [1]
+
+    [1] These mappings are common to (shared by) all components of the
+        controlling OptionParser, where they are initially created.
+
+    &quot;&quot;&quot;
+
+    def __init__(self, option_class, conflict_handler, description):
+        # Initialize the option list and related data structures.
+        # This method must be provided by subclasses, and it must
+        # initialize at least the following instance attributes:
+        # option_list, _short_opt, _long_opt, defaults.
+        self._create_option_list()
+
+        self.option_class = option_class
+        self.set_conflict_handler(conflict_handler)
+        self.set_description(description)
+
+    def _create_option_mappings(self):
+        # For use by OptionParser constructor -- create the main
+        # option mappings used by this OptionParser and all
+        # OptionGroups that it owns.
+        self._short_opt = {}            # single letter -&gt; Option instance
+        self._long_opt = {}             # long option -&gt; Option instance
+        self.defaults = {}              # maps option dest -&gt; default value
+
+
+    def _share_option_mappings(self, parser):
+        # For use by OptionGroup constructor -- use shared option
+        # mappings from the OptionParser that owns this OptionGroup.
+        self._short_opt = parser._short_opt
+        self._long_opt = parser._long_opt
+        self.defaults = parser.defaults
+
+    def set_conflict_handler(self, handler):
+        if handler not in (&quot;error&quot;, &quot;resolve&quot;):
+            raise ValueError(&quot;invalid conflict_resolution value %r&quot; % handler)
+        self.conflict_handler = handler
+
+    def set_description(self, description):
+        self.description = description
+
+    def get_description(self):
+        return self.description
+
+
+    def destroy(self):
+        &quot;&quot;&quot;see OptionParser.destroy().&quot;&quot;&quot;
+        del self._short_opt
+        del self._long_opt
+        del self.defaults
+
+
+    # -- Option-adding methods -----------------------------------------
+
+    def _check_conflict(self, option):
+        conflict_opts = []
+        for opt in option._short_opts:
+            if opt in self._short_opt:
+                conflict_opts.append((opt, self._short_opt[opt]))
+        for opt in option._long_opts:
+            if opt in self._long_opt:
+                conflict_opts.append((opt, self._long_opt[opt]))
+
+        if conflict_opts:
+            handler = self.conflict_handler
+            if handler == &quot;error&quot;:
+                raise OptionConflictError(
+                    &quot;conflicting option string(s): %s&quot;
+                    % &quot;, &quot;.join([co[0] for co in conflict_opts]),
+                    option)
+            elif handler == &quot;resolve&quot;:
+                for (opt, c_option) in conflict_opts:
+                    if opt.startswith(&quot;--&quot;):
+                        c_option._long_opts.remove(opt)
+                        del self._long_opt[opt]
+                    else:
+                        c_option._short_opts.remove(opt)
+                        del self._short_opt[opt]
+                    if not (c_option._short_opts or c_option._long_opts):
+                        c_option.container.option_list.remove(c_option)
+
+    def add_option(self, *args, **kwargs):
+        &quot;&quot;&quot;add_option(Option)
+           add_option(opt_str, ..., kwarg=val, ...)
+        &quot;&quot;&quot;
+        if isinstance(args[0], str):
+            option = self.option_class(*args, **kwargs)
+        elif len(args) == 1 and not kwargs:
+            option = args[0]
+            if not isinstance(option, Option):
+                raise TypeError(&quot;not an Option instance: %r&quot; % option)
+        else:
+            raise TypeError(&quot;invalid arguments&quot;)
+
+        self._check_conflict(option)
+
+        self.option_list.append(option)
+        option.container = self
+        for opt in option._short_opts:
+            self._short_opt[opt] = option
+        for opt in option._long_opts:
+            self._long_opt[opt] = option
+
+        if option.dest is not None:     # option has a dest, we need a default
+            if option.default is not NO_DEFAULT:
+                self.defaults[option.dest] = option.default
+            elif option.dest not in self.defaults:
+                self.defaults[option.dest] = None
+
+        return option
+
+    def add_options(self, option_list):
+        for option in option_list:
+            self.add_option(option)
+
+    # -- Option query/removal methods ----------------------------------
+
+    def get_option(self, opt_str):
+        return (self._short_opt.get(opt_str) or
+                self._long_opt.get(opt_str))
+
+    def has_option(self, opt_str):
+        return (opt_str in self._short_opt or
+                opt_str in self._long_opt)
+
+    def remove_option(self, opt_str):
+        option = self._short_opt.get(opt_str)
+        if option is None:
+            option = self._long_opt.get(opt_str)
+        if option is None:
+            raise ValueError(&quot;no such option %r&quot; % opt_str)
+
+        for opt in option._short_opts:
+            del self._short_opt[opt]
+        for opt in option._long_opts:
+            del self._long_opt[opt]
+        option.container.option_list.remove(option)
+
+
+    # -- Help-formatting methods ---------------------------------------
+
+    def format_option_help(self, formatter):
+        if not self.option_list:
+            return &quot;&quot;
+        result = []
+        for option in self.option_list:
+            if not option.help is SUPPRESS_HELP:
+                result.append(formatter.format_option(option))
+        return &quot;&quot;.join(result)
+
+    def format_description(self, formatter):
+        return formatter.format_description(self.get_description())
+
+    def format_help(self, formatter):
+        result = []
+        if self.description:
+            result.append(self.format_description(formatter))
+        if self.option_list:
+            result.append(self.format_option_help(formatter))
+        return &quot;\n&quot;.join(result)
+
+
+class OptionGroup (OptionContainer):
+
+    def __init__(self, parser, title, description=None):
+        self.parser = parser
+        OptionContainer.__init__(
+            self, parser.option_class, parser.conflict_handler, description)
+        self.title = title
+
+    def _create_option_list(self):
+        self.option_list = []
+        self._share_option_mappings(self.parser)
+
+    def set_title(self, title):
+        self.title = title
+
+    def destroy(self):
+        &quot;&quot;&quot;see OptionParser.destroy().&quot;&quot;&quot;
+        OptionContainer.destroy(self)
+        del self.option_list
+
+    # -- Help-formatting methods ---------------------------------------
+
+    def format_help(self, formatter):
+        result = formatter.format_heading(self.title)
+        formatter.indent()
+        result += OptionContainer.format_help(self, formatter)
+        formatter.dedent()
+        return result
+
+
+<div class="viewcode-block" id="OptionParser"><a class="viewcode-back" href="../_autosummary/pyfeyn2.render.pyx.config.OptionParser.html#pyfeyn2.render.pyx.config.OptionParser">[docs]</a>class OptionParser (OptionContainer):
+
+    &quot;&quot;&quot;
+    Class attributes:
+      standard_option_list : [Option]
+        list of standard options that will be accepted by all instances
+        of this parser class (intended to be overridden by subclasses).
+
+    Instance attributes:
+      usage : string
+        a usage string for your program.  Before it is displayed
+        to the user, &quot;%prog&quot; will be expanded to the name of
+        your program (self.prog or os.path.basename(sys.argv[0])).
+      prog : string
+        the name of the current program (to override
+        os.path.basename(sys.argv[0])).
+      description : string
+        A paragraph of text giving a brief overview of your program.
+        optparse reformats this paragraph to fit the current terminal
+        width and prints it when the user requests help (after usage,
+        but before the list of options).
+      epilog : string
+        paragraph of help text to print after option help
+
+      option_groups : [OptionGroup]
+        list of option groups in this parser (option groups are
+        irrelevant for parsing the command-line, but very useful
+        for generating help)
+
+      allow_interspersed_args : bool = true
+        if true, positional arguments may be interspersed with options.
+        Assuming -a and -b each take a single argument, the command-line
+          -ablah foo bar -bboo baz
+        will be interpreted the same as
+          -ablah -bboo -- foo bar baz
+        If this flag were false, that command line would be interpreted as
+          -ablah -- foo bar -bboo baz
+        -- ie. we stop processing options as soon as we see the first
+        non-option argument.  (This is the tradition followed by
+        Python&#39;s getopt module, Perl&#39;s Getopt::Std, and other argument-
+        parsing libraries, but it is generally annoying to users.)
+
+      process_default_values : bool = true
+        if true, option default values are processed similarly to option
+        values from the command line: that is, they are passed to the
+        type-checking function for the option&#39;s type (as long as the
+        default value is a string).  (This really only matters if you
+        have defined custom types; see SF bug #955889.)  Set it to false
+        to restore the behaviour of Optik 1.4.1 and earlier.
+
+      rargs : [string]
+        the argument list currently being parsed.  Only set when
+        parse_args() is active, and continually trimmed down as
+        we consume arguments.  Mainly there for the benefit of
+        callback options.
+      largs : [string]
+        the list of leftover arguments that we have skipped while
+        parsing options.  If allow_interspersed_args is false, this
+        list is always empty.
+      values : Values
+        the set of option values currently being accumulated.  Only
+        set when parse_args() is active.  Also mainly for callbacks.
+
+    Because of the &#39;rargs&#39;, &#39;largs&#39;, and &#39;values&#39; attributes,
+    OptionParser is not thread-safe.  If, for some perverse reason, you
+    need to parse command-line arguments simultaneously in different
+    threads, use different OptionParser instances.
+
+    &quot;&quot;&quot;
+
+    standard_option_list = []
+
+<div class="viewcode-block" id="OptionParser.__init__"><a class="viewcode-back" href="../_autosummary/pyfeyn2.render.pyx.config.OptionParser.html#pyfeyn2.render.pyx.config.OptionParser.__init__">[docs]</a>    def __init__(self,
+                 usage=None,
+                 option_list=None,
+                 option_class=Option,
+                 version=None,
+                 conflict_handler=&quot;error&quot;,
+                 description=None,
+                 formatter=None,
+                 add_help_option=True,
+                 prog=None,
+                 epilog=None):
+        OptionContainer.__init__(
+            self, option_class, conflict_handler, description)
+        self.set_usage(usage)
+        self.prog = prog
+        self.version = version
+        self.allow_interspersed_args = True
+        self.process_default_values = True
+        if formatter is None:
+            formatter = IndentedHelpFormatter()
+        self.formatter = formatter
+        self.formatter.set_parser(self)
+        self.epilog = epilog
+
+        # Populate the option list; initial sources are the
+        # standard_option_list class attribute, the &#39;option_list&#39;
+        # argument, and (if applicable) the _add_version_option() and
+        # _add_help_option() methods.
+        self._populate_option_list(option_list,
+                                   add_help=add_help_option)
+
+        self._init_parsing_state()</div>
+
+
+<div class="viewcode-block" id="OptionParser.destroy"><a class="viewcode-back" href="../_autosummary/pyfeyn2.render.pyx.config.OptionParser.html#pyfeyn2.render.pyx.config.OptionParser.destroy">[docs]</a>    def destroy(self):
+        &quot;&quot;&quot;
+        Declare that you are done with this OptionParser.  This cleans up
+        reference cycles so the OptionParser (and all objects referenced by
+        it) can be garbage-collected promptly.  After calling destroy(), the
+        OptionParser is unusable.
+        &quot;&quot;&quot;
+        OptionContainer.destroy(self)
+        for group in self.option_groups:
+            group.destroy()
+        del self.option_list
+        del self.option_groups
+        del self.formatter</div>
+
+
+    # -- Private methods -----------------------------------------------
+    # (used by our or OptionContainer&#39;s constructor)
+
+    def _create_option_list(self):
+        self.option_list = []
+        self.option_groups = []
+        self._create_option_mappings()
+
+    def _add_help_option(self):
+        self.add_option(&quot;-h&quot;, &quot;--help&quot;,
+                        action=&quot;help&quot;,
+                        help=_(&quot;show this help message and exit&quot;))
+
+    def _add_version_option(self):
+        self.add_option(&quot;--version&quot;,
+                        action=&quot;version&quot;,
+                        help=_(&quot;show program&#39;s version number and exit&quot;))
+
+    def _populate_option_list(self, option_list, add_help=True):
+        if self.standard_option_list:
+            self.add_options(self.standard_option_list)
+        if option_list:
+            self.add_options(option_list)
+        if self.version:
+            self._add_version_option()
+        if add_help:
+            self._add_help_option()
+
+    def _init_parsing_state(self):
+        # These are set in parse_args() for the convenience of callbacks.
+        self.rargs = None
+        self.largs = None
+        self.values = None
+
+
+    # -- Simple modifier methods ---------------------------------------
+
+    def set_usage(self, usage):
+        if usage is None:
+            self.usage = _(&quot;%prog [options]&quot;)
+        elif usage is SUPPRESS_USAGE:
+            self.usage = None
+        # For backwards compatibility with Optik 1.3 and earlier.
+        elif usage.lower().startswith(&quot;usage: &quot;):
+            self.usage = usage[7:]
+        else:
+            self.usage = usage
+
+<div class="viewcode-block" id="OptionParser.enable_interspersed_args"><a class="viewcode-back" href="../_autosummary/pyfeyn2.render.pyx.config.OptionParser.html#pyfeyn2.render.pyx.config.OptionParser.enable_interspersed_args">[docs]</a>    def enable_interspersed_args(self):
+        &quot;&quot;&quot;Set parsing to not stop on the first non-option, allowing
+        interspersing switches with command arguments. This is the
+        default behavior. See also disable_interspersed_args() and the
+        class documentation description of the attribute
+        allow_interspersed_args.&quot;&quot;&quot;
+        self.allow_interspersed_args = True</div>
+
+<div class="viewcode-block" id="OptionParser.disable_interspersed_args"><a class="viewcode-back" href="../_autosummary/pyfeyn2.render.pyx.config.OptionParser.html#pyfeyn2.render.pyx.config.OptionParser.disable_interspersed_args">[docs]</a>    def disable_interspersed_args(self):
+        &quot;&quot;&quot;Set parsing to stop on the first non-option. Use this if
+        you have a command processor which runs another command that
+        has options of its own and you want to make sure these options
+        don&#39;t get confused.
+        &quot;&quot;&quot;
+        self.allow_interspersed_args = False</div>
+
+    def set_process_default_values(self, process):
+        self.process_default_values = process
+
+    def set_default(self, dest, value):
+        self.defaults[dest] = value
+
+    def set_defaults(self, **kwargs):
+        self.defaults.update(kwargs)
+
+    def _get_all_options(self):
+        options = self.option_list[:]
+        for group in self.option_groups:
+            options.extend(group.option_list)
+        return options
+
+    def get_default_values(self):
+        if not self.process_default_values:
+            # Old, pre-Optik 1.5 behaviour.
+            return Values(self.defaults)
+
+        defaults = self.defaults.copy()
+        for option in self._get_all_options():
+            default = defaults.get(option.dest)
+            if isinstance(default, str):
+                opt_str = option.get_opt_string()
+                defaults[option.dest] = option.check_value(opt_str, default)
+
+        return Values(defaults)
+
+
+    # -- OptionGroup methods -------------------------------------------
+
+    def add_option_group(self, *args, **kwargs):
+        # XXX lots of overlap with OptionContainer.add_option()
+        if isinstance(args[0], str):
+            group = OptionGroup(self, *args, **kwargs)
+        elif len(args) == 1 and not kwargs:
+            group = args[0]
+            if not isinstance(group, OptionGroup):
+                raise TypeError(&quot;not an OptionGroup instance: %r&quot; % group)
+            if group.parser is not self:
+                raise ValueError(&quot;invalid OptionGroup (wrong parser)&quot;)
+        else:
+            raise TypeError(&quot;invalid arguments&quot;)
+
+        self.option_groups.append(group)
+        return group
+
+    def get_option_group(self, opt_str):
+        option = (self._short_opt.get(opt_str) or
+                  self._long_opt.get(opt_str))
+        if option and option.container is not self:
+            return option.container
+        return None
+
+
+    # -- Option-parsing methods ----------------------------------------
+
+    def _get_args(self, args):
+        if args is None:
+            return sys.argv[1:]
+        else:
+            return args[:]              # don&#39;t modify caller&#39;s list
+
+<div class="viewcode-block" id="OptionParser.parse_args"><a class="viewcode-back" href="../_autosummary/pyfeyn2.render.pyx.config.OptionParser.html#pyfeyn2.render.pyx.config.OptionParser.parse_args">[docs]</a>    def parse_args(self, args=None, values=None):
+        &quot;&quot;&quot;
+        parse_args(args : [string] = sys.argv[1:],
+                   values : Values = None)
+        -&gt; (values : Values, args : [string])
+
+        Parse the command-line options found in &#39;args&#39; (default:
+        sys.argv[1:]).  Any errors result in a call to &#39;error()&#39;, which
+        by default prints the usage message to stderr and calls
+        sys.exit() with an error message.  On success returns a pair
+        (values, args) where &#39;values&#39; is a Values instance (with all
+        your option values) and &#39;args&#39; is the list of arguments left
+        over after parsing options.
+        &quot;&quot;&quot;
+        rargs = self._get_args(args)
+        if values is None:
+            values = self.get_default_values()
+
+        # Store the halves of the argument list as attributes for the
+        # convenience of callbacks:
+        #   rargs
+        #     the rest of the command-line (the &quot;r&quot; stands for
+        #     &quot;remaining&quot; or &quot;right-hand&quot;)
+        #   largs
+        #     the leftover arguments -- ie. what&#39;s left after removing
+        #     options and their arguments (the &quot;l&quot; stands for &quot;leftover&quot;
+        #     or &quot;left-hand&quot;)
+        self.rargs = rargs
+        self.largs = largs = []
+        self.values = values
+
+        try:
+            stop = self._process_args(largs, rargs, values)
+        except (BadOptionError, OptionValueError) as err:
+            self.error(str(err))
+
+        args = largs + rargs
+        return self.check_values(values, args)</div>
+
+<div class="viewcode-block" id="OptionParser.check_values"><a class="viewcode-back" href="../_autosummary/pyfeyn2.render.pyx.config.OptionParser.html#pyfeyn2.render.pyx.config.OptionParser.check_values">[docs]</a>    def check_values(self, values, args):
+        &quot;&quot;&quot;
+        check_values(values : Values, args : [string])
+        -&gt; (values : Values, args : [string])
+
+        Check that the supplied option values and leftover arguments are
+        valid.  Returns the option values and leftover arguments
+        (possibly adjusted, possibly completely new -- whatever you
+        like).  Default implementation just returns the passed-in
+        values; subclasses may override as desired.
+        &quot;&quot;&quot;
+        return (values, args)</div>
+
+    def _process_args(self, largs, rargs, values):
+        &quot;&quot;&quot;_process_args(largs : [string],
+                         rargs : [string],
+                         values : Values)
+
+        Process command-line arguments and populate &#39;values&#39;, consuming
+        options and arguments from &#39;rargs&#39;.  If &#39;allow_interspersed_args&#39; is
+        false, stop at the first non-option argument.  If true, accumulate any
+        interspersed non-option arguments in &#39;largs&#39;.
+        &quot;&quot;&quot;
+        while rargs:
+            arg = rargs[0]
+            # We handle bare &quot;--&quot; explicitly, and bare &quot;-&quot; is handled by the
+            # standard arg handler since the short arg case ensures that the
+            # len of the opt string is greater than 1.
+            if arg == &quot;--&quot;:
+                del rargs[0]
+                return
+            elif arg[0:2] == &quot;--&quot;:
+                # process a single long option (possibly with value(s))
+                self._process_long_opt(rargs, values)
+            elif arg[:1] == &quot;-&quot; and len(arg) &gt; 1:
+                # process a cluster of short options (possibly with
+                # value(s) for the last one only)
+                self._process_short_opts(rargs, values)
+            elif self.allow_interspersed_args:
+                largs.append(arg)
+                del rargs[0]
+            else:
+                return                  # stop now, leave this arg in rargs
+
+        # Say this is the original argument list:
+        # [arg0, arg1, ..., arg(i-1), arg(i), arg(i+1), ..., arg(N-1)]
+        #                            ^
+        # (we are about to process arg(i)).
+        #
+        # Then rargs is [arg(i), ..., arg(N-1)] and largs is a *subset* of
+        # [arg0, ..., arg(i-1)] (any options and their arguments will have
+        # been removed from largs).
+        #
+        # The while loop will usually consume 1 or more arguments per pass.
+        # If it consumes 1 (eg. arg is an option that takes no arguments),
+        # then after _process_arg() is done the situation is:
+        #
+        #   largs = subset of [arg0, ..., arg(i)]
+        #   rargs = [arg(i+1), ..., arg(N-1)]
+        #
+        # If allow_interspersed_args is false, largs will always be
+        # *empty* -- still a subset of [arg0, ..., arg(i-1)], but
+        # not a very interesting subset!
+
+    def _match_long_opt(self, opt):
+        &quot;&quot;&quot;_match_long_opt(opt : string) -&gt; string
+
+        Determine which long option string &#39;opt&#39; matches, ie. which one
+        it is an unambiguous abbreviation for.  Raises BadOptionError if
+        &#39;opt&#39; doesn&#39;t unambiguously match any long option string.
+        &quot;&quot;&quot;
+        return _match_abbrev(opt, self._long_opt)
+
+    def _process_long_opt(self, rargs, values):
+        arg = rargs.pop(0)
+
+        # Value explicitly attached to arg?  Pretend it&#39;s the next
+        # argument.
+        if &quot;=&quot; in arg:
+            (opt, next_arg) = arg.split(&quot;=&quot;, 1)
+            rargs.insert(0, next_arg)
+            had_explicit_value = True
+        else:
+            opt = arg
+            had_explicit_value = False
+
+        opt = self._match_long_opt(opt)
+        option = self._long_opt[opt]
+        if option.takes_value():
+            nargs = option.nargs
+            if len(rargs) &lt; nargs:
+                self.error(ngettext(
+                    &quot;%(option)s option requires %(number)d argument&quot;,
+                    &quot;%(option)s option requires %(number)d arguments&quot;,
+                    nargs) % {&quot;option&quot;: opt, &quot;number&quot;: nargs})
+            elif nargs == 1:
+                value = rargs.pop(0)
+            else:
+                value = tuple(rargs[0:nargs])
+                del rargs[0:nargs]
+
+        elif had_explicit_value:
+            self.error(_(&quot;%s option does not take a value&quot;) % opt)
+
+        else:
+            value = None
+
+        option.process(opt, value, values, self)
+
+    def _process_short_opts(self, rargs, values):
+        arg = rargs.pop(0)
+        stop = False
+        i = 1
+        for ch in arg[1:]:
+            opt = &quot;-&quot; + ch
+            option = self._short_opt.get(opt)
+            i += 1                      # we have consumed a character
+
+            if not option:
+                raise BadOptionError(opt)
+            if option.takes_value():
+                # Any characters left in arg?  Pretend they&#39;re the
+                # next arg, and stop consuming characters of arg.
+                if i &lt; len(arg):
+                    rargs.insert(0, arg[i:])
+                    stop = True
+
+                nargs = option.nargs
+                if len(rargs) &lt; nargs:
+                    self.error(ngettext(
+                        &quot;%(option)s option requires %(number)d argument&quot;,
+                        &quot;%(option)s option requires %(number)d arguments&quot;,
+                        nargs) % {&quot;option&quot;: opt, &quot;number&quot;: nargs})
+                elif nargs == 1:
+                    value = rargs.pop(0)
+                else:
+                    value = tuple(rargs[0:nargs])
+                    del rargs[0:nargs]
+
+            else:                       # option doesn&#39;t take a value
+                value = None
+
+            option.process(opt, value, values, self)
+
+            if stop:
+                break
+
+
+    # -- Feedback methods ----------------------------------------------
+
+    def get_prog_name(self):
+        if self.prog is None:
+            return os.path.basename(sys.argv[0])
+        else:
+            return self.prog
+
+    def expand_prog_name(self, s):
+        return s.replace(&quot;%prog&quot;, self.get_prog_name())
+
+    def get_description(self):
+        return self.expand_prog_name(self.description)
+
+    def exit(self, status=0, msg=None):
+        if msg:
+            sys.stderr.write(msg)
+        sys.exit(status)
+
+<div class="viewcode-block" id="OptionParser.error"><a class="viewcode-back" href="../_autosummary/pyfeyn2.render.pyx.config.OptionParser.html#pyfeyn2.render.pyx.config.OptionParser.error">[docs]</a>    def error(self, msg):
+        &quot;&quot;&quot;error(msg : string)
+
+        Print a usage message incorporating &#39;msg&#39; to stderr and exit.
+        If you override this in a subclass, it should not return -- it
+        should either exit or raise an exception.
+        &quot;&quot;&quot;
+        self.print_usage(sys.stderr)
+        self.exit(2, &quot;%s: error: %s\n&quot; % (self.get_prog_name(), msg))</div>
+
+    def get_usage(self):
+        if self.usage:
+            return self.formatter.format_usage(
+                self.expand_prog_name(self.usage))
+        else:
+            return &quot;&quot;
+
+<div class="viewcode-block" id="OptionParser.print_usage"><a class="viewcode-back" href="../_autosummary/pyfeyn2.render.pyx.config.OptionParser.html#pyfeyn2.render.pyx.config.OptionParser.print_usage">[docs]</a>    def print_usage(self, file=None):
+        &quot;&quot;&quot;print_usage(file : file = stdout)
+
+        Print the usage message for the current program (self.usage) to
+        &#39;file&#39; (default stdout).  Any occurrence of the string &quot;%prog&quot; in
+        self.usage is replaced with the name of the current program
+        (basename of sys.argv[0]).  Does nothing if self.usage is empty
+        or not defined.
+        &quot;&quot;&quot;
+        if self.usage:
+            print(self.get_usage(), file=file)</div>
+
+    def get_version(self):
+        if self.version:
+            return self.expand_prog_name(self.version)
+        else:
+            return &quot;&quot;
+
+<div class="viewcode-block" id="OptionParser.print_version"><a class="viewcode-back" href="../_autosummary/pyfeyn2.render.pyx.config.OptionParser.html#pyfeyn2.render.pyx.config.OptionParser.print_version">[docs]</a>    def print_version(self, file=None):
+        &quot;&quot;&quot;print_version(file : file = stdout)
+
+        Print the version message for this program (self.version) to
+        &#39;file&#39; (default stdout).  As with print_usage(), any occurrence
+        of &quot;%prog&quot; in self.version is replaced by the current program&#39;s
+        name.  Does nothing if self.version is empty or undefined.
+        &quot;&quot;&quot;
+        if self.version:
+            print(self.get_version(), file=file)</div>
+
+    def format_option_help(self, formatter=None):
+        if formatter is None:
+            formatter = self.formatter
+        formatter.store_option_strings(self)
+        result = []
+        result.append(formatter.format_heading(_(&quot;Options&quot;)))
+        formatter.indent()
+        if self.option_list:
+            result.append(OptionContainer.format_option_help(self, formatter))
+            result.append(&quot;\n&quot;)
+        for group in self.option_groups:
+            result.append(group.format_help(formatter))
+            result.append(&quot;\n&quot;)
+        formatter.dedent()
+        # Drop the last &quot;\n&quot;, or the header if no options or option groups:
+        return &quot;&quot;.join(result[:-1])
+
+    def format_epilog(self, formatter):
+        return formatter.format_epilog(self.epilog)
+
+    def format_help(self, formatter=None):
+        if formatter is None:
+            formatter = self.formatter
+        result = []
+        if self.usage:
+            result.append(self.get_usage() + &quot;\n&quot;)
+        if self.description:
+            result.append(self.format_description(formatter) + &quot;\n&quot;)
+        result.append(self.format_option_help(formatter))
+        result.append(self.format_epilog(formatter))
+        return &quot;&quot;.join(result)
+
+<div class="viewcode-block" id="OptionParser.print_help"><a class="viewcode-back" href="../_autosummary/pyfeyn2.render.pyx.config.OptionParser.html#pyfeyn2.render.pyx.config.OptionParser.print_help">[docs]</a>    def print_help(self, file=None):
+        &quot;&quot;&quot;print_help(file : file = stdout)
+
+        Print an extended help message, listing all options and any
+        help text provided with them, to &#39;file&#39; (default stdout).
+        &quot;&quot;&quot;
+        if file is None:
+            file = sys.stdout
+        file.write(self.format_help())</div></div>
+
+# class OptionParser
+
+
+def _match_abbrev(s, wordmap):
+    &quot;&quot;&quot;_match_abbrev(s : string, wordmap : {string : Option}) -&gt; string
+
+    Return the string key in &#39;wordmap&#39; for which &#39;s&#39; is an unambiguous
+    abbreviation.  If &#39;s&#39; is found to be ambiguous or doesn&#39;t match any of
+    &#39;words&#39;, raise BadOptionError.
+    &quot;&quot;&quot;
+    # Is there an exact match?
+    if s in wordmap:
+        return s
+    else:
+        # Isolate all words with s as a prefix.
+        possibilities = [word for word in wordmap.keys()
+                         if word.startswith(s)]
+        # No exact match, so there had better be just one possibility.
+        if len(possibilities) == 1:
+            return possibilities[0]
+        elif not possibilities:
+            raise BadOptionError(s)
+        else:
+            # More than one possible completion: ambiguous prefix.
+            possibilities.sort()
+            raise AmbiguousOptionError(s, possibilities)
+
+
+# Some day, there might be many Option classes.  As of Optik 1.3, the
+# preferred way to instantiate Options is indirectly, via make_option(),
+# which will become a factory function when there are many Option
+# classes.
+make_option = Option
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Alexander Puck Neuwirth.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

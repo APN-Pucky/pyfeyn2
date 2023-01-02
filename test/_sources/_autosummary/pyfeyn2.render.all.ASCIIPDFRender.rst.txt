@@ -1,0 +1,83 @@
+pyfeyn2.render.all.ASCIIPDFRender
+=================================
+
+.. currentmodule:: pyfeyn2.render.all
+
+.. autoclass:: ASCIIPDFRender
+   :members:                                   
+   :show-inheritance:                           
+   :inherited-members:                         
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~ASCIIPDFRender.__init__
+      ~ASCIIPDFRender.add_color
+      ~ASCIIPDFRender.append
+      ~ASCIIPDFRender.change_document_style
+      ~ASCIIPDFRender.change_length
+      ~ASCIIPDFRender.change_page_style
+      ~ASCIIPDFRender.clear
+      ~ASCIIPDFRender.copy
+      ~ASCIIPDFRender.count
+      ~ASCIIPDFRender.create
+      ~ASCIIPDFRender.demo_propagator
+      ~ASCIIPDFRender.demo_vertex
+      ~ASCIIPDFRender.dump
+      ~ASCIIPDFRender.dump_packages
+      ~ASCIIPDFRender.dumps
+      ~ASCIIPDFRender.dumps_as_content
+      ~ASCIIPDFRender.dumps_content
+      ~ASCIIPDFRender.dumps_packages
+      ~ASCIIPDFRender.extend
+      ~ASCIIPDFRender.generate_pdf
+      ~ASCIIPDFRender.generate_tex
+      ~ASCIIPDFRender.get_src
+      ~ASCIIPDFRender.get_src_diag
+      ~ASCIIPDFRender.get_src_txt
+      ~ASCIIPDFRender.index
+      ~ASCIIPDFRender.insert
+      ~ASCIIPDFRender.pop
+      ~ASCIIPDFRender.remove
+      ~ASCIIPDFRender.render
+      ~ASCIIPDFRender.reverse
+      ~ASCIIPDFRender.set_feynman_diagram
+      ~ASCIIPDFRender.set_src
+      ~ASCIIPDFRender.set_src_diag
+      ~ASCIIPDFRender.set_src_txt
+      ~ASCIIPDFRender.set_variable
+      ~ASCIIPDFRender.sort
+      ~ASCIIPDFRender.valid_attribute
+      ~ASCIIPDFRender.valid_attributes
+      ~ASCIIPDFRender.valid_shape
+      ~ASCIIPDFRender.valid_shapes
+      ~ASCIIPDFRender.valid_style
+      ~ASCIIPDFRender.valid_styles
+      ~ASCIIPDFRender.valid_type
+      ~ASCIIPDFRender.valid_types
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~ASCIIPDFRender.begin_paragraph
+      ~ASCIIPDFRender.content_separator
+      ~ASCIIPDFRender.end_paragraph
+      ~ASCIIPDFRender.escape
+      ~ASCIIPDFRender.latex_name
+      ~ASCIIPDFRender.namedlines
+      ~ASCIIPDFRender.namedshapes
+      ~ASCIIPDFRender.omit_if_empty
+      ~ASCIIPDFRender.packages
+      ~ASCIIPDFRender.separate_paragraph
+   
+   

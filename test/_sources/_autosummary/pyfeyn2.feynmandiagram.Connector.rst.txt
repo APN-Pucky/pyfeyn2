@@ -17,16 +17,12 @@ pyfeyn2.feynmandiagram.Connector
    .. autosummary::
    
       ~Connector.__init__
+      ~Connector.get_length
+      ~Connector.get_style
+      ~Connector.get_tension
       ~Connector.put_style
+      ~Connector.put_styles
       ~Connector.raw_style
-      ~Connector.set_label
-      ~Connector.set_length
-      ~Connector.set_momentum
-      ~Connector.set_name
-      ~Connector.set_pdgig
-      ~Connector.set_tension
-      ~Connector.set_type
-      ~Connector.with_bend
       ~Connector.with_class
       ~Connector.with_id
       ~Connector.with_label
@@ -47,16 +43,13 @@ pyfeyn2.feynmandiagram.Connector
 
    .. autosummary::
    
-      ~Connector.bend
       ~Connector.clazz
       ~Connector.id
       ~Connector.label
-      ~Connector.length
       ~Connector.momentum
       ~Connector.name
       ~Connector.particle
       ~Connector.pdgid
-      ~Connector.tension
       ~Connector.type
       ~Connector.style
    

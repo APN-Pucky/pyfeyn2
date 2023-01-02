@@ -37,7 +37,7 @@
             <img src="../../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.1.1-5-ga6e48db4
+                2.2.3-1-gde23f1e8
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
@@ -114,7 +114,7 @@ defunit = pyx.unit.cm
 todefunit = pyx.unit.tocm
 
 
-<div class="viewcode-block" id="sign"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.utils.sign.html#pyfeyn2.render.pyx.utils.sign">[docs]</a>def sign(x):
+<div class="viewcode-block" id="sign"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.utils.sign.html#pyfeyn2.render.pyx.blobs.sign">[docs]</a>def sign(x):
     &quot;&quot;&quot;Get the sign of a numeric type&quot;&quot;&quot;
     if x &lt; 0:
         return -1
@@ -124,25 +124,25 @@ todefunit = pyx.unit.tocm
         return 0</div>
 
 
-<div class="viewcode-block" id="Visible"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.utils.Visible.html#pyfeyn2.render.pyx.utils.Visible">[docs]</a>class Visible:
-<div class="viewcode-block" id="Visible.isVisible"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.utils.Visible.html#pyfeyn2.render.pyx.utils.Visible.isVisible">[docs]</a>    def isVisible(self):
+<div class="viewcode-block" id="Visible"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.utils.Visible.html#pyfeyn2.render.pyx.blobs.Visible">[docs]</a>class Visible:
+<div class="viewcode-block" id="Visible.isVisible"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.utils.Visible.html#pyfeyn2.render.pyx.blobs.Visible.isVisible">[docs]</a>    def isVisible(self):
         &quot;&quot;&quot;Check if this instance is visible.&quot;&quot;&quot;
         return True</div>
 
-<div class="viewcode-block" id="Visible.getPath"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.utils.Visible.html#pyfeyn2.render.pyx.utils.Visible.getPath">[docs]</a>    def getPath(self):
+<div class="viewcode-block" id="Visible.getPath"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.utils.Visible.html#pyfeyn2.render.pyx.blobs.Visible.getPath">[docs]</a>    def getPath(self):
         &quot;&quot;&quot;Return the path of this instance.&quot;&quot;&quot;
         return None</div>
 
-<div class="viewcode-block" id="Visible.getVisiblePath"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.utils.Visible.html#pyfeyn2.render.pyx.utils.Visible.getVisiblePath">[docs]</a>    def getVisiblePath(self):
+<div class="viewcode-block" id="Visible.getVisiblePath"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.utils.Visible.html#pyfeyn2.render.pyx.blobs.Visible.getVisiblePath">[docs]</a>    def getVisiblePath(self):
         &quot;&quot;&quot;Return the visible path of this instance.&quot;&quot;&quot;
         return self.getPath()</div>
 
-<div class="viewcode-block" id="Visible.setDepth"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.utils.Visible.html#pyfeyn2.render.pyx.utils.Visible.setDepth">[docs]</a>    def setDepth(self, depth):
+<div class="viewcode-block" id="Visible.setDepth"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.utils.Visible.html#pyfeyn2.render.pyx.blobs.Visible.setDepth">[docs]</a>    def setDepth(self, depth):
         &quot;&quot;&quot;Set the depth at which this instance lives.&quot;&quot;&quot;
         self.depth = depth
         return self</div>
 
-<div class="viewcode-block" id="Visible.getDepth"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.utils.Visible.html#pyfeyn2.render.pyx.utils.Visible.getDepth">[docs]</a>    def getDepth(self):
+<div class="viewcode-block" id="Visible.getDepth"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.utils.Visible.html#pyfeyn2.render.pyx.blobs.Visible.getDepth">[docs]</a>    def getDepth(self):
         &quot;&quot;&quot;Return the depth at which this instance lives.&quot;&quot;&quot;
         if &quot;depth&quot; in self.__dict__:
             return self.depth
@@ -176,7 +176,7 @@ todefunit = pyx.unit.tocm
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2022, Alexander Puck Neuwirth.</p>
+    <p>&#169; Copyright 2023, Alexander Puck Neuwirth.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

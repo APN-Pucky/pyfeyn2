@@ -17,25 +17,14 @@ pyfeyn2.feynmandiagram.Leg
    .. autosummary::
    
       ~Leg.__init__
+      ~Leg.get_length
+      ~Leg.get_style
+      ~Leg.get_tension
       ~Leg.is_incoming
       ~Leg.is_outgoing
       ~Leg.put_style
+      ~Leg.put_styles
       ~Leg.raw_style
-      ~Leg.set_external
-      ~Leg.set_incoming
-      ~Leg.set_label
-      ~Leg.set_length
-      ~Leg.set_momentum
-      ~Leg.set_name
-      ~Leg.set_outgoing
-      ~Leg.set_pdgig
-      ~Leg.set_point
-      ~Leg.set_target
-      ~Leg.set_tension
-      ~Leg.set_type
-      ~Leg.set_xy
-      ~Leg.set_xyz
-      ~Leg.with_bend
       ~Leg.with_class
       ~Leg.with_external
       ~Leg.with_id
@@ -64,19 +53,16 @@ pyfeyn2.feynmandiagram.Leg
 
    .. autosummary::
    
-      ~Leg.bend
       ~Leg.clazz
       ~Leg.external
       ~Leg.id
       ~Leg.label
-      ~Leg.length
       ~Leg.momentum
       ~Leg.name
       ~Leg.particle
       ~Leg.pdgid
       ~Leg.sense
       ~Leg.target
-      ~Leg.tension
       ~Leg.type
       ~Leg.x
       ~Leg.y

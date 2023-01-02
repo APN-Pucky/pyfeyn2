@@ -1,0 +1,42 @@
+pyfeyn2.render.latex.tikzfeynman.Command
+========================================
+
+.. currentmodule:: pyfeyn2.render.latex.tikzfeynman
+
+.. autoclass:: Command
+   :members:                                   
+   :show-inheritance:                           
+   :inherited-members:                         
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Command.__init__
+      ~Command.dump
+      ~Command.dump_packages
+      ~Command.dumps
+      ~Command.dumps_as_content
+      ~Command.dumps_packages
+      ~Command.generate_tex
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~Command.begin_paragraph
+      ~Command.end_paragraph
+      ~Command.escape
+      ~Command.latex_name
+      ~Command.packages
+      ~Command.separate_paragraph
+   
+   

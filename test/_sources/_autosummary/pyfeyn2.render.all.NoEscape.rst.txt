@@ -1,0 +1,70 @@
+pyfeyn2.render.all.NoEscape
+===========================
+
+.. currentmodule:: pyfeyn2.render.all
+
+.. autoclass:: NoEscape
+   :members:                                   
+   :show-inheritance:                           
+   :inherited-members:                         
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~NoEscape.__init__
+      ~NoEscape.capitalize
+      ~NoEscape.casefold
+      ~NoEscape.center
+      ~NoEscape.count
+      ~NoEscape.encode
+      ~NoEscape.endswith
+      ~NoEscape.expandtabs
+      ~NoEscape.find
+      ~NoEscape.format
+      ~NoEscape.format_map
+      ~NoEscape.index
+      ~NoEscape.isalnum
+      ~NoEscape.isalpha
+      ~NoEscape.isascii
+      ~NoEscape.isdecimal
+      ~NoEscape.isdigit
+      ~NoEscape.isidentifier
+      ~NoEscape.islower
+      ~NoEscape.isnumeric
+      ~NoEscape.isprintable
+      ~NoEscape.isspace
+      ~NoEscape.istitle
+      ~NoEscape.isupper
+      ~NoEscape.join
+      ~NoEscape.ljust
+      ~NoEscape.lower
+      ~NoEscape.lstrip
+      ~NoEscape.maketrans
+      ~NoEscape.partition
+      ~NoEscape.replace
+      ~NoEscape.rfind
+      ~NoEscape.rindex
+      ~NoEscape.rjust
+      ~NoEscape.rpartition
+      ~NoEscape.rsplit
+      ~NoEscape.rstrip
+      ~NoEscape.split
+      ~NoEscape.splitlines
+      ~NoEscape.startswith
+      ~NoEscape.strip
+      ~NoEscape.swapcase
+      ~NoEscape.title
+      ~NoEscape.translate
+      ~NoEscape.upper
+      ~NoEscape.zfill
+   
+   
+
+   
+   
+   

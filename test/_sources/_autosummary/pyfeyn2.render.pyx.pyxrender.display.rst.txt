@@ -1,0 +1,6 @@
+pyfeyn2.render.pyx.pyxrender.display
+====================================
+
+.. currentmodule:: pyfeyn2.render.pyx.pyxrender
+
+.. autofunction:: display

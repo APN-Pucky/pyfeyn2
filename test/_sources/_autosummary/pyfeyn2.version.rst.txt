@@ -1,0 +1,6 @@
+pyfeyn2.version
+===============
+
+.. currentmodule:: pyfeyn2
+
+.. autofunction:: version

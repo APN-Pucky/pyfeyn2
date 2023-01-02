@@ -37,7 +37,7 @@
             <img src="../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.1.1-5-ga6e48db4
+                2.2.3-1-gde23f1e8
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -108,6 +108,7 @@ import tempfile
 import traceback
 from typing import List
 
+from feynml.types import get_shapes, get_types
 from matplotlib import pyplot as plt
 from pylatex import Figure, NoEscape, SubFigure
 
@@ -116,11 +117,9 @@ from pyfeyn2.render.latex.feynmp import FeynmpRender
 from pyfeyn2.render.latex.latex import LatexRender
 from pyfeyn2.render.latex.tikzfeynman import TikzFeynmanRender
 from pyfeyn2.render.mpl.feynmanrender import FeynmanRender
-from pyfeyn2.render.mpl.mpl import MPLRender
 from pyfeyn2.render.pyx.pyxrender import PyxRender
 from pyfeyn2.render.text.asciipdf import ASCIIPDFRender
 from pyfeyn2.render.text.unicodepdf import UnicodePDFRender
-from pyfeyn2.types import get_shapes, get_types
 
 renders = {
     &quot;tikz&quot;: TikzFeynmanRender,
@@ -128,7 +127,6 @@ renders = {
     &quot;feynmp&quot;: FeynmpRender,
     &quot;feynman&quot;: FeynmanRender,
     &quot;dot&quot;: DotRender,
-    &quot;mpl&quot;: MPLRender,
     &quot;ascii&quot;: ASCIIPDFRender,
     &quot;unicode&quot;: UnicodePDFRender,
 }
@@ -235,7 +233,7 @@ renders = {
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2022, Alexander Puck Neuwirth.</p>
+    <p>&#169; Copyright 2023, Alexander Puck Neuwirth.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

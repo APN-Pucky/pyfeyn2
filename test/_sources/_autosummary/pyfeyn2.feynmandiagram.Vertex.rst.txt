@@ -17,12 +17,10 @@ pyfeyn2.feynmandiagram.Vertex
    .. autosummary::
    
       ~Vertex.__init__
+      ~Vertex.get_style
       ~Vertex.put_style
+      ~Vertex.put_styles
       ~Vertex.raw_style
-      ~Vertex.set_label
-      ~Vertex.set_point
-      ~Vertex.set_xy
-      ~Vertex.set_xyz
       ~Vertex.with_class
       ~Vertex.with_id
       ~Vertex.with_label

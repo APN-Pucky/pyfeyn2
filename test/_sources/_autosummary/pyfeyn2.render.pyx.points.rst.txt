@@ -14,6 +14,7 @@ pyfeyn2.render.pyx.points
    .. autosummary::
       :toctree:                                         
    
+      copy
       distance
       midpoint
    
@@ -30,12 +31,15 @@ pyfeyn2.render.pyx.points
       CircleMark
       CrossMark
       DecoratedPoint
+      FeynDiagram
       Mark
       Point
+      PointLabel
       PolygonalMark
       SquareMark
       StarshapeMark
       Vertex
+      Visible
    
    
 

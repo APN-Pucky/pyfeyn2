@@ -37,7 +37,7 @@
             <img src="../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.1.1-5-ga6e48db4
+                2.2.3-1-gde23f1e8
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -109,8 +109,8 @@ from typing import List
 from pyfeyn2.feynmandiagram import FeynmanDiagram, Leg, Propagator, Vertex
 
 
-<div class="viewcode-block" id="Render"><a class="viewcode-back" href="../../../_autosummary/pyfeyn2.render.render.Render.html#pyfeyn2.render.render.Render">[docs]</a>class Render:
-<div class="viewcode-block" id="Render.__init__"><a class="viewcode-back" href="../../../_autosummary/pyfeyn2.render.render.Render.html#pyfeyn2.render.render.Render.__init__">[docs]</a>    def __init__(self, fd=None):
+<div class="viewcode-block" id="Render"><a class="viewcode-back" href="../../../_autosummary/pyfeyn2.render.render.Render.html#pyfeyn2.render.latex.latex.Render">[docs]</a>class Render:
+<div class="viewcode-block" id="Render.__init__"><a class="viewcode-back" href="../../../_autosummary/pyfeyn2.render.render.Render.html#pyfeyn2.render.latex.latex.Render.__init__">[docs]</a>    def __init__(self, fd=None):
         self.fd = fd
         self.src = &quot;&quot;</div>
 
@@ -123,7 +123,7 @@ from pyfeyn2.feynmandiagram import FeynmanDiagram, Leg, Propagator, Vertex
     def set_src(self, src):
         self.src = src
 
-<div class="viewcode-block" id="Render.render"><a class="viewcode-back" href="../../../_autosummary/pyfeyn2.render.render.Render.html#pyfeyn2.render.render.Render.render">[docs]</a>    @abc.abstractmethod
+<div class="viewcode-block" id="Render.render"><a class="viewcode-back" href="../../../_autosummary/pyfeyn2.render.render.Render.html#pyfeyn2.render.latex.latex.Render.render">[docs]</a>    @abc.abstractmethod
     def render(
         self,
         file=None,
@@ -177,19 +177,23 @@ from pyfeyn2.feynmandiagram import FeynmanDiagram, Leg, Propagator, Vertex
         fd = FeynmanDiagram().add(
             v1,
             v2,
-            Propagator().connect(v1, v2).with_type(d).set_label(label).set_tension(0.0),
+            Propagator()
+            .connect(v1, v2)
+            .with_type(d)
+            .with_label(label)
+            .with_tension(0.0),
             Leg()
             .with_target(v1)
-            .set_point(v1)
+            .with_point(v1)
             .with_type(&quot;phantom&quot;)
             .with_incoming()
-            .set_length(0.0),
+            .with_length(0.0),
             Leg()
             .with_target(v2)
-            .set_point(v2)
+            .with_point(v2)
             .with_type(&quot;phantom&quot;)
             .with_outgoing()
-            .set_length(0.0),
+            .with_length(0.0),
         )
 
         self.set_feynman_diagram(fd)
@@ -200,9 +204,9 @@ from pyfeyn2.feynmandiagram import FeynmanDiagram, Leg, Propagator, Vertex
 
         fd = FeynmanDiagram().add(
             v1,
-            Leg().with_target(v1).set_xy(-1, 0).with_type(&quot;line&quot;).with_incoming(),
-            Leg().with_target(v1).set_xy(1, -1).with_type(&quot;line&quot;).with_incoming(),
-            Leg().with_target(v1).set_xy(1, 1).with_type(&quot;line&quot;).with_outgoing(),
+            Leg().with_target(v1).with_xy(-1, 0).with_type(&quot;line&quot;).with_incoming(),
+            Leg().with_target(v1).with_xy(1, -1).with_type(&quot;line&quot;).with_incoming(),
+            Leg().with_target(v1).with_xy(1, 1).with_type(&quot;line&quot;).with_outgoing(),
         )
 
         self.set_feynman_diagram(fd)
@@ -216,7 +220,7 @@ from pyfeyn2.feynmandiagram import FeynmanDiagram, Leg, Propagator, Vertex
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2022, Alexander Puck Neuwirth.</p>
+    <p>&#169; Copyright 2023, Alexander Puck Neuwirth.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

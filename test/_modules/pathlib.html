@@ -1,0 +1,1718 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pathlib &mdash; pyfeyn2  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/plot_directive.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/jupyter-sphinx.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/thebelab.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/thebelab-helper.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> pyfeyn2
+            <img src="../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                2.2.3-1-gde23f1e8
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">FeynML:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../feynml/index.html">FeynML</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Gallery:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../gallery/index.html">Gallery</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Renderers:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../renderers/index.html">Renderers</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Interfaces:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../interfaces/index.html">Interfaces</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Modules:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/pyfeyn2.html">pyfeyn2</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Versions:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://pyfeyn2.readthedocs.io/en/stable/">RTD</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/pyfeyn2/">Stable</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/pyfeyn2/test/">Dev</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Links:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/APN-Pucky/pyfeyn2">GitHub</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pyfeyn2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Module code</a></li>
+      <li class="breadcrumb-item active">pathlib</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for pathlib</h1><div class="highlight"><pre>
+<span></span>import fnmatch
+import functools
+import io
+import ntpath
+import os
+import posixpath
+import re
+import sys
+from _collections_abc import Sequence
+from errno import EINVAL, ENOENT, ENOTDIR, EBADF, ELOOP
+from operator import attrgetter
+from stat import S_ISDIR, S_ISLNK, S_ISREG, S_ISSOCK, S_ISBLK, S_ISCHR, S_ISFIFO
+from urllib.parse import quote_from_bytes as urlquote_from_bytes
+
+
+supports_symlinks = True
+if os.name == &#39;nt&#39;:
+    import nt
+    if sys.getwindowsversion()[:2] &gt;= (6, 0):
+        from nt import _getfinalpathname
+    else:
+        supports_symlinks = False
+        _getfinalpathname = None
+else:
+    nt = None
+
+
+__all__ = [
+    &quot;PurePath&quot;, &quot;PurePosixPath&quot;, &quot;PureWindowsPath&quot;,
+    &quot;Path&quot;, &quot;PosixPath&quot;, &quot;WindowsPath&quot;,
+    ]
+
+#
+# Internals
+#
+
+# EBADF - guard against macOS `stat` throwing EBADF
+_IGNORED_ERROS = (ENOENT, ENOTDIR, EBADF, ELOOP)
+
+_IGNORED_WINERRORS = (
+    21,  # ERROR_NOT_READY - drive exists but is not accessible
+    123, # ERROR_INVALID_NAME - fix for bpo-35306
+    1921,  # ERROR_CANT_RESOLVE_FILENAME - fix for broken symlink pointing to itself
+)
+
+def _ignore_error(exception):
+    return (getattr(exception, &#39;errno&#39;, None) in _IGNORED_ERROS or
+            getattr(exception, &#39;winerror&#39;, None) in _IGNORED_WINERRORS)
+
+
+def _is_wildcard_pattern(pat):
+    # Whether this pattern needs actual matching using fnmatch, or can
+    # be looked up directly as a file.
+    return &quot;*&quot; in pat or &quot;?&quot; in pat or &quot;[&quot; in pat
+
+
+class _Flavour(object):
+    &quot;&quot;&quot;A flavour implements a particular (platform-specific) set of path
+    semantics.&quot;&quot;&quot;
+
+    def __init__(self):
+        self.join = self.sep.join
+
+    def parse_parts(self, parts):
+        parsed = []
+        sep = self.sep
+        altsep = self.altsep
+        drv = root = &#39;&#39;
+        it = reversed(parts)
+        for part in it:
+            if not part:
+                continue
+            if altsep:
+                part = part.replace(altsep, sep)
+            drv, root, rel = self.splitroot(part)
+            if sep in rel:
+                for x in reversed(rel.split(sep)):
+                    if x and x != &#39;.&#39;:
+                        parsed.append(sys.intern(x))
+            else:
+                if rel and rel != &#39;.&#39;:
+                    parsed.append(sys.intern(rel))
+            if drv or root:
+                if not drv:
+                    # If no drive is present, try to find one in the previous
+                    # parts. This makes the result of parsing e.g.
+                    # (&quot;C:&quot;, &quot;/&quot;, &quot;a&quot;) reasonably intuitive.
+                    for part in it:
+                        if not part:
+                            continue
+                        if altsep:
+                            part = part.replace(altsep, sep)
+                        drv = self.splitroot(part)[0]
+                        if drv:
+                            break
+                break
+        if drv or root:
+            parsed.append(drv + root)
+        parsed.reverse()
+        return drv, root, parsed
+
+    def join_parsed_parts(self, drv, root, parts, drv2, root2, parts2):
+        &quot;&quot;&quot;
+        Join the two paths represented by the respective
+        (drive, root, parts) tuples.  Return a new (drive, root, parts) tuple.
+        &quot;&quot;&quot;
+        if root2:
+            if not drv2 and drv:
+                return drv, root2, [drv + root2] + parts2[1:]
+        elif drv2:
+            if drv2 == drv or self.casefold(drv2) == self.casefold(drv):
+                # Same drive =&gt; second path is relative to the first
+                return drv, root, parts + parts2[1:]
+        else:
+            # Second path is non-anchored (common case)
+            return drv, root, parts + parts2
+        return drv2, root2, parts2
+
+
+class _WindowsFlavour(_Flavour):
+    # Reference for Windows paths can be found at
+    # http://msdn.microsoft.com/en-us/library/aa365247%28v=vs.85%29.aspx
+
+    sep = &#39;\\&#39;
+    altsep = &#39;/&#39;
+    has_drv = True
+    pathmod = ntpath
+
+    is_supported = (os.name == &#39;nt&#39;)
+
+    drive_letters = set(&#39;abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ&#39;)
+    ext_namespace_prefix = &#39;\\\\?\\&#39;
+
+    reserved_names = (
+        {&#39;CON&#39;, &#39;PRN&#39;, &#39;AUX&#39;, &#39;NUL&#39;} |
+        {&#39;COM%d&#39; % i for i in range(1, 10)} |
+        {&#39;LPT%d&#39; % i for i in range(1, 10)}
+        )
+
+    # Interesting findings about extended paths:
+    # - &#39;\\?\c:\a&#39;, &#39;//?/c:\a&#39; and &#39;//?/c:/a&#39; are all supported
+    #   but &#39;\\?\c:/a&#39; is not
+    # - extended paths are always absolute; &quot;relative&quot; extended paths will
+    #   fail.
+
+    def splitroot(self, part, sep=sep):
+        first = part[0:1]
+        second = part[1:2]
+        if (second == sep and first == sep):
+            # XXX extended paths should also disable the collapsing of &quot;.&quot;
+            # components (according to MSDN docs).
+            prefix, part = self._split_extended_path(part)
+            first = part[0:1]
+            second = part[1:2]
+        else:
+            prefix = &#39;&#39;
+        third = part[2:3]
+        if (second == sep and first == sep and third != sep):
+            # is a UNC path:
+            # vvvvvvvvvvvvvvvvvvvvv root
+            # \\machine\mountpoint\directory\etc\...
+            #            directory ^^^^^^^^^^^^^^
+            index = part.find(sep, 2)
+            if index != -1:
+                index2 = part.find(sep, index + 1)
+                # a UNC path can&#39;t have two slashes in a row
+                # (after the initial two)
+                if index2 != index + 1:
+                    if index2 == -1:
+                        index2 = len(part)
+                    if prefix:
+                        return prefix + part[1:index2], sep, part[index2+1:]
+                    else:
+                        return part[:index2], sep, part[index2+1:]
+        drv = root = &#39;&#39;
+        if second == &#39;:&#39; and first in self.drive_letters:
+            drv = part[:2]
+            part = part[2:]
+            first = third
+        if first == sep:
+            root = first
+            part = part.lstrip(sep)
+        return prefix + drv, root, part
+
+    def casefold(self, s):
+        return s.lower()
+
+    def casefold_parts(self, parts):
+        return [p.lower() for p in parts]
+
+    def compile_pattern(self, pattern):
+        return re.compile(fnmatch.translate(pattern), re.IGNORECASE).fullmatch
+
+    def resolve(self, path, strict=False):
+        s = str(path)
+        if not s:
+            return os.getcwd()
+        previous_s = None
+        if _getfinalpathname is not None:
+            if strict:
+                return self._ext_to_normal(_getfinalpathname(s))
+            else:
+                tail_parts = []  # End of the path after the first one not found
+                while True:
+                    try:
+                        s = self._ext_to_normal(_getfinalpathname(s))
+                    except FileNotFoundError:
+                        previous_s = s
+                        s, tail = os.path.split(s)
+                        tail_parts.append(tail)
+                        if previous_s == s:
+                            return path
+                    else:
+                        return os.path.join(s, *reversed(tail_parts))
+        # Means fallback on absolute
+        return None
+
+    def _split_extended_path(self, s, ext_prefix=ext_namespace_prefix):
+        prefix = &#39;&#39;
+        if s.startswith(ext_prefix):
+            prefix = s[:4]
+            s = s[4:]
+            if s.startswith(&#39;UNC\\&#39;):
+                prefix += s[:3]
+                s = &#39;\\&#39; + s[3:]
+        return prefix, s
+
+    def _ext_to_normal(self, s):
+        # Turn back an extended path into a normal DOS-like path
+        return self._split_extended_path(s)[1]
+
+    def is_reserved(self, parts):
+        # NOTE: the rules for reserved names seem somewhat complicated
+        # (e.g. r&quot;..\NUL&quot; is reserved but not r&quot;foo\NUL&quot;).
+        # We err on the side of caution and return True for paths which are
+        # not considered reserved by Windows.
+        if not parts:
+            return False
+        if parts[0].startswith(&#39;\\\\&#39;):
+            # UNC paths are never reserved
+            return False
+        return parts[-1].partition(&#39;.&#39;)[0].upper() in self.reserved_names
+
+    def make_uri(self, path):
+        # Under Windows, file URIs use the UTF-8 encoding.
+        drive = path.drive
+        if len(drive) == 2 and drive[1] == &#39;:&#39;:
+            # It&#39;s a path on a local drive =&gt; &#39;file:///c:/a/b&#39;
+            rest = path.as_posix()[2:].lstrip(&#39;/&#39;)
+            return &#39;file:///%s/%s&#39; % (
+                drive, urlquote_from_bytes(rest.encode(&#39;utf-8&#39;)))
+        else:
+            # It&#39;s a path on a network drive =&gt; &#39;file://host/share/a/b&#39;
+            return &#39;file:&#39; + urlquote_from_bytes(path.as_posix().encode(&#39;utf-8&#39;))
+
+    def gethomedir(self, username):
+        if &#39;USERPROFILE&#39; in os.environ:
+            userhome = os.environ[&#39;USERPROFILE&#39;]
+        elif &#39;HOMEPATH&#39; in os.environ:
+            try:
+                drv = os.environ[&#39;HOMEDRIVE&#39;]
+            except KeyError:
+                drv = &#39;&#39;
+            userhome = drv + os.environ[&#39;HOMEPATH&#39;]
+        else:
+            raise RuntimeError(&quot;Can&#39;t determine home directory&quot;)
+
+        if username:
+            # Try to guess user home directory.  By default all users
+            # directories are located in the same place and are named by
+            # corresponding usernames.  If current user home directory points
+            # to nonstandard place, this guess is likely wrong.
+            if os.environ[&#39;USERNAME&#39;] != username:
+                drv, root, parts = self.parse_parts((userhome,))
+                if parts[-1] != os.environ[&#39;USERNAME&#39;]:
+                    raise RuntimeError(&quot;Can&#39;t determine home directory &quot;
+                                       &quot;for %r&quot; % username)
+                parts[-1] = username
+                if drv or root:
+                    userhome = drv + root + self.join(parts[1:])
+                else:
+                    userhome = self.join(parts)
+        return userhome
+
+class _PosixFlavour(_Flavour):
+    sep = &#39;/&#39;
+    altsep = &#39;&#39;
+    has_drv = False
+    pathmod = posixpath
+
+    is_supported = (os.name != &#39;nt&#39;)
+
+    def splitroot(self, part, sep=sep):
+        if part and part[0] == sep:
+            stripped_part = part.lstrip(sep)
+            # According to POSIX path resolution:
+            # http://pubs.opengroup.org/onlinepubs/009695399/basedefs/xbd_chap04.html#tag_04_11
+            # &quot;A pathname that begins with two successive slashes may be
+            # interpreted in an implementation-defined manner, although more
+            # than two leading slashes shall be treated as a single slash&quot;.
+            if len(part) - len(stripped_part) == 2:
+                return &#39;&#39;, sep * 2, stripped_part
+            else:
+                return &#39;&#39;, sep, stripped_part
+        else:
+            return &#39;&#39;, &#39;&#39;, part
+
+    def casefold(self, s):
+        return s
+
+    def casefold_parts(self, parts):
+        return parts
+
+    def compile_pattern(self, pattern):
+        return re.compile(fnmatch.translate(pattern)).fullmatch
+
+    def resolve(self, path, strict=False):
+        sep = self.sep
+        accessor = path._accessor
+        seen = {}
+        def _resolve(path, rest):
+            if rest.startswith(sep):
+                path = &#39;&#39;
+
+            for name in rest.split(sep):
+                if not name or name == &#39;.&#39;:
+                    # current dir
+                    continue
+                if name == &#39;..&#39;:
+                    # parent dir
+                    path, _, _ = path.rpartition(sep)
+                    continue
+                if path.endswith(sep):
+                    newpath = path + name
+                else:
+                    newpath = path + sep + name
+                if newpath in seen:
+                    # Already seen this path
+                    path = seen[newpath]
+                    if path is not None:
+                        # use cached value
+                        continue
+                    # The symlink is not resolved, so we must have a symlink loop.
+                    raise RuntimeError(&quot;Symlink loop from %r&quot; % newpath)
+                # Resolve the symbolic link
+                try:
+                    target = accessor.readlink(newpath)
+                except OSError as e:
+                    if e.errno != EINVAL and strict:
+                        raise
+                    # Not a symlink, or non-strict mode. We just leave the path
+                    # untouched.
+                    path = newpath
+                else:
+                    seen[newpath] = None # not resolved symlink
+                    path = _resolve(path, target)
+                    seen[newpath] = path # resolved symlink
+
+            return path
+        # NOTE: according to POSIX, getcwd() cannot contain path components
+        # which are symlinks.
+        base = &#39;&#39; if path.is_absolute() else os.getcwd()
+        return _resolve(base, str(path)) or sep
+
+    def is_reserved(self, parts):
+        return False
+
+    def make_uri(self, path):
+        # We represent the path using the local filesystem encoding,
+        # for portability to other applications.
+        bpath = bytes(path)
+        return &#39;file://&#39; + urlquote_from_bytes(bpath)
+
+    def gethomedir(self, username):
+        if not username:
+            try:
+                return os.environ[&#39;HOME&#39;]
+            except KeyError:
+                import pwd
+                return pwd.getpwuid(os.getuid()).pw_dir
+        else:
+            import pwd
+            try:
+                return pwd.getpwnam(username).pw_dir
+            except KeyError:
+                raise RuntimeError(&quot;Can&#39;t determine home directory &quot;
+                                   &quot;for %r&quot; % username)
+
+
+_windows_flavour = _WindowsFlavour()
+_posix_flavour = _PosixFlavour()
+
+
+class _Accessor:
+    &quot;&quot;&quot;An accessor implements a particular (system-specific or not) way of
+    accessing paths on the filesystem.&quot;&quot;&quot;
+
+
+class _NormalAccessor(_Accessor):
+
+    stat = os.stat
+
+    lstat = os.lstat
+
+    open = os.open
+
+    listdir = os.listdir
+
+    scandir = os.scandir
+
+    chmod = os.chmod
+
+    if hasattr(os, &quot;lchmod&quot;):
+        lchmod = os.lchmod
+    else:
+        def lchmod(self, pathobj, mode):
+            raise NotImplementedError(&quot;lchmod() not available on this system&quot;)
+
+    mkdir = os.mkdir
+
+    unlink = os.unlink
+
+    if hasattr(os, &quot;link&quot;):
+        link_to = os.link
+    else:
+        @staticmethod
+        def link_to(self, target):
+            raise NotImplementedError(&quot;os.link() not available on this system&quot;)
+
+    rmdir = os.rmdir
+
+    rename = os.rename
+
+    replace = os.replace
+
+    if nt:
+        if supports_symlinks:
+            symlink = os.symlink
+        else:
+            def symlink(a, b, target_is_directory):
+                raise NotImplementedError(&quot;symlink() not available on this system&quot;)
+    else:
+        # Under POSIX, os.symlink() takes two args
+        @staticmethod
+        def symlink(a, b, target_is_directory):
+            return os.symlink(a, b)
+
+    utime = os.utime
+
+    # Helper for resolve()
+    def readlink(self, path):
+        return os.readlink(path)
+
+
+_normal_accessor = _NormalAccessor()
+
+
+#
+# Globbing helpers
+#
+
+def _make_selector(pattern_parts, flavour):
+    pat = pattern_parts[0]
+    child_parts = pattern_parts[1:]
+    if pat == &#39;**&#39;:
+        cls = _RecursiveWildcardSelector
+    elif &#39;**&#39; in pat:
+        raise ValueError(&quot;Invalid pattern: &#39;**&#39; can only be an entire path component&quot;)
+    elif _is_wildcard_pattern(pat):
+        cls = _WildcardSelector
+    else:
+        cls = _PreciseSelector
+    return cls(pat, child_parts, flavour)
+
+if hasattr(functools, &quot;lru_cache&quot;):
+    _make_selector = functools.lru_cache()(_make_selector)
+
+
+class _Selector:
+    &quot;&quot;&quot;A selector matches a specific glob pattern part against the children
+    of a given path.&quot;&quot;&quot;
+
+    def __init__(self, child_parts, flavour):
+        self.child_parts = child_parts
+        if child_parts:
+            self.successor = _make_selector(child_parts, flavour)
+            self.dironly = True
+        else:
+            self.successor = _TerminatingSelector()
+            self.dironly = False
+
+    def select_from(self, parent_path):
+        &quot;&quot;&quot;Iterate over all child paths of `parent_path` matched by this
+        selector.  This can contain parent_path itself.&quot;&quot;&quot;
+        path_cls = type(parent_path)
+        is_dir = path_cls.is_dir
+        exists = path_cls.exists
+        scandir = parent_path._accessor.scandir
+        if not is_dir(parent_path):
+            return iter([])
+        return self._select_from(parent_path, is_dir, exists, scandir)
+
+
+class _TerminatingSelector:
+
+    def _select_from(self, parent_path, is_dir, exists, scandir):
+        yield parent_path
+
+
+class _PreciseSelector(_Selector):
+
+    def __init__(self, name, child_parts, flavour):
+        self.name = name
+        _Selector.__init__(self, child_parts, flavour)
+
+    def _select_from(self, parent_path, is_dir, exists, scandir):
+        try:
+            path = parent_path._make_child_relpath(self.name)
+            if (is_dir if self.dironly else exists)(path):
+                for p in self.successor._select_from(path, is_dir, exists, scandir):
+                    yield p
+        except PermissionError:
+            return
+
+
+class _WildcardSelector(_Selector):
+
+    def __init__(self, pat, child_parts, flavour):
+        self.match = flavour.compile_pattern(pat)
+        _Selector.__init__(self, child_parts, flavour)
+
+    def _select_from(self, parent_path, is_dir, exists, scandir):
+        try:
+            with scandir(parent_path) as scandir_it:
+                entries = list(scandir_it)
+            for entry in entries:
+                if self.dironly:
+                    try:
+                        # &quot;entry.is_dir()&quot; can raise PermissionError
+                        # in some cases (see bpo-38894), which is not
+                        # among the errors ignored by _ignore_error()
+                        if not entry.is_dir():
+                            continue
+                    except OSError as e:
+                        if not _ignore_error(e):
+                            raise
+                        continue
+                name = entry.name
+                if self.match(name):
+                    path = parent_path._make_child_relpath(name)
+                    for p in self.successor._select_from(path, is_dir, exists, scandir):
+                        yield p
+        except PermissionError:
+            return
+
+
+class _RecursiveWildcardSelector(_Selector):
+
+    def __init__(self, pat, child_parts, flavour):
+        _Selector.__init__(self, child_parts, flavour)
+
+    def _iterate_directories(self, parent_path, is_dir, scandir):
+        yield parent_path
+        try:
+            with scandir(parent_path) as scandir_it:
+                entries = list(scandir_it)
+            for entry in entries:
+                entry_is_dir = False
+                try:
+                    entry_is_dir = entry.is_dir()
+                except OSError as e:
+                    if not _ignore_error(e):
+                        raise
+                if entry_is_dir and not entry.is_symlink():
+                    path = parent_path._make_child_relpath(entry.name)
+                    for p in self._iterate_directories(path, is_dir, scandir):
+                        yield p
+        except PermissionError:
+            return
+
+    def _select_from(self, parent_path, is_dir, exists, scandir):
+        try:
+            yielded = set()
+            try:
+                successor_select = self.successor._select_from
+                for starting_point in self._iterate_directories(parent_path, is_dir, scandir):
+                    for p in successor_select(starting_point, is_dir, exists, scandir):
+                        if p not in yielded:
+                            yield p
+                            yielded.add(p)
+            finally:
+                yielded.clear()
+        except PermissionError:
+            return
+
+
+#
+# Public API
+#
+
+class _PathParents(Sequence):
+    &quot;&quot;&quot;This object provides sequence-like access to the logical ancestors
+    of a path.  Don&#39;t try to construct it yourself.&quot;&quot;&quot;
+    __slots__ = (&#39;_pathcls&#39;, &#39;_drv&#39;, &#39;_root&#39;, &#39;_parts&#39;)
+
+    def __init__(self, path):
+        # We don&#39;t store the instance to avoid reference cycles
+        self._pathcls = type(path)
+        self._drv = path._drv
+        self._root = path._root
+        self._parts = path._parts
+
+    def __len__(self):
+        if self._drv or self._root:
+            return len(self._parts) - 1
+        else:
+            return len(self._parts)
+
+    def __getitem__(self, idx):
+        if idx &lt; 0 or idx &gt;= len(self):
+            raise IndexError(idx)
+        return self._pathcls._from_parsed_parts(self._drv, self._root,
+                                                self._parts[:-idx - 1])
+
+    def __repr__(self):
+        return &quot;&lt;{}.parents&gt;&quot;.format(self._pathcls.__name__)
+
+
+class PurePath(object):
+    &quot;&quot;&quot;Base class for manipulating paths without I/O.
+
+    PurePath represents a filesystem path and offers operations which
+    don&#39;t imply any actual filesystem I/O.  Depending on your system,
+    instantiating a PurePath will return either a PurePosixPath or a
+    PureWindowsPath object.  You can also instantiate either of these classes
+    directly, regardless of your system.
+    &quot;&quot;&quot;
+    __slots__ = (
+        &#39;_drv&#39;, &#39;_root&#39;, &#39;_parts&#39;,
+        &#39;_str&#39;, &#39;_hash&#39;, &#39;_pparts&#39;, &#39;_cached_cparts&#39;,
+    )
+
+    def __new__(cls, *args):
+        &quot;&quot;&quot;Construct a PurePath from one or several strings and or existing
+        PurePath objects.  The strings and path objects are combined so as
+        to yield a canonicalized path, which is incorporated into the
+        new PurePath object.
+        &quot;&quot;&quot;
+        if cls is PurePath:
+            cls = PureWindowsPath if os.name == &#39;nt&#39; else PurePosixPath
+        return cls._from_parts(args)
+
+    def __reduce__(self):
+        # Using the parts tuple helps share interned path parts
+        # when pickling related paths.
+        return (self.__class__, tuple(self._parts))
+
+    @classmethod
+    def _parse_args(cls, args):
+        # This is useful when you don&#39;t want to create an instance, just
+        # canonicalize some constructor arguments.
+        parts = []
+        for a in args:
+            if isinstance(a, PurePath):
+                parts += a._parts
+            else:
+                a = os.fspath(a)
+                if isinstance(a, str):
+                    # Force-cast str subclasses to str (issue #21127)
+                    parts.append(str(a))
+                else:
+                    raise TypeError(
+                        &quot;argument should be a str object or an os.PathLike &quot;
+                        &quot;object returning str, not %r&quot;
+                        % type(a))
+        return cls._flavour.parse_parts(parts)
+
+    @classmethod
+    def _from_parts(cls, args, init=True):
+        # We need to call _parse_args on the instance, so as to get the
+        # right flavour.
+        self = object.__new__(cls)
+        drv, root, parts = self._parse_args(args)
+        self._drv = drv
+        self._root = root
+        self._parts = parts
+        if init:
+            self._init()
+        return self
+
+    @classmethod
+    def _from_parsed_parts(cls, drv, root, parts, init=True):
+        self = object.__new__(cls)
+        self._drv = drv
+        self._root = root
+        self._parts = parts
+        if init:
+            self._init()
+        return self
+
+    @classmethod
+    def _format_parsed_parts(cls, drv, root, parts):
+        if drv or root:
+            return drv + root + cls._flavour.join(parts[1:])
+        else:
+            return cls._flavour.join(parts)
+
+    def _init(self):
+        # Overridden in concrete Path
+        pass
+
+    def _make_child(self, args):
+        drv, root, parts = self._parse_args(args)
+        drv, root, parts = self._flavour.join_parsed_parts(
+            self._drv, self._root, self._parts, drv, root, parts)
+        return self._from_parsed_parts(drv, root, parts)
+
+    def __str__(self):
+        &quot;&quot;&quot;Return the string representation of the path, suitable for
+        passing to system calls.&quot;&quot;&quot;
+        try:
+            return self._str
+        except AttributeError:
+            self._str = self._format_parsed_parts(self._drv, self._root,
+                                                  self._parts) or &#39;.&#39;
+            return self._str
+
+    def __fspath__(self):
+        return str(self)
+
+    def as_posix(self):
+        &quot;&quot;&quot;Return the string representation of the path with forward (/)
+        slashes.&quot;&quot;&quot;
+        f = self._flavour
+        return str(self).replace(f.sep, &#39;/&#39;)
+
+    def __bytes__(self):
+        &quot;&quot;&quot;Return the bytes representation of the path.  This is only
+        recommended to use under Unix.&quot;&quot;&quot;
+        return os.fsencode(self)
+
+    def __repr__(self):
+        return &quot;{}({!r})&quot;.format(self.__class__.__name__, self.as_posix())
+
+    def as_uri(self):
+        &quot;&quot;&quot;Return the path as a &#39;file&#39; URI.&quot;&quot;&quot;
+        if not self.is_absolute():
+            raise ValueError(&quot;relative path can&#39;t be expressed as a file URI&quot;)
+        return self._flavour.make_uri(self)
+
+    @property
+    def _cparts(self):
+        # Cached casefolded parts, for hashing and comparison
+        try:
+            return self._cached_cparts
+        except AttributeError:
+            self._cached_cparts = self._flavour.casefold_parts(self._parts)
+            return self._cached_cparts
+
+    def __eq__(self, other):
+        if not isinstance(other, PurePath):
+            return NotImplemented
+        return self._cparts == other._cparts and self._flavour is other._flavour
+
+    def __hash__(self):
+        try:
+            return self._hash
+        except AttributeError:
+            self._hash = hash(tuple(self._cparts))
+            return self._hash
+
+    def __lt__(self, other):
+        if not isinstance(other, PurePath) or self._flavour is not other._flavour:
+            return NotImplemented
+        return self._cparts &lt; other._cparts
+
+    def __le__(self, other):
+        if not isinstance(other, PurePath) or self._flavour is not other._flavour:
+            return NotImplemented
+        return self._cparts &lt;= other._cparts
+
+    def __gt__(self, other):
+        if not isinstance(other, PurePath) or self._flavour is not other._flavour:
+            return NotImplemented
+        return self._cparts &gt; other._cparts
+
+    def __ge__(self, other):
+        if not isinstance(other, PurePath) or self._flavour is not other._flavour:
+            return NotImplemented
+        return self._cparts &gt;= other._cparts
+
+    drive = property(attrgetter(&#39;_drv&#39;),
+                     doc=&quot;&quot;&quot;The drive prefix (letter or UNC path), if any.&quot;&quot;&quot;)
+
+    root = property(attrgetter(&#39;_root&#39;),
+                    doc=&quot;&quot;&quot;The root of the path, if any.&quot;&quot;&quot;)
+
+    @property
+    def anchor(self):
+        &quot;&quot;&quot;The concatenation of the drive and root, or &#39;&#39;.&quot;&quot;&quot;
+        anchor = self._drv + self._root
+        return anchor
+
+    @property
+    def name(self):
+        &quot;&quot;&quot;The final path component, if any.&quot;&quot;&quot;
+        parts = self._parts
+        if len(parts) == (1 if (self._drv or self._root) else 0):
+            return &#39;&#39;
+        return parts[-1]
+
+    @property
+    def suffix(self):
+        &quot;&quot;&quot;
+        The final component&#39;s last suffix, if any.
+
+        This includes the leading period. For example: &#39;.txt&#39;
+        &quot;&quot;&quot;
+        name = self.name
+        i = name.rfind(&#39;.&#39;)
+        if 0 &lt; i &lt; len(name) - 1:
+            return name[i:]
+        else:
+            return &#39;&#39;
+
+    @property
+    def suffixes(self):
+        &quot;&quot;&quot;
+        A list of the final component&#39;s suffixes, if any.
+
+        These include the leading periods. For example: [&#39;.tar&#39;, &#39;.gz&#39;]
+        &quot;&quot;&quot;
+        name = self.name
+        if name.endswith(&#39;.&#39;):
+            return []
+        name = name.lstrip(&#39;.&#39;)
+        return [&#39;.&#39; + suffix for suffix in name.split(&#39;.&#39;)[1:]]
+
+    @property
+    def stem(self):
+        &quot;&quot;&quot;The final path component, minus its last suffix.&quot;&quot;&quot;
+        name = self.name
+        i = name.rfind(&#39;.&#39;)
+        if 0 &lt; i &lt; len(name) - 1:
+            return name[:i]
+        else:
+            return name
+
+    def with_name(self, name):
+        &quot;&quot;&quot;Return a new path with the file name changed.&quot;&quot;&quot;
+        if not self.name:
+            raise ValueError(&quot;%r has an empty name&quot; % (self,))
+        drv, root, parts = self._flavour.parse_parts((name,))
+        if (not name or name[-1] in [self._flavour.sep, self._flavour.altsep]
+            or drv or root or len(parts) != 1):
+            raise ValueError(&quot;Invalid name %r&quot; % (name))
+        return self._from_parsed_parts(self._drv, self._root,
+                                       self._parts[:-1] + [name])
+
+    def with_suffix(self, suffix):
+        &quot;&quot;&quot;Return a new path with the file suffix changed.  If the path
+        has no suffix, add given suffix.  If the given suffix is an empty
+        string, remove the suffix from the path.
+        &quot;&quot;&quot;
+        f = self._flavour
+        if f.sep in suffix or f.altsep and f.altsep in suffix:
+            raise ValueError(&quot;Invalid suffix %r&quot; % (suffix,))
+        if suffix and not suffix.startswith(&#39;.&#39;) or suffix == &#39;.&#39;:
+            raise ValueError(&quot;Invalid suffix %r&quot; % (suffix))
+        name = self.name
+        if not name:
+            raise ValueError(&quot;%r has an empty name&quot; % (self,))
+        old_suffix = self.suffix
+        if not old_suffix:
+            name = name + suffix
+        else:
+            name = name[:-len(old_suffix)] + suffix
+        return self._from_parsed_parts(self._drv, self._root,
+                                       self._parts[:-1] + [name])
+
+    def relative_to(self, *other):
+        &quot;&quot;&quot;Return the relative path to another path identified by the passed
+        arguments.  If the operation is not possible (because this is not
+        a subpath of the other path), raise ValueError.
+        &quot;&quot;&quot;
+        # For the purpose of this method, drive and root are considered
+        # separate parts, i.e.:
+        #   Path(&#39;c:/&#39;).relative_to(&#39;c:&#39;)  gives Path(&#39;/&#39;)
+        #   Path(&#39;c:/&#39;).relative_to(&#39;/&#39;)   raise ValueError
+        if not other:
+            raise TypeError(&quot;need at least one argument&quot;)
+        parts = self._parts
+        drv = self._drv
+        root = self._root
+        if root:
+            abs_parts = [drv, root] + parts[1:]
+        else:
+            abs_parts = parts
+        to_drv, to_root, to_parts = self._parse_args(other)
+        if to_root:
+            to_abs_parts = [to_drv, to_root] + to_parts[1:]
+        else:
+            to_abs_parts = to_parts
+        n = len(to_abs_parts)
+        cf = self._flavour.casefold_parts
+        if (root or drv) if n == 0 else cf(abs_parts[:n]) != cf(to_abs_parts):
+            formatted = self._format_parsed_parts(to_drv, to_root, to_parts)
+            raise ValueError(&quot;{!r} does not start with {!r}&quot;
+                             .format(str(self), str(formatted)))
+        return self._from_parsed_parts(&#39;&#39;, root if n == 1 else &#39;&#39;,
+                                       abs_parts[n:])
+
+    @property
+    def parts(self):
+        &quot;&quot;&quot;An object providing sequence-like access to the
+        components in the filesystem path.&quot;&quot;&quot;
+        # We cache the tuple to avoid building a new one each time .parts
+        # is accessed.  XXX is this necessary?
+        try:
+            return self._pparts
+        except AttributeError:
+            self._pparts = tuple(self._parts)
+            return self._pparts
+
+    def joinpath(self, *args):
+        &quot;&quot;&quot;Combine this path with one or several arguments, and return a
+        new path representing either a subpath (if all arguments are relative
+        paths) or a totally different path (if one of the arguments is
+        anchored).
+        &quot;&quot;&quot;
+        return self._make_child(args)
+
+    def __truediv__(self, key):
+        try:
+            return self._make_child((key,))
+        except TypeError:
+            return NotImplemented
+
+    def __rtruediv__(self, key):
+        try:
+            return self._from_parts([key] + self._parts)
+        except TypeError:
+            return NotImplemented
+
+    @property
+    def parent(self):
+        &quot;&quot;&quot;The logical parent of the path.&quot;&quot;&quot;
+        drv = self._drv
+        root = self._root
+        parts = self._parts
+        if len(parts) == 1 and (drv or root):
+            return self
+        return self._from_parsed_parts(drv, root, parts[:-1])
+
+    @property
+    def parents(self):
+        &quot;&quot;&quot;A sequence of this path&#39;s logical parents.&quot;&quot;&quot;
+        return _PathParents(self)
+
+    def is_absolute(self):
+        &quot;&quot;&quot;True if the path is absolute (has both a root and, if applicable,
+        a drive).&quot;&quot;&quot;
+        if not self._root:
+            return False
+        return not self._flavour.has_drv or bool(self._drv)
+
+    def is_reserved(self):
+        &quot;&quot;&quot;Return True if the path contains one of the special names reserved
+        by the system, if any.&quot;&quot;&quot;
+        return self._flavour.is_reserved(self._parts)
+
+    def match(self, path_pattern):
+        &quot;&quot;&quot;
+        Return True if this path matches the given pattern.
+        &quot;&quot;&quot;
+        cf = self._flavour.casefold
+        path_pattern = cf(path_pattern)
+        drv, root, pat_parts = self._flavour.parse_parts((path_pattern,))
+        if not pat_parts:
+            raise ValueError(&quot;empty pattern&quot;)
+        if drv and drv != cf(self._drv):
+            return False
+        if root and root != cf(self._root):
+            return False
+        parts = self._cparts
+        if drv or root:
+            if len(pat_parts) != len(parts):
+                return False
+            pat_parts = pat_parts[1:]
+        elif len(pat_parts) &gt; len(parts):
+            return False
+        for part, pat in zip(reversed(parts), reversed(pat_parts)):
+            if not fnmatch.fnmatchcase(part, pat):
+                return False
+        return True
+
+# Can&#39;t subclass os.PathLike from PurePath and keep the constructor
+# optimizations in PurePath._parse_args().
+os.PathLike.register(PurePath)
+
+
+class PurePosixPath(PurePath):
+    &quot;&quot;&quot;PurePath subclass for non-Windows systems.
+
+    On a POSIX system, instantiating a PurePath should return this object.
+    However, you can also instantiate it directly on any system.
+    &quot;&quot;&quot;
+    _flavour = _posix_flavour
+    __slots__ = ()
+
+
+class PureWindowsPath(PurePath):
+    &quot;&quot;&quot;PurePath subclass for Windows systems.
+
+    On a Windows system, instantiating a PurePath should return this object.
+    However, you can also instantiate it directly on any system.
+    &quot;&quot;&quot;
+    _flavour = _windows_flavour
+    __slots__ = ()
+
+
+# Filesystem-accessing classes
+
+
+<div class="viewcode-block" id="Path"><a class="viewcode-back" href="../_autosummary/pyfeyn2.render.latex.metapost.Path.html#pyfeyn2.render.latex.metapost.Path">[docs]</a>class Path(PurePath):
+    &quot;&quot;&quot;PurePath subclass that can make system calls.
+
+    Path represents a filesystem path but unlike PurePath, also offers
+    methods to do system calls on path objects. Depending on your system,
+    instantiating a Path will return either a PosixPath or a WindowsPath
+    object. You can also instantiate a PosixPath or WindowsPath directly,
+    but cannot instantiate a WindowsPath on a POSIX system or vice versa.
+    &quot;&quot;&quot;
+    __slots__ = (
+        &#39;_accessor&#39;,
+        &#39;_closed&#39;,
+    )
+
+    def __new__(cls, *args, **kwargs):
+        if cls is Path:
+            cls = WindowsPath if os.name == &#39;nt&#39; else PosixPath
+        self = cls._from_parts(args, init=False)
+        if not self._flavour.is_supported:
+            raise NotImplementedError(&quot;cannot instantiate %r on your system&quot;
+                                      % (cls.__name__,))
+        self._init()
+        return self
+
+    def _init(self,
+              # Private non-constructor arguments
+              template=None,
+              ):
+        self._closed = False
+        if template is not None:
+            self._accessor = template._accessor
+        else:
+            self._accessor = _normal_accessor
+
+    def _make_child_relpath(self, part):
+        # This is an optimization used for dir walking.  `part` must be
+        # a single part relative to this path.
+        parts = self._parts + [part]
+        return self._from_parsed_parts(self._drv, self._root, parts)
+
+    def __enter__(self):
+        if self._closed:
+            self._raise_closed()
+        return self
+
+    def __exit__(self, t, v, tb):
+        self._closed = True
+
+    def _raise_closed(self):
+        raise ValueError(&quot;I/O operation on closed path&quot;)
+
+    def _opener(self, name, flags, mode=0o666):
+        # A stub for the opener argument to built-in open()
+        return self._accessor.open(self, flags, mode)
+
+    def _raw_open(self, flags, mode=0o777):
+        &quot;&quot;&quot;
+        Open the file pointed by this path and return a file descriptor,
+        as os.open() does.
+        &quot;&quot;&quot;
+        if self._closed:
+            self._raise_closed()
+        return self._accessor.open(self, flags, mode)
+
+    # Public API
+
+<div class="viewcode-block" id="Path.cwd"><a class="viewcode-back" href="../_autosummary/pyfeyn2.render.latex.metapost.Path.html#pyfeyn2.render.latex.metapost.Path.cwd">[docs]</a>    @classmethod
+    def cwd(cls):
+        &quot;&quot;&quot;Return a new path pointing to the current working directory
+        (as returned by os.getcwd()).
+        &quot;&quot;&quot;
+        return cls(os.getcwd())</div>
+
+<div class="viewcode-block" id="Path.home"><a class="viewcode-back" href="../_autosummary/pyfeyn2.render.latex.metapost.Path.html#pyfeyn2.render.latex.metapost.Path.home">[docs]</a>    @classmethod
+    def home(cls):
+        &quot;&quot;&quot;Return a new path pointing to the user&#39;s home directory (as
+        returned by os.path.expanduser(&#39;~&#39;)).
+        &quot;&quot;&quot;
+        return cls(cls()._flavour.gethomedir(None))</div>
+
+<div class="viewcode-block" id="Path.samefile"><a class="viewcode-back" href="../_autosummary/pyfeyn2.render.latex.metapost.Path.html#pyfeyn2.render.latex.metapost.Path.samefile">[docs]</a>    def samefile(self, other_path):
+        &quot;&quot;&quot;Return whether other_path is the same or not as this file
+        (as returned by os.path.samefile()).
+        &quot;&quot;&quot;
+        st = self.stat()
+        try:
+            other_st = other_path.stat()
+        except AttributeError:
+            other_st = os.stat(other_path)
+        return os.path.samestat(st, other_st)</div>
+
+<div class="viewcode-block" id="Path.iterdir"><a class="viewcode-back" href="../_autosummary/pyfeyn2.render.latex.metapost.Path.html#pyfeyn2.render.latex.metapost.Path.iterdir">[docs]</a>    def iterdir(self):
+        &quot;&quot;&quot;Iterate over the files in this directory.  Does not yield any
+        result for the special paths &#39;.&#39; and &#39;..&#39;.
+        &quot;&quot;&quot;
+        if self._closed:
+            self._raise_closed()
+        for name in self._accessor.listdir(self):
+            if name in {&#39;.&#39;, &#39;..&#39;}:
+                # Yielding a path object for these makes little sense
+                continue
+            yield self._make_child_relpath(name)
+            if self._closed:
+                self._raise_closed()</div>
+
+<div class="viewcode-block" id="Path.glob"><a class="viewcode-back" href="../_autosummary/pyfeyn2.render.latex.metapost.Path.html#pyfeyn2.render.latex.metapost.Path.glob">[docs]</a>    def glob(self, pattern):
+        &quot;&quot;&quot;Iterate over this subtree and yield all existing files (of any
+        kind, including directories) matching the given relative pattern.
+        &quot;&quot;&quot;
+        if not pattern:
+            raise ValueError(&quot;Unacceptable pattern: {!r}&quot;.format(pattern))
+        drv, root, pattern_parts = self._flavour.parse_parts((pattern,))
+        if drv or root:
+            raise NotImplementedError(&quot;Non-relative patterns are unsupported&quot;)
+        selector = _make_selector(tuple(pattern_parts), self._flavour)
+        for p in selector.select_from(self):
+            yield p</div>
+
+<div class="viewcode-block" id="Path.rglob"><a class="viewcode-back" href="../_autosummary/pyfeyn2.render.latex.metapost.Path.html#pyfeyn2.render.latex.metapost.Path.rglob">[docs]</a>    def rglob(self, pattern):
+        &quot;&quot;&quot;Recursively yield all existing files (of any kind, including
+        directories) matching the given relative pattern, anywhere in
+        this subtree.
+        &quot;&quot;&quot;
+        drv, root, pattern_parts = self._flavour.parse_parts((pattern,))
+        if drv or root:
+            raise NotImplementedError(&quot;Non-relative patterns are unsupported&quot;)
+        selector = _make_selector((&quot;**&quot;,) + tuple(pattern_parts), self._flavour)
+        for p in selector.select_from(self):
+            yield p</div>
+
+<div class="viewcode-block" id="Path.absolute"><a class="viewcode-back" href="../_autosummary/pyfeyn2.render.latex.metapost.Path.html#pyfeyn2.render.latex.metapost.Path.absolute">[docs]</a>    def absolute(self):
+        &quot;&quot;&quot;Return an absolute version of this path.  This function works
+        even if the path doesn&#39;t point to anything.
+
+        No normalization is done, i.e. all &#39;.&#39; and &#39;..&#39; will be kept along.
+        Use resolve() to get the canonical path to a file.
+        &quot;&quot;&quot;
+        # XXX untested yet!
+        if self._closed:
+            self._raise_closed()
+        if self.is_absolute():
+            return self
+        # FIXME this must defer to the specific flavour (and, under Windows,
+        # use nt._getfullpathname())
+        obj = self._from_parts([os.getcwd()] + self._parts, init=False)
+        obj._init(template=self)
+        return obj</div>
+
+<div class="viewcode-block" id="Path.resolve"><a class="viewcode-back" href="../_autosummary/pyfeyn2.render.latex.metapost.Path.html#pyfeyn2.render.latex.metapost.Path.resolve">[docs]</a>    def resolve(self, strict=False):
+        &quot;&quot;&quot;
+        Make the path absolute, resolving all symlinks on the way and also
+        normalizing it (for example turning slashes into backslashes under
+        Windows).
+        &quot;&quot;&quot;
+        if self._closed:
+            self._raise_closed()
+        s = self._flavour.resolve(self, strict=strict)
+        if s is None:
+            # No symlink resolution =&gt; for consistency, raise an error if
+            # the path doesn&#39;t exist or is forbidden
+            self.stat()
+            s = str(self.absolute())
+        # Now we have no symlinks in the path, it&#39;s safe to normalize it.
+        normed = self._flavour.pathmod.normpath(s)
+        obj = self._from_parts((normed,), init=False)
+        obj._init(template=self)
+        return obj</div>
+
+<div class="viewcode-block" id="Path.stat"><a class="viewcode-back" href="../_autosummary/pyfeyn2.render.latex.metapost.Path.html#pyfeyn2.render.latex.metapost.Path.stat">[docs]</a>    def stat(self):
+        &quot;&quot;&quot;
+        Return the result of the stat() system call on this path, like
+        os.stat() does.
+        &quot;&quot;&quot;
+        return self._accessor.stat(self)</div>
+
+<div class="viewcode-block" id="Path.owner"><a class="viewcode-back" href="../_autosummary/pyfeyn2.render.latex.metapost.Path.html#pyfeyn2.render.latex.metapost.Path.owner">[docs]</a>    def owner(self):
+        &quot;&quot;&quot;
+        Return the login name of the file owner.
+        &quot;&quot;&quot;
+        import pwd
+        return pwd.getpwuid(self.stat().st_uid).pw_name</div>
+
+<div class="viewcode-block" id="Path.group"><a class="viewcode-back" href="../_autosummary/pyfeyn2.render.latex.metapost.Path.html#pyfeyn2.render.latex.metapost.Path.group">[docs]</a>    def group(self):
+        &quot;&quot;&quot;
+        Return the group name of the file gid.
+        &quot;&quot;&quot;
+        import grp
+        return grp.getgrgid(self.stat().st_gid).gr_name</div>
+
+<div class="viewcode-block" id="Path.open"><a class="viewcode-back" href="../_autosummary/pyfeyn2.render.latex.metapost.Path.html#pyfeyn2.render.latex.metapost.Path.open">[docs]</a>    def open(self, mode=&#39;r&#39;, buffering=-1, encoding=None,
+             errors=None, newline=None):
+        &quot;&quot;&quot;
+        Open the file pointed by this path and return a file object, as
+        the built-in open() function does.
+        &quot;&quot;&quot;
+        if self._closed:
+            self._raise_closed()
+        return io.open(self, mode, buffering, encoding, errors, newline,
+                       opener=self._opener)</div>
+
+<div class="viewcode-block" id="Path.read_bytes"><a class="viewcode-back" href="../_autosummary/pyfeyn2.render.latex.metapost.Path.html#pyfeyn2.render.latex.metapost.Path.read_bytes">[docs]</a>    def read_bytes(self):
+        &quot;&quot;&quot;
+        Open the file in bytes mode, read it, and close the file.
+        &quot;&quot;&quot;
+        with self.open(mode=&#39;rb&#39;) as f:
+            return f.read()</div>
+
+<div class="viewcode-block" id="Path.read_text"><a class="viewcode-back" href="../_autosummary/pyfeyn2.render.latex.metapost.Path.html#pyfeyn2.render.latex.metapost.Path.read_text">[docs]</a>    def read_text(self, encoding=None, errors=None):
+        &quot;&quot;&quot;
+        Open the file in text mode, read it, and close the file.
+        &quot;&quot;&quot;
+        with self.open(mode=&#39;r&#39;, encoding=encoding, errors=errors) as f:
+            return f.read()</div>
+
+<div class="viewcode-block" id="Path.write_bytes"><a class="viewcode-back" href="../_autosummary/pyfeyn2.render.latex.metapost.Path.html#pyfeyn2.render.latex.metapost.Path.write_bytes">[docs]</a>    def write_bytes(self, data):
+        &quot;&quot;&quot;
+        Open the file in bytes mode, write to it, and close the file.
+        &quot;&quot;&quot;
+        # type-check for the buffer interface before truncating the file
+        view = memoryview(data)
+        with self.open(mode=&#39;wb&#39;) as f:
+            return f.write(view)</div>
+
+<div class="viewcode-block" id="Path.write_text"><a class="viewcode-back" href="../_autosummary/pyfeyn2.render.latex.metapost.Path.html#pyfeyn2.render.latex.metapost.Path.write_text">[docs]</a>    def write_text(self, data, encoding=None, errors=None):
+        &quot;&quot;&quot;
+        Open the file in text mode, write to it, and close the file.
+        &quot;&quot;&quot;
+        if not isinstance(data, str):
+            raise TypeError(&#39;data must be str, not %s&#39; %
+                            data.__class__.__name__)
+        with self.open(mode=&#39;w&#39;, encoding=encoding, errors=errors) as f:
+            return f.write(data)</div>
+
+<div class="viewcode-block" id="Path.touch"><a class="viewcode-back" href="../_autosummary/pyfeyn2.render.latex.metapost.Path.html#pyfeyn2.render.latex.metapost.Path.touch">[docs]</a>    def touch(self, mode=0o666, exist_ok=True):
+        &quot;&quot;&quot;
+        Create this file with the given access mode, if it doesn&#39;t exist.
+        &quot;&quot;&quot;
+        if self._closed:
+            self._raise_closed()
+        if exist_ok:
+            # First try to bump modification time
+            # Implementation note: GNU touch uses the UTIME_NOW option of
+            # the utimensat() / futimens() functions.
+            try:
+                self._accessor.utime(self, None)
+            except OSError:
+                # Avoid exception chaining
+                pass
+            else:
+                return
+        flags = os.O_CREAT | os.O_WRONLY
+        if not exist_ok:
+            flags |= os.O_EXCL
+        fd = self._raw_open(flags, mode)
+        os.close(fd)</div>
+
+<div class="viewcode-block" id="Path.mkdir"><a class="viewcode-back" href="../_autosummary/pyfeyn2.render.latex.metapost.Path.html#pyfeyn2.render.latex.metapost.Path.mkdir">[docs]</a>    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        &quot;&quot;&quot;
+        Create a new directory at this given path.
+        &quot;&quot;&quot;
+        if self._closed:
+            self._raise_closed()
+        try:
+            self._accessor.mkdir(self, mode)
+        except FileNotFoundError:
+            if not parents or self.parent == self:
+                raise
+            self.parent.mkdir(parents=True, exist_ok=True)
+            self.mkdir(mode, parents=False, exist_ok=exist_ok)
+        except OSError:
+            # Cannot rely on checking for EEXIST, since the operating system
+            # could give priority to other errors like EACCES or EROFS
+            if not exist_ok or not self.is_dir():
+                raise</div>
+
+<div class="viewcode-block" id="Path.chmod"><a class="viewcode-back" href="../_autosummary/pyfeyn2.render.latex.metapost.Path.html#pyfeyn2.render.latex.metapost.Path.chmod">[docs]</a>    def chmod(self, mode):
+        &quot;&quot;&quot;
+        Change the permissions of the path, like os.chmod().
+        &quot;&quot;&quot;
+        if self._closed:
+            self._raise_closed()
+        self._accessor.chmod(self, mode)</div>
+
+<div class="viewcode-block" id="Path.lchmod"><a class="viewcode-back" href="../_autosummary/pyfeyn2.render.latex.metapost.Path.html#pyfeyn2.render.latex.metapost.Path.lchmod">[docs]</a>    def lchmod(self, mode):
+        &quot;&quot;&quot;
+        Like chmod(), except if the path points to a symlink, the symlink&#39;s
+        permissions are changed, rather than its target&#39;s.
+        &quot;&quot;&quot;
+        if self._closed:
+            self._raise_closed()
+        self._accessor.lchmod(self, mode)</div>
+
+<div class="viewcode-block" id="Path.unlink"><a class="viewcode-back" href="../_autosummary/pyfeyn2.render.latex.metapost.Path.html#pyfeyn2.render.latex.metapost.Path.unlink">[docs]</a>    def unlink(self, missing_ok=False):
+        &quot;&quot;&quot;
+        Remove this file or link.
+        If the path is a directory, use rmdir() instead.
+        &quot;&quot;&quot;
+        if self._closed:
+            self._raise_closed()
+        try:
+            self._accessor.unlink(self)
+        except FileNotFoundError:
+            if not missing_ok:
+                raise</div>
+
+<div class="viewcode-block" id="Path.rmdir"><a class="viewcode-back" href="../_autosummary/pyfeyn2.render.latex.metapost.Path.html#pyfeyn2.render.latex.metapost.Path.rmdir">[docs]</a>    def rmdir(self):
+        &quot;&quot;&quot;
+        Remove this directory.  The directory must be empty.
+        &quot;&quot;&quot;
+        if self._closed:
+            self._raise_closed()
+        self._accessor.rmdir(self)</div>
+
+<div class="viewcode-block" id="Path.lstat"><a class="viewcode-back" href="../_autosummary/pyfeyn2.render.latex.metapost.Path.html#pyfeyn2.render.latex.metapost.Path.lstat">[docs]</a>    def lstat(self):
+        &quot;&quot;&quot;
+        Like stat(), except if the path points to a symlink, the symlink&#39;s
+        status information is returned, rather than its target&#39;s.
+        &quot;&quot;&quot;
+        if self._closed:
+            self._raise_closed()
+        return self._accessor.lstat(self)</div>
+
+<div class="viewcode-block" id="Path.rename"><a class="viewcode-back" href="../_autosummary/pyfeyn2.render.latex.metapost.Path.html#pyfeyn2.render.latex.metapost.Path.rename">[docs]</a>    def rename(self, target):
+        &quot;&quot;&quot;
+        Rename this path to the target path.
+
+        The target path may be absolute or relative. Relative paths are
+        interpreted relative to the current working directory, *not* the
+        directory of the Path object.
+
+        Returns the new Path instance pointing to the target path.
+        &quot;&quot;&quot;
+        if self._closed:
+            self._raise_closed()
+        self._accessor.rename(self, target)
+        return self.__class__(target)</div>
+
+<div class="viewcode-block" id="Path.replace"><a class="viewcode-back" href="../_autosummary/pyfeyn2.render.latex.metapost.Path.html#pyfeyn2.render.latex.metapost.Path.replace">[docs]</a>    def replace(self, target):
+        &quot;&quot;&quot;
+        Rename this path to the target path, overwriting if that path exists.
+
+        The target path may be absolute or relative. Relative paths are
+        interpreted relative to the current working directory, *not* the
+        directory of the Path object.
+
+        Returns the new Path instance pointing to the target path.
+        &quot;&quot;&quot;
+        if self._closed:
+            self._raise_closed()
+        self._accessor.replace(self, target)
+        return self.__class__(target)</div>
+
+<div class="viewcode-block" id="Path.symlink_to"><a class="viewcode-back" href="../_autosummary/pyfeyn2.render.latex.metapost.Path.html#pyfeyn2.render.latex.metapost.Path.symlink_to">[docs]</a>    def symlink_to(self, target, target_is_directory=False):
+        &quot;&quot;&quot;
+        Make this path a symlink pointing to the target path.
+        Note the order of arguments (link, target) is the reverse of os.symlink.
+        &quot;&quot;&quot;
+        if self._closed:
+            self._raise_closed()
+        self._accessor.symlink(target, self, target_is_directory)</div>
+
+<div class="viewcode-block" id="Path.link_to"><a class="viewcode-back" href="../_autosummary/pyfeyn2.render.latex.metapost.Path.html#pyfeyn2.render.latex.metapost.Path.link_to">[docs]</a>    def link_to(self, target):
+        &quot;&quot;&quot;
+        Make the target path a hard link pointing to this path.
+
+        Note this function does not make this path a hard link to *target*,
+        despite the implication of the function and argument names. The order
+        of arguments (target, link) is the reverse of Path.symlink_to, but
+        matches that of os.link.
+
+        &quot;&quot;&quot;
+        if self._closed:
+            self._raise_closed()
+        self._accessor.link_to(self, target)</div>
+
+    # Convenience functions for querying the stat results
+
+<div class="viewcode-block" id="Path.exists"><a class="viewcode-back" href="../_autosummary/pyfeyn2.render.latex.metapost.Path.html#pyfeyn2.render.latex.metapost.Path.exists">[docs]</a>    def exists(self):
+        &quot;&quot;&quot;
+        Whether this path exists.
+        &quot;&quot;&quot;
+        try:
+            self.stat()
+        except OSError as e:
+            if not _ignore_error(e):
+                raise
+            return False
+        except ValueError:
+            # Non-encodable path
+            return False
+        return True</div>
+
+<div class="viewcode-block" id="Path.is_dir"><a class="viewcode-back" href="../_autosummary/pyfeyn2.render.latex.metapost.Path.html#pyfeyn2.render.latex.metapost.Path.is_dir">[docs]</a>    def is_dir(self):
+        &quot;&quot;&quot;
+        Whether this path is a directory.
+        &quot;&quot;&quot;
+        try:
+            return S_ISDIR(self.stat().st_mode)
+        except OSError as e:
+            if not _ignore_error(e):
+                raise
+            # Path doesn&#39;t exist or is a broken symlink
+            # (see https://bitbucket.org/pitrou/pathlib/issue/12/)
+            return False
+        except ValueError:
+            # Non-encodable path
+            return False</div>
+
+<div class="viewcode-block" id="Path.is_file"><a class="viewcode-back" href="../_autosummary/pyfeyn2.render.latex.metapost.Path.html#pyfeyn2.render.latex.metapost.Path.is_file">[docs]</a>    def is_file(self):
+        &quot;&quot;&quot;
+        Whether this path is a regular file (also True for symlinks pointing
+        to regular files).
+        &quot;&quot;&quot;
+        try:
+            return S_ISREG(self.stat().st_mode)
+        except OSError as e:
+            if not _ignore_error(e):
+                raise
+            # Path doesn&#39;t exist or is a broken symlink
+            # (see https://bitbucket.org/pitrou/pathlib/issue/12/)
+            return False
+        except ValueError:
+            # Non-encodable path
+            return False</div>
+
+<div class="viewcode-block" id="Path.is_mount"><a class="viewcode-back" href="../_autosummary/pyfeyn2.render.latex.metapost.Path.html#pyfeyn2.render.latex.metapost.Path.is_mount">[docs]</a>    def is_mount(self):
+        &quot;&quot;&quot;
+        Check if this path is a POSIX mount point
+        &quot;&quot;&quot;
+        # Need to exist and be a dir
+        if not self.exists() or not self.is_dir():
+            return False
+
+        parent = Path(self.parent)
+        try:
+            parent_dev = parent.stat().st_dev
+        except OSError:
+            return False
+
+        dev = self.stat().st_dev
+        if dev != parent_dev:
+            return True
+        ino = self.stat().st_ino
+        parent_ino = parent.stat().st_ino
+        return ino == parent_ino</div>
+
+<div class="viewcode-block" id="Path.is_symlink"><a class="viewcode-back" href="../_autosummary/pyfeyn2.render.latex.metapost.Path.html#pyfeyn2.render.latex.metapost.Path.is_symlink">[docs]</a>    def is_symlink(self):
+        &quot;&quot;&quot;
+        Whether this path is a symbolic link.
+        &quot;&quot;&quot;
+        try:
+            return S_ISLNK(self.lstat().st_mode)
+        except OSError as e:
+            if not _ignore_error(e):
+                raise
+            # Path doesn&#39;t exist
+            return False
+        except ValueError:
+            # Non-encodable path
+            return False</div>
+
+<div class="viewcode-block" id="Path.is_block_device"><a class="viewcode-back" href="../_autosummary/pyfeyn2.render.latex.metapost.Path.html#pyfeyn2.render.latex.metapost.Path.is_block_device">[docs]</a>    def is_block_device(self):
+        &quot;&quot;&quot;
+        Whether this path is a block device.
+        &quot;&quot;&quot;
+        try:
+            return S_ISBLK(self.stat().st_mode)
+        except OSError as e:
+            if not _ignore_error(e):
+                raise
+            # Path doesn&#39;t exist or is a broken symlink
+            # (see https://bitbucket.org/pitrou/pathlib/issue/12/)
+            return False
+        except ValueError:
+            # Non-encodable path
+            return False</div>
+
+<div class="viewcode-block" id="Path.is_char_device"><a class="viewcode-back" href="../_autosummary/pyfeyn2.render.latex.metapost.Path.html#pyfeyn2.render.latex.metapost.Path.is_char_device">[docs]</a>    def is_char_device(self):
+        &quot;&quot;&quot;
+        Whether this path is a character device.
+        &quot;&quot;&quot;
+        try:
+            return S_ISCHR(self.stat().st_mode)
+        except OSError as e:
+            if not _ignore_error(e):
+                raise
+            # Path doesn&#39;t exist or is a broken symlink
+            # (see https://bitbucket.org/pitrou/pathlib/issue/12/)
+            return False
+        except ValueError:
+            # Non-encodable path
+            return False</div>
+
+<div class="viewcode-block" id="Path.is_fifo"><a class="viewcode-back" href="../_autosummary/pyfeyn2.render.latex.metapost.Path.html#pyfeyn2.render.latex.metapost.Path.is_fifo">[docs]</a>    def is_fifo(self):
+        &quot;&quot;&quot;
+        Whether this path is a FIFO.
+        &quot;&quot;&quot;
+        try:
+            return S_ISFIFO(self.stat().st_mode)
+        except OSError as e:
+            if not _ignore_error(e):
+                raise
+            # Path doesn&#39;t exist or is a broken symlink
+            # (see https://bitbucket.org/pitrou/pathlib/issue/12/)
+            return False
+        except ValueError:
+            # Non-encodable path
+            return False</div>
+
+<div class="viewcode-block" id="Path.is_socket"><a class="viewcode-back" href="../_autosummary/pyfeyn2.render.latex.metapost.Path.html#pyfeyn2.render.latex.metapost.Path.is_socket">[docs]</a>    def is_socket(self):
+        &quot;&quot;&quot;
+        Whether this path is a socket.
+        &quot;&quot;&quot;
+        try:
+            return S_ISSOCK(self.stat().st_mode)
+        except OSError as e:
+            if not _ignore_error(e):
+                raise
+            # Path doesn&#39;t exist or is a broken symlink
+            # (see https://bitbucket.org/pitrou/pathlib/issue/12/)
+            return False
+        except ValueError:
+            # Non-encodable path
+            return False</div>
+
+<div class="viewcode-block" id="Path.expanduser"><a class="viewcode-back" href="../_autosummary/pyfeyn2.render.latex.metapost.Path.html#pyfeyn2.render.latex.metapost.Path.expanduser">[docs]</a>    def expanduser(self):
+        &quot;&quot;&quot; Return a new path with expanded ~ and ~user constructs
+        (as returned by os.path.expanduser)
+        &quot;&quot;&quot;
+        if (not (self._drv or self._root) and
+            self._parts and self._parts[0][:1] == &#39;~&#39;):
+            homedir = self._flavour.gethomedir(self._parts[0][1:])
+            return self._from_parts([homedir] + self._parts[1:])
+
+        return self</div></div>
+
+
+class PosixPath(Path, PurePosixPath):
+    &quot;&quot;&quot;Path subclass for non-Windows systems.
+
+    On a POSIX system, instantiating a Path should return this object.
+    &quot;&quot;&quot;
+    __slots__ = ()
+
+class WindowsPath(Path, PureWindowsPath):
+    &quot;&quot;&quot;Path subclass for Windows systems.
+
+    On a Windows system, instantiating a Path should return this object.
+    &quot;&quot;&quot;
+    __slots__ = ()
+
+    def owner(self):
+        raise NotImplementedError(&quot;Path.owner() is unsupported on this system&quot;)
+
+    def group(self):
+        raise NotImplementedError(&quot;Path.group() is unsupported on this system&quot;)
+
+    def is_mount(self):
+        raise NotImplementedError(&quot;Path.is_mount() is unsupported on this system&quot;)
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Alexander Puck Neuwirth.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

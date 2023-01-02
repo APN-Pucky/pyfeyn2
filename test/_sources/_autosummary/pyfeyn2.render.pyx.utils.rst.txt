@@ -15,6 +15,7 @@ pyfeyn2.render.pyx.utils
       :toctree:                                         
    
       sign
+      todefunit
    
    
 

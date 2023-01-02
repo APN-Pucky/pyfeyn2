@@ -37,7 +37,7 @@
             <img src="../../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.1.1-5-ga6e48db4
+                2.2.3-1-gde23f1e8
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
@@ -112,12 +112,12 @@ from pyfeyn2.render.pyx.utils import Visible
 
 
 ## Diagram class
-<div class="viewcode-block" id="FeynDiagram"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.diagrams.FeynDiagram.html#pyfeyn2.render.pyx.diagrams.FeynDiagram">[docs]</a>class FeynDiagram:
+<div class="viewcode-block" id="FeynDiagram"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.pyxrender.FeynDiagram.html#pyfeyn2.render.pyx.blobs.FeynDiagram">[docs]</a>class FeynDiagram:
     &quot;&quot;&quot;The main PyFeyn diagram class.&quot;&quot;&quot;
 
     currentDiagram = None
 
-<div class="viewcode-block" id="FeynDiagram.__init__"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.diagrams.FeynDiagram.html#pyfeyn2.render.pyx.diagrams.FeynDiagram.__init__">[docs]</a>    def __init__(self, objects=None, canvas=None):
+<div class="viewcode-block" id="FeynDiagram.__init__"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.pyxrender.FeynDiagram.html#pyfeyn2.render.pyx.blobs.FeynDiagram.__init__">[docs]</a>    def __init__(self, objects=None, canvas=None):
         &quot;&quot;&quot;Objects for holding a set of Feynman diagram components.&quot;&quot;&quot;
         self.__objs = objects
         if self.__objs is None:
@@ -129,7 +129,7 @@ from pyfeyn2.render.pyx.utils import Visible
             self.currentCanvas = canvas
         FeynDiagram.currentDiagram = self</div>
 
-<div class="viewcode-block" id="FeynDiagram.add"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.diagrams.FeynDiagram.html#pyfeyn2.render.pyx.diagrams.FeynDiagram.add">[docs]</a>    def add(self, *objs):
+<div class="viewcode-block" id="FeynDiagram.add"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.pyxrender.FeynDiagram.html#pyfeyn2.render.pyx.blobs.FeynDiagram.add">[docs]</a>    def add(self, *objs):
         &quot;&quot;&quot;Add an object to the diagram.&quot;&quot;&quot;
         for obj in objs:
             if config.getOptions().DEBUG:
@@ -153,7 +153,7 @@ from pyfeyn2.render.pyx.utils import Visible
                 )
             self.__objs.append(obj)</div>
 
-<div class="viewcode-block" id="FeynDiagram.drawToCanvas"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.diagrams.FeynDiagram.html#pyfeyn2.render.pyx.diagrams.FeynDiagram.drawToCanvas">[docs]</a>    def drawToCanvas(self):
+<div class="viewcode-block" id="FeynDiagram.drawToCanvas"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.pyxrender.FeynDiagram.html#pyfeyn2.render.pyx.blobs.FeynDiagram.drawToCanvas">[docs]</a>    def drawToCanvas(self):
         &quot;&quot;&quot;Draw the components of this diagram in a well-defined order.&quot;&quot;&quot;
         if config.getOptions().DEBUG:
             print(&quot;Final #objs = %d&quot; % len(self.__objs))
@@ -175,7 +175,7 @@ from pyfeyn2.render.pyx.utils import Visible
 
         return self.currentCanvas</div>
 
-<div class="viewcode-block" id="FeynDiagram.draw"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.diagrams.FeynDiagram.html#pyfeyn2.render.pyx.diagrams.FeynDiagram.draw">[docs]</a>    def draw(self, outfile, enlargement=0):
+<div class="viewcode-block" id="FeynDiagram.draw"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.pyxrender.FeynDiagram.html#pyfeyn2.render.pyx.blobs.FeynDiagram.draw">[docs]</a>    def draw(self, outfile, enlargement=0):
         &quot;&quot;&quot;Draw the diagram to a file, with the filetype (EPS or PDF)
         derived from the file extension.&quot;&quot;&quot;
         c = self.drawToCanvas()
@@ -190,7 +190,7 @@ from pyfeyn2.render.pyx.utils import Visible
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2022, Alexander Puck Neuwirth.</p>
+    <p>&#169; Copyright 2023, Alexander Puck Neuwirth.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

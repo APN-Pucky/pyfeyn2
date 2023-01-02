@@ -37,7 +37,7 @@
             <img src="../../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.1.1-5-ga6e48db4
+                2.2.3-1-gde23f1e8
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
@@ -118,11 +118,11 @@ from pyfeyn2.render.pyx.points import SQUARE, DecoratedPoint, NamedMark, Point
 from pyfeyn2.render.render import Render
 
 
-<div class="viewcode-block" id="PyxRender"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.pyxrender.PyxRender.html#pyfeyn2.render.pyx.pyxrender.PyxRender">[docs]</a>class PyxRender(Render):
-<div class="viewcode-block" id="PyxRender.__init__"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.pyxrender.PyxRender.html#pyfeyn2.render.pyx.pyxrender.PyxRender.__init__">[docs]</a>    def __init__(self, fd=None, *args, **kwargs):
+<div class="viewcode-block" id="PyxRender"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.pyxrender.PyxRender.html#pyfeyn2.render.all.PyxRender">[docs]</a>class PyxRender(Render):
+<div class="viewcode-block" id="PyxRender.__init__"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.pyxrender.PyxRender.html#pyfeyn2.render.all.PyxRender.__init__">[docs]</a>    def __init__(self, fd=None, *args, **kwargs):
         super().__init__(fd, *args, **kwargs)</div>
 
-<div class="viewcode-block" id="PyxRender.render"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.pyxrender.PyxRender.html#pyfeyn2.render.pyx.pyxrender.PyxRender.render">[docs]</a>    def render(
+<div class="viewcode-block" id="PyxRender.render"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.pyxrender.PyxRender.html#pyfeyn2.render.all.PyxRender.render">[docs]</a>    def render(
         self,
         file=None,
         show=True,
@@ -153,7 +153,8 @@ from pyfeyn2.render.render import Render
                 nl = NamedLine[lstyle.getProperty(&quot;line&quot;).value](
                     Point(tar.x, tar.y), Point(l.x, l.y)
                 )
-            nl = nl.bend(l.bend)
+            if lstyle.getProperty(&quot;bend&quot;) is not None:
+                nl = nl.bend(lstyle.getProperty(&quot;bend&quot;).value)
             nl = self.apply_layout(v.raw_style(), nl)
             nl = nl.addLabel(l.label)
 
@@ -164,7 +165,8 @@ from pyfeyn2.render.render import Render
             nl = NamedLine[pstyle.getProperty(&quot;line&quot;).value](
                 Point(src.x, src.y), Point(tar.x, tar.y)
             )
-            nl = nl.bend(p.bend)
+            if pstyle.getProperty(&quot;bend&quot;) is not None:
+                nl = nl.bend(pstyle.getProperty(&quot;bend&quot;).value)
             nl = self.apply_layout(v.raw_style(), nl)
             nl = nl.addLabel(p.label)
         pyxfd.draw(file)
@@ -178,7 +180,7 @@ from pyfeyn2.render.render import Render
             pass
         return wi</div>
 
-<div class="viewcode-block" id="PyxRender.apply_layout"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.pyxrender.PyxRender.html#pyfeyn2.render.pyx.pyxrender.PyxRender.apply_layout">[docs]</a>    def apply_layout(self, stylestring, obj):
+<div class="viewcode-block" id="PyxRender.apply_layout"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.pyxrender.PyxRender.html#pyfeyn2.render.all.PyxRender.apply_layout">[docs]</a>    def apply_layout(self, stylestring, obj):
         &quot;&quot;&quot;Apply the decorators encoded in a style string to an object.&quot;&quot;&quot;
         if stylestring is None:
             return obj
@@ -307,6 +309,7 @@ from pyfeyn2.render.render import Render
     def valid_styles(cls):
         return super(PyxRender, cls).valid_styles() + [
             &quot;line&quot;,
+            &quot;bend&quot;,
             &quot;arrow-pos&quot;,
             &quot;arrow-sense&quot;,  #           &quot;parallel-arrow-sense&quot;,
             &quot;arrow-displace&quot;,  #           &quot;parallel-arrow-displace&quot;,
@@ -320,7 +323,7 @@ from pyfeyn2.render.render import Render
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2022, Alexander Puck Neuwirth.</p>
+    <p>&#169; Copyright 2023, Alexander Puck Neuwirth.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

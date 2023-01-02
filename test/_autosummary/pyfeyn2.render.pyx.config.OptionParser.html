@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pyfeyn2.render.pyx.config.OptionParser &mdash; pyfeyn2  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/plot_directive.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/jupyter-sphinx.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/thebelab.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/thebelab-helper.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="pyfeyn2.render.pyx.config.OptionSet" href="pyfeyn2.render.pyx.config.OptionSet.html" />
+    <link rel="prev" title="pyfeyn2.render.pyx.config.processOptions" href="pyfeyn2.render.pyx.config.processOptions.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> pyfeyn2
+            <img src="../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                2.2.3-1-gde23f1e8
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">FeynML:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../feynml/index.html">FeynML</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Gallery:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../gallery/index.html">Gallery</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Renderers:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../renderers/index.html">Renderers</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Interfaces:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../interfaces/index.html">Interfaces</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Modules:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="pyfeyn2.html">pyfeyn2</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="pyfeyn2.version.html">pyfeyn2.version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyfeyn2.auto.html">pyfeyn2.auto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyfeyn2.feynmandiagram.html">pyfeyn2.feynmandiagram</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyfeyn2.mkfeyndiag.html">pyfeyn2.mkfeyndiag</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="pyfeyn2.render.html">pyfeyn2.render</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="pyfeyn2.render.all.html">pyfeyn2.render.all</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyfeyn2.render.latex.html">pyfeyn2.render.latex</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="pyfeyn2.render.pyx.html">pyfeyn2.render.pyx</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="pyfeyn2.render.pyx.blobs.html">pyfeyn2.render.pyx.blobs</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="pyfeyn2.render.pyx.config.html">pyfeyn2.render.pyx.config</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyfeyn2.render.pyx.deco.html">pyfeyn2.render.pyx.deco</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyfeyn2.render.pyx.diagrams.html">pyfeyn2.render.pyx.diagrams</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyfeyn2.render.pyx.lines.html">pyfeyn2.render.pyx.lines</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyfeyn2.render.pyx.paint.html">pyfeyn2.render.pyx.paint</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyfeyn2.render.pyx.points.html">pyfeyn2.render.pyx.points</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyfeyn2.render.pyx.pyxrender.html">pyfeyn2.render.pyx.pyxrender</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyfeyn2.render.pyx.utils.html">pyfeyn2.render.pyx.utils</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pyfeyn2.render.render.html">pyfeyn2.render.render</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Versions:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://pyfeyn2.readthedocs.io/en/stable/">RTD</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/pyfeyn2/">Stable</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/pyfeyn2/test/">Dev</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Links:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/APN-Pucky/pyfeyn2">GitHub</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pyfeyn2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="pyfeyn2.html">pyfeyn2</a></li>
+          <li class="breadcrumb-item"><a href="pyfeyn2.render.html">pyfeyn2.render</a></li>
+          <li class="breadcrumb-item"><a href="pyfeyn2.render.pyx.html">pyfeyn2.render.pyx</a></li>
+          <li class="breadcrumb-item"><a href="pyfeyn2.render.pyx.config.html">pyfeyn2.render.pyx.config</a></li>
+      <li class="breadcrumb-item active">pyfeyn2.render.pyx.config.OptionParser</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_autosummary/pyfeyn2.render.pyx.config.OptionParser.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<section id="pyfeyn2-render-pyx-config-optionparser">
+<h1>pyfeyn2.render.pyx.config.OptionParser<a class="headerlink" href="#pyfeyn2-render-pyx-config-optionparser" title="Permalink to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.config.OptionParser">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyfeyn2.render.pyx.config.</span></span><span class="sig-name descname"><span class="pre">OptionParser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">usage=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">option_list=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">option_class=&lt;class</span> <span class="pre">'optparse.Option'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">version=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conflict_handler='error'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">formatter=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">add_help_option=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prog=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epilog=None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/optparse.html#OptionParser"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.config.OptionParser" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">OptionContainer</span></code></p>
+<dl>
+<dt>Class attributes:</dt><dd><dl class="simple">
+<dt>standard_option_list<span class="classifier">[Option]</span></dt><dd><p>list of standard options that will be accepted by all instances
+of this parser class (intended to be overridden by subclasses).</p>
+</dd>
+</dl>
+</dd>
+<dt>Instance attributes:</dt><dd><dl>
+<dt>usage<span class="classifier">string</span></dt><dd><p>a usage string for your program.  Before it is displayed
+to the user, “%prog” will be expanded to the name of
+your program (self.prog or os.path.basename(sys.argv[0])).</p>
+</dd>
+<dt>prog<span class="classifier">string</span></dt><dd><p>the name of the current program (to override
+os.path.basename(sys.argv[0])).</p>
+</dd>
+<dt>description<span class="classifier">string</span></dt><dd><p>A paragraph of text giving a brief overview of your program.
+optparse reformats this paragraph to fit the current terminal
+width and prints it when the user requests help (after usage,
+but before the list of options).</p>
+</dd>
+<dt>epilog<span class="classifier">string</span></dt><dd><p>paragraph of help text to print after option help</p>
+</dd>
+<dt>option_groups<span class="classifier">[OptionGroup]</span></dt><dd><p>list of option groups in this parser (option groups are
+irrelevant for parsing the command-line, but very useful
+for generating help)</p>
+</dd>
+<dt>allow_interspersed_args<span class="classifier">bool = true</span></dt><dd><p>if true, positional arguments may be interspersed with options.
+Assuming -a and -b each take a single argument, the command-line</p>
+<blockquote>
+<div><p>-ablah foo bar -bboo baz</p>
+</div></blockquote>
+<dl class="simple">
+<dt>will be interpreted the same as</dt><dd><p>-ablah -bboo – foo bar baz</p>
+</dd>
+<dt>If this flag were false, that command line would be interpreted as</dt><dd><p>-ablah – foo bar -bboo baz</p>
+</dd>
+</dl>
+<p>– ie. we stop processing options as soon as we see the first
+non-option argument.  (This is the tradition followed by
+Python’s getopt module, Perl’s Getopt::Std, and other argument-
+parsing libraries, but it is generally annoying to users.)</p>
+</dd>
+<dt>process_default_values<span class="classifier">bool = true</span></dt><dd><p>if true, option default values are processed similarly to option
+values from the command line: that is, they are passed to the
+type-checking function for the option’s type (as long as the
+default value is a string).  (This really only matters if you
+have defined custom types; see SF bug #955889.)  Set it to false
+to restore the behaviour of Optik 1.4.1 and earlier.</p>
+</dd>
+<dt>rargs<span class="classifier">[string]</span></dt><dd><p>the argument list currently being parsed.  Only set when
+parse_args() is active, and continually trimmed down as
+we consume arguments.  Mainly there for the benefit of
+callback options.</p>
+</dd>
+<dt>largs<span class="classifier">[string]</span></dt><dd><p>the list of leftover arguments that we have skipped while
+parsing options.  If allow_interspersed_args is false, this
+list is always empty.</p>
+</dd>
+<dt>values<span class="classifier">Values</span></dt><dd><p>the set of option values currently being accumulated.  Only
+set when parse_args() is active.  Also mainly for callbacks.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p>Because of the ‘rargs’, ‘largs’, and ‘values’ attributes,
+OptionParser is not thread-safe.  If, for some perverse reason, you
+need to parse command-line arguments simultaneously in different
+threads, use different OptionParser instances.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.config.OptionParser.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">usage=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">option_list=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">option_class=&lt;class</span> <span class="pre">'optparse.Option'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">version=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conflict_handler='error'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">formatter=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">add_help_option=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prog=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epilog=None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/optparse.html#OptionParser.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.config.OptionParser.__init__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<p class="rubric">Methods</p>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.render.pyx.config.OptionParser.__init__" title="pyfeyn2.render.pyx.config.OptionParser.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>([usage, option_list, option_class, ...])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.render.pyx.config.OptionParser.add_option" title="pyfeyn2.render.pyx.config.OptionParser.add_option"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_option</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_option_group</span></code>(*args, **kwargs)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_options</span></code>(option_list)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.render.pyx.config.OptionParser.check_values" title="pyfeyn2.render.pyx.config.OptionParser.check_values"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_values</span></code></a>(values, args)</p></td>
+<td><p>-&gt; (values : Values, args : [string])</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.render.pyx.config.OptionParser.destroy" title="pyfeyn2.render.pyx.config.OptionParser.destroy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">destroy</span></code></a>()</p></td>
+<td><p>Declare that you are done with this OptionParser.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.render.pyx.config.OptionParser.disable_interspersed_args" title="pyfeyn2.render.pyx.config.OptionParser.disable_interspersed_args"><code class="xref py py-obj docutils literal notranslate"><span class="pre">disable_interspersed_args</span></code></a>()</p></td>
+<td><p>Set parsing to stop on the first non-option.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.render.pyx.config.OptionParser.enable_interspersed_args" title="pyfeyn2.render.pyx.config.OptionParser.enable_interspersed_args"><code class="xref py py-obj docutils literal notranslate"><span class="pre">enable_interspersed_args</span></code></a>()</p></td>
+<td><p>Set parsing to not stop on the first non-option, allowing interspersing switches with command arguments.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.render.pyx.config.OptionParser.error" title="pyfeyn2.render.pyx.config.OptionParser.error"><code class="xref py py-obj docutils literal notranslate"><span class="pre">error</span></code></a>(msg)</p></td>
+<td><p>Print a usage message incorporating 'msg' to stderr and exit.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">exit</span></code>([status, msg])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">expand_prog_name</span></code>(s)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">format_description</span></code>(formatter)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">format_epilog</span></code>(formatter)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">format_help</span></code>([formatter])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">format_option_help</span></code>([formatter])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_default_values</span></code>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_description</span></code>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_option</span></code>(opt_str)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_option_group</span></code>(opt_str)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_prog_name</span></code>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_usage</span></code>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_version</span></code>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">has_option</span></code>(opt_str)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.render.pyx.config.OptionParser.parse_args" title="pyfeyn2.render.pyx.config.OptionParser.parse_args"><code class="xref py py-obj docutils literal notranslate"><span class="pre">parse_args</span></code></a>([args, values])</p></td>
+<td><p>parse_args(args : [string] = sys.argv[1:],</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.render.pyx.config.OptionParser.print_help" title="pyfeyn2.render.pyx.config.OptionParser.print_help"><code class="xref py py-obj docutils literal notranslate"><span class="pre">print_help</span></code></a>([file])</p></td>
+<td><p>Print an extended help message, listing all options and any help text provided with them, to 'file' (default stdout).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.render.pyx.config.OptionParser.print_usage" title="pyfeyn2.render.pyx.config.OptionParser.print_usage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">print_usage</span></code></a>([file])</p></td>
+<td><p>Print the usage message for the current program (self.usage) to 'file' (default stdout).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.render.pyx.config.OptionParser.print_version" title="pyfeyn2.render.pyx.config.OptionParser.print_version"><code class="xref py py-obj docutils literal notranslate"><span class="pre">print_version</span></code></a>([file])</p></td>
+<td><p>Print the version message for this program (self.version) to 'file' (default stdout).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_option</span></code>(opt_str)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_conflict_handler</span></code>(handler)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_default</span></code>(dest, value)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_defaults</span></code>(**kwargs)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_description</span></code>(description)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_process_default_values</span></code>(process)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_usage</span></code>(usage)</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes</p>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">standard_option_list</span></code></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.config.OptionParser.add_option">
+<span class="sig-name descname"><span class="pre">add_option</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Option</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.config.OptionParser.add_option" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">add_option</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">opt_str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">...</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kwarg=val</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">...</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.config.OptionParser.check_values">
+<span class="sig-name descname"><span class="pre">check_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="p"><span class="pre">[</span></span><span class="pre">string</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/optparse.html#OptionParser.check_values"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.config.OptionParser.check_values" title="Permalink to this definition"></a></dt>
+<dd><p>-&gt; (values : Values, args : [string])</p>
+<p>Check that the supplied option values and leftover arguments are
+valid.  Returns the option values and leftover arguments
+(possibly adjusted, possibly completely new – whatever you
+like).  Default implementation just returns the passed-in
+values; subclasses may override as desired.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.config.OptionParser.destroy">
+<span class="sig-name descname"><span class="pre">destroy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/optparse.html#OptionParser.destroy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.config.OptionParser.destroy" title="Permalink to this definition"></a></dt>
+<dd><p>Declare that you are done with this OptionParser.  This cleans up
+reference cycles so the OptionParser (and all objects referenced by
+it) can be garbage-collected promptly.  After calling destroy(), the
+OptionParser is unusable.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.config.OptionParser.disable_interspersed_args">
+<span class="sig-name descname"><span class="pre">disable_interspersed_args</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/optparse.html#OptionParser.disable_interspersed_args"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.config.OptionParser.disable_interspersed_args" title="Permalink to this definition"></a></dt>
+<dd><p>Set parsing to stop on the first non-option. Use this if
+you have a command processor which runs another command that
+has options of its own and you want to make sure these options
+don’t get confused.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.config.OptionParser.enable_interspersed_args">
+<span class="sig-name descname"><span class="pre">enable_interspersed_args</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/optparse.html#OptionParser.enable_interspersed_args"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.config.OptionParser.enable_interspersed_args" title="Permalink to this definition"></a></dt>
+<dd><p>Set parsing to not stop on the first non-option, allowing
+interspersing switches with command arguments. This is the
+default behavior. See also disable_interspersed_args() and the
+class documentation description of the attribute
+allow_interspersed_args.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.config.OptionParser.error">
+<span class="sig-name descname"><span class="pre">error</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">string</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/optparse.html#OptionParser.error"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.config.OptionParser.error" title="Permalink to this definition"></a></dt>
+<dd><p>Print a usage message incorporating ‘msg’ to stderr and exit.
+If you override this in a subclass, it should not return – it
+should either exit or raise an exception.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.config.OptionParser.parse_args">
+<span class="sig-name descname"><span class="pre">parse_args</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/optparse.html#OptionParser.parse_args"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.config.OptionParser.parse_args" title="Permalink to this definition"></a></dt>
+<dd><dl class="simple">
+<dt>parse_args(args<span class="classifier">[string] = sys.argv[1:],</span></dt><dd><p>values : Values = None)</p>
+</dd>
+</dl>
+<p>-&gt; (values : Values, args : [string])</p>
+<p>Parse the command-line options found in ‘args’ (default:
+sys.argv[1:]).  Any errors result in a call to ‘error()’, which
+by default prints the usage message to stderr and calls
+sys.exit() with an error message.  On success returns a pair
+(values, args) where ‘values’ is a Values instance (with all
+your option values) and ‘args’ is the list of arguments left
+over after parsing options.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.config.OptionParser.print_help">
+<span class="sig-name descname"><span class="pre">print_help</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">file</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">stdout</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/optparse.html#OptionParser.print_help"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.config.OptionParser.print_help" title="Permalink to this definition"></a></dt>
+<dd><p>Print an extended help message, listing all options and any
+help text provided with them, to ‘file’ (default stdout).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.config.OptionParser.print_usage">
+<span class="sig-name descname"><span class="pre">print_usage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">file</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">stdout</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/optparse.html#OptionParser.print_usage"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.config.OptionParser.print_usage" title="Permalink to this definition"></a></dt>
+<dd><p>Print the usage message for the current program (self.usage) to
+‘file’ (default stdout).  Any occurrence of the string “%prog” in
+self.usage is replaced with the name of the current program
+(basename of sys.argv[0]).  Does nothing if self.usage is empty
+or not defined.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.config.OptionParser.print_version">
+<span class="sig-name descname"><span class="pre">print_version</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">file</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">stdout</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/optparse.html#OptionParser.print_version"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.config.OptionParser.print_version" title="Permalink to this definition"></a></dt>
+<dd><p>Print the version message for this program (self.version) to
+‘file’ (default stdout).  As with print_usage(), any occurrence
+of “%prog” in self.version is replaced by the current program’s
+name.  Does nothing if self.version is empty or undefined.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="pyfeyn2.render.pyx.config.processOptions.html" class="btn btn-neutral float-left" title="pyfeyn2.render.pyx.config.processOptions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="pyfeyn2.render.pyx.config.OptionSet.html" class="btn btn-neutral float-right" title="pyfeyn2.render.pyx.config.OptionSet" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Alexander Puck Neuwirth.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

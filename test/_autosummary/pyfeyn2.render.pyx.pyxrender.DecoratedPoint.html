@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pyfeyn2.render.pyx.pyxrender.DecoratedPoint &mdash; pyfeyn2  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/plot_directive.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/jupyter-sphinx.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/thebelab.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/thebelab-helper.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="pyfeyn2.render.pyx.pyxrender.FeynDiagram" href="pyfeyn2.render.pyx.pyxrender.FeynDiagram.html" />
+    <link rel="prev" title="pyfeyn2.render.pyx.pyxrender.Arrow" href="pyfeyn2.render.pyx.pyxrender.Arrow.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> pyfeyn2
+            <img src="../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                2.2.3-1-gde23f1e8
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">FeynML:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../feynml/index.html">FeynML</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Gallery:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../gallery/index.html">Gallery</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Renderers:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../renderers/index.html">Renderers</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Interfaces:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../interfaces/index.html">Interfaces</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Modules:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="pyfeyn2.html">pyfeyn2</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="pyfeyn2.version.html">pyfeyn2.version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyfeyn2.auto.html">pyfeyn2.auto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyfeyn2.feynmandiagram.html">pyfeyn2.feynmandiagram</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyfeyn2.mkfeyndiag.html">pyfeyn2.mkfeyndiag</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="pyfeyn2.render.html">pyfeyn2.render</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="pyfeyn2.render.all.html">pyfeyn2.render.all</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyfeyn2.render.latex.html">pyfeyn2.render.latex</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="pyfeyn2.render.pyx.html">pyfeyn2.render.pyx</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="pyfeyn2.render.pyx.blobs.html">pyfeyn2.render.pyx.blobs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyfeyn2.render.pyx.config.html">pyfeyn2.render.pyx.config</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyfeyn2.render.pyx.deco.html">pyfeyn2.render.pyx.deco</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyfeyn2.render.pyx.diagrams.html">pyfeyn2.render.pyx.diagrams</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyfeyn2.render.pyx.lines.html">pyfeyn2.render.pyx.lines</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyfeyn2.render.pyx.paint.html">pyfeyn2.render.pyx.paint</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyfeyn2.render.pyx.points.html">pyfeyn2.render.pyx.points</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="pyfeyn2.render.pyx.pyxrender.html">pyfeyn2.render.pyx.pyxrender</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyfeyn2.render.pyx.utils.html">pyfeyn2.render.pyx.utils</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pyfeyn2.render.render.html">pyfeyn2.render.render</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Versions:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://pyfeyn2.readthedocs.io/en/stable/">RTD</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/pyfeyn2/">Stable</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/pyfeyn2/test/">Dev</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Links:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/APN-Pucky/pyfeyn2">GitHub</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pyfeyn2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="pyfeyn2.html">pyfeyn2</a></li>
+          <li class="breadcrumb-item"><a href="pyfeyn2.render.html">pyfeyn2.render</a></li>
+          <li class="breadcrumb-item"><a href="pyfeyn2.render.pyx.html">pyfeyn2.render.pyx</a></li>
+          <li class="breadcrumb-item"><a href="pyfeyn2.render.pyx.pyxrender.html">pyfeyn2.render.pyx.pyxrender</a></li>
+      <li class="breadcrumb-item active">pyfeyn2.render.pyx.pyxrender.DecoratedPoint</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_autosummary/pyfeyn2.render.pyx.pyxrender.DecoratedPoint.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<section id="pyfeyn2-render-pyx-pyxrender-decoratedpoint">
+<h1>pyfeyn2.render.pyx.pyxrender.DecoratedPoint<a class="headerlink" href="#pyfeyn2-render-pyx-pyxrender-decoratedpoint" title="Permalink to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.pyxrender.DecoratedPoint">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyfeyn2.render.pyx.pyxrender.</span></span><span class="sig-name descname"><span class="pre">DecoratedPoint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">x=None,</span> <span class="pre">y=None,</span> <span class="pre">center=None,</span> <span class="pre">mark=None,</span> <span class="pre">fill=[&lt;pyx.color.cmyk</span> <span class="pre">object&gt;],</span> <span class="pre">stroke=[&lt;pyx.color.cmyk</span> <span class="pre">object&gt;],</span> <span class="pre">blob=None,</span> <span class="pre">labels=[],</span> <span class="pre">**kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/points.html#DecoratedPoint"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.pyxrender.DecoratedPoint" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="pyfeyn2.render.pyx.points.Point.html#pyfeyn2.render.pyx.points.Point" title="pyfeyn2.render.pyx.points.Point"><code class="xref py py-class docutils literal notranslate"><span class="pre">Point</span></code></a>, <a class="reference internal" href="pyfeyn2.render.pyx.utils.Visible.html#pyfeyn2.render.pyx.utils.Visible" title="pyfeyn2.render.pyx.utils.Visible"><code class="xref py py-class docutils literal notranslate"><span class="pre">Visible</span></code></a></p>
+<p>Class for a point drawn with a marker</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.pyxrender.DecoratedPoint.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">x=None,</span> <span class="pre">y=None,</span> <span class="pre">center=None,</span> <span class="pre">mark=None,</span> <span class="pre">fill=[&lt;pyx.color.cmyk</span> <span class="pre">object&gt;],</span> <span class="pre">stroke=[&lt;pyx.color.cmyk</span> <span class="pre">object&gt;],</span> <span class="pre">blob=None,</span> <span class="pre">labels=[],</span> <span class="pre">**kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/points.html#DecoratedPoint.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.pyxrender.DecoratedPoint.__init__" title="Permalink to this definition"></a></dt>
+<dd><p>Constructor.</p>
+</dd></dl>
+
+<p class="rubric">Methods</p>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.render.pyx.pyxrender.DecoratedPoint.__init__" title="pyfeyn2.render.pyx.pyxrender.DecoratedPoint.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>([x, y, center, mark, fill, stroke, ...])</p></td>
+<td><p>Constructor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.render.pyx.pyxrender.DecoratedPoint.addFillstyle" title="pyfeyn2.render.pyx.pyxrender.DecoratedPoint.addFillstyle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">addFillstyle</span></code></a>(style)</p></td>
+<td><p>Add a fillstyle to the marker or blob attached to this point.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.render.pyx.pyxrender.DecoratedPoint.addFillstyles" title="pyfeyn2.render.pyx.pyxrender.DecoratedPoint.addFillstyles"><code class="xref py py-obj docutils literal notranslate"><span class="pre">addFillstyles</span></code></a>(styles)</p></td>
+<td><p>Add fillstyles to the marker or blob attached to this point.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.render.pyx.pyxrender.DecoratedPoint.addLabel" title="pyfeyn2.render.pyx.pyxrender.DecoratedPoint.addLabel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">addLabel</span></code></a>(text[, displace, angle, size])</p></td>
+<td><p>Add a LaTeX label to this point, either via parameters or actually as a PointLable object.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.render.pyx.pyxrender.DecoratedPoint.addStrokestyle" title="pyfeyn2.render.pyx.pyxrender.DecoratedPoint.addStrokestyle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">addStrokestyle</span></code></a>(style)</p></td>
+<td><p>Add a stroke style to the marker or blob attached to this point.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.render.pyx.pyxrender.DecoratedPoint.addStrokestyles" title="pyfeyn2.render.pyx.pyxrender.DecoratedPoint.addStrokestyles"><code class="xref py py-obj docutils literal notranslate"><span class="pre">addStrokestyles</span></code></a>(styles)</p></td>
+<td><p>Add stroke styles to the marker or blob attached to this point.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.render.pyx.pyxrender.DecoratedPoint.arg" title="pyfeyn2.render.pyx.pyxrender.DecoratedPoint.arg"><code class="xref py py-obj docutils literal notranslate"><span class="pre">arg</span></code></a>(otherpoint)</p></td>
+<td><p>Return the angle between the x-axis and the straight line defined by this point and the argument (cf.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.render.pyx.pyxrender.DecoratedPoint.distance" title="pyfeyn2.render.pyx.pyxrender.DecoratedPoint.distance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">distance</span></code></a>(otherpoint)</p></td>
+<td><p>Calculate the distance between this point and the argument.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.render.pyx.pyxrender.DecoratedPoint.draw" title="pyfeyn2.render.pyx.pyxrender.DecoratedPoint.draw"><code class="xref py py-obj docutils literal notranslate"><span class="pre">draw</span></code></a>(canvas)</p></td>
+<td><p>Draw the marker or blob attached to this point.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.render.pyx.pyxrender.DecoratedPoint.getBlob" title="pyfeyn2.render.pyx.pyxrender.DecoratedPoint.getBlob"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getBlob</span></code></a>()</p></td>
+<td><p>Return the blob attached to this point.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.render.pyx.pyxrender.DecoratedPoint.getDepth" title="pyfeyn2.render.pyx.pyxrender.DecoratedPoint.getDepth"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getDepth</span></code></a>()</p></td>
+<td><p>Return the depth at which this instance lives.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.render.pyx.pyxrender.DecoratedPoint.getFillstyles" title="pyfeyn2.render.pyx.pyxrender.DecoratedPoint.getFillstyles"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getFillstyles</span></code></a>()</p></td>
+<td><p>Return the fillstyles for the marker or blob attached to this point.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.render.pyx.pyxrender.DecoratedPoint.getMark" title="pyfeyn2.render.pyx.pyxrender.DecoratedPoint.getMark"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getMark</span></code></a>()</p></td>
+<td><p>Return the marker attached to this point.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.render.pyx.pyxrender.DecoratedPoint.getPath" title="pyfeyn2.render.pyx.pyxrender.DecoratedPoint.getPath"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getPath</span></code></a>()</p></td>
+<td><p>Return the path belonging to the blob or marker attached to this point, if any.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.render.pyx.pyxrender.DecoratedPoint.getStrokestyles" title="pyfeyn2.render.pyx.pyxrender.DecoratedPoint.getStrokestyles"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getStrokestyles</span></code></a>()</p></td>
+<td><p>Return the stroke styles for the marker or blob attached to this point.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.render.pyx.pyxrender.DecoratedPoint.getVisiblePath" title="pyfeyn2.render.pyx.pyxrender.DecoratedPoint.getVisiblePath"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getVisiblePath</span></code></a>()</p></td>
+<td><p>Return the visible path of this instance.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.render.pyx.pyxrender.DecoratedPoint.getX" title="pyfeyn2.render.pyx.pyxrender.DecoratedPoint.getX"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getX</span></code></a>()</p></td>
+<td><p>Return the x-coordinate of this point.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.render.pyx.pyxrender.DecoratedPoint.getXY" title="pyfeyn2.render.pyx.pyxrender.DecoratedPoint.getXY"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getXY</span></code></a>()</p></td>
+<td><p>Return the x and y coordinates of this point as a 2-tuple.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.render.pyx.pyxrender.DecoratedPoint.getY" title="pyfeyn2.render.pyx.pyxrender.DecoratedPoint.getY"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getY</span></code></a>()</p></td>
+<td><p>Return the y-coordinate of this point.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.render.pyx.pyxrender.DecoratedPoint.intercept" title="pyfeyn2.render.pyx.pyxrender.DecoratedPoint.intercept"><code class="xref py py-obj docutils literal notranslate"><span class="pre">intercept</span></code></a>(otherpoint)</p></td>
+<td><p>Return the y-intercept of the straight line defined by this point and the argument.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.render.pyx.pyxrender.DecoratedPoint.isVisible" title="pyfeyn2.render.pyx.pyxrender.DecoratedPoint.isVisible"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isVisible</span></code></a>()</p></td>
+<td><p>Check if this instance is visible.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.render.pyx.pyxrender.DecoratedPoint.midpoint" title="pyfeyn2.render.pyx.pyxrender.DecoratedPoint.midpoint"><code class="xref py py-obj docutils literal notranslate"><span class="pre">midpoint</span></code></a>(otherpoint)</p></td>
+<td><p>Return the point midway between this point and the argument.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.render.pyx.pyxrender.DecoratedPoint.removeLabels" title="pyfeyn2.render.pyx.pyxrender.DecoratedPoint.removeLabels"><code class="xref py py-obj docutils literal notranslate"><span class="pre">removeLabels</span></code></a>()</p></td>
+<td><p>Remove all labels from this point.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.render.pyx.pyxrender.DecoratedPoint.setBlob" title="pyfeyn2.render.pyx.pyxrender.DecoratedPoint.setBlob"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setBlob</span></code></a>(blob)</p></td>
+<td><p>Set the blob attached to this point.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.render.pyx.pyxrender.DecoratedPoint.setDepth" title="pyfeyn2.render.pyx.pyxrender.DecoratedPoint.setDepth"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setDepth</span></code></a>(depth)</p></td>
+<td><p>Set the depth at which this instance lives.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.render.pyx.pyxrender.DecoratedPoint.setFillstyles" title="pyfeyn2.render.pyx.pyxrender.DecoratedPoint.setFillstyles"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setFillstyles</span></code></a>(styles)</p></td>
+<td><p>Set the fillstyles for the marker or blob attached to this point.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.render.pyx.pyxrender.DecoratedPoint.setMark" title="pyfeyn2.render.pyx.pyxrender.DecoratedPoint.setMark"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setMark</span></code></a>(mark)</p></td>
+<td><p>Set the marker attached to this point.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.render.pyx.pyxrender.DecoratedPoint.setStrokestyles" title="pyfeyn2.render.pyx.pyxrender.DecoratedPoint.setStrokestyles"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setStrokestyles</span></code></a>(styles)</p></td>
+<td><p>Set the stroke styles for the marker or blob attached to this point.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.render.pyx.pyxrender.DecoratedPoint.setX" title="pyfeyn2.render.pyx.pyxrender.DecoratedPoint.setX"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setX</span></code></a>(x)</p></td>
+<td><p>Set the x-coordinate of this point.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.render.pyx.pyxrender.DecoratedPoint.setXY" title="pyfeyn2.render.pyx.pyxrender.DecoratedPoint.setXY"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setXY</span></code></a>(xpos, ypos)</p></td>
+<td><p>Set the x and y coordinates of this point.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.render.pyx.pyxrender.DecoratedPoint.setY" title="pyfeyn2.render.pyx.pyxrender.DecoratedPoint.setY"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setY</span></code></a>(y)</p></td>
+<td><p>Set the y-coordinate of this point.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.render.pyx.pyxrender.DecoratedPoint.tangent" title="pyfeyn2.render.pyx.pyxrender.DecoratedPoint.tangent"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tangent</span></code></a>(otherpoint)</p></td>
+<td><p>Return the tangent of the straight line defined by this point and the argument.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.render.pyx.pyxrender.DecoratedPoint.x" title="pyfeyn2.render.pyx.pyxrender.DecoratedPoint.x"><code class="xref py py-obj docutils literal notranslate"><span class="pre">x</span></code></a>()</p></td>
+<td><p>Alias for getX().</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.render.pyx.pyxrender.DecoratedPoint.xy" title="pyfeyn2.render.pyx.pyxrender.DecoratedPoint.xy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">xy</span></code></a>()</p></td>
+<td><p>Alias for getXY().</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.render.pyx.pyxrender.DecoratedPoint.y" title="pyfeyn2.render.pyx.pyxrender.DecoratedPoint.y"><code class="xref py py-obj docutils literal notranslate"><span class="pre">y</span></code></a>()</p></td>
+<td><p>Alias for getY().</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.pyxrender.DecoratedPoint.addFillstyle">
+<span class="sig-name descname"><span class="pre">addFillstyle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">style</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/points.html#DecoratedPoint.addFillstyle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.pyxrender.DecoratedPoint.addFillstyle" title="Permalink to this definition"></a></dt>
+<dd><p>Add a fillstyle to the marker or blob attached to this point.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.pyxrender.DecoratedPoint.addFillstyles">
+<span class="sig-name descname"><span class="pre">addFillstyles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">styles</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/points.html#DecoratedPoint.addFillstyles"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.pyxrender.DecoratedPoint.addFillstyles" title="Permalink to this definition"></a></dt>
+<dd><p>Add fillstyles to the marker or blob attached to this point.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.pyxrender.DecoratedPoint.addLabel">
+<span class="sig-name descname"><span class="pre">addLabel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">displace=0.3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angle=0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size=&lt;pyx.text.size</span> <span class="pre">object&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.pyxrender.DecoratedPoint.addLabel" title="Permalink to this definition"></a></dt>
+<dd><p>Add a LaTeX label to this point, either via parameters or actually as
+a PointLable object.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.pyxrender.DecoratedPoint.addStrokestyle">
+<span class="sig-name descname"><span class="pre">addStrokestyle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">style</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/points.html#DecoratedPoint.addStrokestyle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.pyxrender.DecoratedPoint.addStrokestyle" title="Permalink to this definition"></a></dt>
+<dd><p>Add a stroke style to the marker or blob attached to this point.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.pyxrender.DecoratedPoint.addStrokestyles">
+<span class="sig-name descname"><span class="pre">addStrokestyles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">styles</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/points.html#DecoratedPoint.addStrokestyles"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.pyxrender.DecoratedPoint.addStrokestyles" title="Permalink to this definition"></a></dt>
+<dd><p>Add stroke styles to the marker or blob attached to this point.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.pyxrender.DecoratedPoint.arg">
+<span class="sig-name descname"><span class="pre">arg</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">otherpoint</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.pyxrender.DecoratedPoint.arg" title="Permalink to this definition"></a></dt>
+<dd><p>Return the angle between the x-axis and the straight line defined
+by this point and the argument (cf. complex numbers).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.pyxrender.DecoratedPoint.distance">
+<span class="sig-name descname"><span class="pre">distance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">otherpoint</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.pyxrender.DecoratedPoint.distance" title="Permalink to this definition"></a></dt>
+<dd><p>Calculate the distance between this point and the argument.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.pyxrender.DecoratedPoint.draw">
+<span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">canvas</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/points.html#DecoratedPoint.draw"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.pyxrender.DecoratedPoint.draw" title="Permalink to this definition"></a></dt>
+<dd><p>Draw the marker or blob attached to this point.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.pyxrender.DecoratedPoint.getBlob">
+<span class="sig-name descname"><span class="pre">getBlob</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/points.html#DecoratedPoint.getBlob"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.pyxrender.DecoratedPoint.getBlob" title="Permalink to this definition"></a></dt>
+<dd><p>Return the blob attached to this point.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.pyxrender.DecoratedPoint.getDepth">
+<span class="sig-name descname"><span class="pre">getDepth</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.pyxrender.DecoratedPoint.getDepth" title="Permalink to this definition"></a></dt>
+<dd><p>Return the depth at which this instance lives.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.pyxrender.DecoratedPoint.getFillstyles">
+<span class="sig-name descname"><span class="pre">getFillstyles</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/points.html#DecoratedPoint.getFillstyles"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.pyxrender.DecoratedPoint.getFillstyles" title="Permalink to this definition"></a></dt>
+<dd><p>Return the fillstyles for the marker or blob attached to this point.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.pyxrender.DecoratedPoint.getMark">
+<span class="sig-name descname"><span class="pre">getMark</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/points.html#DecoratedPoint.getMark"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.pyxrender.DecoratedPoint.getMark" title="Permalink to this definition"></a></dt>
+<dd><p>Return the marker attached to this point.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.pyxrender.DecoratedPoint.getPath">
+<span class="sig-name descname"><span class="pre">getPath</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/points.html#DecoratedPoint.getPath"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.pyxrender.DecoratedPoint.getPath" title="Permalink to this definition"></a></dt>
+<dd><p>Return the path belonging to the blob or marker attached to this point, if any.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.pyxrender.DecoratedPoint.getStrokestyles">
+<span class="sig-name descname"><span class="pre">getStrokestyles</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/points.html#DecoratedPoint.getStrokestyles"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.pyxrender.DecoratedPoint.getStrokestyles" title="Permalink to this definition"></a></dt>
+<dd><p>Return the stroke styles for the marker or blob attached to this point.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.pyxrender.DecoratedPoint.getVisiblePath">
+<span class="sig-name descname"><span class="pre">getVisiblePath</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.pyxrender.DecoratedPoint.getVisiblePath" title="Permalink to this definition"></a></dt>
+<dd><p>Return the visible path of this instance.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.pyxrender.DecoratedPoint.getX">
+<span class="sig-name descname"><span class="pre">getX</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.pyxrender.DecoratedPoint.getX" title="Permalink to this definition"></a></dt>
+<dd><p>Return the x-coordinate of this point.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.pyxrender.DecoratedPoint.getXY">
+<span class="sig-name descname"><span class="pre">getXY</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.pyxrender.DecoratedPoint.getXY" title="Permalink to this definition"></a></dt>
+<dd><p>Return the x and y coordinates of this point as a 2-tuple.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.pyxrender.DecoratedPoint.getY">
+<span class="sig-name descname"><span class="pre">getY</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.pyxrender.DecoratedPoint.getY" title="Permalink to this definition"></a></dt>
+<dd><p>Return the y-coordinate of this point.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.pyxrender.DecoratedPoint.intercept">
+<span class="sig-name descname"><span class="pre">intercept</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">otherpoint</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.pyxrender.DecoratedPoint.intercept" title="Permalink to this definition"></a></dt>
+<dd><p>Return the y-intercept of the straight line defined by this point and the argument.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.pyxrender.DecoratedPoint.isVisible">
+<span class="sig-name descname"><span class="pre">isVisible</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.pyxrender.DecoratedPoint.isVisible" title="Permalink to this definition"></a></dt>
+<dd><p>Check if this instance is visible.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.pyxrender.DecoratedPoint.midpoint">
+<span class="sig-name descname"><span class="pre">midpoint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">otherpoint</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.pyxrender.DecoratedPoint.midpoint" title="Permalink to this definition"></a></dt>
+<dd><p>Return the point midway between this point and the argument.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.pyxrender.DecoratedPoint.removeLabels">
+<span class="sig-name descname"><span class="pre">removeLabels</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.pyxrender.DecoratedPoint.removeLabels" title="Permalink to this definition"></a></dt>
+<dd><p>Remove all labels from this point.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.pyxrender.DecoratedPoint.setBlob">
+<span class="sig-name descname"><span class="pre">setBlob</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">blob</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/points.html#DecoratedPoint.setBlob"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.pyxrender.DecoratedPoint.setBlob" title="Permalink to this definition"></a></dt>
+<dd><p>Set the blob attached to this point.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.pyxrender.DecoratedPoint.setDepth">
+<span class="sig-name descname"><span class="pre">setDepth</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">depth</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.pyxrender.DecoratedPoint.setDepth" title="Permalink to this definition"></a></dt>
+<dd><p>Set the depth at which this instance lives.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.pyxrender.DecoratedPoint.setFillstyles">
+<span class="sig-name descname"><span class="pre">setFillstyles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">styles</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/points.html#DecoratedPoint.setFillstyles"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.pyxrender.DecoratedPoint.setFillstyles" title="Permalink to this definition"></a></dt>
+<dd><p>Set the fillstyles for the marker or blob attached to this point.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.pyxrender.DecoratedPoint.setMark">
+<span class="sig-name descname"><span class="pre">setMark</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mark</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/points.html#DecoratedPoint.setMark"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.pyxrender.DecoratedPoint.setMark" title="Permalink to this definition"></a></dt>
+<dd><p>Set the marker attached to this point.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.pyxrender.DecoratedPoint.setStrokestyles">
+<span class="sig-name descname"><span class="pre">setStrokestyles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">styles</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/points.html#DecoratedPoint.setStrokestyles"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.pyxrender.DecoratedPoint.setStrokestyles" title="Permalink to this definition"></a></dt>
+<dd><p>Set the stroke styles for the marker or blob attached to this point.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.pyxrender.DecoratedPoint.setX">
+<span class="sig-name descname"><span class="pre">setX</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.pyxrender.DecoratedPoint.setX" title="Permalink to this definition"></a></dt>
+<dd><p>Set the x-coordinate of this point.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.pyxrender.DecoratedPoint.setXY">
+<span class="sig-name descname"><span class="pre">setXY</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xpos</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ypos</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.pyxrender.DecoratedPoint.setXY" title="Permalink to this definition"></a></dt>
+<dd><p>Set the x and y coordinates of this point.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.pyxrender.DecoratedPoint.setY">
+<span class="sig-name descname"><span class="pre">setY</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.pyxrender.DecoratedPoint.setY" title="Permalink to this definition"></a></dt>
+<dd><p>Set the y-coordinate of this point.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.pyxrender.DecoratedPoint.tangent">
+<span class="sig-name descname"><span class="pre">tangent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">otherpoint</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.pyxrender.DecoratedPoint.tangent" title="Permalink to this definition"></a></dt>
+<dd><p>Return the tangent of the straight line defined by this point and the argument.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.pyxrender.DecoratedPoint.x">
+<span class="sig-name descname"><span class="pre">x</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.pyxrender.DecoratedPoint.x" title="Permalink to this definition"></a></dt>
+<dd><p>Alias for getX().</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.pyxrender.DecoratedPoint.xy">
+<span class="sig-name descname"><span class="pre">xy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.pyxrender.DecoratedPoint.xy" title="Permalink to this definition"></a></dt>
+<dd><p>Alias for getXY().</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.render.pyx.pyxrender.DecoratedPoint.y">
+<span class="sig-name descname"><span class="pre">y</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.pyxrender.DecoratedPoint.y" title="Permalink to this definition"></a></dt>
+<dd><p>Alias for getY().</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="pyfeyn2.render.pyx.pyxrender.Arrow.html" class="btn btn-neutral float-left" title="pyfeyn2.render.pyx.pyxrender.Arrow" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="pyfeyn2.render.pyx.pyxrender.FeynDiagram.html" class="btn btn-neutral float-right" title="pyfeyn2.render.pyx.pyxrender.FeynDiagram" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Alexander Puck Neuwirth.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

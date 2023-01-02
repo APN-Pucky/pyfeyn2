@@ -1,0 +1,83 @@
+pyfeyn2.render.all.UnicodePDFRender
+===================================
+
+.. currentmodule:: pyfeyn2.render.all
+
+.. autoclass:: UnicodePDFRender
+   :members:                                   
+   :show-inheritance:                           
+   :inherited-members:                         
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~UnicodePDFRender.__init__
+      ~UnicodePDFRender.add_color
+      ~UnicodePDFRender.append
+      ~UnicodePDFRender.change_document_style
+      ~UnicodePDFRender.change_length
+      ~UnicodePDFRender.change_page_style
+      ~UnicodePDFRender.clear
+      ~UnicodePDFRender.copy
+      ~UnicodePDFRender.count
+      ~UnicodePDFRender.create
+      ~UnicodePDFRender.demo_propagator
+      ~UnicodePDFRender.demo_vertex
+      ~UnicodePDFRender.dump
+      ~UnicodePDFRender.dump_packages
+      ~UnicodePDFRender.dumps
+      ~UnicodePDFRender.dumps_as_content
+      ~UnicodePDFRender.dumps_content
+      ~UnicodePDFRender.dumps_packages
+      ~UnicodePDFRender.extend
+      ~UnicodePDFRender.generate_pdf
+      ~UnicodePDFRender.generate_tex
+      ~UnicodePDFRender.get_src
+      ~UnicodePDFRender.get_src_diag
+      ~UnicodePDFRender.get_src_txt
+      ~UnicodePDFRender.index
+      ~UnicodePDFRender.insert
+      ~UnicodePDFRender.pop
+      ~UnicodePDFRender.remove
+      ~UnicodePDFRender.render
+      ~UnicodePDFRender.reverse
+      ~UnicodePDFRender.set_feynman_diagram
+      ~UnicodePDFRender.set_src
+      ~UnicodePDFRender.set_src_diag
+      ~UnicodePDFRender.set_src_txt
+      ~UnicodePDFRender.set_variable
+      ~UnicodePDFRender.sort
+      ~UnicodePDFRender.valid_attribute
+      ~UnicodePDFRender.valid_attributes
+      ~UnicodePDFRender.valid_shape
+      ~UnicodePDFRender.valid_shapes
+      ~UnicodePDFRender.valid_style
+      ~UnicodePDFRender.valid_styles
+      ~UnicodePDFRender.valid_type
+      ~UnicodePDFRender.valid_types
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~UnicodePDFRender.begin_paragraph
+      ~UnicodePDFRender.content_separator
+      ~UnicodePDFRender.end_paragraph
+      ~UnicodePDFRender.escape
+      ~UnicodePDFRender.latex_name
+      ~UnicodePDFRender.namedlines
+      ~UnicodePDFRender.namedshapes
+      ~UnicodePDFRender.omit_if_empty
+      ~UnicodePDFRender.packages
+      ~UnicodePDFRender.separate_paragraph
+   
+   

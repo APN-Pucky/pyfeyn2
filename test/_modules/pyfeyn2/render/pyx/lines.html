@@ -37,7 +37,7 @@
             <img src="../../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.1.1-5-ga6e48db4
+                2.2.3-1-gde23f1e8
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
@@ -118,10 +118,10 @@ from pyfeyn2.render.pyx.utils import Visible, defunit
 
 
 ## Line base class
-<div class="viewcode-block" id="Line"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.Line.html#pyfeyn2.render.pyx.lines.Line">[docs]</a>class Line(Visible):
+<div class="viewcode-block" id="Line"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.pyxrender.Line.html#pyfeyn2.render.pyx.lines.Line">[docs]</a>class Line(Visible):
     &quot;Base class for all objects which connect points in Feynman diagrams&quot;
 
-<div class="viewcode-block" id="Line.__init__"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.Line.html#pyfeyn2.render.pyx.lines.Line.__init__">[docs]</a>    def __init__(
+<div class="viewcode-block" id="Line.__init__"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.pyxrender.Line.html#pyfeyn2.render.pyx.lines.Line.__init__">[docs]</a>    def __init__(
         self,
         point1,
         point2,
@@ -144,7 +144,7 @@ from pyfeyn2.render.pyx.utils import Visible, defunit
         ## Add this to the current diagram automatically
         FeynDiagram.currentDiagram.add(self)</div>
 
-<div class="viewcode-block" id="Line.addLabel"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.Line.html#pyfeyn2.render.pyx.lines.Line.addLabel">[docs]</a>    def addLabel(
+<div class="viewcode-block" id="Line.addLabel"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.pyxrender.Line.html#pyfeyn2.render.pyx.lines.Line.addLabel">[docs]</a>    def addLabel(
         self,
         text,
         pos=0.5,
@@ -180,7 +180,7 @@ from pyfeyn2.render.pyx.utils import Visible, defunit
             print(&quot;Labels = &quot; + str(self.labels))
         return self</div>
 
-<div class="viewcode-block" id="Line.addParallelArrow"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.Line.html#pyfeyn2.render.pyx.lines.Line.addParallelArrow">[docs]</a>    def addParallelArrow(
+<div class="viewcode-block" id="Line.addParallelArrow"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.pyxrender.Line.html#pyfeyn2.render.pyx.lines.Line.addParallelArrow">[docs]</a>    def addParallelArrow(
         self,
         pos=0.5,
         displace=0.3,
@@ -211,12 +211,12 @@ from pyfeyn2.render.pyx.utils import Visible, defunit
         )
         return self</div>
 
-<div class="viewcode-block" id="Line.removeLabels"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.Line.html#pyfeyn2.render.pyx.lines.Line.removeLabels">[docs]</a>    def removeLabels(self):
+<div class="viewcode-block" id="Line.removeLabels"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.pyxrender.Line.html#pyfeyn2.render.pyx.lines.Line.removeLabels">[docs]</a>    def removeLabels(self):
         &quot;&quot;&quot;Remove the labels from this line.&quot;&quot;&quot;
         self.labels = []
         return self</div>
 
-<div class="viewcode-block" id="Line.fracpoint"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.Line.html#pyfeyn2.render.pyx.lines.Line.fracpoint">[docs]</a>    def fracpoint(self, frac):
+<div class="viewcode-block" id="Line.fracpoint"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.pyxrender.Line.html#pyfeyn2.render.pyx.lines.Line.fracpoint">[docs]</a>    def fracpoint(self, frac):
         &quot;&quot;&quot;
         Get a new Point representing the point at the given fraction along
         the fundamental line (i.e. no truncation or deformation).
@@ -226,7 +226,7 @@ from pyfeyn2.render.pyx.utils import Visible, defunit
         x, y = p.at(p.begin() + frac * p.arclen())
         return Point(x / defunit, y / defunit)</div>
 
-<div class="viewcode-block" id="Line.setArrows"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.Line.html#pyfeyn2.render.pyx.lines.Line.setArrows">[docs]</a>    def setArrows(self, arrows):
+<div class="viewcode-block" id="Line.setArrows"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.pyxrender.Line.html#pyfeyn2.render.pyx.lines.Line.setArrows">[docs]</a>    def setArrows(self, arrows):
         &quot;&quot;&quot;Define the arrows on this line.&quot;&quot;&quot;
         ## TODO: Check that the arg is a list
         self.arrows = []
@@ -237,7 +237,7 @@ from pyfeyn2.render.pyx.utils import Visible, defunit
                 self.arrows.append(Arrow(pos=i))
         return self</div>
 
-<div class="viewcode-block" id="Line.addArrow"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.Line.html#pyfeyn2.render.pyx.lines.Line.addArrow">[docs]</a>    def addArrow(self, position=0.53, arrow=None):
+<div class="viewcode-block" id="Line.addArrow"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.pyxrender.Line.html#pyfeyn2.render.pyx.lines.Line.addArrow">[docs]</a>    def addArrow(self, position=0.53, arrow=None):
         &quot;&quot;&quot;Add an arrow to the line at the specified position, which is a number
         between 0 and 1, representing the fraction along the line at which the
         arrow should be placed. The default arrow style can be overridden by
@@ -249,12 +249,12 @@ from pyfeyn2.render.pyx.utils import Visible, defunit
             self.arrows.append(Arrow(pos=position))
         return self</div>
 
-<div class="viewcode-block" id="Line.removeArrows"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.Line.html#pyfeyn2.render.pyx.lines.Line.removeArrows">[docs]</a>    def removeArrows(self):
+<div class="viewcode-block" id="Line.removeArrows"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.pyxrender.Line.html#pyfeyn2.render.pyx.lines.Line.removeArrows">[docs]</a>    def removeArrows(self):
         &quot;&quot;&quot;Remove all arrows from this line.&quot;&quot;&quot;
         self.arrows = []
         return self</div>
 
-<div class="viewcode-block" id="Line.arcThru"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.Line.html#pyfeyn2.render.pyx.lines.Line.arcThru">[docs]</a>    def arcThru(self, arcpoint=None, x=None, y=None):
+<div class="viewcode-block" id="Line.arcThru"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.pyxrender.Line.html#pyfeyn2.render.pyx.lines.Line.arcThru">[docs]</a>    def arcThru(self, arcpoint=None, x=None, y=None):
         &quot;&quot;&quot;Set the point through which this line will arc. Either pass a Point
         or set x, y as floats.&quot;&quot;&quot;
         if arcpoint is not None:
@@ -265,12 +265,12 @@ from pyfeyn2.render.pyx.utils import Visible, defunit
             raise Exception(&quot;Tried to set an arcpoint with invalid arguments&quot;)
         return self</div>
 
-<div class="viewcode-block" id="Line.straighten"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.Line.html#pyfeyn2.render.pyx.lines.Line.straighten">[docs]</a>    def straighten(self):
+<div class="viewcode-block" id="Line.straighten"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.pyxrender.Line.html#pyfeyn2.render.pyx.lines.Line.straighten">[docs]</a>    def straighten(self):
         &quot;&quot;&quot;Make this line a straight line between start and end.&quot;&quot;&quot;
         self.arcthrupoint = None
         return self</div>
 
-<div class="viewcode-block" id="Line.bend"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.Line.html#pyfeyn2.render.pyx.lines.Line.bend">[docs]</a>    def bend(self, amount):
+<div class="viewcode-block" id="Line.bend"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.pyxrender.Line.html#pyfeyn2.render.pyx.lines.Line.bend">[docs]</a>    def bend(self, amount):
         &quot;&quot;&quot;Bend the line to the right by a given distance.&quot;&quot;&quot;
         if amount is None:
             return self
@@ -300,31 +300,31 @@ from pyfeyn2.render.pyx.utils import Visible, defunit
             )
         return self</div>
 
-<div class="viewcode-block" id="Line.set3D"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.Line.html#pyfeyn2.render.pyx.lines.Line.set3D">[docs]</a>    def set3D(self, is3d):
+<div class="viewcode-block" id="Line.set3D"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.pyxrender.Line.html#pyfeyn2.render.pyx.lines.Line.set3D">[docs]</a>    def set3D(self, is3d):
         &quot;&quot;&quot;Make this line display in &#39;3D&#39;.&quot;&quot;&quot;
         self.is3D = is3d
         return self</div>
 
-<div class="viewcode-block" id="Line.getStyles"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.Line.html#pyfeyn2.render.pyx.lines.Line.getStyles">[docs]</a>    def getStyles(self, stylelist):
+<div class="viewcode-block" id="Line.getStyles"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.pyxrender.Line.html#pyfeyn2.render.pyx.lines.Line.getStyles">[docs]</a>    def getStyles(self, stylelist):
         &quot;&quot;&quot;Get the styles associated with this line.&quot;&quot;&quot;
         return self.styles</div>
 
-<div class="viewcode-block" id="Line.setStyles"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.Line.html#pyfeyn2.render.pyx.lines.Line.setStyles">[docs]</a>    def setStyles(self, stylelist):
+<div class="viewcode-block" id="Line.setStyles"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.pyxrender.Line.html#pyfeyn2.render.pyx.lines.Line.setStyles">[docs]</a>    def setStyles(self, stylelist):
         &quot;&quot;&quot;Set the styles associated with this line.&quot;&quot;&quot;
         self.styles = stylelist
         return self</div>
 
-<div class="viewcode-block" id="Line.addStyle"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.Line.html#pyfeyn2.render.pyx.lines.Line.addStyle">[docs]</a>    def addStyle(self, style):
+<div class="viewcode-block" id="Line.addStyle"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.pyxrender.Line.html#pyfeyn2.render.pyx.lines.Line.addStyle">[docs]</a>    def addStyle(self, style):
         &quot;&quot;&quot;Add a style to this line.&quot;&quot;&quot;
         self.styles.append(style)
         return self</div>
 
-<div class="viewcode-block" id="Line.addStyles"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.Line.html#pyfeyn2.render.pyx.lines.Line.addStyles">[docs]</a>    def addStyles(self, stylelist):
+<div class="viewcode-block" id="Line.addStyles"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.pyxrender.Line.html#pyfeyn2.render.pyx.lines.Line.addStyles">[docs]</a>    def addStyles(self, stylelist):
         &quot;&quot;&quot;Add some styles to this line.&quot;&quot;&quot;
         self.styles = self.styles + stylelist
         return self</div>
 
-<div class="viewcode-block" id="Line.getPath"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.Line.html#pyfeyn2.render.pyx.lines.Line.getPath">[docs]</a>    def getPath(self):
+<div class="viewcode-block" id="Line.getPath"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.pyxrender.Line.html#pyfeyn2.render.pyx.lines.Line.getPath">[docs]</a>    def getPath(self):
         &quot;&quot;&quot;Get the path taken by this line.&quot;&quot;&quot;
         if self.arcthrupoint is None:
             ## This is a simple straight line
@@ -434,7 +434,7 @@ from pyfeyn2.render.pyx.utils import Visible, defunit
                     pyx.path.moveto(*(self.p1.getXY())), pyx.path.arcn(*arcargs)
                 )</div>
 
-<div class="viewcode-block" id="Line.getVisiblePath"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.Line.html#pyfeyn2.render.pyx.lines.Line.getVisiblePath">[docs]</a>    def getVisiblePath(self):
+<div class="viewcode-block" id="Line.getVisiblePath"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.pyxrender.Line.html#pyfeyn2.render.pyx.lines.Line.getVisiblePath">[docs]</a>    def getVisiblePath(self):
         &quot;&quot;&quot;Find the subpath between the endpoints which isn&#39;t overshadowed by a blob of some kind&quot;&quot;&quot;
         p1path = self.p1.getPath()
         p2path = self.p2.getPath()
@@ -484,7 +484,7 @@ from pyfeyn2.render.pyx.utils import Visible, defunit
         # return pyx.path.circle(-2,-1,0.2)
         return vispath</div>
 
-<div class="viewcode-block" id="Line.draw"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.Line.html#pyfeyn2.render.pyx.lines.Line.draw">[docs]</a>    def draw(self, canvas):
+<div class="viewcode-block" id="Line.draw"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.pyxrender.Line.html#pyfeyn2.render.pyx.lines.Line.draw">[docs]</a>    def draw(self, canvas):
         &quot;&quot;&quot;Drwa this line on the given canvas.&quot;&quot;&quot;
         path = self.getVisiblePath()
         styles = self.styles + self.arrows
@@ -1436,7 +1436,7 @@ NamedLine = {
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2022, Alexander Puck Neuwirth.</p>
+    <p>&#169; Copyright 2023, Alexander Puck Neuwirth.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

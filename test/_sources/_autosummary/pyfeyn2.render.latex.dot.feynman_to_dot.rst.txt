@@ -1,0 +1,6 @@
+pyfeyn2.render.latex.dot.feynman\_to\_dot
+=========================================
+
+.. currentmodule:: pyfeyn2.render.latex.dot
+
+.. autofunction:: feynman_to_dot

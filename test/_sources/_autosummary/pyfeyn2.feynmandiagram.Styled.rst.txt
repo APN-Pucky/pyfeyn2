@@ -17,7 +17,9 @@ pyfeyn2.feynmandiagram.Styled
    .. autosummary::
    
       ~Styled.__init__
+      ~Styled.get_style
       ~Styled.put_style
+      ~Styled.put_styles
       ~Styled.raw_style
       ~Styled.with_class
       ~Styled.with_style

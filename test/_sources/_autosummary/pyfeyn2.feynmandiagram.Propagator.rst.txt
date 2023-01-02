@@ -18,18 +18,12 @@ pyfeyn2.feynmandiagram.Propagator
    
       ~Propagator.__init__
       ~Propagator.connect
+      ~Propagator.get_length
+      ~Propagator.get_style
+      ~Propagator.get_tension
       ~Propagator.put_style
+      ~Propagator.put_styles
       ~Propagator.raw_style
-      ~Propagator.set_label
-      ~Propagator.set_length
-      ~Propagator.set_momentum
-      ~Propagator.set_name
-      ~Propagator.set_pdgig
-      ~Propagator.set_source
-      ~Propagator.set_target
-      ~Propagator.set_tension
-      ~Propagator.set_type
-      ~Propagator.with_bend
       ~Propagator.with_class
       ~Propagator.with_id
       ~Propagator.with_label
@@ -52,18 +46,15 @@ pyfeyn2.feynmandiagram.Propagator
 
    .. autosummary::
    
-      ~Propagator.bend
       ~Propagator.clazz
       ~Propagator.id
       ~Propagator.label
-      ~Propagator.length
       ~Propagator.momentum
       ~Propagator.name
       ~Propagator.particle
       ~Propagator.pdgid
       ~Propagator.source
       ~Propagator.target
-      ~Propagator.tension
       ~Propagator.type
       ~Propagator.style
    

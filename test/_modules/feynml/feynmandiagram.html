@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>feynml.feynmandiagram &mdash; pyfeyn2  documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/plot_directive.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/jupyter-sphinx.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/thebelab.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/thebelab-helper.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> pyfeyn2
+            <img src="../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                2.2.3-1-gde23f1e8
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">FeynML:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../feynml/index.html">FeynML</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Gallery:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../gallery/index.html">Gallery</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Renderers:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../renderers/index.html">Renderers</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Interfaces:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../interfaces/index.html">Interfaces</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Modules:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../_autosummary/pyfeyn2.html">pyfeyn2</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Versions:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://pyfeyn2.readthedocs.io/en/stable/">RTD</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/pyfeyn2/">Stable</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/pyfeyn2/test/">Dev</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Links:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/APN-Pucky/pyfeyn2">GitHub</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">pyfeyn2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">feynml.feynmandiagram</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for feynml.feynmandiagram</h1><div class="highlight"><pre>
+<span></span>import logging
+import warnings
+from dataclasses import dataclass, field
+from typing import List, Optional, Union
+
+import cssutils
+from cssselect import GenericTranslator, SelectorError
+from lxml import etree
+from feynml.id import Identifiable
+from feynml.leg import Leg
+from feynml.propagator import Propagator
+from feynml.style import CSSSheet, Styled
+from xsdata.formats.dataclass.parsers import XmlParser
+from xsdata.formats.dataclass.serializers import XmlSerializer
+from xsdata.formats.dataclass.serializers.config import SerializerConfig
+
+from .types import get_default_sheet
+from smpl_util.util import withify
+
+from feynml.vertex import Vertex
+
+# We don&#39;t want to see the cssutils warnings, since we have custom properties
+cssutils.log.setLevel(logging.CRITICAL)
+
+
+<div class="viewcode-block" id="FeynmanDiagram"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.render.render.FeynmanDiagram.html#pyfeyn2.feynmandiagram.FeynmanDiagram">[docs]</a>@withify()
+@dataclass
+class FeynmanDiagram(Styled, Identifiable):
+    class Meta:
+        name = &quot;diagram&quot;
+
+    default_style: Optional[bool] = field(
+        default=True,
+        metadata={&quot;name&quot;: &quot;default_style&quot;, &quot;xml_attribute&quot;: True, &quot;type&quot;: &quot;Attribute&quot;},
+    )
+
+    propagators: List[Propagator] = field(
+        default_factory=list,
+        metadata={&quot;name&quot;: &quot;propagator&quot;, &quot;type&quot;: &quot;Element&quot;, &quot;namespace&quot;: &quot;&quot;},
+    )
+    vertices: List[Vertex] = field(
+        default_factory=list,
+        metadata={&quot;name&quot;: &quot;vertex&quot;, &quot;type&quot;: &quot;Element&quot;, &quot;namespace&quot;: &quot;&quot;},
+    )
+    legs: List[Leg] = field(
+        default_factory=list,
+        metadata={&quot;name&quot;: &quot;leg&quot;, &quot;type&quot;: &quot;Element&quot;, &quot;namespace&quot;: &quot;&quot;},
+    )
+
+    sheet: CSSSheet = field(
+        default_factory=lambda: cssutils.parseString(&quot;&quot;),
+        metadata={
+            &quot;name&quot;: &quot;style&quot;,
+            &quot;xml_attribute&quot;: True,
+            &quot;type&quot;: &quot;Attribute&quot;,
+            &quot;namespace&quot;: &quot;&quot;,
+        },
+    )
+
+    def add(self, *fd_all: List[Union[Propagator, Vertex, Leg]]):
+        for a in fd_all:
+            if isinstance(a, Propagator):
+                self.propagators.append(a)
+            elif isinstance(a, Vertex):
+                self.vertices.append(a)
+            elif isinstance(a, Leg):
+                self.legs.append(a)
+            else:
+                raise Exception(&quot;Unknown type: &quot; + str(type(a)) + &quot; &quot; + str(a))
+        return self
+
+    def get_vertex(self, idd):
+        for v in self.vertices:
+            if v.id == idd:
+                return v
+        for leg in self.legs:
+            if leg.id == idd:
+                return leg
+        return None
+
+    def get_connections(self, vertex):
+        return [
+            p
+            for p in self.propagators
+            if p.source == vertex.id or p.target == vertex.id
+        ] + [leg for leg in self.legs if leg.target == vertex.id]
+
+    def remove_propagator(self, propagator):
+        self.propagators.remove(propagator)
+        return self
+
+    def get_bounding_box(self):
+        min_x = 0
+        min_y = 0
+        max_x = 0
+        max_y = 0
+        for v in self.vertices:
+            min_x = min(min_x, v.x)
+            min_y = min(min_y, v.y)
+            max_x = max(max_x, v.x)
+            max_y = max(max_y, v.y)
+        for leg in self.legs:
+            min_x = min(min_x, leg.x)
+            min_y = min(min_y, leg.y)
+            max_x = max(max_x, leg.x)
+            max_y = max(max_y, leg.y)
+        return min_x, min_y, max_x, max_y
+
+    def add_rule(self, rule: str):
+        self.sheet.add(rule)
+        return self
+
+    def add_rules(self, rules: str):
+        self.sheet = cssutils.parseString(
+            self.sheet.cssText.decode(&quot;utf-8&quot;) + &quot;\n&quot; + rules
+        )
+        return self
+
+    def with_rule(self, rule: str):
+        return self.with_rules(rule)
+
+    def with_rules(self, rules: str):
+        self.sheet = cssutils.parseString(rules)
+        return self
+
+<div class="viewcode-block" id="FeynmanDiagram.get_style"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.render.render.FeynmanDiagram.html#pyfeyn2.feynmandiagram.FeynmanDiagram.get_style">[docs]</a>    def get_style(self, obj) -&gt; cssutils.css.CSSStyleDeclaration:
+        &quot;&quot;&quot;Get the style of an object.
+
+        This is prefered over accessing the style attribute directly, sicne it includes class and pdgid definitions.
+        &quot;&quot;&quot;
+        # selectorText is string
+        css = []
+        # global style
+        if isinstance(obj, Identifiable):
+            css += [self._get_obj_style(obj)]
+        if isinstance(obj, Styled):
+            # specific attribute style
+            css += [obj.style]
+        return cssutils.css.CSSStyleDeclaration(
+            cssText=&quot;;&quot;.join([c.cssText for c in css])
+        )</div>
+
+    def _get_obj_style(self, obj: Identifiable) -&gt; cssutils.css.CSSStyleDeclaration:
+        document = etree.XML(self.to_xml().encode(&quot;ascii&quot;))
+
+        def lambdaselector(s, obj=obj, document=document):
+            try:
+                expression = GenericTranslator().css_to_xpath(s)
+            except SelectorError:
+                warnings.warn(&quot;Invalid selector: &quot; + s)
+                return False
+            return obj.id in [e.get(&quot;id&quot;) for e in document.xpath(expression)]
+
+        return self._get_style(lambdaselector)
+
+    def _get_style(self, lambdaselector) -&gt; cssutils.css.CSSStyleDeclaration:
+
+        ret = []
+
+        if self.default_style:
+            sheets = [get_default_sheet(), self.sheet]
+        else:
+            sheets = [self.sheet]
+        for sheet in sheets:
+            idd = []
+            cls = []
+            rest = []
+            glob = []
+            for rule in sheet:
+                if rule.type == rule.STYLE_RULE:
+                    s = rule.selectorText
+                    if lambdaselector(s):
+                        if s.startswith(&quot;#&quot;):
+                            idd.append(rule)
+                        elif s.startswith(&quot;[&quot;):
+                            rest.append(rule)
+                        elif s.startswith(&quot;:&quot;):
+                            rest.append(rule)
+                        elif s.startswith(&quot;*&quot;):
+                            glob.append(rule)
+                        elif &quot;.&quot; in s:
+                            cls.append(rule)
+                        else:
+                            rest.append(rule)
+            ret += reversed(idd + cls + rest + glob)
+        # sort rules by priority
+        return cssutils.css.CSSStyleDeclaration(
+            cssText=&quot;;&quot;.join([r.style.cssText for r in ret])
+        )
+
+<div class="viewcode-block" id="FeynmanDiagram.to_xml"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.render.render.FeynmanDiagram.html#pyfeyn2.feynmandiagram.FeynmanDiagram.to_xml">[docs]</a>    def to_xml(self) -&gt; str:
+        &quot;&quot;&quot;Return self as XML.&quot;&quot;&quot;
+        config = SerializerConfig(pretty_print=True)
+        serializer = XmlSerializer(config=config)
+        return serializer.render(self)</div>
+
+<div class="viewcode-block" id="FeynmanDiagram.from_xml"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.render.render.FeynmanDiagram.html#pyfeyn2.feynmandiagram.FeynmanDiagram.from_xml">[docs]</a>    @classmethod
+    def from_xml(cls, xml: str):
+        &quot;&quot;&quot;Load self from XML.&quot;&quot;&quot;
+        parser = XmlParser()
+        return parser.from_string(xml, cls)</div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Alexander Puck Neuwirth.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

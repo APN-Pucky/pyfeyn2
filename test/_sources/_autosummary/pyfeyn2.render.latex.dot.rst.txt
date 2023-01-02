@@ -14,6 +14,8 @@ pyfeyn2.render.latex.dot
    .. autosummary::
       :toctree:                                         
    
+      dot_to_tikz
+      feynman_to_dot
       stylize_connect
    
    
@@ -26,7 +28,12 @@ pyfeyn2.render.latex.dot
       :toctree:                                         
       :template: custom-class-template.rst               
    
+      Command
+      Connector
       DotRender
+      FeynmanDiagram
+      LatexRender
+      NoEscape
    
    
 
