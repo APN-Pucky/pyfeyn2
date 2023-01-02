@@ -1,6 +1,0 @@
-pyfeyn2.auto.position.dot\_to\_positions
-========================================
-
-.. currentmodule:: pyfeyn2.auto.position
-
-.. autofunction:: dot_to_positions

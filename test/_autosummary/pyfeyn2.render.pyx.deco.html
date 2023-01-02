@@ -40,7 +40,7 @@
             <img src="../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.2.3-1-gde23f1e8
+                2.2.3-2-g8825ea03
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -69,7 +69,6 @@
 <p class="caption" role="heading"><span class="caption-text">Modules:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="pyfeyn2.html">pyfeyn2</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="pyfeyn2.version.html">pyfeyn2.version</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pyfeyn2.auto.html">pyfeyn2.auto</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pyfeyn2.feynmandiagram.html">pyfeyn2.feynmandiagram</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pyfeyn2.mkfeyndiag.html">pyfeyn2.mkfeyndiag</a></li>
@@ -93,6 +92,7 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="feynml.html">feynml</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Versions:</span></p>
 <ul>
@@ -181,26 +181,20 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="pyfeyn2.render.pyx.deco.Arrow.html#pyfeyn2.render.pyx.deco.Arrow" title="pyfeyn2.render.pyx.deco.Arrow"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Arrow</span></code></a>([pos, size, angle, constriction])</p></td>
 <td><p>Arrow for Feynman diagram lines</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyfeyn2.render.pyx.deco.FeynDiagram.html#pyfeyn2.render.pyx.deco.FeynDiagram" title="pyfeyn2.render.pyx.deco.FeynDiagram"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FeynDiagram</span></code></a>([objects, canvas])</p></td>
-<td><p>The main PyFeyn diagram class.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyfeyn2.render.pyx.deco.FreeArrow.html#pyfeyn2.render.pyx.deco.FreeArrow" title="pyfeyn2.render.pyx.deco.FreeArrow"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FreeArrow</span></code></a>([length, size, angle, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyfeyn2.render.pyx.deco.FreeArrow.html#pyfeyn2.render.pyx.deco.FreeArrow" title="pyfeyn2.render.pyx.deco.FreeArrow"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FreeArrow</span></code></a>([length, size, angle, ...])</p></td>
 <td><p>Arrow not attached to any line in a diagram.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyfeyn2.render.pyx.deco.Label.html#pyfeyn2.render.pyx.deco.Label" title="pyfeyn2.render.pyx.deco.Label"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Label</span></code></a>(text[, pos, x, y, size, halign, valign])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyfeyn2.render.pyx.deco.Label.html#pyfeyn2.render.pyx.deco.Label" title="pyfeyn2.render.pyx.deco.Label"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Label</span></code></a>(text[, pos, x, y, size, halign, valign])</p></td>
 <td><p>General label, unattached to any diagram elements</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyfeyn2.render.pyx.deco.LineLabel.html#pyfeyn2.render.pyx.deco.LineLabel" title="pyfeyn2.render.pyx.deco.LineLabel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LineLabel</span></code></a>(line, text[, pos, displace, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyfeyn2.render.pyx.deco.LineLabel.html#pyfeyn2.render.pyx.deco.LineLabel" title="pyfeyn2.render.pyx.deco.LineLabel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LineLabel</span></code></a>(line, text[, pos, displace, ...])</p></td>
 <td><p>Label for Feynman diagram lines</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyfeyn2.render.pyx.deco.ParallelArrow.html#pyfeyn2.render.pyx.deco.ParallelArrow" title="pyfeyn2.render.pyx.deco.ParallelArrow"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ParallelArrow</span></code></a>(line[, pos, displace, length, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyfeyn2.render.pyx.deco.ParallelArrow.html#pyfeyn2.render.pyx.deco.ParallelArrow" title="pyfeyn2.render.pyx.deco.ParallelArrow"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ParallelArrow</span></code></a>(line[, pos, displace, length, ...])</p></td>
 <td><p>Arrow running parallel to a line, for momenta, helicities etc.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyfeyn2.render.pyx.deco.PointLabel.html#pyfeyn2.render.pyx.deco.PointLabel" title="pyfeyn2.render.pyx.deco.PointLabel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PointLabel</span></code></a>(point, text[, displace, angle, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyfeyn2.render.pyx.deco.PointLabel.html#pyfeyn2.render.pyx.deco.PointLabel" title="pyfeyn2.render.pyx.deco.PointLabel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PointLabel</span></code></a>(point, text[, displace, angle, ...])</p></td>
 <td><p>Label attached to points on the diagram</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyfeyn2.render.pyx.deco.Visible.html#pyfeyn2.render.pyx.deco.Visible" title="pyfeyn2.render.pyx.deco.Visible"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Visible</span></code></a>()</p></td>
-<td><p></p></td>
 </tr>
 </tbody>
 </table>

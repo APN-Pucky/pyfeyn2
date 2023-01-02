@@ -9,13 +9,6 @@ pyfeyn2.render.latex.latex
 
    
    
-   .. rubric:: Functions
-
-   .. autosummary::
-      :toctree:                                         
-   
-      display
-   
    
 
    
@@ -26,11 +19,7 @@ pyfeyn2.render.latex.latex
       :toctree:                                         
       :template: custom-class-template.rst               
    
-      Document
       LatexRender
-      NoEscape
-      Render
-      WImage
    
    
 

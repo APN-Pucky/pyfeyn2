@@ -22,10 +22,6 @@ pyfeyn2.render.pyx.blobs
       Blob
       Circle
       Ellipse
-      FeynDiagram
-      Point
-      PointLabel
-      Visible
    
    
 

@@ -37,7 +37,7 @@
             <img src="../../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.2.3-1-gde23f1e8
+                2.2.3-2-g8825ea03
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
@@ -66,6 +66,7 @@
 <p class="caption" role="heading"><span class="caption-text">Modules:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../_autosummary/pyfeyn2.html">pyfeyn2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../_autosummary/feynml.html">feynml</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Versions:</span></p>
 <ul>
@@ -134,7 +135,7 @@ map_feyn_to_tikz = {
 }
 
 
-<div class="viewcode-block" id="stylize_connect"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.latex.dot.stylize_connect.html#pyfeyn2.render.all.stylize_connect">[docs]</a>def stylize_connect(fd: FeynmanDiagram, c: Connector) -&gt; str:
+<div class="viewcode-block" id="stylize_connect"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.latex.dot.stylize_connect.html#pyfeyn2.render.latex.dot.stylize_connect">[docs]</a>def stylize_connect(fd: FeynmanDiagram, c: Connector) -&gt; str:
     fstyle = fd.get_style(c)
     style = &#39;style=&quot;{}&quot;,texmode=&quot;raw&quot;&#39;.format(
         map_feyn_to_tikz[fstyle.getProperty(&quot;line&quot;).value]
@@ -150,8 +151,8 @@ map_feyn_to_tikz = {
     return style</div>
 
 
-<div class="viewcode-block" id="DotRender"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.latex.dot.DotRender.html#pyfeyn2.render.all.DotRender">[docs]</a>class DotRender(LatexRender):
-<div class="viewcode-block" id="DotRender.__init__"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.latex.dot.DotRender.html#pyfeyn2.render.all.DotRender.__init__">[docs]</a>    def __init__(
+<div class="viewcode-block" id="DotRender"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.latex.dot.DotRender.html#pyfeyn2.render.latex.dot.DotRender">[docs]</a>class DotRender(LatexRender):
+<div class="viewcode-block" id="DotRender.__init__"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.latex.dot.DotRender.html#pyfeyn2.render.latex.dot.DotRender.__init__">[docs]</a>    def __init__(
         self,
         fd=None,
         documentclass=&quot;standalone&quot;,

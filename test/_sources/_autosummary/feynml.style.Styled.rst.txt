@@ -1,0 +1,38 @@
+feynml.style.Styled
+===================
+
+.. currentmodule:: feynml.style
+
+.. autoclass:: Styled
+   :members:                                   
+   :show-inheritance:                           
+   :inherited-members:                         
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Styled.__init__
+      ~Styled.get_style
+      ~Styled.put_style
+      ~Styled.put_styles
+      ~Styled.raw_style
+      ~Styled.with_class
+      ~Styled.with_style
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~Styled.clazz
+      ~Styled.style
+   
+   

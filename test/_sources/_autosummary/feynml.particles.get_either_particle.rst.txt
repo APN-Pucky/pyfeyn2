@@ -1,0 +1,6 @@
+feynml.particles.get\_either\_particle
+======================================
+
+.. currentmodule:: feynml.particles
+
+.. autofunction:: get_either_particle

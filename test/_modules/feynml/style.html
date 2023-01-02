@@ -37,7 +37,7 @@
             <img src="../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.2.3-1-gde23f1e8
+                2.2.3-2-g8825ea03
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -66,6 +66,7 @@
 <p class="caption" role="heading"><span class="caption-text">Modules:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../_autosummary/pyfeyn2.html">pyfeyn2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../_autosummary/feynml.html">feynml</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Versions:</span></p>
 <ul>
@@ -117,44 +118,44 @@ from smpl_doc.doc import deprecated
 cssutils.log.setLevel(logging.CRITICAL)
 
 
-@withify()
+<div class="viewcode-block" id="Labeled"><a class="viewcode-back" href="../../_autosummary/feynml.style.Labeled.html#feynml.style.Labeled">[docs]</a>@withify()
 @dataclass
 class Labeled:
     label: Optional[str] = field(
         default=None, metadata={&quot;xml_attribute&quot;: True, &quot;type&quot;: &quot;Attribute&quot;}
     )
-    &quot;&quot;&quot;Label the object&quot;&quot;&quot;
+    &quot;&quot;&quot;Label the object&quot;&quot;&quot;</div>
 
 
 CSSString = cssutils.css.CSSStyleDeclaration
 CSSSheet = cssutils.css.CSSStyleSheet
 
 
-class CSSStringConverter(Converter):
-    @staticmethod
+<div class="viewcode-block" id="CSSStringConverter"><a class="viewcode-back" href="../../_autosummary/feynml.style.CSSStringConverter.html#feynml.style.CSSStringConverter">[docs]</a>class CSSStringConverter(Converter):
+<div class="viewcode-block" id="CSSStringConverter.deserialize"><a class="viewcode-back" href="../../_autosummary/feynml.style.CSSStringConverter.html#feynml.style.CSSStringConverter.deserialize">[docs]</a>    @staticmethod
     def deserialize(value: str, **kwargs) -&gt; CSSString:
-        return cssutils.parseStyle(value)
+        return cssutils.parseStyle(value)</div>
 
-    @staticmethod
+<div class="viewcode-block" id="CSSStringConverter.serialize"><a class="viewcode-back" href="../../_autosummary/feynml.style.CSSStringConverter.html#feynml.style.CSSStringConverter.serialize">[docs]</a>    @staticmethod
     def serialize(value: CSSString, **kwargs) -&gt; str:
-        return value.cssText.replace(&quot;\n&quot;, &quot; &quot;)
+        return value.cssText.replace(&quot;\n&quot;, &quot; &quot;)</div></div>
 
 
-class CSSSheetConverter(Converter):
-    @staticmethod
+<div class="viewcode-block" id="CSSSheetConverter"><a class="viewcode-back" href="../../_autosummary/feynml.style.CSSSheetConverter.html#feynml.style.CSSSheetConverter">[docs]</a>class CSSSheetConverter(Converter):
+<div class="viewcode-block" id="CSSSheetConverter.deserialize"><a class="viewcode-back" href="../../_autosummary/feynml.style.CSSSheetConverter.html#feynml.style.CSSSheetConverter.deserialize">[docs]</a>    @staticmethod
     def deserialize(value: str, **kwargs) -&gt; CSSSheet:
-        return cssutils.parseString(value)
+        return cssutils.parseString(value)</div>
 
-    @staticmethod
+<div class="viewcode-block" id="CSSSheetConverter.serialize"><a class="viewcode-back" href="../../_autosummary/feynml.style.CSSSheetConverter.html#feynml.style.CSSSheetConverter.serialize">[docs]</a>    @staticmethod
     def serialize(value: CSSSheet, **kwargs) -&gt; str:
-        return value.cssText.decode(&quot;utf-8&quot;)  # .replace(&quot;\n&quot;, &quot; &quot;)
+        return value.cssText.decode(&quot;utf-8&quot;)  # .replace(&quot;\n&quot;, &quot; &quot;)</div></div>
 
 
 converter.register_converter(CSSString, CSSStringConverter())
 converter.register_converter(CSSSheet, CSSSheetConverter())
 
 
-<div class="viewcode-block" id="Styled"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.Styled.html#pyfeyn2.feynmandiagram.Styled">[docs]</a>@dataclass
+<div class="viewcode-block" id="Styled"><a class="viewcode-back" href="../../_autosummary/feynml.style.Styled.html#feynml.style.Styled">[docs]</a>@dataclass
 class Styled:
     style: CSSString = field(
         default_factory=lambda: cssutils.parseStyle(&quot;&quot;),
@@ -179,7 +180,7 @@ class Styled:
         else:
             return self.style.getProperty(key)
 
-<div class="viewcode-block" id="Styled.put_style"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.Styled.html#pyfeyn2.feynmandiagram.Styled.put_style">[docs]</a>    @deprecated(&quot;0.0.0&quot;, &quot;use put_styles&quot;)
+<div class="viewcode-block" id="Styled.put_style"><a class="viewcode-back" href="../../_autosummary/feynml.style.Styled.html#feynml.style.Styled.put_style">[docs]</a>    @deprecated(&quot;0.0.0&quot;, &quot;use put_styles&quot;)
     def put_style(self, key, value):
         return self.put_styles({key: value})</div>
 

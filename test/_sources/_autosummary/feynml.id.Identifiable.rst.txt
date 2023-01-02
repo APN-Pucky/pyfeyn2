@@ -1,0 +1,32 @@
+feynml.id.Identifiable
+======================
+
+.. currentmodule:: feynml.id
+
+.. autoclass:: Identifiable
+   :members:                                   
+   :show-inheritance:                           
+   :inherited-members:                         
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Identifiable.__init__
+      ~Identifiable.with_id
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~Identifiable.id
+   
+   

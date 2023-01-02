@@ -9,14 +9,6 @@ pyfeyn2.render.all
 
    
    
-   .. rubric:: Functions
-
-   .. autosummary::
-      :toctree:                                         
-   
-      get_shapes
-      get_types
-   
    
 
    
@@ -27,18 +19,7 @@ pyfeyn2.render.all
       :toctree:                                         
       :template: custom-class-template.rst               
    
-      ASCIIPDFRender
       AllRender
-      DotRender
-      FeynmanRender
-      FeynmpRender
-      Figure
-      LatexRender
-      NoEscape
-      PyxRender
-      SubFigure
-      TikzFeynmanRender
-      UnicodePDFRender
    
    
 

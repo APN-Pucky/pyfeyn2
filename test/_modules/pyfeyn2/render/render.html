@@ -37,7 +37,7 @@
             <img src="../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.2.3-1-gde23f1e8
+                2.2.3-2-g8825ea03
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -66,6 +66,7 @@
 <p class="caption" role="heading"><span class="caption-text">Modules:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/pyfeyn2.html">pyfeyn2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/feynml.html">feynml</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Versions:</span></p>
 <ul>
@@ -109,8 +110,8 @@ from typing import List
 from pyfeyn2.feynmandiagram import FeynmanDiagram, Leg, Propagator, Vertex
 
 
-<div class="viewcode-block" id="Render"><a class="viewcode-back" href="../../../_autosummary/pyfeyn2.render.render.Render.html#pyfeyn2.render.latex.latex.Render">[docs]</a>class Render:
-<div class="viewcode-block" id="Render.__init__"><a class="viewcode-back" href="../../../_autosummary/pyfeyn2.render.render.Render.html#pyfeyn2.render.latex.latex.Render.__init__">[docs]</a>    def __init__(self, fd=None):
+<div class="viewcode-block" id="Render"><a class="viewcode-back" href="../../../_autosummary/pyfeyn2.render.render.Render.html#pyfeyn2.render.render.Render">[docs]</a>class Render:
+<div class="viewcode-block" id="Render.__init__"><a class="viewcode-back" href="../../../_autosummary/pyfeyn2.render.render.Render.html#pyfeyn2.render.render.Render.__init__">[docs]</a>    def __init__(self, fd=None):
         self.fd = fd
         self.src = &quot;&quot;</div>
 
@@ -123,7 +124,7 @@ from pyfeyn2.feynmandiagram import FeynmanDiagram, Leg, Propagator, Vertex
     def set_src(self, src):
         self.src = src
 
-<div class="viewcode-block" id="Render.render"><a class="viewcode-back" href="../../../_autosummary/pyfeyn2.render.render.Render.html#pyfeyn2.render.latex.latex.Render.render">[docs]</a>    @abc.abstractmethod
+<div class="viewcode-block" id="Render.render"><a class="viewcode-back" href="../../../_autosummary/pyfeyn2.render.render.Render.html#pyfeyn2.render.render.Render.render">[docs]</a>    @abc.abstractmethod
     def render(
         self,
         file=None,

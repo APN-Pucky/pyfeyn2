@@ -37,7 +37,7 @@
             <img src="../../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.2.3-1-gde23f1e8
+                2.2.3-2-g8825ea03
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
@@ -66,6 +66,7 @@
 <p class="caption" role="heading"><span class="caption-text">Modules:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../_autosummary/pyfeyn2.html">pyfeyn2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../_autosummary/feynml.html">feynml</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Versions:</span></p>
 <ul>
@@ -153,7 +154,7 @@ shape_map = {
 }
 
 
-<div class="viewcode-block" id="stylize_connect"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.latex.tikzfeynman.stylize_connect.html#pyfeyn2.render.all.stylize_connect">[docs]</a>def stylize_connect(fd: FeynmanDiagram, c: Connector):
+<div class="viewcode-block" id="stylize_connect"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.latex.tikzfeynman.stylize_connect.html#pyfeyn2.render.latex.tikzfeynman.stylize_connect">[docs]</a>def stylize_connect(fd: FeynmanDiagram, c: Connector):
     style = fd.get_style(c)
     ret = &quot;&quot;
     ret += type_map[style.getProperty(&quot;line&quot;).value]
@@ -191,7 +192,7 @@ shape_map = {
     return ret</div>
 
 
-<div class="viewcode-block" id="stylize_node"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.latex.tikzfeynman.stylize_node.html#pyfeyn2.render.all.stylize_node">[docs]</a>def stylize_node(fd: FeynmanDiagram, v: Vertex):
+<div class="viewcode-block" id="stylize_node"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.latex.tikzfeynman.stylize_node.html#pyfeyn2.render.latex.tikzfeynman.stylize_node">[docs]</a>def stylize_node(fd: FeynmanDiagram, v: Vertex):
     style = fd.get_style(v)
     ret = &quot;&quot;
     suffix = None
@@ -214,7 +215,7 @@ shape_map = {
     )</div>
 
 
-<div class="viewcode-block" id="stylize_leg_node"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.latex.tikzfeynman.stylize_leg_node.html#pyfeyn2.render.all.stylize_leg_node">[docs]</a>def stylize_leg_node(l: Leg):
+<div class="viewcode-block" id="stylize_leg_node"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.latex.tikzfeynman.stylize_leg_node.html#pyfeyn2.render.latex.tikzfeynman.stylize_leg_node">[docs]</a>def stylize_leg_node(l: Leg):
     style = &quot;&quot;
     if l.external is not None:
         style += &quot;label=&quot; + l.external + &quot;,&quot;
@@ -223,7 +224,7 @@ shape_map = {
     return f&quot;\t\\vertex ({l.id}) [{sty}] at ({l.x},{l.y});\n&quot;</div>
 
 
-<div class="viewcode-block" id="get_line"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.latex.tikzfeynman.get_line.html#pyfeyn2.render.all.get_line">[docs]</a>def get_line(source_id, target_id, style):
+<div class="viewcode-block" id="get_line"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.latex.tikzfeynman.get_line.html#pyfeyn2.render.latex.tikzfeynman.get_line">[docs]</a>def get_line(source_id, target_id, style):
     # Fix self-loop
     if source_id == target_id:
         return f&quot;\t\t({source_id}) -- [{style}] ({target_id}clone),\n&quot;
@@ -231,7 +232,7 @@ shape_map = {
         return f&quot;\t\t({source_id}) -- [{style}] ({target_id}),\n&quot;</div>
 
 
-<div class="viewcode-block" id="feynman_to_tikz_feynman"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.latex.tikzfeynman.feynman_to_tikz_feynman.html#pyfeyn2.render.all.feynman_to_tikz_feynman">[docs]</a>def feynman_to_tikz_feynman(fd):
+<div class="viewcode-block" id="feynman_to_tikz_feynman"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.latex.tikzfeynman.feynman_to_tikz_feynman.html#pyfeyn2.render.latex.tikzfeynman.feynman_to_tikz_feynman">[docs]</a>def feynman_to_tikz_feynman(fd):
     direct = &quot;*&quot;
 
     src = &quot;\\begin{tikzpicture}\n&quot;
@@ -258,8 +259,8 @@ shape_map = {
     return src</div>
 
 
-<div class="viewcode-block" id="TikzFeynmanRender"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.latex.tikzfeynman.TikzFeynmanRender.html#pyfeyn2.render.all.TikzFeynmanRender">[docs]</a>class TikzFeynmanRender(LatexRender):
-<div class="viewcode-block" id="TikzFeynmanRender.__init__"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.latex.tikzfeynman.TikzFeynmanRender.html#pyfeyn2.render.all.TikzFeynmanRender.__init__">[docs]</a>    def __init__(
+<div class="viewcode-block" id="TikzFeynmanRender"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.latex.tikzfeynman.TikzFeynmanRender.html#pyfeyn2.render.latex.tikzfeynman.TikzFeynmanRender">[docs]</a>class TikzFeynmanRender(LatexRender):
+<div class="viewcode-block" id="TikzFeynmanRender.__init__"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.latex.tikzfeynman.TikzFeynmanRender.html#pyfeyn2.render.latex.tikzfeynman.TikzFeynmanRender.__init__">[docs]</a>    def __init__(
         self,
         fd=None,
         documentclass=&quot;standalone&quot;,

@@ -51,6 +51,7 @@
    :caption: Modules:
 
    pyfeyn2
+   feynml
 
 
 .. toctree::

@@ -37,7 +37,7 @@
             <img src="../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.2.3-1-gde23f1e8
+                2.2.3-2-g8825ea03
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -66,6 +66,7 @@
 <p class="caption" role="heading"><span class="caption-text">Modules:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../_autosummary/pyfeyn2.html">pyfeyn2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../_autosummary/feynml.html">feynml</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Versions:</span></p>
 <ul>
@@ -115,7 +116,7 @@ from smpl_doc.doc import deprecated
 from smpl_util.util import withify
 
 
-<div class="viewcode-block" id="Leg"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.render.render.Leg.html#pyfeyn2.feynmandiagram.Leg">[docs]</a>@withify()
+<div class="viewcode-block" id="Leg"><a class="viewcode-back" href="../../_autosummary/feynml.leg.Leg.html#feynml.leg.Leg">[docs]</a>@withify()
 @dataclass
 class Leg(Point, Targeting, Connector):
     sense: str = field(default=None, metadata={})
@@ -126,11 +127,11 @@ class Leg(Point, Targeting, Connector):
     )
     &quot;&quot;&quot;External text for leg&quot;&quot;&quot;
 
-<div class="viewcode-block" id="Leg.is_incoming"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.render.render.Leg.html#pyfeyn2.feynmandiagram.Leg.is_incoming">[docs]</a>    def is_incoming(self):
+<div class="viewcode-block" id="Leg.is_incoming"><a class="viewcode-back" href="../../_autosummary/feynml.leg.Leg.html#feynml.leg.Leg.is_incoming">[docs]</a>    def is_incoming(self):
         &quot;&quot;&quot;Return True if the leg is incoming, False otherwise.&quot;&quot;&quot;
         return &quot;in&quot; == self.sense[:2] or self.sense[:8] == &quot;anti-out&quot;</div>
 
-<div class="viewcode-block" id="Leg.is_outgoing"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.render.render.Leg.html#pyfeyn2.feynmandiagram.Leg.is_outgoing">[docs]</a>    def is_outgoing(self):
+<div class="viewcode-block" id="Leg.is_outgoing"><a class="viewcode-back" href="../../_autosummary/feynml.leg.Leg.html#feynml.leg.Leg.is_outgoing">[docs]</a>    def is_outgoing(self):
         &quot;&quot;&quot;Return True if the leg is outgoing, False otherwise.&quot;&quot;&quot;
         return &quot;out&quot; == self.sense[:3] or self.sense[:7] == &quot;anti-in&quot;</div>
 

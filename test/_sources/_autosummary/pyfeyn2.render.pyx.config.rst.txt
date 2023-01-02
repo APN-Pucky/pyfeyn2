@@ -28,7 +28,6 @@ pyfeyn2.render.pyx.config
       :toctree:                                         
       :template: custom-class-template.rst               
    
-      OptionParser
       OptionSet
    
    

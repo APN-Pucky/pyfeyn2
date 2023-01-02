@@ -1,6 +1,0 @@
-pyfeyn2.render.latex.latex.display
-==================================
-
-.. currentmodule:: pyfeyn2.render.latex.latex
-
-.. autofunction:: display

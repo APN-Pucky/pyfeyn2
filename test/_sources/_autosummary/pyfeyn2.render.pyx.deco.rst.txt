@@ -27,13 +27,11 @@ pyfeyn2.render.pyx.deco
       :template: custom-class-template.rst               
    
       Arrow
-      FeynDiagram
       FreeArrow
       Label
       LineLabel
       ParallelArrow
       PointLabel
-      Visible
    
    
 

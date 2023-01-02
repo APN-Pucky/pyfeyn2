@@ -37,7 +37,7 @@
             <img src="../../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.2.3-1-gde23f1e8
+                2.2.3-2-g8825ea03
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
@@ -66,6 +66,7 @@
 <p class="caption" role="heading"><span class="caption-text">Modules:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../_autosummary/pyfeyn2.html">pyfeyn2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../_autosummary/feynml.html">feynml</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Versions:</span></p>
 <ul>
@@ -156,7 +157,7 @@ type_map = {
 }
 
 
-<div class="viewcode-block" id="stylize_line"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.latex.feynmp.stylize_line.html#pyfeyn2.render.all.stylize_line">[docs]</a>def stylize_line(c: Connector) -&gt; str:
+<div class="viewcode-block" id="stylize_line"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.latex.feynmp.stylize_line.html#pyfeyn2.render.latex.feynmp.stylize_line">[docs]</a>def stylize_line(c: Connector) -&gt; str:
     style = &quot;&quot;
     if c.label is not None:
         style += f&quot;,label={c.label}&quot;
@@ -165,7 +166,7 @@ type_map = {
     return style</div>
 
 
-<div class="viewcode-block" id="feynman_to_feynmp"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.latex.feynmp.feynman_to_feynmp.html#pyfeyn2.render.all.feynman_to_feynmp">[docs]</a>def feynman_to_feynmp(fd):
+<div class="viewcode-block" id="feynman_to_feynmp"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.latex.feynmp.feynman_to_feynmp.html#pyfeyn2.render.latex.feynmp.feynman_to_feynmp">[docs]</a>def feynman_to_feynmp(fd):
     dire = fd.get_style(fd).getProperty(&quot;direction&quot;).value
     dirin = &quot;&quot;
     dirout = &quot;&quot;
@@ -258,8 +259,8 @@ type_map = {
     return src</div>
 
 
-<div class="viewcode-block" id="FeynmpRender"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.latex.feynmp.FeynmpRender.html#pyfeyn2.render.all.FeynmpRender">[docs]</a>class FeynmpRender(MetaPostRender):
-<div class="viewcode-block" id="FeynmpRender.__init__"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.latex.feynmp.FeynmpRender.html#pyfeyn2.render.all.FeynmpRender.__init__">[docs]</a>    def __init__(
+<div class="viewcode-block" id="FeynmpRender"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.latex.feynmp.FeynmpRender.html#pyfeyn2.render.latex.feynmp.FeynmpRender">[docs]</a>class FeynmpRender(MetaPostRender):
+<div class="viewcode-block" id="FeynmpRender.__init__"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.latex.feynmp.FeynmpRender.html#pyfeyn2.render.latex.feynmp.FeynmpRender.__init__">[docs]</a>    def __init__(
         self,
         fd=None,
         documentclass=&quot;standalone&quot;,

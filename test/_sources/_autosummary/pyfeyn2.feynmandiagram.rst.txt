@@ -9,13 +9,6 @@ pyfeyn2.feynmandiagram
 
    
    
-   .. rubric:: Functions
-
-   .. autosummary::
-      :toctree:                                         
-   
-      version
-   
    
 
    
@@ -26,20 +19,7 @@ pyfeyn2.feynmandiagram
       :toctree:                                         
       :template: custom-class-template.rst               
    
-      Connector
       FeynML
-      FeynML_
-      FeynmanDiagram
-      Head
-      Leg
-      Meta
-      Momentum
-      PDG
-      Point
-      Propagator
-      Styled
-      Tool
-      Vertex
    
    
 

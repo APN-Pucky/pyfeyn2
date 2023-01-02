@@ -37,7 +37,7 @@
             <img src="../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.2.3-1-gde23f1e8
+                2.2.3-2-g8825ea03
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -66,6 +66,7 @@
 <p class="caption" role="heading"><span class="caption-text">Modules:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../_autosummary/pyfeyn2.html">pyfeyn2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../_autosummary/feynml.html">feynml</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Versions:</span></p>
 <ul>
@@ -253,12 +254,12 @@ default_sheet = cssutils.parseString(
 )
 
 
-def get_default_sheet() -&gt; cssutils.css.CSSStyleSheet:
+<div class="viewcode-block" id="get_default_sheet"><a class="viewcode-back" href="../../_autosummary/feynml.types.get_default_sheet.html#feynml.types.get_default_sheet">[docs]</a>def get_default_sheet() -&gt; cssutils.css.CSSStyleSheet:
     &quot;&quot;&quot;Return the default sheet.&quot;&quot;&quot;
-    return default_sheet
+    return default_sheet</div>
 
 
-<div class="viewcode-block" id="get_types"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.render.all.get_types.html#pyfeyn2.render.all.get_types">[docs]</a>def get_types() -&gt; List[str]:
+<div class="viewcode-block" id="get_types"><a class="viewcode-back" href="../../_autosummary/feynml.types.get_types.html#feynml.types.get_types">[docs]</a>def get_types() -&gt; List[str]:
     &quot;&quot;&quot;Return the default types.&quot;&quot;&quot;
     ret = []
     for rule in default_sheet:
@@ -267,7 +268,7 @@ def get_default_sheet() -&gt; cssutils.css.CSSStyleSheet:
     return sorted(ret)</div>
 
 
-<div class="viewcode-block" id="get_shapes"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.render.all.get_shapes.html#pyfeyn2.render.all.get_shapes">[docs]</a>def get_shapes() -&gt; List[str]:
+<div class="viewcode-block" id="get_shapes"><a class="viewcode-back" href="../../_autosummary/feynml.types.get_shapes.html#feynml.types.get_shapes">[docs]</a>def get_shapes() -&gt; List[str]:
     &quot;&quot;&quot;Return the default shapes.&quot;&quot;&quot;
     ret = []
     for rule in default_sheet:

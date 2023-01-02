@@ -1,6 +1,0 @@
-pyfeyn2.render.pyx.points.copy
-==============================
-
-.. currentmodule:: pyfeyn2.render.pyx.points
-
-.. autofunction:: copy

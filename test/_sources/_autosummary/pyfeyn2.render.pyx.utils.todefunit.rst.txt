@@ -1,6 +1,0 @@
-pyfeyn2.render.pyx.utils.todefunit
-==================================
-
-.. currentmodule:: pyfeyn2.render.pyx.utils
-
-.. autofunction:: todefunit

@@ -1,0 +1,47 @@
+﻿feynml
+======
+
+.. automodule:: feynml
+  
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+
+.. rubric:: Modules
+
+.. autosummary::
+   :toctree:
+   :template: custom-module-template.rst                
+   :recursive:
+
+   feynml.connector
+   feynml.feynmandiagram
+   feynml.feynml
+   feynml.id
+   feynml.leg
+   feynml.line
+   feynml.momentum
+   feynml.particles
+   feynml.pdgid
+   feynml.point
+   feynml.propagator
+   feynml.sourcing
+   feynml.style
+   feynml.targeting
+   feynml.types
+   feynml.vertex
+

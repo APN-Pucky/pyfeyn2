@@ -37,7 +37,7 @@
             <img src="../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.2.3-1-gde23f1e8
+                2.2.3-2-g8825ea03
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -66,6 +66,7 @@
 <p class="caption" role="heading"><span class="caption-text">Modules:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../_autosummary/pyfeyn2.html">pyfeyn2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../_autosummary/feynml.html">feynml</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Versions:</span></p>
 <ul>
@@ -114,7 +115,7 @@ from feynml.style import Labeled, Styled
 from smpl_util.util import withify
 
 
-<div class="viewcode-block" id="Connector"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.render.latex.tikzfeynman.Connector.html#pyfeyn2.feynmandiagram.Connector">[docs]</a>@withify()
+<div class="viewcode-block" id="Connector"><a class="viewcode-back" href="../../_autosummary/feynml.connector.Connector.html#feynml.connector.Connector">[docs]</a>@withify()
 @dataclass
 class Connector(Labeled, Styled, PDG):
     momentum: Optional[Momentum] = field(
@@ -122,19 +123,19 @@ class Connector(Labeled, Styled, PDG):
     )
     &quot;&quot;&quot;Momentum of the connector&quot;&quot;&quot;
 
-<div class="viewcode-block" id="Connector.with_tension"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.render.latex.tikzfeynman.Connector.html#pyfeyn2.feynmandiagram.Connector.with_tension">[docs]</a>    def with_tension(self, tension: float):
+<div class="viewcode-block" id="Connector.with_tension"><a class="viewcode-back" href="../../_autosummary/feynml.connector.Connector.html#feynml.connector.Connector.with_tension">[docs]</a>    def with_tension(self, tension: float):
         &quot;&quot;&quot;Add tension to the connector&quot;&quot;&quot;
         return self.put_styles(tension=tension)</div>
 
-<div class="viewcode-block" id="Connector.get_tension"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.render.latex.tikzfeynman.Connector.html#pyfeyn2.feynmandiagram.Connector.get_tension">[docs]</a>    def get_tension(self):
+<div class="viewcode-block" id="Connector.get_tension"><a class="viewcode-back" href="../../_autosummary/feynml.connector.Connector.html#feynml.connector.Connector.get_tension">[docs]</a>    def get_tension(self):
         &quot;&quot;&quot;Get tension of the connector&quot;&quot;&quot;
         return self.get_style(&quot;tension&quot;)</div>
 
-<div class="viewcode-block" id="Connector.with_length"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.render.latex.tikzfeynman.Connector.html#pyfeyn2.feynmandiagram.Connector.with_length">[docs]</a>    def with_length(self, length: float):
+<div class="viewcode-block" id="Connector.with_length"><a class="viewcode-back" href="../../_autosummary/feynml.connector.Connector.html#feynml.connector.Connector.with_length">[docs]</a>    def with_length(self, length: float):
         &quot;&quot;&quot;Add length to the connector&quot;&quot;&quot;
         return self.put_styles(length=length)</div>
 
-<div class="viewcode-block" id="Connector.get_length"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.render.latex.tikzfeynman.Connector.html#pyfeyn2.feynmandiagram.Connector.get_length">[docs]</a>    def get_length(self):
+<div class="viewcode-block" id="Connector.get_length"><a class="viewcode-back" href="../../_autosummary/feynml.connector.Connector.html#feynml.connector.Connector.get_length">[docs]</a>    def get_length(self):
         &quot;&quot;&quot;Get length of the connector&quot;&quot;&quot;
         return self.get_style(&quot;length&quot;)</div></div>
 </pre></div>

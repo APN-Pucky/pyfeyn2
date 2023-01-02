@@ -19,11 +19,7 @@ pyfeyn2.render.render
       :toctree:                                         
       :template: custom-class-template.rst               
    
-      FeynmanDiagram
-      Leg
-      Propagator
       Render
-      Vertex
    
    
 

@@ -19,9 +19,7 @@ pyfeyn2.render.latex.metapost
       :toctree:                                         
       :template: custom-class-template.rst               
    
-      LatexRender
       MetaPostRender
-      Path
    
    
 

@@ -9,13 +9,6 @@
 
    
    
-   .. rubric:: Functions
-
-   .. autosummary::
-      :toctree:                                         
-   
-      version
-   
    
 
    

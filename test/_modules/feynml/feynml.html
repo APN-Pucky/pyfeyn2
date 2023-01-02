@@ -37,7 +37,7 @@
             <img src="../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.2.3-1-gde23f1e8
+                2.2.3-2-g8825ea03
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -66,6 +66,7 @@
 <p class="caption" role="heading"><span class="caption-text">Modules:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../_autosummary/pyfeyn2.html">pyfeyn2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../_autosummary/feynml.html">feynml</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Versions:</span></p>
 <ul>
@@ -129,7 +130,7 @@ cssutils.log.setLevel(logging.CRITICAL)
 feynml_version = &quot;0.0&quot;
 
 
-<div class="viewcode-block" id="Tool"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.Tool.html#pyfeyn2.feynmandiagram.Tool">[docs]</a>@dataclass
+<div class="viewcode-block" id="Tool"><a class="viewcode-back" href="../../_autosummary/feynml.feynml.Tool.html#feynml.feynml.Tool">[docs]</a>@dataclass
 class Tool:
     class Meta:
         name = &quot;tool&quot;
@@ -140,7 +141,7 @@ class Tool:
     )</div>
 
 
-<div class="viewcode-block" id="Meta"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.Meta.html#pyfeyn2.feynmandiagram.Meta">[docs]</a>@dataclass
+<div class="viewcode-block" id="Meta"><a class="viewcode-back" href="../../_autosummary/feynml.feynml.Meta.html#feynml.feynml.Meta">[docs]</a>@dataclass
 class Meta:
     class Meta:
         name = &quot;meta&quot;
@@ -152,7 +153,7 @@ class Meta:
 alias_meta = Meta
 
 
-<div class="viewcode-block" id="Head"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.Head.html#pyfeyn2.feynmandiagram.Head">[docs]</a>@dataclass
+<div class="viewcode-block" id="Head"><a class="viewcode-back" href="../../_autosummary/feynml.feynml.Head.html#feynml.feynml.Head">[docs]</a>@dataclass
 class Head:
     class Meta:
         name = &quot;head&quot;
@@ -166,7 +167,7 @@ class Head:
     style: Optional[str] = field(default=&quot;&quot;, metadata={&quot;type&quot;: &quot;Element&quot;})</div>
 
 
-@dataclass
+<div class="viewcode-block" id="FeynML"><a class="viewcode-back" href="../../_autosummary/feynml.feynml.FeynML.html#feynml.feynml.FeynML">[docs]</a>@dataclass
 class FeynML:
     class Meta:
         name = &quot;feynml&quot;
@@ -199,17 +200,17 @@ class FeynML:
                 return d
         return None
 
-<div class="viewcode-block" id="FeynML.to_xml"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.FeynML.html#pyfeyn2.feynmandiagram.FeynML.to_xml">[docs]</a>    def to_xml(self) -&gt; str:
+<div class="viewcode-block" id="FeynML.to_xml"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.FeynML.html#feynml.feynml.FeynML.to_xml">[docs]</a>    def to_xml(self) -&gt; str:
         &quot;&quot;&quot;Return self as XML.&quot;&quot;&quot;
         config = SerializerConfig(pretty_print=True)
         serializer = XmlSerializer(config=config)
         return serializer.render(self)</div>
 
-<div class="viewcode-block" id="FeynML.from_xml"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.FeynML.html#pyfeyn2.feynmandiagram.FeynML.from_xml">[docs]</a>    @classmethod
+<div class="viewcode-block" id="FeynML.from_xml"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.FeynML.html#feynml.feynml.FeynML.from_xml">[docs]</a>    @classmethod
     def from_xml(cls, xml: str):
         &quot;&quot;&quot;Load self from XML.&quot;&quot;&quot;
         parser = XmlParser()
-        return parser.from_string(xml, cls)</div>
+        return parser.from_string(xml, cls)</div></div>
 </pre></div>
 
            </div>

@@ -1,6 +1,0 @@
-pyfeyn2.render.latex.dot.dot\_to\_tikz
-======================================
-
-.. currentmodule:: pyfeyn2.render.latex.dot
-
-.. autofunction:: dot_to_tikz

@@ -1,6 +1,0 @@
-pyfeyn2.feynmandiagram.version
-==============================
-
-.. currentmodule:: pyfeyn2.feynmandiagram
-
-.. autofunction:: version

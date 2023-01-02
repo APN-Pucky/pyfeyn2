@@ -20,7 +20,6 @@ pyfeyn2.render.pyx.diagrams
       :template: custom-class-template.rst               
    
       FeynDiagram
-      Visible
    
    
 

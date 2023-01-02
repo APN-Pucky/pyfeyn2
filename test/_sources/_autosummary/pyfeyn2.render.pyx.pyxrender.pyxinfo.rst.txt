@@ -1,6 +1,0 @@
-pyfeyn2.render.pyx.pyxrender.pyxinfo
-====================================
-
-.. currentmodule:: pyfeyn2.render.pyx.pyxrender
-
-.. autofunction:: pyxinfo
