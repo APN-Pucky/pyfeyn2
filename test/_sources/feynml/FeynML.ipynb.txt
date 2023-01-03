@@ -141,7 +141,7 @@
                         "source": [
                                 "fml = FeynML(\n",
                                 "        head=Head(\n",
-                                "            metas=Meta(name=\"pyfeyn2\", value=\"test\"),\n",
+                                "            metas=[Meta(name=\"pyfeyn2\", content=\"test\")],\n",
                                 "            description=\"Simple single test diagram\",\n",
                                 "        ),\n",
                                 "        diagrams=fd,\n",

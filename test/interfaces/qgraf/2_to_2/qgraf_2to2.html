@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>QGraf &mdash; pyfeyn2  documentation</title>
+  <title>2 to 2 process &mdash; pyfeyn2  documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/plot_directive.css" type="text/css" />
@@ -42,7 +42,7 @@
             <img src="../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.2.3-2-g8825ea03
+                2.2.3-8-g68d21e8f
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -70,14 +70,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../../dot/dot.html">Dot</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../hepmc/hepmc.html">HepMC</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../1_to_1/qgraf.html">1 to 1 process</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">QGraf</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">2 to 2 process</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html">Qgraf</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../1_to_1/qgraf.html">1 to 1 process</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">QGraf</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../qgraf_2to2.html">2 to 2 process</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">2 to 2 process</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../qgraf_2to2.html">2 to 2 process</a></li>
 </ul>
 </li>
 </ul>
@@ -112,7 +110,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../../index.html" class="icon icon-home"></a></li>
           <li class="breadcrumb-item"><a href="../../index.html">Interfaces</a></li>
-      <li class="breadcrumb-item active">QGraf</li>
+      <li class="breadcrumb-item active">2 to 2 process</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../../_sources/interfaces/qgraf/2_to_2/qgraf_2to2.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
@@ -401,13 +399,13 @@ div.rendered_html tbody tr:hover {
     text-align: unset;
 }
 </style>
-<section id="QGraf">
-<h1>QGraf<a class="headerlink" href="#QGraf" title="Permalink to this heading"></a></h1>
+<section id="2-to-2-process">
+<h1>2 to 2 process<a class="headerlink" href="#2-to-2-process" title="Permalink to this heading"></a></h1>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">io</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">smpl_io</span> <span class="kn">import</span> <span class="n">io</span>
 </pre></div>
 </div>
 </div>
@@ -415,149 +413,58 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyfeyn2.interface</span> <span class="kn">import</span> <span class="n">qgraf</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyfeyn2.interface.qgraf</span> <span class="kn">import</span> <span class="n">style</span>
 <span class="kn">import</span> <span class="nn">itertools</span> <span class="k">as</span> <span class="nn">it</span>
 <span class="kn">import</span> <span class="nn">re</span>
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">style</span> <span class="o">=</span> <span class="s2">&quot;tmp.sty&quot;</span>
-<span class="n">model</span> <span class="o">=</span><span class="s2">&quot;tmp.model&quot;</span>
-<span class="n">dat</span>  <span class="o">=</span> <span class="s2">&quot;tmp.dat&quot;</span>
-<span class="n">output</span> <span class="o">=</span> <span class="s2">&quot;output.out&quot;</span>
-
-<span class="k">def</span> <span class="nf">multiple_replace</span><span class="p">(</span><span class="n">string</span><span class="p">,</span> <span class="n">rep_dict</span><span class="p">):</span>
-    <span class="n">pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">&quot;|&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">re</span><span class="o">.</span><span class="n">escape</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">rep_dict</span><span class="p">,</span><span class="n">key</span><span class="o">=</span><span class="nb">len</span><span class="p">,</span><span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)]),</span> <span class="n">flags</span><span class="o">=</span><span class="n">re</span><span class="o">.</span><span class="n">DOTALL</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">pattern</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">rep_dict</span><span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">0</span><span class="p">)],</span> <span class="n">string</span><span class="p">)</span>
-
-
-
-<span class="n">raw_model</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">* https://porthos.tecnico.ulisboa.pt/CTQFT/node9.html</span>
-
-
-<span class="s2">*                  Higgs</span>
-
-<span class="s2">*  [H,H,+]</span>
-
-<span class="s2">*   leptons</span>
-
-<span class="s2">  [e,E,-]</span>
-
-<span class="s2">*                  neutrinos</span>
-
-<span class="s2">  [n,N,-]</span>
-
-<span class="s2">*              quarks</span>
-
-<span class="s2">* [u,U,-]</span>
-<span class="s2">* [d,D,-]</span>
-
-
-<span class="s2">*      photon, W-boson, Z-boson, gluon</span>
-
-<span class="s2">  [A,A,+]</span>
-<span class="s2">  [WM,WP,+]</span>
-<span class="s2">  [Z,Z,+]</span>
-<span class="s2">* [g,g,+]</span>
-
-<span class="s2">*                 cubic vertices</span>
-
-
-<span class="s2">  [WP,WM,A]</span>
-<span class="s2">  [WP,WM,Z]</span>
-<span class="s2">* [g,g,g]</span>
-
-
-<span class="s2">*  [WP,WM,H]</span>
-<span class="s2">*  [Z,Z,H]</span>
-<span class="s2">*  [H,H,H]</span>
-
-<span class="s2">* yukawa</span>
-
-<span class="s2">*  [E1,e1,H]</span>
-<span class="s2">*  [E2,e2,H]</span>
-<span class="s2">*  [E3,e3,H]</span>
-
-<span class="s2">* [U,u,H]</span>
-<span class="s2">* [D,d,H]</span>
-
-<span class="s2">* fermion - gauge boson</span>
-
-<span class="s2">  [E,e,A]</span>
-
-<span class="s2">  [E,e,Z]</span>
-
-<span class="s2">  [N,n,Z]</span>
-
-<span class="s2">  [N,e,WP]</span>
-
-<span class="s2">  [E,n,WM]</span>
-
-<span class="s2">* [U,u,A]</span>
-<span class="s2">* [D,d,A]</span>
-
-<span class="s2">* [U,u,Z]</span>
-<span class="s2">* [D,d,Z]</span>
-
-
-<span class="s2">* [U,u,g]</span>
-<span class="s2">* [D,d,g]</span>
-
-<span class="s2">* K-M</span>
-
-<span class="s2">* [U,d,WP]</span>
-
-<span class="s2">* [D,u,WM]</span>
-
-
-<span class="s2">*                     quartic vertices</span>
-
-<span class="s2">  [WP,WM,A,A]</span>
-<span class="s2">*  [WP,WM,Z,Z]</span>
-<span class="s2">*  [WP,WM,A,Z]</span>
-<span class="s2">*  [WP,WM,WP,WM]</span>
-<span class="s2">* [g,g,g,g]</span>
-
-<span class="s2">*  [WP,WM,H,H]</span>
-<span class="s2">*  [Z,Z,H,H]</span>
-<span class="s2">*  [H,H,H,H]</span>
-
-<span class="s2">&quot;&quot;&quot;</span>
-
-<span class="n">raw_model</span> <span class="o">=</span> <span class="n">multiple_replace</span><span class="p">(</span><span class="n">raw_model</span><span class="p">,{</span><span class="s2">&quot;e&quot;</span><span class="p">:</span><span class="s2">&quot;e_minus&quot;</span><span class="p">,</span><span class="s2">&quot;E&quot;</span><span class="p">:</span><span class="s2">&quot;e_plus&quot;</span><span class="p">,</span><span class="s1">&#39;n&#39;</span><span class="p">:</span><span class="s1">&#39;nu_e&#39;</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">:</span><span class="s1">&#39;nu_e_bar&#39;</span><span class="p">,</span><span class="s2">&quot;g&quot;</span><span class="p">:</span><span class="s2">&quot;g&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;H&quot;</span><span class="p">:</span><span class="s2">&quot;H_0&quot;</span><span class="p">,</span> <span class="s1">&#39;Z&#39;</span><span class="p">:</span><span class="s1">&#39;Z_0&#39;</span><span class="p">,</span>
-            <span class="s2">&quot;WP&quot;</span><span class="p">:</span><span class="s2">&quot;W_plus&quot;</span><span class="p">,</span><span class="s2">&quot;WM&quot;</span><span class="p">:</span> <span class="s2">&quot;W_minus&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;A&quot;</span><span class="p">:</span><span class="s2">&quot;gamma&quot;</span>
-           <span class="p">})</span>
-
-<span class="n">io</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">model</span><span class="p">,</span><span class="n">raw_model</span><span class="p">,</span>
-         <span class="n">create_dir</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">io</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">style</span><span class="p">,</span>
-         <span class="n">qgraf</span><span class="o">.</span><span class="n">get_style</span><span class="p">(),</span>
-         <span class="n">create_dir</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">io</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">dat</span><span class="p">,</span>
-          <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
-<span class="s2"> output= &#39;</span><span class="si">{</span><span class="n">output</span><span class="si">}</span><span class="s2">&#39; ;</span>
-<span class="s2"> style= &#39;</span><span class="si">{</span><span class="n">style</span><span class="si">}</span><span class="s2">&#39; ;</span>
-<span class="s2"> model = &#39;</span><span class="si">{</span><span class="n">model</span><span class="si">}</span><span class="s2">&#39;;</span>
-<span class="s2"> in= nu_e[p1], nu_e_bar[p2];</span>
-<span class="s2"> out= nu_e[p3], nu_e_bar[p4];</span>
-<span class="s2"> loops= 1;</span>
-<span class="s2"> loop_momentum= l;</span>
-<span class="s2"> options= notadpole, onshell;</span>
-<span class="s2"> &quot;&quot;&quot;</span>
-         <span class="p">,</span><span class="n">create_dir</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">io</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyqgraf</span> <span class="kn">import</span> <span class="n">qgraf</span><span class="p">,</span> <span class="n">model</span>
+<span class="n">qgraf</span><span class="o">.</span><span class="n">install</span><span class="p">(</span><span class="s2">&quot;3.6.5&quot;</span><span class="p">)</span>
+<span class="n">xml_string</span> <span class="o">=</span> <span class="n">qgraf</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;nu_e[p1], nu_e_bar[p2]&quot;</span><span class="p">,</span> <span class="s2">&quot;nu_e[p3], nu_e_bar[p4]&quot;</span><span class="p">,</span><span class="n">loops</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">loop_momentum</span><span class="o">=</span><span class="s2">&quot;l&quot;</span><span class="p">,</span><span class="n">model</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">gws_UnitaryGauge_reduced</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="n">style</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+/home/apn/.local/bin/qgraf-3.6.5 qgraf.dat
+
+ --------------------------------------------------------------
+                          qgraf-3.6.5
+ --------------------------------------------------------------
+
+  output= &#39;output.out&#39; ;
+  style= &#39;tmp.sty&#39; ;
+  model = &#39;tmp.model&#39;;
+  in= nu_e[p1], nu_e_bar[p2];
+  out= nu_e[p3], nu_e_bar[p4];
+  loops= 1;
+  loop_momentum= l;
+  options= notadpole,onshell;
+
+ --------------------------------------------------------------
+
+   #loops    v-degrees          #diagrams
+
+      1
+              -   4^2     ....     0
+             3^2  4^1     ....     0
+             3^4   -      ....     24
+
+
+        total =  24 connected diagrams
+
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
@@ -574,13 +481,10 @@ div.rendered_html tbody tr:hover {
 <span class="kn">from</span> <span class="nn">pyfeyn2.auto.label</span> <span class="kn">import</span> <span class="n">auto_label</span>
 <span class="kn">from</span> <span class="nn">pyfeyn2.auto.position</span> <span class="kn">import</span> <span class="n">feynman_adjust_points</span>
 
-<span class="n">subprocess</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="n">shlex</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;qgraf </span><span class="si">{</span><span class="n">dat</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">))</span>
-<span class="n">xml_string</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">output</span><span class="p">)</span><span class="o">.</span><span class="n">read_text</span><span class="p">()</span>
 <span class="n">parser</span> <span class="o">=</span> <span class="n">XmlParser</span><span class="p">()</span>
 <span class="n">fml</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">from_string</span><span class="p">(</span><span class="n">xml_string</span><span class="p">,</span> <span class="n">FeynML</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">filter_diag</span><span class="p">(</span><span class="n">d</span><span class="p">):</span>
-    <span class="k">return</span> <span class="kc">True</span>
     <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">ecount</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">propagators</span><span class="p">:</span>
@@ -588,7 +492,7 @@ div.rendered_html tbody tr:hover {
             <span class="n">count</span> <span class="o">+=</span><span class="mi">1</span>
         <span class="k">if</span> <span class="n">p</span><span class="o">.</span><span class="n">pdgid</span> <span class="o">==</span> <span class="mi">11</span><span class="p">:</span>
             <span class="n">ecount</span> <span class="o">+=</span><span class="mi">1</span>
-    <span class="k">if</span> <span class="n">count</span> <span class="o">==</span><span class="mi">1</span> <span class="ow">and</span> <span class="n">ecount</span> <span class="o">&gt;=</span><span class="mi">2</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">count</span> <span class="o">&gt;=</span><span class="mi">0</span> <span class="ow">and</span> <span class="n">ecount</span> <span class="o">&gt;=</span><span class="mi">2</span><span class="p">:</span>
         <span class="k">return</span> <span class="kc">True</span>
     <span class="k">return</span> <span class="kc">False</span>
 
@@ -600,7 +504,6 @@ div.rendered_html tbody tr:hover {
 
 <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">fml</span><span class="o">.</span><span class="n">diagrams</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">filter_diag</span><span class="p">(</span><span class="n">d</span><span class="p">):</span>
-        <span class="n">ccount</span> <span class="o">+=</span><span class="mi">1</span>
         <span class="n">d</span><span class="o">.</span><span class="n">legs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">with_xy</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
         <span class="n">d</span><span class="o">.</span><span class="n">legs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">with_xy</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
         <span class="n">d</span><span class="o">.</span><span class="n">legs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">with_xy</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
@@ -624,33 +527,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-
- --------------------------------------------------------------
-                          qgraf-3.6.5
- --------------------------------------------------------------
-
-  output= &#39;output.out&#39; ;
-  style= &#39;tmp.sty&#39; ;
-  model = &#39;tmp.model&#39;;
-  in= nu_e[p1], nu_e_bar[p2];
-  out= nu_e[p3], nu_e_bar[p4];
-  loops= 1;
-  loop_momentum= l;
-  options= notadpole, onshell;
-
- --------------------------------------------------------------
-
-   #loops    v-degrees          #diagrams
-
-      1
-              -   4^2     ....     0
-             3^2  4^1     ....     0
-             3^4   -      ....     24
-
-
-        total =  24 connected diagrams
-
-single photon diags 24
+single photon diags 8
 </pre></div></div>
 </div>
 <div class="nboutput docutils container">
@@ -667,162 +544,68 @@ single photon diags 24
 <img alt="../../../_images/interfaces_qgraf_2_to_2_qgraf_2to2_4_2.png" src="../../../_images/interfaces_qgraf_2_to_2_qgraf_2to2_4_2.png" />
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../../_images/interfaces_qgraf_2_to_2_qgraf_2to2_4_3.png" src="../../../_images/interfaces_qgraf_2_to_2_qgraf_2to2_4_3.png" />
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../../_images/interfaces_qgraf_2_to_2_qgraf_2to2_4_4.png" src="../../../_images/interfaces_qgraf_2_to_2_qgraf_2to2_4_4.png" />
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../../_images/interfaces_qgraf_2_to_2_qgraf_2to2_4_5.png" src="../../../_images/interfaces_qgraf_2_to_2_qgraf_2to2_4_5.png" />
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../../_images/interfaces_qgraf_2_to_2_qgraf_2to2_4_6.png" src="../../../_images/interfaces_qgraf_2_to_2_qgraf_2to2_4_6.png" />
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../../_images/interfaces_qgraf_2_to_2_qgraf_2to2_4_7.png" src="../../../_images/interfaces_qgraf_2_to_2_qgraf_2to2_4_7.png" />
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../../_images/interfaces_qgraf_2_to_2_qgraf_2to2_4_8.png" src="../../../_images/interfaces_qgraf_2_to_2_qgraf_2to2_4_8.png" />
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../../_images/interfaces_qgraf_2_to_2_qgraf_2to2_4_9.png" src="../../../_images/interfaces_qgraf_2_to_2_qgraf_2to2_4_9.png" />
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../../_images/interfaces_qgraf_2_to_2_qgraf_2to2_4_10.png" src="../../../_images/interfaces_qgraf_2_to_2_qgraf_2to2_4_10.png" />
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../../_images/interfaces_qgraf_2_to_2_qgraf_2to2_4_11.png" src="../../../_images/interfaces_qgraf_2_to_2_qgraf_2to2_4_11.png" />
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../../_images/interfaces_qgraf_2_to_2_qgraf_2to2_4_12.png" src="../../../_images/interfaces_qgraf_2_to_2_qgraf_2to2_4_12.png" />
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../../_images/interfaces_qgraf_2_to_2_qgraf_2to2_4_13.png" src="../../../_images/interfaces_qgraf_2_to_2_qgraf_2to2_4_13.png" />
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../../_images/interfaces_qgraf_2_to_2_qgraf_2to2_4_14.png" src="../../../_images/interfaces_qgraf_2_to_2_qgraf_2to2_4_14.png" />
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../../_images/interfaces_qgraf_2_to_2_qgraf_2to2_4_15.png" src="../../../_images/interfaces_qgraf_2_to_2_qgraf_2to2_4_15.png" />
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../../_images/interfaces_qgraf_2_to_2_qgraf_2to2_4_16.png" src="../../../_images/interfaces_qgraf_2_to_2_qgraf_2to2_4_16.png" />
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../../_images/interfaces_qgraf_2_to_2_qgraf_2to2_4_17.png" src="../../../_images/interfaces_qgraf_2_to_2_qgraf_2to2_4_17.png" />
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../../_images/interfaces_qgraf_2_to_2_qgraf_2to2_4_18.png" src="../../../_images/interfaces_qgraf_2_to_2_qgraf_2to2_4_18.png" />
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../../_images/interfaces_qgraf_2_to_2_qgraf_2to2_4_19.png" src="../../../_images/interfaces_qgraf_2_to_2_qgraf_2to2_4_19.png" />
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../../_images/interfaces_qgraf_2_to_2_qgraf_2to2_4_20.png" src="../../../_images/interfaces_qgraf_2_to_2_qgraf_2to2_4_20.png" />
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../../_images/interfaces_qgraf_2_to_2_qgraf_2to2_4_21.png" src="../../../_images/interfaces_qgraf_2_to_2_qgraf_2to2_4_21.png" />
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../../_images/interfaces_qgraf_2_to_2_qgraf_2to2_4_22.png" src="../../../_images/interfaces_qgraf_2_to_2_qgraf_2to2_4_22.png" />
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../../_images/interfaces_qgraf_2_to_2_qgraf_2to2_4_23.png" src="../../../_images/interfaces_qgraf_2_to_2_qgraf_2to2_4_23.png" />
-</div>
-</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/interfaces_qgraf_2_to_2_qgraf_2to2_4_24.png" src="../../../_images/interfaces_qgraf_2_to_2_qgraf_2to2_4_24.png" />
-</div>
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">KeyboardInterrupt</span>                         Traceback (most recent call last)
+Cell <span class="ansi-green-fg">In[8], line 51</span>
+<span class="ansi-green-intense-fg ansi-bold">     49</span> t <span style="color: rgb(98,98,98)">=</span> TikzFeynmanRender(d)
+<span class="ansi-green-intense-fg ansi-bold">     50</span> <span style="color: rgb(95,135,135)">#print(t.get_src())</span>
+<span class="ansi-green-fg">---&gt; 51</span> <span class="ansi-yellow-bg">t</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">render</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">show</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg ansi-bold" style="color: rgb(0,135,0)">True</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     52</span> <span style="color: rgb(95,135,135)">#break</span>
+
+File <span class="ansi-green-fg">~/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/latex/latex.py:55</span>, in <span class="ansi-cyan-fg">LatexRender.render</span><span class="ansi-blue-fg">(self, file, show, resolution, width, height, clean_up)</span>
+<span class="ansi-green-intense-fg ansi-bold">     53</span>     file <span style="color: rgb(98,98,98)">=</span> <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">tmp</span><span style="color: rgb(175,0,0)">&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">     54</span> file <span style="color: rgb(98,98,98)">=</span> re<span style="color: rgb(98,98,98)">.</span>sub(<span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">\</span><span style="color: rgb(175,0,0)">.pdf$</span><span style="color: rgb(175,0,0)">&#34;</span>, <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">&#34;</span>, file<span style="color: rgb(98,98,98)">.</span>strip())
+<span class="ansi-green-fg">---&gt; 55</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">generate_pdf</span><span class="ansi-yellow-bg">(</span>
+<span class="ansi-green-intense-fg ansi-bold">     56</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">file</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">     57</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">clean_tex</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">clean_up</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">     58</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">compiler</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">lualatex</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">     59</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">compiler_args</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">[</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">-shell-escape</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg">]</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">     60</span> <span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     61</span> wi <span style="color: rgb(98,98,98)">=</span> WImage(
+<span class="ansi-green-intense-fg ansi-bold">     62</span>     filename<span style="color: rgb(98,98,98)">=</span>file <span style="color: rgb(98,98,98)">+</span> <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">.pdf</span><span style="color: rgb(175,0,0)">&#34;</span>, resolution<span style="color: rgb(98,98,98)">=</span>resolution, width<span style="color: rgb(98,98,98)">=</span>width, height<span style="color: rgb(98,98,98)">=</span>height
+<span class="ansi-green-intense-fg ansi-bold">     63</span> )
+<span class="ansi-green-intense-fg ansi-bold">     64</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> delete:
+
+File <span class="ansi-green-fg">~/.cache/pypoetry/virtualenvs/pyfeyn2-CEvJ4jFG-py3.9/lib/python3.9/site-packages/pylatex/document.py:250</span>, in <span class="ansi-cyan-fg">Document.generate_pdf</span><span class="ansi-blue-fg">(self, filepath, clean, clean_tex, compiler, compiler_args, silent)</span>
+<span class="ansi-green-intense-fg ansi-bold">    247</span> command <span style="color: rgb(98,98,98)">=</span> [compiler] <span style="color: rgb(98,98,98)">+</span> arguments <span style="color: rgb(98,98,98)">+</span> compiler_args <span style="color: rgb(98,98,98)">+</span> main_arguments
+<span class="ansi-green-intense-fg ansi-bold">    249</span> <span class="ansi-bold" style="color: rgb(0,135,0)">try</span>:
+<span class="ansi-green-fg">--&gt; 250</span>     output <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">subprocess</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">check_output</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">command</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">    251</span> <span class="ansi-yellow-bg">                                     </span><span class="ansi-yellow-bg">stderr</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">subprocess</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">STDOUT</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">    252</span> <span class="ansi-yellow-bg">                                     </span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">*</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">*</span><span class="ansi-yellow-bg">check_output_kwargs</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    253</span> <span class="ansi-bold" style="color: rgb(0,135,0)">except</span> (<span class="ansi-bold" style="color: rgb(215,95,95)">OSError</span>, <span class="ansi-bold" style="color: rgb(215,95,95)">IOError</span>) <span class="ansi-bold" style="color: rgb(0,135,0)">as</span> e:
+<span class="ansi-green-intense-fg ansi-bold">    254</span>     <span style="color: rgb(95,135,135)"># Use FileNotFoundError when python 2 is dropped</span>
+<span class="ansi-green-intense-fg ansi-bold">    255</span>     os_error <span style="color: rgb(98,98,98)">=</span> e
+
+File <span class="ansi-green-fg">/usr/lib/python3.9/subprocess.py:424</span>, in <span class="ansi-cyan-fg">check_output</span><span class="ansi-blue-fg">(timeout, *popenargs, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">    421</span>         empty <span style="color: rgb(98,98,98)">=</span> <span style="color: rgb(175,0,0)">b</span><span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">&#39;</span>
+<span class="ansi-green-intense-fg ansi-bold">    422</span>     kwargs[<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">input</span><span style="color: rgb(175,0,0)">&#39;</span>] <span style="color: rgb(98,98,98)">=</span> empty
+<span class="ansi-green-fg">--&gt; 424</span> <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> <span class="ansi-yellow-bg">run</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">*</span><span class="ansi-yellow-bg">popenargs</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">stdout</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">PIPE</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">timeout</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">timeout</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">check</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg ansi-bold" style="color: rgb(0,135,0)">True</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">    425</span> <span class="ansi-yellow-bg">           </span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">*</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">*</span><span class="ansi-yellow-bg">kwargs</span><span class="ansi-yellow-bg">)</span><span style="color: rgb(98,98,98)">.</span>stdout
+
+File <span class="ansi-green-fg">/usr/lib/python3.9/subprocess.py:507</span>, in <span class="ansi-cyan-fg">run</span><span class="ansi-blue-fg">(input, capture_output, timeout, check, *popenargs, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">    505</span> <span class="ansi-bold" style="color: rgb(0,135,0)">with</span> Popen(<span style="color: rgb(98,98,98)">*</span>popenargs, <span style="color: rgb(98,98,98)">*</span><span style="color: rgb(98,98,98)">*</span>kwargs) <span class="ansi-bold" style="color: rgb(0,135,0)">as</span> process:
+<span class="ansi-green-intense-fg ansi-bold">    506</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">try</span>:
+<span class="ansi-green-fg">--&gt; 507</span>         stdout, stderr <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">process</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">communicate</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg" style="color: rgb(0,135,0)">input</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">timeout</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">timeout</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    508</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">except</span> TimeoutExpired <span class="ansi-bold" style="color: rgb(0,135,0)">as</span> exc:
+<span class="ansi-green-intense-fg ansi-bold">    509</span>         process<span style="color: rgb(98,98,98)">.</span>kill()
+
+File <span class="ansi-green-fg">/usr/lib/python3.9/subprocess.py:1121</span>, in <span class="ansi-cyan-fg">Popen.communicate</span><span class="ansi-blue-fg">(self, input, timeout)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1119</span>     <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>_stdin_write(<span style="color: rgb(0,135,0)">input</span>)
+<span class="ansi-green-intense-fg ansi-bold">   1120</span> <span class="ansi-bold" style="color: rgb(0,135,0)">elif</span> <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>stdout:
+<span class="ansi-green-fg">-&gt; 1121</span>     stdout <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">stdout</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">read</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1122</span>     <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>stdout<span style="color: rgb(98,98,98)">.</span>close()
+<span class="ansi-green-intense-fg ansi-bold">   1123</span> <span class="ansi-bold" style="color: rgb(0,135,0)">elif</span> <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>stderr:
+
+<span class="ansi-red-fg">KeyboardInterrupt</span>:
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">xml_string</span><span class="p">)</span>
@@ -844,7 +627,7 @@ single photon diags 24
   out= nu_e[p3], nu_e_bar[p4];
   loops= 1;
   loop_momentum= l;
-  options= notadpole, onshell;
+  options= notadpole,onshell;
 
 
  You must add x= and y= with suitable vertex positions.

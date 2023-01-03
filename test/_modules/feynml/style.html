@@ -37,7 +37,7 @@
             <img src="../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.2.3-2-g8825ea03
+                2.2.3-8-g68d21e8f
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -182,7 +182,7 @@ class Styled:
 
 <div class="viewcode-block" id="Styled.put_style"><a class="viewcode-back" href="../../_autosummary/feynml.style.Styled.html#feynml.style.Styled.put_style">[docs]</a>    @deprecated(&quot;0.0.0&quot;, &quot;use put_styles&quot;)
     def put_style(self, key, value):
-        return self.put_styles({key: value})</div>
+        return self.put_styles(**{key: value})</div>
 
     def put_styles(self, **kwargs):
         if self.style is not None:

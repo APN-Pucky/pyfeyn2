@@ -37,7 +37,7 @@
             <img src="../../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.2.3-2-g8825ea03
+                2.2.3-8-g68d21e8f
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
@@ -146,11 +146,11 @@ from pyfeyn2.render.render import Render
         for l in self.fd.legs:
             lstyle = self.fd.get_style(l)
             tar = self.fd.get_vertex(l.target)
-            if l.sense[:2] == &quot;in&quot; or l.sense[:8] == &quot;anti-out&quot;:
+            if l.is_incoming():
                 nl = NamedLine[lstyle.getProperty(&quot;line&quot;).value](
                     Point(l.x, l.y), Point(tar.x, tar.y)
                 )
-            elif l.sense[:3] == &quot;out&quot; or l.sense[:9] == &quot;anti-in&quot;:
+            elif l.is_outgoing():
                 nl = NamedLine[lstyle.getProperty(&quot;line&quot;).value](
                     Point(tar.x, tar.y), Point(l.x, l.y)
                 )
