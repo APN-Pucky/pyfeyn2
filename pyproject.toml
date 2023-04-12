@@ -14,7 +14,7 @@ pylatex = "*"
 dot2tex = "*"
 matplotlib = ">=1.4.0,<4.0.0"
 Wand = "*"
-numpy = ">=1.6,<1.24" # Upper limit due to feynman using np.complex
+numpy = ">=1.6,<1.25" # Upper limit due to feynman using np.complex
 pyx = ">=0.12,<1.0.0"
 pydot = "*"
 feynman="^2.0"
