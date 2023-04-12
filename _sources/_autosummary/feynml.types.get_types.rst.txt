@@ -1,0 +1,6 @@
+feynml.types.get\_types
+=======================
+
+.. currentmodule:: feynml.types
+
+.. autofunction:: get_types

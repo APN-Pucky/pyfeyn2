@@ -1,0 +1,32 @@
+feynml.particles
+================
+
+.. automodule:: feynml.particles
+  
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+      :toctree:                                         
+   
+      get_either_particle
+      get_name
+      get_particle
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+

@@ -1,0 +1,6 @@
+feynml.particles.get\_name
+==========================
+
+.. currentmodule:: feynml.particles
+
+.. autofunction:: get_name

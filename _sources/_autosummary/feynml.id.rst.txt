@@ -1,0 +1,31 @@
+feynml.id
+=========
+
+.. automodule:: feynml.id
+  
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :toctree:                                         
+      :template: custom-class-template.rst               
+   
+      Identifiable
+   
+   
+
+   
+   
+   
+
+
+

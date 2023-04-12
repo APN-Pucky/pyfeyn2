@@ -14,9 +14,6 @@
   <![endif]-->
   
         <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
-        <script src="../../../../_static/jquery.js"></script>
-        <script src="../../../../_static/underscore.js"></script>
-        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../../_static/doctools.js"></script>
         <script src="../../../../_static/sphinx_highlight.js"></script>
         <script src="../../../../_static/thebelab-helper.js"></script>
@@ -33,30 +30,25 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../../../index.html" class="icon icon-home"> pyfeyn2
-            <img src="../../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            pyfeyn2
+              <img src="../../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.1.1
+                2.2.4
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Versions:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/pyfeyn2/">Stable</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/pyfeyn2/test/">Dev</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Links:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference external" href="https://github.com/APN-Pucky/pyfeyn2">GitHub</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">FeynML:</span></p>
+              <p class="caption" role="heading"><span class="caption-text">FeynML:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../feynml/index.html">FeynML</a></li>
 </ul>
@@ -75,6 +67,17 @@
 <p class="caption" role="heading"><span class="caption-text">Modules:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../_autosummary/pyfeyn2.html">pyfeyn2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../_autosummary/feynml.html">feynml</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Versions:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://pyfeyn2.readthedocs.io/en/stable/">RTD</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/pyfeyn2/">Stable</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/pyfeyn2/test/">Dev</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Links:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/APN-Pucky/pyfeyn2">GitHub</a></li>
 </ul>
 
         </div>
@@ -90,7 +93,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../../../index.html">Module code</a></li>
       <li class="breadcrumb-item active">pyfeyn2.render.latex.feynmp</li>
       <li class="wy-breadcrumbs-aside">
@@ -108,6 +111,7 @@ from typing import List
 from pylatex import Command
 from pylatex.utils import NoEscape
 
+from pyfeyn2 import feynmandiagram
 from pyfeyn2.feynmandiagram import Connector
 from pyfeyn2.render.latex.metapost import MetaPostRender
 
@@ -155,12 +159,13 @@ type_map = {
 }
 
 
-<div class="viewcode-block" id="stylize_line"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.latex.feynmp.stylize_line.html#pyfeyn2.render.latex.feynmp.stylize_line">[docs]</a>def stylize_line(c: Connector) -&gt; str:
+<div class="viewcode-block" id="stylize_line"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.latex.feynmp.stylize_line.html#pyfeyn2.render.latex.feynmp.stylize_line">[docs]</a>def stylize_line(fd: feynmandiagram, c: Connector) -&gt; str:
+    cstyle = fd.get_style(c)
     style = &quot;&quot;
     if c.label is not None:
         style += f&quot;,label={c.label}&quot;
-    if c.tension is not None:
-        style += f&quot;,tension={c.tension}&quot;
+    if cstyle.getProperty(&quot;tension&quot;) is not None:
+        style += f&quot;,tension=&quot; + str(cstyle.getProperty(&quot;tension&quot;).value)
     return style</div>
 
 
@@ -212,8 +217,11 @@ type_map = {
 
     for l in incoming:
         lstyle = fd.get_style(l)
-        tttype = type_map[lstyle.getProperty(&quot;line&quot;).value]
-        style = stylize_line(l)
+        if lstyle.getProperty(&quot;line&quot;) is not None:
+            tttype = type_map[lstyle.getProperty(&quot;line&quot;).value]
+        else:
+            tttype = l.type  # fallback to type if no line style is set
+        style = stylize_line(fd, l)
         for ttype in tttype:
             lid = l.id
             ltarget = l.target
@@ -224,8 +232,11 @@ type_map = {
             style = &quot;&quot;
     for l in outgoing:
         lstyle = fd.get_style(l)
-        tttype = type_map[lstyle.getProperty(&quot;line&quot;).value]
-        style = stylize_line(l)
+        if lstyle.getProperty(&quot;line&quot;) is not None:
+            tttype = type_map[lstyle.getProperty(&quot;line&quot;).value]
+        else:
+            tttype = l.type  # fallback to type if no line style is set
+        style = stylize_line(fd, l)
         for ttype in tttype:
             lid = l.id
             ltarget = l.target
@@ -237,8 +248,11 @@ type_map = {
 
     for p in fd.propagators:
         pstyle = fd.get_style(p)
-        tttype = type_map[pstyle.getProperty(&quot;line&quot;).value]
-        style = stylize_line(p)
+        if pstyle.getProperty(&quot;line&quot;) is not None:
+            tttype = type_map[pstyle.getProperty(&quot;line&quot;).value]
+        else:
+            tttype = p.type  # fallback to type if no line style is set
+        style = stylize_line(fd, p)
         for ttype in tttype:
             psource = p.source
             ptarget = p.target
@@ -296,6 +310,7 @@ type_map = {
         return super(FeynmpRender, cls).valid_styles() + [
             &quot;line&quot;,
             &quot;direction&quot;,
+            &quot;tension&quot;,
         ]</div>
 </pre></div>
 
@@ -306,7 +321,7 @@ type_map = {
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2022, Alexander Puck Neuwirth.</p>
+    <p>&#169; Copyright 2023, Alexander Puck Neuwirth.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

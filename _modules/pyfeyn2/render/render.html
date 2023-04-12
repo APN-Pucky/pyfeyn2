@@ -14,9 +14,6 @@
   <![endif]-->
   
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-        <script src="../../../_static/jquery.js"></script>
-        <script src="../../../_static/underscore.js"></script>
-        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
         <script src="../../../_static/sphinx_highlight.js"></script>
         <script src="../../../_static/thebelab-helper.js"></script>
@@ -33,30 +30,25 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../../index.html" class="icon icon-home"> pyfeyn2
-            <img src="../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            pyfeyn2
+              <img src="../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.1.1
+                2.2.4
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Versions:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/pyfeyn2/">Stable</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/pyfeyn2/test/">Dev</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Links:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference external" href="https://github.com/APN-Pucky/pyfeyn2">GitHub</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">FeynML:</span></p>
+              <p class="caption" role="heading"><span class="caption-text">FeynML:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../feynml/index.html">FeynML</a></li>
 </ul>
@@ -75,6 +67,17 @@
 <p class="caption" role="heading"><span class="caption-text">Modules:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/pyfeyn2.html">pyfeyn2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/feynml.html">feynml</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Versions:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://pyfeyn2.readthedocs.io/en/stable/">RTD</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/pyfeyn2/">Stable</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/pyfeyn2/test/">Dev</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Links:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/APN-Pucky/pyfeyn2">GitHub</a></li>
 </ul>
 
         </div>
@@ -90,7 +93,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
       <li class="breadcrumb-item active">pyfeyn2.render.render</li>
       <li class="wy-breadcrumbs-aside">
@@ -169,39 +172,51 @@ from pyfeyn2.feynmandiagram import FeynmanDiagram, Leg, Propagator, Vertex
     def valid_attribute(cls, attr: str) -&gt; bool:
         return attr in cls.valid_attributes()
 
-    def demo_propagator(self, d, show=True, label=None):
+    def demo_propagator(self, propagator, show=True, label=None, shape=None, **kwargs):
         v1 = Vertex().with_xy(-2, -2)
         v2 = Vertex().with_xy(2, -2)
+        if shape is not None:
+            v1 = v1.with_shape(shape)
+            v1 = v2.with_shape(shape)
 
         fd = FeynmanDiagram().add(
             v1,
             v2,
-            Propagator().connect(v1, v2).with_type(d).set_label(label).set_tension(0.0),
+            Propagator()
+            .connect(v1, v2)
+            .with_type(propagator)
+            .with_label(label if label else propagator)
+            .with_tension(0.0),
             Leg()
             .with_target(v1)
-            .set_point(v1)
+            .with_point(v1)
             .with_type(&quot;phantom&quot;)
             .with_incoming()
-            .set_length(0.0),
+            .with_length(0.0),
             Leg()
             .with_target(v2)
-            .set_point(v2)
+            .with_point(v2)
             .with_type(&quot;phantom&quot;)
             .with_outgoing()
-            .set_length(0.0),
+            .with_length(0.0),
         )
 
         self.set_feynman_diagram(fd)
-        self.render(show=show)
+        self.render(show=show, **kwargs)
 
-    def demo_vertex(self, d, show=True, label=None):
-        v1 = Vertex().with_xy(0, 0).with_shape(d)  # .set_label(label)
+    def demo_vertex(self, vertex, show=True, label=None):
+        v1 = (
+            Vertex()
+            .with_xy(0, 0)
+            .with_shape(vertex)
+            .with_label(label if label else vertex)
+        )
 
         fd = FeynmanDiagram().add(
             v1,
-            Leg().with_target(v1).set_xy(-1, 0).with_type(&quot;line&quot;).with_incoming(),
-            Leg().with_target(v1).set_xy(1, -1).with_type(&quot;line&quot;).with_incoming(),
-            Leg().with_target(v1).set_xy(1, 1).with_type(&quot;line&quot;).with_outgoing(),
+            Leg().with_target(v1).with_xy(-1, 0).with_type(&quot;line&quot;).with_incoming(),
+            Leg().with_target(v1).with_xy(1, -1).with_type(&quot;line&quot;).with_incoming(),
+            Leg().with_target(v1).with_xy(1, 1).with_type(&quot;line&quot;).with_outgoing(),
         )
 
         self.set_feynman_diagram(fd)
@@ -215,7 +230,7 @@ from pyfeyn2.feynmandiagram import FeynmanDiagram, Leg, Propagator, Vertex
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2022, Alexander Puck Neuwirth.</p>
+    <p>&#169; Copyright 2023, Alexander Puck Neuwirth.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

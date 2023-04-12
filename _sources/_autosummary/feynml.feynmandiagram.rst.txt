@@ -1,0 +1,31 @@
+feynml.feynmandiagram
+=====================
+
+.. automodule:: feynml.feynmandiagram
+  
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :toctree:                                         
+      :template: custom-class-template.rst               
+   
+      FeynmanDiagram
+   
+   
+
+   
+   
+   
+
+
+

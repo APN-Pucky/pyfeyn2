@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>feynml.pdgid &mdash; pyfeyn2  documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/plot_directive.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/jupyter-sphinx.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/thebelab.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/thebelab-helper.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            pyfeyn2
+              <img src="../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                2.2.4
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">FeynML:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../feynml/index.html">FeynML</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Gallery:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../gallery/index.html">Gallery</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Renderers:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../renderers/index.html">Renderers</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Interfaces:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../interfaces/index.html">Interfaces</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Modules:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../_autosummary/pyfeyn2.html">pyfeyn2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../_autosummary/feynml.html">feynml</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Versions:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://pyfeyn2.readthedocs.io/en/stable/">RTD</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/pyfeyn2/">Stable</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/pyfeyn2/test/">Dev</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Links:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/APN-Pucky/pyfeyn2">GitHub</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">pyfeyn2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">feynml.pdgid</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for feynml.pdgid</h1><div class="highlight"><pre>
+<span></span>import warnings
+from dataclasses import dataclass, field
+from typing import Optional
+
+from particle import Particle
+from smpl_util.util import withify
+
+from feynml.id import Identifiable
+
+from .particles import get_either_particle
+
+
+<div class="viewcode-block" id="PDG"><a class="viewcode-back" href="../../_autosummary/feynml.pdgid.PDG.html#feynml.pdgid.PDG">[docs]</a>@withify()
+@dataclass
+class PDG(Identifiable):
+    pdgid: Optional[int] = field(
+        default=None, metadata={&quot;name&quot;: &quot;pdgid&quot;, &quot;namespace&quot;: &quot;&quot;, &quot;type&quot;: &quot;Attribute&quot;}
+    )
+    &quot;&quot;&quot;PDG ID of the particle&quot;&quot;&quot;
+    name: Optional[str] = field(default=None, metadata={&quot;type&quot;: &quot;Element&quot;})
+    &quot;&quot;&quot;Name of the particle&quot;&quot;&quot;
+    type: Optional[str] = field(
+        default=None, metadata={&quot;xml_attribute&quot;: True, &quot;type&quot;: &quot;Attribute&quot;}
+    )
+    &quot;&quot;&quot;Type of the particle, e.g. fermion, boson, etc.&quot;&quot;&quot;
+
+    # TODO check SUSY
+    particle: Optional[Particle] = field(default=None, metadata={&quot;type&quot;: &quot;Ignore&quot;})
+    &quot;&quot;&quot;Particle object from the particle package&quot;&quot;&quot;
+
+    def _sync(self):
+        &quot;&quot;&quot;Sync the particle with the pdgid, name etc.&quot;&quot;&quot;
+        if self.pdgid is not None:
+            self.particle = Particle.from_pdgid(self.pdgid)
+            self.name = self.particle.name
+        elif self.name is not None:
+            self.particle = get_either_particle(
+                programmatic_name=self.name,
+                name=self.name,
+                evtgen_name=self.name,
+                html_name=self.name,
+                latex_name=self.name,
+            )
+            if self.particle is None:
+                raise ValueError(f&quot;Particle {self.name} not found&quot;)
+            self.pdgid = int(self.particle.pdgid)
+
+        if self.pdgid is not None:
+            tmptype = self.type
+            # TODO infere type from pdgid
+            if self.pdgid in range(1, 7):
+                self.type = &quot;fermion&quot;
+            elif -self.pdgid in range(1, 7):
+                self.type = &quot;anti fermion&quot;
+            elif self.pdgid == 22:
+                self.type = &quot;photon&quot;
+            elif self.pdgid == 21:
+                self.type = &quot;gluon&quot;
+            elif self.pdgid in range(11, 19):
+                self.type = &quot;fermion&quot;
+            elif -self.pdgid in range(11, 19):
+                self.type = &quot;anti fermion&quot;
+            elif abs(self.pdgid) == 24:
+                self.type = &quot;boson&quot;
+            elif self.pdgid == 23:
+                self.type = &quot;boson&quot;
+            elif self.pdgid == 25:
+                self.type = &quot;higgs&quot;
+            else:
+                warnings.warn(
+                    f&quot;Inferring type from pdgid not implemented for pdgid {self.pdgid} &quot;
+                )
+                self.type = &quot;line&quot;
+            if tmptype is not None and self.type != tmptype:
+                warnings.warn(
+                    f&quot;Type {tmptype} is not consistent with pdgid {self.pdgid}, using {self.type} instead. Using {tmptype} now.&quot;
+                )
+                self.type = tmptype
+
+    def __post_init__(self):
+        super().__post_init__()
+        self._sync()</div>
+
+    # def with_pdgid(self, pdgid):
+    #    self.pdgid = pdgid
+    #    self._sync()
+    #    return self
+
+    # def with_name(self, name):
+    #    self.name = name
+    #    self._sync()
+    #    return self
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Alexander Puck Neuwirth.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

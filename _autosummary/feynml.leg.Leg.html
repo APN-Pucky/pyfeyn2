@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>feynml.leg.Leg &mdash; pyfeyn2  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/plot_directive.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/jupyter-sphinx.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/thebelab.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/thebelab-helper.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="feynml.line" href="feynml.line.html" />
+    <link rel="prev" title="feynml.leg" href="feynml.leg.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            pyfeyn2
+              <img src="../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                2.2.4
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">FeynML:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../feynml/index.html">FeynML</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Gallery:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../gallery/index.html">Gallery</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Renderers:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../renderers/index.html">Renderers</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Interfaces:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../interfaces/index.html">Interfaces</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Modules:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="pyfeyn2.html">pyfeyn2</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="feynml.html">feynml</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="feynml.connector.html">feynml.connector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="feynml.feynmandiagram.html">feynml.feynmandiagram</a></li>
+<li class="toctree-l2"><a class="reference internal" href="feynml.feynml.html">feynml.feynml</a></li>
+<li class="toctree-l2"><a class="reference internal" href="feynml.id.html">feynml.id</a></li>
+<li class="toctree-l2"><a class="reference internal" href="feynml.interface.html">feynml.interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="feynml.labeled.html">feynml.labeled</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="feynml.leg.html">feynml.leg</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">feynml.leg.Leg</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#feynml.leg.Leg"><code class="docutils literal notranslate"><span class="pre">Leg</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="feynml.line.html">feynml.line</a></li>
+<li class="toctree-l2"><a class="reference internal" href="feynml.momentum.html">feynml.momentum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="feynml.particles.html">feynml.particles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="feynml.pdgid.html">feynml.pdgid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="feynml.point.html">feynml.point</a></li>
+<li class="toctree-l2"><a class="reference internal" href="feynml.propagator.html">feynml.propagator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="feynml.sourcing.html">feynml.sourcing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="feynml.styled.html">feynml.styled</a></li>
+<li class="toctree-l2"><a class="reference internal" href="feynml.targeting.html">feynml.targeting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="feynml.types.html">feynml.types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="feynml.vertex.html">feynml.vertex</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Versions:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://pyfeyn2.readthedocs.io/en/stable/">RTD</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/pyfeyn2/">Stable</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/pyfeyn2/test/">Dev</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Links:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/APN-Pucky/pyfeyn2">GitHub</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pyfeyn2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="feynml.html">feynml</a></li>
+          <li class="breadcrumb-item"><a href="feynml.leg.html">feynml.leg</a></li>
+      <li class="breadcrumb-item active">feynml.leg.Leg</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_autosummary/feynml.leg.Leg.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="feynml-leg-leg">
+<h1>feynml.leg.Leg<a class="headerlink" href="#feynml-leg-leg" title="Permalink to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="feynml.leg.Leg">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">feynml.leg.</span></span><span class="sig-name descname"><span class="pre">Leg</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id:</span> <span class="pre">Union[str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pdgid:</span> <span class="pre">Union[int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name:</span> <span class="pre">Union[str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type:</span> <span class="pre">Union[str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">particle:</span> <span class="pre">Union[particle.particle.particle.Particle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style:</span> <span class="pre">cssutils.css.cssstyledeclaration.CSSStyleDeclaration</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clazz:</span> <span class="pre">Union[str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label:</span> <span class="pre">Union[str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">momentum:</span> <span class="pre">Union[feynml.momentum.Momentum</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target:</span> <span class="pre">Union[str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x:</span> <span class="pre">Union[float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y:</span> <span class="pre">Union[float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z:</span> <span class="pre">Union[float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sense:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">external:</span> <span class="pre">Union[str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/feynml/leg.html#Leg"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#feynml.leg.Leg" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="feynml.point.Point.html#feynml.point.Point" title="feynml.point.Point"><code class="xref py py-class docutils literal notranslate"><span class="pre">Point</span></code></a>, <a class="reference internal" href="feynml.targeting.Targeting.html#feynml.targeting.Targeting" title="feynml.targeting.Targeting"><code class="xref py py-class docutils literal notranslate"><span class="pre">Targeting</span></code></a>, <a class="reference internal" href="feynml.connector.Connector.html#feynml.connector.Connector" title="feynml.connector.Connector"><code class="xref py py-class docutils literal notranslate"><span class="pre">Connector</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="feynml.leg.Leg.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id:</span> <span class="pre">str</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pdgid:</span> <span class="pre">int</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name:</span> <span class="pre">str</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type:</span> <span class="pre">str</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">particle:</span> <span class="pre">~particle.particle.particle.Particle</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style:</span> <span class="pre">~cssutils.css.cssstyledeclaration.CSSStyleDeclaration</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clazz:</span> <span class="pre">str</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label:</span> <span class="pre">str</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">momentum:</span> <span class="pre">~feynml.momentum.Momentum</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target:</span> <span class="pre">str</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x:</span> <span class="pre">float</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y:</span> <span class="pre">float</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z:</span> <span class="pre">float</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sense:</span> <span class="pre">str</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">external:</span> <span class="pre">str</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#feynml.leg.Leg.__init__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<p class="rubric">Methods</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#feynml.leg.Leg.__init__" title="feynml.leg.Leg.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>([id, pdgid, name, type, particle, ...])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#feynml.leg.Leg.get_length" title="feynml.leg.Leg.get_length"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_length</span></code></a>()</p></td>
+<td><p>Get length of the connector</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_style_property</span></code>(key)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#feynml.leg.Leg.get_tension" title="feynml.leg.Leg.get_tension"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_tension</span></code></a>()</p></td>
+<td><p>Get tension of the connector</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#feynml.leg.Leg.is_incoming" title="feynml.leg.Leg.is_incoming"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_incoming</span></code></a>()</p></td>
+<td><p>Return True if the leg is incoming, False otherwise.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#feynml.leg.Leg.is_outgoing" title="feynml.leg.Leg.is_outgoing"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_outgoing</span></code></a>()</p></td>
+<td><p>Return True if the leg is outgoing, False otherwise.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#feynml.leg.Leg.put_style" title="feynml.leg.Leg.put_style"><code class="xref py py-obj docutils literal notranslate"><span class="pre">put_style</span></code></a>(key, value)</p></td>
+<td><p><div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version 0.0.0.</span></p>
+</div>
+</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#feynml.leg.Leg.put_styles" title="feynml.leg.Leg.put_styles"><code class="xref py py-obj docutils literal notranslate"><span class="pre">put_styles</span></code></a>(**kwargs)</p></td>
+<td><p><div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version 0.0.0.</span></p>
+</div>
+</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">raw_style</span></code>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_class</span></code>(clazz)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#feynml.leg.Leg.with_external" title="feynml.leg.Leg.with_external"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_external</span></code></a>(value[, k])</p></td>
+<td><p>Set external to <cite>value</cite> and return self.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#feynml.leg.Leg.with_id" title="feynml.leg.Leg.with_id"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_id</span></code></a>(value[, k])</p></td>
+<td><p>Set id to <cite>value</cite> and return self.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_incoming</span></code>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#feynml.leg.Leg.with_label" title="feynml.leg.Leg.with_label"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_label</span></code></a>(value[, k])</p></td>
+<td><p>Set label to <cite>value</cite> and return self.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#feynml.leg.Leg.with_length" title="feynml.leg.Leg.with_length"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_length</span></code></a>(length)</p></td>
+<td><p>Add length to the connector</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#feynml.leg.Leg.with_momentum" title="feynml.leg.Leg.with_momentum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_momentum</span></code></a>(value[, k])</p></td>
+<td><p>Set momentum to <cite>value</cite> and return self.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#feynml.leg.Leg.with_name" title="feynml.leg.Leg.with_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_name</span></code></a>(value[, k])</p></td>
+<td><p>Set name to <cite>value</cite> and return self.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_outgoing</span></code>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#feynml.leg.Leg.with_particle" title="feynml.leg.Leg.with_particle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_particle</span></code></a>(value[, k])</p></td>
+<td><p>Set particle to <cite>value</cite> and return self.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#feynml.leg.Leg.with_pdgid" title="feynml.leg.Leg.with_pdgid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_pdgid</span></code></a>(value[, k])</p></td>
+<td><p>Set pdgid to <cite>value</cite> and return self.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_point</span></code>(p)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#feynml.leg.Leg.with_sense" title="feynml.leg.Leg.with_sense"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_sense</span></code></a>(value[, k])</p></td>
+<td><p>Set sense to <cite>value</cite> and return self.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_style</span></code>(style)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_style_properties</span></code>(**kwargs)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_style_property</span></code>(key, value)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_target</span></code>(target)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#feynml.leg.Leg.with_tension" title="feynml.leg.Leg.with_tension"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_tension</span></code></a>(tension)</p></td>
+<td><p>Add tension to the connector</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#feynml.leg.Leg.with_type" title="feynml.leg.Leg.with_type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_type</span></code></a>(value[, k])</p></td>
+<td><p>Set type to <cite>value</cite> and return self.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_xy</span></code>(x, y)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_xyz</span></code>(x, y, z)</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#feynml.leg.Leg.clazz" title="feynml.leg.Leg.clazz"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clazz</span></code></a></p></td>
+<td><p>CSS class string.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#feynml.leg.Leg.external" title="feynml.leg.Leg.external"><code class="xref py py-obj docutils literal notranslate"><span class="pre">external</span></code></a></p></td>
+<td><p>External text for leg</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">id</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">label</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#feynml.leg.Leg.momentum" title="feynml.leg.Leg.momentum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">momentum</span></code></a></p></td>
+<td><p>Momentum of the connector</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#feynml.leg.Leg.name" title="feynml.leg.Leg.name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">name</span></code></a></p></td>
+<td><p>Name of the particle</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#feynml.leg.Leg.particle" title="feynml.leg.Leg.particle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">particle</span></code></a></p></td>
+<td><p>Particle object from the particle package</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#feynml.leg.Leg.pdgid" title="feynml.leg.Leg.pdgid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pdgid</span></code></a></p></td>
+<td><p>PDG ID of the particle</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#feynml.leg.Leg.sense" title="feynml.leg.Leg.sense"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sense</span></code></a></p></td>
+<td><p>Sense of the leg, either 'incoming' or 'outgoing'</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#feynml.leg.Leg.target" title="feynml.leg.Leg.target"><code class="xref py py-obj docutils literal notranslate"><span class="pre">target</span></code></a></p></td>
+<td><p>Target of the object</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#feynml.leg.Leg.type" title="feynml.leg.Leg.type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">type</span></code></a></p></td>
+<td><p>Type of the particle, e.g.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#feynml.leg.Leg.x" title="feynml.leg.Leg.x"><code class="xref py py-obj docutils literal notranslate"><span class="pre">x</span></code></a></p></td>
+<td><p>x coordinate</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#feynml.leg.Leg.y" title="feynml.leg.Leg.y"><code class="xref py py-obj docutils literal notranslate"><span class="pre">y</span></code></a></p></td>
+<td><p>y coordinate</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#feynml.leg.Leg.z" title="feynml.leg.Leg.z"><code class="xref py py-obj docutils literal notranslate"><span class="pre">z</span></code></a></p></td>
+<td><p>z coordinate</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="feynml.leg.Leg.clazz">
+<span class="sig-name descname"><span class="pre">clazz</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#feynml.leg.Leg.clazz" title="Permalink to this definition"></a></dt>
+<dd><p>CSS class string.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="feynml.leg.Leg.external">
+<span class="sig-name descname"><span class="pre">external</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#feynml.leg.Leg.external" title="Permalink to this definition"></a></dt>
+<dd><p>External text for leg</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="feynml.leg.Leg.get_length">
+<span class="sig-name descname"><span class="pre">get_length</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#feynml.leg.Leg.get_length" title="Permalink to this definition"></a></dt>
+<dd><p>Get length of the connector</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="feynml.leg.Leg.get_tension">
+<span class="sig-name descname"><span class="pre">get_tension</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#feynml.leg.Leg.get_tension" title="Permalink to this definition"></a></dt>
+<dd><p>Get tension of the connector</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="feynml.leg.Leg.is_incoming">
+<span class="sig-name descname"><span class="pre">is_incoming</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/feynml/leg.html#Leg.is_incoming"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#feynml.leg.Leg.is_incoming" title="Permalink to this definition"></a></dt>
+<dd><p>Return True if the leg is incoming, False otherwise.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="feynml.leg.Leg.is_outgoing">
+<span class="sig-name descname"><span class="pre">is_outgoing</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/feynml/leg.html#Leg.is_outgoing"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#feynml.leg.Leg.is_outgoing" title="Permalink to this definition"></a></dt>
+<dd><p>Return True if the leg is outgoing, False otherwise.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="feynml.leg.Leg.momentum">
+<span class="sig-name descname"><span class="pre">momentum</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="feynml.momentum.Momentum.html#feynml.momentum.Momentum" title="feynml.momentum.Momentum"><span class="pre">Momentum</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#feynml.leg.Leg.momentum" title="Permalink to this definition"></a></dt>
+<dd><p>Momentum of the connector</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="feynml.leg.Leg.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#feynml.leg.Leg.name" title="Permalink to this definition"></a></dt>
+<dd><p>Name of the particle</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="feynml.leg.Leg.particle">
+<span class="sig-name descname"><span class="pre">particle</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Particle</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#feynml.leg.Leg.particle" title="Permalink to this definition"></a></dt>
+<dd><p>Particle object from the particle package</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="feynml.leg.Leg.pdgid">
+<span class="sig-name descname"><span class="pre">pdgid</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#feynml.leg.Leg.pdgid" title="Permalink to this definition"></a></dt>
+<dd><p>PDG ID of the particle</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="feynml.leg.Leg.put_style">
+<span class="sig-name descname"><span class="pre">put_style</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#feynml.leg.Leg.put_style" title="Permalink to this definition"></a></dt>
+<dd><div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version 0.0.0: </span>This will be removed in 0.2.0.</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="feynml.leg.Leg.put_styles">
+<span class="sig-name descname"><span class="pre">put_styles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#feynml.leg.Leg.put_styles" title="Permalink to this definition"></a></dt>
+<dd><div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version 0.0.0: </span>This will be removed in 0.2.0.</p>
+</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="feynml.leg.Leg.sense">
+<span class="sig-name descname"><span class="pre">sense</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#feynml.leg.Leg.sense" title="Permalink to this definition"></a></dt>
+<dd><p>Sense of the leg, either ‘incoming’ or ‘outgoing’</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="feynml.leg.Leg.style">
+<span class="sig-name descname"><span class="pre">style</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">CSSString</span></em><a class="headerlink" href="#feynml.leg.Leg.style" title="Permalink to this definition"></a></dt>
+<dd><p>CSS style string.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="feynml.leg.Leg.target">
+<span class="sig-name descname"><span class="pre">target</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">''</span></em><a class="headerlink" href="#feynml.leg.Leg.target" title="Permalink to this definition"></a></dt>
+<dd><p>Target of the object</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="feynml.leg.Leg.type">
+<span class="sig-name descname"><span class="pre">type</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#feynml.leg.Leg.type" title="Permalink to this definition"></a></dt>
+<dd><p>Type of the particle, e.g. fermion, boson, etc.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="feynml.leg.Leg.with_external">
+<span class="sig-name descname"><span class="pre">with_external</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'external'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#feynml.leg.Leg.with_external" title="Permalink to this definition"></a></dt>
+<dd><p>Set external to <cite>value</cite> and return self.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="feynml.leg.Leg.with_id">
+<span class="sig-name descname"><span class="pre">with_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'id'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#feynml.leg.Leg.with_id" title="Permalink to this definition"></a></dt>
+<dd><p>Set id to <cite>value</cite> and return self.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="feynml.leg.Leg.with_label">
+<span class="sig-name descname"><span class="pre">with_label</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'label'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#feynml.leg.Leg.with_label" title="Permalink to this definition"></a></dt>
+<dd><p>Set label to <cite>value</cite> and return self.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="feynml.leg.Leg.with_length">
+<span class="sig-name descname"><span class="pre">with_length</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">length</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#feynml.leg.Leg.with_length" title="Permalink to this definition"></a></dt>
+<dd><p>Add length to the connector</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="feynml.leg.Leg.with_momentum">
+<span class="sig-name descname"><span class="pre">with_momentum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'momentum'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#feynml.leg.Leg.with_momentum" title="Permalink to this definition"></a></dt>
+<dd><p>Set momentum to <cite>value</cite> and return self.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="feynml.leg.Leg.with_name">
+<span class="sig-name descname"><span class="pre">with_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'name'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#feynml.leg.Leg.with_name" title="Permalink to this definition"></a></dt>
+<dd><p>Set name to <cite>value</cite> and return self.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="feynml.leg.Leg.with_particle">
+<span class="sig-name descname"><span class="pre">with_particle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'particle'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#feynml.leg.Leg.with_particle" title="Permalink to this definition"></a></dt>
+<dd><p>Set particle to <cite>value</cite> and return self.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="feynml.leg.Leg.with_pdgid">
+<span class="sig-name descname"><span class="pre">with_pdgid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'pdgid'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#feynml.leg.Leg.with_pdgid" title="Permalink to this definition"></a></dt>
+<dd><p>Set pdgid to <cite>value</cite> and return self.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="feynml.leg.Leg.with_sense">
+<span class="sig-name descname"><span class="pre">with_sense</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'sense'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#feynml.leg.Leg.with_sense" title="Permalink to this definition"></a></dt>
+<dd><p>Set sense to <cite>value</cite> and return self.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="feynml.leg.Leg.with_tension">
+<span class="sig-name descname"><span class="pre">with_tension</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tension</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#feynml.leg.Leg.with_tension" title="Permalink to this definition"></a></dt>
+<dd><p>Add tension to the connector</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="feynml.leg.Leg.with_type">
+<span class="sig-name descname"><span class="pre">with_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'type'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#feynml.leg.Leg.with_type" title="Permalink to this definition"></a></dt>
+<dd><p>Set type to <cite>value</cite> and return self.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="feynml.leg.Leg.x">
+<span class="sig-name descname"><span class="pre">x</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#feynml.leg.Leg.x" title="Permalink to this definition"></a></dt>
+<dd><p>x coordinate</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="feynml.leg.Leg.y">
+<span class="sig-name descname"><span class="pre">y</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#feynml.leg.Leg.y" title="Permalink to this definition"></a></dt>
+<dd><p>y coordinate</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="feynml.leg.Leg.z">
+<span class="sig-name descname"><span class="pre">z</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#feynml.leg.Leg.z" title="Permalink to this definition"></a></dt>
+<dd><p>z coordinate</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="feynml.leg.html" class="btn btn-neutral float-left" title="feynml.leg" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="feynml.line.html" class="btn btn-neutral float-right" title="feynml.line" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Alexander Puck Neuwirth.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

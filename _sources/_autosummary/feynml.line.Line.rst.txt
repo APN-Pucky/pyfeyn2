@@ -1,0 +1,35 @@
+feynml.line.Line
+================
+
+.. currentmodule:: feynml.line
+
+.. autoclass:: Line
+   :members:                                   
+   :show-inheritance:                           
+   :inherited-members:                         
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Line.__init__
+      ~Line.connect
+      ~Line.with_source
+      ~Line.with_target
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~Line.source
+      ~Line.target
+   
+   

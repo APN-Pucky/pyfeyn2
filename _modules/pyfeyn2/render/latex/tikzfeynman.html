@@ -14,9 +14,6 @@
   <![endif]-->
   
         <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
-        <script src="../../../../_static/jquery.js"></script>
-        <script src="../../../../_static/underscore.js"></script>
-        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../../_static/doctools.js"></script>
         <script src="../../../../_static/sphinx_highlight.js"></script>
         <script src="../../../../_static/thebelab-helper.js"></script>
@@ -33,30 +30,25 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../../../index.html" class="icon icon-home"> pyfeyn2
-            <img src="../../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            pyfeyn2
+              <img src="../../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.1.1
+                2.2.4
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Versions:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/pyfeyn2/">Stable</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/pyfeyn2/test/">Dev</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Links:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference external" href="https://github.com/APN-Pucky/pyfeyn2">GitHub</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">FeynML:</span></p>
+              <p class="caption" role="heading"><span class="caption-text">FeynML:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../feynml/index.html">FeynML</a></li>
 </ul>
@@ -75,6 +67,17 @@
 <p class="caption" role="heading"><span class="caption-text">Modules:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../_autosummary/pyfeyn2.html">pyfeyn2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../_autosummary/feynml.html">feynml</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Versions:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://pyfeyn2.readthedocs.io/en/stable/">RTD</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/pyfeyn2/">Stable</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/pyfeyn2/test/">Dev</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Links:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/APN-Pucky/pyfeyn2">GitHub</a></li>
 </ul>
 
         </div>
@@ -90,7 +93,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../../../index.html">Module code</a></li>
       <li class="breadcrumb-item active">pyfeyn2.render.latex.tikzfeynman</li>
       <li class="wy-breadcrumbs-aside">
@@ -155,7 +158,10 @@ shape_map = {
 <div class="viewcode-block" id="stylize_connect"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.latex.tikzfeynman.stylize_connect.html#pyfeyn2.render.latex.tikzfeynman.stylize_connect">[docs]</a>def stylize_connect(fd: FeynmanDiagram, c: Connector):
     style = fd.get_style(c)
     ret = &quot;&quot;
-    ret += type_map[style.getProperty(&quot;line&quot;).value]
+    if style.getProperty(&quot;line&quot;) is not None:
+        ret += type_map[style.getProperty(&quot;line&quot;).value]
+    else:
+        ret += type_map[c.type]  # fallback to type if no style
 
     if c.label is not None:
         ret += &quot;,edge label=&quot; + c.label
@@ -293,7 +299,6 @@ shape_map = {
             &quot;symbol&quot;,
             &quot;color&quot;,
             &quot;opacity&quot;,
-            &quot;bend&quot;,
             &quot;bend-direction&quot;,
             &quot;bend-in&quot;,
             &quot;bend-out&quot;,
@@ -327,7 +332,7 @@ shape_map = {
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2022, Alexander Puck Neuwirth.</p>
+    <p>&#169; Copyright 2023, Alexander Puck Neuwirth.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

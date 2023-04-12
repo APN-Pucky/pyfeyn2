@@ -1,0 +1,6 @@
+feynml.particles.get\_particle
+==============================
+
+.. currentmodule:: feynml.particles
+
+.. autofunction:: get_particle

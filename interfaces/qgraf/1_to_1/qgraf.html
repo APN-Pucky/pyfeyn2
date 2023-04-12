@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>1 to 1 process &mdash; pyfeyn2  documentation</title>
@@ -10,14 +10,12 @@
       <link rel="stylesheet" href="../../../_static/plot_directive.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/jupyter-sphinx.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/thebelab.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/nbsphinx-code-cells.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-        <script src="../../../_static/jquery.js"></script>
-        <script src="../../../_static/underscore.js"></script>
-        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
         <script src="../../../_static/sphinx_highlight.js"></script>
         <script src="../../../_static/thebelab-helper.js"></script>
@@ -29,7 +27,7 @@
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="QGraf" href="../2_to_2/qgraf_2to2.html" />
+    <link rel="next" title="2 to 2 process" href="../2_to_2/qgraf_2to2.html" />
     <link rel="prev" title="HepMC" href="../../hepmc/hepmc.html" /> 
 </head>
 
@@ -38,30 +36,25 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../../index.html" class="icon icon-home"> pyfeyn2
-            <img src="../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            pyfeyn2
+              <img src="../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.1.1
+                2.2.4
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Versions:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/pyfeyn2/">Stable</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/pyfeyn2/test/">Dev</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Links:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference external" href="https://github.com/APN-Pucky/pyfeyn2">GitHub</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">FeynML:</span></p>
+              <p class="caption" role="heading"><span class="caption-text">FeynML:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../feynml/index.html">FeynML</a></li>
 </ul>
@@ -79,20 +72,29 @@
 <li class="toctree-l2"><a class="reference internal" href="../../dot/dot.html">Dot</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../hepmc/hepmc.html">HepMC</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">1 to 1 process</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../2_to_2/qgraf_2to2.html">QGraf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2_to_2/qgraf_2to2.html">2 to 2 process</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html">Qgraf</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">1 to 1 process</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../2_to_2/qgraf_2to2.html">QGraf</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../qgraf_2to2.html">2 to 2 process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../2_to_2/qgraf_2to2.html">2 to 2 process</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../qgraf_2to2.html">2 to 2 process</a></li>
 </ul>
 </li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Modules:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/pyfeyn2.html">pyfeyn2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/feynml.html">feynml</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Versions:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://pyfeyn2.readthedocs.io/en/stable/">RTD</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/pyfeyn2/">Stable</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/pyfeyn2/test/">Dev</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Links:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/APN-Pucky/pyfeyn2">GitHub</a></li>
 </ul>
 
         </div>
@@ -108,7 +110,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../../index.html">Interfaces</a></li>
       <li class="breadcrumb-item active">1 to 1 process</li>
       <li class="wy-breadcrumbs-aside">
@@ -120,292 +122,13 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
-<style>
-/* CSS for nbsphinx extension */
-
-/* remove conflicting styling from Sphinx themes */
-div.nbinput.container div.prompt *,
-div.nboutput.container div.prompt *,
-div.nbinput.container div.input_area pre,
-div.nboutput.container div.output_area pre,
-div.nbinput.container div.input_area .highlight,
-div.nboutput.container div.output_area .highlight {
-    border: none;
-    padding: 0;
-    margin: 0;
-    box-shadow: none;
-}
-
-div.nbinput.container > div[class*=highlight],
-div.nboutput.container > div[class*=highlight] {
-    margin: 0;
-}
-
-div.nbinput.container div.prompt *,
-div.nboutput.container div.prompt * {
-    background: none;
-}
-
-div.nboutput.container div.output_area .highlight,
-div.nboutput.container div.output_area pre {
-    background: unset;
-}
-
-div.nboutput.container div.output_area div.highlight {
-    color: unset;  /* override Pygments text color */
-}
-
-/* avoid gaps between output lines */
-div.nboutput.container div[class*=highlight] pre {
-    line-height: normal;
-}
-
-/* input/output containers */
-div.nbinput.container,
-div.nboutput.container {
-    display: -webkit-flex;
-    display: flex;
-    align-items: flex-start;
-    margin: 0;
-    width: 100%;
-}
-@media (max-width: 540px) {
-    div.nbinput.container,
-    div.nboutput.container {
-        flex-direction: column;
-    }
-}
-
-/* input container */
-div.nbinput.container {
-    padding-top: 5px;
-}
-
-/* last container */
-div.nblast.container {
-    padding-bottom: 5px;
-}
-
-/* input prompt */
-div.nbinput.container div.prompt pre {
-    color: #307FC1;
-}
-
-/* output prompt */
-div.nboutput.container div.prompt pre {
-    color: #BF5B3D;
-}
-
-/* all prompts */
-div.nbinput.container div.prompt,
-div.nboutput.container div.prompt {
-    width: 4.5ex;
-    padding-top: 5px;
-    position: relative;
-    user-select: none;
-}
-
-div.nbinput.container div.prompt > div,
-div.nboutput.container div.prompt > div {
-    position: absolute;
-    right: 0;
-    margin-right: 0.3ex;
-}
-
-@media (max-width: 540px) {
-    div.nbinput.container div.prompt,
-    div.nboutput.container div.prompt {
-        width: unset;
-        text-align: left;
-        padding: 0.4em;
-    }
-    div.nboutput.container div.prompt.empty {
-        padding: 0;
-    }
-
-    div.nbinput.container div.prompt > div,
-    div.nboutput.container div.prompt > div {
-        position: unset;
-    }
-}
-
-/* disable scrollbars and line breaks on prompts */
-div.nbinput.container div.prompt pre,
-div.nboutput.container div.prompt pre {
-    overflow: hidden;
-    white-space: pre;
-}
-
-/* input/output area */
-div.nbinput.container div.input_area,
-div.nboutput.container div.output_area {
-    -webkit-flex: 1;
-    flex: 1;
-    overflow: auto;
-}
-@media (max-width: 540px) {
-    div.nbinput.container div.input_area,
-    div.nboutput.container div.output_area {
-        width: 100%;
-    }
-}
-
-/* input area */
-div.nbinput.container div.input_area {
-    border: 1px solid #e0e0e0;
-    border-radius: 2px;
-    /*background: #f5f5f5;*/
-}
-
-/* override MathJax center alignment in output cells */
-div.nboutput.container div[class*=MathJax] {
-    text-align: left !important;
-}
-
-/* override sphinx.ext.imgmath center alignment in output cells */
-div.nboutput.container div.math p {
-    text-align: left;
-}
-
-/* standard error */
-div.nboutput.container div.output_area.stderr {
-    background: #fdd;
-}
-
-/* ANSI colors */
-.ansi-black-fg { color: #3E424D; }
-.ansi-black-bg { background-color: #3E424D; }
-.ansi-black-intense-fg { color: #282C36; }
-.ansi-black-intense-bg { background-color: #282C36; }
-.ansi-red-fg { color: #E75C58; }
-.ansi-red-bg { background-color: #E75C58; }
-.ansi-red-intense-fg { color: #B22B31; }
-.ansi-red-intense-bg { background-color: #B22B31; }
-.ansi-green-fg { color: #00A250; }
-.ansi-green-bg { background-color: #00A250; }
-.ansi-green-intense-fg { color: #007427; }
-.ansi-green-intense-bg { background-color: #007427; }
-.ansi-yellow-fg { color: #DDB62B; }
-.ansi-yellow-bg { background-color: #DDB62B; }
-.ansi-yellow-intense-fg { color: #B27D12; }
-.ansi-yellow-intense-bg { background-color: #B27D12; }
-.ansi-blue-fg { color: #208FFB; }
-.ansi-blue-bg { background-color: #208FFB; }
-.ansi-blue-intense-fg { color: #0065CA; }
-.ansi-blue-intense-bg { background-color: #0065CA; }
-.ansi-magenta-fg { color: #D160C4; }
-.ansi-magenta-bg { background-color: #D160C4; }
-.ansi-magenta-intense-fg { color: #A03196; }
-.ansi-magenta-intense-bg { background-color: #A03196; }
-.ansi-cyan-fg { color: #60C6C8; }
-.ansi-cyan-bg { background-color: #60C6C8; }
-.ansi-cyan-intense-fg { color: #258F8F; }
-.ansi-cyan-intense-bg { background-color: #258F8F; }
-.ansi-white-fg { color: #C5C1B4; }
-.ansi-white-bg { background-color: #C5C1B4; }
-.ansi-white-intense-fg { color: #A1A6B2; }
-.ansi-white-intense-bg { background-color: #A1A6B2; }
-
-.ansi-default-inverse-fg { color: #FFFFFF; }
-.ansi-default-inverse-bg { background-color: #000000; }
-
-.ansi-bold { font-weight: bold; }
-.ansi-underline { text-decoration: underline; }
-
-
-div.nbinput.container div.input_area div[class*=highlight] > pre,
-div.nboutput.container div.output_area div[class*=highlight] > pre,
-div.nboutput.container div.output_area div[class*=highlight].math,
-div.nboutput.container div.output_area.rendered_html,
-div.nboutput.container div.output_area > div.output_javascript,
-div.nboutput.container div.output_area:not(.rendered_html) > img{
-    padding: 5px;
-    margin: 0;
-}
-
-/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
-div.nbinput.container div.input_area > div[class^='highlight'],
-div.nboutput.container div.output_area > div[class^='highlight']{
-    overflow-y: hidden;
-}
-
-/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
-.prompt .copybtn {
-    display: none;
-}
-
-/* Some additional styling taken form the Jupyter notebook CSS */
-.jp-RenderedHTMLCommon table,
-div.rendered_html table {
-  border: none;
-  border-collapse: collapse;
-  border-spacing: 0;
-  color: black;
-  font-size: 12px;
-  table-layout: fixed;
-}
-.jp-RenderedHTMLCommon thead,
-div.rendered_html thead {
-  border-bottom: 1px solid black;
-  vertical-align: bottom;
-}
-.jp-RenderedHTMLCommon tr,
-.jp-RenderedHTMLCommon th,
-.jp-RenderedHTMLCommon td,
-div.rendered_html tr,
-div.rendered_html th,
-div.rendered_html td {
-  text-align: right;
-  vertical-align: middle;
-  padding: 0.5em 0.5em;
-  line-height: normal;
-  white-space: normal;
-  max-width: none;
-  border: none;
-}
-.jp-RenderedHTMLCommon th,
-div.rendered_html th {
-  font-weight: bold;
-}
-.jp-RenderedHTMLCommon tbody tr:nth-child(odd),
-div.rendered_html tbody tr:nth-child(odd) {
-  background: #f5f5f5;
-}
-.jp-RenderedHTMLCommon tbody tr:hover,
-div.rendered_html tbody tr:hover {
-  background: rgba(66, 165, 245, 0.2);
-}
-
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<section id="1-to-1-process">
+  <section id="1-to-1-process">
 <h1>1 to 1 process<a class="headerlink" href="#1-to-1-process" title="Permalink to this heading"></a></h1>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">io</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">smpl_io</span> <span class="kn">import</span> <span class="n">io</span>
 </pre></div>
 </div>
 </div>
@@ -413,156 +136,79 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyfeyn2.interface</span> <span class="kn">import</span> <span class="n">qgraf</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyfeyn2.interface.qgraf</span> <span class="kn">import</span> <span class="n">style</span>
 <span class="kn">import</span> <span class="nn">itertools</span> <span class="k">as</span> <span class="nn">it</span>
 <span class="kn">import</span> <span class="nn">re</span>
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">style</span> <span class="o">=</span> <span class="s2">&quot;tmp.sty&quot;</span>
-<span class="n">model</span> <span class="o">=</span><span class="s2">&quot;tmp.model&quot;</span>
-<span class="n">dat</span>  <span class="o">=</span> <span class="s2">&quot;tmp.dat&quot;</span>
-<span class="n">output</span> <span class="o">=</span> <span class="s2">&quot;output.out&quot;</span>
-
-<span class="k">def</span> <span class="nf">multiple_replace</span><span class="p">(</span><span class="n">string</span><span class="p">,</span> <span class="n">rep_dict</span><span class="p">):</span>
-    <span class="n">pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">&quot;|&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">re</span><span class="o">.</span><span class="n">escape</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">rep_dict</span><span class="p">,</span><span class="n">key</span><span class="o">=</span><span class="nb">len</span><span class="p">,</span><span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)]),</span> <span class="n">flags</span><span class="o">=</span><span class="n">re</span><span class="o">.</span><span class="n">DOTALL</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">pattern</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">rep_dict</span><span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">0</span><span class="p">)],</span> <span class="n">string</span><span class="p">)</span>
-
-
-
-<span class="n">raw_model</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">* https://porthos.tecnico.ulisboa.pt/CTQFT/node9.html</span>
-
-
-<span class="s2">*                  Higgs</span>
-
-<span class="s2">*  [H,H,+]</span>
-
-<span class="s2">*   leptons</span>
-
-<span class="s2">  [e,E,-]</span>
-
-<span class="s2">*                  neutrinos</span>
-
-<span class="s2">  [n,N,-]</span>
-
-<span class="s2">*              quarks</span>
-
-<span class="s2">* [u,U,-]</span>
-<span class="s2">* [d,D,-]</span>
-
-
-<span class="s2">*      photon, W-boson, Z-boson, gluon</span>
-
-<span class="s2">  [A,A,+]</span>
-<span class="s2">  [WM,WP,+]</span>
-<span class="s2">  [Z,Z,+]</span>
-<span class="s2">* [g,g,+]</span>
-
-<span class="s2">*                 cubic vertices</span>
-
-
-<span class="s2">  [WP,WM,A]</span>
-<span class="s2">  [WP,WM,Z]</span>
-<span class="s2">* [g,g,g]</span>
-
-
-<span class="s2">*  [WP,WM,H]</span>
-<span class="s2">*  [Z,Z,H]</span>
-<span class="s2">*  [H,H,H]</span>
-
-<span class="s2">* yukawa</span>
-
-<span class="s2">*  [E1,e1,H]</span>
-<span class="s2">*  [E2,e2,H]</span>
-<span class="s2">*  [E3,e3,H]</span>
-
-<span class="s2">* [U,u,H]</span>
-<span class="s2">* [D,d,H]</span>
-
-<span class="s2">* fermion - gauge boson</span>
-
-<span class="s2">  [E,e,A]</span>
-
-<span class="s2">  [E,e,Z]</span>
-
-<span class="s2">  [N,n,Z]</span>
-
-<span class="s2">  [N,e,WP]</span>
-
-<span class="s2">  [E,n,WM]</span>
-
-<span class="s2">* [U,u,A]</span>
-<span class="s2">* [D,d,A]</span>
-
-<span class="s2">* [U,u,Z]</span>
-<span class="s2">* [D,d,Z]</span>
-
-
-<span class="s2">* [U,u,g]</span>
-<span class="s2">* [D,d,g]</span>
-
-<span class="s2">* K-M</span>
-
-<span class="s2">* [U,d,WP]</span>
-
-<span class="s2">* [D,u,WM]</span>
-
-
-<span class="s2">*                     quartic vertices</span>
-
-<span class="s2">  [WP,WM,A,A]</span>
-<span class="s2">*  [WP,WM,Z,Z]</span>
-<span class="s2">*  [WP,WM,A,Z]</span>
-<span class="s2">*  [WP,WM,WP,WM]</span>
-<span class="s2">* [g,g,g,g]</span>
-
-<span class="s2">*  [WP,WM,H,H]</span>
-<span class="s2">*  [Z,Z,H,H]</span>
-<span class="s2">*  [H,H,H,H]</span>
-
-<span class="s2">&quot;&quot;&quot;</span>
-
-<span class="n">raw_model</span> <span class="o">=</span> <span class="n">multiple_replace</span><span class="p">(</span><span class="n">raw_model</span><span class="p">,{</span><span class="s2">&quot;e&quot;</span><span class="p">:</span><span class="s2">&quot;e_minus&quot;</span><span class="p">,</span><span class="s2">&quot;E&quot;</span><span class="p">:</span><span class="s2">&quot;e_plus&quot;</span><span class="p">,</span><span class="s1">&#39;n&#39;</span><span class="p">:</span><span class="s1">&#39;nu_e&#39;</span><span class="p">,</span><span class="s1">&#39;N&#39;</span><span class="p">:</span><span class="s1">&#39;nu_e_bar&#39;</span><span class="p">,</span><span class="s2">&quot;g&quot;</span><span class="p">:</span><span class="s2">&quot;g&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;H&quot;</span><span class="p">:</span><span class="s2">&quot;H_0&quot;</span><span class="p">,</span> <span class="s1">&#39;Z&#39;</span><span class="p">:</span><span class="s1">&#39;Z_0&#39;</span><span class="p">,</span>
-            <span class="s2">&quot;WP&quot;</span><span class="p">:</span><span class="s2">&quot;W_plus&quot;</span><span class="p">,</span><span class="s2">&quot;WM&quot;</span><span class="p">:</span> <span class="s2">&quot;W_minus&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;A&quot;</span><span class="p">:</span><span class="s2">&quot;gamma&quot;</span>
-           <span class="p">})</span>
-
-<span class="n">io</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">model</span><span class="p">,</span><span class="n">raw_model</span><span class="p">,</span>
-         <span class="n">create_dir</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">io</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">style</span><span class="p">,</span>
-         <span class="n">qgraf</span><span class="o">.</span><span class="n">get_style</span><span class="p">(),</span>
-         <span class="n">create_dir</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">io</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">dat</span><span class="p">,</span>
-          <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
-<span class="s2"> output= &#39;</span><span class="si">{</span><span class="n">output</span><span class="si">}</span><span class="s2">&#39; ;</span>
-<span class="s2"> style= &#39;</span><span class="si">{</span><span class="n">style</span><span class="si">}</span><span class="s2">&#39; ;</span>
-<span class="s2"> model = &#39;</span><span class="si">{</span><span class="n">model</span><span class="si">}</span><span class="s2">&#39;;</span>
-<span class="s2"> in= nu_e[p1];</span>
-<span class="s2"> out= nu_e[p1];</span>
-<span class="s2"> loops= 3;</span>
-<span class="s2"> loop_momentum= l;</span>
-<span class="s2"> options= notadpole, onshell;</span>
-<span class="s2"> &quot;&quot;&quot;</span>
-         <span class="p">,</span><span class="n">create_dir</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">io</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyqgraf</span> <span class="kn">import</span> <span class="n">qgraf</span><span class="p">,</span> <span class="n">model</span>
+<span class="n">qgraf</span><span class="o">.</span><span class="n">install</span><span class="p">(</span><span class="s2">&quot;3.6.5&quot;</span><span class="p">)</span>
+<span class="n">xml_string</span> <span class="o">=</span> <span class="n">qgraf</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;nu_e[p1]&quot;</span><span class="p">,</span> <span class="s2">&quot;nu_e[p1]&quot;</span><span class="p">,</span><span class="n">loops</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">loop_momentum</span><span class="o">=</span><span class="s2">&quot;l&quot;</span><span class="p">,</span><span class="n">model</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">gws_UnitaryGauge_reduced</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="n">style</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+/home/apn/.local/bin/qgraf-3.6.5 qgraf.dat
+
+ --------------------------------------------------------------
+                          qgraf-3.6.5
+ --------------------------------------------------------------
+
+  output= &#39;output.out&#39; ;
+  style= &#39;tmp.sty&#39; ;
+  model = &#39;tmp.model&#39;;
+  in= nu_e[p1];
+  out= nu_e[p1];
+  loops= 2;
+  loop_momentum= l;
+  options= notadpole,onshell;
+
+ --------------------------------------------------------------
+
+   #loops    v-degrees          #diagrams
+
+      2
+              -   4^2     ....     0
+             3^2  4^1     ....     1
+             3^4   -      ....     18
+
+
+        total =  19 connected diagrams
+
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/home/apn/.cache/pypoetry/virtualenvs/pyfeyn2-CEvJ4jFG-py3.9/lib/python3.9/site-packages/pyqgraf/qgraf.py:74: UserWarning:
+        Please cite the following papers if you use this code:
+
+      [1] Automatic Feynman graph generation J. Comput. Phys. 105 (1993) 279--289 https://doi.org/10.1006/jcph.1993.1074
+
+      [2] Abusing Qgraf Nucl. Instrum. Methods Phys. Res. A 559 (2006) 220--223 https://doi.org/10.1016/j.nima.2005.11.151
+
+      [3] Feynman graph generation and propagator mixing, I Comput. Phys. Commun. 269 (2021) 108103 https://doi.org/10.1016/j.cpc.2021.108103
+
+
+  warnings.warn(
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
-<span class="kn">import</span> <span class="nn">subprocess</span>
-<span class="kn">import</span> <span class="nn">shlex</span>
-
-<span class="kn">from</span> <span class="nn">xsdata.formats.dataclass.parsers</span> <span class="kn">import</span> <span class="n">XmlParser</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">xsdata.formats.dataclass.parsers</span> <span class="kn">import</span> <span class="n">XmlParser</span>
 <span class="kn">from</span> <span class="nn">pyfeyn2.render.latex.feynmp</span> <span class="kn">import</span> <span class="n">FeynmpRender</span>
 <span class="kn">from</span> <span class="nn">pyfeyn2.render.latex.tikzfeynman</span> <span class="kn">import</span> <span class="n">TikzFeynmanRender</span>
 <span class="kn">from</span> <span class="nn">pyfeyn2.render.pyx.pyxrender</span> <span class="kn">import</span> <span class="n">PyxRender</span>
@@ -572,8 +218,6 @@ div.rendered_html tbody tr:hover {
 <span class="kn">from</span> <span class="nn">pyfeyn2.auto.label</span> <span class="kn">import</span> <span class="n">auto_label</span>
 <span class="kn">from</span> <span class="nn">pyfeyn2.auto.position</span> <span class="kn">import</span> <span class="n">feynman_adjust_points</span>
 
-<span class="n">subprocess</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="n">shlex</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;qgraf </span><span class="si">{</span><span class="n">dat</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">))</span>
-<span class="n">xml_string</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">output</span><span class="p">)</span><span class="o">.</span><span class="n">read_text</span><span class="p">()</span>
 <span class="n">parser</span> <span class="o">=</span> <span class="n">XmlParser</span><span class="p">()</span>
 <span class="n">fml</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">from_string</span><span class="p">(</span><span class="n">xml_string</span><span class="p">,</span> <span class="n">FeynML</span><span class="p">)</span>
 
@@ -597,7 +241,6 @@ div.rendered_html tbody tr:hover {
 
 <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">fml</span><span class="o">.</span><span class="n">diagrams</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">filter_diag</span><span class="p">(</span><span class="n">d</span><span class="p">):</span>
-        <span class="n">ccount</span> <span class="o">+=</span><span class="mi">1</span>
         <span class="n">d</span><span class="o">.</span><span class="n">legs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">with_xy</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
         <span class="n">d</span><span class="o">.</span><span class="n">legs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">with_xy</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
         <span class="n">d</span><span class="o">.</span><span class="n">get_vertex</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">legs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">target</span><span class="p">)</span><span class="o">.</span><span class="n">with_xy</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
@@ -619,34 +262,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-
- --------------------------------------------------------------
-                          qgraf-3.6.5
- --------------------------------------------------------------
-
-  output= &#39;output.out&#39; ;
-  style= &#39;tmp.sty&#39; ;
-  model = &#39;tmp.model&#39;;
-  in= nu_e[p1];
-  out= nu_e[p1];
-  loops= 3;
-  loop_momentum= l;
-  options= notadpole, onshell;
-
- --------------------------------------------------------------
-
-   #loops    v-degrees          #diagrams
-
-      3
-              -   4^3     ....     0
-             3^2  4^2     ....     3
-             3^4  4^1     ....     36
-             3^6   -      ....     365
-
-
-        total =  404 connected diagrams
-
-single photon diags 99
+single photon diags 2
 </pre></div></div>
 </div>
 <div class="nboutput docutils container">
@@ -656,11 +272,19 @@ single photon diags 99
 <img alt="../../../_images/interfaces_qgraf_1_to_1_qgraf_4_1.png" src="../../../_images/interfaces_qgraf_1_to_1_qgraf_4_1.png" />
 </div>
 </div>
-<div class="nboutput docutils container">
+<div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
 <img alt="../../../_images/interfaces_qgraf_1_to_1_qgraf_4_2.png" src="../../../_images/interfaces_qgraf_1_to_1_qgraf_4_2.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">xml_string</span><span class="p">)</span>
+</pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -668,68 +292,1783 @@ single photon diags 99
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">KeyboardInterrupt</span>                         Traceback (most recent call last)
-Cell <span class="ansi-green-fg">In[4], line 52</span>
-<span class="ansi-green-intense-fg ansi-bold">     50</span> t <span style="color: rgb(98,98,98)">=</span> TikzFeynmanRender(d)
-<span class="ansi-green-intense-fg ansi-bold">     51</span> <span style="color: rgb(95,135,135)">#print(t.get_src())</span>
-<span class="ansi-green-fg">---&gt; 52</span> <span class="ansi-yellow-bg">t</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">render</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">show</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg ansi-bold" style="color: rgb(0,135,0)">True</span><span class="ansi-yellow-bg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">     53</span> <span style="color: rgb(95,135,135)">#break</span>
+&lt;!--
+ file generated by qgraf-3.6.5
 
-File <span class="ansi-green-fg">~/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/latex/latex.py:55</span>, in <span class="ansi-cyan-fg">LatexRender.render</span><span class="ansi-blue-fg">(self, file, show, resolution, width, height, clean_up)</span>
-<span class="ansi-green-intense-fg ansi-bold">     53</span>     file <span style="color: rgb(98,98,98)">=</span> <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">tmp</span><span style="color: rgb(175,0,0)">&#34;</span>
-<span class="ansi-green-intense-fg ansi-bold">     54</span> file <span style="color: rgb(98,98,98)">=</span> re<span style="color: rgb(98,98,98)">.</span>sub(<span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">\</span><span style="color: rgb(175,0,0)">.pdf$</span><span style="color: rgb(175,0,0)">&#34;</span>, <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">&#34;</span>, file<span style="color: rgb(98,98,98)">.</span>strip())
-<span class="ansi-green-fg">---&gt; 55</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">generate_pdf</span><span class="ansi-yellow-bg">(</span>
-<span class="ansi-green-intense-fg ansi-bold">     56</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">file</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-intense-fg ansi-bold">     57</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">clean_tex</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">clean_up</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-intense-fg ansi-bold">     58</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">compiler</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">lualatex</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-intense-fg ansi-bold">     59</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">compiler_args</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">[</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">-shell-escape</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg">]</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-intense-fg ansi-bold">     60</span> <span class="ansi-yellow-bg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">     61</span> wi <span style="color: rgb(98,98,98)">=</span> WImage(
-<span class="ansi-green-intense-fg ansi-bold">     62</span>     filename<span style="color: rgb(98,98,98)">=</span>file <span style="color: rgb(98,98,98)">+</span> <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">.pdf</span><span style="color: rgb(175,0,0)">&#34;</span>, resolution<span style="color: rgb(98,98,98)">=</span>resolution, width<span style="color: rgb(98,98,98)">=</span>width, height<span style="color: rgb(98,98,98)">=</span>height
-<span class="ansi-green-intense-fg ansi-bold">     63</span> )
-<span class="ansi-green-intense-fg ansi-bold">     64</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> delete:
+  output= &#39;output.out&#39; ;
+  style= &#39;tmp.sty&#39; ;
+  model = &#39;tmp.model&#39;;
+  in= nu_e[p1];
+  out= nu_e[p1];
+  loops= 2;
+  loop_momentum= l;
+  options= notadpole,onshell;
 
-File <span class="ansi-green-fg">~/.cache/pypoetry/virtualenvs/pyfeyn2-CEvJ4jFG-py3.9/lib/python3.9/site-packages/pylatex/document.py:250</span>, in <span class="ansi-cyan-fg">Document.generate_pdf</span><span class="ansi-blue-fg">(self, filepath, clean, clean_tex, compiler, compiler_args, silent)</span>
-<span class="ansi-green-intense-fg ansi-bold">    247</span> command <span style="color: rgb(98,98,98)">=</span> [compiler] <span style="color: rgb(98,98,98)">+</span> arguments <span style="color: rgb(98,98,98)">+</span> compiler_args <span style="color: rgb(98,98,98)">+</span> main_arguments
-<span class="ansi-green-intense-fg ansi-bold">    249</span> <span class="ansi-bold" style="color: rgb(0,135,0)">try</span>:
-<span class="ansi-green-fg">--&gt; 250</span>     output <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">subprocess</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">check_output</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">command</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-intense-fg ansi-bold">    251</span> <span class="ansi-yellow-bg">                                     </span><span class="ansi-yellow-bg">stderr</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">subprocess</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">STDOUT</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-intense-fg ansi-bold">    252</span> <span class="ansi-yellow-bg">                                     </span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">*</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">*</span><span class="ansi-yellow-bg">check_output_kwargs</span><span class="ansi-yellow-bg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    253</span> <span class="ansi-bold" style="color: rgb(0,135,0)">except</span> (<span class="ansi-bold" style="color: rgb(215,95,95)">OSError</span>, <span class="ansi-bold" style="color: rgb(215,95,95)">IOError</span>) <span class="ansi-bold" style="color: rgb(0,135,0)">as</span> e:
-<span class="ansi-green-intense-fg ansi-bold">    254</span>     <span style="color: rgb(95,135,135)"># Use FileNotFoundError when python 2 is dropped</span>
-<span class="ansi-green-intense-fg ansi-bold">    255</span>     os_error <span style="color: rgb(98,98,98)">=</span> e
 
-File <span class="ansi-green-fg">/usr/lib/python3.9/subprocess.py:424</span>, in <span class="ansi-cyan-fg">check_output</span><span class="ansi-blue-fg">(timeout, *popenargs, **kwargs)</span>
-<span class="ansi-green-intense-fg ansi-bold">    421</span>         empty <span style="color: rgb(98,98,98)">=</span> <span style="color: rgb(175,0,0)">b</span><span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">&#39;</span>
-<span class="ansi-green-intense-fg ansi-bold">    422</span>     kwargs[<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">input</span><span style="color: rgb(175,0,0)">&#39;</span>] <span style="color: rgb(98,98,98)">=</span> empty
-<span class="ansi-green-fg">--&gt; 424</span> <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> <span class="ansi-yellow-bg">run</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">*</span><span class="ansi-yellow-bg">popenargs</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">stdout</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">PIPE</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">timeout</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">timeout</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">check</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg ansi-bold" style="color: rgb(0,135,0)">True</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-intense-fg ansi-bold">    425</span> <span class="ansi-yellow-bg">           </span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">*</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">*</span><span class="ansi-yellow-bg">kwargs</span><span class="ansi-yellow-bg">)</span><span style="color: rgb(98,98,98)">.</span>stdout
+ You must add x= and y= with suitable vertex positions.
+ Some lines may need manual bending to render properly.
+--&gt;
+&lt;feynml&gt;
 
-File <span class="ansi-green-fg">/usr/lib/python3.9/subprocess.py:507</span>, in <span class="ansi-cyan-fg">run</span><span class="ansi-blue-fg">(input, capture_output, timeout, check, *popenargs, **kwargs)</span>
-<span class="ansi-green-intense-fg ansi-bold">    505</span> <span class="ansi-bold" style="color: rgb(0,135,0)">with</span> Popen(<span style="color: rgb(98,98,98)">*</span>popenargs, <span style="color: rgb(98,98,98)">*</span><span style="color: rgb(98,98,98)">*</span>kwargs) <span class="ansi-bold" style="color: rgb(0,135,0)">as</span> process:
-<span class="ansi-green-intense-fg ansi-bold">    506</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">try</span>:
-<span class="ansi-green-fg">--&gt; 507</span>         stdout, stderr <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">process</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">communicate</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg" style="color: rgb(0,135,0)">input</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">timeout</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">timeout</span><span class="ansi-yellow-bg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    508</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">except</span> TimeoutExpired <span class="ansi-bold" style="color: rgb(0,135,0)">as</span> exc:
-<span class="ansi-green-intense-fg ansi-bold">    509</span>         process<span style="color: rgb(98,98,98)">.</span>kill()
+ &lt;diagram
+          id=&#34;Diagram1&#34;
+          incoming=&#34;1&#34;
+          outgoing=&#34;1&#34;
+          sign=&#34;+&#34;
+          symmmetry_factor=&#34;1/2&#34;
+ &gt;
 
-File <span class="ansi-green-fg">/usr/lib/python3.9/subprocess.py:1121</span>, in <span class="ansi-cyan-fg">Popen.communicate</span><span class="ansi-blue-fg">(self, input, timeout)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1119</span>     <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>_stdin_write(<span style="color: rgb(0,135,0)">input</span>)
-<span class="ansi-green-intense-fg ansi-bold">   1120</span> <span class="ansi-bold" style="color: rgb(0,135,0)">elif</span> <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>stdout:
-<span class="ansi-green-fg">-&gt; 1121</span>     stdout <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">stdout</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">read</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1122</span>     <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>stdout<span style="color: rgb(98,98,98)">.</span>close()
-<span class="ansi-green-intense-fg ansi-bold">   1123</span> <span class="ansi-bold" style="color: rgb(0,135,0)">elif</span> <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>stderr:
 
-<span class="ansi-red-fg">KeyboardInterrupt</span>:
+  &lt;vertex id=&#34;Vert1&#34;&gt;
+  &lt;/vertex&gt;
+
+  &lt;vertex id=&#34;Vert2&#34;&gt;
+  &lt;/vertex&gt;
+
+  &lt;vertex id=&#34;Vert3&#34;&gt;
+  &lt;/vertex&gt;
+
+
+
+  &lt;leg id=&#34;In1&#34;&gt;
+        &lt;name&gt;nu_e&lt;/name&gt;
+        &lt;sense&gt;incoming&lt;/sense&gt;
+        &lt;target&gt;Vert1&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;p1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/leg&gt;
+
+
+
+  &lt;leg id=&#34;Out1&#34;&gt;
+        &lt;name&gt;nu_e&lt;/name&gt;
+        &lt;sense&gt;outgoing&lt;/sense&gt;
+        &lt;target&gt;Vert2&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;p1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/leg&gt;
+
+
+
+  &lt;propagator id=&#34;Prop1&#34;&gt;
+        &lt;name&gt;e_minus&lt;/name&gt;
+        &lt;source&gt;Vert1&lt;/source&gt;
+        &lt;target&gt;Vert2&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;l1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+  &lt;propagator id=&#34;Prop2&#34;&gt;
+        &lt;name&gt;W_minus&lt;/name&gt;
+        &lt;source&gt;Vert3&lt;/source&gt;
+        &lt;target&gt;Vert1&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;l1-p1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+  &lt;propagator id=&#34;Prop3&#34;&gt;
+        &lt;name&gt;W_minus&lt;/name&gt;
+        &lt;source&gt;Vert2&lt;/source&gt;
+        &lt;target&gt;Vert3&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;l1-p1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+  &lt;propagator id=&#34;Prop4&#34;&gt;
+        &lt;name&gt;gamma&lt;/name&gt;
+        &lt;source&gt;Vert3&lt;/source&gt;
+        &lt;target&gt;Vert3&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;l2&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+
+ &lt;/diagram&gt;
+
+ &lt;diagram
+          id=&#34;Diagram2&#34;
+          incoming=&#34;1&#34;
+          outgoing=&#34;1&#34;
+          sign=&#34;+&#34;
+          symmmetry_factor=&#34;1&#34;
+ &gt;
+
+
+  &lt;vertex id=&#34;Vert1&#34;&gt;
+  &lt;/vertex&gt;
+
+  &lt;vertex id=&#34;Vert2&#34;&gt;
+  &lt;/vertex&gt;
+
+  &lt;vertex id=&#34;Vert3&#34;&gt;
+  &lt;/vertex&gt;
+
+  &lt;vertex id=&#34;Vert4&#34;&gt;
+  &lt;/vertex&gt;
+
+
+
+  &lt;leg id=&#34;In1&#34;&gt;
+        &lt;name&gt;nu_e&lt;/name&gt;
+        &lt;sense&gt;incoming&lt;/sense&gt;
+        &lt;target&gt;Vert1&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;p1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/leg&gt;
+
+
+
+  &lt;leg id=&#34;Out1&#34;&gt;
+        &lt;name&gt;nu_e&lt;/name&gt;
+        &lt;sense&gt;outgoing&lt;/sense&gt;
+        &lt;target&gt;Vert2&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;p1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/leg&gt;
+
+
+
+  &lt;propagator id=&#34;Prop1&#34;&gt;
+        &lt;name&gt;e_minus&lt;/name&gt;
+        &lt;source&gt;Vert1&lt;/source&gt;
+        &lt;target&gt;Vert3&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;l1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+  &lt;propagator id=&#34;Prop2&#34;&gt;
+        &lt;name&gt;W_minus&lt;/name&gt;
+        &lt;source&gt;Vert4&lt;/source&gt;
+        &lt;target&gt;Vert1&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;l1-p1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+  &lt;propagator id=&#34;Prop3&#34;&gt;
+        &lt;name&gt;e_minus&lt;/name&gt;
+        &lt;source&gt;Vert3&lt;/source&gt;
+        &lt;target&gt;Vert2&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;-l2&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+  &lt;propagator id=&#34;Prop4&#34;&gt;
+        &lt;name&gt;W_minus&lt;/name&gt;
+        &lt;source&gt;Vert2&lt;/source&gt;
+        &lt;target&gt;Vert4&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;-l2-p1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+  &lt;propagator id=&#34;Prop5&#34;&gt;
+        &lt;name&gt;gamma&lt;/name&gt;
+        &lt;source&gt;Vert4&lt;/source&gt;
+        &lt;target&gt;Vert3&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;-l1-l2&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+
+ &lt;/diagram&gt;
+
+ &lt;diagram
+          id=&#34;Diagram3&#34;
+          incoming=&#34;1&#34;
+          outgoing=&#34;1&#34;
+          sign=&#34;+&#34;
+          symmmetry_factor=&#34;1&#34;
+ &gt;
+
+
+  &lt;vertex id=&#34;Vert1&#34;&gt;
+  &lt;/vertex&gt;
+
+  &lt;vertex id=&#34;Vert2&#34;&gt;
+  &lt;/vertex&gt;
+
+  &lt;vertex id=&#34;Vert3&#34;&gt;
+  &lt;/vertex&gt;
+
+  &lt;vertex id=&#34;Vert4&#34;&gt;
+  &lt;/vertex&gt;
+
+
+
+  &lt;leg id=&#34;In1&#34;&gt;
+        &lt;name&gt;nu_e&lt;/name&gt;
+        &lt;sense&gt;incoming&lt;/sense&gt;
+        &lt;target&gt;Vert1&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;p1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/leg&gt;
+
+
+
+  &lt;leg id=&#34;Out1&#34;&gt;
+        &lt;name&gt;nu_e&lt;/name&gt;
+        &lt;sense&gt;outgoing&lt;/sense&gt;
+        &lt;target&gt;Vert2&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;p1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/leg&gt;
+
+
+
+  &lt;propagator id=&#34;Prop1&#34;&gt;
+        &lt;name&gt;e_minus&lt;/name&gt;
+        &lt;source&gt;Vert1&lt;/source&gt;
+        &lt;target&gt;Vert3&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;l1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+  &lt;propagator id=&#34;Prop2&#34;&gt;
+        &lt;name&gt;W_minus&lt;/name&gt;
+        &lt;source&gt;Vert4&lt;/source&gt;
+        &lt;target&gt;Vert1&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;l1-p1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+  &lt;propagator id=&#34;Prop3&#34;&gt;
+        &lt;name&gt;e_minus&lt;/name&gt;
+        &lt;source&gt;Vert3&lt;/source&gt;
+        &lt;target&gt;Vert2&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;-l2&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+  &lt;propagator id=&#34;Prop4&#34;&gt;
+        &lt;name&gt;W_minus&lt;/name&gt;
+        &lt;source&gt;Vert2&lt;/source&gt;
+        &lt;target&gt;Vert4&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;-l2-p1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+  &lt;propagator id=&#34;Prop5&#34;&gt;
+        &lt;name&gt;Z_0&lt;/name&gt;
+        &lt;source&gt;Vert4&lt;/source&gt;
+        &lt;target&gt;Vert3&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;-l1-l2&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+
+ &lt;/diagram&gt;
+
+ &lt;diagram
+          id=&#34;Diagram4&#34;
+          incoming=&#34;1&#34;
+          outgoing=&#34;1&#34;
+          sign=&#34;+&#34;
+          symmmetry_factor=&#34;1&#34;
+ &gt;
+
+
+  &lt;vertex id=&#34;Vert1&#34;&gt;
+  &lt;/vertex&gt;
+
+  &lt;vertex id=&#34;Vert2&#34;&gt;
+  &lt;/vertex&gt;
+
+  &lt;vertex id=&#34;Vert3&#34;&gt;
+  &lt;/vertex&gt;
+
+  &lt;vertex id=&#34;Vert4&#34;&gt;
+  &lt;/vertex&gt;
+
+
+
+  &lt;leg id=&#34;In1&#34;&gt;
+        &lt;name&gt;nu_e&lt;/name&gt;
+        &lt;sense&gt;incoming&lt;/sense&gt;
+        &lt;target&gt;Vert1&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;p1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/leg&gt;
+
+
+
+  &lt;leg id=&#34;Out1&#34;&gt;
+        &lt;name&gt;nu_e&lt;/name&gt;
+        &lt;sense&gt;outgoing&lt;/sense&gt;
+        &lt;target&gt;Vert2&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;p1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/leg&gt;
+
+
+
+  &lt;propagator id=&#34;Prop1&#34;&gt;
+        &lt;name&gt;e_minus&lt;/name&gt;
+        &lt;source&gt;Vert1&lt;/source&gt;
+        &lt;target&gt;Vert3&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;l1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+  &lt;propagator id=&#34;Prop2&#34;&gt;
+        &lt;name&gt;W_minus&lt;/name&gt;
+        &lt;source&gt;Vert4&lt;/source&gt;
+        &lt;target&gt;Vert1&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;l1-p1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+  &lt;propagator id=&#34;Prop3&#34;&gt;
+        &lt;name&gt;nu_e&lt;/name&gt;
+        &lt;source&gt;Vert3&lt;/source&gt;
+        &lt;target&gt;Vert2&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;-l2&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+  &lt;propagator id=&#34;Prop4&#34;&gt;
+        &lt;name&gt;Z_0&lt;/name&gt;
+        &lt;source&gt;Vert4&lt;/source&gt;
+        &lt;target&gt;Vert2&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;l2+p1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+  &lt;propagator id=&#34;Prop5&#34;&gt;
+        &lt;name&gt;W_minus&lt;/name&gt;
+        &lt;source&gt;Vert3&lt;/source&gt;
+        &lt;target&gt;Vert4&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;l1+l2&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+
+ &lt;/diagram&gt;
+
+ &lt;diagram
+          id=&#34;Diagram5&#34;
+          incoming=&#34;1&#34;
+          outgoing=&#34;1&#34;
+          sign=&#34;+&#34;
+          symmmetry_factor=&#34;1&#34;
+ &gt;
+
+
+  &lt;vertex id=&#34;Vert1&#34;&gt;
+  &lt;/vertex&gt;
+
+  &lt;vertex id=&#34;Vert2&#34;&gt;
+  &lt;/vertex&gt;
+
+  &lt;vertex id=&#34;Vert3&#34;&gt;
+  &lt;/vertex&gt;
+
+  &lt;vertex id=&#34;Vert4&#34;&gt;
+  &lt;/vertex&gt;
+
+
+
+  &lt;leg id=&#34;In1&#34;&gt;
+        &lt;name&gt;nu_e&lt;/name&gt;
+        &lt;sense&gt;incoming&lt;/sense&gt;
+        &lt;target&gt;Vert1&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;p1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/leg&gt;
+
+
+
+  &lt;leg id=&#34;Out1&#34;&gt;
+        &lt;name&gt;nu_e&lt;/name&gt;
+        &lt;sense&gt;outgoing&lt;/sense&gt;
+        &lt;target&gt;Vert2&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;p1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/leg&gt;
+
+
+
+  &lt;propagator id=&#34;Prop1&#34;&gt;
+        &lt;name&gt;e_minus&lt;/name&gt;
+        &lt;source&gt;Vert1&lt;/source&gt;
+        &lt;target&gt;Vert3&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;l1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+  &lt;propagator id=&#34;Prop2&#34;&gt;
+        &lt;name&gt;W_minus&lt;/name&gt;
+        &lt;source&gt;Vert4&lt;/source&gt;
+        &lt;target&gt;Vert1&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;l1-p1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+  &lt;propagator id=&#34;Prop3&#34;&gt;
+        &lt;name&gt;Z_0&lt;/name&gt;
+        &lt;source&gt;Vert3&lt;/source&gt;
+        &lt;target&gt;Vert2&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;-l2&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+  &lt;propagator id=&#34;Prop4&#34;&gt;
+        &lt;name&gt;nu_e&lt;/name&gt;
+        &lt;source&gt;Vert4&lt;/source&gt;
+        &lt;target&gt;Vert2&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;l2+p1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+  &lt;propagator id=&#34;Prop5&#34;&gt;
+        &lt;name&gt;e_minus&lt;/name&gt;
+        &lt;source&gt;Vert3&lt;/source&gt;
+        &lt;target&gt;Vert4&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;l1+l2&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+
+ &lt;/diagram&gt;
+
+ &lt;diagram
+          id=&#34;Diagram6&#34;
+          incoming=&#34;1&#34;
+          outgoing=&#34;1&#34;
+          sign=&#34;+&#34;
+          symmmetry_factor=&#34;1&#34;
+ &gt;
+
+
+  &lt;vertex id=&#34;Vert1&#34;&gt;
+  &lt;/vertex&gt;
+
+  &lt;vertex id=&#34;Vert2&#34;&gt;
+  &lt;/vertex&gt;
+
+  &lt;vertex id=&#34;Vert3&#34;&gt;
+  &lt;/vertex&gt;
+
+  &lt;vertex id=&#34;Vert4&#34;&gt;
+  &lt;/vertex&gt;
+
+
+
+  &lt;leg id=&#34;In1&#34;&gt;
+        &lt;name&gt;nu_e&lt;/name&gt;
+        &lt;sense&gt;incoming&lt;/sense&gt;
+        &lt;target&gt;Vert1&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;p1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/leg&gt;
+
+
+
+  &lt;leg id=&#34;Out1&#34;&gt;
+        &lt;name&gt;nu_e&lt;/name&gt;
+        &lt;sense&gt;outgoing&lt;/sense&gt;
+        &lt;target&gt;Vert2&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;p1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/leg&gt;
+
+
+
+  &lt;propagator id=&#34;Prop1&#34;&gt;
+        &lt;name&gt;nu_e&lt;/name&gt;
+        &lt;source&gt;Vert1&lt;/source&gt;
+        &lt;target&gt;Vert3&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;l1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+  &lt;propagator id=&#34;Prop2&#34;&gt;
+        &lt;name&gt;Z_0&lt;/name&gt;
+        &lt;source&gt;Vert4&lt;/source&gt;
+        &lt;target&gt;Vert1&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;l1-p1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+  &lt;propagator id=&#34;Prop3&#34;&gt;
+        &lt;name&gt;e_minus&lt;/name&gt;
+        &lt;source&gt;Vert3&lt;/source&gt;
+        &lt;target&gt;Vert2&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;-l2&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+  &lt;propagator id=&#34;Prop4&#34;&gt;
+        &lt;name&gt;W_minus&lt;/name&gt;
+        &lt;source&gt;Vert2&lt;/source&gt;
+        &lt;target&gt;Vert4&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;-l2-p1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+  &lt;propagator id=&#34;Prop5&#34;&gt;
+        &lt;name&gt;W_minus&lt;/name&gt;
+        &lt;source&gt;Vert4&lt;/source&gt;
+        &lt;target&gt;Vert3&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;-l1-l2&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+
+ &lt;/diagram&gt;
+
+ &lt;diagram
+          id=&#34;Diagram7&#34;
+          incoming=&#34;1&#34;
+          outgoing=&#34;1&#34;
+          sign=&#34;+&#34;
+          symmmetry_factor=&#34;1&#34;
+ &gt;
+
+
+  &lt;vertex id=&#34;Vert1&#34;&gt;
+  &lt;/vertex&gt;
+
+  &lt;vertex id=&#34;Vert2&#34;&gt;
+  &lt;/vertex&gt;
+
+  &lt;vertex id=&#34;Vert3&#34;&gt;
+  &lt;/vertex&gt;
+
+  &lt;vertex id=&#34;Vert4&#34;&gt;
+  &lt;/vertex&gt;
+
+
+
+  &lt;leg id=&#34;In1&#34;&gt;
+        &lt;name&gt;nu_e&lt;/name&gt;
+        &lt;sense&gt;incoming&lt;/sense&gt;
+        &lt;target&gt;Vert1&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;p1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/leg&gt;
+
+
+
+  &lt;leg id=&#34;Out1&#34;&gt;
+        &lt;name&gt;nu_e&lt;/name&gt;
+        &lt;sense&gt;outgoing&lt;/sense&gt;
+        &lt;target&gt;Vert2&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;p1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/leg&gt;
+
+
+
+  &lt;propagator id=&#34;Prop1&#34;&gt;
+        &lt;name&gt;nu_e&lt;/name&gt;
+        &lt;source&gt;Vert1&lt;/source&gt;
+        &lt;target&gt;Vert3&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;l1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+  &lt;propagator id=&#34;Prop2&#34;&gt;
+        &lt;name&gt;Z_0&lt;/name&gt;
+        &lt;source&gt;Vert4&lt;/source&gt;
+        &lt;target&gt;Vert1&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;l1-p1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+  &lt;propagator id=&#34;Prop3&#34;&gt;
+        &lt;name&gt;W_minus&lt;/name&gt;
+        &lt;source&gt;Vert2&lt;/source&gt;
+        &lt;target&gt;Vert3&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;l2&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+  &lt;propagator id=&#34;Prop4&#34;&gt;
+        &lt;name&gt;e_minus&lt;/name&gt;
+        &lt;source&gt;Vert4&lt;/source&gt;
+        &lt;target&gt;Vert2&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;l2+p1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+  &lt;propagator id=&#34;Prop5&#34;&gt;
+        &lt;name&gt;e_minus&lt;/name&gt;
+        &lt;source&gt;Vert3&lt;/source&gt;
+        &lt;target&gt;Vert4&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;l1+l2&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+
+ &lt;/diagram&gt;
+
+ &lt;diagram
+          id=&#34;Diagram8&#34;
+          incoming=&#34;1&#34;
+          outgoing=&#34;1&#34;
+          sign=&#34;+&#34;
+          symmmetry_factor=&#34;1&#34;
+ &gt;
+
+
+  &lt;vertex id=&#34;Vert1&#34;&gt;
+  &lt;/vertex&gt;
+
+  &lt;vertex id=&#34;Vert2&#34;&gt;
+  &lt;/vertex&gt;
+
+  &lt;vertex id=&#34;Vert3&#34;&gt;
+  &lt;/vertex&gt;
+
+  &lt;vertex id=&#34;Vert4&#34;&gt;
+  &lt;/vertex&gt;
+
+
+
+  &lt;leg id=&#34;In1&#34;&gt;
+        &lt;name&gt;nu_e&lt;/name&gt;
+        &lt;sense&gt;incoming&lt;/sense&gt;
+        &lt;target&gt;Vert1&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;p1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/leg&gt;
+
+
+
+  &lt;leg id=&#34;Out1&#34;&gt;
+        &lt;name&gt;nu_e&lt;/name&gt;
+        &lt;sense&gt;outgoing&lt;/sense&gt;
+        &lt;target&gt;Vert2&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;p1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/leg&gt;
+
+
+
+  &lt;propagator id=&#34;Prop1&#34;&gt;
+        &lt;name&gt;nu_e&lt;/name&gt;
+        &lt;source&gt;Vert1&lt;/source&gt;
+        &lt;target&gt;Vert3&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;l1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+  &lt;propagator id=&#34;Prop2&#34;&gt;
+        &lt;name&gt;Z_0&lt;/name&gt;
+        &lt;source&gt;Vert4&lt;/source&gt;
+        &lt;target&gt;Vert1&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;l1-p1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+  &lt;propagator id=&#34;Prop3&#34;&gt;
+        &lt;name&gt;Z_0&lt;/name&gt;
+        &lt;source&gt;Vert3&lt;/source&gt;
+        &lt;target&gt;Vert2&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;-l2&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+  &lt;propagator id=&#34;Prop4&#34;&gt;
+        &lt;name&gt;nu_e&lt;/name&gt;
+        &lt;source&gt;Vert4&lt;/source&gt;
+        &lt;target&gt;Vert2&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;l2+p1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+  &lt;propagator id=&#34;Prop5&#34;&gt;
+        &lt;name&gt;nu_e&lt;/name&gt;
+        &lt;source&gt;Vert3&lt;/source&gt;
+        &lt;target&gt;Vert4&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;l1+l2&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+
+ &lt;/diagram&gt;
+
+ &lt;diagram
+          id=&#34;Diagram9&#34;
+          incoming=&#34;1&#34;
+          outgoing=&#34;1&#34;
+          sign=&#34;-&#34;
+          symmmetry_factor=&#34;1&#34;
+ &gt;
+
+
+  &lt;vertex id=&#34;Vert1&#34;&gt;
+  &lt;/vertex&gt;
+
+  &lt;vertex id=&#34;Vert2&#34;&gt;
+  &lt;/vertex&gt;
+
+  &lt;vertex id=&#34;Vert3&#34;&gt;
+  &lt;/vertex&gt;
+
+  &lt;vertex id=&#34;Vert4&#34;&gt;
+  &lt;/vertex&gt;
+
+
+
+  &lt;leg id=&#34;In1&#34;&gt;
+        &lt;name&gt;nu_e&lt;/name&gt;
+        &lt;sense&gt;incoming&lt;/sense&gt;
+        &lt;target&gt;Vert1&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;p1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/leg&gt;
+
+
+
+  &lt;leg id=&#34;Out1&#34;&gt;
+        &lt;name&gt;nu_e&lt;/name&gt;
+        &lt;sense&gt;outgoing&lt;/sense&gt;
+        &lt;target&gt;Vert2&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;p1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/leg&gt;
+
+
+
+  &lt;propagator id=&#34;Prop1&#34;&gt;
+        &lt;name&gt;e_minus&lt;/name&gt;
+        &lt;source&gt;Vert1&lt;/source&gt;
+        &lt;target&gt;Vert2&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;l1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+  &lt;propagator id=&#34;Prop2&#34;&gt;
+        &lt;name&gt;W_minus&lt;/name&gt;
+        &lt;source&gt;Vert3&lt;/source&gt;
+        &lt;target&gt;Vert1&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;l1-p1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+  &lt;propagator id=&#34;Prop3&#34;&gt;
+        &lt;name&gt;W_minus&lt;/name&gt;
+        &lt;source&gt;Vert2&lt;/source&gt;
+        &lt;target&gt;Vert4&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;l1-p1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+  &lt;propagator id=&#34;Prop4&#34;&gt;
+        &lt;name&gt;e_minus&lt;/name&gt;
+        &lt;source&gt;Vert4&lt;/source&gt;
+        &lt;target&gt;Vert3&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;l1+l2-p1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+  &lt;propagator id=&#34;Prop5&#34;&gt;
+        &lt;name&gt;nu_e&lt;/name&gt;
+        &lt;source&gt;Vert3&lt;/source&gt;
+        &lt;target&gt;Vert4&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;l2&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+
+ &lt;/diagram&gt;
+
+ &lt;diagram
+          id=&#34;Diagram10&#34;
+          incoming=&#34;1&#34;
+          outgoing=&#34;1&#34;
+          sign=&#34;+&#34;
+          symmmetry_factor=&#34;1&#34;
+ &gt;
+
+
+  &lt;vertex id=&#34;Vert1&#34;&gt;
+  &lt;/vertex&gt;
+
+  &lt;vertex id=&#34;Vert2&#34;&gt;
+  &lt;/vertex&gt;
+
+  &lt;vertex id=&#34;Vert3&#34;&gt;
+  &lt;/vertex&gt;
+
+  &lt;vertex id=&#34;Vert4&#34;&gt;
+  &lt;/vertex&gt;
+
+
+
+  &lt;leg id=&#34;In1&#34;&gt;
+        &lt;name&gt;nu_e&lt;/name&gt;
+        &lt;sense&gt;incoming&lt;/sense&gt;
+        &lt;target&gt;Vert1&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;p1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/leg&gt;
+
+
+
+  &lt;leg id=&#34;Out1&#34;&gt;
+        &lt;name&gt;nu_e&lt;/name&gt;
+        &lt;sense&gt;outgoing&lt;/sense&gt;
+        &lt;target&gt;Vert2&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;p1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/leg&gt;
+
+
+
+  &lt;propagator id=&#34;Prop1&#34;&gt;
+        &lt;name&gt;e_minus&lt;/name&gt;
+        &lt;source&gt;Vert1&lt;/source&gt;
+        &lt;target&gt;Vert2&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;l1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+  &lt;propagator id=&#34;Prop2&#34;&gt;
+        &lt;name&gt;W_minus&lt;/name&gt;
+        &lt;source&gt;Vert3&lt;/source&gt;
+        &lt;target&gt;Vert1&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;l1-p1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+  &lt;propagator id=&#34;Prop3&#34;&gt;
+        &lt;name&gt;W_minus&lt;/name&gt;
+        &lt;source&gt;Vert2&lt;/source&gt;
+        &lt;target&gt;Vert4&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;l1-p1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+  &lt;propagator id=&#34;Prop4&#34;&gt;
+        &lt;name&gt;gamma&lt;/name&gt;
+        &lt;source&gt;Vert4&lt;/source&gt;
+        &lt;target&gt;Vert3&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;l1+l2-p1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+  &lt;propagator id=&#34;Prop5&#34;&gt;
+        &lt;name&gt;W_minus&lt;/name&gt;
+        &lt;source&gt;Vert4&lt;/source&gt;
+        &lt;target&gt;Vert3&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;-l2&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+
+ &lt;/diagram&gt;
+
+ &lt;diagram
+          id=&#34;Diagram11&#34;
+          incoming=&#34;1&#34;
+          outgoing=&#34;1&#34;
+          sign=&#34;+&#34;
+          symmmetry_factor=&#34;1&#34;
+ &gt;
+
+
+  &lt;vertex id=&#34;Vert1&#34;&gt;
+  &lt;/vertex&gt;
+
+  &lt;vertex id=&#34;Vert2&#34;&gt;
+  &lt;/vertex&gt;
+
+  &lt;vertex id=&#34;Vert3&#34;&gt;
+  &lt;/vertex&gt;
+
+  &lt;vertex id=&#34;Vert4&#34;&gt;
+  &lt;/vertex&gt;
+
+
+
+  &lt;leg id=&#34;In1&#34;&gt;
+        &lt;name&gt;nu_e&lt;/name&gt;
+        &lt;sense&gt;incoming&lt;/sense&gt;
+        &lt;target&gt;Vert1&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;p1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/leg&gt;
+
+
+
+  &lt;leg id=&#34;Out1&#34;&gt;
+        &lt;name&gt;nu_e&lt;/name&gt;
+        &lt;sense&gt;outgoing&lt;/sense&gt;
+        &lt;target&gt;Vert2&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;p1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/leg&gt;
+
+
+
+  &lt;propagator id=&#34;Prop1&#34;&gt;
+        &lt;name&gt;e_minus&lt;/name&gt;
+        &lt;source&gt;Vert1&lt;/source&gt;
+        &lt;target&gt;Vert2&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;l1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+  &lt;propagator id=&#34;Prop2&#34;&gt;
+        &lt;name&gt;W_minus&lt;/name&gt;
+        &lt;source&gt;Vert3&lt;/source&gt;
+        &lt;target&gt;Vert1&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;l1-p1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+  &lt;propagator id=&#34;Prop3&#34;&gt;
+        &lt;name&gt;W_minus&lt;/name&gt;
+        &lt;source&gt;Vert2&lt;/source&gt;
+        &lt;target&gt;Vert4&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;l1-p1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+  &lt;propagator id=&#34;Prop4&#34;&gt;
+        &lt;name&gt;W_minus&lt;/name&gt;
+        &lt;source&gt;Vert4&lt;/source&gt;
+        &lt;target&gt;Vert3&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;l1+l2-p1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+  &lt;propagator id=&#34;Prop5&#34;&gt;
+        &lt;name&gt;Z_0&lt;/name&gt;
+        &lt;source&gt;Vert4&lt;/source&gt;
+        &lt;target&gt;Vert3&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;-l2&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+
+ &lt;/diagram&gt;
+
+ &lt;diagram
+          id=&#34;Diagram12&#34;
+          incoming=&#34;1&#34;
+          outgoing=&#34;1&#34;
+          sign=&#34;-&#34;
+          symmmetry_factor=&#34;1&#34;
+ &gt;
+
+
+  &lt;vertex id=&#34;Vert1&#34;&gt;
+  &lt;/vertex&gt;
+
+  &lt;vertex id=&#34;Vert2&#34;&gt;
+  &lt;/vertex&gt;
+
+  &lt;vertex id=&#34;Vert3&#34;&gt;
+  &lt;/vertex&gt;
+
+  &lt;vertex id=&#34;Vert4&#34;&gt;
+  &lt;/vertex&gt;
+
+
+
+  &lt;leg id=&#34;In1&#34;&gt;
+        &lt;name&gt;nu_e&lt;/name&gt;
+        &lt;sense&gt;incoming&lt;/sense&gt;
+        &lt;target&gt;Vert1&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;p1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/leg&gt;
+
+
+
+  &lt;leg id=&#34;Out1&#34;&gt;
+        &lt;name&gt;nu_e&lt;/name&gt;
+        &lt;sense&gt;outgoing&lt;/sense&gt;
+        &lt;target&gt;Vert2&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;p1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/leg&gt;
+
+
+
+  &lt;propagator id=&#34;Prop1&#34;&gt;
+        &lt;name&gt;nu_e&lt;/name&gt;
+        &lt;source&gt;Vert1&lt;/source&gt;
+        &lt;target&gt;Vert2&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;l1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+  &lt;propagator id=&#34;Prop2&#34;&gt;
+        &lt;name&gt;Z_0&lt;/name&gt;
+        &lt;source&gt;Vert3&lt;/source&gt;
+        &lt;target&gt;Vert1&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;l1-p1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+  &lt;propagator id=&#34;Prop3&#34;&gt;
+        &lt;name&gt;Z_0&lt;/name&gt;
+        &lt;source&gt;Vert4&lt;/source&gt;
+        &lt;target&gt;Vert2&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;-l1+p1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+  &lt;propagator id=&#34;Prop4&#34;&gt;
+        &lt;name&gt;e_minus&lt;/name&gt;
+        &lt;source&gt;Vert4&lt;/source&gt;
+        &lt;target&gt;Vert3&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;l1+l2-p1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+  &lt;propagator id=&#34;Prop5&#34;&gt;
+        &lt;name&gt;e_minus&lt;/name&gt;
+        &lt;source&gt;Vert3&lt;/source&gt;
+        &lt;target&gt;Vert4&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;l2&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+
+ &lt;/diagram&gt;
+
+ &lt;diagram
+          id=&#34;Diagram13&#34;
+          incoming=&#34;1&#34;
+          outgoing=&#34;1&#34;
+          sign=&#34;-&#34;
+          symmmetry_factor=&#34;1&#34;
+ &gt;
+
+
+  &lt;vertex id=&#34;Vert1&#34;&gt;
+  &lt;/vertex&gt;
+
+  &lt;vertex id=&#34;Vert2&#34;&gt;
+  &lt;/vertex&gt;
+
+  &lt;vertex id=&#34;Vert3&#34;&gt;
+  &lt;/vertex&gt;
+
+  &lt;vertex id=&#34;Vert4&#34;&gt;
+  &lt;/vertex&gt;
+
+
+
+  &lt;leg id=&#34;In1&#34;&gt;
+        &lt;name&gt;nu_e&lt;/name&gt;
+        &lt;sense&gt;incoming&lt;/sense&gt;
+        &lt;target&gt;Vert1&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;p1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/leg&gt;
+
+
+
+  &lt;leg id=&#34;Out1&#34;&gt;
+        &lt;name&gt;nu_e&lt;/name&gt;
+        &lt;sense&gt;outgoing&lt;/sense&gt;
+        &lt;target&gt;Vert2&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;p1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/leg&gt;
+
+
+
+  &lt;propagator id=&#34;Prop1&#34;&gt;
+        &lt;name&gt;nu_e&lt;/name&gt;
+        &lt;source&gt;Vert1&lt;/source&gt;
+        &lt;target&gt;Vert2&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;l1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+  &lt;propagator id=&#34;Prop2&#34;&gt;
+        &lt;name&gt;Z_0&lt;/name&gt;
+        &lt;source&gt;Vert3&lt;/source&gt;
+        &lt;target&gt;Vert1&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;l1-p1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+  &lt;propagator id=&#34;Prop3&#34;&gt;
+        &lt;name&gt;Z_0&lt;/name&gt;
+        &lt;source&gt;Vert4&lt;/source&gt;
+        &lt;target&gt;Vert2&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;-l1+p1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+  &lt;propagator id=&#34;Prop4&#34;&gt;
+        &lt;name&gt;nu_e&lt;/name&gt;
+        &lt;source&gt;Vert4&lt;/source&gt;
+        &lt;target&gt;Vert3&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;l1+l2-p1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+  &lt;propagator id=&#34;Prop5&#34;&gt;
+        &lt;name&gt;nu_e&lt;/name&gt;
+        &lt;source&gt;Vert3&lt;/source&gt;
+        &lt;target&gt;Vert4&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;l2&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+
+ &lt;/diagram&gt;
+
+ &lt;diagram
+          id=&#34;Diagram14&#34;
+          incoming=&#34;1&#34;
+          outgoing=&#34;1&#34;
+          sign=&#34;+&#34;
+          symmmetry_factor=&#34;1&#34;
+ &gt;
+
+
+  &lt;vertex id=&#34;Vert1&#34;&gt;
+  &lt;/vertex&gt;
+
+  &lt;vertex id=&#34;Vert2&#34;&gt;
+  &lt;/vertex&gt;
+
+  &lt;vertex id=&#34;Vert3&#34;&gt;
+  &lt;/vertex&gt;
+
+  &lt;vertex id=&#34;Vert4&#34;&gt;
+  &lt;/vertex&gt;
+
+
+
+  &lt;leg id=&#34;In1&#34;&gt;
+        &lt;name&gt;nu_e&lt;/name&gt;
+        &lt;sense&gt;incoming&lt;/sense&gt;
+        &lt;target&gt;Vert1&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;p1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/leg&gt;
+
+
+
+  &lt;leg id=&#34;Out1&#34;&gt;
+        &lt;name&gt;nu_e&lt;/name&gt;
+        &lt;sense&gt;outgoing&lt;/sense&gt;
+        &lt;target&gt;Vert2&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;p1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/leg&gt;
+
+
+
+  &lt;propagator id=&#34;Prop1&#34;&gt;
+        &lt;name&gt;nu_e&lt;/name&gt;
+        &lt;source&gt;Vert1&lt;/source&gt;
+        &lt;target&gt;Vert2&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;l1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+  &lt;propagator id=&#34;Prop2&#34;&gt;
+        &lt;name&gt;Z_0&lt;/name&gt;
+        &lt;source&gt;Vert3&lt;/source&gt;
+        &lt;target&gt;Vert1&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;l1-p1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+  &lt;propagator id=&#34;Prop3&#34;&gt;
+        &lt;name&gt;Z_0&lt;/name&gt;
+        &lt;source&gt;Vert4&lt;/source&gt;
+        &lt;target&gt;Vert2&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;-l1+p1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+  &lt;propagator id=&#34;Prop4&#34;&gt;
+        &lt;name&gt;W_minus&lt;/name&gt;
+        &lt;source&gt;Vert4&lt;/source&gt;
+        &lt;target&gt;Vert3&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;l1+l2-p1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+  &lt;propagator id=&#34;Prop5&#34;&gt;
+        &lt;name&gt;W_minus&lt;/name&gt;
+        &lt;source&gt;Vert3&lt;/source&gt;
+        &lt;target&gt;Vert4&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;l2&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+
+ &lt;/diagram&gt;
+
+ &lt;diagram
+          id=&#34;Diagram15&#34;
+          incoming=&#34;1&#34;
+          outgoing=&#34;1&#34;
+          sign=&#34;+&#34;
+          symmmetry_factor=&#34;1&#34;
+ &gt;
+
+
+  &lt;vertex id=&#34;Vert1&#34;&gt;
+  &lt;/vertex&gt;
+
+  &lt;vertex id=&#34;Vert2&#34;&gt;
+  &lt;/vertex&gt;
+
+  &lt;vertex id=&#34;Vert3&#34;&gt;
+  &lt;/vertex&gt;
+
+  &lt;vertex id=&#34;Vert4&#34;&gt;
+  &lt;/vertex&gt;
+
+
+
+  &lt;leg id=&#34;In1&#34;&gt;
+        &lt;name&gt;nu_e&lt;/name&gt;
+        &lt;sense&gt;incoming&lt;/sense&gt;
+        &lt;target&gt;Vert1&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;p1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/leg&gt;
+
+
+
+  &lt;leg id=&#34;Out1&#34;&gt;
+        &lt;name&gt;nu_e&lt;/name&gt;
+        &lt;sense&gt;outgoing&lt;/sense&gt;
+        &lt;target&gt;Vert2&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;p1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/leg&gt;
+
+
+
+  &lt;propagator id=&#34;Prop1&#34;&gt;
+        &lt;name&gt;W_minus&lt;/name&gt;
+        &lt;source&gt;Vert2&lt;/source&gt;
+        &lt;target&gt;Vert1&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;-l1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+  &lt;propagator id=&#34;Prop2&#34;&gt;
+        &lt;name&gt;e_minus&lt;/name&gt;
+        &lt;source&gt;Vert1&lt;/source&gt;
+        &lt;target&gt;Vert3&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;-l1+p1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+  &lt;propagator id=&#34;Prop3&#34;&gt;
+        &lt;name&gt;e_minus&lt;/name&gt;
+        &lt;source&gt;Vert4&lt;/source&gt;
+        &lt;target&gt;Vert2&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;-l1+p1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+  &lt;propagator id=&#34;Prop4&#34;&gt;
+        &lt;name&gt;e_minus&lt;/name&gt;
+        &lt;source&gt;Vert3&lt;/source&gt;
+        &lt;target&gt;Vert4&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;-l1-l2+p1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+  &lt;propagator id=&#34;Prop5&#34;&gt;
+        &lt;name&gt;gamma&lt;/name&gt;
+        &lt;source&gt;Vert4&lt;/source&gt;
+        &lt;target&gt;Vert3&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;-l2&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+
+ &lt;/diagram&gt;
+
+ &lt;diagram
+          id=&#34;Diagram16&#34;
+          incoming=&#34;1&#34;
+          outgoing=&#34;1&#34;
+          sign=&#34;+&#34;
+          symmmetry_factor=&#34;1&#34;
+ &gt;
+
+
+  &lt;vertex id=&#34;Vert1&#34;&gt;
+  &lt;/vertex&gt;
+
+  &lt;vertex id=&#34;Vert2&#34;&gt;
+  &lt;/vertex&gt;
+
+  &lt;vertex id=&#34;Vert3&#34;&gt;
+  &lt;/vertex&gt;
+
+  &lt;vertex id=&#34;Vert4&#34;&gt;
+  &lt;/vertex&gt;
+
+
+
+  &lt;leg id=&#34;In1&#34;&gt;
+        &lt;name&gt;nu_e&lt;/name&gt;
+        &lt;sense&gt;incoming&lt;/sense&gt;
+        &lt;target&gt;Vert1&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;p1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/leg&gt;
+
+
+
+  &lt;leg id=&#34;Out1&#34;&gt;
+        &lt;name&gt;nu_e&lt;/name&gt;
+        &lt;sense&gt;outgoing&lt;/sense&gt;
+        &lt;target&gt;Vert2&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;p1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/leg&gt;
+
+
+
+  &lt;propagator id=&#34;Prop1&#34;&gt;
+        &lt;name&gt;W_minus&lt;/name&gt;
+        &lt;source&gt;Vert2&lt;/source&gt;
+        &lt;target&gt;Vert1&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;-l1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+  &lt;propagator id=&#34;Prop2&#34;&gt;
+        &lt;name&gt;e_minus&lt;/name&gt;
+        &lt;source&gt;Vert1&lt;/source&gt;
+        &lt;target&gt;Vert3&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;-l1+p1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+  &lt;propagator id=&#34;Prop3&#34;&gt;
+        &lt;name&gt;e_minus&lt;/name&gt;
+        &lt;source&gt;Vert4&lt;/source&gt;
+        &lt;target&gt;Vert2&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;-l1+p1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+  &lt;propagator id=&#34;Prop4&#34;&gt;
+        &lt;name&gt;e_minus&lt;/name&gt;
+        &lt;source&gt;Vert3&lt;/source&gt;
+        &lt;target&gt;Vert4&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;-l1-l2+p1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+  &lt;propagator id=&#34;Prop5&#34;&gt;
+        &lt;name&gt;Z_0&lt;/name&gt;
+        &lt;source&gt;Vert4&lt;/source&gt;
+        &lt;target&gt;Vert3&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;-l2&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+
+ &lt;/diagram&gt;
+
+ &lt;diagram
+          id=&#34;Diagram17&#34;
+          incoming=&#34;1&#34;
+          outgoing=&#34;1&#34;
+          sign=&#34;+&#34;
+          symmmetry_factor=&#34;1&#34;
+ &gt;
+
+
+  &lt;vertex id=&#34;Vert1&#34;&gt;
+  &lt;/vertex&gt;
+
+  &lt;vertex id=&#34;Vert2&#34;&gt;
+  &lt;/vertex&gt;
+
+  &lt;vertex id=&#34;Vert3&#34;&gt;
+  &lt;/vertex&gt;
+
+  &lt;vertex id=&#34;Vert4&#34;&gt;
+  &lt;/vertex&gt;
+
+
+
+  &lt;leg id=&#34;In1&#34;&gt;
+        &lt;name&gt;nu_e&lt;/name&gt;
+        &lt;sense&gt;incoming&lt;/sense&gt;
+        &lt;target&gt;Vert1&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;p1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/leg&gt;
+
+
+
+  &lt;leg id=&#34;Out1&#34;&gt;
+        &lt;name&gt;nu_e&lt;/name&gt;
+        &lt;sense&gt;outgoing&lt;/sense&gt;
+        &lt;target&gt;Vert2&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;p1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/leg&gt;
+
+
+
+  &lt;propagator id=&#34;Prop1&#34;&gt;
+        &lt;name&gt;W_minus&lt;/name&gt;
+        &lt;source&gt;Vert2&lt;/source&gt;
+        &lt;target&gt;Vert1&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;-l1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+  &lt;propagator id=&#34;Prop2&#34;&gt;
+        &lt;name&gt;e_minus&lt;/name&gt;
+        &lt;source&gt;Vert1&lt;/source&gt;
+        &lt;target&gt;Vert3&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;-l1+p1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+  &lt;propagator id=&#34;Prop3&#34;&gt;
+        &lt;name&gt;e_minus&lt;/name&gt;
+        &lt;source&gt;Vert4&lt;/source&gt;
+        &lt;target&gt;Vert2&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;-l1+p1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+  &lt;propagator id=&#34;Prop4&#34;&gt;
+        &lt;name&gt;nu_e&lt;/name&gt;
+        &lt;source&gt;Vert3&lt;/source&gt;
+        &lt;target&gt;Vert4&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;-l1-l2+p1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+  &lt;propagator id=&#34;Prop5&#34;&gt;
+        &lt;name&gt;W_minus&lt;/name&gt;
+        &lt;source&gt;Vert3&lt;/source&gt;
+        &lt;target&gt;Vert4&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;l2&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+
+ &lt;/diagram&gt;
+
+ &lt;diagram
+          id=&#34;Diagram18&#34;
+          incoming=&#34;1&#34;
+          outgoing=&#34;1&#34;
+          sign=&#34;+&#34;
+          symmmetry_factor=&#34;1&#34;
+ &gt;
+
+
+  &lt;vertex id=&#34;Vert1&#34;&gt;
+  &lt;/vertex&gt;
+
+  &lt;vertex id=&#34;Vert2&#34;&gt;
+  &lt;/vertex&gt;
+
+  &lt;vertex id=&#34;Vert3&#34;&gt;
+  &lt;/vertex&gt;
+
+  &lt;vertex id=&#34;Vert4&#34;&gt;
+  &lt;/vertex&gt;
+
+
+
+  &lt;leg id=&#34;In1&#34;&gt;
+        &lt;name&gt;nu_e&lt;/name&gt;
+        &lt;sense&gt;incoming&lt;/sense&gt;
+        &lt;target&gt;Vert1&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;p1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/leg&gt;
+
+
+
+  &lt;leg id=&#34;Out1&#34;&gt;
+        &lt;name&gt;nu_e&lt;/name&gt;
+        &lt;sense&gt;outgoing&lt;/sense&gt;
+        &lt;target&gt;Vert2&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;p1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/leg&gt;
+
+
+
+  &lt;propagator id=&#34;Prop1&#34;&gt;
+        &lt;name&gt;Z_0&lt;/name&gt;
+        &lt;source&gt;Vert2&lt;/source&gt;
+        &lt;target&gt;Vert1&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;-l1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+  &lt;propagator id=&#34;Prop2&#34;&gt;
+        &lt;name&gt;nu_e&lt;/name&gt;
+        &lt;source&gt;Vert1&lt;/source&gt;
+        &lt;target&gt;Vert3&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;-l1+p1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+  &lt;propagator id=&#34;Prop3&#34;&gt;
+        &lt;name&gt;nu_e&lt;/name&gt;
+        &lt;source&gt;Vert4&lt;/source&gt;
+        &lt;target&gt;Vert2&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;-l1+p1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+  &lt;propagator id=&#34;Prop4&#34;&gt;
+        &lt;name&gt;e_minus&lt;/name&gt;
+        &lt;source&gt;Vert3&lt;/source&gt;
+        &lt;target&gt;Vert4&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;-l1-l2+p1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+  &lt;propagator id=&#34;Prop5&#34;&gt;
+        &lt;name&gt;W_minus&lt;/name&gt;
+        &lt;source&gt;Vert4&lt;/source&gt;
+        &lt;target&gt;Vert3&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;-l2&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+
+ &lt;/diagram&gt;
+
+ &lt;diagram
+          id=&#34;Diagram19&#34;
+          incoming=&#34;1&#34;
+          outgoing=&#34;1&#34;
+          sign=&#34;+&#34;
+          symmmetry_factor=&#34;1&#34;
+ &gt;
+
+
+  &lt;vertex id=&#34;Vert1&#34;&gt;
+  &lt;/vertex&gt;
+
+  &lt;vertex id=&#34;Vert2&#34;&gt;
+  &lt;/vertex&gt;
+
+  &lt;vertex id=&#34;Vert3&#34;&gt;
+  &lt;/vertex&gt;
+
+  &lt;vertex id=&#34;Vert4&#34;&gt;
+  &lt;/vertex&gt;
+
+
+
+  &lt;leg id=&#34;In1&#34;&gt;
+        &lt;name&gt;nu_e&lt;/name&gt;
+        &lt;sense&gt;incoming&lt;/sense&gt;
+        &lt;target&gt;Vert1&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;p1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/leg&gt;
+
+
+
+  &lt;leg id=&#34;Out1&#34;&gt;
+        &lt;name&gt;nu_e&lt;/name&gt;
+        &lt;sense&gt;outgoing&lt;/sense&gt;
+        &lt;target&gt;Vert2&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;p1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/leg&gt;
+
+
+
+  &lt;propagator id=&#34;Prop1&#34;&gt;
+        &lt;name&gt;Z_0&lt;/name&gt;
+        &lt;source&gt;Vert2&lt;/source&gt;
+        &lt;target&gt;Vert1&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;-l1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+  &lt;propagator id=&#34;Prop2&#34;&gt;
+        &lt;name&gt;nu_e&lt;/name&gt;
+        &lt;source&gt;Vert1&lt;/source&gt;
+        &lt;target&gt;Vert3&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;-l1+p1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+  &lt;propagator id=&#34;Prop3&#34;&gt;
+        &lt;name&gt;nu_e&lt;/name&gt;
+        &lt;source&gt;Vert4&lt;/source&gt;
+        &lt;target&gt;Vert2&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;-l1+p1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+  &lt;propagator id=&#34;Prop4&#34;&gt;
+        &lt;name&gt;nu_e&lt;/name&gt;
+        &lt;source&gt;Vert3&lt;/source&gt;
+        &lt;target&gt;Vert4&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;-l1-l2+p1&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+  &lt;propagator id=&#34;Prop5&#34;&gt;
+        &lt;name&gt;Z_0&lt;/name&gt;
+        &lt;source&gt;Vert4&lt;/source&gt;
+        &lt;target&gt;Vert3&lt;/target&gt;
+        &lt;momentum&gt;
+          &lt;name&gt;-l2&lt;/name&gt;
+        &lt;/momentum&gt;
+  &lt;/propagator&gt;
+
+
+ &lt;/diagram&gt;
+&lt;/feynml&gt;
+
+&lt;!-- end --&gt;
+
 </pre></div></div>
-</div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">xml_string</span><span class="p">)</span>
-</pre></div>
-</div>
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
@@ -746,13 +2085,13 @@ File <span class="ansi-green-fg">/usr/lib/python3.9/subprocess.py:1121</span>, i
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="../../hepmc/hepmc.html" class="btn btn-neutral float-left" title="HepMC" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../2_to_2/qgraf_2to2.html" class="btn btn-neutral float-right" title="QGraf" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../2_to_2/qgraf_2to2.html" class="btn btn-neutral float-right" title="2 to 2 process" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2022, Alexander Puck Neuwirth.</p>
+    <p>&#169; Copyright 2023, Alexander Puck Neuwirth.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
