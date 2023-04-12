@@ -38,7 +38,7 @@
               <img src="../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.2.4-80-gd33a0e60
+                2.2.5-7-g35d0d3fd
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -230,7 +230,7 @@ class FeynmanDiagram(Styled, Identifiable):
         self.sheet = cssutils.parseString(rules)
         return self
 
-<div class="viewcode-block" id="FeynmanDiagram.get_style"><a class="viewcode-back" href="../../_autosummary/feynml.feynmandiagram.FeynmanDiagram.html#feynml.feynmandiagram.FeynmanDiagram.get_style">[docs]</a>    def get_style(self, obj) -&gt; cssutils.css.CSSStyleDeclaration:
+<div class="viewcode-block" id="FeynmanDiagram.get_style"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.FeynmanDiagram.html#feynml.feynmandiagram.FeynmanDiagram.get_style">[docs]</a>    def get_style(self, obj) -&gt; cssutils.css.CSSStyleDeclaration:
         &quot;&quot;&quot;Get the style of an object.
 
         This is prefered over accessing the style attribute directly, sicne it includes class and pdgid definitions.
@@ -295,13 +295,13 @@ class FeynmanDiagram(Styled, Identifiable):
             cssText=&quot;;&quot;.join([r.style.cssText for r in ret])
         )
 
-<div class="viewcode-block" id="FeynmanDiagram.to_xml"><a class="viewcode-back" href="../../_autosummary/feynml.feynmandiagram.FeynmanDiagram.html#feynml.feynmandiagram.FeynmanDiagram.to_xml">[docs]</a>    def to_xml(self) -&gt; str:
+<div class="viewcode-block" id="FeynmanDiagram.to_xml"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.FeynmanDiagram.html#feynml.feynmandiagram.FeynmanDiagram.to_xml">[docs]</a>    def to_xml(self) -&gt; str:
         &quot;&quot;&quot;Return self as XML.&quot;&quot;&quot;
         config = SerializerConfig(pretty_print=True)
         serializer = XmlSerializer(config=config)
         return serializer.render(self)</div>
 
-<div class="viewcode-block" id="FeynmanDiagram.from_xml"><a class="viewcode-back" href="../../_autosummary/feynml.feynmandiagram.FeynmanDiagram.html#feynml.feynmandiagram.FeynmanDiagram.from_xml">[docs]</a>    @classmethod
+<div class="viewcode-block" id="FeynmanDiagram.from_xml"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.FeynmanDiagram.html#feynml.feynmandiagram.FeynmanDiagram.from_xml">[docs]</a>    @classmethod
     def from_xml(cls, xml: str):
         &quot;&quot;&quot;Load self from XML.&quot;&quot;&quot;
         parser = XmlParser()

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pyfeyn2.feynmandiagram.Point &mdash; pyfeyn2  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/plot_directive.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/jupyter-sphinx.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/thebelab.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/thebelab-helper.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="pyfeyn2.feynmandiagram.Propagator" href="pyfeyn2.feynmandiagram.Propagator.html" />
+    <link rel="prev" title="pyfeyn2.feynmandiagram.PDG" href="pyfeyn2.feynmandiagram.PDG.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            pyfeyn2
+              <img src="../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                2.2.5-7-g35d0d3fd
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">FeynML:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../feynml/index.html">FeynML</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Gallery:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../gallery/index.html">Gallery</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Renderers:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../renderers/index.html">Renderers</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Interfaces:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../interfaces/index.html">Interfaces</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Modules:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="pyfeyn2.html">pyfeyn2</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="pyfeyn2.auto.html">pyfeyn2.auto</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="pyfeyn2.feynmandiagram.html">pyfeyn2.feynmandiagram</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="pyfeyn2.feynmandiagram.Connector.html">pyfeyn2.feynmandiagram.Connector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyfeyn2.feynmandiagram.FeynML.html">pyfeyn2.feynmandiagram.FeynML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyfeyn2.feynmandiagram.FeynmanDiagram.html">pyfeyn2.feynmandiagram.FeynmanDiagram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyfeyn2.feynmandiagram.Head.html">pyfeyn2.feynmandiagram.Head</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyfeyn2.feynmandiagram.Leg.html">pyfeyn2.feynmandiagram.Leg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyfeyn2.feynmandiagram.Meta.html">pyfeyn2.feynmandiagram.Meta</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyfeyn2.feynmandiagram.Momentum.html">pyfeyn2.feynmandiagram.Momentum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyfeyn2.feynmandiagram.PDG.html">pyfeyn2.feynmandiagram.PDG</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">pyfeyn2.feynmandiagram.Point</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pyfeyn2.feynmandiagram.Point"><code class="docutils literal notranslate"><span class="pre">Point</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pyfeyn2.feynmandiagram.Propagator.html">pyfeyn2.feynmandiagram.Propagator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyfeyn2.feynmandiagram.Styled.html">pyfeyn2.feynmandiagram.Styled</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyfeyn2.feynmandiagram.Tool.html">pyfeyn2.feynmandiagram.Tool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyfeyn2.feynmandiagram.Vertex.html">pyfeyn2.feynmandiagram.Vertex</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyfeyn2.mkfeyndiag.html">pyfeyn2.mkfeyndiag</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyfeyn2.render.html">pyfeyn2.render</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="feynml.html">feynml</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Versions:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://pyfeyn2.readthedocs.io/en/stable/">RTD</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/pyfeyn2/">Stable</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/pyfeyn2/test/">Dev</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Links:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/APN-Pucky/pyfeyn2">GitHub</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pyfeyn2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="pyfeyn2.html">pyfeyn2</a></li>
+          <li class="breadcrumb-item"><a href="pyfeyn2.feynmandiagram.html">pyfeyn2.feynmandiagram</a></li>
+      <li class="breadcrumb-item active">pyfeyn2.feynmandiagram.Point</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_autosummary/pyfeyn2.feynmandiagram.Point.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="pyfeyn2-feynmandiagram-point">
+<h1>pyfeyn2.feynmandiagram.Point<a class="headerlink" href="#pyfeyn2-feynmandiagram-point" title="Permalink to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Point">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyfeyn2.feynmandiagram.</span></span><span class="sig-name descname"><span class="pre">Point</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/feynmandiagram.html#Point"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.Point" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="feynml.point.Point.html#feynml.point.Point" title="feynml.point.Point"><code class="xref py py-class docutils literal notranslate"><span class="pre">Point</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Point.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/feynmandiagram.html#Point.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.Point.__init__" title="Permalink to this definition"></a></dt>
+<dd><div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version 2.2.6: </span>This will be removed in 2.4.0.</p>
+</div>
+</dd></dl>
+
+<p class="rubric">Methods</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Point.__init__" title="pyfeyn2.feynmandiagram.Point.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(*args, **kwargs)</p></td>
+<td><p><div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version 2.2.6.</span></p>
+</div>
+</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_point</span></code>(p)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_xy</span></code>(x, y)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_xyz</span></code>(x, y, z)</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Point.x" title="pyfeyn2.feynmandiagram.Point.x"><code class="xref py py-obj docutils literal notranslate"><span class="pre">x</span></code></a></p></td>
+<td><p>x coordinate</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Point.y" title="pyfeyn2.feynmandiagram.Point.y"><code class="xref py py-obj docutils literal notranslate"><span class="pre">y</span></code></a></p></td>
+<td><p>y coordinate</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Point.z" title="pyfeyn2.feynmandiagram.Point.z"><code class="xref py py-obj docutils literal notranslate"><span class="pre">z</span></code></a></p></td>
+<td><p>z coordinate</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Point.x">
+<span class="sig-name descname"><span class="pre">x</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#pyfeyn2.feynmandiagram.Point.x" title="Permalink to this definition"></a></dt>
+<dd><p>x coordinate</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Point.y">
+<span class="sig-name descname"><span class="pre">y</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#pyfeyn2.feynmandiagram.Point.y" title="Permalink to this definition"></a></dt>
+<dd><p>y coordinate</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Point.z">
+<span class="sig-name descname"><span class="pre">z</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#pyfeyn2.feynmandiagram.Point.z" title="Permalink to this definition"></a></dt>
+<dd><p>z coordinate</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="pyfeyn2.feynmandiagram.PDG.html" class="btn btn-neutral float-left" title="pyfeyn2.feynmandiagram.PDG" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="pyfeyn2.feynmandiagram.Propagator.html" class="btn btn-neutral float-right" title="pyfeyn2.feynmandiagram.Propagator" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Alexander Puck Neuwirth.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -19,7 +19,19 @@ pyfeyn2.feynmandiagram
       :toctree:                                         
       :template: custom-class-template.rst               
    
+      Connector
       FeynML
+      FeynmanDiagram
+      Head
+      Leg
+      Meta
+      Momentum
+      PDG
+      Point
+      Propagator
+      Styled
+      Tool
+      Vertex
    
    
 
