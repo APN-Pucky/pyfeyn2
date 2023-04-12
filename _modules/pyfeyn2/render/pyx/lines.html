@@ -38,7 +38,7 @@
               <img src="../../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.2.4
+                2.2.5
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
@@ -1031,7 +1031,7 @@ Photon = Vector
                 #    print self.__class__, &quot;- curvature radius = &quot;, curveradius
                 if mincurveradius is None or curveradius &lt; mincurveradius:
                     mincurveradius = curveradius
-            except:
+            except Exception:
                 pass
 
         ## Use curvature info to increase number of curve sections

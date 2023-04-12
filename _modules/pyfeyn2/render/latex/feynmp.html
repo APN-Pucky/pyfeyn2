@@ -38,7 +38,7 @@
               <img src="../../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.2.4
+                2.2.5
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
@@ -215,36 +215,28 @@ type_map = {
         src = src[:-1]
         src += &quot;}\n&quot;
 
-    for l in incoming:
-        lstyle = fd.get_style(l)
-        if lstyle.getProperty(&quot;line&quot;) is not None:
-            tttype = type_map[lstyle.getProperty(&quot;line&quot;).value]
-        else:
-            tttype = l.type  # fallback to type if no line style is set
-        style = stylize_line(fd, l)
-        for ttype in tttype:
-            lid = l.id
-            ltarget = l.target
-            if l.type.startswith(&quot;anti&quot;):
-                lid = l.target
-                ltarget = l.id
-            src += f&quot;\t\t\\fmf{{{ttype}{style}}}{{{lid},{ltarget}}}\n&quot;
-            style = &quot;&quot;
-    for l in outgoing:
-        lstyle = fd.get_style(l)
-        if lstyle.getProperty(&quot;line&quot;) is not None:
-            tttype = type_map[lstyle.getProperty(&quot;line&quot;).value]
-        else:
-            tttype = l.type  # fallback to type if no line style is set
-        style = stylize_line(fd, l)
-        for ttype in tttype:
-            lid = l.id
-            ltarget = l.target
-            if l.type.startswith(&quot;anti&quot;):
-                lid = l.target
-                ltarget = l.id
-            src += f&quot;\t\t\\fmf{{{ttype}{style}}}{{{ltarget},{lid}}}\n&quot;
-            style = &quot;&quot;
+    def do_legs(src, legs, inward):
+        for l in legs:
+            lstyle = fd.get_style(l)
+            if lstyle.getProperty(&quot;line&quot;) is not None:
+                tttype = type_map[lstyle.getProperty(&quot;line&quot;).value]
+            else:
+                tttype = l.type  # fallback to type if no line style is set
+            style = stylize_line(fd, l)
+            for ttype in tttype:
+                lid = l.id
+                ltarget = l.target
+                if l.type.startswith(&quot;anti&quot;):
+                    lid = l.target
+                    ltarget = l.id
+                if inward:
+                    src += f&quot;\t\t\\fmf{{{ttype}{style}}}{{{lid},{ltarget}}}\n&quot;
+                else:
+                    src += f&quot;\t\t\\fmf{{{ttype}{style}}}{{{ltarget},{lid}}}\n&quot;
+                style = &quot;&quot;
+
+    do_legs(src, incoming, True)
+    do_legs(src, outgoing, False)
 
     for p in fd.propagators:
         pstyle = fd.get_style(p)
