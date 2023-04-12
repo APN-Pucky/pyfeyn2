@@ -1,7 +1,7 @@
-feynml.style.CSSStringConverter
-===============================
+feynml.styled.CSSStringConverter
+================================
 
-.. currentmodule:: feynml.style
+.. currentmodule:: feynml.styled
 
 .. autoclass:: CSSStringConverter
    :members:                                   

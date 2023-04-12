@@ -1,0 +1,6 @@
+feynml.interface.hepmc.hepmc\_to\_feynml
+========================================
+
+.. currentmodule:: feynml.interface.hepmc
+
+.. autofunction:: hepmc_to_feynml

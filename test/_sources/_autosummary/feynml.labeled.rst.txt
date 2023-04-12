@@ -1,7 +1,7 @@
-feynml.style
-============
+feynml.labeled
+==============
 
-.. automodule:: feynml.style
+.. automodule:: feynml.labeled
   
    
    
@@ -19,10 +19,7 @@ feynml.style
       :toctree:                                         
       :template: custom-class-template.rst               
    
-      CSSSheetConverter
-      CSSStringConverter
       Labeled
-      Styled
    
    
 

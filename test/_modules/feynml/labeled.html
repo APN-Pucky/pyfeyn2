@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>feynml.style &mdash; pyfeyn2  documentation</title>
+  <title>feynml.labeled &mdash; pyfeyn2  documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/plot_directive.css" type="text/css" />
@@ -14,9 +14,6 @@
   <![endif]-->
   
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/sphinx_highlight.js"></script>
         <script src="../../_static/thebelab-helper.js"></script>
@@ -33,15 +30,19 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> pyfeyn2
-            <img src="../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            pyfeyn2
+              <img src="../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.2.3-25-g0ab45fc4
+                2.2.3-37-g0f625614
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -92,9 +93,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
-      <li class="breadcrumb-item active">feynml.style</li>
+      <li class="breadcrumb-item active">feynml.labeled</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -103,101 +104,23 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <h1>Source code for feynml.style</h1><div class="highlight"><pre>
+  <h1>Source code for feynml.labeled</h1><div class="highlight"><pre>
 <span></span>import logging
 from dataclasses import dataclass, field
 from typing import Optional
 
 import cssutils
+from smpl_doc.doc import deprecated
+from smpl_util.util import withify
 from xsdata.formats.converter import Converter, converter
 
-from smpl_util.util import withify
-from smpl_doc.doc import deprecated
 
-# We don&#39;t want to see the cssutils warnings, since we have custom properties
-cssutils.log.setLevel(logging.CRITICAL)
-
-
-<div class="viewcode-block" id="Labeled"><a class="viewcode-back" href="../../_autosummary/feynml.style.Labeled.html#feynml.style.Labeled">[docs]</a>@withify()
+<div class="viewcode-block" id="Labeled"><a class="viewcode-back" href="../../_autosummary/feynml.labeled.Labeled.html#feynml.labeled.Labeled">[docs]</a>@withify()
 @dataclass
 class Labeled:
     label: Optional[str] = field(
         default=None, metadata={&quot;xml_attribute&quot;: True, &quot;type&quot;: &quot;Attribute&quot;}
-    )
-    &quot;&quot;&quot;Label the object&quot;&quot;&quot;</div>
-
-
-CSSString = cssutils.css.CSSStyleDeclaration
-CSSSheet = cssutils.css.CSSStyleSheet
-
-
-<div class="viewcode-block" id="CSSStringConverter"><a class="viewcode-back" href="../../_autosummary/feynml.style.CSSStringConverter.html#feynml.style.CSSStringConverter">[docs]</a>class CSSStringConverter(Converter):
-<div class="viewcode-block" id="CSSStringConverter.deserialize"><a class="viewcode-back" href="../../_autosummary/feynml.style.CSSStringConverter.html#feynml.style.CSSStringConverter.deserialize">[docs]</a>    @staticmethod
-    def deserialize(value: str, **kwargs) -&gt; CSSString:
-        return cssutils.parseStyle(value)</div>
-
-<div class="viewcode-block" id="CSSStringConverter.serialize"><a class="viewcode-back" href="../../_autosummary/feynml.style.CSSStringConverter.html#feynml.style.CSSStringConverter.serialize">[docs]</a>    @staticmethod
-    def serialize(value: CSSString, **kwargs) -&gt; str:
-        return value.cssText.replace(&quot;\n&quot;, &quot; &quot;)</div></div>
-
-
-<div class="viewcode-block" id="CSSSheetConverter"><a class="viewcode-back" href="../../_autosummary/feynml.style.CSSSheetConverter.html#feynml.style.CSSSheetConverter">[docs]</a>class CSSSheetConverter(Converter):
-<div class="viewcode-block" id="CSSSheetConverter.deserialize"><a class="viewcode-back" href="../../_autosummary/feynml.style.CSSSheetConverter.html#feynml.style.CSSSheetConverter.deserialize">[docs]</a>    @staticmethod
-    def deserialize(value: str, **kwargs) -&gt; CSSSheet:
-        return cssutils.parseString(value)</div>
-
-<div class="viewcode-block" id="CSSSheetConverter.serialize"><a class="viewcode-back" href="../../_autosummary/feynml.style.CSSSheetConverter.html#feynml.style.CSSSheetConverter.serialize">[docs]</a>    @staticmethod
-    def serialize(value: CSSSheet, **kwargs) -&gt; str:
-        return value.cssText.decode(&quot;utf-8&quot;)  # .replace(&quot;\n&quot;, &quot; &quot;)</div></div>
-
-
-converter.register_converter(CSSString, CSSStringConverter())
-converter.register_converter(CSSSheet, CSSSheetConverter())
-
-
-<div class="viewcode-block" id="Styled"><a class="viewcode-back" href="../../_autosummary/feynml.style.Styled.html#feynml.style.Styled">[docs]</a>@dataclass
-class Styled:
-    style: CSSString = field(
-        default_factory=lambda: cssutils.parseStyle(&quot;&quot;),
-        metadata={&quot;name&quot;: &quot;style&quot;, &quot;xml_attribute&quot;: True, &quot;type&quot;: &quot;Attribute&quot;},
-    )
-    &quot;&quot;&quot;CSS style string.&quot;&quot;&quot;
-
-    clazz: Optional[str] = field(
-        default=None,
-        metadata={&quot;name&quot;: &quot;class&quot;, &quot;xml_attribute&quot;: True, &quot;type&quot;: &quot;Attribute&quot;},
-    )
-    &quot;&quot;&quot;CSS class string.&quot;&quot;&quot;
-
-    def raw_style(self):
-        return self.style.cssText.replace(&quot;\n&quot;, &quot; &quot;)
-
-    def get_style(self, key=None):
-        if self.style is None:
-            return None
-        if key is None:
-            return self.style
-        else:
-            return self.style.getProperty(key)
-
-<div class="viewcode-block" id="Styled.put_style"><a class="viewcode-back" href="../../_autosummary/feynml.style.Styled.html#feynml.style.Styled.put_style">[docs]</a>    @deprecated(&quot;0.0.0&quot;, &quot;use put_styles&quot;)
-    def put_style(self, key, value):
-        return self.put_styles(**{key: value})</div>
-
-    def put_styles(self, **kwargs):
-        if self.style is not None:
-            for key, value in kwargs.items():
-                self.style.setProperty(key, value)
-        return self
-
-    def with_style(self, style):
-        if style is not None:
-            self.style = cssutils.parseStyle(style)
-        return self
-
-    def with_class(self, clazz):
-        self.clazz = clazz
-        return self</div>
+    )</div>
 </pre></div>
 
            </div>

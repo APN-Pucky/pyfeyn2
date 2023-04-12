@@ -19,7 +19,7 @@ feynml.propagator.Propagator
       ~Propagator.__init__
       ~Propagator.connect
       ~Propagator.get_length
-      ~Propagator.get_style
+      ~Propagator.get_style_property
       ~Propagator.get_tension
       ~Propagator.put_style
       ~Propagator.put_styles
@@ -34,6 +34,8 @@ feynml.propagator.Propagator
       ~Propagator.with_pdgid
       ~Propagator.with_source
       ~Propagator.with_style
+      ~Propagator.with_style_properties
+      ~Propagator.with_style_property
       ~Propagator.with_target
       ~Propagator.with_tension
       ~Propagator.with_type

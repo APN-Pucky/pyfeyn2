@@ -18,7 +18,7 @@ feynml.leg.Leg
    
       ~Leg.__init__
       ~Leg.get_length
-      ~Leg.get_style
+      ~Leg.get_style_property
       ~Leg.get_tension
       ~Leg.is_incoming
       ~Leg.is_outgoing
@@ -39,6 +39,8 @@ feynml.leg.Leg
       ~Leg.with_point
       ~Leg.with_sense
       ~Leg.with_style
+      ~Leg.with_style_properties
+      ~Leg.with_style_property
       ~Leg.with_target
       ~Leg.with_tension
       ~Leg.with_type

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>pyfeyn2.feynmandiagram.FeynML &mdash; pyfeyn2  documentation</title>
@@ -15,9 +15,6 @@
   <![endif]-->
   
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/sphinx_highlight.js"></script>
         <script src="../_static/thebelab-helper.js"></script>
@@ -36,15 +33,19 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> pyfeyn2
-            <img src="../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            pyfeyn2
+              <img src="../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.2.3-25-g0ab45fc4
+                2.2.3-37-g0f625614
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -107,7 +108,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="pyfeyn2.html">pyfeyn2</a></li>
           <li class="breadcrumb-item"><a href="pyfeyn2.feynmandiagram.html">pyfeyn2.feynmandiagram</a></li>
       <li class="breadcrumb-item active">pyfeyn2.feynmandiagram.FeynML</li>
@@ -120,48 +121,20 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<section id="pyfeyn2-feynmandiagram-feynml">
+  <section id="pyfeyn2-feynmandiagram-feynml">
 <h1>pyfeyn2.feynmandiagram.FeynML<a class="headerlink" href="#pyfeyn2-feynmandiagram-feynml" title="Permalink to this heading"></a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.FeynML">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyfeyn2.feynmandiagram.</span></span><span class="sig-name descname"><span class="pre">FeynML</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">version:</span> <span class="pre">~typing.Optional[str]</span> <span class="pre">=</span> <span class="pre">'0.0'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">head:</span> <span class="pre">~typing.Optional[~feynml.feynml.Head]</span> <span class="pre">=</span> <span class="pre">Head(metas=[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description=''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style='')</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">diagrams:</span> <span class="pre">~typing.List[~feynml.feynmandiagram.FeynmanDiagram]</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/feynmandiagram.html#FeynML"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.FeynML" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyfeyn2.feynmandiagram.</span></span><span class="sig-name descname"><span class="pre">FeynML</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">version:</span> <span class="pre">str</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">'0.0'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">head:</span> <span class="pre">~feynml.feynml.Head</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">Head(metas=[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description=''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style='')</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">diagrams:</span> <span class="pre">~typing.List[~feynml.feynmandiagram.FeynmanDiagram]</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/feynmandiagram.html#FeynML"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.FeynML" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="feynml.feynml.FeynML.html#feynml.feynml.FeynML" title="feynml.feynml.FeynML"><code class="xref py py-class docutils literal notranslate"><span class="pre">FeynML</span></code></a></p>
 <p>FeynML with pyfeyn2 meta tag.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.FeynML.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">version:</span> <span class="pre">~typing.Optional[str]</span> <span class="pre">=</span> <span class="pre">'0.0'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">head:</span> <span class="pre">~typing.Optional[~feynml.feynml.Head]</span> <span class="pre">=</span> <span class="pre">Head(metas=[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description=''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style='')</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">diagrams:</span> <span class="pre">~typing.List[~feynml.feynmandiagram.FeynmanDiagram]</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#pyfeyn2.feynmandiagram.FeynML.__init__" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">version:</span> <span class="pre">str</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">'0.0'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">head:</span> <span class="pre">~feynml.feynml.Head</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">Head(metas=[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description=''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style='')</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">diagrams:</span> <span class="pre">~typing.List[~feynml.feynmandiagram.FeynmanDiagram]</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#pyfeyn2.feynmandiagram.FeynML.__init__" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <p class="rubric">Methods</p>
 <table class="autosummary longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.FeynML.__init__" title="pyfeyn2.feynmandiagram.FeynML.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>([version, head, diagrams])</p></td>
 <td><p></p></td>
@@ -179,10 +152,6 @@
 </table>
 <p class="rubric">Attributes</p>
 <table class="autosummary longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
 <tbody>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">head</span></code></p></td>
 <td><p></p></td>

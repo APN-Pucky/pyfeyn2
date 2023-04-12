@@ -1,0 +1,6 @@
+feynml.interface.qgraf.style
+============================
+
+.. currentmodule:: feynml.interface.qgraf
+
+.. autodata:: style

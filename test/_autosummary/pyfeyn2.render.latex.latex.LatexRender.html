@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>pyfeyn2.render.latex.latex.LatexRender &mdash; pyfeyn2  documentation</title>
@@ -15,9 +15,6 @@
   <![endif]-->
   
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/sphinx_highlight.js"></script>
         <script src="../_static/thebelab-helper.js"></script>
@@ -36,15 +33,19 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> pyfeyn2
-            <img src="../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            pyfeyn2
+              <img src="../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.2.3-25-g0ab45fc4
+                2.2.3-37-g0f625614
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -114,7 +115,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="pyfeyn2.html">pyfeyn2</a></li>
           <li class="breadcrumb-item"><a href="pyfeyn2.render.html">pyfeyn2.render</a></li>
           <li class="breadcrumb-item"><a href="pyfeyn2.render.latex.html">pyfeyn2.render.latex</a></li>
@@ -129,31 +130,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<section id="pyfeyn2-render-latex-latex-latexrender">
+  <section id="pyfeyn2-render-latex-latex-latexrender">
 <h1>pyfeyn2.render.latex.latex.LatexRender<a class="headerlink" href="#pyfeyn2-render-latex-latex-latexrender" title="Permalink to this heading"></a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="pyfeyn2.render.latex.latex.LatexRender">
@@ -163,7 +140,7 @@
 <dt class="sig sig-object py" id="pyfeyn2.render.latex.latex.LatexRender.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">documentclass</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'standalone'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">document_options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/latex/latex.html#LatexRender.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.latex.latex.LatexRender.__init__" title="Permalink to this definition"></a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>default_filepath</strong> (<em>str</em>) – The default path to save files.</p></li>
 <li><p><strong>documentclass</strong> (str or <cite>~.Command</cite>) – The LaTeX class of the document.</p></li>
@@ -189,14 +166,10 @@ is <cite>None</cite> it will use the value from the active config. Which is
 
 <p class="rubric">Methods</p>
 <table class="autosummary longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.render.latex.latex.LatexRender.__init__" title="pyfeyn2.render.latex.latex.LatexRender.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>([fd, documentclass, document_options])</p></td>
 <td><p><dl class="field-list simple">
-<dt class="field-odd">param default_filepath</dt>
+<dt class="field-odd">param default_filepath<span class="colon">:</span></dt>
 <dd class="field-odd"><p>The default path to save files.</p>
 </dd>
 </dl>
@@ -229,10 +202,10 @@ is <cite>None</cite> it will use the value from the active config. Which is
 <tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.render.latex.latex.LatexRender.create" title="pyfeyn2.render.latex.latex.LatexRender.create"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create</span></code></a>(child)</p></td>
 <td><p>Add a LaTeX object to current container, context-manager style.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">demo_propagator</span></code>(d[, show, label])</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">demo_propagator</span></code>(propagator[, show, label, shape])</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">demo_vertex</span></code>(d[, show, label])</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">demo_vertex</span></code>(vertex[, show, label])</p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.render.latex.latex.LatexRender.dump" title="pyfeyn2.render.latex.latex.LatexRender.dump"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dump</span></code></a>(file_w)</p></td>
@@ -329,10 +302,6 @@ is <cite>None</cite> it will use the value from the active config. Which is
 </table>
 <p class="rubric">Attributes</p>
 <table class="autosummary longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.render.latex.latex.LatexRender.begin_paragraph" title="pyfeyn2.render.latex.latex.LatexRender.begin_paragraph"><code class="xref py py-obj docutils literal notranslate"><span class="pre">begin_paragraph</span></code></a></p></td>
 <td><p>Start a new paragraph before this environment.</p></td>
@@ -365,7 +334,7 @@ is <cite>None</cite> it will use the value from the active config. Which is
 <span class="sig-name descname"><span class="pre">add_color</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.latex.latex.LatexRender.add_color" title="Permalink to this definition"></a></dt>
 <dd><p>Add a color that can be used throughout the document.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>name</strong> (<em>str</em>) – Name to set for the color</p></li>
 <li><p><strong>model</strong> (<em>str</em>) – The color model to use when defining the color</p></li>
@@ -392,7 +361,7 @@ is <cite>None</cite> it will use the value from the active config. Which is
 <span class="sig-name descname"><span class="pre">change_document_style</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">style</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.latex.latex.LatexRender.change_document_style" title="Permalink to this definition"></a></dt>
 <dd><p>Alternate page style for the entire document.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>style</strong> (<em>str</em>) – value to set for the document style</p>
 </dd>
 </dl>
@@ -403,7 +372,7 @@ is <cite>None</cite> it will use the value from the active config. Which is
 <span class="sig-name descname"><span class="pre">change_length</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.latex.latex.LatexRender.change_length" title="Permalink to this definition"></a></dt>
 <dd><p>Change the length of a certain parameter to a certain value.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>parameter</strong> (<em>str</em>) – The name of the parameter to change the length for</p></li>
 <li><p><strong>value</strong> (<em>str</em>) – The value to set the parameter to</p></li>
@@ -417,7 +386,7 @@ is <cite>None</cite> it will use the value from the active config. Which is
 <span class="sig-name descname"><span class="pre">change_page_style</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">style</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.latex.latex.LatexRender.change_page_style" title="Permalink to this definition"></a></dt>
 <dd><p>Alternate page styles of the current page.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>style</strong> (<em>str</em>) – value to set for the page style of the current page</p>
 </dd>
 </dl>
@@ -438,7 +407,7 @@ is <cite>None</cite> it will use the value from the active config. Which is
 <span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">child</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.latex.latex.LatexRender.create" title="Permalink to this definition"></a></dt>
 <dd><p>Add a LaTeX object to current container, context-manager style.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>child</strong> (<cite>~.Container</cite>) – An object to be added to the current container</p>
 </dd>
 </dl>
@@ -449,7 +418,7 @@ is <cite>None</cite> it will use the value from the active config. Which is
 <span class="sig-name descname"><span class="pre">dump</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_w</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.latex.latex.LatexRender.dump" title="Permalink to this definition"></a></dt>
 <dd><p>Write the LaTeX representation of the class to a file.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>file_w</strong> (<em>io.TextIOBase</em>) – The file object in which to save the data</p>
 </dd>
 </dl>
@@ -460,7 +429,7 @@ is <cite>None</cite> it will use the value from the active config. Which is
 <span class="sig-name descname"><span class="pre">dump_packages</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_w</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.latex.latex.LatexRender.dump_packages" title="Permalink to this definition"></a></dt>
 <dd><p>Write the LaTeX representation of the packages to a file.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>file_w</strong> (<em>io.TextIOBase</em>) – The file object in which to save the data</p>
 </dd>
 </dl>
@@ -471,7 +440,7 @@ is <cite>None</cite> it will use the value from the active config. Which is
 <span class="sig-name descname"><span class="pre">dumps</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.latex.latex.LatexRender.dumps" title="Permalink to this definition"></a></dt>
 <dd><p>Represent the document as a string in LaTeX syntax.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>str</p>
 </dd>
 </dl>
@@ -492,13 +461,13 @@ attributes of the class.</p>
 <span class="sig-name descname"><span class="pre">dumps_content</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.latex.latex.LatexRender.dumps_content" title="Permalink to this definition"></a></dt>
 <dd><p>Represent the container as a string in LaTeX syntax.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>**kwargs</strong> – Arguments that can be passed to <cite>~.dumps_list</cite></p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>A LaTeX string representing the container</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>string</p>
 </dd>
 </dl>
@@ -509,10 +478,10 @@ attributes of the class.</p>
 <span class="sig-name descname"><span class="pre">dumps_packages</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.latex.latex.LatexRender.dumps_packages" title="Permalink to this definition"></a></dt>
 <dd><p>Represent the packages needed as a string in LaTeX syntax.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A LaTeX string representing the packages of the container</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>string</p>
 </dd>
 </dl>
@@ -542,7 +511,7 @@ attributes of the class.</p>
 <span class="sig-name descname"><span class="pre">generate_pdf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clean</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clean_tex</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compiler</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compiler_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">silent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.latex.latex.LatexRender.generate_pdf" title="Permalink to this definition"></a></dt>
 <dd><p>Generate a pdf file from the document.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>filepath</strong> (<em>str</em>) – The name of the file (without .pdf), if it is <cite>None</cite> the
 <code class="docutils literal notranslate"><span class="pre">default_filepath</span></code> attribute will be used.</p></li>
@@ -565,7 +534,7 @@ this is None it defaults to an empty list.</p></li>
 <span class="sig-name descname"><span class="pre">generate_tex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.latex.latex.LatexRender.generate_tex" title="Permalink to this definition"></a></dt>
 <dd><p>Generate a .tex file for the document.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>filepath</strong> (<em>str</em>) – The name of the file (without .tex), if this is not supplied the
 default filepath attribute is used as the path.</p>
 </dd>
@@ -640,7 +609,7 @@ effectively placing this element in its own paragraph.</p>
 has already been set, the new value will override it for future uses.
 This is done by appending <code class="docutils literal notranslate"><span class="pre">\renewcommand</span></code> to the document.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>name</strong> (<em>str</em>) – The name to set for the variable</p></li>
 <li><p><strong>value</strong> (<em>str</em>) – The value to set for the variable</p></li>

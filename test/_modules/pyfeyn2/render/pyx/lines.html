@@ -14,9 +14,6 @@
   <![endif]-->
   
         <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
-        <script src="../../../../_static/jquery.js"></script>
-        <script src="../../../../_static/underscore.js"></script>
-        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../../_static/doctools.js"></script>
         <script src="../../../../_static/sphinx_highlight.js"></script>
         <script src="../../../../_static/thebelab-helper.js"></script>
@@ -33,15 +30,19 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../../../index.html" class="icon icon-home"> pyfeyn2
-            <img src="../../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            pyfeyn2
+              <img src="../../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.2.3-25-g0ab45fc4
+                2.2.3-37-g0f625614
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -92,7 +93,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../../../index.html">Module code</a></li>
       <li class="breadcrumb-item active">pyfeyn2.render.pyx.lines</li>
       <li class="wy-breadcrumbs-aside">
@@ -486,7 +487,7 @@ from pyfeyn2.render.pyx.utils import Visible, defunit
         return vispath</div>
 
 <div class="viewcode-block" id="Line.draw"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.Line.html#pyfeyn2.render.pyx.lines.Line.draw">[docs]</a>    def draw(self, canvas):
-        &quot;&quot;&quot;Drwa this line on the given canvas.&quot;&quot;&quot;
+        &quot;&quot;&quot;Draw this line on the given canvas.&quot;&quot;&quot;
         path = self.getVisiblePath()
         styles = self.styles + self.arrows
         if config.getOptions().DEBUG:
@@ -594,7 +595,15 @@ Sfermion = Scalar
         **kwargs
     ):
         Scalar.__init__(
-            self, point1, point2, styles, arcthrupoint, is3D, arrows, labels, linestyle
+            self,
+            point1=point1,
+            point2=point2,
+            styles=styles,
+            arcthrupoint=arcthrupoint,
+            is3D=is3D,
+            arrows=arrows,
+            labels=labels,
+            linestyle=linestyle,
         )</div></div>
 
 
@@ -861,7 +870,7 @@ Photon = Vector
             labels,
         )</div>
 
-<div class="viewcode-block" id="Graviton.getDeformedPath"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.Graviton.html#pyfeyn2.render.pyx.lines.Graviton.getDeformedPath">[docs]</a>    def getDeformedPath(self):
+<div class="viewcode-block" id="Graviton.getDeformedPath"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.Graviton.html#pyfeyn2.render.pyx.lines.Graviton.getDeformedPath">[docs]</a>    def getDeformedPath(self, sign=1):
         &quot;&quot;&quot;Get the path with the decorative deformation.&quot;&quot;&quot;
         intwindings = int(
             self.frequency
@@ -869,9 +878,9 @@ Photon = Vector
             / pyx.unit.tocm(self.arcradius)
         )
         intwindings += self.extras
-        sign = 1
+        sign *= 1
         if self.inverted:
-            sign = -1
+            sign *= -1
 
         vispath = self.getVisiblePath()
         # TODO curveradius is not implemented in pyx 0.12
@@ -1287,7 +1296,7 @@ Photon = Vector
             labels,
         )</div>
 
-<div class="viewcode-block" id="Gravitino.getDeformedPath"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.Gravitino.html#pyfeyn2.render.pyx.lines.Gravitino.getDeformedPath">[docs]</a>    def getDeformedPath(self):
+<div class="viewcode-block" id="Gravitino.getDeformedPath"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.Gravitino.html#pyfeyn2.render.pyx.lines.Gravitino.getDeformedPath">[docs]</a>    def getDeformedPath(self, sign=1):
         &quot;&quot;&quot;Get the path with the decorative deformation.&quot;&quot;&quot;
         intwindings = int(
             self.frequency
@@ -1295,9 +1304,9 @@ Photon = Vector
             / pyx.unit.tocm(self.arcradius)
         )
         intwindings += self.extras
-        sign = 1
+        sign *= 1
         if self.inverted:
-            sign = -1
+            sign *= -1
         vispath = self.getVisiblePath()
         # TODO curveradius is deprecated in pyx 0.14
         # curveradii = vispath.curveradius([i / 10.0 for i in range(0, 11)])
@@ -1393,6 +1402,7 @@ Photon = Vector
     ):
         &quot;&quot;&quot;Constructor.&quot;&quot;&quot;
         DecoratedLine.__init__(
+            self,
             point1,
             point2,
             amplitude,
@@ -1408,25 +1418,28 @@ Photon = Vector
         )</div>
 
 <div class="viewcode-block" id="Phantom.draw"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.Phantom.html#pyfeyn2.render.pyx.lines.Phantom.draw">[docs]</a>    def draw(self, canvas):
-        &quot;&quot;&quot;Draw the line on the supplied canvas (does nothing for a phantom).&quot;&quot;&quot;
+        &quot;&quot;&quot;Draw the line on the supplied canvas (does nothing for a phantom apart from labels).&quot;&quot;&quot;
+        for l in self.labels:
+            l.draw(canvas)
         return</div></div>
 
 
 # A dictionary for mapping FeynML line types to line classes
 NamedLine = {
-    &quot;higgs&quot;: Higgs,
-    &quot;photon&quot;: Photon,
-    &quot;vector&quot;: Photon,
+    &quot;line&quot;: Line,
+    &quot;higgs&quot;: Scalar,
+    &quot;photon&quot;: Vector,
+    &quot;vector&quot;: Vector,
     &quot;gluon&quot;: Gluon,
-    &quot;fermion&quot;: Fermion,
+    &quot;fermion&quot;: Line,
     &quot;graviton&quot;: Graviton,
     &quot;gaugino&quot;: Gaugino,
     &quot;gluino&quot;: Gluino,
     &quot;gravitino&quot;: Gravitino,
-    &quot;scalar&quot;: Higgs,
+    &quot;scalar&quot;: Scalar,
     &quot;ghost&quot;: Ghost,
     &quot;phantom&quot;: Phantom,
-    &quot;boson&quot;: Photon,
+    &quot;boson&quot;: Vector,
 }
 </pre></div>
 

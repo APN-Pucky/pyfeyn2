@@ -1,7 +1,7 @@
-feynml.style.CSSSheetConverter
-==============================
+feynml.styled.CSSSheetConverter
+===============================
 
-.. currentmodule:: feynml.style
+.. currentmodule:: feynml.styled
 
 .. autoclass:: CSSSheetConverter
    :members:                                   

@@ -17,7 +17,7 @@ feynml.vertex.Vertex
    .. autosummary::
    
       ~Vertex.__init__
-      ~Vertex.get_style
+      ~Vertex.get_style_property
       ~Vertex.put_style
       ~Vertex.put_styles
       ~Vertex.raw_style
@@ -27,6 +27,8 @@ feynml.vertex.Vertex
       ~Vertex.with_point
       ~Vertex.with_shape
       ~Vertex.with_style
+      ~Vertex.with_style_properties
+      ~Vertex.with_style_property
       ~Vertex.with_xy
       ~Vertex.with_xyz
    

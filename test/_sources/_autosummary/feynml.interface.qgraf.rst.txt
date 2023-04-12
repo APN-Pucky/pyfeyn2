@@ -1,0 +1,37 @@
+feynml.interface.qgraf
+======================
+
+.. automodule:: feynml.interface.qgraf
+  
+   
+   
+   .. rubric:: Module Attributes
+
+   .. autosummary::
+      :toctree:                                          
+   
+      style
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+      :toctree:                                         
+   
+      get_style
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+

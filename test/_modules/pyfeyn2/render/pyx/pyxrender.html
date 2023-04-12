@@ -14,9 +14,6 @@
   <![endif]-->
   
         <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
-        <script src="../../../../_static/jquery.js"></script>
-        <script src="../../../../_static/underscore.js"></script>
-        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../../_static/doctools.js"></script>
         <script src="../../../../_static/sphinx_highlight.js"></script>
         <script src="../../../../_static/thebelab-helper.js"></script>
@@ -33,15 +30,19 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../../../index.html" class="icon icon-home"> pyfeyn2
-            <img src="../../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            pyfeyn2
+              <img src="../../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.2.3-25-g0ab45fc4
+                2.2.3-37-g0f625614
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -92,7 +93,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../../../index.html">Module code</a></li>
       <li class="breadcrumb-item active">pyfeyn2.render.pyx.pyxrender</li>
       <li class="wy-breadcrumbs-aside">
@@ -146,14 +147,14 @@ from pyfeyn2.render.render import Render
         for l in self.fd.legs:
             lstyle = self.fd.get_style(l)
             tar = self.fd.get_vertex(l.target)
+            if lstyle.getProperty(&quot;line&quot;) is not None:
+                lname = lstyle.getProperty(&quot;line&quot;).value
+            else:
+                lname = l.type  # fallback to type
             if l.is_incoming():
-                nl = NamedLine[lstyle.getProperty(&quot;line&quot;).value](
-                    Point(l.x, l.y), Point(tar.x, tar.y)
-                )
+                nl = NamedLine[lname](Point(l.x, l.y), Point(tar.x, tar.y))
             elif l.is_outgoing():
-                nl = NamedLine[lstyle.getProperty(&quot;line&quot;).value](
-                    Point(tar.x, tar.y), Point(l.x, l.y)
-                )
+                nl = NamedLine[lname](Point(tar.x, tar.y), Point(l.x, l.y))
             if lstyle.getProperty(&quot;bend&quot;) is not None:
                 nl = nl.bend(lstyle.getProperty(&quot;bend&quot;).value)
             nl = self.apply_layout(v.raw_style(), nl)
@@ -163,14 +164,18 @@ from pyfeyn2.render.render import Render
             pstyle = self.fd.get_style(p)
             src = self.fd.get_vertex(p.source)
             tar = self.fd.get_vertex(p.target)
-            nl = NamedLine[pstyle.getProperty(&quot;line&quot;).value](
-                Point(src.x, src.y), Point(tar.x, tar.y)
-            )
+            if pstyle.getProperty(&quot;line&quot;) is not None:
+                lname = pstyle.getProperty(&quot;line&quot;).value
+            else:
+                lname = p.type
+            nl = NamedLine[lname](Point(src.x, src.y), Point(tar.x, tar.y))
+            print(nl, lname)
             if pstyle.getProperty(&quot;bend&quot;) is not None:
                 nl = nl.bend(pstyle.getProperty(&quot;bend&quot;).value)
             nl = self.apply_layout(v.raw_style(), nl)
             nl = nl.addLabel(p.label)
         pyxfd.draw(file)
+        print(&quot;Drawing to %s&quot; % file)
         wi = WImage(filename=file, resolution=resolution, width=width, height=height)
         if delete:
             os.remove(file)
@@ -312,8 +317,8 @@ from pyfeyn2.render.render import Render
             &quot;line&quot;,
             &quot;bend&quot;,
             &quot;arrow-pos&quot;,
-            &quot;arrow-sense&quot;,  #           &quot;parallel-arrow-sense&quot;,
-            &quot;arrow-displace&quot;,  #           &quot;parallel-arrow-displace&quot;,
+            # &quot;arrow-sense&quot;,  #           &quot;parallel-arrow-sense&quot;,
+            # &quot;arrow-displace&quot;,  #           &quot;parallel-arrow-displace&quot;,
         ]</div>
 </pre></div>
 

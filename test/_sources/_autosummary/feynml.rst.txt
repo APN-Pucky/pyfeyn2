@@ -32,6 +32,8 @@
    feynml.feynmandiagram
    feynml.feynml
    feynml.id
+   feynml.interface
+   feynml.labeled
    feynml.leg
    feynml.line
    feynml.momentum
@@ -40,7 +42,7 @@
    feynml.point
    feynml.propagator
    feynml.sourcing
-   feynml.style
+   feynml.styled
    feynml.targeting
    feynml.types
    feynml.vertex

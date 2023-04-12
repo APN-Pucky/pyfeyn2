@@ -24,6 +24,7 @@ feynml.feynmandiagram.FeynmanDiagram
       ~FeynmanDiagram.get_bounding_box
       ~FeynmanDiagram.get_connections
       ~FeynmanDiagram.get_style
+      ~FeynmanDiagram.get_style_property
       ~FeynmanDiagram.get_vertex
       ~FeynmanDiagram.put_style
       ~FeynmanDiagram.put_styles
@@ -39,6 +40,8 @@ feynml.feynmandiagram.FeynmanDiagram
       ~FeynmanDiagram.with_rules
       ~FeynmanDiagram.with_sheet
       ~FeynmanDiagram.with_style
+      ~FeynmanDiagram.with_style_properties
+      ~FeynmanDiagram.with_style_property
       ~FeynmanDiagram.with_vertices
    
    

@@ -1,7 +1,7 @@
-feynml.style.Styled
-===================
+feynml.styled.Styled
+====================
 
-.. currentmodule:: feynml.style
+.. currentmodule:: feynml.styled
 
 .. autoclass:: Styled
    :members:                                   
@@ -17,12 +17,14 @@ feynml.style.Styled
    .. autosummary::
    
       ~Styled.__init__
-      ~Styled.get_style
+      ~Styled.get_style_property
       ~Styled.put_style
       ~Styled.put_styles
       ~Styled.raw_style
       ~Styled.with_class
       ~Styled.with_style
+      ~Styled.with_style_properties
+      ~Styled.with_style_property
    
    
 
