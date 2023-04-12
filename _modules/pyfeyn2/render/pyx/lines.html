@@ -38,7 +38,7 @@
               <img src="../../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.2.5
+                2.2.6
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
@@ -670,7 +670,7 @@ Sfermion = Scalar
         self.extras = extras
         return self</div>
 
-<div class="viewcode-block" id="DecoratedLine.getDeformedPath"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.DecoratedLine.html#pyfeyn2.render.pyx.lines.DecoratedLine.getDeformedPath">[docs]</a>    def getDeformedPath(self):
+<div class="viewcode-block" id="DecoratedLine.getDeformedPath"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.DecoratedLine.html#pyfeyn2.render.pyx.lines.DecoratedLine.getDeformedPath">[docs]</a>    def getDeformedPath(self, sign=1):
         &quot;&quot;&quot;Get the deformed path.&quot;&quot;&quot;
         return self.getVisiblePath()</div></div>
 
@@ -710,7 +710,7 @@ Sfermion = Scalar
             labels,
         )</div>
 
-<div class="viewcode-block" id="Gluon.getDeformedPath"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.Gluon.html#pyfeyn2.render.pyx.lines.Gluon.getDeformedPath">[docs]</a>    def getDeformedPath(self):
+<div class="viewcode-block" id="Gluon.getDeformedPath"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.Gluon.html#pyfeyn2.render.pyx.lines.Gluon.getDeformedPath">[docs]</a>    def getDeformedPath(self, sign=1):
         &quot;&quot;&quot;Get the path modified by the coil warping.&quot;&quot;&quot;
         needwindings = (
             self.frequency
@@ -799,7 +799,7 @@ Sfermion = Scalar
             labels,
         )</div>
 
-<div class="viewcode-block" id="Vector.getDeformedPath"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.Vector.html#pyfeyn2.render.pyx.lines.Vector.getDeformedPath">[docs]</a>    def getDeformedPath(self):
+<div class="viewcode-block" id="Vector.getDeformedPath"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.Vector.html#pyfeyn2.render.pyx.lines.Vector.getDeformedPath">[docs]</a>    def getDeformedPath(self, sign=1):
         &quot;&quot;&quot;Get the path with the decorative deformation.&quot;&quot;&quot;
         intwindings = int(
             self.frequency
@@ -1007,7 +1007,7 @@ Photon = Vector
             labels,
         )</div>
 
-<div class="viewcode-block" id="Gaugino.getDeformedPath"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.Gaugino.html#pyfeyn2.render.pyx.lines.Gaugino.getDeformedPath">[docs]</a>    def getDeformedPath(self):
+<div class="viewcode-block" id="Gaugino.getDeformedPath"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.Gaugino.html#pyfeyn2.render.pyx.lines.Gaugino.getDeformedPath">[docs]</a>    def getDeformedPath(self, sign=1):
         &quot;&quot;&quot;Get the path with the decorative deformation.&quot;&quot;&quot;
         intwindings = int(
             self.frequency
@@ -1142,7 +1142,7 @@ Photon = Vector
             labels,
         )</div>
 
-<div class="viewcode-block" id="Gluino.getDeformedPath"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.Gluino.html#pyfeyn2.render.pyx.lines.Gluino.getDeformedPath">[docs]</a>    def getDeformedPath(self):
+<div class="viewcode-block" id="Gluino.getDeformedPath"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.lines.Gluino.html#pyfeyn2.render.pyx.lines.Gluino.getDeformedPath">[docs]</a>    def getDeformedPath(self, sign=1):
         &quot;&quot;&quot;Get the path with the decorative deformation.&quot;&quot;&quot;
         needwindings = (
             self.frequency
