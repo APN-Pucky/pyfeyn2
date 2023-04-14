@@ -38,7 +38,7 @@
               <img src="../../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.2.5-9-g3527d83c
+                2.2.6-3-g72fc7528
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
@@ -133,14 +133,17 @@ from pyfeyn2.render.pyx.utils import Visible
 <div class="viewcode-block" id="Arrow"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.deco.Arrow.html#pyfeyn2.render.pyx.deco.Arrow">[docs]</a>class Arrow(pyx.deco.deco, pyx.attr.attr):
     &quot;&quot;&quot;Arrow for Feynman diagram lines&quot;&quot;&quot;
 
-<div class="viewcode-block" id="Arrow.__init__"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.deco.Arrow.html#pyfeyn2.render.pyx.deco.Arrow.__init__">[docs]</a>    def __init__(self, pos=0.5, size=6 * pyx.unit.v_pt, angle=45, constriction=0.8):
+<div class="viewcode-block" id="Arrow.__init__"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.deco.Arrow.html#pyfeyn2.render.pyx.deco.Arrow.__init__">[docs]</a>    def __init__(
+        self, pos=0.5, size=6 * pyx.unit.v_pt, angle=45, constriction=0.8, sense=1
+    ):
         &quot;&quot;&quot;Constructor.&quot;&quot;&quot;
         self.pos = pos
         self.size = size
         self.angle = angle
-        self.constriction = constriction</div>
+        self.constriction = constriction
+        self.sense = sense</div>
 
-<div class="viewcode-block" id="Arrow.decorate"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.deco.Arrow.html#pyfeyn2.render.pyx.deco.Arrow.decorate">[docs]</a>    def decorate(self, dp):
+<div class="viewcode-block" id="Arrow.decorate"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.deco.Arrow.html#pyfeyn2.render.pyx.deco.Arrow.decorate">[docs]</a>    def decorate(self, dp, textengine=None):
         &quot;&quot;&quot;Attach arrow to a path (usually a line).&quot;&quot;&quot;
         dp.ensurenormpath()
         constrictionlen = (
@@ -151,7 +154,7 @@ from pyfeyn2.render.pyx.utils import Visible
         arrowpath = getarrowpath(
             arrowtopath,
             self.pos * dp.path.arclen(),
-            1,
+            self.sense,
             self.size,
             45,
             self.constriction,

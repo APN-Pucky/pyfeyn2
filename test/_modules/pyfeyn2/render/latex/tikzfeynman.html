@@ -38,7 +38,7 @@
               <img src="../../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.2.5-9-g3527d83c
+                2.2.6-3-g72fc7528
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
@@ -106,6 +106,7 @@
              
   <h1>Source code for pyfeyn2.render.latex.tikzfeynman</h1><div class="highlight"><pre>
 <span></span>from typing import List
+from warnings import warn
 
 from pylatex import Command
 from pylatex.utils import NoEscape
@@ -170,11 +171,16 @@ shape_map = {
         style.getProperty(&quot;momentum-arrow&quot;) is not None
         and style.getProperty(&quot;momentum-arrow&quot;).value == &quot;true&quot;
     ):
-        if (
-            style.getProperty(&quot;momentum-arrow-flip&quot;) is not None
-            and style.getProperty(&quot;momentum-arrow-flip&quot;).value == &quot;true&quot;
-        ):
-            ret += &quot;,momentum&#39;=&quot; + c.momentum.name
+        if style.getProperty(&quot;momentum-arrow-sense&quot;) is not None:
+            if style.getProperty(&quot;momentum-arrow-sense&quot;).value == -1:
+                ret += &quot;,momentum&#39;=&quot; + c.momentum.name
+            elif style.getProperty(&quot;momentum-arrow-sense&quot;).value == 0:
+                warn(
+                    &quot;momentum-arrow=true but momentum-arrow-sense=0, ignoring momentum-arrow&quot;
+                )
+                pass
+            else:
+                ret += &quot;,momentum=&quot; + c.momentum.name
         else:
             ret += &quot;,momentum=&quot; + c.momentum.name
     if style.opacity is not None and style.opacity != &quot;&quot;:
@@ -305,6 +311,7 @@ shape_map = {
             &quot;bend-loop&quot;,
             &quot;bend-min-distance&quot;,
             &quot;momentum-arrow&quot;,
+            &quot;momentum-arrow-sense&quot;,
         ]
 
     @classmethod
