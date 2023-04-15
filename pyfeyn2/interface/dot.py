@@ -11,8 +11,8 @@ def _fake_styler(fd, p):
 
 def get_rankdir(fdstyle):
     rankdir = None
-    if fdstyle.getProperty("direction") is not None:
-        warn("direction is unknwon, using default of 'right'")
+    if fdstyle.getProperty("direction") is None:
+        warn("direction is unkown, using default of 'right'")
         rankdir = "LR"
     else:
         rdir = fdstyle.getProperty("direction").value
@@ -31,7 +31,7 @@ def get_rankdir(fdstyle):
 
 def get_layout(fdstyle):
     layout = None
-    if fdstyle.getProperty("layout") is not None:
+    if fdstyle.getProperty("layout") is None:
         warn("layout is unknwon, using default of 'dot'")
         layout = "dot"
     else:

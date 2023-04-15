@@ -20,6 +20,7 @@ map_feyn_to_tikz = {
     "gluon": "decorate,decoration={coil,aspect=0.3,segment length=1mm}",
     "ghost": "dotted",
     "fermion": "decorate,postaction={decorate,draw,red,decoration={markings,mark=at position 0.5 with {\\arrow{>}}}}",
+    "anti fermion": "decorate,postaction={decorate,draw,red,decoration={markings,mark=at position 0.5 with {\\arrow{<}}}}",
     "higgs": "densely dashed",
     "scalar": "densely dashed",
     "slepton": "densely dashed",

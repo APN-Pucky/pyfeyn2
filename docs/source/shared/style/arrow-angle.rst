@@ -1,5 +1,5 @@
 ==================== ========================== ========================= ============================ ============================= ========================= ============================== ================================
 :ref:`style`         tikz                       pyx                       feynmp                       feynman                       dot                       asciipdf                       unicodepdf                       
 ==================== ========================== ========================= ============================ ============================= ========================= ============================== ================================
-:ref:`arrow-width`   |tikz.style.arrow-width|   |pyx.style.arrow-width|   |feynmp.style.arrow-width|   |feynman.style.arrow-width|   |dot.style.arrow-width|   |asciipdf.style.arrow-width|   |unicodepdf.style.arrow-width|   
+:ref:`arrow-angle`   |tikz.style.arrow-angle|   |pyx.style.arrow-angle|   |feynmp.style.arrow-angle|   |feynman.style.arrow-angle|   |dot.style.arrow-angle|   |asciipdf.style.arrow-angle|   |unicodepdf.style.arrow-angle|   
 ==================== ========================== ========================= ============================ ============================= ========================= ============================== ================================
