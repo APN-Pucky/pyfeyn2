@@ -3,6 +3,7 @@ import argparse
 import importlib
 from pathlib import Path
 
+import cssutils
 from feynml.feynml import FeynML
 from xsdata.formats.dataclass.parsers import XmlParser
 
@@ -49,6 +50,13 @@ def main():
         type=str,
         help="Renderer to use.",
     )
+    parser.add_argument(
+        "--style",
+        metavar="STYLE",
+        default=None,
+        type=str,
+        help="CSS like Style file to use.",
+    )
 
     args = parser.parse_args()
 
@@ -68,6 +76,10 @@ def main():
     if renderer is None:
         arenderer = fml.head.get_meta_dict()["renderer"]
         renderer = renderer_from_string(arenderer)
+    if args.style is not None:
+        style_string = Path(args.style).read_text()
+        for diagram in fml.diagrams:
+            diagram.external_sheet = cssutils.parseString(style_string)
 
     # TODO think about how to handle multiple diagrams
     renderer(fml.diagrams[0]).render(file=args.output)
