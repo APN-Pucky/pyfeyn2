@@ -1,0 +1,6 @@
+pyfeyn2.mkfeyndiag.class\_for\_name
+===================================
+
+.. currentmodule:: pyfeyn2.mkfeyndiag
+
+.. autofunction:: class_for_name

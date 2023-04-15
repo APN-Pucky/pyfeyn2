@@ -17,6 +17,7 @@ feynml.feynml.Head
    .. autosummary::
    
       ~Head.__init__
+      ~Head.get_meta_dict
    
    
 

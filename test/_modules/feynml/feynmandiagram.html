@@ -38,7 +38,7 @@
               <img src="../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.2.6-3-g72fc7528
+                2.2.6-14-g75de1564
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -163,6 +163,10 @@ class FeynmanDiagram(Styled, Identifiable):
             &quot;namespace&quot;: &quot;&quot;,
         },
     )
+    # external_sheet is used to store the sheet from the file
+    # so that we can use it to update the sheet.
+    # It is not saved to the fml file.
+    external_sheet: CSSSheet = None
 
     def add(self, *fd_all: List[Union[Propagator, Vertex, Leg]]):
         for a in fd_all:
@@ -230,6 +234,14 @@ class FeynmanDiagram(Styled, Identifiable):
         self.sheet = cssutils.parseString(rules)
         return self
 
+    def get_style_property(self, obj, property_name):
+        style = self.get_style(obj)
+        p = style.getProperty(property_name)
+        if p is None:
+            return None
+        else:
+            return p.value
+
 <div class="viewcode-block" id="FeynmanDiagram.get_style"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.FeynmanDiagram.html#feynml.feynmandiagram.FeynmanDiagram.get_style">[docs]</a>    def get_style(self, obj) -&gt; cssutils.css.CSSStyleDeclaration:
         &quot;&quot;&quot;Get the style of an object.
 
@@ -263,11 +275,12 @@ class FeynmanDiagram(Styled, Identifiable):
     def _get_style(self, lambdaselector) -&gt; cssutils.css.CSSStyleDeclaration:
 
         ret = []
-
+        sheets = []
         if self.default_style:
-            sheets = [get_default_sheet(), self.sheet]
-        else:
-            sheets = [self.sheet]
+            sheets += [get_default_sheet()]
+        sheets += [self.sheet]
+        if self.external_sheet:
+            sheets += [self.external_sheet]
         for sheet in sheets:
             idd = []
             cls = []

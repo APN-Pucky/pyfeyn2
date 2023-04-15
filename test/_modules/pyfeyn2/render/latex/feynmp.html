@@ -38,7 +38,7 @@
               <img src="../../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.2.6-3-g72fc7528
+                2.2.6-14-g75de1564
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
@@ -118,6 +118,7 @@ from pyfeyn2.render.latex.metapost import MetaPostRender
 # converte FeynmanDiagram to tikz-feynman
 
 type_map = {
+    &quot;line&quot;: [&quot;plain&quot;],
     &quot;gluon&quot;: [&quot;gluon&quot;],
     &quot;curly&quot;: [&quot;curly&quot;],
     &quot;dbl_curly&quot;: [&quot;dbl_curly&quot;],
@@ -134,7 +135,7 @@ type_map = {
     &quot;phantom&quot;: [&quot;phantom&quot;],
     &quot;phantom_arrow&quot;: [&quot;phantom_arrow&quot;],
     &quot;plain&quot;: [&quot;plain&quot;],
-    &quot;plain_arrow&quot;: [&quot;plain_arrow&quot;],
+    &quot;plain_arrow&quot;: [&quot;plain_arrkddow&quot;],
     &quot;fermion&quot;: [&quot;fermion&quot;],
     &quot;anti fermion&quot;: [&quot;fermion&quot;],
     &quot;electron&quot;: [&quot;electron&quot;],
@@ -234,9 +235,10 @@ type_map = {
                 else:
                     src += f&quot;\t\t\\fmf{{{ttype}{style}}}{{{ltarget},{lid}}}\n&quot;
                 style = &quot;&quot;
+        return src
 
-    do_legs(src, incoming, True)
-    do_legs(src, outgoing, False)
+    src = do_legs(src, incoming, True)
+    src = do_legs(src, outgoing, False)
 
     for p in fd.propagators:
         pstyle = fd.get_style(p)

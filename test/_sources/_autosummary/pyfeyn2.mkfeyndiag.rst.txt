@@ -14,7 +14,9 @@ pyfeyn2.mkfeyndiag
    .. autosummary::
       :toctree:                                         
    
+      class_for_name
       main
+      renderer_from_string
    
    
 

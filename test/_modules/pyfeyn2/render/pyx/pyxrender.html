@@ -38,7 +38,7 @@
               <img src="../../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.2.6-3-g72fc7528
+                2.2.6-14-g75de1564
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
@@ -172,12 +172,10 @@ from pyfeyn2.render.render import Render
             nl = NamedLine[lname](Point(src.x, src.y), Point(tar.x, tar.y))
             if pstyle.getProperty(&quot;bend&quot;) is not None:
                 nl = nl.bend(pstyle.getProperty(&quot;bend&quot;).value)
-            print(&quot;raw_style:&quot; + p.raw_style())
-            print(&quot;get_style:&quot; + self.fd.get_style(p).cssText.replace(&quot;\n&quot;, &quot; &quot;))
             nl = self.apply_layout(self.fd.get_style(p).cssText.replace(&quot;\n&quot;, &quot; &quot;), nl)
             nl = nl.addLabel(p.label)
         pyxfd.draw(file)
-        print(&quot;Drawing to %s&quot; % file)
+        # print(&quot;Drawing to %s&quot; % file)
         wi = WImage(filename=file, resolution=resolution, width=width, height=height)
         if delete:
             os.remove(file)
@@ -312,9 +310,6 @@ from pyfeyn2.render.render import Render
             if arrsense == 1 or arrsense == -1:
                 obj.addParallelArrow(
                     arrpos, arrdisp, arrlen, arrsize, arrangle, arrconstrict, arrsense
-                )
-                obj.addArrow(
-                    arrow=Arrow(arrpos, arrsize, arrangle, arrconstrict, arrsense)
                 )
             elif arrsense == 0:
                 # no arrow
