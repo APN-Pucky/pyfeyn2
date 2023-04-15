@@ -26,6 +26,7 @@ map_feyn_to_tikz = {
     "slepton": "densely dashed",
     "squark": "densely dashed",
     "zigzag": "decorate,decoration=zigzag",
+    "line": "draw",
     "phantom": "draw=none",
 }
 

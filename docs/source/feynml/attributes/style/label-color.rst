@@ -6,6 +6,6 @@ color
 | Format: String
 | Default: None (Black)
 
-The color of the line.
+The color of the label.
 
 .. include:: ../../../shared/style/color.rst

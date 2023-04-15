@@ -11,6 +11,7 @@ from pyfeyn2.render.latex.metapost import MetaPostRender
 # converte FeynmanDiagram to tikz-feynman
 
 type_map = {
+    "line": ["plain"],
     "gluon": ["gluon"],
     "curly": ["curly"],
     "dbl_curly": ["dbl_curly"],
@@ -27,7 +28,7 @@ type_map = {
     "phantom": ["phantom"],
     "phantom_arrow": ["phantom_arrow"],
     "plain": ["plain"],
-    "plain_arrow": ["plain_arrow"],
+    "plain_arrow": ["plain_arrkddow"],
     "fermion": ["fermion"],
     "anti fermion": ["fermion"],
     "electron": ["electron"],

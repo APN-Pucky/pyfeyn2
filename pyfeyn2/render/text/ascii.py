@@ -178,6 +178,31 @@ class ASCIIRender(Render):
     def get_color_text(self, text, color):
         return colored(text, color)
 
+    def draw_connector(self, pane, connector, src, tar, fmt):
+        """
+        Draw a connector between two points.
+        """
+        p = connector
+        tmp_fmt = {}
+        pstyle = self.fd.get_style(p)
+
+        if pstyle.getProperty("line") is not None:
+            lname = pstyle.getProperty("line").value
+        else:
+            lname = p.type  # fallback no style
+        if pstyle.getProperty("color") is not None:
+            tmp_fmt["colorer"] = lambda t: self.get_color_text(
+                t, pstyle.getProperty("color").value
+            )
+        self.namedlines[lname]().draw(pane, src, tar, **fmt, **tmp_fmt)
+        if p.label is not None:
+            tmp_fmt = {}
+            if pstyle.getProperty("label-color") is not None:
+                tmp_fmt["colorer"] = lambda t: self.get_color_text(
+                    t, pstyle.getProperty("label-color").value
+                )
+            self.namedlines["label"](p.label).draw(pane, src, tar, **fmt, **tmp_fmt)
+
     def render(
         self,
         file=None,
@@ -213,59 +238,42 @@ class ASCIIRender(Render):
         fmt = {"scalex": scalex, "kickx": kickx, "scaley": scaley, "kicky": kicky}
 
         for p in self.fd.propagators:
-            tmp_fmt = {}
-            pstyle = self.fd.get_style(p)
             src = self.fd.get_vertex(p.source)
             tar = self.fd.get_vertex(p.target)
-            if pstyle.getProperty("line") is not None:
-                lname = pstyle.getProperty("line").value
-            else:
-                lname = p.type  # fallback no style
-            if pstyle.getProperty("color") is not None:
-                tmp_fmt["colorer"] = lambda t: self.get_color_text(
-                    t, pstyle.getProperty("color").value
-                )
-            self.namedlines[lname]().draw(pane, src, tar, **fmt, **tmp_fmt)
-            if p.label is not None:
-                self.namedlines["label"](p.label).draw(pane, src, tar, **fmt, **tmp_fmt)
+            self.draw_connector(pane, p, src, tar, fmt)
+
         for l in self.fd.legs:
-            tmp_fmt = {}
-            lstyle = self.fd.get_style(l)
-            tar = self.fd.get_vertex(l.target)
-            if lstyle.getProperty("line") is not None:
-                lname = lstyle.getProperty("line").value
-            else:
-                lname = l.type  # fallback no style
-            if lstyle.getProperty("color") is not None:
-                tmp_fmt["colorer"] = lambda t: self.get_color_text(
-                    t, lstyle.getProperty("color").value
-                )
             if l.is_incoming():
-                self.namedlines[lname]().draw(
-                    pane, Point(l.x, l.y), tar, **fmt, **tmp_fmt
-                )
-                if l.label is not None:
-                    self.namedlines["label"](l.label).draw(
-                        pane, Point(l.x, l.y), tar, **fmt, **tmp_fmt
-                    )
+                src = Point(l.x, l.y)
+                tar = self.fd.get_vertex(l.target)
+                self.draw_connector(pane, l, src, tar, fmt)
             elif l.is_outgoing():
-                self.namedlines[lname]().draw(
-                    pane, tar, Point(l.x, l.y), **fmt, **tmp_fmt
-                )
-                if l.label is not None:
-                    self.namedlines["label"](l.label).draw(
-                        pane, tar, Point(l.x, l.y), **fmt, **tmp_fmt
-                    )
+                src = self.fd.get_vertex(l.target)
+                tar = Point(l.x, l.y)
+                self.draw_connector(pane, l, src, tar, fmt)
         for v in self.fd.vertices:
             tmp_fmt = {}
             ssss = self.fd.get_style(v)
-            if ssss.getProperty("color") is not None:
-                tmp_fmt["colorer"] = lambda t: self.get_color_text(
-                    t, ssss.getProperty("color").value
-                )
             if ssss.getProperty("symbol") is not None:
+                if ssss.getProperty("color") is not None:
+                    tmp_fmt["colorer"] = lambda t: self.get_color_text(
+                        t, ssss.getProperty("color").value
+                    )
                 self.namedshapes[ssss.getProperty("symbol").value].draw(
                     pane, v, **fmt, **tmp_fmt
+                )
+            if v.label is not None:
+                tmp_fmt = {}
+                if ssss.getProperty("label-color") is not None:
+                    tmp_fmt["colorer"] = lambda t: self.get_color_text(
+                        t, ssss.getProperty("label-color").value
+                    )
+                self.namedlines["label"](v.label).draw(
+                    pane,
+                    Point(v.x - len(v.label) / 2, v.y),
+                    Point(v.x + len(v.label) / 2, v.y),
+                    **fmt,
+                    **tmp_fmt,
                 )
 
         joined = "\n".join(["".join(row) for row in pane]) + "\n"
@@ -299,6 +307,7 @@ class ASCIIRender(Render):
             "line",
             "symbol",
             "color",
+            "label-color",
         ]
 
     @classmethod

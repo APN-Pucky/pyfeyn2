@@ -8,6 +8,7 @@ from pyfeyn2.render.render import Render
 
 namedlines = {
     "straight": [{"style": "simple"}],
+    "line": [{"style": "simple"}],
     "gluon": [{"style": "loopy"}],
     "gluino": [
         {
@@ -74,6 +75,18 @@ def get_styled_lines(fd: FeynmanDiagram, p: Union[Propagator, Leg]) -> List[dict
     return ret
 
 
+marker_map = {
+    None: None,
+    "dot": ".",
+    "square": "s",
+    "empty": "None",
+    "cross": "x",
+    "triangle": "^",
+    "star": "*",
+    "blob": "o",  # TODO look into nicer blob renders
+}
+
+
 class FeynmanRender(Render):
     def __init__(self, fd=None, *args, **kwargs):
         super().__init__(fd, *args, **kwargs)
@@ -120,24 +133,43 @@ class FeynmanRender(Render):
         diagram = Diagram(ax)
         byid = {}
         for v in self.fd.vertices:
+            tmp_fmt = {}
+            color = self.fd.get_style_property(v, "color")
+            if color:
+                tmp_fmt["color"] = color
             byid[v.id] = diagram.vertex(
-                xy=((v.x + kickx) * scalex, (v.y + kicky) * scaley)
+                xy=((v.x + kickx) * scalex, (v.y + kicky) * scaley),
+                marker=marker_map[self.fd.get_style_property(v, "symbol")],
+                **tmp_fmt
             )
             if v.label is not None:
-                byid[v.id].text(v.label)
+                byid[v.id].text(
+                    v.label, color=self.fd.get_style_property(v, "label-color")
+                )
         for v in self.fd.legs:
+            tmp_fmt = {"marker": ""}
+            symb = self.fd.get_style_property(
+                v, "symbol"
+            )  # leg sets symbol for external verts
+            if symb:
+                tmp_fmt["marker"] = marker_map[symb]
+            color = self.fd.get_style_property(v, "color")
+            if color:
+                tmp_fmt["color"] = color
             byid[v.id] = diagram.vertex(
-                xy=((v.x + kickx) * scalex, (v.y + kicky) * scaley), marker=""
+                xy=((v.x + kickx) * scalex, (v.y + kicky) * scaley), **tmp_fmt
             )
             if v.label is not None:
-                byid[v.id].text(v.label)
+                byid[v.id].text(
+                    v.label, color=self.fd.get_style_property(v, "label-color")
+                )
 
         for p in self.fd.propagators:
             cur = None
             for style in get_styled_lines(self.fd, p):
                 cur = diagram.line(byid[p.source], byid[p.target], **style)
             if p.label is not None:
-                cur.text(p.label)
+                cur.text(p.label, color=self.fd.get_style_property(p, "label-color"))
         for l in self.fd.legs:
             cur = None
             for style in get_styled_lines(self.fd, l):
@@ -148,15 +180,7 @@ class FeynmanRender(Render):
                 else:
                     raise Exception("Unknown sense")
             if l.label is not None:
-                cur.text(l.label)
-
-        # TODO maybe reintroduce labels
-        # for l in self.fd.labels:
-        #    diagram.text(
-        #        l.x,
-        #        l.y,
-        #        l.text,
-        #    )
+                cur.text(l.label, color=self.fd.get_style_property(l, "label-color"))
         diagram.plot()
         if show:
             plt.show()
@@ -191,3 +215,7 @@ class FeynmanRender(Render):
             "yamp",
             "nloops",
         ]
+
+    @classmethod
+    def valid_shapes(cls) -> List[str]:
+        return super(FeynmanRender, cls).valid_types() + list(marker_map.keys())
