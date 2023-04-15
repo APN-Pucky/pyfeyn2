@@ -7,4 +7,6 @@ arrow-pos
 | Format: Double
 | Default: ?
 
+Position of an arrow along the line.
+
 .. include:: ../../../shared/style/arrow-pos.rst

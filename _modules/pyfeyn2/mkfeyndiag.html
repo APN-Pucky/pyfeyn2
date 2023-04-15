@@ -38,7 +38,7 @@
               <img src="../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.2.6
+                2.3.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -106,11 +106,101 @@
              
   <h1>Source code for pyfeyn2.mkfeyndiag</h1><div class="highlight"><pre>
 <span></span># TODO read in FeynMF and produce pdf output allowing to choose renderer
+import argparse
+import importlib
+from pathlib import Path
+
+import cssutils
+from feynml.feynml import FeynML
+from xsdata.formats.dataclass.parsers import XmlParser
+
+import pyfeyn2.render.all as renderall
+from pyfeyn2.render.text.ascii import ASCIIRender
+from pyfeyn2.render.text.unicode import UnicodeRender
+
+
+<div class="viewcode-block" id="class_for_name"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.mkfeyndiag.class_for_name.html#pyfeyn2.mkfeyndiag.class_for_name">[docs]</a>def class_for_name(module_name, class_name):
+    # load the module, will raise ImportError if module cannot be loaded
+    m = importlib.import_module(module_name)
+    # get the class, will raise AttributeError if class cannot be found
+    c = getattr(m, class_name)
+    return c</div>
+
+
+<div class="viewcode-block" id="renderer_from_string"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.mkfeyndiag.renderer_from_string.html#pyfeyn2.mkfeyndiag.renderer_from_string">[docs]</a>def renderer_from_string(s):
+    return class_for_name(&quot;.&quot;.join(s.split(&quot;.&quot;)[0:-1]), s.split(&quot;.&quot;)[-1])</div>
 
 
 <div class="viewcode-block" id="main"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.mkfeyndiag.main.html#pyfeyn2.mkfeyndiag.main">[docs]</a>def main():
-    # parse command line options
-    print(&quot;PyFeyn2: Feynman diagrams in Python&quot;)</div>
+    # parse command line options with argparse
+    parser = argparse.ArgumentParser(
+        prog=&quot;pyfeyn2.mkfeyndiag&quot;,
+        description=&quot;Draw FeynML diagrams with pyfeyn2.&quot;,
+    )
+    parser.add_argument(
+        &quot;input&quot;,
+        metavar=&quot;INPUT&quot;,
+        type=str,
+        help=&quot;Input FeynML file.&quot;,
+    )
+    parser.add_argument(
+        &quot;-o&quot;,
+        &quot;--output&quot;,
+        metavar=&quot;OUTPUT&quot;,
+        default=&quot;output.pdf&quot;,
+        type=str,
+        help=&quot;Output file.&quot;,
+    )
+    parser.add_argument(
+        &quot;-r&quot;,
+        &quot;--renderer&quot;,
+        metavar=&quot;RENDERER&quot;,
+        default=None,
+        type=str,
+        help=&quot;Renderer to use.&quot;,
+    )
+    parser.add_argument(
+        &quot;--style&quot;,
+        metavar=&quot;STYLE&quot;,
+        default=None,
+        type=str,
+        help=&quot;CSS like Style file to use.&quot;,
+    )
+    parser.add_argument(
+        &quot;--show&quot;,
+        action=&quot;store_true&quot;,
+        help=&quot;Show the output file.&quot;,
+    )
+
+    args = parser.parse_args()
+
+    arenderer = args.renderer
+    renderer = None
+    if arenderer is None:
+        pass
+    elif arenderer.lower() == &quot;ascii&quot;:
+        renderer = ASCIIRender
+    elif arenderer.lower() == &quot;unicode&quot;:
+        renderer = UnicodeRender
+    elif arenderer.lower() in renderall.renders:
+        renderer = renderall.renders[arenderer.lower()]
+    else:
+        renderer = renderer_from_string(arenderer)
+
+    xml_string = Path(args.input).read_text()
+    parser = XmlParser()
+    fml = parser.from_string(xml_string, FeynML)
+
+    if renderer is None:
+        arenderer = fml.head.get_meta_dict()[&quot;renderer&quot;]
+        renderer = renderer_from_string(arenderer)
+    if args.style is not None:
+        style_string = Path(args.style).read_text()
+        for diagram in fml.diagrams:
+            diagram.external_sheet = cssutils.parseString(style_string)
+
+    # TODO think about how to handle multiple diagrams
+    renderer(fml.diagrams[0]).render(file=args.output)</div>
 </pre></div>
 
            </div>

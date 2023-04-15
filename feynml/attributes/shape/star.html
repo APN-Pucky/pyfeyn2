@@ -44,7 +44,7 @@
               <img src="../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.2.6
+                2.3.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -169,94 +169,6 @@ tikz:
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 pyx:
-pyx failed:
-Traceback (most recent call last):
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/all.py&#34;, line 86, in render
-    render(fd).render(dirpath + &#34;/&#34; + name + &#34;.pdf&#34;, **dynarg)
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/pyx/pyxrender.py&#34;, line 43, in render
-    nl = NamedLine[l.type](Point(l.x, l.y), Point(tar.x, tar.y))
-KeyError: &#39;line&#39;
-
-feynmp:
-feynmp failed:
-Traceback (most recent call last):
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/all.py&#34;, line 86, in render
-    render(fd).render(dirpath + &#34;/&#34; + name + &#34;.pdf&#34;, **dynarg)
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/latex/feynmp.py&#34;, line 173, in __init__
-    self.set_feynman_diagram(fd)
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/latex/feynmp.py&#34;, line 177, in set_feynman_diagram
-    self.set_src_diag(NoEscape(feynman_to_feynmp(fd)))
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/latex/feynmp.py&#34;, line 110, in feynman_to_feynmp
-    tttype = type_map[l.type]
-KeyError: &#39;line&#39;
-
-feynman:
-feynman failed:
-Traceback (most recent call last):
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/all.py&#34;, line 86, in render
-    render(fd).render(dirpath + &#34;/&#34; + name + &#34;.pdf&#34;, **dynarg)
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/mpl/feynmanrender.py&#34;, line 131, in render
-    for style in get_styled_lines(self.fd, l):
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/mpl/feynmanrender.py&#34;, line 35, in get_styled_lines
-    for i in namedlines[p.type]:
-KeyError: &#39;line&#39;
-
-dot:
-dot failed:
-Traceback (most recent call last):
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/all.py&#34;, line 86, in render
-    render(fd).render(dirpath + &#34;/&#34; + name + &#34;.pdf&#34;, **dynarg)
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/latex/dot.py&#34;, line 72, in __init__
-    self.set_feynman_diagram(fd)
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/latex/dot.py&#34;, line 76, in set_feynman_diagram
-    self.src_dot = feynman_to_dot(
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/interface/dot.py&#34;, line 49, in feynman_to_dot
-    thestyle = styler(l)
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/latex/dot.py&#34;, line 33, in stylize_connect
-    style = &#39;style=&#34;{}&#34;,texmode=&#34;raw&#34;&#39;.format(map_feyn_to_tikz[c.type])
-KeyError: &#39;line&#39;
-
-mpl:
-mpl failed:
-Traceback (most recent call last):
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/all.py&#34;, line 86, in render
-    render(fd).render(dirpath + &#34;/&#34; + name + &#34;.pdf&#34;, **dynarg)
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/mpl/mpl.py&#34;, line 143, in render
-    namedlines[l.type](idtopos[l.id], idtopos[l.target])
-KeyError: &#39;line&#39;
-
-ascii:
-
-
-
-
-
-
-
-
-
-                   *
-                ---
-               -
-            ---
-           -
-*--------*-
-           -
-            ---
-               -
-                ---
-                   *
-
-
-
-
-
-
-
-
-
-
-
 </pre></div></div>
 </div>
 <div class="nboutput docutils container">
@@ -271,45 +183,68 @@ ascii:
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-unicode:
+feynmp:
+feynmp failed:
+Traceback (most recent call last):
+  File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/all.py&#34;, line 84, in render
+    render(fd).render(dirpath + &#34;/&#34; + name + &#34;.pdf&#34;, **dynarg)
+  File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/latex/feynmp.py&#34;, line 180, in __init__
+    self.set_feynman_diagram(fd)
+  File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/latex/feynmp.py&#34;, line 184, in set_feynman_diagram
+    self.set_src_diag(NoEscape(feynman_to_feynmp(fd)))
+  File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/latex/feynmp.py&#34;, line 132, in feynman_to_feynmp
+    src = do_legs(src, incoming, True)
+  File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/latex/feynmp.py&#34;, line 115, in do_legs
+    tttype = type_map[lstyle.getProperty(&#34;line&#34;).value]
+KeyError: &#39;line&#39;
 
+feynman:
+feynman failed:
+Traceback (most recent call last):
+  File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/all.py&#34;, line 84, in render
+    render(fd).render(dirpath + &#34;/&#34; + name + &#34;.pdf&#34;, **dynarg)
+  File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/mpl/feynman.py&#34;, line 139, in render
+    byid[v.id].text(v.label, color = self.fd.get_style_property(v,&#34;label-color&#34;))
+KeyError: &#39;Vertex7&#39;
 
+dot:
+dot failed:
+Traceback (most recent call last):
+  File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/all.py&#34;, line 84, in render
+    render(fd).render(dirpath + &#34;/&#34; + name + &#34;.pdf&#34;, **dynarg)
+  File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/latex/dot.py&#34;, line 79, in __init__
+    self.set_feynman_diagram(fd)
+  File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/latex/dot.py&#34;, line 83, in set_feynman_diagram
+    self.src_dot = feynman_to_dot(
+  File &#34;/home/apn/git/pyfeyn2/pyfeyn2/interface/dot.py&#34;, line 70, in feynman_to_dot
+    thestyle = styler(fd, l)
+  File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/latex/dot.py&#34;, line 39, in stylize_connect
+    style = &#39;style=&#34;{}&#34;,texmode=&#34;raw&#34;&#39;.format(map_feyn_to_tikz[lname])
+KeyError: &#39;line&#39;
 
-
-
-
-
-
-
-                   *
-                ---
-               -
-            ---
-           -
-*--------*-
-           -
-            ---
-               -
-                ---
-                   *
-
-
-
-
-
-
-
-
-
-
-
+asciipdf:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../_images/feynml_attributes_shape_star_1_5.png" src="../../../_images/feynml_attributes_shape_star_1_5.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+unicodepdf:
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/feynml_attributes_shape_star_1_5.png" src="../../../_images/feynml_attributes_shape_star_1_5.png" />
+<img alt="../../../_images/feynml_attributes_shape_star_1_7.png" src="../../../_images/feynml_attributes_shape_star_1_7.png" />
 </div>
 </div>
 <div class="nbinput nblast docutils container">

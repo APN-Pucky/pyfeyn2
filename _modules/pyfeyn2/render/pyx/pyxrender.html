@@ -38,7 +38,7 @@
               <img src="../../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.2.6
+                2.3.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
@@ -106,6 +106,7 @@
              
   <h1>Source code for pyfeyn2.render.pyx.pyxrender</h1><div class="highlight"><pre>
 <span></span>import os
+from warnings import warn
 
 import pyx
 from IPython.display import display
@@ -140,7 +141,7 @@ from pyfeyn2.render.render import Render
         pyxfd = FeynDiagram()
         for v in self.fd.vertices:
             dp = DecoratedPoint(v.x, v.y)
-            dp = self.apply_layout(v.raw_style(), dp)
+            dp = self.apply_layout(self.fd.get_style(v).cssText.replace(&quot;\n&quot;, &quot; &quot;), dp)
             if v.label is not None:
                 dp.setFillstyles(PointLabel(dp, v.label, displace=3, angle=90))
             pyxfd.add(dp)
@@ -157,7 +158,7 @@ from pyfeyn2.render.render import Render
                 nl = NamedLine[lname](Point(tar.x, tar.y), Point(l.x, l.y))
             if lstyle.getProperty(&quot;bend&quot;) is not None:
                 nl = nl.bend(lstyle.getProperty(&quot;bend&quot;).value)
-            nl = self.apply_layout(v.raw_style(), nl)
+            nl = self.apply_layout(self.fd.get_style(l).cssText.replace(&quot;\n&quot;, &quot; &quot;), nl)
             nl = nl.addLabel(l.label)
 
         for p in self.fd.propagators:
@@ -169,13 +170,12 @@ from pyfeyn2.render.render import Render
             else:
                 lname = p.type
             nl = NamedLine[lname](Point(src.x, src.y), Point(tar.x, tar.y))
-            print(nl, lname)
             if pstyle.getProperty(&quot;bend&quot;) is not None:
                 nl = nl.bend(pstyle.getProperty(&quot;bend&quot;).value)
-            nl = self.apply_layout(v.raw_style(), nl)
+            nl = self.apply_layout(self.fd.get_style(p).cssText.replace(&quot;\n&quot;, &quot; &quot;), nl)
             nl = nl.addLabel(p.label)
         pyxfd.draw(file)
-        print(&quot;Drawing to %s&quot; % file)
+        # print(&quot;Drawing to %s&quot; % file)
         wi = WImage(filename=file, resolution=resolution, width=width, height=height)
         if delete:
             os.remove(file)
@@ -229,6 +229,8 @@ from pyfeyn2.render.render import Render
             or &quot;arrow-angle&quot; in styledict
             or &quot;arrow-constrict&quot; in styledict
             or &quot;arrow-pos&quot; in styledict
+            or &quot;arrow-sense&quot; in styledict
+            or &quot;arrow-displace&quot; in styledict
         ) and isinstance(obj, Line):
             try:
                 arrsize = pyx.unit.length(float(styledict[&quot;arrow-size&quot;]), unit=&quot;cm&quot;)
@@ -246,9 +248,24 @@ from pyfeyn2.render.render import Render
                 arrpos = float(styledict[&quot;arrow-pos&quot;])
             except Exception:
                 arrpos = 0.5
-            obj.addArrow(arrow=Arrow(arrpos, arrsize, arrangle, arrconstrict))
+            try:
+                arrsense = float(styledict[&quot;arrow-sense&quot;])
+            except Exception:
+                arrsense = 1
+            if arrsense == 1 or arrsense == -1:
+                obj.addArrow(
+                    arrow=Arrow(arrpos, arrsize, arrangle, arrconstrict, arrsense)
+                )
+            elif arrsense == 0:
+                # no arrow
+                pass
+            else:
+                warn(&quot;arrow-sense must be 1, -1 or 0 (no arrow).&quot;)
+            # obj.addArrow(arrow=Arrow(arrpos, arrsize, arrangle, arrconstrict, arrsense))
         if (
-            &quot;parallel-arrow-size&quot; in styledict
+            &quot;momentum-arrow&quot; in styledict
+            or &quot;momentum-arrow-sense&quot; in styledict
+            or &quot;parallel-arrow-size&quot; in styledict
             or &quot;parallel-arrow-angle&quot; in styledict
             or &quot;parallel-arrow-constrict&quot; in styledict
             or &quot;parallel-arrow-pos&quot; in styledict
@@ -283,12 +300,22 @@ from pyfeyn2.render.render import Render
             except Exception:
                 arrdisp = 0.3
             try:
-                arrsense = int(styledict[&quot;parallel-arrow-sense&quot;])
+                arrsense = int(styledict[&quot;momentum-arrow-sense&quot;])
             except Exception:
                 arrsense = +1
-            obj.addParallelArrow(
-                arrpos, arrdisp, arrlen, arrsize, arrangle, arrconstrict, arrsense
-            )
+                try:
+                    arrsense = int(styledict[&quot;parallel-arrow-sense&quot;])
+                except Exception:
+                    arrsense = +1
+            if arrsense == 1 or arrsense == -1:
+                obj.addParallelArrow(
+                    arrpos, arrdisp, arrlen, arrsize, arrangle, arrconstrict, arrsense
+                )
+            elif arrsense == 0:
+                # no arrow
+                pass
+            else:
+                warn(&quot;momentum-arrow-sense must be 1, -1 or 0 (no arrow).&quot;)
         if &quot;is3d&quot; in styledict and isinstance(obj, Line):
             fwords = [&quot;0&quot;, &quot;no&quot;, &quot;false&quot;, &quot;f&quot;, &quot;off&quot;]
             twords = [&quot;1&quot;, &quot;yes&quot;, &quot;true&quot;, &quot;t&quot;, &quot;on&quot;]
@@ -318,8 +345,10 @@ from pyfeyn2.render.render import Render
             &quot;line&quot;,
             &quot;bend&quot;,
             &quot;arrow-pos&quot;,
-            # &quot;arrow-sense&quot;,  #           &quot;parallel-arrow-sense&quot;,
-            # &quot;arrow-displace&quot;,  #           &quot;parallel-arrow-displace&quot;,
+            &quot;arrow-sense&quot;,
+            &quot;arrow-size&quot;,
+            &quot;arrow-angle&quot;,
+            &quot;arrow-constrict&quot;,
         ]</div>
 </pre></div>
 

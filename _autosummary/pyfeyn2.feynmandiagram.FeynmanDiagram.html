@@ -41,7 +41,7 @@
               <img src="../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.2.6
+                2.3.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -177,7 +177,7 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.FeynmanDiagram.get_style" title="pyfeyn2.feynmandiagram.FeynmanDiagram.get_style"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_style</span></code></a>(obj)</p></td>
 <td><p>Get the style of an object.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_style_property</span></code>(key)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_style_property</span></code>(obj, property_name)</p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_vertex</span></code>(idd)</p></td>
@@ -210,34 +210,37 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.FeynmanDiagram.with_default_style" title="pyfeyn2.feynmandiagram.FeynmanDiagram.with_default_style"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_default_style</span></code></a>(value[, k])</p></td>
 <td><p>Set default_style to <cite>value</cite> and return self.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.FeynmanDiagram.with_id" title="pyfeyn2.feynmandiagram.FeynmanDiagram.with_id"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_id</span></code></a>(value[, k])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.FeynmanDiagram.with_external_sheet" title="pyfeyn2.feynmandiagram.FeynmanDiagram.with_external_sheet"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_external_sheet</span></code></a>(value[, k])</p></td>
+<td><p>Set external_sheet to <cite>value</cite> and return self.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.FeynmanDiagram.with_id" title="pyfeyn2.feynmandiagram.FeynmanDiagram.with_id"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_id</span></code></a>(value[, k])</p></td>
 <td><p>Set id to <cite>value</cite> and return self.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.FeynmanDiagram.with_legs" title="pyfeyn2.feynmandiagram.FeynmanDiagram.with_legs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_legs</span></code></a>(value[, k])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.FeynmanDiagram.with_legs" title="pyfeyn2.feynmandiagram.FeynmanDiagram.with_legs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_legs</span></code></a>(value[, k])</p></td>
 <td><p>Set legs to <cite>value</cite> and return self.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.FeynmanDiagram.with_propagators" title="pyfeyn2.feynmandiagram.FeynmanDiagram.with_propagators"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_propagators</span></code></a>(value[, k])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.FeynmanDiagram.with_propagators" title="pyfeyn2.feynmandiagram.FeynmanDiagram.with_propagators"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_propagators</span></code></a>(value[, k])</p></td>
 <td><p>Set propagators to <cite>value</cite> and return self.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_rule</span></code>(rule)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_rule</span></code>(rule)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_rules</span></code>(rules)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_rules</span></code>(rules)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.FeynmanDiagram.with_sheet" title="pyfeyn2.feynmandiagram.FeynmanDiagram.with_sheet"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_sheet</span></code></a>(value[, k])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.FeynmanDiagram.with_sheet" title="pyfeyn2.feynmandiagram.FeynmanDiagram.with_sheet"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_sheet</span></code></a>(value[, k])</p></td>
 <td><p>Set sheet to <cite>value</cite> and return self.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_style</span></code>(style)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_style</span></code>(style)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_style_properties</span></code>(**kwargs)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_style_properties</span></code>(**kwargs)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_style_property</span></code>(key, value)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_style_property</span></code>(key, value)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.FeynmanDiagram.with_vertices" title="pyfeyn2.feynmandiagram.FeynmanDiagram.with_vertices"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_vertices</span></code></a>(value[, k])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.FeynmanDiagram.with_vertices" title="pyfeyn2.feynmandiagram.FeynmanDiagram.with_vertices"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_vertices</span></code></a>(value[, k])</p></td>
 <td><p>Set vertices to <cite>value</cite> and return self.</p></td>
 </tr>
 </tbody>
@@ -251,7 +254,10 @@
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">default_style</span></code></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">id</span></code></p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">external_sheet</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">id</span></code></p></td>
 <td><p></p></td>
 </tr>
 </tbody>
@@ -307,6 +313,12 @@
 <dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.FeynmanDiagram.with_default_style">
 <span class="sig-name descname"><span class="pre">with_default_style</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'default_style'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.feynmandiagram.FeynmanDiagram.with_default_style" title="Permalink to this definition"></a></dt>
 <dd><p>Set default_style to <cite>value</cite> and return self.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.FeynmanDiagram.with_external_sheet">
+<span class="sig-name descname"><span class="pre">with_external_sheet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'external_sheet'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.feynmandiagram.FeynmanDiagram.with_external_sheet" title="Permalink to this definition"></a></dt>
+<dd><p>Set external_sheet to <cite>value</cite> and return self.</p>
 </dd></dl>
 
 <dl class="py method">

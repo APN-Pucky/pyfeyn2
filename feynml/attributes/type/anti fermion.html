@@ -44,7 +44,7 @@
               <img src="../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.2.6
+                2.3.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -168,28 +168,6 @@
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-pyx:
-pyx failed:
-Traceback (most recent call last):
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/all.py&#34;, line 86, in render
-    render(fd).render(dirpath + &#34;/&#34; + name + &#34;.pdf&#34;, **dynarg)
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/pyx/pyxrender.py&#34;, line 53, in render
-    nl = NamedLine[p.type](Point(src.x, src.y), Point(tar.x, tar.y))
-KeyError: &#39;anti fermion&#39;
-
-feynmp:
-feynmp failed:
-Traceback (most recent call last):
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/all.py&#34;, line 86, in render
-    render(fd).render(dirpath + &#34;/&#34; + name + &#34;.pdf&#34;, **dynarg)
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/latex/feynmp.py&#34;, line 139, in __init__
-    self.set_feynman_diagram(fd)
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/latex/feynmp.py&#34;, line 143, in set_feynman_diagram
-    self.set_src_diag(NoEscape(feynman_to_feynmp(fd)))
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/latex/feynmp.py&#34;, line 104, in feynman_to_feynmp
-    tttype = type_map[p.type]
-KeyError: &#39;anti fermion&#39;
-
 tikz:
 </pre></div></div>
 </div>
@@ -205,74 +183,89 @@ tikz:
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-dot:
-dot failed:
-Traceback (most recent call last):
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/all.py&#34;, line 86, in render
-    render(fd).render(dirpath + &#34;/&#34; + name + &#34;.pdf&#34;, **dynarg)
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/latex/dot.py&#34;, line 72, in __init__
-    self.set_feynman_diagram(fd)
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/latex/dot.py&#34;, line 76, in set_feynman_diagram
-    self.src_dot = feynman_to_dot(
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/interface/dot.py&#34;, line 27, in feynman_to_dot
-    thestyle = styler(p)
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/latex/dot.py&#34;, line 33, in stylize_connect
-    style = &#39;style=&#34;{}&#34;,texmode=&#34;raw&#34;&#39;.format(map_feyn_to_tikz[c.type])
-KeyError: &#39;anti fermion&#39;
-
+pyx:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../_images/feynml_attributes_type_anti_fermion_1_3.png" src="../../../_images/feynml_attributes_type_anti_fermion_1_3.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+feynmp:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../_images/feynml_attributes_type_anti_fermion_1_5.png" src="../../../_images/feynml_attributes_type_anti_fermion_1_5.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
 feynman:
-feynman failed:
-Traceback (most recent call last):
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/all.py&#34;, line 86, in render
-    render(fd).render(dirpath + &#34;/&#34; + name + &#34;.pdf&#34;, **dynarg)
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/mpl/feynmanrender.py&#34;, line 75, in render
-    byid[v.id] = diagram.vertex(
-  File &#34;/home/apn/.cache/pypoetry/virtualenvs/pyfeyn2-CEvJ4jFG-py3.9/lib/python3.9/site-packages/feynman/diagrams/diagrams.py&#34;, line 73, in vertex
-    v = Vertex(xy, **kwargs)
-  File &#34;/home/apn/.cache/pypoetry/virtualenvs/pyfeyn2-CEvJ4jFG-py3.9/lib/python3.9/site-packages/feynman/core/vertex.py&#34;, line 64, in __init__
-    cxy = (np.complex(*xy) + np.complex(*dxy) + np.complex(dx, dy)
-  File &#34;/home/apn/.cache/pypoetry/virtualenvs/pyfeyn2-CEvJ4jFG-py3.9/lib/python3.9/site-packages/numpy/__init__.py&#34;, line 284, in __getattr__
-    raise AttributeError(&#34;module {!r} has no attribute &#34;
-AttributeError: module &#39;numpy&#39; has no attribute &#39;complex&#39;
-
-mpl:
-mpl failed:
-Traceback (most recent call last):
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/all.py&#34;, line 86, in render
-    render(fd).render(dirpath + &#34;/&#34; + name + &#34;.pdf&#34;, **dynarg)
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/mpl/mpl.py&#34;, line 138, in render
-    namedlines[p.type](idtopos[p.source], idtopos[p.target])
-KeyError: &#39;anti fermion&#39;
-
-ascii:
-ascii failed:
-Traceback (most recent call last):
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/all.py&#34;, line 86, in render
-    render(fd).render(dirpath + &#34;/&#34; + name + &#34;.pdf&#34;, **dynarg)
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/text/asciipdf.py&#34;, line 25, in render
-    ASCIIRender.render(self, file, show, resolution, width, height)
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/text/ascii.py&#34;, line 150, in render
-    self.namedlines[p.type]().draw(pane, src, tar, **fmt)
-KeyError: &#39;anti fermion&#39;
-
-unicode:
-unicode failed:
-Traceback (most recent call last):
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/all.py&#34;, line 86, in render
-    render(fd).render(dirpath + &#34;/&#34; + name + &#34;.pdf&#34;, **dynarg)
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/text/unicodepdf.py&#34;, line 64, in render
-    UnicodeRender.render(self, file, show, resolution, width, height)
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/text/ascii.py&#34;, line 150, in render
-    self.namedlines[p.type]().draw(pane, src, tar, **fmt)
-KeyError: &#39;anti fermion&#39;
-
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../_images/feynml_attributes_type_anti_fermion_1_7.png" src="../../../_images/feynml_attributes_type_anti_fermion_1_7.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+dot:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../_images/feynml_attributes_type_anti_fermion_1_9.png" src="../../../_images/feynml_attributes_type_anti_fermion_1_9.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+asciipdf:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../_images/feynml_attributes_type_anti_fermion_1_11.png" src="../../../_images/feynml_attributes_type_anti_fermion_1_11.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+unicodepdf:
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/feynml_attributes_type_anti_fermion_1_3.png" src="../../../_images/feynml_attributes_type_anti_fermion_1_3.png" />
+<img alt="../../../_images/feynml_attributes_type_anti_fermion_1_13.png" src="../../../_images/feynml_attributes_type_anti_fermion_1_13.png" />
 </div>
 </div>
 </section>

@@ -33,6 +33,7 @@ feynml.feynmandiagram.FeynmanDiagram
       ~FeynmanDiagram.to_xml
       ~FeynmanDiagram.with_class
       ~FeynmanDiagram.with_default_style
+      ~FeynmanDiagram.with_external_sheet
       ~FeynmanDiagram.with_id
       ~FeynmanDiagram.with_legs
       ~FeynmanDiagram.with_propagators
@@ -54,6 +55,7 @@ feynml.feynmandiagram.FeynmanDiagram
    
       ~FeynmanDiagram.clazz
       ~FeynmanDiagram.default_style
+      ~FeynmanDiagram.external_sheet
       ~FeynmanDiagram.id
       ~FeynmanDiagram.propagators
       ~FeynmanDiagram.vertices
