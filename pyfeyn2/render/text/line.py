@@ -19,6 +19,7 @@ class ASCIILine:
         kickx=0,
         kicky=0,
         colorer=lambda x: x,
+        **kwargs,
     ):
         # width = len(pane[0])
         # height = len(pane)

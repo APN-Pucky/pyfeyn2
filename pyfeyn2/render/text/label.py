@@ -37,7 +37,18 @@ class Label(ASCIILine):
             .replace("^", "")
         )
 
-    def draw(self, pane, isrc, itar, scalex=1, scaley=1, kickx=0, kicky=0, **kwargs):
+    def draw(
+        self,
+        pane,
+        isrc,
+        itar,
+        scalex=1,
+        scaley=1,
+        kickx=0,
+        kicky=0,
+        colorer=lambda x: x,
+        **kwargs
+    ):
         jsrc = copy.copy(isrc)
         jtar = copy.copy(itar)
 
@@ -71,5 +82,5 @@ class Label(ASCIILine):
                 jsrc.x += shift / scalex
                 jtar.x += shift / scalex
 
-        super().draw(pane, jsrc, jtar, scalex, scaley, kickx, kicky, **kwargs)
+        super().draw(pane, jsrc, jtar, scalex, scaley, kickx, kicky, colorer, **kwargs)
         self.index = 0

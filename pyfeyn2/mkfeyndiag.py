@@ -7,7 +7,7 @@ import cssutils
 from feynml.feynml import FeynML
 from xsdata.formats.dataclass.parsers import XmlParser
 
-import pyfeyn2.render.all as all
+import pyfeyn2.render.all as renderall
 from pyfeyn2.render.text.ascii import ASCIIRender
 from pyfeyn2.render.text.unicode import UnicodeRender
 
@@ -75,8 +75,8 @@ def main():
         renderer = ASCIIRender
     elif arenderer.lower() == "unicode":
         renderer = UnicodeRender
-    elif arenderer.lower() in all.renders:
-        renderer = all.renders[arenderer.lower()]
+    elif arenderer.lower() in renderall.renders:
+        renderer = renderall.renders[arenderer.lower()]
     else:
         renderer = renderer_from_string(arenderer)
 
