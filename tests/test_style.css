@@ -1,0 +1,9 @@
+* {
+  color: red;
+}
+
+[type=fermion] {
+  line: gluon;
+  arrow-sense: 1;
+  color: green;
+}
