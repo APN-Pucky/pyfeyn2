@@ -9,7 +9,17 @@ class ASCIILine:
         self.end = end
         self.style = style
 
-    def draw(self, pane, isrc, itar, scalex=1, scaley=1, kickx=0, kicky=0):
+    def draw(
+        self,
+        pane,
+        isrc,
+        itar,
+        scalex=1,
+        scaley=1,
+        kickx=0,
+        kicky=0,
+        colorer=lambda x: x,
+    ):
         # width = len(pane[0])
         # height = len(pane)
         # TODO normalize to width and height as well
@@ -24,20 +34,20 @@ class ASCIILine:
                 if v is not None:
                     pane[round(srcy + (tary - srcy) * (i - srcx) / (-srcx + tarx))][
                         i
-                    ] = v
+                    ] = colorer(v)
         else:
             for i in range(srcy, tary, 1 if srcy < tary else -1):
                 v = self.style.next(tarx - srcx, tary - srcy)
                 if v is not None:
                     pane[i][
                         round(srcx + (tarx - srcx) * (i - srcy) / (-srcy + tary))
-                    ] = v
+                    ] = colorer(v)
         # call once to increase the index
         v = self.style.next(tarx - srcx, tary - srcy)
 
         if v is None:
             return
         if self.begin is not None and self.begin != "":
-            pane[srcy][srcx] = self.begin
+            pane[srcy][srcx] = colorer(self.begin)
         if self.end is not None and self.end != "":
-            pane[tary][tarx] = self.end
+            pane[tary][tarx] = colorer(self.end)

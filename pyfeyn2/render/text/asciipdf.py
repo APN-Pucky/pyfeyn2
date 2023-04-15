@@ -22,7 +22,14 @@ class ASCIIPDFRender(PlainPDFRender, ASCIIRender):
         height=None,
         clean_up=True,
     ):
-        ASCIIRender.render(self, file, show, resolution, width, height)
+        ASCIIRender.render(
+            self,
+            file=None,
+            show=False,
+            resolution=resolution,
+            width=width,
+            height=height,
+        )
         return PlainPDFRender.render(
             self, file, show, resolution, width, height, clean_up
         )

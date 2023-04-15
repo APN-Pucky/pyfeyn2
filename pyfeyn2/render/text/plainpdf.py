@@ -27,8 +27,29 @@ class PlainPDFRender(LatexRender):
             **kwargs,
         )
         self.preamble.append(Command("usepackage", NoEscape("listings")))
+        self.preamble.append(Command("usepackage", NoEscape("xcolor")))
         self.environment = environment
         self.environment_arg = environment_arg
+
+    def get_color_text(self, text, color):
+        """
+        Return text with color via LaTeX commands.
+        """
+        self.preamble.append(
+            Command(
+                "lstset",
+                NoEscape(
+                    "moredelim=[is][\color{"
+                    + color
+                    + "}]{@"
+                    + color
+                    + "!}{!"
+                    + color
+                    + "@}"
+                ),
+            )
+        )
+        return "@" + color + "!" + text + "!" + color + "@"
 
     def render(
         self,

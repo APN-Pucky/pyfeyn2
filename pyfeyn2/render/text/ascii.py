@@ -1,4 +1,5 @@
 from typing import List
+from warnings import warn
 
 from pyfeyn2.feynmandiagram import Point
 from pyfeyn2.render.render import Render
@@ -7,19 +8,32 @@ from pyfeyn2.render.text.line import ASCIILine
 from pyfeyn2.render.text.point import ASCIIPoint
 from pyfeyn2.render.text.style import Cross
 
+try:
+    import colorama
+    from termcolor import colored
+except ImportError:
+    warn("colorama and termcolor are required for colored ASCII rendering")
+
+    def colored(text, color):
+        return text
+
 
 class Gluon(ASCIILine):
-    def __init__(self):
-        super().__init__(style=Cross(vert=["O"], horz=["O"]), begin="*", end="*")
+    def __init__(self, **kwargs):
+        super().__init__(
+            style=Cross(vert=["O"], horz=["O"]), begin="*", end="*", **kwargs
+        )
 
 
 class Photon(ASCIILine):
-    def __init__(self):
-        super().__init__(begin="*", end="*", style=Cross(vert=["(", ")"], horz=["~"]))
+    def __init__(self, **kwargs):
+        super().__init__(
+            begin="*", end="*", style=Cross(vert=["(", ")"], horz=["~"]), **kwargs
+        )
 
 
 class Fermion(ASCIILine):
-    def __init__(self):
+    def __init__(self, **kwargs):
         super().__init__(
             begin="*",
             end="*",
@@ -29,11 +43,12 @@ class Fermion(ASCIILine):
                 up="||^||",
                 down="||v||",
             ),
+            **kwargs,
         )
 
 
 class AntiFermion(ASCIILine):
-    def __init__(self):
+    def __init__(self, **kwargs):
         super().__init__(
             begin="*",
             end="*",
@@ -43,11 +58,12 @@ class AntiFermion(ASCIILine):
                 up="||v||",
                 down="||^||",
             ),
+            **kwargs,
         )
 
 
 class Line(ASCIILine):
-    def __init__(self):
+    def __init__(self, **kwargs):
         super().__init__(
             begin="*",
             end="*",
@@ -57,11 +73,12 @@ class Line(ASCIILine):
                 up="|||||",
                 down="|||||",
             ),
+            **kwargs,
         )
 
 
 class Scalar(ASCIILine):
-    def __init__(self):
+    def __init__(self, **kwargs):
         super().__init__(
             begin="*",
             end="*",
@@ -71,11 +88,12 @@ class Scalar(ASCIILine):
                 up="::^::",
                 down="::v::",
             ),
+            **kwargs,
         )
 
 
 class Ghost(ASCIILine):
-    def __init__(self):
+    def __init__(self, **kwargs):
         super().__init__(
             begin="*",
             end="*",
@@ -83,11 +101,12 @@ class Ghost(ASCIILine):
                 vert=":",
                 horz=".",
             ),
+            **kwargs,
         )
 
 
 class Higgs(ASCIILine):
-    def __init__(self):
+    def __init__(self, **kwargs):
         super().__init__(
             begin="*",
             end="*",
@@ -95,22 +114,27 @@ class Higgs(ASCIILine):
                 vert="=",
                 horz="H",
             ),
+            **kwargs,
         )
 
 
 class Gluino(ASCIILine):
-    def __init__(self):
-        super().__init__(begin="*", end="*", style=Cross(vert=["&"], horz=["&"]))
+    def __init__(self, **kwargs):
+        super().__init__(
+            begin="*", end="*", style=Cross(vert=["&"], horz=["&"]), **kwargs
+        )
 
 
 class Gaugino(ASCIILine):
-    def __init__(self):
-        super().__init__(begin="*", end="*", style=Cross(vert=["$"], horz=["$"]))
+    def __init__(self, **kwargs):
+        super().__init__(
+            begin="*", end="*", style=Cross(vert=["$"], horz=["$"]), **kwargs
+        )
 
 
 class Phantom(ASCIILine):
-    def __init__(self):
-        super().__init__(begin=None, end=None, style=Cross(vert="", horz=""))
+    def __init__(self, **kwargs):
+        super().__init__(begin=None, end=None, style=Cross(vert="", horz=""), **kwargs)
 
     def draw(self, pane, isrc, itar, scalex=1, scaley=1, kickx=0, kicky=0):
         pass
@@ -151,6 +175,9 @@ class ASCIIRender(Render):
     def __init__(self, fd=None, *args, **kwargs):
         super().__init__(fd, *args, **kwargs)
 
+    def get_color_text(self, text, color):
+        return colored(text, color)
+
     def render(
         self,
         file=None,
@@ -186,6 +213,7 @@ class ASCIIRender(Render):
         fmt = {"scalex": scalex, "kickx": kickx, "scaley": scaley, "kicky": kicky}
 
         for p in self.fd.propagators:
+            tmp_fmt = {}
             pstyle = self.fd.get_style(p)
             src = self.fd.get_vertex(p.source)
             tar = self.fd.get_vertex(p.target)
@@ -193,35 +221,59 @@ class ASCIIRender(Render):
                 lname = pstyle.getProperty("line").value
             else:
                 lname = p.type  # fallback no style
-            self.namedlines[lname]().draw(pane, src, tar, **fmt)
+            if pstyle.getProperty("color") is not None:
+                tmp_fmt["colorer"] = lambda t: self.get_color_text(
+                    t, pstyle.getProperty("color").value
+                )
+            self.namedlines[lname]().draw(pane, src, tar, **fmt, **tmp_fmt)
             if p.label is not None:
-                self.namedlines["label"](p.label).draw(pane, src, tar, **fmt)
+                self.namedlines["label"](p.label).draw(pane, src, tar, **fmt, **tmp_fmt)
         for l in self.fd.legs:
+            tmp_fmt = {}
             lstyle = self.fd.get_style(l)
             tar = self.fd.get_vertex(l.target)
             if lstyle.getProperty("line") is not None:
                 lname = lstyle.getProperty("line").value
             else:
                 lname = l.type  # fallback no style
+            if lstyle.getProperty("color") is not None:
+                tmp_fmt["colorer"] = lambda t: self.get_color_text(
+                    t, lstyle.getProperty("color").value
+                )
             if l.is_incoming():
-                self.namedlines[lname]().draw(pane, Point(l.x, l.y), tar, **fmt)
+                self.namedlines[lname]().draw(
+                    pane, Point(l.x, l.y), tar, **fmt, **tmp_fmt
+                )
                 if l.label is not None:
                     self.namedlines["label"](l.label).draw(
-                        pane, Point(l.x, l.y), tar, **fmt
+                        pane, Point(l.x, l.y), tar, **fmt, **tmp_fmt
                     )
             elif l.is_outgoing():
-                self.namedlines[lname]().draw(pane, tar, Point(l.x, l.y), **fmt)
+                self.namedlines[lname]().draw(
+                    pane, tar, Point(l.x, l.y), **fmt, **tmp_fmt
+                )
                 if l.label is not None:
                     self.namedlines["label"](l.label).draw(
-                        pane, tar, Point(l.x, l.y), **fmt
+                        pane, tar, Point(l.x, l.y), **fmt, **tmp_fmt
                     )
         for v in self.fd.vertices:
+            tmp_fmt = {}
             ssss = self.fd.get_style(v)
+            if ssss.getProperty("color") is not None:
+                tmp_fmt["colorer"] = lambda t: self.get_color_text(
+                    t, ssss.getProperty("color").value
+                )
             if ssss.getProperty("symbol") is not None:
-                self.namedshapes[ssss.getProperty("symbol").value].draw(pane, v, **fmt)
+                self.namedshapes[ssss.getProperty("symbol").value].draw(
+                    pane, v, **fmt, **tmp_fmt
+                )
 
         joined = "\n".join(["".join(row) for row in pane]) + "\n"
         self.set_src_txt(joined)
+        if file:
+            # warn("Writing with color tags to file. Disable with NO_COLOR=1 env var")
+            with open(file, "w") as f:
+                f.write(joined)
         if show:
             print(joined)
         return joined
@@ -246,6 +298,7 @@ class ASCIIRender(Render):
         return super(ASCIIRender, cls).valid_styles() + [
             "line",
             "symbol",
+            "color",
         ]
 
     @classmethod

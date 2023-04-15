@@ -29,7 +29,7 @@ cssselect ="*"
 smpl_io = "*"
 smpl_doc = "*"
 smpl_util= "*"
-feynml = {version = ">=0.1.3", extras = ["interface"]}
+feynml = {version = ">=0.1.5", extras = ["interface"]}
 #feynml= {path= "../feynml", develop = true }
 
 [tool.poetry.scripts]
@@ -48,6 +48,8 @@ sphinx_autobuild = "*"
 sphinx_math_dollar = "*"
 myst-parser  = "*"
 toml = "*"
+colorama = "*"
+termcolor = "*"
 
 [tool.poetry.group.dev]
 optional = true

@@ -22,8 +22,8 @@ renders = {
     "feynmp": FeynmpRender,
     "feynman": FeynmanRender,
     "dot": DotRender,
-    "ascii": ASCIIPDFRender,
-    "unicode": UnicodePDFRender,
+    "asciipdf": ASCIIPDFRender,
+    "unicodepdf": UnicodePDFRender,
 }
 
 

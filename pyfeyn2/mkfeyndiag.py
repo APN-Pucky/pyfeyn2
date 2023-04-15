@@ -8,6 +8,8 @@ from feynml.feynml import FeynML
 from xsdata.formats.dataclass.parsers import XmlParser
 
 import pyfeyn2.render.all as all
+from pyfeyn2.render.text.ascii import ASCIIRender
+from pyfeyn2.render.text.unicode import UnicodeRender
 
 
 def class_for_name(module_name, class_name):
@@ -57,6 +59,11 @@ def main():
         type=str,
         help="CSS like Style file to use.",
     )
+    parser.add_argument(
+        "--show",
+        action="store_true",
+        help="Show the output file.",
+    )
 
     args = parser.parse_args()
 
@@ -64,6 +71,10 @@ def main():
     renderer = None
     if arenderer is None:
         pass
+    elif arenderer.lower() == "ascii":
+        renderer = ASCIIRender
+    elif arenderer.lower() == "unicode":
+        renderer = UnicodeRender
     elif arenderer.lower() in all.renders:
         renderer = all.renders[arenderer.lower()]
     else:
