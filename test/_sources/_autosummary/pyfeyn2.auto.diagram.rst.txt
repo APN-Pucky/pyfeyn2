@@ -1,0 +1,30 @@
+pyfeyn2.auto.diagram
+====================
+
+.. automodule:: pyfeyn2.auto.diagram
+  
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+      :toctree:                                         
+   
+      auto_diagram
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+

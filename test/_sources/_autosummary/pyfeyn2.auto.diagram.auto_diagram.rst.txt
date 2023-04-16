@@ -1,0 +1,6 @@
+pyfeyn2.auto.diagram.auto\_diagram
+==================================
+
+.. currentmodule:: pyfeyn2.auto.diagram
+
+.. autofunction:: auto_diagram

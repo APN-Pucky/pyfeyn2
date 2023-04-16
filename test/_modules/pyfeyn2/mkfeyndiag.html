@@ -38,7 +38,7 @@
               <img src="../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.3.0
+                2.3.2
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -200,7 +200,8 @@ from pyfeyn2.render.text.unicode import UnicodeRender
             diagram.external_sheet = cssutils.parseString(style_string)
 
     # TODO think about how to handle multiple diagrams
-    renderer(fml.diagrams[0]).render(file=args.output)</div>
+    for i, d in enumerate(fml.diagrams):
+        renderer(d).render(file=args.output + f&quot;_{i}&quot;, show=args.show)</div>
 </pre></div>
 
            </div>
