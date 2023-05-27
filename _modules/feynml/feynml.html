@@ -13,6 +13,8 @@
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/sphinx_highlight.js"></script>
@@ -38,7 +40,7 @@
               <img src="../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.3.2
+                2.3.3
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -118,6 +120,12 @@ from xsdata.formats.dataclass.serializers import XmlSerializer
 from xsdata.formats.dataclass.serializers.config import SerializerConfig
 
 from feynml.feynmandiagram import FeynmanDiagram
+from feynml.head import Head
+from feynml.id import Identifiable
+from feynml.meta import Meta
+from feynml.sheet import SheetHandler
+from feynml.styled import CSSSheet
+from feynml.xml import XML
 
 # We don&#39;t want to see the cssutils warnings, since we have custom properties
 cssutils.log.setLevel(logging.CRITICAL)
@@ -126,56 +134,8 @@ cssutils.log.setLevel(logging.CRITICAL)
 feynml_version = version(&quot;feynml&quot;)
 
 
-<div class="viewcode-block" id="Tool"><a class="viewcode-back" href="../../_autosummary/feynml.feynml.Tool.html#feynml.feynml.Tool">[docs]</a>@dataclass
-class Tool:
-    class Meta:
-        name = &quot;tool&quot;
-
-    # Deprecated to stay closer to html meta tags
-<div class="viewcode-block" id="Tool.__init__"><a class="viewcode-back" href="../../_autosummary/feynml.feynml.Tool.html#feynml.feynml.Tool.__init__">[docs]</a>    @doc.deprecated(&quot;0.1.3&quot;, &quot;Use feynml.feynml.Meta instead.&quot;)
-    def __init__(*args, **kwargs):
-        super().__init__(*args, **kwargs)</div>
-
-    name: Optional[str] = field(default=&quot;feynml&quot;, metadata={&quot;type&quot;: &quot;Element&quot;})
-    version: Optional[str] = field(
-        default=version(&quot;feynml&quot;), metadata={&quot;type&quot;: &quot;Element&quot;}
-    )</div>
-
-
-<div class="viewcode-block" id="Meta"><a class="viewcode-back" href="../../_autosummary/feynml.feynml.Meta.html#feynml.feynml.Meta">[docs]</a>@dataclass
-class Meta:
-    class Meta:
-        name = &quot;meta&quot;
-
-    name: Optional[str] = field(default=&quot;&quot;, metadata={&quot;type&quot;: &quot;Attribute&quot;})
-    content: Optional[str] = field(default=&quot;&quot;, metadata={&quot;type&quot;: &quot;Attribute&quot;})</div>
-
-
-alias_meta = Meta
-
-
-<div class="viewcode-block" id="Head"><a class="viewcode-back" href="../../_autosummary/feynml.feynml.Head.html#feynml.feynml.Head">[docs]</a>@dataclass
-class Head:
-    class Meta:
-        name = &quot;head&quot;
-
-    metas: List[alias_meta] = field(
-        default_factory=list,
-        metadata={&quot;name&quot;: &quot;meta&quot;, &quot;namespace&quot;: &quot;&quot;},
-    )
-    description: Optional[str] = field(default=&quot;&quot;, metadata={&quot;type&quot;: &quot;Element&quot;})
-
-    style: Optional[str] = field(default=&quot;&quot;, metadata={&quot;type&quot;: &quot;Element&quot;})
-
-<div class="viewcode-block" id="Head.get_meta_dict"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.Head.html#feynml.feynml.Head.get_meta_dict">[docs]</a>    def get_meta_dict(self):
-        &quot;&quot;&quot;
-        Return a dictionary of meta tags.
-        &quot;&quot;&quot;
-        return {m.name: m.content for m in self.metas}</div></div>
-
-
 <div class="viewcode-block" id="FeynML"><a class="viewcode-back" href="../../_autosummary/feynml.feynml.FeynML.html#feynml.feynml.FeynML">[docs]</a>@dataclass
-class FeynML:
+class FeynML(SheetHandler, XML):
     class Meta:
         name = &quot;feynml&quot;
 
@@ -186,14 +146,21 @@ class FeynML:
     # post init to check version
     def __post_init__(self):
         if self.version &lt; feynml_version:
-            warnings.warn(&quot;FeynML version is older than this parser.&quot;)
+            warnings.warn(
+                f&quot;FeynML version {self.version} is older than this parser {feynml_version}.&quot;
+            )
         elif self.version &gt; feynml_version:
-            warnings.warn(&quot;FeynML version is newer than this parser.&quot;)
+            warnings.warn(
+                f&quot;FeynML version {self.version} is newer than this parser {feynml_version}.&quot;
+            )
 
         self.head.metas.append(Meta(&quot;feynml&quot;, version(&quot;feynml&quot;)))
+        for d in self.diagrams:
+            d.parent_fml = self
 
     head: Optional[Head] = field(
-        default=Head(), metadata={&quot;name&quot;: &quot;head&quot;, &quot;namespace&quot;: &quot;&quot;, &quot;type&quot;: &quot;Element&quot;}
+        default_factory=lambda: Head(),
+        metadata={&quot;name&quot;: &quot;head&quot;, &quot;namespace&quot;: &quot;&quot;, &quot;type&quot;: &quot;Element&quot;},
     )
 
     diagrams: List[FeynmanDiagram] = field(
@@ -207,17 +174,24 @@ class FeynML:
                 return d
         return None
 
-<div class="viewcode-block" id="FeynML.to_xml"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.FeynML.html#feynml.feynml.FeynML.to_xml">[docs]</a>    def to_xml(self) -&gt; str:
-        &quot;&quot;&quot;Return self as XML.&quot;&quot;&quot;
-        config = SerializerConfig(pretty_print=True)
-        serializer = XmlSerializer(config=config)
-        return serializer.render(self)</div>
+<div class="viewcode-block" id="FeynML.get_style"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.FeynML.html#feynml.feynml.FeynML.get_style">[docs]</a>    def get_style(self, obj, xml=None):
+        if xml is None:
+            xml = self
+        for d in self.diagrams:
+            if isinstance(obj, Identifiable):
+                if d.has_id(obj.id):
+                    return d.get_style(obj, xml)
+        return self.head.get_style(obj, xml)</div>
 
-<div class="viewcode-block" id="FeynML.from_xml"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.FeynML.html#feynml.feynml.FeynML.from_xml">[docs]</a>    @classmethod
-    def from_xml(cls, xml: str):
-        &quot;&quot;&quot;Load self from XML.&quot;&quot;&quot;
-        parser = XmlParser()
-        return parser.from_string(xml, cls)</div></div>
+<div class="viewcode-block" id="FeynML.get_sheets"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.FeynML.html#feynml.feynml.FeynML.get_sheets">[docs]</a>    def get_sheets(self):
+        return self.head.get_sheets()</div>
+
+<div class="viewcode-block" id="FeynML.get_sheet"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.FeynML.html#feynml.feynml.FeynML.get_sheet">[docs]</a>    def get_sheet(self):
+        return self.head.get_sheet()</div>
+
+<div class="viewcode-block" id="FeynML.with_sheet"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.FeynML.html#feynml.feynml.FeynML.with_sheet">[docs]</a>    def with_sheet(self, sheet):
+        self.head.with_sheet(sheet)
+        return self</div></div>
 </pre></div>
 
            </div>

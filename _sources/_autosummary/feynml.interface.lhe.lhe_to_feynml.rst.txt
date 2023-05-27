@@ -1,0 +1,6 @@
+feynml.interface.lhe.lhe\_to\_feynml
+====================================
+
+.. currentmodule:: feynml.interface.lhe
+
+.. autofunction:: lhe_to_feynml

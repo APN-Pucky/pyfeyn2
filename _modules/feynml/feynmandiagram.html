@@ -13,6 +13,8 @@
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/sphinx_highlight.js"></script>
@@ -38,7 +40,7 @@
               <img src="../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.3.2
+                2.3.3
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -111,20 +113,21 @@ from dataclasses import dataclass, field
 from typing import List, Optional, Union
 
 import cssutils
+import smpl_doc.doc as doc
 from cssselect import GenericTranslator, SelectorError
 from lxml import etree
 from smpl_util.util import withify
-from xsdata.formats.dataclass.parsers import XmlParser
-from xsdata.formats.dataclass.serializers import XmlSerializer
-from xsdata.formats.dataclass.serializers.config import SerializerConfig
 
+from feynml.head import Head
 from feynml.id import Identifiable
 from feynml.leg import Leg
 from feynml.propagator import Propagator
+from feynml.sheet import SheetHandler
 from feynml.styled import CSSSheet, Styled
 from feynml.vertex import Vertex
+from feynml.xml import XML
 
-from .types import get_default_sheet
+from .type import get_default_sheet
 
 # We don&#39;t want to see the cssutils warnings, since we have custom properties
 cssutils.log.setLevel(logging.CRITICAL)
@@ -132,14 +135,9 @@ cssutils.log.setLevel(logging.CRITICAL)
 
 <div class="viewcode-block" id="FeynmanDiagram"><a class="viewcode-back" href="../../_autosummary/feynml.feynmandiagram.FeynmanDiagram.html#feynml.feynmandiagram.FeynmanDiagram">[docs]</a>@withify()
 @dataclass
-class FeynmanDiagram(Styled, Identifiable):
+class FeynmanDiagram(SheetHandler, XML, Styled, Identifiable):
     class Meta:
         name = &quot;diagram&quot;
-
-    default_style: Optional[bool] = field(
-        default=True,
-        metadata={&quot;name&quot;: &quot;default_style&quot;, &quot;xml_attribute&quot;: True, &quot;type&quot;: &quot;Attribute&quot;},
-    )
 
     propagators: List[Propagator] = field(
         default_factory=list,
@@ -154,19 +152,17 @@ class FeynmanDiagram(Styled, Identifiable):
         metadata={&quot;name&quot;: &quot;leg&quot;, &quot;type&quot;: &quot;Element&quot;, &quot;namespace&quot;: &quot;&quot;},
     )
 
+    parent_fml = None
+
     sheet: CSSSheet = field(
         default_factory=lambda: cssutils.parseString(&quot;&quot;),
         metadata={
-            &quot;name&quot;: &quot;style&quot;,
+            &quot;name&quot;: &quot;sheet&quot;,
             &quot;xml_attribute&quot;: True,
             &quot;type&quot;: &quot;Attribute&quot;,
             &quot;namespace&quot;: &quot;&quot;,
         },
     )
-    # external_sheet is used to store the sheet from the file
-    # so that we can use it to update the sheet.
-    # It is not saved to the fml file.
-    external_sheet: CSSSheet = None
 
     def add(self, *fd_all: List[Union[Propagator, Vertex, Leg]]):
         for a in fd_all:
@@ -180,10 +176,29 @@ class FeynmanDiagram(Styled, Identifiable):
                 raise Exception(&quot;Unknown type: &quot; + str(type(a)) + &quot; &quot; + str(a))
         return self
 
+    def has_id(self, id):
+        for l in [self.propagators, self.vertices, self.legs]:
+            for a in l:
+                if a.id == id:
+                    return True
+        return False
+
+    def get_point(self, idd):
+        for v in self.vertices:
+            if v.id == idd:
+                return v
+        for leg in self.legs:
+            if leg.id == idd:
+                return leg
+        return None
+
     def get_vertex(self, idd):
         for v in self.vertices:
             if v.id == idd:
                 return v
+        return None
+
+    def get_leg(self, idd):
         for leg in self.legs:
             if leg.id == idd:
                 return leg
@@ -206,119 +221,50 @@ class FeynmanDiagram(Styled, Identifiable):
         max_x = 0
         max_y = 0
         for v in self.vertices:
+            if v.x is None or v.y is None:
+                warnings.warn(
+                    &quot;Vertex &quot; + v.id + &quot; has no position, skipping it in bounding box&quot;
+                )
+                continue
             min_x = min(min_x, v.x)
             min_y = min(min_y, v.y)
             max_x = max(max_x, v.x)
             max_y = max(max_y, v.y)
         for leg in self.legs:
+            if leg.x is None or leg.y is None:
+                warnings.warn(
+                    &quot;Leg &quot; + leg.id + &quot; has no position, skipping it in bounding box&quot;
+                )
+                continue
             min_x = min(min_x, leg.x)
             min_y = min(min_y, leg.y)
             max_x = max(max_x, leg.x)
             max_y = max(max_y, leg.y)
         return min_x, min_y, max_x, max_y
 
-    def add_rule(self, rule: str):
-        self.sheet.add(rule)
-        return self
-
-    def add_rules(self, rules: str):
-        self.sheet = cssutils.parseString(
-            self.sheet.cssText.decode(&quot;utf-8&quot;) + &quot;\n&quot; + rules
-        )
-        return self
-
-    def with_rule(self, rule: str):
-        return self.with_rules(rule)
-
-    def with_rules(self, rules: str):
-        self.sheet = cssutils.parseString(rules)
-        return self
-
-    def get_style_property(self, obj, property_name):
-        style = self.get_style(obj)
-        p = style.getProperty(property_name)
-        if p is None:
-            return None
+<div class="viewcode-block" id="FeynmanDiagram.get_style"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.FeynmanDiagram.html#feynml.feynmandiagram.FeynmanDiagram.get_style">[docs]</a>    @doc.append_doc(Head.get_style)
+    def get_style(self, obj, xml: XML = None) -&gt; cssutils.css.CSSStyleDeclaration:
+        if self.parent_fml is not None:
+            return super().get_style(obj, self.parent_fml)
+        elif xml is not None:
+            return super().get_style(obj, xml)
         else:
-            return p.value
+            warnings.warn(&quot;No parent fml, returning default style&quot;)
+            return super().get_style(obj, self)</div>
 
-<div class="viewcode-block" id="FeynmanDiagram.get_style"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.FeynmanDiagram.html#feynml.feynmandiagram.FeynmanDiagram.get_style">[docs]</a>    def get_style(self, obj) -&gt; cssutils.css.CSSStyleDeclaration:
-        &quot;&quot;&quot;Get the style of an object.
+<div class="viewcode-block" id="FeynmanDiagram.get_sheets"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.FeynmanDiagram.html#feynml.feynmandiagram.FeynmanDiagram.get_sheets">[docs]</a>    def get_sheets(self):
+        if self.parent_fml is not None:
+            return self.parent_fml.get_sheets() + [self.sheet]
+        else:
+            warnings.warn(&quot;No parent fml, returning default sheet&quot;)
+            return super().get_sheets() + [self.sheet]</div>
 
-        This is prefered over accessing the style attribute directly, sicne it includes class and pdgid definitions.
-        &quot;&quot;&quot;
-        # selectorText is string
-        css = []
-        # global style
-        if isinstance(obj, Identifiable):
-            css += [self._get_obj_style(obj)]
-        if isinstance(obj, Styled):
-            # specific attribute style
-            css += [obj.style]
-        return cssutils.css.CSSStyleDeclaration(
-            cssText=&quot;;&quot;.join([c.cssText for c in css])
-        )</div>
+<div class="viewcode-block" id="FeynmanDiagram.get_sheet"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.FeynmanDiagram.html#feynml.feynmandiagram.FeynmanDiagram.get_sheet">[docs]</a>    def get_sheet(self):
+        return self.sheet</div>
 
-    def _get_obj_style(self, obj: Identifiable) -&gt; cssutils.css.CSSStyleDeclaration:
-        document = etree.XML(self.to_xml().encode(&quot;ascii&quot;))
-
-        def lambdaselector(s, obj=obj, document=document):
-            try:
-                expression = GenericTranslator().css_to_xpath(s)
-            except SelectorError:
-                warnings.warn(&quot;Invalid selector: &quot; + s)
-                return False
-            return obj.id in [e.get(&quot;id&quot;) for e in document.xpath(expression)]
-
-        return self._get_style(lambdaselector)
-
-    def _get_style(self, lambdaselector) -&gt; cssutils.css.CSSStyleDeclaration:
-
-        ret = []
-        sheets = []
-        if self.default_style:
-            sheets += [get_default_sheet()]
-        sheets += [self.sheet]
-        if self.external_sheet:
-            sheets += [self.external_sheet]
-        for sheet in sheets:
-            idd = []
-            cls = []
-            rest = []
-            glob = []
-            for rule in sheet:
-                if rule.type == rule.STYLE_RULE:
-                    s = rule.selectorText
-                    if lambdaselector(s):
-                        if s.startswith(&quot;#&quot;):
-                            idd.append(rule)
-                        elif s.startswith(&quot;[&quot;):
-                            rest.append(rule)
-                        elif s.startswith(&quot;:&quot;):
-                            rest.append(rule)
-                        elif s.startswith(&quot;*&quot;):
-                            glob.append(rule)
-                        elif &quot;.&quot; in s:
-                            cls.append(rule)
-                        else:
-                            rest.append(rule)
-            ret += reversed(idd + cls + rest + glob)
-        # sort rules by priority
-        return cssutils.css.CSSStyleDeclaration(
-            cssText=&quot;;&quot;.join([r.style.cssText for r in ret])
-        )
-
-<div class="viewcode-block" id="FeynmanDiagram.to_xml"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.FeynmanDiagram.html#feynml.feynmandiagram.FeynmanDiagram.to_xml">[docs]</a>    def to_xml(self) -&gt; str:
-        &quot;&quot;&quot;Return self as XML.&quot;&quot;&quot;
-        config = SerializerConfig(pretty_print=True)
-        serializer = XmlSerializer(config=config)
-        return serializer.render(self)</div>
-
-<div class="viewcode-block" id="FeynmanDiagram.from_xml"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.FeynmanDiagram.html#feynml.feynmandiagram.FeynmanDiagram.from_xml">[docs]</a>    @classmethod
-    def from_xml(cls, xml: str):
-        &quot;&quot;&quot;Load self from XML.&quot;&quot;&quot;
-        parser = XmlParser()
-        return parser.from_string(xml, cls)</div></div>
+<div class="viewcode-block" id="FeynmanDiagram.with_sheet"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.FeynmanDiagram.html#feynml.feynmandiagram.FeynmanDiagram.with_sheet">[docs]</a>    def with_sheet(self, sheet):
+        self.sheet = sheet
+        return self</div></div>
 </pre></div>
 
            </div>

@@ -1,6 +1,7 @@
 {
  "cells": [
   {
+   "attachments": {},
    "cell_type": "markdown",
    "id": "dd3c9519",
    "metadata": {},
@@ -170,8 +171,8 @@
     "        d.legs[1].with_xy(-2,-2)\n",
     "        d.legs[2].with_xy(2,2)\n",
     "        d.legs[3].with_xy(2,-2)\n",
-    "        #d.get_vertex(d.legs[0].target).with_xy(-1,0)\n",
-    "        #d.get_vertex(d.legs[1].target).with_xy(1,0)\n",
+    "        #d.get_point(d.legs[0].target).with_xy(-1,0)\n",
+    "        #d.get_point(d.legs[1].target).with_xy(1,0)\n",
     "        d = feynman_adjust_points(d,size=15,override_vertices=False)\n",
     "        auto_bend(d)\n",
     "        auto_label(d.propagators)\n",

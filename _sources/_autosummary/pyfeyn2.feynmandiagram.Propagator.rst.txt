@@ -25,6 +25,7 @@ pyfeyn2.feynmandiagram.Propagator
       ~Propagator.put_styles
       ~Propagator.raw_style
       ~Propagator.with_class
+      ~Propagator.with_color
       ~Propagator.with_id
       ~Propagator.with_label
       ~Propagator.with_length

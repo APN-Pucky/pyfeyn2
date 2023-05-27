@@ -1,0 +1,32 @@
+feynml.type
+===========
+
+.. automodule:: feynml.type
+  
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+      :toctree:                                         
+   
+      get_default_sheet
+      get_shapes
+      get_types
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+

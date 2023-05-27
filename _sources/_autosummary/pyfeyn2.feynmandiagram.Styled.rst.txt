@@ -22,6 +22,7 @@ pyfeyn2.feynmandiagram.Styled
       ~Styled.put_styles
       ~Styled.raw_style
       ~Styled.with_class
+      ~Styled.with_color
       ~Styled.with_style
       ~Styled.with_style_properties
       ~Styled.with_style_property

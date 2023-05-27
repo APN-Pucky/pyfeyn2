@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LHE &mdash; pyfeyn2  documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/plot_directive.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/jupyter-sphinx.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/thebelab.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/nbsphinx-code-cells.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/thebelab-helper.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="1 to 1 process" href="../qgraf/1_to_1/qgraf.html" />
+    <link rel="prev" title="HepMC" href="../hepmc/hepmc.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            pyfeyn2
+              <img src="../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                2.3.3
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">FeynML:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../feynml/index.html">FeynML</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Gallery:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../gallery/index.html">Gallery</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Renderers:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../renderers/index.html">Renderers</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Interfaces:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Interfaces</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../dot/dot.html">Dot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hepmc/hepmc.html">HepMC</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">LHE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qgraf/1_to_1/qgraf.html">1 to 1 process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qgraf/2_to_2/qgraf_2to2.html">2 to 2 process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qgraf/index.html">Qgraf</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Modules:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../_autosummary/pyfeyn2.html">pyfeyn2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../_autosummary/feynml.html">feynml</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Versions:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://pyfeyn2.readthedocs.io/en/stable/">RTD</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/pyfeyn2/">Stable</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/pyfeyn2/test/">Dev</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Links:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/APN-Pucky/pyfeyn2">GitHub</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">pyfeyn2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Interfaces</a></li>
+      <li class="breadcrumb-item active">LHE</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/interfaces/lhe/lhe.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="LHE">
+<h1>LHE<a class="headerlink" href="#LHE" title="Permalink to this heading"></a></h1>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyfeyn2.render.all</span> <span class="kn">import</span> <span class="n">AllRender</span>
+<span class="kn">import</span> <span class="nn">pylhe</span>
+<span class="kn">from</span> <span class="nn">feynml.interface.lhe</span> <span class="kn">import</span> <span class="n">lhe_event_to_feynman</span>
+<span class="kn">from</span> <span class="nn">pyfeyn2.auto.position</span> <span class="kn">import</span> <span class="n">feynman_adjust_points</span>
+<span class="kn">from</span> <span class="nn">feynml.feynml</span> <span class="kn">import</span> <span class="n">FeynML</span>
+<span class="kn">import</span> <span class="nn">smpl_io.io</span> <span class="k">as</span> <span class="nn">io</span>
+<span class="kn">from</span> <span class="nn">pyfeyn2.interface.dot</span> <span class="kn">import</span> <span class="n">feynman_to_dot</span><span class="p">,</span><span class="n">dot_to_positions</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">io</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;example.lhe&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;LesHouchesEvents version=&#34;3.0&#34;&gt;
+&lt;!--
+file generated with POWHEG-BOX-V2
+Input file powheg.input contained:
+vdecaymode  1     ! Z decay products (default 2): 1 for electronic
+
+numevts 20000   ! number of events to be generated
+ih1   1           ! hadron 1 (1 for protons, -1 for antiprotons)
+ih2   1           ! hadron 2 (1 for protons, -1 for antiprotons)
+ebeam1 2510d0      ! energy of beam 1
+ebeam2 2510d0      ! energy of beam 2
+
+
+bornktmin 0.25     !  (default 0d0) generation cut. Minimum kt in underlying Born
+##bornsuppfact 10d0 ! (default 0d0) mass param for Born suppression factor. If &lt; 0 suppfact = 1
+
+
+! To be set only if using LHA pdfs
+lhans1 27100 ! pdf set for hadron 1 (LHA numbering)
+lhans2 27100 ! pdf set for hadron 2 (LHA numbering)
+
+! Parameters to allow or not the use of stored data
+use-old-grid    1 ! if 1 use old grid if file pwggrids.dat is present (&lt;&gt; 1 regenerate)
+use-old-ubound  1 ! if 1 use norm of upper bounding function stored in pwgubound.dat, if present; &lt;&gt;
+
+ncall1 10000    ! number of calls for initializing the integration grid
+itmx1    2      ! number of iterations for initializing the integration grid
+ncall2 10000     ! number of calls for computing the integral and finding upper bounding envelope
+itmx2    2      ! number of iterations for computing the integral and finding upper bouding envelope
+foldcsi   1     ! number of folds on csi integration
+foldy    1     ! number of folds on  y  integration
+foldphi   1     ! number of folds on phi integration
+nubound 30000  ! number of calls to set up the upper bounding norms for radiation
+
+! OPTIONAL PARAMETERS
+
+min_Z_mass 0.5
+max_Z_mass 10
+##runningscale 0
+
+alphas_from_pdf 1
+pdf_cutoff_fact 0.01d0
+#bornonly 1
+#LOevents 1
+
+storemintupb 1
+
+!! parallel
+iseed 10103        ! initialize random number sequence
+manyseeds 1
+parallelstage 4
+xgriditeration 2
+maxseeds 2000
+clobberlhe 1
+
+!! shower/analysis param
+NoPythia 0
+NoRivet 0
+QEDShower 0
+QCDShower 1
+hadronization 1
+mpi 0
+pythiaHepMC 1
+HepMCEventOutput 0
+HepMCEventInput 0
+rivetAnalysis &#34;ALICE_2020_I1797621&#34;
+rivetAnalysis1 &#34;ALICE_2020_I1797621:PHOTON_Z=1&#34;
+rivetAnalysis2 &#34;POWHEG_2023_DILEPTONS&#34;
+rivetWeight 0
+End of powheg.input content
+PDF package: lha
+ Random number generator initialized with:         1000             0             0
+--&gt;
+&lt;init&gt;
+     2212     2212  2.51000E+03  2.51000E+03     -1     -1     -1     -1     -4      1
+  4.37712E+06  1.47821E+04  1.00000E+00  10001
+&lt;/init&gt;
+&lt;event&gt;
+      6  10001  1.68713E+07  8.94427E-01 -1.00000E+00  6.65838E-01
+       2    -1     0     0   501     0  0.000000000E+00  0.000000000E+00  1.749324861E+02  1.749324861E+02  0.000000000E+00  0.00000E+00  9.000E+00
+      21    -1     0     0   502   501  0.000000000E+00  0.000000000E+00 -1.592747830E-03  1.592747830E-03  0.000000000E+00  0.00000E+00  9.000E+00
+      23     2     1     2     0     0 -2.408277128E-01  1.052626414E-01  1.565325189E+02  1.565338272E+02  5.835294129E-01  0.00000E+00  9.000E+00
+      11     1     3     3     0     0  7.521133062E-02  1.659522570E-01  1.774845055E+01  1.774938573E+01  5.110000000E-04  0.00000E+00  9.000E+00
+     -11     1     3     3     0     0 -3.160390434E-01 -6.068961564E-02  1.387840684E+02  1.387844415E+02  5.110000000E-04  0.00000E+00  9.000E+00
+       2     1     1     2   502     0  2.408277128E-01 -1.052626414E-01  1.839837441E+01  1.840025160E+01  0.000000000E+00  0.00000E+00  9.000E+00
+#rwgt            1          24   6209355.4982931120             1000         419           0
+&lt;/event&gt;
+&lt;event&gt;
+      6  10001 -1.68713E+07  8.94427E-01 -1.00000E+00  6.63949E-01
+      -4    -1     0     0     0   502  0.000000000E+00  0.000000000E+00  9.983585819E-01  9.983585819E-01  0.000000000E+00  0.00000E+00  9.000E+00
+      21    -1     0     0   502   501  0.000000000E+00  0.000000000E+00 -7.764707284E-01  7.764707284E-01  0.000000000E+00  0.00000E+00  9.000E+00
+      23     2     1     2     0     0 -2.586998664E-01 -1.510185871E-01  6.026979797E-01  1.290320707E+00  1.100886206E+00  0.00000E+00  9.000E+00
+      11     1     3     3     0     0 -6.211468495E-01 -2.712056290E-01  1.429668701E-01  6.926872952E-01  5.110000000E-04  0.00000E+00  9.000E+00
+     -11     1     3     3     0     0  3.624469831E-01  1.201870419E-01  4.597311097E-01  5.976334118E-01  5.110000000E-04  0.00000E+00  9.000E+00
+      -4     1     1     2     0   501  2.586998664E-01  1.510185871E-01 -3.808101262E-01  4.845086034E-01  0.000000000E+00  0.00000E+00  9.000E+00
+#rwgt            1           3  -1231479.7875413459             1000        4036           0
+&lt;/event&gt;
+&lt;/LesHouchesEvents&gt;
+ #Random number generator exit values:         1000      58113976             0
+
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">events</span> <span class="o">=</span> <span class="n">pylhe</span><span class="o">.</span><span class="n">read_lhe</span><span class="p">(</span><span class="s2">&quot;example.lhe&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">events</span><span class="p">:</span>
+    <span class="n">fd</span> <span class="o">=</span> <span class="n">lhe_event_to_feynman</span><span class="p">(</span><span class="n">event</span><span class="p">)</span><span class="o">.</span><span class="n">with_class</span><span class="p">(</span><span class="s2">&quot;test&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">with_style</span><span class="p">(</span><span class="s2">&quot;layout : dot&quot;</span><span class="p">)</span><span class="c1">#.with_style_property(&quot;layout&quot;, &quot;dot&quot;)</span>
+    <span class="n">fd</span><span class="o">.</span><span class="n">get_point</span><span class="p">(</span><span class="s2">&quot;Leg1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">with_color</span><span class="p">(</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>
+    <span class="n">fd</span><span class="o">.</span><span class="n">get_point</span><span class="p">(</span><span class="s2">&quot;Leg2&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">with_color</span><span class="p">(</span><span class="s2">&quot;green&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">FeynML</span><span class="p">(</span><span class="n">diagrams</span><span class="o">=</span><span class="p">[</span><span class="n">fd</span><span class="p">])</span><span class="o">.</span><span class="n">to_xml</span><span class="p">())</span>
+    <span class="n">fd</span> <span class="o">=</span> <span class="n">feynman_adjust_points</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span><span class="n">clear_vertices</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">AllRender</span><span class="p">(</span><span class="n">fd</span><span class="p">)</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
+    <span class="k">break</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;
+&lt;feynml version=&#34;0.1.7.22&#34;&gt;
+  &lt;head&gt;
+    &lt;meta name=&#34;feynml&#34; content=&#34;0.1.7.22&#34;/&gt;
+    &lt;style/&gt;
+  &lt;/head&gt;
+  &lt;diagram id=&#34;FeynmanDiagram9&#34; style=&#34;layout: dot&#34; class=&#34;test&#34; sheet=&#34;&#34;&gt;
+    &lt;propagator id=&#34;Leg3&#34; pdgid=&#34;23&#34; type=&#34;boson&#34; style=&#34;&#34;&gt;
+      &lt;name&gt;Z0&lt;/name&gt;
+      &lt;source&gt;Vertex0&lt;/source&gt;
+      &lt;target&gt;Vertex3&lt;/target&gt;
+    &lt;/propagator&gt;
+    &lt;vertex id=&#34;Vertex0&#34; style=&#34;&#34;/&gt;
+    &lt;vertex id=&#34;Vertex3&#34; style=&#34;&#34;/&gt;
+    &lt;leg id=&#34;Leg1&#34; pdgid=&#34;2&#34; type=&#34;fermion&#34; style=&#34;color: red&#34;&gt;
+      &lt;name&gt;u&lt;/name&gt;
+      &lt;target&gt;Vertex0&lt;/target&gt;
+      &lt;sense&gt;incoming&lt;/sense&gt;
+    &lt;/leg&gt;
+    &lt;leg id=&#34;Leg2&#34; pdgid=&#34;21&#34; type=&#34;gluon&#34; style=&#34;color: green&#34;&gt;
+      &lt;name&gt;g&lt;/name&gt;
+      &lt;target&gt;Vertex0&lt;/target&gt;
+      &lt;sense&gt;incoming&lt;/sense&gt;
+    &lt;/leg&gt;
+    &lt;leg id=&#34;Leg6&#34; pdgid=&#34;2&#34; type=&#34;fermion&#34; style=&#34;&#34;&gt;
+      &lt;name&gt;u&lt;/name&gt;
+      &lt;target&gt;Vertex0&lt;/target&gt;
+      &lt;sense&gt;outgoing&lt;/sense&gt;
+    &lt;/leg&gt;
+    &lt;leg id=&#34;Leg4&#34; pdgid=&#34;11&#34; type=&#34;fermion&#34; style=&#34;&#34;&gt;
+      &lt;name&gt;e-&lt;/name&gt;
+      &lt;target&gt;Vertex3&lt;/target&gt;
+      &lt;sense&gt;outgoing&lt;/sense&gt;
+    &lt;/leg&gt;
+    &lt;leg id=&#34;Leg5&#34; pdgid=&#34;-11&#34; type=&#34;anti fermion&#34; style=&#34;&#34;&gt;
+      &lt;name&gt;e+&lt;/name&gt;
+      &lt;target&gt;Vertex3&lt;/target&gt;
+      &lt;sense&gt;outgoing&lt;/sense&gt;
+    &lt;/leg&gt;
+  &lt;/diagram&gt;
+&lt;/feynml&gt;
+
+tikz:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/interfaces_lhe_lhe_3_1.png" src="../../_images/interfaces_lhe_lhe_3_1.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+pyx:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/interfaces_lhe_lhe_3_3.png" src="../../_images/interfaces_lhe_lhe_3_3.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+feynmp:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/interfaces_lhe_lhe_3_5.png" src="../../_images/interfaces_lhe_lhe_3_5.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+feynman:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/interfaces_lhe_lhe_3_7.png" src="../../_images/interfaces_lhe_lhe_3_7.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+dot:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/interfaces_lhe_lhe_3_9.png" src="../../_images/interfaces_lhe_lhe_3_9.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+asciipdf:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/interfaces_lhe_lhe_3_11.png" src="../../_images/interfaces_lhe_lhe_3_11.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+unicodepdf:
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/interfaces_lhe_lhe_3_13.png" src="../../_images/interfaces_lhe_lhe_3_13.png" />
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../hepmc/hepmc.html" class="btn btn-neutral float-left" title="HepMC" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../qgraf/1_to_1/qgraf.html" class="btn btn-neutral float-right" title="1 to 1 process" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Alexander Puck Neuwirth.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

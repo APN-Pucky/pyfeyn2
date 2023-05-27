@@ -13,6 +13,8 @@
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/sphinx_highlight.js"></script>
@@ -38,7 +40,7 @@
               <img src="../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.3.2
+                2.3.3
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -111,10 +113,11 @@ from importlib.metadata import version
 from feynml.connector import Connector as Connector_
 from feynml.feynmandiagram import FeynmanDiagram as FeynmanDiagram_
 from feynml.feynml import FeynML as FeynML_
-from feynml.feynml import Head as Head_
-from feynml.feynml import Meta as Meta_
-from feynml.feynml import Tool as Tool_
+from feynml.head import Head as Head_
+
+# from feynml.feynml import Tool as Tool_
 from feynml.leg import Leg as Leg_
+from feynml.meta import Meta as Meta_
 from feynml.momentum import Momentum as Momentum_
 from feynml.pdgid import PDG as PDG_
 from feynml.point import Point as Point_
@@ -128,7 +131,7 @@ from smpl_doc import doc
     class Meta(Head_.Meta):
         pass
 
-<div class="viewcode-block" id="Head.__init__"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.Head.html#pyfeyn2.feynmandiagram.Head.__init__">[docs]</a>    @doc.deprecated(&quot;2.2.6&quot;, &quot;Directly use feynml.feynml.Head&quot;)
+<div class="viewcode-block" id="Head.__init__"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.Head.html#pyfeyn2.feynmandiagram.Head.__init__">[docs]</a>    @doc.deprecated(&quot;2.2.6&quot;, &quot;Directly use feynml.head.Head&quot;)
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)</div></div>
 
@@ -137,18 +140,18 @@ from smpl_doc import doc
     class Meta(Meta_.Meta):
         pass
 
-<div class="viewcode-block" id="Meta.__init__"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.Meta.html#pyfeyn2.feynmandiagram.Meta.__init__">[docs]</a>    @doc.deprecated(&quot;2.2.6&quot;, &quot;Directly use feynml.feynml.Meta&quot;)
+<div class="viewcode-block" id="Meta.__init__"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.Meta.html#pyfeyn2.feynmandiagram.Meta.__init__">[docs]</a>    @doc.deprecated(&quot;2.2.6&quot;, &quot;Directly use feynml.meta.Meta&quot;)
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)</div></div>
 
 
-<div class="viewcode-block" id="Tool"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.Tool.html#pyfeyn2.feynmandiagram.Tool">[docs]</a>class Tool(Tool_):
-    class Meta(Tool_.Meta):
-        pass
-
-<div class="viewcode-block" id="Tool.__init__"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.Tool.html#pyfeyn2.feynmandiagram.Tool.__init__">[docs]</a>    @doc.deprecated(&quot;2.2.6&quot;, &quot;Directly use feynml.feynml.Tool&quot;)
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)</div></div>
+# class Tool(Tool_):
+#    class Meta(Tool_.Meta):
+#        pass
+#
+#    @doc.deprecated(&quot;2.2.6&quot;, &quot;Directly use feynml.feynml.Tool&quot;)
+#    def __init__(self, *args, **kwargs):
+#        super().__init__(*args, **kwargs)
 
 
 <div class="viewcode-block" id="Connector"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.Connector.html#pyfeyn2.feynmandiagram.Connector">[docs]</a>class Connector(Connector_):

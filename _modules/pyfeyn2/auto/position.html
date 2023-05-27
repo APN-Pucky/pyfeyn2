@@ -13,6 +13,8 @@
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/doctools.js"></script>
         <script src="../../../_static/sphinx_highlight.js"></script>
@@ -38,7 +40,7 @@
               <img src="../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.3.2
+                2.3.3
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -117,10 +119,10 @@ from pyfeyn2.interface.dot import dot_to_positions, feynman_to_dot
     return fd</div>
 
 
-<div class="viewcode-block" id="feynman_adjust_points"><a class="viewcode-back" href="../../../_autosummary/pyfeyn2.auto.position.feynman_adjust_points.html#pyfeyn2.auto.position.feynman_adjust_points">[docs]</a>def feynman_adjust_points(feyndiag, size=5, override_vertices=True):
+<div class="viewcode-block" id="feynman_adjust_points"><a class="viewcode-back" href="../../../_autosummary/pyfeyn2.auto.position.feynman_adjust_points.html#pyfeyn2.auto.position.feynman_adjust_points">[docs]</a>def feynman_adjust_points(feyndiag, size=5, clear_vertices=False):
     &quot;&quot;&quot;Adjust the points of the vertices and legs using Dot language algorithms.&quot;&quot;&quot;
     fd = feyndiag
-    if override_vertices:
+    if clear_vertices:
         for v in fd.vertices:
             v.x = None
             v.y = None

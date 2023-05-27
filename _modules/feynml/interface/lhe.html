@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>feynml.interface.lhe &mdash; pyfeyn2  documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/plot_directive.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/jupyter-sphinx.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/thebelab.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
+        <script src="../../../_static/thebelab-helper.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            pyfeyn2
+              <img src="../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                2.3.3
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">FeynML:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../feynml/index.html">FeynML</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Gallery:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../gallery/index.html">Gallery</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Renderers:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../renderers/index.html">Renderers</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Interfaces:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../interfaces/index.html">Interfaces</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Modules:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/pyfeyn2.html">pyfeyn2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/feynml.html">feynml</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Versions:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://pyfeyn2.readthedocs.io/en/stable/">RTD</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/pyfeyn2/">Stable</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/pyfeyn2/test/">Dev</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Links:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/APN-Pucky/pyfeyn2">GitHub</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">pyfeyn2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">feynml.interface.lhe</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for feynml.interface.lhe</h1><div class="highlight"><pre>
+<span></span>import pylhe
+
+from feynml.feynmandiagram import FeynmanDiagram
+from feynml.feynml import FeynML, Head, Meta
+from feynml.leg import Leg
+from feynml.propagator import Propagator
+from feynml.vertex import Vertex
+
+from .util import leg_id_wrap, propagator_id_wrap, vertex_id_wrap
+
+# TODO add momenta?
+
+
+<div class="viewcode-block" id="lhe_event_to_feynman"><a class="viewcode-back" href="../../../_autosummary/feynml.interface.lhe.lhe_event_to_feynman.html#feynml.interface.lhe.lhe_event_to_feynman">[docs]</a>def lhe_event_to_feynman(event: pylhe.LHEEvent) -&gt; FeynmanDiagram:
+    fd = FeynmanDiagram()
+    hp = Vertex(id=vertex_id_wrap(0))
+    fd.add(hp)
+    hpids = []
+    for lhe_id, p in enumerate(event.particles):
+        lhe_id += 1
+        pdgid = round(p.id)
+        if p.status == -1:
+            # outgoing Leg
+            fd.add(
+                Leg(
+                    id=leg_id_wrap(lhe_id),
+                    pdgid=pdgid,
+                    target=vertex_id_wrap(0),
+                    sense=&quot;incoming&quot;,
+                )
+            )
+            hpids.append(lhe_id)
+    for lhe_id, p in enumerate(event.particles):
+        lhe_id += 1
+        pdgid = round(p.id)
+        if p.mother1 in hpids and p.mother2 in hpids:
+            if p.status == 1:
+                # outgoing Leg
+                fd.add(
+                    Leg(
+                        id=leg_id_wrap(lhe_id),
+                        pdgid=pdgid,
+                        target=vertex_id_wrap(0),
+                        sense=&quot;outgoing&quot;,
+                    )
+                )
+            if p.status == 2:
+                # Propagator
+                # create a new vertex...
+                fd.add(Vertex(id=vertex_id_wrap(lhe_id)))
+                fd.add(
+                    Propagator(
+                        id=leg_id_wrap(lhe_id),
+                        pdgid=pdgid,
+                        source=vertex_id_wrap(0),
+                        target=vertex_id_wrap(lhe_id),
+                    )
+                )
+    nvertices = 1  # the hard process vertex
+    while nvertices != len(fd.vertices):
+        nvertices = len(fd.vertices)
+        for lhe_id, p in enumerate(event.particles):
+            lhe_id += 1
+            pdgid = round(p.id)
+            # print(&quot;Candidate particle: &quot;, lhe_id, p.id, p.status, p.mother1, p.mother2)
+            for v in fd.vertices:
+                # print(&quot;1Candidate particle: &quot;, lhe_id, p.id, p.status, p.mother1, p.mother2)
+                if (
+                    vertex_id_wrap(p.mother1) == v.id
+                    and vertex_id_wrap(p.mother2) == v.id
+                ):  # TODO this will not cover all cases, i.e. when there are more than one vertex in the decay chain
+                    # print(&quot;2Candidate particle: &quot;, lhe_id, p.id, p.status, p.mother1, p.mother2)
+                    if p.status == 1:
+                        # check if the particle is already in the diagram
+                        if not leg_id_wrap(lhe_id) in [l.id for l in fd.legs]:
+                            fd.add(
+                                Leg(
+                                    id=leg_id_wrap(lhe_id),
+                                    pdgid=pdgid,
+                                    target=v.id,
+                                    sense=&quot;outgoing&quot;,
+                                )
+                            )
+                    if p.status == 2:
+                        # Propagator
+                        # create a new vertex... , this will result in rerunning the loop
+                        if not vertex_id_wrap(lhe_id) in [l.id for l in fd.vertices]:
+                            fd.add(Vertex(id=vertex_id_wrap(lhe_id)))
+                            fd.add(
+                                Propagator(
+                                    id=leg_id_wrap(lhe_id),
+                                    pdgid=pdgid,
+                                    source=v.id,
+                                    target=vertex_id_wrap(lhe_id),
+                                )
+                            )
+
+    assert len(fd.legs) + len(fd.propagators) == len(
+        event.particles
+    ), &quot;Not all particles are accounted for!\nlegs = {}\npropagators = {}\nparticles = {}&quot;.format(
+        len(fd.legs), len(fd.propagators), len(event.particles)
+    )
+
+    return fd</div>
+
+
+<div class="viewcode-block" id="lhe_to_feynml"><a class="viewcode-back" href="../../../_autosummary/feynml.interface.lhe.lhe_to_feynml.html#feynml.interface.lhe.lhe_to_feynml">[docs]</a>def lhe_to_feynml(
+    lhe_file: str,
+    creator=&quot;pyfeyn2&quot;,
+    tool=&quot;pyfeyn2.interface.hepmc&quot;,
+    title=&quot;&quot;,
+    description=&quot;&quot;,
+) -&gt; FeynML:
+    fds = []
+    events = pylhe.read_lhe_with_attributes(lhe_file)
+    for event in events:
+        fds.append(lhe_event_to_feynman(event))
+    return FeynML(
+        diagrams=fds,
+        head=Head(
+            metas=[
+                Meta(name=&quot;creator&quot;, content=creator),
+                Meta(name=&quot;tool&quot;, content=tool),
+                Meta(name=&quot;description&quot;, content=description),
+                Meta(name=&quot;title&quot;, content=title),
+            ]
+        ),
+    )</div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Alexander Puck Neuwirth.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

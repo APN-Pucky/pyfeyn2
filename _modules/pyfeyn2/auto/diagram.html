@@ -13,6 +13,8 @@
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/doctools.js"></script>
         <script src="../../../_static/sphinx_highlight.js"></script>
@@ -38,7 +40,7 @@
               <img src="../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.3.2
+                2.3.3
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -121,7 +123,7 @@ from pyfeyn2.feynmandiagram import FeynmanDiagram
     d.legs[1].with_xy(-SCALE, -SCALE)
     d.legs[2].with_xy(SCALE, SCALE)
     d.legs[3].with_xy(SCALE, -SCALE)
-    d = feynman_adjust_points(d, size=15, override_vertices=False)
+    d = feynman_adjust_points(d, size=15, clear_vertices=False)
     auto_bend(d)
     auto_label(d.propagators)
     auto_label(d.legs)

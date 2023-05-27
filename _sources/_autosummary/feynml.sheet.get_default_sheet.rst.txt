@@ -1,0 +1,6 @@
+feynml.sheet.get\_default\_sheet
+================================
+
+.. currentmodule:: feynml.sheet
+
+.. autofunction:: get_default_sheet

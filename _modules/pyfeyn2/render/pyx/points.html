@@ -13,6 +13,8 @@
     <script src="../../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
         <script src="../../../../_static/doctools.js"></script>
         <script src="../../../../_static/sphinx_highlight.js"></script>
@@ -38,7 +40,7 @@
               <img src="../../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.3.2
+                2.3.3
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
@@ -254,6 +256,8 @@ from pyfeyn2.render.pyx.utils import Visible
 
 <div class="viewcode-block" id="Point.setXY"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.points.Point.html#pyfeyn2.render.pyx.points.Point.setXY">[docs]</a>    def setXY(self, xpos, ypos):
         &quot;Set the x and y coordinates of this point.&quot;
+        if xpos is None or ypos is None:
+            raise Exception(&quot;Point coordinates cannot be None&quot;)
         self.setX(float(xpos))
         self.setY(float(ypos))
         return self</div>
@@ -297,7 +301,7 @@ from pyfeyn2.render.pyx.utils import Visible
             xx = center.getX()
             yy = center.getY()
         else:
-            raise Exception(&quot;No center specified for blob.&quot;)
+            raise Exception(&quot;No (x,y) or no center specified for blob.&quot;)
 
         Point.__init__(self, xx, yy, blob, labels)
         self.setMark(copy(mark))

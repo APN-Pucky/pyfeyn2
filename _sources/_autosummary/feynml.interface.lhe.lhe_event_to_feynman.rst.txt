@@ -1,0 +1,6 @@
+feynml.interface.lhe.lhe\_event\_to\_feynman
+============================================
+
+.. currentmodule:: feynml.interface.lhe
+
+.. autofunction:: lhe_event_to_feynman

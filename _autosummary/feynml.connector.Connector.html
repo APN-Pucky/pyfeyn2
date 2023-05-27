@@ -14,6 +14,8 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/sphinx_highlight.js"></script>
@@ -41,7 +43,7 @@
               <img src="../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.3.2
+                2.3.3
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -80,21 +82,27 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.feynmandiagram.html">feynml.feynmandiagram</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.feynml.html">feynml.feynml</a></li>
+<li class="toctree-l2"><a class="reference internal" href="feynml.head.html">feynml.head</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.id.html">feynml.id</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.interface.html">feynml.interface</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.labeled.html">feynml.labeled</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.leg.html">feynml.leg</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.line.html">feynml.line</a></li>
+<li class="toctree-l2"><a class="reference internal" href="feynml.link.html">feynml.link</a></li>
+<li class="toctree-l2"><a class="reference internal" href="feynml.meta.html">feynml.meta</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.momentum.html">feynml.momentum</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.particles.html">feynml.particles</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.pdgid.html">feynml.pdgid</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.point.html">feynml.point</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.propagator.html">feynml.propagator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="feynml.shape.html">feynml.shape</a></li>
+<li class="toctree-l2"><a class="reference internal" href="feynml.sheet.html">feynml.sheet</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.sourcing.html">feynml.sourcing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.styled.html">feynml.styled</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.targeting.html">feynml.targeting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="feynml.types.html">feynml.types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="feynml.type.html">feynml.type</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.vertex.html">feynml.vertex</a></li>
+<li class="toctree-l2"><a class="reference internal" href="feynml.xml.html">feynml.xml</a></li>
 </ul>
 </li>
 </ul>
@@ -179,40 +187,43 @@
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_class</span></code>(clazz)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#feynml.connector.Connector.with_id" title="feynml.connector.Connector.with_id"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_id</span></code></a>(value[, k])</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_color</span></code>(color)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#feynml.connector.Connector.with_id" title="feynml.connector.Connector.with_id"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_id</span></code></a>(value[, k])</p></td>
 <td><p>Set id to <cite>value</cite> and return self.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#feynml.connector.Connector.with_label" title="feynml.connector.Connector.with_label"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_label</span></code></a>(value[, k])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#feynml.connector.Connector.with_label" title="feynml.connector.Connector.with_label"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_label</span></code></a>(value[, k])</p></td>
 <td><p>Set label to <cite>value</cite> and return self.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#feynml.connector.Connector.with_length" title="feynml.connector.Connector.with_length"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_length</span></code></a>(length)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#feynml.connector.Connector.with_length" title="feynml.connector.Connector.with_length"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_length</span></code></a>(length)</p></td>
 <td><p>Add length to the connector</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#feynml.connector.Connector.with_momentum" title="feynml.connector.Connector.with_momentum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_momentum</span></code></a>(value[, k])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#feynml.connector.Connector.with_momentum" title="feynml.connector.Connector.with_momentum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_momentum</span></code></a>(value[, k])</p></td>
 <td><p>Set momentum to <cite>value</cite> and return self.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#feynml.connector.Connector.with_name" title="feynml.connector.Connector.with_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_name</span></code></a>(value[, k])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#feynml.connector.Connector.with_name" title="feynml.connector.Connector.with_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_name</span></code></a>(value[, k])</p></td>
 <td><p>Set name to <cite>value</cite> and return self.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#feynml.connector.Connector.with_particle" title="feynml.connector.Connector.with_particle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_particle</span></code></a>(value[, k])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#feynml.connector.Connector.with_particle" title="feynml.connector.Connector.with_particle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_particle</span></code></a>(value[, k])</p></td>
 <td><p>Set particle to <cite>value</cite> and return self.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#feynml.connector.Connector.with_pdgid" title="feynml.connector.Connector.with_pdgid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_pdgid</span></code></a>(value[, k])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#feynml.connector.Connector.with_pdgid" title="feynml.connector.Connector.with_pdgid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_pdgid</span></code></a>(value[, k])</p></td>
 <td><p>Set pdgid to <cite>value</cite> and return self.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_style</span></code>(style)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_style</span></code>(style)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_style_properties</span></code>(**kwargs)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_style_properties</span></code>(**kwargs)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_style_property</span></code>(key, value)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_style_property</span></code>(key, value)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#feynml.connector.Connector.with_tension" title="feynml.connector.Connector.with_tension"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_tension</span></code></a>(tension)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#feynml.connector.Connector.with_tension" title="feynml.connector.Connector.with_tension"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_tension</span></code></a>(tension)</p></td>
 <td><p>Add tension to the connector</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#feynml.connector.Connector.with_type" title="feynml.connector.Connector.with_type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_type</span></code></a>(value[, k])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#feynml.connector.Connector.with_type" title="feynml.connector.Connector.with_type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_type</span></code></a>(value[, k])</p></td>
 <td><p>Set type to <cite>value</cite> and return self.</p></td>
 </tr>
 </tbody>
@@ -243,6 +254,9 @@
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#feynml.connector.Connector.type" title="feynml.connector.Connector.type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">type</span></code></a></p></td>
 <td><p>Type of the particle, e.g.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#feynml.connector.Connector.style" title="feynml.connector.Connector.style"><code class="xref py py-obj docutils literal notranslate"><span class="pre">style</span></code></a></p></td>
+<td><p>CSS style string.</p></td>
 </tr>
 </tbody>
 </table>
@@ -292,7 +306,7 @@
 <dt class="sig sig-object py" id="feynml.connector.Connector.put_style">
 <span class="sig-name descname"><span class="pre">put_style</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#feynml.connector.Connector.put_style" title="Permalink to this definition"></a></dt>
 <dd><div class="deprecated">
-<p><span class="versionmodified deprecated">Deprecated since version 0.0.0: </span>This will be removed in 0.2.0.</p>
+<p><span class="versionmodified deprecated">Deprecated since version 0.0.0.</span></p>
 </div>
 </dd></dl>
 
@@ -300,7 +314,7 @@
 <dt class="sig sig-object py" id="feynml.connector.Connector.put_styles">
 <span class="sig-name descname"><span class="pre">put_styles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#feynml.connector.Connector.put_styles" title="Permalink to this definition"></a></dt>
 <dd><div class="deprecated">
-<p><span class="versionmodified deprecated">Deprecated since version 0.0.0: </span>This will be removed in 0.2.0.</p>
+<p><span class="versionmodified deprecated">Deprecated since version 0.0.0.</span></p>
 </div>
 </dd></dl>
 

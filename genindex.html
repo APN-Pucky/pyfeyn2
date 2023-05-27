@@ -13,6 +13,8 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/sphinx_highlight.js"></script>
@@ -38,7 +40,7 @@
               <img src="_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.3.2
+                2.3.3
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -142,11 +144,7 @@
 </li>
         <li><a href="_autosummary/feynml.feynml.FeynML.html#feynml.feynml.FeynML.__init__">(feynml.feynml.FeynML method)</a>
 </li>
-        <li><a href="_autosummary/feynml.feynml.Head.html#feynml.feynml.Head.__init__">(feynml.feynml.Head method)</a>
-</li>
-        <li><a href="_autosummary/feynml.feynml.Meta.html#feynml.feynml.Meta.__init__">(feynml.feynml.Meta method)</a>
-</li>
-        <li><a href="_autosummary/feynml.feynml.Tool.html#feynml.feynml.Tool.__init__">(feynml.feynml.Tool method)</a>
+        <li><a href="_autosummary/feynml.head.Head.html#feynml.head.Head.__init__">(feynml.head.Head method)</a>
 </li>
         <li><a href="_autosummary/feynml.id.Identifiable.html#feynml.id.Identifiable.__init__">(feynml.id.Identifiable method)</a>
 </li>
@@ -156,6 +154,10 @@
 </li>
         <li><a href="_autosummary/feynml.line.Line.html#feynml.line.Line.__init__">(feynml.line.Line method)</a>
 </li>
+        <li><a href="_autosummary/feynml.link.Link.html#feynml.link.Link.__init__">(feynml.link.Link method)</a>
+</li>
+        <li><a href="_autosummary/feynml.meta.Meta.html#feynml.meta.Meta.__init__">(feynml.meta.Meta method)</a>
+</li>
         <li><a href="_autosummary/feynml.momentum.Momentum.html#feynml.momentum.Momentum.__init__">(feynml.momentum.Momentum method)</a>
 </li>
         <li><a href="_autosummary/feynml.pdgid.PDG.html#feynml.pdgid.PDG.__init__">(feynml.pdgid.PDG method)</a>
@@ -163,6 +165,8 @@
         <li><a href="_autosummary/feynml.point.Point.html#feynml.point.Point.__init__">(feynml.point.Point method)</a>
 </li>
         <li><a href="_autosummary/feynml.propagator.Propagator.html#feynml.propagator.Propagator.__init__">(feynml.propagator.Propagator method)</a>
+</li>
+        <li><a href="_autosummary/feynml.sheet.SheetHandler.html#feynml.sheet.SheetHandler.__init__">(feynml.sheet.SheetHandler method)</a>
 </li>
         <li><a href="_autosummary/feynml.sourcing.Sourcing.html#feynml.sourcing.Sourcing.__init__">(feynml.sourcing.Sourcing method)</a>
 </li>
@@ -175,6 +179,8 @@
         <li><a href="_autosummary/feynml.targeting.Targeting.html#feynml.targeting.Targeting.__init__">(feynml.targeting.Targeting method)</a>
 </li>
         <li><a href="_autosummary/feynml.vertex.Vertex.html#feynml.vertex.Vertex.__init__">(feynml.vertex.Vertex method)</a>
+</li>
+        <li><a href="_autosummary/feynml.xml.XML.html#feynml.xml.XML.__init__">(feynml.xml.XML method)</a>
 </li>
         <li><a href="_autosummary/pyfeyn2.feynmandiagram.Connector.html#pyfeyn2.feynmandiagram.Connector.__init__">(pyfeyn2.feynmandiagram.Connector method)</a>
 </li>
@@ -197,8 +203,6 @@
         <li><a href="_autosummary/pyfeyn2.feynmandiagram.Propagator.html#pyfeyn2.feynmandiagram.Propagator.__init__">(pyfeyn2.feynmandiagram.Propagator method)</a>
 </li>
         <li><a href="_autosummary/pyfeyn2.feynmandiagram.Styled.html#pyfeyn2.feynmandiagram.Styled.__init__">(pyfeyn2.feynmandiagram.Styled method)</a>
-</li>
-        <li><a href="_autosummary/pyfeyn2.feynmandiagram.Tool.html#pyfeyn2.feynmandiagram.Tool.__init__">(pyfeyn2.feynmandiagram.Tool method)</a>
 </li>
         <li><a href="_autosummary/pyfeyn2.feynmandiagram.Vertex.html#pyfeyn2.feynmandiagram.Vertex.__init__">(pyfeyn2.feynmandiagram.Vertex method)</a>
 </li>
@@ -305,6 +309,38 @@
         <li><a href="_autosummary/pyfeyn2.render.latex.tikzfeynman.TikzFeynmanRender.html#pyfeyn2.render.latex.tikzfeynman.TikzFeynmanRender.add_color">(pyfeyn2.render.latex.tikzfeynman.TikzFeynmanRender method)</a>
 </li>
       </ul></li>
+      <li><a href="_autosummary/feynml.feynmandiagram.FeynmanDiagram.html#feynml.feynmandiagram.FeynmanDiagram.add_rule">add_rule() (feynml.feynmandiagram.FeynmanDiagram method)</a>
+
+      <ul>
+        <li><a href="_autosummary/feynml.feynml.FeynML.html#feynml.feynml.FeynML.add_rule">(feynml.feynml.FeynML method)</a>
+</li>
+        <li><a href="_autosummary/feynml.head.Head.html#feynml.head.Head.add_rule">(feynml.head.Head method)</a>
+</li>
+        <li><a href="_autosummary/feynml.sheet.SheetHandler.html#feynml.sheet.SheetHandler.add_rule">(feynml.sheet.SheetHandler method)</a>
+</li>
+        <li><a href="_autosummary/pyfeyn2.feynmandiagram.FeynmanDiagram.html#pyfeyn2.feynmandiagram.FeynmanDiagram.add_rule">(pyfeyn2.feynmandiagram.FeynmanDiagram method)</a>
+</li>
+        <li><a href="_autosummary/pyfeyn2.feynmandiagram.FeynML.html#pyfeyn2.feynmandiagram.FeynML.add_rule">(pyfeyn2.feynmandiagram.FeynML method)</a>
+</li>
+        <li><a href="_autosummary/pyfeyn2.feynmandiagram.Head.html#pyfeyn2.feynmandiagram.Head.add_rule">(pyfeyn2.feynmandiagram.Head method)</a>
+</li>
+      </ul></li>
+      <li><a href="_autosummary/feynml.feynmandiagram.FeynmanDiagram.html#feynml.feynmandiagram.FeynmanDiagram.add_rules">add_rules() (feynml.feynmandiagram.FeynmanDiagram method)</a>
+
+      <ul>
+        <li><a href="_autosummary/feynml.feynml.FeynML.html#feynml.feynml.FeynML.add_rules">(feynml.feynml.FeynML method)</a>
+</li>
+        <li><a href="_autosummary/feynml.head.Head.html#feynml.head.Head.add_rules">(feynml.head.Head method)</a>
+</li>
+        <li><a href="_autosummary/feynml.sheet.SheetHandler.html#feynml.sheet.SheetHandler.add_rules">(feynml.sheet.SheetHandler method)</a>
+</li>
+        <li><a href="_autosummary/pyfeyn2.feynmandiagram.FeynmanDiagram.html#pyfeyn2.feynmandiagram.FeynmanDiagram.add_rules">(pyfeyn2.feynmandiagram.FeynmanDiagram method)</a>
+</li>
+        <li><a href="_autosummary/pyfeyn2.feynmandiagram.FeynML.html#pyfeyn2.feynmandiagram.FeynML.add_rules">(pyfeyn2.feynmandiagram.FeynML method)</a>
+</li>
+        <li><a href="_autosummary/pyfeyn2.feynmandiagram.Head.html#pyfeyn2.feynmandiagram.Head.add_rules">(pyfeyn2.feynmandiagram.Head method)</a>
+</li>
+      </ul></li>
       <li><a href="_autosummary/pyfeyn2.render.pyx.lines.DecoratedLine.html#pyfeyn2.render.pyx.lines.DecoratedLine.addArrow">addArrow() (pyfeyn2.render.pyx.lines.DecoratedLine method)</a>
 
       <ul>
@@ -397,6 +433,8 @@
         <li><a href="_autosummary/pyfeyn2.render.pyx.lines.Vector.html#pyfeyn2.render.pyx.lines.Vector.addParallelArrow">(pyfeyn2.render.pyx.lines.Vector method)</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="_autosummary/pyfeyn2.render.pyx.config.addPyfeynOptions.html#pyfeyn2.render.pyx.config.addPyfeynOptions">addPyfeynOptions() (in module pyfeyn2.render.pyx.config)</a>
 </li>
       <li><a href="_autosummary/pyfeyn2.render.pyx.points.DecoratedPoint.html#pyfeyn2.render.pyx.points.DecoratedPoint.addStrokestyle">addStrokestyle() (pyfeyn2.render.pyx.points.DecoratedPoint method)</a>
@@ -429,8 +467,6 @@
         <li><a href="_autosummary/pyfeyn2.render.pyx.lines.Vector.html#pyfeyn2.render.pyx.lines.Vector.addStyle">(pyfeyn2.render.pyx.lines.Vector method)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="_autosummary/pyfeyn2.render.pyx.lines.DecoratedLine.html#pyfeyn2.render.pyx.lines.DecoratedLine.addStyles">addStyles() (pyfeyn2.render.pyx.lines.DecoratedLine method)</a>
 
       <ul>
@@ -465,8 +501,6 @@
         <li><a href="_autosummary/pyfeyn2.render.pyx.blobs.Ellipse.html#pyfeyn2.render.pyx.blobs.Ellipse.addTrafo">(pyfeyn2.render.pyx.blobs.Ellipse method)</a>
 </li>
       </ul></li>
-      <li><a href="_autosummary/feynml.feynml.alias_meta.html#feynml.feynml.alias_meta">alias_meta (in module feynml.feynml)</a>
-</li>
       <li><a href="_autosummary/pyfeyn2.render.all.AllRender.html#pyfeyn2.render.all.AllRender">AllRender (class in pyfeyn2.render.all)</a>
 </li>
       <li><a href="_autosummary/pyfeyn2.render.all.AllRender.html#pyfeyn2.render.all.AllRender.append">append() (pyfeyn2.render.all.AllRender method)</a>
@@ -961,8 +995,6 @@
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="_autosummary/feynml.interface.hepmc.event_to_feynman.html#feynml.interface.hepmc.event_to_feynman">event_to_feynman() (in module feynml.interface.hepmc)</a>
-</li>
       <li><a href="_autosummary/pyfeyn2.render.all.AllRender.html#pyfeyn2.render.all.AllRender.extend">extend() (pyfeyn2.render.all.AllRender method)</a>
 
       <ul>
@@ -1040,6 +1072,13 @@
 </li>
       </ul></li>
       <li>
+    feynml.head
+
+      <ul>
+        <li><a href="_autosummary/feynml.head.html#module-feynml.head">module</a>
+</li>
+      </ul></li>
+      <li>
     feynml.id
 
       <ul>
@@ -1061,10 +1100,24 @@
 </li>
       </ul></li>
       <li>
+    feynml.interface.lhe
+
+      <ul>
+        <li><a href="_autosummary/feynml.interface.lhe.html#module-feynml.interface.lhe">module</a>
+</li>
+      </ul></li>
+      <li>
     feynml.interface.qgraf
 
       <ul>
         <li><a href="_autosummary/feynml.interface.qgraf.html#module-feynml.interface.qgraf">module</a>
+</li>
+      </ul></li>
+      <li>
+    feynml.interface.util
+
+      <ul>
+        <li><a href="_autosummary/feynml.interface.util.html#module-feynml.interface.util">module</a>
 </li>
       </ul></li>
       <li>
@@ -1086,6 +1139,20 @@
 
       <ul>
         <li><a href="_autosummary/feynml.line.html#module-feynml.line">module</a>
+</li>
+      </ul></li>
+      <li>
+    feynml.link
+
+      <ul>
+        <li><a href="_autosummary/feynml.link.html#module-feynml.link">module</a>
+</li>
+      </ul></li>
+      <li>
+    feynml.meta
+
+      <ul>
+        <li><a href="_autosummary/feynml.meta.html#module-feynml.meta">module</a>
 </li>
       </ul></li>
       <li>
@@ -1126,6 +1193,20 @@
 </li>
       </ul></li>
       <li>
+    feynml.shape
+
+      <ul>
+        <li><a href="_autosummary/feynml.shape.html#module-feynml.shape">module</a>
+</li>
+      </ul></li>
+      <li>
+    feynml.sheet
+
+      <ul>
+        <li><a href="_autosummary/feynml.sheet.html#module-feynml.sheet">module</a>
+</li>
+      </ul></li>
+      <li>
     feynml.sourcing
 
       <ul>
@@ -1147,10 +1228,10 @@
 </li>
       </ul></li>
       <li>
-    feynml.types
+    feynml.type
 
       <ul>
-        <li><a href="_autosummary/feynml.types.html#module-feynml.types">module</a>
+        <li><a href="_autosummary/feynml.type.html#module-feynml.type">module</a>
 </li>
       </ul></li>
       <li>
@@ -1158,6 +1239,13 @@
 
       <ul>
         <li><a href="_autosummary/feynml.vertex.html#module-feynml.vertex">module</a>
+</li>
+      </ul></li>
+      <li>
+    feynml.xml
+
+      <ul>
+        <li><a href="_autosummary/feynml.xml.html#module-feynml.xml">module</a>
 </li>
       </ul></li>
       <li><a href="_autosummary/pyfeyn2.render.latex.feynmp.FeynmpRender.html#pyfeyn2.render.latex.feynmp.FeynmpRender">FeynmpRender (class in pyfeyn2.render.latex.feynmp)</a>
@@ -1195,9 +1283,23 @@
       <ul>
         <li><a href="_autosummary/feynml.feynml.FeynML.html#feynml.feynml.FeynML.from_xml">(feynml.feynml.FeynML class method)</a>
 </li>
+        <li><a href="_autosummary/feynml.xml.XML.html#feynml.xml.XML.from_xml">(feynml.xml.XML class method)</a>
+</li>
         <li><a href="_autosummary/pyfeyn2.feynmandiagram.FeynmanDiagram.html#pyfeyn2.feynmandiagram.FeynmanDiagram.from_xml">(pyfeyn2.feynmandiagram.FeynmanDiagram class method)</a>
 </li>
         <li><a href="_autosummary/pyfeyn2.feynmandiagram.FeynML.html#pyfeyn2.feynmandiagram.FeynML.from_xml">(pyfeyn2.feynmandiagram.FeynML class method)</a>
+</li>
+      </ul></li>
+      <li><a href="_autosummary/feynml.feynmandiagram.FeynmanDiagram.html#feynml.feynmandiagram.FeynmanDiagram.from_xml_file">from_xml_file() (feynml.feynmandiagram.FeynmanDiagram class method)</a>
+
+      <ul>
+        <li><a href="_autosummary/feynml.feynml.FeynML.html#feynml.feynml.FeynML.from_xml_file">(feynml.feynml.FeynML class method)</a>
+</li>
+        <li><a href="_autosummary/feynml.xml.XML.html#feynml.xml.XML.from_xml_file">(feynml.xml.XML class method)</a>
+</li>
+        <li><a href="_autosummary/pyfeyn2.feynmandiagram.FeynmanDiagram.html#pyfeyn2.feynmandiagram.FeynmanDiagram.from_xml_file">(pyfeyn2.feynmandiagram.FeynmanDiagram class method)</a>
+</li>
+        <li><a href="_autosummary/pyfeyn2.feynmandiagram.FeynML.html#pyfeyn2.feynmandiagram.FeynML.from_xml_file">(pyfeyn2.feynmandiagram.FeynML class method)</a>
 </li>
       </ul></li>
   </ul></td>
@@ -1236,8 +1338,12 @@
         <li><a href="_autosummary/pyfeyn2.render.latex.tikzfeynman.TikzFeynmanRender.html#pyfeyn2.render.latex.tikzfeynman.TikzFeynmanRender.generate_tex">(pyfeyn2.render.latex.tikzfeynman.TikzFeynmanRender method)</a>
 </li>
       </ul></li>
-      <li><a href="_autosummary/feynml.types.get_default_sheet.html#feynml.types.get_default_sheet">get_default_sheet() (in module feynml.types)</a>
+      <li><a href="_autosummary/feynml.sheet.get_default_sheet.html#feynml.sheet.get_default_sheet">get_default_sheet() (in module feynml.sheet)</a>
+
+      <ul>
+        <li><a href="_autosummary/feynml.type.get_default_sheet.html#feynml.type.get_default_sheet">(in module feynml.type)</a>
 </li>
+      </ul></li>
       <li><a href="_autosummary/feynml.particles.get_either_particle.html#feynml.particles.get_either_particle">get_either_particle() (in module feynml.particles)</a>
 </li>
       <li><a href="_autosummary/feynml.connector.Connector.html#feynml.connector.Connector.get_length">get_length() (feynml.connector.Connector method)</a>
@@ -1256,7 +1362,13 @@
       </ul></li>
       <li><a href="_autosummary/pyfeyn2.render.latex.tikzfeynman.get_line.html#pyfeyn2.render.latex.tikzfeynman.get_line">get_line() (in module pyfeyn2.render.latex.tikzfeynman)</a>
 </li>
-      <li><a href="_autosummary/feynml.feynml.Head.html#feynml.feynml.Head.get_meta_dict">get_meta_dict() (feynml.feynml.Head method)</a>
+      <li><a href="_autosummary/feynml.head.Head.html#feynml.head.Head.get_link_dict">get_link_dict() (feynml.head.Head method)</a>
+
+      <ul>
+        <li><a href="_autosummary/pyfeyn2.feynmandiagram.Head.html#pyfeyn2.feynmandiagram.Head.get_link_dict">(pyfeyn2.feynmandiagram.Head method)</a>
+</li>
+      </ul></li>
+      <li><a href="_autosummary/feynml.head.Head.html#feynml.head.Head.get_meta_dict">get_meta_dict() (feynml.head.Head method)</a>
 
       <ul>
         <li><a href="_autosummary/pyfeyn2.feynmandiagram.Head.html#pyfeyn2.feynmandiagram.Head.get_meta_dict">(pyfeyn2.feynmandiagram.Head method)</a>
@@ -1266,14 +1378,76 @@
 </li>
       <li><a href="_autosummary/feynml.particles.get_particle.html#feynml.particles.get_particle">get_particle() (in module feynml.particles)</a>
 </li>
-      <li><a href="_autosummary/feynml.types.get_shapes.html#feynml.types.get_shapes">get_shapes() (in module feynml.types)</a>
+      <li><a href="_autosummary/feynml.shape.get_shapes.html#feynml.shape.get_shapes">get_shapes() (in module feynml.shape)</a>
+
+      <ul>
+        <li><a href="_autosummary/feynml.type.get_shapes.html#feynml.type.get_shapes">(in module feynml.type)</a>
 </li>
+      </ul></li>
+      <li><a href="_autosummary/feynml.feynmandiagram.FeynmanDiagram.html#feynml.feynmandiagram.FeynmanDiagram.get_sheet">get_sheet() (feynml.feynmandiagram.FeynmanDiagram method)</a>
+
+      <ul>
+        <li><a href="_autosummary/feynml.feynml.FeynML.html#feynml.feynml.FeynML.get_sheet">(feynml.feynml.FeynML method)</a>
+</li>
+        <li><a href="_autosummary/feynml.head.Head.html#feynml.head.Head.get_sheet">(feynml.head.Head method)</a>
+</li>
+        <li><a href="_autosummary/feynml.sheet.SheetHandler.html#feynml.sheet.SheetHandler.get_sheet">(feynml.sheet.SheetHandler method)</a>
+</li>
+        <li><a href="_autosummary/pyfeyn2.feynmandiagram.FeynmanDiagram.html#pyfeyn2.feynmandiagram.FeynmanDiagram.get_sheet">(pyfeyn2.feynmandiagram.FeynmanDiagram method)</a>
+</li>
+        <li><a href="_autosummary/pyfeyn2.feynmandiagram.FeynML.html#pyfeyn2.feynmandiagram.FeynML.get_sheet">(pyfeyn2.feynmandiagram.FeynML method)</a>
+</li>
+        <li><a href="_autosummary/pyfeyn2.feynmandiagram.Head.html#pyfeyn2.feynmandiagram.Head.get_sheet">(pyfeyn2.feynmandiagram.Head method)</a>
+</li>
+      </ul></li>
+      <li><a href="_autosummary/feynml.feynmandiagram.FeynmanDiagram.html#feynml.feynmandiagram.FeynmanDiagram.get_sheets">get_sheets() (feynml.feynmandiagram.FeynmanDiagram method)</a>
+
+      <ul>
+        <li><a href="_autosummary/feynml.feynml.FeynML.html#feynml.feynml.FeynML.get_sheets">(feynml.feynml.FeynML method)</a>
+</li>
+        <li><a href="_autosummary/feynml.head.Head.html#feynml.head.Head.get_sheets">(feynml.head.Head method)</a>
+</li>
+        <li><a href="_autosummary/feynml.sheet.SheetHandler.html#feynml.sheet.SheetHandler.get_sheets">(feynml.sheet.SheetHandler method)</a>
+</li>
+        <li><a href="_autosummary/pyfeyn2.feynmandiagram.FeynmanDiagram.html#pyfeyn2.feynmandiagram.FeynmanDiagram.get_sheets">(pyfeyn2.feynmandiagram.FeynmanDiagram method)</a>
+</li>
+        <li><a href="_autosummary/pyfeyn2.feynmandiagram.FeynML.html#pyfeyn2.feynmandiagram.FeynML.get_sheets">(pyfeyn2.feynmandiagram.FeynML method)</a>
+</li>
+        <li><a href="_autosummary/pyfeyn2.feynmandiagram.Head.html#pyfeyn2.feynmandiagram.Head.get_sheets">(pyfeyn2.feynmandiagram.Head method)</a>
+</li>
+      </ul></li>
       <li><a href="_autosummary/feynml.feynmandiagram.FeynmanDiagram.html#feynml.feynmandiagram.FeynmanDiagram.get_style">get_style() (feynml.feynmandiagram.FeynmanDiagram method)</a>
 
       <ul>
+        <li><a href="_autosummary/feynml.feynml.FeynML.html#feynml.feynml.FeynML.get_style">(feynml.feynml.FeynML method)</a>
+</li>
+        <li><a href="_autosummary/feynml.head.Head.html#feynml.head.Head.get_style">(feynml.head.Head method)</a>
+</li>
+        <li><a href="_autosummary/feynml.sheet.SheetHandler.html#feynml.sheet.SheetHandler.get_style">(feynml.sheet.SheetHandler method)</a>
+</li>
         <li><a href="_autosummary/feynml.interface.qgraf.get_style.html#feynml.interface.qgraf.get_style">(in module feynml.interface.qgraf)</a>
 </li>
         <li><a href="_autosummary/pyfeyn2.feynmandiagram.FeynmanDiagram.html#pyfeyn2.feynmandiagram.FeynmanDiagram.get_style">(pyfeyn2.feynmandiagram.FeynmanDiagram method)</a>
+</li>
+        <li><a href="_autosummary/pyfeyn2.feynmandiagram.FeynML.html#pyfeyn2.feynmandiagram.FeynML.get_style">(pyfeyn2.feynmandiagram.FeynML method)</a>
+</li>
+        <li><a href="_autosummary/pyfeyn2.feynmandiagram.Head.html#pyfeyn2.feynmandiagram.Head.get_style">(pyfeyn2.feynmandiagram.Head method)</a>
+</li>
+      </ul></li>
+      <li><a href="_autosummary/feynml.feynmandiagram.FeynmanDiagram.html#feynml.feynmandiagram.FeynmanDiagram.get_style_property">get_style_property() (feynml.feynmandiagram.FeynmanDiagram method)</a>
+
+      <ul>
+        <li><a href="_autosummary/feynml.feynml.FeynML.html#feynml.feynml.FeynML.get_style_property">(feynml.feynml.FeynML method)</a>
+</li>
+        <li><a href="_autosummary/feynml.head.Head.html#feynml.head.Head.get_style_property">(feynml.head.Head method)</a>
+</li>
+        <li><a href="_autosummary/feynml.sheet.SheetHandler.html#feynml.sheet.SheetHandler.get_style_property">(feynml.sheet.SheetHandler method)</a>
+</li>
+        <li><a href="_autosummary/pyfeyn2.feynmandiagram.FeynmanDiagram.html#pyfeyn2.feynmandiagram.FeynmanDiagram.get_style_property">(pyfeyn2.feynmandiagram.FeynmanDiagram method)</a>
+</li>
+        <li><a href="_autosummary/pyfeyn2.feynmandiagram.FeynML.html#pyfeyn2.feynmandiagram.FeynML.get_style_property">(pyfeyn2.feynmandiagram.FeynML method)</a>
+</li>
+        <li><a href="_autosummary/pyfeyn2.feynmandiagram.Head.html#pyfeyn2.feynmandiagram.Head.get_style_property">(pyfeyn2.feynmandiagram.Head method)</a>
 </li>
       </ul></li>
       <li><a href="_autosummary/feynml.connector.Connector.html#feynml.connector.Connector.get_tension">get_tension() (feynml.connector.Connector method)</a>
@@ -1290,7 +1464,7 @@
         <li><a href="_autosummary/pyfeyn2.feynmandiagram.Propagator.html#pyfeyn2.feynmandiagram.Propagator.get_tension">(pyfeyn2.feynmandiagram.Propagator method)</a>
 </li>
       </ul></li>
-      <li><a href="_autosummary/feynml.types.get_types.html#feynml.types.get_types">get_types() (in module feynml.types)</a>
+      <li><a href="_autosummary/feynml.type.get_types.html#feynml.type.get_types">get_types() (in module feynml.type)</a>
 </li>
       <li><a href="_autosummary/pyfeyn2.render.pyx.lines.DecoratedLine.html#pyfeyn2.render.pyx.lines.DecoratedLine.getAmplitude">getAmplitude() (pyfeyn2.render.pyx.lines.DecoratedLine method)</a>
 
@@ -1388,6 +1562,8 @@
         <li><a href="_autosummary/pyfeyn2.render.pyx.utils.Visible.html#pyfeyn2.render.pyx.utils.Visible.getDepth">(pyfeyn2.render.pyx.utils.Visible method)</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="_autosummary/pyfeyn2.render.pyx.points.DecoratedPoint.html#pyfeyn2.render.pyx.points.DecoratedPoint.getFillstyles">getFillstyles() (pyfeyn2.render.pyx.points.DecoratedPoint method)</a>
 </li>
       <li><a href="_autosummary/pyfeyn2.render.pyx.lines.DecoratedLine.html#pyfeyn2.render.pyx.lines.DecoratedLine.getFrequency">getFrequency() (pyfeyn2.render.pyx.lines.DecoratedLine method)</a>
@@ -1414,8 +1590,6 @@
 </li>
       <li><a href="_autosummary/pyfeyn2.render.pyx.config.getOptions.html#pyfeyn2.render.pyx.config.getOptions">getOptions() (in module pyfeyn2.render.pyx.config)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="_autosummary/pyfeyn2.render.pyx.blobs.Blob.html#pyfeyn2.render.pyx.blobs.Blob.getPath">getPath() (pyfeyn2.render.pyx.blobs.Blob method)</a>
 
       <ul>
@@ -1622,7 +1796,7 @@
 <h2 id="H">H</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="_autosummary/feynml.feynml.Head.html#feynml.feynml.Head">Head (class in feynml.feynml)</a>
+      <li><a href="_autosummary/feynml.head.Head.html#feynml.head.Head">Head (class in feynml.head)</a>
 
       <ul>
         <li><a href="_autosummary/pyfeyn2.feynmandiagram.Head.html#pyfeyn2.feynmandiagram.Head">(class in pyfeyn2.feynmandiagram)</a>
@@ -1630,6 +1804,8 @@
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="_autosummary/feynml.interface.hepmc.hepmc_event_to_feynman.html#feynml.interface.hepmc.hepmc_event_to_feynman">hepmc_event_to_feynman() (in module feynml.interface.hepmc)</a>
+</li>
       <li><a href="_autosummary/feynml.interface.hepmc.hepmc_to_feynml.html#feynml.interface.hepmc.hepmc_to_feynml">hepmc_to_feynml() (in module feynml.interface.hepmc)</a>
 </li>
       <li><a href="_autosummary/pyfeyn2.render.pyx.lines.Higgs.html#pyfeyn2.render.pyx.lines.Higgs">Higgs (in module pyfeyn2.render.pyx.lines)</a>
@@ -1640,6 +1816,8 @@
 <h2 id="I">I</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="_autosummary/feynml.interface.util.id_wrap.html#feynml.interface.util.id_wrap">id_wrap() (in module feynml.interface.util)</a>
+</li>
       <li><a href="_autosummary/feynml.id.Identifiable.html#feynml.id.Identifiable">Identifiable (class in feynml.id)</a>
 </li>
       <li><a href="_autosummary/pyfeyn2.render.all.AllRender.html#pyfeyn2.render.all.AllRender.index">index() (pyfeyn2.render.all.AllRender method)</a>
@@ -1784,16 +1962,22 @@
         <li><a href="_autosummary/pyfeyn2.render.latex.tikzfeynman.TikzFeynmanRender.html#pyfeyn2.render.latex.tikzfeynman.TikzFeynmanRender.latex_name">(pyfeyn2.render.latex.tikzfeynman.TikzFeynmanRender property)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="_autosummary/pyfeyn2.render.latex.latex.LatexRender.html#pyfeyn2.render.latex.latex.LatexRender">LatexRender (class in pyfeyn2.render.latex.latex)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="_autosummary/feynml.leg.Leg.html#feynml.leg.Leg">Leg (class in feynml.leg)</a>
 
       <ul>
         <li><a href="_autosummary/pyfeyn2.feynmandiagram.Leg.html#pyfeyn2.feynmandiagram.Leg">(class in pyfeyn2.feynmandiagram)</a>
 </li>
       </ul></li>
+      <li><a href="_autosummary/feynml.interface.util.leg_id_wrap.html#feynml.interface.util.leg_id_wrap">leg_id_wrap() (in module feynml.interface.util)</a>
+</li>
+      <li><a href="_autosummary/feynml.interface.lhe.lhe_event_to_feynman.html#feynml.interface.lhe.lhe_event_to_feynman">lhe_event_to_feynman() (in module feynml.interface.lhe)</a>
+</li>
+      <li><a href="_autosummary/feynml.interface.lhe.lhe_to_feynml.html#feynml.interface.lhe.lhe_to_feynml">lhe_to_feynml() (in module feynml.interface.lhe)</a>
+</li>
       <li><a href="_autosummary/feynml.line.Line.html#feynml.line.Line">Line (class in feynml.line)</a>
 
       <ul>
@@ -1801,6 +1985,8 @@
 </li>
       </ul></li>
       <li><a href="_autosummary/pyfeyn2.render.pyx.deco.LineLabel.html#pyfeyn2.render.pyx.deco.LineLabel">LineLabel (class in pyfeyn2.render.pyx.deco)</a>
+</li>
+      <li><a href="_autosummary/feynml.link.Link.html#feynml.link.Link">Link (class in feynml.link)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -1814,7 +2000,7 @@
 </li>
       <li><a href="_autosummary/pyfeyn2.render.pyx.deco.Arrow.html#pyfeyn2.render.pyx.deco.Arrow.merge">merge() (pyfeyn2.render.pyx.deco.Arrow method)</a>
 </li>
-      <li><a href="_autosummary/feynml.feynml.Meta.html#feynml.feynml.Meta">Meta (class in feynml.feynml)</a>
+      <li><a href="_autosummary/feynml.meta.Meta.html#feynml.meta.Meta">Meta (class in feynml.meta)</a>
 
       <ul>
         <li><a href="_autosummary/pyfeyn2.feynmandiagram.Meta.html#pyfeyn2.feynmandiagram.Meta">(class in pyfeyn2.feynmandiagram)</a>
@@ -1848,19 +2034,29 @@
 </li>
         <li><a href="_autosummary/feynml.feynml.html#module-feynml.feynml">feynml.feynml</a>
 </li>
+        <li><a href="_autosummary/feynml.head.html#module-feynml.head">feynml.head</a>
+</li>
         <li><a href="_autosummary/feynml.id.html#module-feynml.id">feynml.id</a>
 </li>
         <li><a href="_autosummary/feynml.interface.html#module-feynml.interface">feynml.interface</a>
 </li>
         <li><a href="_autosummary/feynml.interface.hepmc.html#module-feynml.interface.hepmc">feynml.interface.hepmc</a>
 </li>
+        <li><a href="_autosummary/feynml.interface.lhe.html#module-feynml.interface.lhe">feynml.interface.lhe</a>
+</li>
         <li><a href="_autosummary/feynml.interface.qgraf.html#module-feynml.interface.qgraf">feynml.interface.qgraf</a>
+</li>
+        <li><a href="_autosummary/feynml.interface.util.html#module-feynml.interface.util">feynml.interface.util</a>
 </li>
         <li><a href="_autosummary/feynml.labeled.html#module-feynml.labeled">feynml.labeled</a>
 </li>
         <li><a href="_autosummary/feynml.leg.html#module-feynml.leg">feynml.leg</a>
 </li>
         <li><a href="_autosummary/feynml.line.html#module-feynml.line">feynml.line</a>
+</li>
+        <li><a href="_autosummary/feynml.link.html#module-feynml.link">feynml.link</a>
+</li>
+        <li><a href="_autosummary/feynml.meta.html#module-feynml.meta">feynml.meta</a>
 </li>
         <li><a href="_autosummary/feynml.momentum.html#module-feynml.momentum">feynml.momentum</a>
 </li>
@@ -1872,15 +2068,21 @@
 </li>
         <li><a href="_autosummary/feynml.propagator.html#module-feynml.propagator">feynml.propagator</a>
 </li>
+        <li><a href="_autosummary/feynml.shape.html#module-feynml.shape">feynml.shape</a>
+</li>
+        <li><a href="_autosummary/feynml.sheet.html#module-feynml.sheet">feynml.sheet</a>
+</li>
         <li><a href="_autosummary/feynml.sourcing.html#module-feynml.sourcing">feynml.sourcing</a>
 </li>
         <li><a href="_autosummary/feynml.styled.html#module-feynml.styled">feynml.styled</a>
 </li>
         <li><a href="_autosummary/feynml.targeting.html#module-feynml.targeting">feynml.targeting</a>
 </li>
-        <li><a href="_autosummary/feynml.types.html#module-feynml.types">feynml.types</a>
+        <li><a href="_autosummary/feynml.type.html#module-feynml.type">feynml.type</a>
 </li>
         <li><a href="_autosummary/feynml.vertex.html#module-feynml.vertex">feynml.vertex</a>
+</li>
+        <li><a href="_autosummary/feynml.xml.html#module-feynml.xml">feynml.xml</a>
 </li>
         <li><a href="_autosummary/pyfeyn2.html#module-pyfeyn2">pyfeyn2</a>
 </li>
@@ -2099,6 +2301,8 @@
         <li><a href="_autosummary/pyfeyn2.feynmandiagram.Propagator.html#pyfeyn2.feynmandiagram.Propagator">(class in pyfeyn2.feynmandiagram)</a>
 </li>
       </ul></li>
+      <li><a href="_autosummary/feynml.interface.util.propagator_id_wrap.html#feynml.interface.util.propagator_id_wrap">propagator_id_wrap() (in module feynml.interface.util)</a>
+</li>
       <li><a href="_autosummary/feynml.connector.Connector.html#feynml.connector.Connector.put_style">put_style() (feynml.connector.Connector method)</a>
 
       <ul>
@@ -2813,6 +3017,8 @@
         <li><a href="_autosummary/pyfeyn2.feynmandiagram.Vertex.html#pyfeyn2.feynmandiagram.Vertex.shape">(pyfeyn2.feynmandiagram.Vertex attribute)</a>
 </li>
       </ul></li>
+      <li><a href="_autosummary/feynml.sheet.SheetHandler.html#feynml.sheet.SheetHandler">SheetHandler (class in feynml.sheet)</a>
+</li>
       <li><a href="_autosummary/pyfeyn2.render.pyx.utils.sign.html#pyfeyn2.render.pyx.utils.sign">sign() (in module pyfeyn2.render.pyx.utils)</a>
 </li>
       <li><a href="_autosummary/feynml.line.Line.html#feynml.line.Line.source">source (feynml.line.Line attribute)</a>
@@ -2946,15 +3152,11 @@
       <ul>
         <li><a href="_autosummary/feynml.feynml.FeynML.html#feynml.feynml.FeynML.to_xml">(feynml.feynml.FeynML method)</a>
 </li>
+        <li><a href="_autosummary/feynml.xml.XML.html#feynml.xml.XML.to_xml">(feynml.xml.XML method)</a>
+</li>
         <li><a href="_autosummary/pyfeyn2.feynmandiagram.FeynmanDiagram.html#pyfeyn2.feynmandiagram.FeynmanDiagram.to_xml">(pyfeyn2.feynmandiagram.FeynmanDiagram method)</a>
 </li>
         <li><a href="_autosummary/pyfeyn2.feynmandiagram.FeynML.html#pyfeyn2.feynmandiagram.FeynML.to_xml">(pyfeyn2.feynmandiagram.FeynML method)</a>
-</li>
-      </ul></li>
-      <li><a href="_autosummary/feynml.feynml.Tool.html#feynml.feynml.Tool">Tool (class in feynml.feynml)</a>
-
-      <ul>
-        <li><a href="_autosummary/pyfeyn2.feynmandiagram.Tool.html#pyfeyn2.feynmandiagram.Tool">(class in pyfeyn2.feynmandiagram)</a>
 </li>
       </ul></li>
       <li><a href="_autosummary/feynml.connector.Connector.html#feynml.connector.Connector.type">type (feynml.connector.Connector attribute)</a>
@@ -2993,6 +3195,8 @@
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="_autosummary/feynml.interface.util.vertex_id_wrap.html#feynml.interface.util.vertex_id_wrap">vertex_id_wrap() (in module feynml.interface.util)</a>
+</li>
       <li><a href="_autosummary/pyfeyn2.render.pyx.utils.Visible.html#pyfeyn2.render.pyx.utils.Visible">Visible (class in pyfeyn2.render.pyx.utils)</a>
 </li>
   </ul></td>
@@ -3001,22 +3205,10 @@
 <h2 id="W">W</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="_autosummary/feynml.feynmandiagram.FeynmanDiagram.html#feynml.feynmandiagram.FeynmanDiagram.with_default_style">with_default_style() (feynml.feynmandiagram.FeynmanDiagram method)</a>
-
-      <ul>
-        <li><a href="_autosummary/pyfeyn2.feynmandiagram.FeynmanDiagram.html#pyfeyn2.feynmandiagram.FeynmanDiagram.with_default_style">(pyfeyn2.feynmandiagram.FeynmanDiagram method)</a>
-</li>
-      </ul></li>
       <li><a href="_autosummary/feynml.leg.Leg.html#feynml.leg.Leg.with_external">with_external() (feynml.leg.Leg method)</a>
 
       <ul>
         <li><a href="_autosummary/pyfeyn2.feynmandiagram.Leg.html#pyfeyn2.feynmandiagram.Leg.with_external">(pyfeyn2.feynmandiagram.Leg method)</a>
-</li>
-      </ul></li>
-      <li><a href="_autosummary/feynml.feynmandiagram.FeynmanDiagram.html#feynml.feynmandiagram.FeynmanDiagram.with_external_sheet">with_external_sheet() (feynml.feynmandiagram.FeynmanDiagram method)</a>
-
-      <ul>
-        <li><a href="_autosummary/pyfeyn2.feynmandiagram.FeynmanDiagram.html#pyfeyn2.feynmandiagram.FeynmanDiagram.with_external_sheet">(pyfeyn2.feynmandiagram.FeynmanDiagram method)</a>
 </li>
       </ul></li>
       <li><a href="_autosummary/feynml.connector.Connector.html#feynml.connector.Connector.with_id">with_id() (feynml.connector.Connector method)</a>
@@ -3119,8 +3311,6 @@
         <li><a href="_autosummary/pyfeyn2.feynmandiagram.Propagator.html#pyfeyn2.feynmandiagram.Propagator.with_name">(pyfeyn2.feynmandiagram.Propagator method)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="_autosummary/feynml.connector.Connector.html#feynml.connector.Connector.with_particle">with_particle() (feynml.connector.Connector method)</a>
 
       <ul>
@@ -3139,6 +3329,8 @@
         <li><a href="_autosummary/pyfeyn2.feynmandiagram.Propagator.html#pyfeyn2.feynmandiagram.Propagator.with_particle">(pyfeyn2.feynmandiagram.Propagator method)</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="_autosummary/feynml.connector.Connector.html#feynml.connector.Connector.with_pdgid">with_pdgid() (feynml.connector.Connector method)</a>
 
       <ul>
@@ -3163,6 +3355,38 @@
         <li><a href="_autosummary/pyfeyn2.feynmandiagram.FeynmanDiagram.html#pyfeyn2.feynmandiagram.FeynmanDiagram.with_propagators">(pyfeyn2.feynmandiagram.FeynmanDiagram method)</a>
 </li>
       </ul></li>
+      <li><a href="_autosummary/feynml.feynmandiagram.FeynmanDiagram.html#feynml.feynmandiagram.FeynmanDiagram.with_rule">with_rule() (feynml.feynmandiagram.FeynmanDiagram method)</a>
+
+      <ul>
+        <li><a href="_autosummary/feynml.feynml.FeynML.html#feynml.feynml.FeynML.with_rule">(feynml.feynml.FeynML method)</a>
+</li>
+        <li><a href="_autosummary/feynml.head.Head.html#feynml.head.Head.with_rule">(feynml.head.Head method)</a>
+</li>
+        <li><a href="_autosummary/feynml.sheet.SheetHandler.html#feynml.sheet.SheetHandler.with_rule">(feynml.sheet.SheetHandler method)</a>
+</li>
+        <li><a href="_autosummary/pyfeyn2.feynmandiagram.FeynmanDiagram.html#pyfeyn2.feynmandiagram.FeynmanDiagram.with_rule">(pyfeyn2.feynmandiagram.FeynmanDiagram method)</a>
+</li>
+        <li><a href="_autosummary/pyfeyn2.feynmandiagram.FeynML.html#pyfeyn2.feynmandiagram.FeynML.with_rule">(pyfeyn2.feynmandiagram.FeynML method)</a>
+</li>
+        <li><a href="_autosummary/pyfeyn2.feynmandiagram.Head.html#pyfeyn2.feynmandiagram.Head.with_rule">(pyfeyn2.feynmandiagram.Head method)</a>
+</li>
+      </ul></li>
+      <li><a href="_autosummary/feynml.feynmandiagram.FeynmanDiagram.html#feynml.feynmandiagram.FeynmanDiagram.with_rules">with_rules() (feynml.feynmandiagram.FeynmanDiagram method)</a>
+
+      <ul>
+        <li><a href="_autosummary/feynml.feynml.FeynML.html#feynml.feynml.FeynML.with_rules">(feynml.feynml.FeynML method)</a>
+</li>
+        <li><a href="_autosummary/feynml.head.Head.html#feynml.head.Head.with_rules">(feynml.head.Head method)</a>
+</li>
+        <li><a href="_autosummary/feynml.sheet.SheetHandler.html#feynml.sheet.SheetHandler.with_rules">(feynml.sheet.SheetHandler method)</a>
+</li>
+        <li><a href="_autosummary/pyfeyn2.feynmandiagram.FeynmanDiagram.html#pyfeyn2.feynmandiagram.FeynmanDiagram.with_rules">(pyfeyn2.feynmandiagram.FeynmanDiagram method)</a>
+</li>
+        <li><a href="_autosummary/pyfeyn2.feynmandiagram.FeynML.html#pyfeyn2.feynmandiagram.FeynML.with_rules">(pyfeyn2.feynmandiagram.FeynML method)</a>
+</li>
+        <li><a href="_autosummary/pyfeyn2.feynmandiagram.Head.html#pyfeyn2.feynmandiagram.Head.with_rules">(pyfeyn2.feynmandiagram.Head method)</a>
+</li>
+      </ul></li>
       <li><a href="_autosummary/feynml.leg.Leg.html#feynml.leg.Leg.with_sense">with_sense() (feynml.leg.Leg method)</a>
 
       <ul>
@@ -3178,7 +3402,17 @@
       <li><a href="_autosummary/feynml.feynmandiagram.FeynmanDiagram.html#feynml.feynmandiagram.FeynmanDiagram.with_sheet">with_sheet() (feynml.feynmandiagram.FeynmanDiagram method)</a>
 
       <ul>
+        <li><a href="_autosummary/feynml.feynml.FeynML.html#feynml.feynml.FeynML.with_sheet">(feynml.feynml.FeynML method)</a>
+</li>
+        <li><a href="_autosummary/feynml.head.Head.html#feynml.head.Head.with_sheet">(feynml.head.Head method)</a>
+</li>
+        <li><a href="_autosummary/feynml.sheet.SheetHandler.html#feynml.sheet.SheetHandler.with_sheet">(feynml.sheet.SheetHandler method)</a>
+</li>
         <li><a href="_autosummary/pyfeyn2.feynmandiagram.FeynmanDiagram.html#pyfeyn2.feynmandiagram.FeynmanDiagram.with_sheet">(pyfeyn2.feynmandiagram.FeynmanDiagram method)</a>
+</li>
+        <li><a href="_autosummary/pyfeyn2.feynmandiagram.FeynML.html#pyfeyn2.feynmandiagram.FeynML.with_sheet">(pyfeyn2.feynmandiagram.FeynML method)</a>
+</li>
+        <li><a href="_autosummary/pyfeyn2.feynmandiagram.Head.html#pyfeyn2.feynmandiagram.Head.with_sheet">(pyfeyn2.feynmandiagram.Head method)</a>
 </li>
       </ul></li>
       <li><a href="_autosummary/feynml.connector.Connector.html#feynml.connector.Connector.with_tension">with_tension() (feynml.connector.Connector method)</a>
@@ -3253,6 +3487,8 @@
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="_autosummary/feynml.xml.XML.html#feynml.xml.XML">XML (class in feynml.xml)</a>
+</li>
       <li><a href="_autosummary/pyfeyn2.render.pyx.blobs.Blob.html#pyfeyn2.render.pyx.blobs.Blob.xy">xy() (pyfeyn2.render.pyx.blobs.Blob method)</a>
 
       <ul>

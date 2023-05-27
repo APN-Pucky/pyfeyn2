@@ -1,0 +1,6 @@
+feynml.interface.hepmc.hepmc\_event\_to\_feynman
+================================================
+
+.. currentmodule:: feynml.interface.hepmc
+
+.. autofunction:: hepmc_event_to_feynman

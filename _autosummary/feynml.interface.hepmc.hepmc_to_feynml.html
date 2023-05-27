@@ -14,6 +14,8 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/sphinx_highlight.js"></script>
@@ -24,8 +26,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="feynml.interface.qgraf" href="feynml.interface.qgraf.html" />
-    <link rel="prev" title="feynml.interface.hepmc.event_to_feynman" href="feynml.interface.hepmc.event_to_feynman.html" /> 
+    <link rel="next" title="feynml.interface.lhe" href="feynml.interface.lhe.html" />
+    <link rel="prev" title="feynml.interface.hepmc.hepmc_event_to_feynman" href="feynml.interface.hepmc.hepmc_event_to_feynman.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -41,7 +43,7 @@
               <img src="../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.3.2
+                2.3.3
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -74,29 +76,37 @@
 <li class="toctree-l2"><a class="reference internal" href="feynml.connector.html">feynml.connector</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.feynmandiagram.html">feynml.feynmandiagram</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.feynml.html">feynml.feynml</a></li>
+<li class="toctree-l2"><a class="reference internal" href="feynml.head.html">feynml.head</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.id.html">feynml.id</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="feynml.interface.html">feynml.interface</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="feynml.interface.hepmc.html">feynml.interface.hepmc</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="feynml.interface.hepmc.event_to_feynman.html">feynml.interface.hepmc.event_to_feynman</a></li>
+<li class="toctree-l4"><a class="reference internal" href="feynml.interface.hepmc.hepmc_event_to_feynman.html">feynml.interface.hepmc.hepmc_event_to_feynman</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">feynml.interface.hepmc.hepmc_to_feynml</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="feynml.interface.lhe.html">feynml.interface.lhe</a></li>
 <li class="toctree-l3"><a class="reference internal" href="feynml.interface.qgraf.html">feynml.interface.qgraf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="feynml.interface.util.html">feynml.interface.util</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.labeled.html">feynml.labeled</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.leg.html">feynml.leg</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.line.html">feynml.line</a></li>
+<li class="toctree-l2"><a class="reference internal" href="feynml.link.html">feynml.link</a></li>
+<li class="toctree-l2"><a class="reference internal" href="feynml.meta.html">feynml.meta</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.momentum.html">feynml.momentum</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.particles.html">feynml.particles</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.pdgid.html">feynml.pdgid</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.point.html">feynml.point</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.propagator.html">feynml.propagator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="feynml.shape.html">feynml.shape</a></li>
+<li class="toctree-l2"><a class="reference internal" href="feynml.sheet.html">feynml.sheet</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.sourcing.html">feynml.sourcing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.styled.html">feynml.styled</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.targeting.html">feynml.targeting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="feynml.types.html">feynml.types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="feynml.type.html">feynml.type</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.vertex.html">feynml.vertex</a></li>
+<li class="toctree-l2"><a class="reference internal" href="feynml.xml.html">feynml.xml</a></li>
 </ul>
 </li>
 </ul>
@@ -142,8 +152,23 @@
 <h1>feynml.interface.hepmc.hepmc_to_feynml<a class="headerlink" href="#feynml-interface-hepmc-hepmc-to-feynml" title="Permalink to this heading"></a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="feynml.interface.hepmc.hepmc_to_feynml">
-<span class="sig-prename descclassname"><span class="pre">feynml.interface.hepmc.</span></span><span class="sig-name descname"><span class="pre">hepmc_to_feynml</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hepmc_file</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/feynml/interface/hepmc.html#hepmc_to_feynml"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#feynml.interface.hepmc.hepmc_to_feynml" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<span class="sig-prename descclassname"><span class="pre">feynml.interface.hepmc.</span></span><span class="sig-name descname"><span class="pre">hepmc_to_feynml</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hepmc_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">creator</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'pyfeyn2'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tool</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'pyfeyn2.interface.hepmc'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="feynml.feynml.FeynML.html#feynml.feynml.FeynML" title="feynml.feynml.FeynML"><span class="pre">FeynML</span></a></span></span><a class="reference internal" href="../_modules/feynml/interface/hepmc.html#hepmc_to_feynml"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#feynml.interface.hepmc.hepmc_to_feynml" title="Permalink to this definition"></a></dt>
+<dd><p>Convert a HepMC file to a FeynML object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>hepmc_file</strong> – The path to the HepMC file.</p></li>
+<li><p><strong>creator</strong> – The creator of the file.</p></li>
+<li><p><strong>tool</strong> – The tool used to create the file.</p></li>
+<li><p><strong>title</strong> – The title of the file.</p></li>
+<li><p><strong>description</strong> – The description of the file.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A FeynML object.</p>
+</dd>
+</dl>
+</dd></dl>
 
 </section>
 
@@ -151,8 +176,8 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="feynml.interface.hepmc.event_to_feynman.html" class="btn btn-neutral float-left" title="feynml.interface.hepmc.event_to_feynman" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="feynml.interface.qgraf.html" class="btn btn-neutral float-right" title="feynml.interface.qgraf" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="feynml.interface.hepmc.hepmc_event_to_feynman.html" class="btn btn-neutral float-left" title="feynml.interface.hepmc.hepmc_event_to_feynman" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="feynml.interface.lhe.html" class="btn btn-neutral float-right" title="feynml.interface.lhe" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

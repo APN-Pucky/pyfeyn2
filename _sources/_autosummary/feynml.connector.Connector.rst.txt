@@ -24,6 +24,7 @@ feynml.connector.Connector
       ~Connector.put_styles
       ~Connector.raw_style
       ~Connector.with_class
+      ~Connector.with_color
       ~Connector.with_id
       ~Connector.with_label
       ~Connector.with_length

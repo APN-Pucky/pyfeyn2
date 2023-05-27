@@ -1,0 +1,30 @@
+feynml.shape
+============
+
+.. automodule:: feynml.shape
+  
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+      :toctree:                                         
+   
+      get_shapes
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+

@@ -14,7 +14,7 @@ feynml.interface.hepmc
    .. autosummary::
       :toctree:                                         
    
-      event_to_feynman
+      hepmc_event_to_feynman
       hepmc_to_feynml
    
    

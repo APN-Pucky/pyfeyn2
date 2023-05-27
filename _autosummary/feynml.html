@@ -14,6 +14,8 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/sphinx_highlight.js"></script>
@@ -41,7 +43,7 @@
               <img src="../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.3.2
+                2.3.3
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -74,21 +76,27 @@
 <li class="toctree-l2"><a class="reference internal" href="feynml.connector.html">feynml.connector</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.feynmandiagram.html">feynml.feynmandiagram</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.feynml.html">feynml.feynml</a></li>
+<li class="toctree-l2"><a class="reference internal" href="feynml.head.html">feynml.head</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.id.html">feynml.id</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.interface.html">feynml.interface</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.labeled.html">feynml.labeled</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.leg.html">feynml.leg</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.line.html">feynml.line</a></li>
+<li class="toctree-l2"><a class="reference internal" href="feynml.link.html">feynml.link</a></li>
+<li class="toctree-l2"><a class="reference internal" href="feynml.meta.html">feynml.meta</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.momentum.html">feynml.momentum</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.particles.html">feynml.particles</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.pdgid.html">feynml.pdgid</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.point.html">feynml.point</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.propagator.html">feynml.propagator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="feynml.shape.html">feynml.shape</a></li>
+<li class="toctree-l2"><a class="reference internal" href="feynml.sheet.html">feynml.sheet</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.sourcing.html">feynml.sourcing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.styled.html">feynml.styled</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.targeting.html">feynml.targeting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="feynml.types.html">feynml.types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="feynml.type.html">feynml.type</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.vertex.html">feynml.vertex</a></li>
+<li class="toctree-l2"><a class="reference internal" href="feynml.xml.html">feynml.xml</a></li>
 </ul>
 </li>
 </ul>
@@ -142,49 +150,67 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="feynml.feynml.html#module-feynml.feynml" title="feynml.feynml"><code class="xref py py-obj docutils literal notranslate"><span class="pre">feynml.feynml</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="feynml.id.html#module-feynml.id" title="feynml.id"><code class="xref py py-obj docutils literal notranslate"><span class="pre">feynml.id</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="feynml.head.html#module-feynml.head" title="feynml.head"><code class="xref py py-obj docutils literal notranslate"><span class="pre">feynml.head</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="feynml.interface.html#module-feynml.interface" title="feynml.interface"><code class="xref py py-obj docutils literal notranslate"><span class="pre">feynml.interface</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="feynml.id.html#module-feynml.id" title="feynml.id"><code class="xref py py-obj docutils literal notranslate"><span class="pre">feynml.id</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="feynml.labeled.html#module-feynml.labeled" title="feynml.labeled"><code class="xref py py-obj docutils literal notranslate"><span class="pre">feynml.labeled</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="feynml.interface.html#module-feynml.interface" title="feynml.interface"><code class="xref py py-obj docutils literal notranslate"><span class="pre">feynml.interface</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="feynml.leg.html#module-feynml.leg" title="feynml.leg"><code class="xref py py-obj docutils literal notranslate"><span class="pre">feynml.leg</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="feynml.labeled.html#module-feynml.labeled" title="feynml.labeled"><code class="xref py py-obj docutils literal notranslate"><span class="pre">feynml.labeled</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="feynml.line.html#module-feynml.line" title="feynml.line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">feynml.line</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="feynml.leg.html#module-feynml.leg" title="feynml.leg"><code class="xref py py-obj docutils literal notranslate"><span class="pre">feynml.leg</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="feynml.momentum.html#module-feynml.momentum" title="feynml.momentum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">feynml.momentum</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="feynml.line.html#module-feynml.line" title="feynml.line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">feynml.line</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="feynml.particles.html#module-feynml.particles" title="feynml.particles"><code class="xref py py-obj docutils literal notranslate"><span class="pre">feynml.particles</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="feynml.link.html#module-feynml.link" title="feynml.link"><code class="xref py py-obj docutils literal notranslate"><span class="pre">feynml.link</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="feynml.pdgid.html#module-feynml.pdgid" title="feynml.pdgid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">feynml.pdgid</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="feynml.meta.html#module-feynml.meta" title="feynml.meta"><code class="xref py py-obj docutils literal notranslate"><span class="pre">feynml.meta</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="feynml.point.html#module-feynml.point" title="feynml.point"><code class="xref py py-obj docutils literal notranslate"><span class="pre">feynml.point</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="feynml.momentum.html#module-feynml.momentum" title="feynml.momentum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">feynml.momentum</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="feynml.propagator.html#module-feynml.propagator" title="feynml.propagator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">feynml.propagator</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="feynml.particles.html#module-feynml.particles" title="feynml.particles"><code class="xref py py-obj docutils literal notranslate"><span class="pre">feynml.particles</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="feynml.sourcing.html#module-feynml.sourcing" title="feynml.sourcing"><code class="xref py py-obj docutils literal notranslate"><span class="pre">feynml.sourcing</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="feynml.pdgid.html#module-feynml.pdgid" title="feynml.pdgid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">feynml.pdgid</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="feynml.styled.html#module-feynml.styled" title="feynml.styled"><code class="xref py py-obj docutils literal notranslate"><span class="pre">feynml.styled</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="feynml.point.html#module-feynml.point" title="feynml.point"><code class="xref py py-obj docutils literal notranslate"><span class="pre">feynml.point</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="feynml.targeting.html#module-feynml.targeting" title="feynml.targeting"><code class="xref py py-obj docutils literal notranslate"><span class="pre">feynml.targeting</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="feynml.propagator.html#module-feynml.propagator" title="feynml.propagator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">feynml.propagator</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="feynml.types.html#module-feynml.types" title="feynml.types"><code class="xref py py-obj docutils literal notranslate"><span class="pre">feynml.types</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="feynml.shape.html#module-feynml.shape" title="feynml.shape"><code class="xref py py-obj docutils literal notranslate"><span class="pre">feynml.shape</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="feynml.vertex.html#module-feynml.vertex" title="feynml.vertex"><code class="xref py py-obj docutils literal notranslate"><span class="pre">feynml.vertex</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="feynml.sheet.html#module-feynml.sheet" title="feynml.sheet"><code class="xref py py-obj docutils literal notranslate"><span class="pre">feynml.sheet</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="feynml.sourcing.html#module-feynml.sourcing" title="feynml.sourcing"><code class="xref py py-obj docutils literal notranslate"><span class="pre">feynml.sourcing</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="feynml.styled.html#module-feynml.styled" title="feynml.styled"><code class="xref py py-obj docutils literal notranslate"><span class="pre">feynml.styled</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="feynml.targeting.html#module-feynml.targeting" title="feynml.targeting"><code class="xref py py-obj docutils literal notranslate"><span class="pre">feynml.targeting</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="feynml.type.html#module-feynml.type" title="feynml.type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">feynml.type</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="feynml.vertex.html#module-feynml.vertex" title="feynml.vertex"><code class="xref py py-obj docutils literal notranslate"><span class="pre">feynml.vertex</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="feynml.xml.html#module-feynml.xml" title="feynml.xml"><code class="xref py py-obj docutils literal notranslate"><span class="pre">feynml.xml</span></code></a></p></td>
 <td><p></p></td>
 </tr>
 </tbody>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>feynml.head &mdash; pyfeyn2  documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/plot_directive.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/jupyter-sphinx.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/thebelab.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/thebelab-helper.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            pyfeyn2
+              <img src="../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                2.3.3
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">FeynML:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../feynml/index.html">FeynML</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Gallery:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../gallery/index.html">Gallery</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Renderers:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../renderers/index.html">Renderers</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Interfaces:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../interfaces/index.html">Interfaces</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Modules:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../_autosummary/pyfeyn2.html">pyfeyn2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../_autosummary/feynml.html">feynml</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Versions:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://pyfeyn2.readthedocs.io/en/stable/">RTD</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/pyfeyn2/">Stable</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/pyfeyn2/test/">Dev</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Links:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/APN-Pucky/pyfeyn2">GitHub</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">pyfeyn2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">feynml.head</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for feynml.head</h1><div class="highlight"><pre>
+<span></span>import logging
+import warnings
+from dataclasses import dataclass, field
+from importlib.metadata import version
+from typing import List, Optional, Union
+
+import cssutils
+import smpl_io.io as io
+from cssselect import GenericTranslator, SelectorError
+from lxml import etree
+
+from feynml.id import Identifiable
+from feynml.leg import Leg
+from feynml.link import Link
+from feynml.meta import Meta as alias_meta
+from feynml.propagator import Propagator
+from feynml.sheet import SheetHandler
+from feynml.styled import CSSSheet, Styled
+from feynml.type import get_default_sheet
+from feynml.vertex import Vertex
+from feynml.xml import XML
+
+
+<div class="viewcode-block" id="Head"><a class="viewcode-back" href="../../_autosummary/feynml.head.Head.html#feynml.head.Head">[docs]</a>@dataclass
+class Head(SheetHandler):
+    class Meta:
+        name = &quot;head&quot;
+
+    metas: List[alias_meta] = field(
+        default_factory=list,
+        metadata={&quot;name&quot;: &quot;meta&quot;, &quot;namespace&quot;: &quot;&quot;},
+    )
+    links: List[Link] = field(
+        default_factory=list,
+        metadata={&quot;name&quot;: &quot;link&quot;, &quot;namespace&quot;: &quot;&quot;},
+    )
+    cached_links = {}
+    title: Optional[str] = field(default=None, metadata={&quot;type&quot;: &quot;Element&quot;})
+
+    # description: Optional[str] = field(default=&quot;&quot;, metadata={&quot;type&quot;: &quot;Element&quot;})
+
+    # style: Optional[str] = field(default=&quot;&quot;, metadata={&quot;type&quot;: &quot;Element&quot;})
+    style: CSSSheet = field(
+        default_factory=lambda: cssutils.parseString(&quot;&quot;),
+        metadata={
+            &quot;name&quot;: &quot;style&quot;,
+            &quot;type&quot;: &quot;Element&quot;,
+        },
+    )
+
+<div class="viewcode-block" id="Head.get_link_dict"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.Head.html#feynml.head.Head.get_link_dict">[docs]</a>    def get_link_dict(self, cached=True, cache=True):
+        &quot;&quot;&quot;
+        Return a dictionary of resolved links.
+
+        If cached is True, then the cached resolved links are returned.
+        &quot;&quot;&quot;
+        ret = {}
+        for m in self.links:
+            if m.ref in self.cached_links and cached:
+                ret[m.ref] = self.cached_links[m.ref]
+            else:
+                ret[m.ref] = io.read(m.href)
+                if cache:
+                    self.cached_links[m.ref] = ret[m.ref]
+        return ret</div>
+
+<div class="viewcode-block" id="Head.get_meta_dict"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.Head.html#feynml.head.Head.get_meta_dict">[docs]</a>    def get_meta_dict(self):
+        &quot;&quot;&quot;
+        Return a dictionary of meta tags.
+        &quot;&quot;&quot;
+        return {m.name: m.content for m in self.metas}</div>
+
+<div class="viewcode-block" id="Head.get_sheets"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.Head.html#feynml.head.Head.get_sheets">[docs]</a>    def get_sheets(self):
+        sheets = []
+        sheets += super().get_sheets()
+        for k, v in self.get_link_dict().items():
+            if k == &quot;stylesheet&quot;:
+                sheets += [v]
+        sheets += [self.style]
+        return sheets</div>
+
+<div class="viewcode-block" id="Head.get_sheet"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.Head.html#feynml.head.Head.get_sheet">[docs]</a>    def get_sheet(self):
+        return self.style</div>
+
+<div class="viewcode-block" id="Head.with_sheet"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.Head.html#feynml.head.Head.with_sheet">[docs]</a>    def with_sheet(self, sheet):
+        self.style = sheet
+        return self</div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Alexander Puck Neuwirth.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
