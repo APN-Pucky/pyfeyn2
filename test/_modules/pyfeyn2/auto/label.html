@@ -13,6 +13,8 @@
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/doctools.js"></script>
         <script src="../../../_static/sphinx_highlight.js"></script>
@@ -38,7 +40,7 @@
               <img src="../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.3.2-10-g6b566b09
+                2.3.2-16-gf572ac72
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -108,29 +110,29 @@
 <span></span>import copy
 
 
-<div class="viewcode-block" id="auto_label"><a class="viewcode-back" href="../../../_autosummary/pyfeyn2.auto.label.auto_label.html#pyfeyn2.auto.label.auto_label">[docs]</a>def auto_label(objs, override=False):
+<div class="viewcode-block" id="auto_label"><a class="viewcode-back" href="../../../_autosummary/pyfeyn2.auto.label.auto_label.html#pyfeyn2.auto.label.auto_label">[docs]</a>def auto_label(objs, replace=False):
     &quot;&quot;&quot;Automatically label objects.&quot;&quot;&quot;
     for p in objs:
-        if (p.label is None or override) and p.particle is not None:
+        if (p.label is None or replace) and p.particle is not None:
             p.label = &quot;$&quot; + p.particle.latex_name + &quot;$&quot;</div>
 
 
-<div class="viewcode-block" id="auto_label_propagators"><a class="viewcode-back" href="../../../_autosummary/pyfeyn2.auto.label.auto_label_propagators.html#pyfeyn2.auto.label.auto_label_propagators">[docs]</a>def auto_label_propagators(ifd, override=False):
+<div class="viewcode-block" id="auto_label_propagators"><a class="viewcode-back" href="../../../_autosummary/pyfeyn2.auto.label.auto_label_propagators.html#pyfeyn2.auto.label.auto_label_propagators">[docs]</a>def auto_label_propagators(ifd, replace=False):
     &quot;&quot;&quot;Automatically label propagators.&quot;&quot;&quot;
     fd = copy.deepcopy(ifd)
     objs = fd.propagators
     for p in objs:
-        if p.label is None or override:
+        if p.label is None or replace:
             p.label = &quot;$&quot; + p.particle.latex_name + &quot;$&quot;
     return fd</div>
 
 
-<div class="viewcode-block" id="auto_label_legs"><a class="viewcode-back" href="../../../_autosummary/pyfeyn2.auto.label.auto_label_legs.html#pyfeyn2.auto.label.auto_label_legs">[docs]</a>def auto_label_legs(ifd, override=False):
+<div class="viewcode-block" id="auto_label_legs"><a class="viewcode-back" href="../../../_autosummary/pyfeyn2.auto.label.auto_label_legs.html#pyfeyn2.auto.label.auto_label_legs">[docs]</a>def auto_label_legs(ifd, replace=False):
     &quot;&quot;&quot;Automatically label legs.&quot;&quot;&quot;
     fd = copy.deepcopy(ifd)
     objs = fd.legs
     for p in objs:
-        if p.particle is None or override:
+        if p.particle is None or replace:
             p.particle = &quot;$&quot; + p.particle.latex_name + &quot;$&quot;
     return fd</div>
 </pre></div>

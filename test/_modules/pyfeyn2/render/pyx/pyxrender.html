@@ -13,6 +13,8 @@
     <script src="../../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
         <script src="../../../../_static/doctools.js"></script>
         <script src="../../../../_static/sphinx_highlight.js"></script>
@@ -38,7 +40,7 @@
               <img src="../../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.3.2-10-g6b566b09
+                2.3.2-16-gf572ac72
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
@@ -146,16 +148,17 @@ from pyfeyn2.render.render import Render
                 dp.setFillstyles(PointLabel(dp, v.label, displace=3, angle=90))
             pyxfd.add(dp)
         for l in self.fd.legs:
+            lp = Point(l.x, l.y)
             lstyle = self.fd.get_style(l)
-            tar = self.fd.get_vertex(l.target)
+            tar = self.fd.get_point(l.target)
             if lstyle.getProperty(&quot;line&quot;) is not None:
                 lname = lstyle.getProperty(&quot;line&quot;).value
             else:
                 lname = l.type  # fallback to type
             if l.is_incoming():
-                nl = NamedLine[lname](Point(l.x, l.y), Point(tar.x, tar.y))
+                nl = NamedLine[lname](lp, Point(tar.x, tar.y))
             elif l.is_outgoing():
-                nl = NamedLine[lname](Point(tar.x, tar.y), Point(l.x, l.y))
+                nl = NamedLine[lname](Point(tar.x, tar.y), lp)
             if lstyle.getProperty(&quot;bend&quot;) is not None:
                 nl = nl.bend(lstyle.getProperty(&quot;bend&quot;).value)
             nl = self.apply_layout(self.fd.get_style(l).cssText.replace(&quot;\n&quot;, &quot; &quot;), nl)
@@ -163,8 +166,8 @@ from pyfeyn2.render.render import Render
 
         for p in self.fd.propagators:
             pstyle = self.fd.get_style(p)
-            src = self.fd.get_vertex(p.source)
-            tar = self.fd.get_vertex(p.target)
+            src = self.fd.get_point(p.source)
+            tar = self.fd.get_point(p.target)
             if pstyle.getProperty(&quot;line&quot;) is not None:
                 lname = pstyle.getProperty(&quot;line&quot;).value
             else:
@@ -327,11 +330,11 @@ from pyfeyn2.render.render import Render
 
     @classmethod
     def valid_types(cls):
-        return super(PyxRender, cls).valid_types() + list(NamedLine.keys())
+        return super().valid_types() + list(NamedLine.keys())
 
     @classmethod
     def valid_attributes(cls):
-        return super(PyxRender, cls).valid_attributes() + [
+        return super().valid_attributes() + [
             &quot;style&quot;,
             &quot;type&quot;,
             &quot;label&quot;,
@@ -341,7 +344,7 @@ from pyfeyn2.render.render import Render
 
     @classmethod
     def valid_styles(cls):
-        return super(PyxRender, cls).valid_styles() + [
+        return super().valid_styles() + [
             &quot;line&quot;,
             &quot;bend&quot;,
             &quot;arrow-pos&quot;,

@@ -1,0 +1,31 @@
+feynml.xml
+==========
+
+.. automodule:: feynml.xml
+  
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :toctree:                                         
+      :template: custom-class-template.rst               
+   
+      XML
+   
+   
+
+   
+   
+   
+
+
+

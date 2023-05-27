@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>feynml.sheet &mdash; pyfeyn2  documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/plot_directive.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/jupyter-sphinx.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/thebelab.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/thebelab-helper.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            pyfeyn2
+              <img src="../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                2.3.2-16-gf572ac72
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">FeynML:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../feynml/index.html">FeynML</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Gallery:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../gallery/index.html">Gallery</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Renderers:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../renderers/index.html">Renderers</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Interfaces:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../interfaces/index.html">Interfaces</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Modules:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../_autosummary/pyfeyn2.html">pyfeyn2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../_autosummary/feynml.html">feynml</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Versions:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://pyfeyn2.readthedocs.io/en/stable/">RTD</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/pyfeyn2/">Stable</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/pyfeyn2/test/">Dev</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Links:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/APN-Pucky/pyfeyn2">GitHub</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">pyfeyn2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">feynml.sheet</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for feynml.sheet</h1><div class="highlight"><pre>
+<span></span>import logging
+import warnings
+from typing import List
+
+import cssutils
+from cssselect import GenericTranslator, SelectorError
+from lxml import etree
+
+from feynml.id import Identifiable
+from feynml.styled import Styled
+from feynml.xml import XML
+
+cssutils.log.setLevel(logging.CRITICAL)
+
+default_sheet = cssutils.parseString(
+    &quot;&quot;&quot;
+        /*************************************************************************/
+        /* Diagram */
+        /*************************************************************************/
+
+        diagram {
+            direction : right;
+            layout : neato;
+        }
+
+        /*************************************************************************/
+        /* Vertex */
+        /*************************************************************************/
+
+        [shape=dot] {
+            symbol : dot;
+        }
+        [shape=empty] {
+            symbol : empty;
+        }
+        [shape=square] {
+            symbol : square;
+        }
+        [shape=cross] {
+            symbol : cross;
+        }
+        [shape=blob] {
+            symbol : blob;
+        }
+
+        /*************************************************************************/
+        /* Propagator */
+        /*************************************************************************/
+
+        /* General */
+        [type=fermion] {
+            line: fermion;
+            arrow-sense: 1;
+        }
+        [type=&quot;anti fermion&quot;] {
+            line: anti fermion;
+            arrow-sense: -1;
+        }
+        [type=boson] {
+            line: boson;
+            arrow-sense: 0;
+        }
+        [type=vector] {
+            line: vector;
+            arrow-sense: 0;
+        }
+        [type=scalar] {
+            line: scalar;
+            arrow-sense: 0;
+        }
+        [type=majorana] {
+            line: majorana;
+        }
+        [type=anti majorana] {
+            line: anti majorana;
+        }
+        /* SM */
+        [type=photon] {
+            line: photon;
+            arrow-sense: 0;
+        }
+        [type=higgs] {
+            line: higgs;
+            arrow-sense: 0;
+        }
+        [type=gluon] {
+            line: gluon;
+            arrow-sense: 0;
+            xamp : 0.025;
+            yamp : 0.035;
+            nloops : 7;
+        }
+        [type=ghost] {
+            line: ghost;
+            arrow-sense: 0;
+        }
+        /* BSM */
+        [type=graviton] {
+            line: graviton;
+            arrow-sense: 0;
+        }
+        [type=gluino] {
+            line: gluino;
+            arrow-sense: 0;
+            xamp : 0.025;
+            yamp : 0.035;
+            nloops : 7;
+        }
+        [type=squark]  {
+            line: squark;
+            arrow-sense: 1;
+        }
+        [type=slepton] {
+            line: slepton;
+            arrow-sense: 1;
+        }
+        [type=anti squark]  {
+            line: anti squark;
+            arrow-sense: -1;
+        }
+        [type=anti slepton] {
+            line: anti slepton;
+            arrow-sense: -1;
+        }
+        [type=gaugino] {
+            line: gaugino;
+            arrow-sense: 0;
+        }
+        [type=neutralino] {
+            line: neutralino;
+            arrow-sense: 0;
+        }
+        [type=chargino] {
+            line: chargino;
+            arrow-sense: 0;
+        }
+        [type=higgsino] {
+            line: higgsino;
+            arrow-sense: 0;
+        }
+        [type=gravitino] {
+            line: gravitino;
+            arrow-sense: 0;
+        }
+        /* util */
+        [type=phantom] {
+            line: phantom;
+            arrow-sense: 0;
+        }
+        [type=line] {
+            line: line;
+            arrow-sense: 0;
+        }
+        &quot;&quot;&quot;
+)
+
+
+<div class="viewcode-block" id="get_default_sheet"><a class="viewcode-back" href="../../_autosummary/feynml.sheet.get_default_sheet.html#feynml.sheet.get_default_sheet">[docs]</a>def get_default_sheet() -&gt; cssutils.css.CSSStyleSheet:
+    &quot;&quot;&quot;Return the default sheet.&quot;&quot;&quot;
+    return default_sheet</div>
+
+
+<div class="viewcode-block" id="SheetHandler"><a class="viewcode-back" href="../../_autosummary/feynml.sheet.SheetHandler.html#feynml.sheet.SheetHandler">[docs]</a>class SheetHandler:
+    &quot;&quot;&quot;Sheet class.&quot;&quot;&quot;
+
+    default_sheet: cssutils.css.CSSStyleSheet = get_default_sheet()
+
+<div class="viewcode-block" id="SheetHandler.get_sheets"><a class="viewcode-back" href="../../_autosummary/feynml.sheet.SheetHandler.html#feynml.sheet.SheetHandler.get_sheets">[docs]</a>    def get_sheets(self) -&gt; List[cssutils.css.CSSStyleSheet]:
+        &quot;&quot;&quot;Return the sheet.&quot;&quot;&quot;
+        return [self.default_sheet]</div>
+
+<div class="viewcode-block" id="SheetHandler.get_sheet"><a class="viewcode-back" href="../../_autosummary/feynml.sheet.SheetHandler.html#feynml.sheet.SheetHandler.get_sheet">[docs]</a>    def get_sheet(self) -&gt; cssutils.css.CSSStyleSheet:
+        &quot;&quot;&quot;Return the sheet.&quot;&quot;&quot;
+        return self.default_sheet</div>
+
+<div class="viewcode-block" id="SheetHandler.with_sheet"><a class="viewcode-back" href="../../_autosummary/feynml.sheet.SheetHandler.html#feynml.sheet.SheetHandler.with_sheet">[docs]</a>    def with_sheet(self, sheet):
+        &quot;&quot;&quot;Return the object with the sheet.&quot;&quot;&quot;
+        self.default_sheet = sheet
+        return self</div>
+
+<div class="viewcode-block" id="SheetHandler.get_style"><a class="viewcode-back" href="../../_autosummary/feynml.sheet.SheetHandler.html#feynml.sheet.SheetHandler.get_style">[docs]</a>    def get_style(self, obj, xml: XML = None) -&gt; cssutils.css.CSSStyleDeclaration:
+        &quot;&quot;&quot;
+        Get the style of an object.
+
+        This is prefered over accessing the style attribute directly, since it includes class and pdgid definitions.
+        &quot;&quot;&quot;
+        # selectorText is string
+        css = []
+        # global style
+        if isinstance(obj, Identifiable):
+            css += [self._get_obj_style(obj, xml=xml)]
+        if isinstance(obj, Styled):
+            # specific attribute style
+            css += [obj.style]
+        return cssutils.css.CSSStyleDeclaration(
+            cssText=&quot;;&quot;.join([c.cssText for c in css])
+        )</div>
+
+<div class="viewcode-block" id="SheetHandler.get_style_property"><a class="viewcode-back" href="../../_autosummary/feynml.sheet.SheetHandler.html#feynml.sheet.SheetHandler.get_style_property">[docs]</a>    def get_style_property(self, obj, property_name, xml: XML = None) -&gt; str:
+        &quot;&quot;&quot;
+        Get a style property of an object.
+        &quot;&quot;&quot;
+        style = self.get_style(obj, xml=xml)
+        p = style.getProperty(property_name)
+        if p is None:
+            return None
+        else:
+            return p.value</div>
+
+    def _get_obj_style(
+        self, obj: Identifiable, xml: XML = None
+    ) -&gt; cssutils.css.CSSStyleDeclaration:
+        if xml is not None:
+            document = etree.XML(xml.to_xml().encode(&quot;ascii&quot;))
+        else:
+            warnings.warn(&quot;No XML provided, using empty XML&quot;)
+            document = etree.XML(&quot;&lt;feynml&gt;&lt;/feynml&gt;&quot;)
+
+        def lambdaselector(s, obj=obj, document=document):
+            try:
+                expression = GenericTranslator().css_to_xpath(s)
+            except SelectorError:
+                warnings.warn(&quot;Invalid selector: &quot; + s)
+                return False
+            return obj.id in [e.get(&quot;id&quot;) for e in document.xpath(expression)]
+
+        return self._get_style(lambdaselector)
+
+    def _get_style(self, lambdaselector) -&gt; cssutils.css.CSSStyleDeclaration:
+        ret = []
+        sheets = self.get_sheets()
+        for sheet in sheets:
+            idd = []
+            cls = []
+            rest = []
+            glob = []
+            for rule in sheet:
+                if rule.type == rule.STYLE_RULE:
+                    s = rule.selectorText
+                    if lambdaselector(s):
+                        if s.startswith(&quot;#&quot;):
+                            idd.append(rule)
+                        elif s.startswith(&quot;[&quot;):
+                            rest.append(rule)
+                        elif s.startswith(&quot;:&quot;):
+                            rest.append(rule)
+                        elif s.startswith(&quot;*&quot;):
+                            glob.append(rule)
+                        elif &quot;.&quot; in s:
+                            cls.append(rule)
+                        else:
+                            rest.append(rule)
+            ret += reversed(idd + cls + rest + glob)
+        # sort rules by priority
+        return cssutils.css.CSSStyleDeclaration(
+            cssText=&quot;;&quot;.join([r.style.cssText for r in ret])
+        )
+
+<div class="viewcode-block" id="SheetHandler.add_rule"><a class="viewcode-back" href="../../_autosummary/feynml.sheet.SheetHandler.html#feynml.sheet.SheetHandler.add_rule">[docs]</a>    def add_rule(self, rule: str):
+        &quot;&quot;&quot;
+        Add a rule to the style.
+        &quot;&quot;&quot;
+        self.get_sheet().add(rule)
+        return self</div>
+
+<div class="viewcode-block" id="SheetHandler.add_rules"><a class="viewcode-back" href="../../_autosummary/feynml.sheet.SheetHandler.html#feynml.sheet.SheetHandler.add_rules">[docs]</a>    def add_rules(self, rules: str):
+        &quot;&quot;&quot;
+        Add rules to the style.
+        &quot;&quot;&quot;
+        self.with_sheet(
+            cssutils.parseString(
+                self.get_sheet().cssText.decode(&quot;utf-8&quot;) + &quot;\n&quot; + rules
+            )
+        )
+        return self</div>
+
+<div class="viewcode-block" id="SheetHandler.with_rule"><a class="viewcode-back" href="../../_autosummary/feynml.sheet.SheetHandler.html#feynml.sheet.SheetHandler.with_rule">[docs]</a>    def with_rule(self, rule: str):
+        &quot;&quot;&quot;
+        Replace rules of the style.
+        &quot;&quot;&quot;
+        return self.with_rules(rule)</div>
+
+<div class="viewcode-block" id="SheetHandler.with_rules"><a class="viewcode-back" href="../../_autosummary/feynml.sheet.SheetHandler.html#feynml.sheet.SheetHandler.with_rules">[docs]</a>    def with_rules(self, rules: str):
+        &quot;&quot;&quot;
+        Replace rules of the style.
+        &quot;&quot;&quot;
+        self.with_sheet(cssutils.parseString(rules))
+        return self</div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Alexander Puck Neuwirth.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

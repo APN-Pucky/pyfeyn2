@@ -13,6 +13,8 @@
     <script src="../../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
         <script src="../../../../_static/doctools.js"></script>
         <script src="../../../../_static/sphinx_highlight.js"></script>
@@ -38,7 +40,7 @@
               <img src="../../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.3.2-10-g6b566b09
+                2.3.2-16-gf572ac72
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
@@ -105,7 +107,8 @@
            <div itemprop="articleBody">
              
   <h1>Source code for pyfeyn2.render.latex.tikzfeynman</h1><div class="highlight"><pre>
-<span></span>from typing import List
+<span></span>import warnings
+from typing import List
 from warnings import warn
 
 from pylatex import Command
@@ -219,6 +222,13 @@ shape_map = {
     else:
         suffix = &quot;&quot;
 
+    if v.x is None or v.y is None:
+        warnings.warn(&quot;Vertex position not set&quot;)
+        return (
+            f&quot;\t\\vertex ({v.id}) [{end}] {suffix};\n&quot;
+            + f&quot;\t\\vertex ({v.id}clone) [] {suffix};\n&quot;
+        )
+
     return (
         f&quot;\t\\vertex ({v.id}) [{end}] at ({v.x},{v.y}) {suffix};\n&quot;
         + f&quot;\t\\vertex ({v.id}clone) [] at ({v.x},{v.y});\n&quot;
@@ -231,6 +241,9 @@ shape_map = {
         style += &quot;label=&quot; + l.external + &quot;,&quot;
     sty = style[:-1]
 
+    if l.x is None or l.y is None:
+        warnings.warn(&quot;Leg position not set&quot;)
+        return f&quot;\t\\vertex ({l.id}) [{sty}];\n&quot;
     return f&quot;\t\\vertex ({l.id}) [{sty}] at ({l.x},{l.y});\n&quot;</div>
 
 
@@ -300,7 +313,7 @@ shape_map = {
 
     @classmethod
     def valid_styles(cls) -&gt; bool:
-        return super(TikzFeynmanRender, cls).valid_styles() + [
+        return super().valid_styles() + [
             &quot;line&quot;,
             &quot;symbol&quot;,
             &quot;color&quot;,
@@ -316,7 +329,7 @@ shape_map = {
 
     @classmethod
     def valid_attributes(cls) -&gt; List[str]:
-        return super(TikzFeynmanRender, cls).valid_attributes() + [
+        return super().valid_attributes() + [
             &quot;x&quot;,
             &quot;y&quot;,
             &quot;label&quot;,
@@ -325,11 +338,11 @@ shape_map = {
 
     @classmethod
     def valid_types(cls) -&gt; List[str]:
-        return super(TikzFeynmanRender, cls).valid_types() + list(type_map.keys())
+        return super().valid_types() + list(type_map.keys())
 
     @classmethod
     def valid_shapes(cls) -&gt; List[str]:
-        return super(TikzFeynmanRender, cls).valid_types() + list(shape_map.keys())</div>
+        return super().valid_types() + list(shape_map.keys())</div>
 </pre></div>
 
            </div>

@@ -1,6 +1,0 @@
-feynml.types.get\_shapes
-========================
-
-.. currentmodule:: feynml.types
-
-.. autofunction:: get_shapes

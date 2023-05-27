@@ -14,6 +14,8 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/sphinx_highlight.js"></script>
@@ -41,7 +43,7 @@
               <img src="../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.3.2-10-g6b566b09
+                2.3.2-16-gf572ac72
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -86,7 +88,6 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="pyfeyn2.feynmandiagram.Styled.html">pyfeyn2.feynmandiagram.Styled</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyfeyn2.feynmandiagram.Tool.html">pyfeyn2.feynmandiagram.Tool</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyfeyn2.feynmandiagram.Vertex.html">pyfeyn2.feynmandiagram.Vertex</a></li>
 </ul>
 </li>
@@ -143,7 +144,7 @@
 <dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Propagator.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/feynmandiagram.html#Propagator.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.Propagator.__init__" title="Permalink to this definition"></a></dt>
 <dd><div class="deprecated">
-<p><span class="versionmodified deprecated">Deprecated since version 2.2.6: </span>This will be removed in 2.4.0.</p>
+<p><span class="versionmodified deprecated">Deprecated since version 2.2.6.</span></p>
 </div>
 </dd></dl>
 
@@ -186,46 +187,49 @@
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_class</span></code>(clazz)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Propagator.with_id" title="pyfeyn2.feynmandiagram.Propagator.with_id"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_id</span></code></a>(value[, k])</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_color</span></code>(color)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Propagator.with_id" title="pyfeyn2.feynmandiagram.Propagator.with_id"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_id</span></code></a>(value[, k])</p></td>
 <td><p>Set id to <cite>value</cite> and return self.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Propagator.with_label" title="pyfeyn2.feynmandiagram.Propagator.with_label"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_label</span></code></a>(value[, k])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Propagator.with_label" title="pyfeyn2.feynmandiagram.Propagator.with_label"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_label</span></code></a>(value[, k])</p></td>
 <td><p>Set label to <cite>value</cite> and return self.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Propagator.with_length" title="pyfeyn2.feynmandiagram.Propagator.with_length"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_length</span></code></a>(length)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Propagator.with_length" title="pyfeyn2.feynmandiagram.Propagator.with_length"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_length</span></code></a>(length)</p></td>
 <td><p>Add length to the connector</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Propagator.with_momentum" title="pyfeyn2.feynmandiagram.Propagator.with_momentum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_momentum</span></code></a>(value[, k])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Propagator.with_momentum" title="pyfeyn2.feynmandiagram.Propagator.with_momentum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_momentum</span></code></a>(value[, k])</p></td>
 <td><p>Set momentum to <cite>value</cite> and return self.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Propagator.with_name" title="pyfeyn2.feynmandiagram.Propagator.with_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_name</span></code></a>(value[, k])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Propagator.with_name" title="pyfeyn2.feynmandiagram.Propagator.with_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_name</span></code></a>(value[, k])</p></td>
 <td><p>Set name to <cite>value</cite> and return self.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Propagator.with_particle" title="pyfeyn2.feynmandiagram.Propagator.with_particle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_particle</span></code></a>(value[, k])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Propagator.with_particle" title="pyfeyn2.feynmandiagram.Propagator.with_particle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_particle</span></code></a>(value[, k])</p></td>
 <td><p>Set particle to <cite>value</cite> and return self.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Propagator.with_pdgid" title="pyfeyn2.feynmandiagram.Propagator.with_pdgid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_pdgid</span></code></a>(value[, k])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Propagator.with_pdgid" title="pyfeyn2.feynmandiagram.Propagator.with_pdgid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_pdgid</span></code></a>(value[, k])</p></td>
 <td><p>Set pdgid to <cite>value</cite> and return self.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_source</span></code>(source)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_source</span></code>(source)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_style</span></code>(style)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_style</span></code>(style)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_style_properties</span></code>(**kwargs)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_style_properties</span></code>(**kwargs)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_style_property</span></code>(key, value)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_style_property</span></code>(key, value)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_target</span></code>(target)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_target</span></code>(target)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Propagator.with_tension" title="pyfeyn2.feynmandiagram.Propagator.with_tension"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_tension</span></code></a>(tension)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Propagator.with_tension" title="pyfeyn2.feynmandiagram.Propagator.with_tension"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_tension</span></code></a>(tension)</p></td>
 <td><p>Add tension to the connector</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Propagator.with_type" title="pyfeyn2.feynmandiagram.Propagator.with_type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_type</span></code></a>(value[, k])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Propagator.with_type" title="pyfeyn2.feynmandiagram.Propagator.with_type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_type</span></code></a>(value[, k])</p></td>
 <td><p>Set type to <cite>value</cite> and return self.</p></td>
 </tr>
 </tbody>
@@ -314,7 +318,7 @@
 <dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Propagator.put_style">
 <span class="sig-name descname"><span class="pre">put_style</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.feynmandiagram.Propagator.put_style" title="Permalink to this definition"></a></dt>
 <dd><div class="deprecated">
-<p><span class="versionmodified deprecated">Deprecated since version 0.0.0: </span>This will be removed in 0.2.0.</p>
+<p><span class="versionmodified deprecated">Deprecated since version 0.0.0.</span></p>
 </div>
 </dd></dl>
 
@@ -322,7 +326,7 @@
 <dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Propagator.put_styles">
 <span class="sig-name descname"><span class="pre">put_styles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.feynmandiagram.Propagator.put_styles" title="Permalink to this definition"></a></dt>
 <dd><div class="deprecated">
-<p><span class="versionmodified deprecated">Deprecated since version 0.0.0: </span>This will be removed in 0.2.0.</p>
+<p><span class="versionmodified deprecated">Deprecated since version 0.0.0.</span></p>
 </div>
 </dd></dl>
 

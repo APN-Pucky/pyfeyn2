@@ -31,19 +31,25 @@
    feynml.connector
    feynml.feynmandiagram
    feynml.feynml
+   feynml.head
    feynml.id
    feynml.interface
    feynml.labeled
    feynml.leg
    feynml.line
+   feynml.link
+   feynml.meta
    feynml.momentum
    feynml.particles
    feynml.pdgid
    feynml.point
    feynml.propagator
+   feynml.shape
+   feynml.sheet
    feynml.sourcing
    feynml.styled
    feynml.targeting
-   feynml.types
+   feynml.type
    feynml.vertex
+   feynml.xml
 

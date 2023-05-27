@@ -14,6 +14,8 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/sphinx_highlight.js"></script>
@@ -24,7 +26,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="feynml.feynml.Head" href="feynml.feynml.Head.html" />
+    <link rel="next" title="feynml.head" href="feynml.head.html" />
     <link rel="prev" title="feynml.feynml" href="feynml.feynml.html" /> 
 </head>
 
@@ -41,7 +43,7 @@
               <img src="../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.3.2-10-g6b566b09
+                2.3.2-16-gf572ac72
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -78,27 +80,29 @@
 <li class="toctree-l4"><a class="reference internal" href="#feynml.feynml.FeynML"><code class="docutils literal notranslate"><span class="pre">FeynML</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="feynml.feynml.Head.html">feynml.feynml.Head</a></li>
-<li class="toctree-l3"><a class="reference internal" href="feynml.feynml.Meta.html">feynml.feynml.Meta</a></li>
-<li class="toctree-l3"><a class="reference internal" href="feynml.feynml.Tool.html">feynml.feynml.Tool</a></li>
-<li class="toctree-l3"><a class="reference internal" href="feynml.feynml.alias_meta.html">feynml.feynml.alias_meta</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="feynml.head.html">feynml.head</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.id.html">feynml.id</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.interface.html">feynml.interface</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.labeled.html">feynml.labeled</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.leg.html">feynml.leg</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.line.html">feynml.line</a></li>
+<li class="toctree-l2"><a class="reference internal" href="feynml.link.html">feynml.link</a></li>
+<li class="toctree-l2"><a class="reference internal" href="feynml.meta.html">feynml.meta</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.momentum.html">feynml.momentum</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.particles.html">feynml.particles</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.pdgid.html">feynml.pdgid</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.point.html">feynml.point</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.propagator.html">feynml.propagator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="feynml.shape.html">feynml.shape</a></li>
+<li class="toctree-l2"><a class="reference internal" href="feynml.sheet.html">feynml.sheet</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.sourcing.html">feynml.sourcing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.styled.html">feynml.styled</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.targeting.html">feynml.targeting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="feynml.types.html">feynml.types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="feynml.type.html">feynml.type</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.vertex.html">feynml.vertex</a></li>
+<li class="toctree-l2"><a class="reference internal" href="feynml.xml.html">feynml.xml</a></li>
 </ul>
 </li>
 </ul>
@@ -143,11 +147,11 @@
 <h1>feynml.feynml.FeynML<a class="headerlink" href="#feynml-feynml-feynml" title="Permalink to this heading"></a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="feynml.feynml.FeynML">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">feynml.feynml.</span></span><span class="sig-name descname"><span class="pre">FeynML</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">version:</span> <span class="pre">Union[str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">'0.1.7'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">head:</span> <span class="pre">Union[feynml.feynml.Head</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">Head(metas=[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description=''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style='')</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">diagrams:</span> <span class="pre">List[feynml.feynmandiagram.FeynmanDiagram]</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/feynml/feynml.html#FeynML"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#feynml.feynml.FeynML" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">feynml.feynml.</span></span><span class="sig-name descname"><span class="pre">FeynML</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">version:</span> <span class="pre">Union[str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">'0.2.0'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">head:</span> <span class="pre">Union[feynml.head.Head</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">diagrams:</span> <span class="pre">List[feynml.feynmandiagram.FeynmanDiagram]</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/feynml/feynml.html#FeynML"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#feynml.feynml.FeynML" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="feynml.sheet.SheetHandler.html#feynml.sheet.SheetHandler" title="feynml.sheet.SheetHandler"><code class="xref py py-class docutils literal notranslate"><span class="pre">SheetHandler</span></code></a>, <a class="reference internal" href="feynml.xml.XML.html#feynml.xml.XML" title="feynml.xml.XML"><code class="xref py py-class docutils literal notranslate"><span class="pre">XML</span></code></a></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="feynml.feynml.FeynML.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">version:</span> <span class="pre">str</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">'0.1.7'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">head:</span> <span class="pre">~feynml.feynml.Head</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">Head(metas=[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description=''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style='')</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">diagrams:</span> <span class="pre">~typing.List[~feynml.feynmandiagram.FeynmanDiagram]</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#feynml.feynml.FeynML.__init__" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">version:</span> <span class="pre">str</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">'0.2.0'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">head:</span> <span class="pre">~feynml.head.Head</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">diagrams:</span> <span class="pre">~typing.List[~feynml.feynmandiagram.FeynmanDiagram]</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#feynml.feynml.FeynML.__init__" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <p class="rubric">Methods</p>
@@ -156,41 +160,135 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#feynml.feynml.FeynML.__init__" title="feynml.feynml.FeynML.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>([version, head, diagrams])</p></td>
 <td><p></p></td>
 </tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#feynml.feynml.FeynML.add_rule" title="feynml.feynml.FeynML.add_rule"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_rule</span></code></a>(rule)</p></td>
+<td><p>Add a rule to the style.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#feynml.feynml.FeynML.add_rules" title="feynml.feynml.FeynML.add_rules"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_rules</span></code></a>(rules)</p></td>
+<td><p>Add rules to the style.</p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#feynml.feynml.FeynML.from_xml" title="feynml.feynml.FeynML.from_xml"><code class="xref py py-obj docutils literal notranslate"><span class="pre">from_xml</span></code></a>(xml)</p></td>
 <td><p>Load self from XML.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_diagram</span></code>(idd)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#feynml.feynml.FeynML.from_xml_file" title="feynml.feynml.FeynML.from_xml_file"><code class="xref py py-obj docutils literal notranslate"><span class="pre">from_xml_file</span></code></a>(file)</p></td>
+<td><p>Load self from XML file.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_diagram</span></code>(idd)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#feynml.feynml.FeynML.to_xml" title="feynml.feynml.FeynML.to_xml"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_xml</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#feynml.feynml.FeynML.get_sheet" title="feynml.feynml.FeynML.get_sheet"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_sheet</span></code></a>()</p></td>
+<td><p>Return the sheet.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#feynml.feynml.FeynML.get_sheets" title="feynml.feynml.FeynML.get_sheets"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_sheets</span></code></a>()</p></td>
+<td><p>Return the sheet.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#feynml.feynml.FeynML.get_style" title="feynml.feynml.FeynML.get_style"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_style</span></code></a>(obj[, xml])</p></td>
+<td><p>Get the style of an object.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#feynml.feynml.FeynML.get_style_property" title="feynml.feynml.FeynML.get_style_property"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_style_property</span></code></a>(obj, property_name[, xml])</p></td>
+<td><p>Get a style property of an object.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#feynml.feynml.FeynML.to_xml" title="feynml.feynml.FeynML.to_xml"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_xml</span></code></a>()</p></td>
 <td><p>Return self as XML.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#feynml.feynml.FeynML.with_rule" title="feynml.feynml.FeynML.with_rule"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_rule</span></code></a>(rule)</p></td>
+<td><p>Replace rules of the style.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#feynml.feynml.FeynML.with_rules" title="feynml.feynml.FeynML.with_rules"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_rules</span></code></a>(rules)</p></td>
+<td><p>Replace rules of the style.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#feynml.feynml.FeynML.with_sheet" title="feynml.feynml.FeynML.with_sheet"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_sheet</span></code></a>(sheet)</p></td>
+<td><p>Return the object with the sheet.</p></td>
 </tr>
 </tbody>
 </table>
 <p class="rubric">Attributes</p>
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">head</span></code></p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">default_sheet</span></code></p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">version</span></code></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">diagrams</span></code></p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">head</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">diagrams</span></code></p></td>
 <td><p></p></td>
 </tr>
 </tbody>
 </table>
 <dl class="py method">
+<dt class="sig sig-object py" id="feynml.feynml.FeynML.add_rule">
+<span class="sig-name descname"><span class="pre">add_rule</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rule</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#feynml.feynml.FeynML.add_rule" title="Permalink to this definition"></a></dt>
+<dd><p>Add a rule to the style.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="feynml.feynml.FeynML.add_rules">
+<span class="sig-name descname"><span class="pre">add_rules</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rules</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#feynml.feynml.FeynML.add_rules" title="Permalink to this definition"></a></dt>
+<dd><p>Add rules to the style.</p>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="feynml.feynml.FeynML.from_xml">
-<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_xml</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xml</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/feynml/feynml.html#FeynML.from_xml"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#feynml.feynml.FeynML.from_xml" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_xml</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xml</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#feynml.feynml.FeynML.from_xml" title="Permalink to this definition"></a></dt>
 <dd><p>Load self from XML.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="feynml.feynml.FeynML.from_xml_file">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_xml_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#feynml.feynml.FeynML.from_xml_file" title="Permalink to this definition"></a></dt>
+<dd><p>Load self from XML file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="feynml.feynml.FeynML.get_sheet">
+<span class="sig-name descname"><span class="pre">get_sheet</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/feynml/feynml.html#FeynML.get_sheet"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#feynml.feynml.FeynML.get_sheet" title="Permalink to this definition"></a></dt>
+<dd><p>Return the sheet.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="feynml.feynml.FeynML.get_sheets">
+<span class="sig-name descname"><span class="pre">get_sheets</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/feynml/feynml.html#FeynML.get_sheets"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#feynml.feynml.FeynML.get_sheets" title="Permalink to this definition"></a></dt>
+<dd><p>Return the sheet.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="feynml.feynml.FeynML.get_style">
+<span class="sig-name descname"><span class="pre">get_style</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xml</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/feynml/feynml.html#FeynML.get_style"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#feynml.feynml.FeynML.get_style" title="Permalink to this definition"></a></dt>
+<dd><p>Get the style of an object.</p>
+<p>This is prefered over accessing the style attribute directly, since it includes class and pdgid definitions.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="feynml.feynml.FeynML.get_style_property">
+<span class="sig-name descname"><span class="pre">get_style_property</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">property_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xml</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="feynml.xml.XML.html#feynml.xml.XML" title="feynml.xml.XML"><span class="pre">XML</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#feynml.feynml.FeynML.get_style_property" title="Permalink to this definition"></a></dt>
+<dd><p>Get a style property of an object.</p>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="feynml.feynml.FeynML.to_xml">
-<span class="sig-name descname"><span class="pre">to_xml</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../_modules/feynml/feynml.html#FeynML.to_xml"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#feynml.feynml.FeynML.to_xml" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">to_xml</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#feynml.feynml.FeynML.to_xml" title="Permalink to this definition"></a></dt>
 <dd><p>Return self as XML.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="feynml.feynml.FeynML.with_rule">
+<span class="sig-name descname"><span class="pre">with_rule</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rule</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#feynml.feynml.FeynML.with_rule" title="Permalink to this definition"></a></dt>
+<dd><p>Replace rules of the style.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="feynml.feynml.FeynML.with_rules">
+<span class="sig-name descname"><span class="pre">with_rules</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rules</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#feynml.feynml.FeynML.with_rules" title="Permalink to this definition"></a></dt>
+<dd><p>Replace rules of the style.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="feynml.feynml.FeynML.with_sheet">
+<span class="sig-name descname"><span class="pre">with_sheet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sheet</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/feynml/feynml.html#FeynML.with_sheet"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#feynml.feynml.FeynML.with_sheet" title="Permalink to this definition"></a></dt>
+<dd><p>Return the object with the sheet.</p>
 </dd></dl>
 
 </dd></dl>
@@ -202,7 +300,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="feynml.feynml.html" class="btn btn-neutral float-left" title="feynml.feynml" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="feynml.feynml.Head.html" class="btn btn-neutral float-right" title="feynml.feynml.Head" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="feynml.head.html" class="btn btn-neutral float-right" title="feynml.head" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

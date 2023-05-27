@@ -29,5 +29,7 @@ feynml.interface
    :recursive:
 
    feynml.interface.hepmc
+   feynml.interface.lhe
    feynml.interface.qgraf
+   feynml.interface.util
 

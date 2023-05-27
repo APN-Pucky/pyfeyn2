@@ -14,6 +14,8 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/sphinx_highlight.js"></script>
@@ -25,7 +27,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="pyfeyn2.mkfeyndiag" href="pyfeyn2.mkfeyndiag.html" />
-    <link rel="prev" title="pyfeyn2.feynmandiagram.Tool" href="pyfeyn2.feynmandiagram.Tool.html" /> 
+    <link rel="prev" title="pyfeyn2.feynmandiagram.Styled" href="pyfeyn2.feynmandiagram.Styled.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -41,7 +43,7 @@
               <img src="../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.3.2-10-g6b566b09
+                2.3.2-16-gf572ac72
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -83,7 +85,6 @@
 <li class="toctree-l3"><a class="reference internal" href="pyfeyn2.feynmandiagram.Point.html">pyfeyn2.feynmandiagram.Point</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyfeyn2.feynmandiagram.Propagator.html">pyfeyn2.feynmandiagram.Propagator</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyfeyn2.feynmandiagram.Styled.html">pyfeyn2.feynmandiagram.Styled</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyfeyn2.feynmandiagram.Tool.html">pyfeyn2.feynmandiagram.Tool</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">pyfeyn2.feynmandiagram.Vertex</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#pyfeyn2.feynmandiagram.Vertex"><code class="docutils literal notranslate"><span class="pre">Vertex</span></code></a></li>
 </ul>
@@ -143,7 +144,7 @@
 <dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Vertex.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/feynmandiagram.html#Vertex.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.Vertex.__init__" title="Permalink to this definition"></a></dt>
 <dd><div class="deprecated">
-<p><span class="versionmodified deprecated">Deprecated since version 2.2.6: </span>This will be removed in 2.4.0.</p>
+<p><span class="versionmodified deprecated">Deprecated since version 2.2.6.</span></p>
 </div>
 </dd></dl>
 
@@ -177,31 +178,34 @@
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_class</span></code>(clazz)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Vertex.with_id" title="pyfeyn2.feynmandiagram.Vertex.with_id"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_id</span></code></a>(value[, k])</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_color</span></code>(color)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Vertex.with_id" title="pyfeyn2.feynmandiagram.Vertex.with_id"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_id</span></code></a>(value[, k])</p></td>
 <td><p>Set id to <cite>value</cite> and return self.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Vertex.with_label" title="pyfeyn2.feynmandiagram.Vertex.with_label"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_label</span></code></a>(value[, k])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Vertex.with_label" title="pyfeyn2.feynmandiagram.Vertex.with_label"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_label</span></code></a>(value[, k])</p></td>
 <td><p>Set label to <cite>value</cite> and return self.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_point</span></code>(p)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_point</span></code>(p)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Vertex.with_shape" title="pyfeyn2.feynmandiagram.Vertex.with_shape"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_shape</span></code></a>(value[, k])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Vertex.with_shape" title="pyfeyn2.feynmandiagram.Vertex.with_shape"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_shape</span></code></a>(value[, k])</p></td>
 <td><p>Set shape to <cite>value</cite> and return self.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_style</span></code>(style)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_style</span></code>(style)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_style_properties</span></code>(**kwargs)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_style_properties</span></code>(**kwargs)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_style_property</span></code>(key, value)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_style_property</span></code>(key, value)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_xy</span></code>(x, y)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_xy</span></code>(x, y)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_xyz</span></code>(x, y, z)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_xyz</span></code>(x, y, z)</p></td>
 <td><p></p></td>
 </tr>
 </tbody>
@@ -245,7 +249,7 @@
 <dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Vertex.put_style">
 <span class="sig-name descname"><span class="pre">put_style</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.feynmandiagram.Vertex.put_style" title="Permalink to this definition"></a></dt>
 <dd><div class="deprecated">
-<p><span class="versionmodified deprecated">Deprecated since version 0.0.0: </span>This will be removed in 0.2.0.</p>
+<p><span class="versionmodified deprecated">Deprecated since version 0.0.0.</span></p>
 </div>
 </dd></dl>
 
@@ -253,7 +257,7 @@
 <dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Vertex.put_styles">
 <span class="sig-name descname"><span class="pre">put_styles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.feynmandiagram.Vertex.put_styles" title="Permalink to this definition"></a></dt>
 <dd><div class="deprecated">
-<p><span class="versionmodified deprecated">Deprecated since version 0.0.0: </span>This will be removed in 0.2.0.</p>
+<p><span class="versionmodified deprecated">Deprecated since version 0.0.0.</span></p>
 </div>
 </dd></dl>
 
@@ -313,7 +317,7 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="pyfeyn2.feynmandiagram.Tool.html" class="btn btn-neutral float-left" title="pyfeyn2.feynmandiagram.Tool" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="pyfeyn2.feynmandiagram.Styled.html" class="btn btn-neutral float-left" title="pyfeyn2.feynmandiagram.Styled" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="pyfeyn2.mkfeyndiag.html" class="btn btn-neutral float-right" title="pyfeyn2.mkfeyndiag" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

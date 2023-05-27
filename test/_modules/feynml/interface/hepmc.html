@@ -13,6 +13,8 @@
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/doctools.js"></script>
         <script src="../../../_static/sphinx_highlight.js"></script>
@@ -38,7 +40,7 @@
               <img src="../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.3.2-10-g6b566b09
+                2.3.2-16-gf572ac72
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -105,22 +107,33 @@
            <div itemprop="articleBody">
              
   <h1>Source code for feynml.interface.hepmc</h1><div class="highlight"><pre>
-<span></span>from pyhepmc import GenEvent
+<span></span>import pyhepmc
+from pyhepmc import GenEvent
 
 from feynml.feynmandiagram import FeynmanDiagram
+from feynml.feynml import FeynML, Head, Meta
 from feynml.leg import Leg
 from feynml.propagator import Propagator
 from feynml.vertex import Vertex
 
+from .util import leg_id_wrap, propagator_id_wrap, vertex_id_wrap
 
-def _vertex_id_wrap(idd):
-    return &quot;Vertex&quot; + str(idd).replace(&quot;-&quot;, &quot;m&quot;)
+# TODO add momenta?
 
 
-<div class="viewcode-block" id="event_to_feynman"><a class="viewcode-back" href="../../../_autosummary/feynml.interface.hepmc.event_to_feynman.html#feynml.interface.hepmc.event_to_feynman">[docs]</a>def event_to_feynman(event: GenEvent):
+<div class="viewcode-block" id="hepmc_event_to_feynman"><a class="viewcode-back" href="../../../_autosummary/feynml.interface.hepmc.hepmc_event_to_feynman.html#feynml.interface.hepmc.hepmc_event_to_feynman">[docs]</a>def hepmc_event_to_feynman(event: GenEvent) -&gt; FeynmanDiagram:
+    &quot;&quot;&quot;
+    Convert a GenEvent to a FeynmanDiagram.
+
+    Args:
+        event: The GenEvent to convert.
+
+    Returns:
+        A FeynmanDiagram object.
+    &quot;&quot;&quot;
     fd = FeynmanDiagram()
     for v in event.vertices:
-        v = Vertex(id=_vertex_id_wrap(v.id))
+        v = Vertex(id=vertex_id_wrap(v.id))
         fd.add(v)
     for p in event.particles:
         # TODO first create all vertices?
@@ -128,9 +141,9 @@ def _vertex_id_wrap(idd):
             # incoming Leg
             fd.add(
                 Leg(
-                    id=&quot;Leg&quot; + str(p.id).replace(&quot;-&quot;, &quot;m&quot;),
+                    id=leg_id_wrap(p.id),
                     pdgid=p.pid,
-                    target=_vertex_id_wrap(p.end_vertex.id),
+                    target=vertex_id_wrap(p.end_vertex.id),
                     sense=&quot;incoming&quot;,
                 )
             )
@@ -138,9 +151,9 @@ def _vertex_id_wrap(idd):
             # outgoing Leg
             fd.add(
                 Leg(
-                    id=&quot;Leg&quot; + str(p.id).replace(&quot;-&quot;, &quot;m&quot;),
+                    id=leg_id_wrap(p.id),
                     pdgid=p.pid,
-                    target=_vertex_id_wrap(p.production_vertex.id),
+                    target=vertex_id_wrap(p.production_vertex.id),
                     sense=&quot;outgoing&quot;,
                 )
             )
@@ -148,18 +161,50 @@ def _vertex_id_wrap(idd):
             # Propagator
             fd.add(
                 Propagator(
-                    id=&quot;Propagator&quot; + str(p.id).replace(&quot;-&quot;, &quot;m&quot;),
+                    id=propagator_id_wrap(p.id),
                     pdgid=p.pid,
-                    source=_vertex_id_wrap(p.production_vertex.id),
-                    target=_vertex_id_wrap(p.end_vertex.id),
+                    source=vertex_id_wrap(p.production_vertex.id),
+                    target=vertex_id_wrap(p.end_vertex.id),
                 )
             )
     return fd</div>
 
 
-<div class="viewcode-block" id="hepmc_to_feynml"><a class="viewcode-back" href="../../../_autosummary/feynml.interface.hepmc.hepmc_to_feynml.html#feynml.interface.hepmc.hepmc_to_feynml">[docs]</a>def hepmc_to_feynml(hepmc_file):
-    # TODO: use pyhepmc
-    pass</div>
+<div class="viewcode-block" id="hepmc_to_feynml"><a class="viewcode-back" href="../../../_autosummary/feynml.interface.hepmc.hepmc_to_feynml.html#feynml.interface.hepmc.hepmc_to_feynml">[docs]</a>def hepmc_to_feynml(
+    hepmc_file: str,
+    creator=&quot;pyfeyn2&quot;,
+    tool=&quot;pyfeyn2.interface.hepmc&quot;,
+    title=&quot;&quot;,
+    description=&quot;&quot;,
+) -&gt; FeynML:
+    &quot;&quot;&quot;
+    Convert a HepMC file to a FeynML object.
+
+    Args:
+        hepmc_file: The path to the HepMC file.
+        creator: The creator of the file.
+        tool: The tool used to create the file.
+        title: The title of the file.
+        description: The description of the file.
+
+    Returns:
+        A FeynML object.
+    &quot;&quot;&quot;
+    fds = []
+    with pyhepmc.open(hepmc_file) as f:
+        for event in f:
+            fds.append(hepmc_event_to_feynman(event))
+    return FeynML(
+        diagrams=fds,
+        head=Head(
+            metas=[
+                Meta(name=&quot;creator&quot;, content=creator),
+                Meta(name=&quot;tool&quot;, content=tool),
+                Meta(name=&quot;description&quot;, content=description),
+                Meta(name=&quot;title&quot;, content=title),
+            ]
+        ),
+    )</div>
 </pre></div>
 
            </div>

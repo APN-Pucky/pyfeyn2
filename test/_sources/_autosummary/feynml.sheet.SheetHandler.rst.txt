@@ -1,0 +1,40 @@
+feynml.sheet.SheetHandler
+=========================
+
+.. currentmodule:: feynml.sheet
+
+.. autoclass:: SheetHandler
+   :members:                                   
+   :show-inheritance:                           
+   :inherited-members:                         
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~SheetHandler.__init__
+      ~SheetHandler.add_rule
+      ~SheetHandler.add_rules
+      ~SheetHandler.get_sheet
+      ~SheetHandler.get_sheets
+      ~SheetHandler.get_style
+      ~SheetHandler.get_style_property
+      ~SheetHandler.with_rule
+      ~SheetHandler.with_rules
+      ~SheetHandler.with_sheet
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~SheetHandler.default_sheet
+   
+   

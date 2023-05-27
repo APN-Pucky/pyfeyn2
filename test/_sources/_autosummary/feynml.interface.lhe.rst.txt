@@ -1,0 +1,31 @@
+feynml.interface.lhe
+====================
+
+.. automodule:: feynml.interface.lhe
+  
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+      :toctree:                                         
+   
+      lhe_event_to_feynman
+      lhe_to_feynml
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+

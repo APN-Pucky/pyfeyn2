@@ -15,6 +15,8 @@
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/doctools.js"></script>
         <script src="../../../_static/sphinx_highlight.js"></script>
@@ -44,7 +46,7 @@
               <img src="../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.3.2-10-g6b566b09
+                2.3.2-16-gf572ac72
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -147,7 +149,7 @@
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyfeyn2.feynmandiagram</span> <span class="kn">import</span> <span class="n">FeynmanDiagram</span><span class="p">,</span> <span class="n">Leg</span><span class="p">,</span> <span class="n">Propagator</span><span class="p">,</span> <span class="n">Vertex</span><span class="p">,</span> <span class="n">Line</span><span class="p">,</span><span class="n">PDG</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyfeyn2.feynmandiagram</span> <span class="kn">import</span> <span class="n">FeynmanDiagram</span><span class="p">,</span> <span class="n">Leg</span><span class="p">,</span> <span class="n">Propagator</span><span class="p">,</span> <span class="n">Vertex</span><span class="p">,</span> <span class="n">PDG</span>
 <span class="kn">from</span> <span class="nn">pyfeyn2.render.latex.tikzfeynman</span> <span class="kn">import</span> <span class="n">TikzFeynmanRender</span>
 <span class="kn">from</span> <span class="nn">pyfeyn2.auto.position</span> <span class="kn">import</span> <span class="n">feynman_adjust_points</span>
 <span class="kn">import</span> <span class="nn">pyfeyn2</span>
@@ -160,13 +162,13 @@
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-2.1.0
+2.3.2
 </pre></div></div>
 </div>
 <section id="Simple-Case">
 <h2>Simple Case<a class="headerlink" href="#Simple-Case" title="Permalink to this heading"></a></h2>
 <p>We set the positions of all vertices here.</p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
@@ -175,14 +177,37 @@
 
 <span class="n">fd</span> <span class="o">=</span> <span class="n">FeynmanDiagram</span><span class="p">()</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
     <span class="n">v1</span><span class="p">,</span><span class="n">v2</span><span class="p">,</span>
-    <span class="n">Propagator</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;g&quot;</span><span class="p">,</span><span class="n">bend</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">),</span>
-    <span class="n">Leg</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;g&quot;</span><span class="p">,</span><span class="n">bend</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">with_target</span><span class="p">(</span><span class="n">v1</span><span class="p">)</span><span class="o">.</span><span class="n">with_xy</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">with_incoming</span><span class="p">(),</span>
-    <span class="n">Leg</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;g&quot;</span><span class="p">,</span><span class="n">bend</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">with_target</span><span class="p">(</span><span class="n">v1</span><span class="p">)</span><span class="o">.</span><span class="n">with_xy</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">with_incoming</span><span class="p">()</span><span class="o">.</span><span class="n">with_class</span><span class="p">(</span><span class="s2">&quot;notred&quot;</span><span class="p">),</span>
-    <span class="n">Leg</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;g&quot;</span><span class="p">,</span><span class="n">bend</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">with_target</span><span class="p">(</span><span class="n">v2</span><span class="p">)</span><span class="o">.</span><span class="n">with_xy</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">with_outgoing</span><span class="p">()</span><span class="o">.</span><span class="n">with_class</span><span class="p">(</span><span class="s2">&quot;red&quot;</span><span class="p">),</span>
-    <span class="n">Leg</span><span class="p">(</span><span class="s2">&quot;myid1&quot;</span><span class="p">,</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;g&quot;</span><span class="p">,</span><span class="n">bend</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">with_target</span><span class="p">(</span><span class="n">v2</span><span class="p">)</span><span class="o">.</span><span class="n">with_xy</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">with_outgoing</span><span class="p">()</span>
+    <span class="n">Propagator</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;g&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">),</span>
+    <span class="n">Leg</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;g&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">with_target</span><span class="p">(</span><span class="n">v1</span><span class="p">)</span><span class="o">.</span><span class="n">with_xy</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">with_incoming</span><span class="p">(),</span>
+    <span class="n">Leg</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;g&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">with_target</span><span class="p">(</span><span class="n">v1</span><span class="p">)</span><span class="o">.</span><span class="n">with_xy</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">with_incoming</span><span class="p">()</span><span class="o">.</span><span class="n">with_class</span><span class="p">(</span><span class="s2">&quot;notred&quot;</span><span class="p">),</span>
+    <span class="n">Leg</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;g&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">with_target</span><span class="p">(</span><span class="n">v2</span><span class="p">)</span><span class="o">.</span><span class="n">with_xy</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">with_outgoing</span><span class="p">()</span><span class="o">.</span><span class="n">with_class</span><span class="p">(</span><span class="s2">&quot;red&quot;</span><span class="p">),</span>
+    <span class="n">Leg</span><span class="p">(</span><span class="s2">&quot;myid1&quot;</span><span class="p">,</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;g&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">with_target</span><span class="p">(</span><span class="n">v2</span><span class="p">)</span><span class="o">.</span><span class="n">with_xy</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">with_outgoing</span><span class="p">()</span><span class="o">.</span><span class="n">with_style_property</span><span class="p">(</span><span class="s2">&quot;bend-direction&quot;</span><span class="p">,</span><span class="s2">&quot;right&quot;</span><span class="p">)</span>
 <span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/tmp/ipykernel_5127/1904706615.py:1: DeprecatedWarning: __init__ is deprecated as of 2.2.6 and will be removed in 2.4.0.
+  v1 = Vertex(&#34;v1&#34;).with_xy(-1, 0).with_shape(&#34;blob&#34;)
+/tmp/ipykernel_5127/1904706615.py:2: DeprecatedWarning: __init__ is deprecated as of 2.2.6 and will be removed in 2.4.0.
+  v2 = Vertex(&#34;v2&#34;).with_xy(1, 0).with_style(&#34;symbol : dot&#34;)
+/tmp/ipykernel_5127/1904706615.py:4: DeprecatedWarning: __init__ is deprecated as of 2.2.6 and will be removed in 2.4.0.
+  fd = FeynmanDiagram().add(
+/tmp/ipykernel_5127/1904706615.py:6: DeprecatedWarning: __init__ is deprecated as of 2.2.6 and will be removed in 2.4.0.
+  Propagator(name=&#34;g&#34;).connect(v1, v2),
+/tmp/ipykernel_5127/1904706615.py:7: DeprecatedWarning: __init__ is deprecated as of 2.2.6 and will be removed in 2.4.0.
+  Leg(name=&#34;g&#34;).with_target(v1).with_xy(-2, 1).with_incoming(),
+/tmp/ipykernel_5127/1904706615.py:8: DeprecatedWarning: __init__ is deprecated as of 2.2.6 and will be removed in 2.4.0.
+  Leg(name=&#34;g&#34;).with_target(v1).with_xy(-2, -1).with_incoming().with_class(&#34;notred&#34;),
+/tmp/ipykernel_5127/1904706615.py:9: DeprecatedWarning: __init__ is deprecated as of 2.2.6 and will be removed in 2.4.0.
+  Leg(name=&#34;g&#34;).with_target(v2).with_xy(2, 1).with_outgoing().with_class(&#34;red&#34;),
+/tmp/ipykernel_5127/1904706615.py:10: DeprecatedWarning: __init__ is deprecated as of 2.2.6 and will be removed in 2.4.0.
+  Leg(&#34;myid1&#34;,name=&#34;g&#34;).with_target(v2).with_xy(2, -1).with_outgoing().with_style_property(&#34;bend-direction&#34;,&#34;right&#34;)
+</pre></div></div>
 </div>
 <section id="Style">
 <h3>Style<a class="headerlink" href="#Style" title="Permalink to this heading"></a></h3>
@@ -219,6 +244,9 @@
 <span class="s2">#myid2 {</span>
 <span class="s2">    color: gray;</span>
 <span class="s2">}</span>
+<span class="s2">diagram.propagator {</span>
+<span class="s2">    color: green;</span>
+<span class="s2">}</span>
 <span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
 <span class="n">fd</span><span class="o">.</span><span class="n">sheet</span><span class="o">.</span><span class="n">cssText</span>
 </pre></div>
@@ -230,7 +258,7 @@
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-b&#39;* {\n    bend-direction: left;\n    color: green\n    }\n.red {\n    color: red\n    }\n.notred {\n    color: blue\n    }\n#myid1 {\n    color: gray\n    }\n[pdgid=&#34;21&#34;] {\n    color: black\n    }\n#myid2 {\n    color: gray\n    }&#39;
+b&#39;* {\n    bend-direction: left;\n    color: green\n    }\n.red {\n    color: red\n    }\n.notred {\n    color: blue\n    }\n#myid1 {\n    color: gray\n    }\n[pdgid=&#34;21&#34;] {\n    color: black\n    }\n#myid2 {\n    color: gray\n    }\ndiagram.propagator {\n    color: green\n    }&#39;
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -247,7 +275,7 @@ b&#39;* {\n    bend-direction: left;\n    color: green\n    }\n.red {\n    color
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&#39;&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;\n&lt;diagram id=&#34;FeynmanDiagram7&#34; default_style=&#34;true&#34; style=&#34;* {&amp;#10;    bend-direction: left;&amp;#10;    color: green&amp;#10;    }&amp;#10;.red {&amp;#10;    color: red&amp;#10;    }&amp;#10;.notred {&amp;#10;    color: blue&amp;#10;    }&amp;#10;#myid1 {&amp;#10;    color: gray&amp;#10;    }&amp;#10;[pdgid=&amp;quot;21&amp;quot;] {&amp;#10;    color: black&amp;#10;    }&amp;#10;#myid2 {&amp;#10;    color: gray&amp;#10;    }&#34;&gt;\n  &lt;propagator id=&#34;Propagator8&#34; pdgid=&#34;21&#34; type=&#34;gluon&#34; style=&#34;&#34; bend=&#34;true&#34;&gt;\n    &lt;name&gt;g&lt;/name&gt;\n    &lt;source&gt;v1&lt;/source&gt;\n    &lt;target&gt;v2&lt;/target&gt;\n  &lt;/propagator&gt;\n  &lt;vertex id=&#34;v1&#34; style=&#34;&#34; x=&#34;-1.0&#34; y=&#34;0.0&#34; shape=&#34;blob&#34;/&gt;\n  &lt;vertex id=&#34;v2&#34; style=&#34;symbol: dot&#34; x=&#34;1.0&#34; y=&#34;0.0&#34;/&gt;\n  &lt;leg id=&#34;Leg9&#34; pdgid=&#34;21&#34; type=&#34;gluon&#34; style=&#34;&#34; bend=&#34;true&#34; x=&#34;-2.0&#34; y=&#34;1.0&#34;&gt;\n    &lt;name&gt;g&lt;/name&gt;\n    &lt;target&gt;v1&lt;/target&gt;\n    &lt;sense&gt;incoming&lt;/sense&gt;\n  &lt;/leg&gt;\n  &lt;leg id=&#34;Leg10&#34; pdgid=&#34;21&#34; type=&#34;gluon&#34; style=&#34;&#34; class=&#34;notred&#34; bend=&#34;true&#34; x=&#34;-2.0&#34; y=&#34;-1.0&#34;&gt;\n    &lt;name&gt;g&lt;/name&gt;\n    &lt;target&gt;v1&lt;/target&gt;\n    &lt;sense&gt;incoming&lt;/sense&gt;\n  &lt;/leg&gt;\n  &lt;leg id=&#34;Leg11&#34; pdgid=&#34;21&#34; type=&#34;gluon&#34; style=&#34;&#34; class=&#34;red&#34; bend=&#34;true&#34; x=&#34;2.0&#34; y=&#34;1.0&#34;&gt;\n    &lt;name&gt;g&lt;/name&gt;\n    &lt;target&gt;v2&lt;/target&gt;\n    &lt;sense&gt;outgoing&lt;/sense&gt;\n  &lt;/leg&gt;\n  &lt;leg id=&#34;myid1&#34; pdgid=&#34;21&#34; type=&#34;gluon&#34; style=&#34;&#34; bend=&#34;true&#34; x=&#34;2.0&#34; y=&#34;-1.0&#34;&gt;\n    &lt;name&gt;g&lt;/name&gt;\n    &lt;target&gt;v2&lt;/target&gt;\n    &lt;sense&gt;outgoing&lt;/sense&gt;\n  &lt;/leg&gt;\n&lt;/diagram&gt;\n&#39;
+&#39;&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;\n&lt;diagram id=&#34;FeynmanDiagram7&#34; style=&#34;&#34; sheet=&#34;* {&amp;#10;    bend-direction: left;&amp;#10;    color: green&amp;#10;    }&amp;#10;.red {&amp;#10;    color: red&amp;#10;    }&amp;#10;.notred {&amp;#10;    color: blue&amp;#10;    }&amp;#10;#myid1 {&amp;#10;    color: gray&amp;#10;    }&amp;#10;[pdgid=&amp;quot;21&amp;quot;] {&amp;#10;    color: black&amp;#10;    }&amp;#10;#myid2 {&amp;#10;    color: gray&amp;#10;    }&amp;#10;diagram.propagator {&amp;#10;    color: green&amp;#10;    }&#34;&gt;\n  &lt;propagator xmlns:xsi=&#34;http://www.w3.org/2001/XMLSchema-instance&#34; id=&#34;Propagator8&#34; pdgid=&#34;21&#34; type=&#34;gluon&#34; style=&#34;&#34; xsi:type=&#34;Propagator&#34;&gt;\n    &lt;name&gt;g&lt;/name&gt;\n    &lt;source&gt;v1&lt;/source&gt;\n    &lt;target&gt;v2&lt;/target&gt;\n  &lt;/propagator&gt;\n  &lt;vertex xmlns:xsi=&#34;http://www.w3.org/2001/XMLSchema-instance&#34; id=&#34;v1&#34; style=&#34;&#34; x=&#34;-1.0&#34; y=&#34;0.0&#34; shape=&#34;blob&#34; xsi:type=&#34;Vertex&#34;/&gt;\n  &lt;vertex xmlns:xsi=&#34;http://www.w3.org/2001/XMLSchema-instance&#34; id=&#34;v2&#34; style=&#34;symbol: dot&#34; x=&#34;1.0&#34; y=&#34;0.0&#34; xsi:type=&#34;Vertex&#34;/&gt;\n  &lt;leg xmlns:xsi=&#34;http://www.w3.org/2001/XMLSchema-instance&#34; id=&#34;Leg9&#34; pdgid=&#34;21&#34; type=&#34;gluon&#34; style=&#34;&#34; x=&#34;-2.0&#34; y=&#34;1.0&#34; xsi:type=&#34;Leg&#34;&gt;\n    &lt;name&gt;g&lt;/name&gt;\n    &lt;target&gt;v1&lt;/target&gt;\n    &lt;sense&gt;incoming&lt;/sense&gt;\n  &lt;/leg&gt;\n  &lt;leg xmlns:xsi=&#34;http://www.w3.org/2001/XMLSchema-instance&#34; id=&#34;Leg10&#34; pdgid=&#34;21&#34; type=&#34;gluon&#34; style=&#34;&#34; class=&#34;notred&#34; x=&#34;-2.0&#34; y=&#34;-1.0&#34; xsi:type=&#34;Leg&#34;&gt;\n    &lt;name&gt;g&lt;/name&gt;\n    &lt;target&gt;v1&lt;/target&gt;\n    &lt;sense&gt;incoming&lt;/sense&gt;\n  &lt;/leg&gt;\n  &lt;leg xmlns:xsi=&#34;http://www.w3.org/2001/XMLSchema-instance&#34; id=&#34;Leg11&#34; pdgid=&#34;21&#34; type=&#34;gluon&#34; style=&#34;&#34; class=&#34;red&#34; x=&#34;2.0&#34; y=&#34;1.0&#34; xsi:type=&#34;Leg&#34;&gt;\n    &lt;name&gt;g&lt;/name&gt;\n    &lt;target&gt;v2&lt;/target&gt;\n    &lt;sense&gt;outgoing&lt;/sense&gt;\n  &lt;/leg&gt;\n  &lt;leg xmlns:xsi=&#34;http://www.w3.org/2001/XMLSchema-instance&#34; id=&#34;myid1&#34; pdgid=&#34;21&#34; type=&#34;gluon&#34; style=&#34;bend-direction: right&#34; x=&#34;2.0&#34; y=&#34;-1.0&#34; xsi:type=&#34;Leg&#34;&gt;\n    &lt;name&gt;g&lt;/name&gt;\n    &lt;target&gt;v2&lt;/target&gt;\n    &lt;sense&gt;outgoing&lt;/sense&gt;\n  &lt;/leg&gt;\n&lt;/diagram&gt;\n&#39;
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -259,32 +287,11 @@ b&#39;* {\n    bend-direction: left;\n    color: green\n    }\n.red {\n    color
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
+<div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-\begin{tikzpicture}
-\begin{feynman}
-        \vertex (v1) [blob] at (-1.0,0.0) {};
-        \vertex (v1clone) [] at (-1.0,0.0);
-        \vertex (v2) [dot] at (1.0,0.0) {};
-        \vertex (v2clone) [] at (1.0,0.0);
-        \vertex (Leg9) [] at (-2.0,1.0);
-        \vertex (Leg10) [] at (-2.0,-1.0);
-        \vertex (Leg11) [] at (2.0,1.0);
-        \vertex (myid1) [] at (2.0,-1.0);
-        \diagram*{
-                (v1) -- [gluon,black,bend left] (v2),
-                (Leg9) -- [gluon,black,bend left] (v1),
-                (Leg10) -- [gluon,blue,bend left] (v1),
-                (v2) -- [gluon,red,bend left] (Leg11),
-                (v2) -- [gluon,gray,bend left] (myid1),
-        };
- \diagram*{};
-\end{feynman}
-\end{tikzpicture}
-
 \documentclass[preview,crop,tikz]{standalone}%
 \usepackage[T1]{fontenc}%
 \usepackage[utf8]{inputenc}%
@@ -312,13 +319,23 @@ b&#39;* {\n    bend-direction: left;\n    color: green\n    }\n.red {\n    color
                 (Leg9) -- [gluon,black,bend left] (v1),
                 (Leg10) -- [gluon,blue,bend left] (v1),
                 (v2) -- [gluon,red,bend left] (Leg11),
-                (v2) -- [gluon,gray,bend left] (myid1),
+                (v2) -- [gluon,gray,bend right] (myid1),
         };
- \diagram*{};
 \end{feynman}
 \end{tikzpicture}
 %
 \end{document}
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/home/apn/git/feynml/feynml/feynmandiagram.py:136: UserWarning: No parent fml, returning default style
+  warnings.warn(&#34;No parent fml, returning default style&#34;)
+/home/apn/git/feynml/feynml/feynmandiagram.py:143: UserWarning: No parent fml, returning default sheet
+  warnings.warn(&#34;No parent fml, returning default sheet&#34;)
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -349,7 +366,7 @@ b&#39;* {\n    bend-direction: left;\n    color: green\n    }\n.red {\n    color
 <section id="Complicated-Case">
 <h2>Complicated Case<a class="headerlink" href="#Complicated-Case" title="Permalink to this heading"></a></h2>
 <p>We only set the positions of the Legs here.</p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
@@ -382,14 +399,64 @@ b&#39;* {\n    bend-direction: left;\n    color: green\n    }\n.red {\n    color
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/tmp/ipykernel_5127/1594115405.py:1: DeprecatedWarning: __init__ is deprecated as of 2.2.6 and will be removed in 2.4.0.
+  fd = FeynmanDiagram().with_rules(
+/tmp/ipykernel_5127/1594115405.py:6: DeprecatedWarning: __init__ is deprecated as of 2.2.6 and will be removed in 2.4.0.
+  v1 = Vertex(&#34;v1&#34;)
+/tmp/ipykernel_5127/1594115405.py:7: DeprecatedWarning: __init__ is deprecated as of 2.2.6 and will be removed in 2.4.0.
+  v2 = Vertex(&#34;v2&#34;)
+/tmp/ipykernel_5127/1594115405.py:8: DeprecatedWarning: __init__ is deprecated as of 2.2.6 and will be removed in 2.4.0.
+  v3 = Vertex(&#34;v3&#34;)
+/tmp/ipykernel_5127/1594115405.py:9: DeprecatedWarning: __init__ is deprecated as of 2.2.6 and will be removed in 2.4.0.
+  v4 = Vertex(&#34;v4&#34;)
+/tmp/ipykernel_5127/1594115405.py:10: DeprecatedWarning: __init__ is deprecated as of 2.2.6 and will be removed in 2.4.0.
+  p1 = Propagator(&#34;p1&#34;).connect(v1, v2).with_type(&#34;gluon&#34;)
+/tmp/ipykernel_5127/1594115405.py:11: DeprecatedWarning: __init__ is deprecated as of 2.2.6 and will be removed in 2.4.0.
+  p2 = Propagator(&#34;p2&#34;).connect(v1, v3).with_type(&#34;gluon&#34;)
+/tmp/ipykernel_5127/1594115405.py:12: DeprecatedWarning: __init__ is deprecated as of 2.2.6 and will be removed in 2.4.0.
+  p3 = Propagator(&#34;p3&#34;).connect(v3, v2).with_type(&#34;gluon&#34;)
+/tmp/ipykernel_5127/1594115405.py:13: DeprecatedWarning: __init__ is deprecated as of 2.2.6 and will be removed in 2.4.0.
+  p4 = Propagator(&#34;p4&#34;).connect(v4, v3).with_type(&#34;gluon&#34;)
+/tmp/ipykernel_5127/1594115405.py:14: DeprecatedWarning: __init__ is deprecated as of 2.2.6 and will be removed in 2.4.0.
+  p5 = Propagator(&#34;p5&#34;).connect(v4, v2).with_type(&#34;gluon&#34;)
+/tmp/ipykernel_5127/1594115405.py:15: DeprecatedWarning: __init__ is deprecated as of 2.2.6 and will be removed in 2.4.0.
+  l1 = Leg(&#34;l1&#34;).with_target(v1).with_type(&#34;gluon&#34;).with_incoming().with_xy(-2, 1)
+/tmp/ipykernel_5127/1594115405.py:16: DeprecatedWarning: __init__ is deprecated as of 2.2.6 and will be removed in 2.4.0.
+  l2 = Leg(&#34;l2&#34;).with_target(v1).with_type(&#34;gluon&#34;).with_incoming().with_xy(-2, -1)
+/tmp/ipykernel_5127/1594115405.py:17: DeprecatedWarning: __init__ is deprecated as of 2.2.6 and will be removed in 2.4.0.
+  l3 = Leg(&#34;l3&#34;).with_target(v2).with_type(&#34;fermion&#34;).with_outgoing().with_xy(2, -2).with_class(&#34;blue&#34;)
+/tmp/ipykernel_5127/1594115405.py:18: DeprecatedWarning: __init__ is deprecated as of 2.2.6 and will be removed in 2.4.0.
+  l4 = Leg(&#34;l4&#34;).with_target(v3).with_type(&#34;fermion&#34;).with_outgoing().with_xy(2, 2)
+/tmp/ipykernel_5127/1594115405.py:19: DeprecatedWarning: __init__ is deprecated as of 2.2.6 and will be removed in 2.4.0.
+  l5 = Leg(&#34;l5&#34;).with_target(v4).with_type(&#34;gluon&#34;).with_outgoing().with_xy(2, 1)
+/tmp/ipykernel_5127/1594115405.py:20: DeprecatedWarning: __init__ is deprecated as of 2.2.6 and will be removed in 2.4.0.
+  l6 = Leg(&#34;l6&#34;).with_target(v4).with_type(&#34;gluon&#34;).with_outgoing().with_xy(2, -1)
+</pre></div></div>
+</div>
 <p>Now calculate the positions of vertices.</p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ffd</span><span class="o">=</span> <span class="n">feynman_adjust_points</span><span class="p">(</span><span class="n">fd</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/home/apn/git/feynml/feynml/feynmandiagram.py:136: UserWarning: No parent fml, returning default style
+  warnings.warn(&#34;No parent fml, returning default style&#34;)
+/home/apn/git/feynml/feynml/feynmandiagram.py:143: UserWarning: No parent fml, returning default sheet
+  warnings.warn(&#34;No parent fml, returning default sheet&#34;)
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
@@ -403,47 +470,7 @@ b&#39;* {\n    bend-direction: left;\n    color: green\n    }\n.red {\n    color
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<div class="highlight"><pre>
-\begin{tikzpicture}
-\begin{feynman}
-        \vertex (v1) [] at (2.1734920634920636,2.84015873015873) ;
-        \vertex (v1clone) [] at (2.1734920634920636,2.84015873015873);
-        \vertex (v2) [] at (3.23984126984127,2.272539682539682) ;
-        \vertex (v2clone) [] at (3.23984126984127,2.272539682539682);
-        \vertex (v3) [] at (3.2361904761904765,3.4530158730158726) ;
-        \vertex (v3clone) [] at (3.2361904761904765,3.4530158730158726);
-        \vertex (v4) [] at (4.178253968253969,2.805079365079365) ;
-        \vertex (v4clone) [] at (4.178253968253969,2.805079365079365);
-        \vertex (l1) [] at (0.4285714285714286,3.7142857142857144);
-        \vertex (l2) [] at (0.4285714285714286,1.4285714285714284);
-        \vertex (l3) [] at (5.0,0.2857142857142857);
-        \vertex (l4) [] at (5.0,4.857142857142857);
-        \vertex (l5) [] at (5.0,3.7142857142857144);
-        \vertex (l6) [] at (5.0,1.4285714285714284);
-        \diagram*{
-                (v1) -- [fermion,green] (v2),
-                (v1) -- [fermion,black] (v3),
-                (v3) -- [fermion,black] (v2),
-                (v4) -- [fermion,black] (v3),
-                (v4) -- [fermion,black] (v2),
-                (l1) -- [fermion,black] (v1),
-                (l2) -- [fermion,black] (v1),
-                (v2) -- [gluon,blue] (l3),
-                (v3) -- [gluon,blue] (l4),
-                (v4) -- [fermion,black] (l5),
-                (v4) -- [fermion,orange] (l6),
-        };
- \diagram*{};
-\end{feynman}
-\end{tikzpicture}
-
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../../_images/renderers_latex_tikz_tikzfeynman_16_1.png" src="../../../_images/renderers_latex_tikz_tikzfeynman_16_1.png" />
+<img alt="../../../_images/renderers_latex_tikz_tikzfeynman_16_0.png" src="../../../_images/renderers_latex_tikz_tikzfeynman_16_0.png" />
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -451,8 +478,69 @@ b&#39;* {\n    bend-direction: left;\n    color: green\n    }\n.red {\n    color
 </pre></div>
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/renderers_latex_tikz_tikzfeynman_16_2.png" src="../../../_images/renderers_latex_tikz_tikzfeynman_16_2.png" />
+<img alt="../../../_images/renderers_latex_tikz_tikzfeynman_16_1.png" src="../../../_images/renderers_latex_tikz_tikzfeynman_16_1.png" />
 </div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fd</span><span class="o">.</span><span class="n">get_sheets</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">cssText</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/home/apn/git/feynml/feynml/feynmandiagram.py:143: UserWarning: No parent fml, returning default sheet
+  warnings.warn(&#34;No parent fml, returning default sheet&#34;)
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+b&#39;/*************************************************************************/\n/* Diagram */\n/*************************************************************************/\ndiagram {\n    direction: right;\n    layout: neato\n    }\n/*************************************************************************/\n/* Vertex */\n/*************************************************************************/\n[shape=dot] {\n    symbol: dot\n    }\n[shape=empty] {\n    symbol: empty\n    }\n[shape=square] {\n    symbol: square\n    }\n[shape=cross] {\n    symbol: cross\n    }\n[shape=blob] {\n    symbol: blob\n    }\n/*************************************************************************/\n/* Propagator */\n/*************************************************************************/\n/* General */\n[type=fermion] {\n    line: fermion;\n    arrow-sense: 1\n    }\n[type=&#34;anti fermion&#34;] {\n    line: anti fermion;\n    arrow-sense: -1\n    }\n[type=boson] {\n    line: boson;\n    arrow-sense: 0\n    }\n[type=vector] {\n    line: vector;\n    arrow-sense: 0\n    }\n[type=scalar] {\n    line: scalar;\n    arrow-sense: 0\n    }\n[type=majorana] {\n    line: majorana\n    }\n/* SM */\n[type=photon] {\n    line: photon;\n    arrow-sense: 0\n    }\n[type=higgs] {\n    line: higgs;\n    arrow-sense: 0\n    }\n[type=gluon] {\n    line: gluon;\n    arrow-sense: 0;\n    xamp: 0.025;\n    yamp: 0.035;\n    nloops: 7\n    }\n[type=ghost] {\n    line: ghost;\n    arrow-sense: 0\n    }\n/* BSM */\n[type=graviton] {\n    line: graviton;\n    arrow-sense: 0\n    }\n[type=gluino] {\n    line: gluino;\n    arrow-sense: 0;\n    xamp: 0.025;\n    yamp: 0.035;\n    nloops: 7\n    }\n[type=squark] {\n    line: squark;\n    arrow-sense: 1\n    }\n[type=slepton] {\n    line: slepton;\n    arrow-sense: 1\n    }\n[type=gaugino] {\n    line: gaugino;\n    arrow-sense: 0\n    }\n[type=neutralino] {\n    line: neutralino;\n    arrow-sense: 0\n    }\n[type=chargino] {\n    line: chargino;\n    arrow-sense: 0\n    }\n[type=higgsino] {\n    line: higgsino;\n    arrow-sense: 0\n    }\n[type=gravitino] {\n    line: gravitino;\n    arrow-sense: 0\n    }\n/* util */\n[type=phantom] {\n    line: phantom;\n    arrow-sense: 0\n    }\n[type=line] {\n    line: line;\n    arrow-sense: 0\n    }&#39;
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fd</span><span class="o">.</span><span class="n">get_sheets</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">cssText</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+b&#39;* {\n    color: red\n    }\n[type=fermion] {\n    color: blue;\n    line: gluon\n    }\n#p1 {\n    color: green\n    }\n:not([type=fermion]) {\n    color: black;\n    line: fermion\n    }&#39;
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fd</span><span class="o">.</span><span class="n">get_sheets</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[cssutils.css.CSSStyleSheet(href=None, media=None, title=None),
+ cssutils.css.CSSStyleSheet(href=None, media=None, title=None)]
+</pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:

@@ -26,6 +26,7 @@ pyfeyn2.feynmandiagram.Leg
       ~Leg.put_styles
       ~Leg.raw_style
       ~Leg.with_class
+      ~Leg.with_color
       ~Leg.with_external
       ~Leg.with_id
       ~Leg.with_incoming

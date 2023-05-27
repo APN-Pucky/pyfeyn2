@@ -1,0 +1,47 @@
+feynml.head.Head
+================
+
+.. currentmodule:: feynml.head
+
+.. autoclass:: Head
+   :members:                                   
+   :show-inheritance:                           
+   :inherited-members:                         
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Head.__init__
+      ~Head.add_rule
+      ~Head.add_rules
+      ~Head.get_link_dict
+      ~Head.get_meta_dict
+      ~Head.get_sheet
+      ~Head.get_sheets
+      ~Head.get_style
+      ~Head.get_style_property
+      ~Head.with_rule
+      ~Head.with_rules
+      ~Head.with_sheet
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~Head.cached_links
+      ~Head.default_sheet
+      ~Head.title
+      ~Head.metas
+      ~Head.links
+      ~Head.style
+   
+   

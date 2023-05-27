@@ -20,10 +20,6 @@ feynml.feynml
       :template: custom-class-template.rst               
    
       FeynML
-      Head
-      Meta
-      Tool
-      alias_meta
    
    
 

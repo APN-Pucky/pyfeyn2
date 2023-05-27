@@ -1,0 +1,38 @@
+feynml.sheet
+============
+
+.. automodule:: feynml.sheet
+  
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+      :toctree:                                         
+   
+      get_default_sheet
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :toctree:                                         
+      :template: custom-class-template.rst               
+   
+      SheetHandler
+   
+   
+
+   
+   
+   
+
+
+

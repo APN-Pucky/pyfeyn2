@@ -17,9 +17,19 @@ feynml.feynml.FeynML
    .. autosummary::
    
       ~FeynML.__init__
+      ~FeynML.add_rule
+      ~FeynML.add_rules
       ~FeynML.from_xml
+      ~FeynML.from_xml_file
       ~FeynML.get_diagram
+      ~FeynML.get_sheet
+      ~FeynML.get_sheets
+      ~FeynML.get_style
+      ~FeynML.get_style_property
       ~FeynML.to_xml
+      ~FeynML.with_rule
+      ~FeynML.with_rules
+      ~FeynML.with_sheet
    
    
 
@@ -29,8 +39,9 @@ feynml.feynml.FeynML
 
    .. autosummary::
    
-      ~FeynML.head
+      ~FeynML.default_sheet
       ~FeynML.version
+      ~FeynML.head
       ~FeynML.diagrams
    
    

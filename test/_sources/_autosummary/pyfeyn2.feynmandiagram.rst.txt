@@ -30,7 +30,6 @@ pyfeyn2.feynmandiagram
       Point
       Propagator
       Styled
-      Tool
       Vertex
    
    

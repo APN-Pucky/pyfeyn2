@@ -1,0 +1,28 @@
+feynml.xml.XML
+==============
+
+.. currentmodule:: feynml.xml
+
+.. autoclass:: XML
+   :members:                                   
+   :show-inheritance:                           
+   :inherited-members:                         
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~XML.__init__
+      ~XML.from_xml
+      ~XML.from_xml_file
+      ~XML.to_xml
+   
+   
+
+   
+   
+   

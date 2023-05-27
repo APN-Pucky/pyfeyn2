@@ -1,0 +1,6 @@
+feynml.interface.util.vertex\_id\_wrap
+======================================
+
+.. currentmodule:: feynml.interface.util
+
+.. autofunction:: vertex_id_wrap
