@@ -1,0 +1,35 @@
+feynml.interface.formcalc.sequenceform.SequenceForm
+===================================================
+
+.. currentmodule:: feynml.interface.formcalc.sequenceform
+
+.. autoclass:: SequenceForm
+   :members:                                   
+   :show-inheritance:                           
+   :inherited-members:                         
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~SequenceForm.__init__
+      ~SequenceForm.from_str
+      ~SequenceForm.n
+      ~SequenceForm.re
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~SequenceForm.s
+      ~SequenceForm.i
+   
+   

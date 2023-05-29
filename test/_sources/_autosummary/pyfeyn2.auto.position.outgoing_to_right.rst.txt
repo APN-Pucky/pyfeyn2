@@ -1,0 +1,6 @@
+pyfeyn2.auto.position.outgoing\_to\_right
+=========================================
+
+.. currentmodule:: pyfeyn2.auto.position
+
+.. autofunction:: outgoing_to_right

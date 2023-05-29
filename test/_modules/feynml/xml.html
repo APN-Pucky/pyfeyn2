@@ -40,7 +40,7 @@
               <img src="../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.3.2-16-gf572ac72
+                2.3.3-4-g0c2db242
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -109,6 +109,7 @@
   <h1>Source code for feynml.xml</h1><div class="highlight"><pre>
 <span></span>from pathlib import Path
 
+import smpl_io.io as io
 from xsdata.formats.dataclass.parsers import XmlParser
 from xsdata.formats.dataclass.serializers import XmlSerializer
 from xsdata.formats.dataclass.serializers.config import SerializerConfig
@@ -130,7 +131,7 @@ from xsdata.formats.dataclass.serializers.config import SerializerConfig
 <div class="viewcode-block" id="XML.from_xml_file"><a class="viewcode-back" href="../../_autosummary/feynml.xml.XML.html#feynml.xml.XML.from_xml_file">[docs]</a>    @classmethod
     def from_xml_file(cls, file: str):
         &quot;&quot;&quot;Load self from XML file.&quot;&quot;&quot;
-        return cls.from_xml(Path(file).read_text())</div></div>
+        return cls.from_xml(io.read(file))</div></div>
 </pre></div>
 
            </div>

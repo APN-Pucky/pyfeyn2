@@ -50,6 +50,7 @@
    feynml.styled
    feynml.targeting
    feynml.type
+   feynml.util
    feynml.vertex
    feynml.xml
 

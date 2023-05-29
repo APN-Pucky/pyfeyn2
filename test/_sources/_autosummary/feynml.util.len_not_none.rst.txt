@@ -1,0 +1,6 @@
+feynml.util.len\_not\_none
+==========================
+
+.. currentmodule:: feynml.util
+
+.. autofunction:: len_not_none

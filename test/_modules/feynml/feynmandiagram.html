@@ -40,7 +40,7 @@
               <img src="../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.3.2-16-gf572ac72
+                2.3.3-4-g0c2db242
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -183,6 +183,17 @@ class FeynmanDiagram(SheetHandler, XML, Styled, Identifiable):
                     return True
         return False
 
+    def get(self, lmbda):
+        ret = []
+        for l in [self.propagators, self.vertices, self.legs]:
+            for a in l:
+                try:
+                    if lmbda(a):
+                        ret.append(a)
+                except Exception:
+                    pass
+        return ret
+
     def get_point(self, idd):
         for v in self.vertices:
             if v.id == idd:
@@ -264,7 +275,22 @@ class FeynmanDiagram(SheetHandler, XML, Styled, Identifiable):
 
 <div class="viewcode-block" id="FeynmanDiagram.with_sheet"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.FeynmanDiagram.html#feynml.feynmandiagram.FeynmanDiagram.with_sheet">[docs]</a>    def with_sheet(self, sheet):
         self.sheet = sheet
-        return self</div></div>
+        return self</div>
+
+    def has_vertex(self, vertex):
+        return vertex in self.vertices
+
+    def has_vertex_id(self, vertexid):
+        return self.get_vertex(vertexid) is not None
+
+    def has_leg(self, leg):
+        return leg in self.legs
+
+    def has_propagator(self, propagator):
+        return propagator in self.propagators
+
+    def has(self, obj):
+        return self.has_vertex(obj) or self.has_leg(obj) or self.has_propagator(obj)</div>
 </pre></div>
 
            </div>

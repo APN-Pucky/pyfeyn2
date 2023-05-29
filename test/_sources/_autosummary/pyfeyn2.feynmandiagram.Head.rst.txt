@@ -39,6 +39,7 @@ pyfeyn2.feynmandiagram.Head
    
       ~Head.cached_links
       ~Head.default_sheet
+      ~Head.root
       ~Head.title
       ~Head.metas
       ~Head.links

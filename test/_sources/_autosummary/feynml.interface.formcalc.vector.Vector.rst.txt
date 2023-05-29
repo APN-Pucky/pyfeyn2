@@ -1,0 +1,36 @@
+feynml.interface.formcalc.vector.Vector
+=======================================
+
+.. currentmodule:: feynml.interface.formcalc.vector
+
+.. autoclass:: Vector
+   :members:                                   
+   :show-inheritance:                           
+   :inherited-members:                         
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Vector.__init__
+      ~Vector.from_str
+      ~Vector.get_pdgid
+      ~Vector.n
+      ~Vector.re
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~Vector.sequenceform
+      ~Vector.i
+   
+   

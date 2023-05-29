@@ -1,0 +1,34 @@
+feynml.util
+===========
+
+.. automodule:: feynml.util
+  
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+      :toctree:                                         
+   
+      id_wrap
+      leg_id_wrap
+      len_not_none
+      propagator_id_wrap
+      vertex_id_wrap
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+

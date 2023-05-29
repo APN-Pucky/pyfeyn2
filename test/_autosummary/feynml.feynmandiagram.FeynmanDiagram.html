@@ -43,7 +43,7 @@
               <img src="../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.3.2-16-gf572ac72
+                2.3.3-4-g0c2db242
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -101,6 +101,7 @@
 <li class="toctree-l2"><a class="reference internal" href="feynml.styled.html">feynml.styled</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.targeting.html">feynml.targeting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.type.html">feynml.type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="feynml.util.html">feynml.util</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.vertex.html">feynml.vertex</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.xml.html">feynml.xml</a></li>
 </ul>
@@ -175,34 +176,52 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#feynml.feynmandiagram.FeynmanDiagram.from_xml_file" title="feynml.feynmandiagram.FeynmanDiagram.from_xml_file"><code class="xref py py-obj docutils literal notranslate"><span class="pre">from_xml_file</span></code></a>(file)</p></td>
 <td><p>Load self from XML file.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_bounding_box</span></code>()</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get</span></code>(lmbda)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_connections</span></code>(vertex)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_bounding_box</span></code>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_leg</span></code>(idd)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_connections</span></code>(vertex)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_point</span></code>(idd)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_leg</span></code>(idd)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#feynml.feynmandiagram.FeynmanDiagram.get_sheet" title="feynml.feynmandiagram.FeynmanDiagram.get_sheet"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_sheet</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_point</span></code>(idd)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#feynml.feynmandiagram.FeynmanDiagram.get_sheet" title="feynml.feynmandiagram.FeynmanDiagram.get_sheet"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_sheet</span></code></a>()</p></td>
 <td><p>Return the sheet.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#feynml.feynmandiagram.FeynmanDiagram.get_sheets" title="feynml.feynmandiagram.FeynmanDiagram.get_sheets"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_sheets</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#feynml.feynmandiagram.FeynmanDiagram.get_sheets" title="feynml.feynmandiagram.FeynmanDiagram.get_sheets"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_sheets</span></code></a>()</p></td>
 <td><p>Return the sheet.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#feynml.feynmandiagram.FeynmanDiagram.get_style" title="feynml.feynmandiagram.FeynmanDiagram.get_style"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_style</span></code></a>(obj[, xml])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#feynml.feynmandiagram.FeynmanDiagram.get_style" title="feynml.feynmandiagram.FeynmanDiagram.get_style"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_style</span></code></a>(obj[, xml])</p></td>
 <td><p>Get the style of an object.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#feynml.feynmandiagram.FeynmanDiagram.get_style_property" title="feynml.feynmandiagram.FeynmanDiagram.get_style_property"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_style_property</span></code></a>(obj, property_name[, xml])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#feynml.feynmandiagram.FeynmanDiagram.get_style_property" title="feynml.feynmandiagram.FeynmanDiagram.get_style_property"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_style_property</span></code></a>(obj, property_name[, xml])</p></td>
 <td><p>Get a style property of an object.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_vertex</span></code>(idd)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_vertex</span></code>(idd)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">has</span></code>(obj)</p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">has_id</span></code>(id)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">has_leg</span></code>(leg)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">has_propagator</span></code>(propagator)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">has_vertex</span></code>(vertex)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">has_vertex_id</span></code>(vertexid)</p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#feynml.feynmandiagram.FeynmanDiagram.put_style" title="feynml.feynmandiagram.FeynmanDiagram.put_style"><code class="xref py py-obj docutils literal notranslate"><span class="pre">put_style</span></code></a>(key, value)</p></td>

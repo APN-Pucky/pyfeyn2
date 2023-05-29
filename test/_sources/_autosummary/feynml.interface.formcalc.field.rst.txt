@@ -1,0 +1,31 @@
+feynml.interface.formcalc.field
+===============================
+
+.. automodule:: feynml.interface.formcalc.field
+  
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :toctree:                                         
+      :template: custom-class-template.rst               
+   
+      Field
+   
+   
+
+   
+   
+   
+
+
+

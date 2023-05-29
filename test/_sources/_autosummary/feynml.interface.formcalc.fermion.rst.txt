@@ -1,0 +1,31 @@
+feynml.interface.formcalc.fermion
+=================================
+
+.. automodule:: feynml.interface.formcalc.fermion
+  
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :toctree:                                         
+      :template: custom-class-template.rst               
+   
+      Fermion
+   
+   
+
+   
+   
+   
+
+
+

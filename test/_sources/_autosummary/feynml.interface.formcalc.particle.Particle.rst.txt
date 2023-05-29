@@ -1,0 +1,26 @@
+feynml.interface.formcalc.particle.Particle
+===========================================
+
+.. currentmodule:: feynml.interface.formcalc.particle
+
+.. autoclass:: Particle
+   :members:                                   
+   :show-inheritance:                           
+   :inherited-members:                         
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Particle.__init__
+      ~Particle.get_pdgid
+   
+   
+
+   
+   
+   

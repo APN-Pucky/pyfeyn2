@@ -1,0 +1,36 @@
+feynml.interface.formcalc.topologylist.TopologyList
+===================================================
+
+.. currentmodule:: feynml.interface.formcalc.topologylist
+
+.. autoclass:: TopologyList
+   :members:                                   
+   :show-inheritance:                           
+   :inherited-members:                         
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~TopologyList.__init__
+      ~TopologyList.from_str
+      ~TopologyList.n
+      ~TopologyList.re
+      ~TopologyList.to_feynml
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~TopologyList.rest
+      ~TopologyList.topologies
+   
+   

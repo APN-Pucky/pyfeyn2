@@ -1,0 +1,37 @@
+feynml.interface.formcalc.feynmangraph.FeynmanGraph
+===================================================
+
+.. currentmodule:: feynml.interface.formcalc.feynmangraph
+
+.. autoclass:: FeynmanGraph
+   :members:                                   
+   :show-inheritance:                           
+   :inherited-members:                         
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~FeynmanGraph.__init__
+      ~FeynmanGraph.from_str
+      ~FeynmanGraph.n
+      ~FeynmanGraph.re
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~FeynmanGraph.order
+      ~FeynmanGraph.type
+      ~FeynmanGraph.type_i
+      ~FeynmanGraph.rules
+   
+   

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>feynml.interface.formcalc.propagator &mdash; pyfeyn2  documentation</title>
+      <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/plot_directive.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/jupyter-sphinx.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/thebelab.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/sphinx_highlight.js"></script>
+        <script src="../../../../_static/thebelab-helper.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            pyfeyn2
+              <img src="../../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                2.3.3-4-g0c2db242
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">FeynML:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../feynml/index.html">FeynML</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Gallery:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../gallery/index.html">Gallery</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Renderers:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../renderers/index.html">Renderers</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Interfaces:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../interfaces/index.html">Interfaces</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Modules:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../_autosummary/pyfeyn2.html">pyfeyn2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../_autosummary/feynml.html">feynml</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Versions:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://pyfeyn2.readthedocs.io/en/stable/">RTD</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/pyfeyn2/">Stable</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/pyfeyn2/test/">Dev</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Links:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/APN-Pucky/pyfeyn2">GitHub</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">pyfeyn2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">feynml.interface.formcalc.propagator</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for feynml.interface.formcalc.propagator</h1><div class="highlight"><pre>
+<span></span>import re
+from dataclasses import dataclass
+from typing import List, Tuple
+
+from feynml.connector import Connector
+from feynml.interface.formcalc.field import Field
+from feynml.interface.formcalc.insertions import Insertions
+from feynml.interface.formcalc.vertex import Vertex
+from feynml.leg import Leg as FMLLeg
+from feynml.propagator import Propagator as FMLPropagator
+
+
+<div class="viewcode-block" id="Propagator"><a class="viewcode-back" href="../../../../_autosummary/feynml.interface.formcalc.propagator.Propagator.html#feynml.interface.formcalc.propagator.Propagator">[docs]</a>@dataclass
+class Propagator:
+    type: str
+    v1: Vertex
+    v2: Vertex
+    f: Field
+
+    def to_feynml(self, insertions: Insertions) -&gt; Tuple[Connector, List[Vertex]]:
+        if self.type == &quot;Internal&quot;:
+            fmlv1 = self.v1.to_feynml()
+            fmlv2 = self.v2.to_feynml()
+            return FMLPropagator(
+                source=fmlv1.id, target=fmlv2.id, pdgid=insertions.get_pdgid(self.f)
+            ), [fmlv1, fmlv2]
+        elif self.type == &quot;Incoming&quot;:
+            fmlv1 = self.v1.to_feynml()
+            fmlv2 = self.v2.to_feynml()
+            return FMLLeg(
+                target=fmlv2.id, sense=&quot;incoming&quot;, pdgid=insertions.get_pdgid(self.f)
+            ), [fmlv2]
+        elif self.type == &quot;Outgoing&quot;:
+            fmlv1 = self.v1.to_feynml()
+            fmlv2 = self.v2.to_feynml()
+            return FMLLeg(
+                target=fmlv2.id, sense=&quot;outgoing&quot;, pdgid=insertions.get_pdgid(self.f)
+            ), [fmlv2]
+        else:
+            raise Exception(&quot;Unknown propagator type&quot;)
+
+    def __str__(self):
+        return f&quot;Propagator[{self.type}][{self.v1}, {self.v2}, {self.f}]&quot;
+
+    @classmethod
+    def re(cls):
+        return (
+            r&quot;\s*Propagator\[(Incoming|Outgoing|Internal)\]\[(&quot;
+            + Vertex.re()
+            + r&quot;),(&quot;
+            + Vertex.re()
+            + r&quot;),(&quot;
+            + Field.re()
+            + r&quot;)\]\s*&quot;
+        )
+
+    @classmethod
+    def n(cls):
+        return 1 + 1 + Vertex.n() + 1 + Vertex.n() + 1 + Field.n()
+
+<div class="viewcode-block" id="Propagator.from_str"><a class="viewcode-back" href="../../../../_autosummary/feynml.interface.formcalc.propagator.Propagator.html#feynml.interface.formcalc.propagator.Propagator.from_str">[docs]</a>    @classmethod
+    def from_str(cls, propagator: str):
+        &quot;&quot;&quot;
+        Example
+
+        &gt;&gt;&gt; str(Propagator.from_str(&quot;Propagator[Incoming][Vertex[1][1], Vertex[3][5], Field[1]]&quot;))
+        &#39;Propagator[Incoming][Vertex[1][1], Vertex[3][5], Field[1]]&#39;
+        &quot;&quot;&quot;
+        res = re.search(cls.re(), propagator)
+        return Propagator(
+            res.group(1),
+            Vertex.from_str(res.group(2)),
+            Vertex.from_str(res.group(3 + Vertex.n())),
+            Field.from_str(res.group(6 + Vertex.n())),
+        )</div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Alexander Puck Neuwirth.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

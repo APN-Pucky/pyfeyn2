@@ -40,7 +40,7 @@
               <img src="../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.3.2-16-gf572ac72
+                2.3.3-4-g0c2db242
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -144,6 +144,7 @@ class Head(SheetHandler):
         metadata={&quot;name&quot;: &quot;link&quot;, &quot;namespace&quot;: &quot;&quot;},
     )
     cached_links = {}
+    root = &quot;.&quot;  # root directory for relative links
     title: Optional[str] = field(default=None, metadata={&quot;type&quot;: &quot;Element&quot;})
 
     # description: Optional[str] = field(default=&quot;&quot;, metadata={&quot;type&quot;: &quot;Element&quot;})
@@ -165,12 +166,22 @@ class Head(SheetHandler):
         &quot;&quot;&quot;
         ret = {}
         for m in self.links:
-            if m.ref in self.cached_links and cached:
-                ret[m.ref] = self.cached_links[m.ref]
+            if m.rel in self.cached_links and cached:
+                ret[m.rel] = self.cached_links[m.rel]
             else:
-                ret[m.ref] = io.read(m.href)
+                # handle absolute or relative
+                if m.href.startswith(&quot;http&quot;):
+                    print(&quot;Direct&quot;)
+                    ret[m.rel] = io.read(m.href)
+                    print(ret[m.rel])
+                elif m.href.startswith(&quot;/&quot;):
+                    ret[m.rel] = io.read(m.href)
+                else:
+                    ret[m.rel] = io.read(self.root + m.href)
+                if m.rel == &quot;stylesheet&quot;:
+                    ret[m.rel] = cssutils.parseString(ret[m.rel])
                 if cache:
-                    self.cached_links[m.ref] = ret[m.ref]
+                    self.cached_links[m.rel] = ret[m.rel]
         return ret</div>
 
 <div class="viewcode-block" id="Head.get_meta_dict"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.Head.html#feynml.head.Head.get_meta_dict">[docs]</a>    def get_meta_dict(self):

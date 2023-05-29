@@ -1,0 +1,6 @@
+feynml.util.id\_wrap
+====================
+
+.. currentmodule:: feynml.util
+
+.. autofunction:: id_wrap

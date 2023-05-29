@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>feynml.interface.formcalc.topologylist &mdash; pyfeyn2  documentation</title>
+      <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/plot_directive.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/jupyter-sphinx.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/thebelab.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/sphinx_highlight.js"></script>
+        <script src="../../../../_static/thebelab-helper.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            pyfeyn2
+              <img src="../../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                2.3.3-4-g0c2db242
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">FeynML:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../feynml/index.html">FeynML</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Gallery:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../gallery/index.html">Gallery</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Renderers:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../renderers/index.html">Renderers</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Interfaces:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../interfaces/index.html">Interfaces</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Modules:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../_autosummary/pyfeyn2.html">pyfeyn2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../_autosummary/feynml.html">feynml</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Versions:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://pyfeyn2.readthedocs.io/en/stable/">RTD</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/pyfeyn2/">Stable</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/pyfeyn2/test/">Dev</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Links:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/APN-Pucky/pyfeyn2">GitHub</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">pyfeyn2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">feynml.interface.formcalc.topologylist</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for feynml.interface.formcalc.topologylist</h1><div class="highlight"><pre>
+<span></span>import re
+from dataclasses import dataclass
+from typing import List, Tuple
+
+from feynml.feynml import FeynML
+from feynml.head import Head
+from feynml.interface.formcalc.insertions import Insertions
+from feynml.interface.formcalc.topology import Topology
+from feynml.meta import Meta
+from feynml.util import len_not_none
+
+
+<div class="viewcode-block" id="TopologyList"><a class="viewcode-back" href="../../../../_autosummary/feynml.interface.formcalc.topologylist.TopologyList.html#feynml.interface.formcalc.topologylist.TopologyList">[docs]</a>@dataclass
+class TopologyList:
+    rest: str
+    topologies: List[Tuple[Topology, Insertions]]
+
+    def to_feynml(
+        self,
+        creator=&quot;pyfeyn2&quot;,
+        tool=&quot;pyfeyn2.interface.formcalc&quot;,
+        title=&quot;&quot;,
+        description=&quot;&quot;,
+    ) -&gt; FeynML:
+        fds = []
+        for t in self.topologies:
+            fds.append(t[0].to_feynml(t[1]))
+        return FeynML(
+            head=Head(
+                metas=[
+                    Meta(name=&quot;creator&quot;, content=creator),
+                    Meta(name=&quot;tool&quot;, content=tool),
+                    Meta(name=&quot;description&quot;, content=description),
+                    Meta(name=&quot;title&quot;, content=title),
+                ]
+            ),
+            diagrams=fds,
+        )
+
+    def __str__(self):
+        return f&quot;TopologyList[{self.rest}][{&#39;,&#39;.join([str(ti[0]) +&#39; -&gt; &#39; + str(ti[1])  for ti in self.topologies ])}]&quot;
+
+    @classmethod
+    def re(cls, full=True):
+        if full:
+            rtopology = Topology.re()
+            rinsertions = Insertions.re()
+        else:
+            rtopology = r&quot;\s*Topology\[\d+\]\[.*?\]\s*&quot;
+            rinsertions = r&quot;\s*Insertions\[Generic\]\[.*?\]\s*&quot;
+
+        rtopologylist = r&quot;\s*TopologyList\[(.*)\]\[&quot;
+        rtopologylist += r&quot;((?:&quot; + rtopology + r&quot;-&gt;&quot; + rinsertions + r&quot;,?)+)\]\s*&quot;
+        return rtopologylist
+
+<div class="viewcode-block" id="TopologyList.n"><a class="viewcode-back" href="../../../../_autosummary/feynml.interface.formcalc.topologylist.TopologyList.html#feynml.interface.formcalc.topologylist.TopologyList.n">[docs]</a>    @classmethod
+    def n(cls):
+        &quot;&quot;&quot;
+        Example
+
+        &gt;&gt;&gt; TopologyList.n() == TopologyList.re().count(&#39;(&#39;) -TopologyList.re().count(&#39;(?&#39;)
+        True
+        &quot;&quot;&quot;
+        return 1 + 1 + Topology.n() + Insertions.n()</div>
+
+<div class="viewcode-block" id="TopologyList.from_str"><a class="viewcode-back" href="../../../../_autosummary/feynml.interface.formcalc.topologylist.TopologyList.html#feynml.interface.formcalc.topologylist.TopologyList.from_str">[docs]</a>    @classmethod
+    def from_str(cls, topologylist: str):
+        &quot;&quot;&quot;
+        Example
+
+        &gt;&gt;&gt; str(TopologyList.from_str(&#39;TopologyList[\
+        Process -&gt; {V[1], V[1]} -&gt; {-F[3, {3, SequenceForm[&quot;Col&quot;, 3]}], \
+        F[3, {3, SequenceForm[&quot;Col&quot;, 4]}]}, Model -&gt; {&quot;SM&quot;}, \
+        GenericModel -&gt; {&quot;Lorentz&quot;}, InsertionLevel -&gt; {Generic, Classes}, \
+        ExcludeParticles -&gt; {}, \
+        ExcludeFieldPoints -&gt; {FieldPoint[0][-F[1], F[2], -S[3]], \
+        FieldPoint[0][F[1], -F[2], S[3]], \
+        FieldPoint[0][-F[2], F[2], S[1]], \
+        FieldPoint[0][-F[2], F[2], S[2]], \
+        FieldPoint[0][-F[4], F[4], S[1]], \
+        FieldPoint[0][-F[4], F[4], S[2]], \
+        FieldPoint[1][-F[1], F[2], -S[3]], \
+        FieldPoint[1][F[1], -F[2], S[3]], \
+        FieldPoint[1][-F[2], F[2], S[1]], \
+        FieldPoint[1][-F[2], F[2], S[2]], \
+        FieldPoint[1][-F[4], F[4], S[1]], \
+        FieldPoint[1][-F[4], F[4], S[2]]}, LastSelections -&gt; {}][\
+        Topology[1][\
+        Propagator[Incoming][Vertex[1][1], Vertex[3][5], Field[1]], \
+        Propagator[Incoming][Vertex[1][2], Vertex[3][6], Field[2]], \
+        Propagator[Outgoing][Vertex[1][3], Vertex[3][5], Field[3]], \
+        Propagator[Outgoing][Vertex[1][4], Vertex[3][6], Field[4]], \
+        Propagator[Internal][Vertex[3][5], Vertex[3][6], Field[5]]] -&gt; \
+        Insertions[Generic][\
+        FeynmanGraph[1, Generic == 1][Field[1] -&gt; V[1], Field[2] -&gt; V[1], \
+        Field[3] -&gt; F[3, {3, SequenceForm[&quot;Col&quot;, 3]}], \
+        Field[4] -&gt; -F[3, {3, SequenceForm[&quot;Col&quot;, 4]}], Field[5] -&gt; F] -&gt;\
+        Insertions[Classes][\
+        FeynmanGraph[1, Classes == 1][Field[1] -&gt; V[1], Field[2] -&gt; V[1],\
+        Field[3] -&gt; F[3, {3, SequenceForm[&quot;Col&quot;, 3]}], \
+        Field[4] -&gt; -F[3, {3, SequenceForm[&quot;Col&quot;, 4]}], \
+        Field[5] -&gt; F[3, {3, SequenceForm[&quot;Col&quot;, 3]}]]]], \
+        Topology[1][\
+        Propagator[Incoming][Vertex[1][1], Vertex[3][5], Field[1]], \
+        Propagator[Incoming][Vertex[1][2], Vertex[3][6], Field[2]], \
+        Propagator[Outgoing][Vertex[1][3], Vertex[3][6], Field[3]], \
+        Propagator[Outgoing][Vertex[1][4], Vertex[3][5], Field[4]], \
+        Propagator[Internal][Vertex[3][5], Vertex[3][6], Field[5]]] -&gt; \
+        Insertions[Generic][\
+        FeynmanGraph[1, Generic == 1][Field[1] -&gt; V[1], Field[2] -&gt; V[1], \
+        Field[3] -&gt; F[3, {3, SequenceForm[&quot;Col&quot;, 3]}], \
+        Field[4] -&gt; -F[3, {3, SequenceForm[&quot;Col&quot;, 4]}], Field[5] -&gt; F] -&gt;\
+        Insertions[Classes][\
+        FeynmanGraph[1, Classes == 1][Field[1] -&gt; V[1], Field[2] -&gt; V[1],\
+        Field[3] -&gt; F[3, {3, SequenceForm[&quot;Col&quot;, 3]}], \
+        Field[4] -&gt; -F[3, {3, SequenceForm[&quot;Col&quot;, 4]}], \
+        Field[5] -&gt; -F[3, {3, SequenceForm[&quot;Col&quot;, 3]}]]]]]&#39;))
+        &#39;TopologyList[ Process -&gt; {V[1], V[1]} -&gt; {-F[3, {3, SequenceForm[&quot;Col&quot;, 3]}], F[3, {3, SequenceForm[&quot;Col&quot;, 4]}]}, Model -&gt; {&quot;SM&quot;}, GenericModel -&gt; {&quot;Lorentz&quot;}, InsertionLevel -&gt; {Generic, Classes}, ExcludeParticles -&gt; {}, ExcludeFieldPoints -&gt; {FieldPoint[0][-F[1], F[2], -S[3]], FieldPoint[0][F[1], -F[2], S[3]], FieldPoint[0][-F[2], F[2], S[1]], FieldPoint[0][-F[2], F[2], S[2]], FieldPoint[0][-F[4], F[4], S[1]], FieldPoint[0][-F[4], F[4], S[2]], FieldPoint[1][-F[1], F[2], -S[3]], FieldPoint[1][F[1], -F[2], S[3]], FieldPoint[1][-F[2], F[2], S[1]], FieldPoint[1][-F[2], F[2], S[2]], FieldPoint[1][-F[4], F[4], S[1]], FieldPoint[1][-F[4], F[4], S[2]]}, LastSelections -&gt; {}][Topology[1][Propagator[Incoming][Vertex[1][1], Vertex[3][5], Field[1]], Propagator[Incoming][Vertex[1][2], Vertex[3][6], Field[2]], Propagator[Outgoing][Vertex[1][3], Vertex[3][5], Field[3]], Propagator[Outgoing][Vertex[1][4], Vertex[3][6], Field[4]], Propagator[Internal][Vertex[3][5], Vertex[3][6], Field[5]]] -&gt; Insertions[Generic][FeynmanGraph[1, Generic == 1][Field[1] -&gt; V[1], Field[2] -&gt; V[1], Field[3] -&gt; F[3, {3, SequenceForm[&quot;Col&quot;, 3]}], Field[4] -&gt; -F[3, {3, SequenceForm[&quot;Col&quot;, 4]}], Field[5] -&gt; F] -&gt; Insertions[Classes][FeynmanGraph[1, Classes == 1][Field[1] -&gt; V[1], Field[2] -&gt; V[1], Field[3] -&gt; F[3, {3, SequenceForm[&quot;Col&quot;, 3]}], Field[4] -&gt; -F[3, {3, SequenceForm[&quot;Col&quot;, 4]}], Field[5] -&gt; F[3, {3, SequenceForm[&quot;Col&quot;, 3]}]]]],Topology[1][Propagator[Incoming][Vertex[1][1], Vertex[3][5], Field[1]], Propagator[Incoming][Vertex[1][2], Vertex[3][6], Field[2]], Propagator[Outgoing][Vertex[1][3], Vertex[3][6], Field[3]], Propagator[Outgoing][Vertex[1][4], Vertex[3][5], Field[4]], Propagator[Internal][Vertex[3][5], Vertex[3][6], Field[5]]] -&gt; Insertions[Generic][FeynmanGraph[1, Generic == 1][Field[1] -&gt; V[1], Field[2] -&gt; V[1], Field[3] -&gt; F[3, {3, SequenceForm[&quot;Col&quot;, 3]}], Field[4] -&gt; -F[3, {3, SequenceForm[&quot;Col&quot;, 4]}], Field[5] -&gt; F] -&gt; Insertions[Classes][FeynmanGraph[1, Classes == 1][Field[1] -&gt; V[1], Field[2] -&gt; V[1], Field[3] -&gt; F[3, {3, SequenceForm[&quot;Col&quot;, 3]}], Field[4] -&gt; -F[3, {3, SequenceForm[&quot;Col&quot;, 4]}], Field[5] -&gt; -F[3, {3, SequenceForm[&quot;Col&quot;, 3]}]]]]]&#39;
+        &quot;&quot;&quot;
+        res = re.search(cls.re(), topologylist)
+        rest = res.group(1).replace(&quot;\t&quot;, &quot; &quot;)
+        # remove repeated whitespaces from rest
+        rest = re.sub(r&quot;\s+&quot;, &quot; &quot;, rest)
+        lst = []
+
+        for x in re.findall(
+            r&quot;(&quot; + Topology.re() + r&quot;)-&gt;(&quot; + Insertions.re() + r&quot;),?&quot;, res.group(2)
+        ):
+            lst += [
+                (
+                    Topology.from_str(x[0]),
+                    Insertions.from_str(x[Topology.n() + 1]),
+                )
+            ]
+        return TopologyList(rest, lst)</div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Alexander Puck Neuwirth.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

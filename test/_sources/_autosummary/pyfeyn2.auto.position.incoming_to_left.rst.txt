@@ -1,0 +1,6 @@
+pyfeyn2.auto.position.incoming\_to\_left
+========================================
+
+.. currentmodule:: pyfeyn2.auto.position
+
+.. autofunction:: incoming_to_left

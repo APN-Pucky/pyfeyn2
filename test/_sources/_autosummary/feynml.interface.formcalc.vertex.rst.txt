@@ -1,0 +1,31 @@
+feynml.interface.formcalc.vertex
+================================
+
+.. automodule:: feynml.interface.formcalc.vertex
+  
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :toctree:                                         
+      :template: custom-class-template.rst               
+   
+      Vertex
+   
+   
+
+   
+   
+   
+
+
+
