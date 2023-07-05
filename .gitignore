@@ -152,3 +152,4 @@ tmp.tex
 tests/out.pdf
 
 .vscode/*
+tmp-*

@@ -2,10 +2,13 @@ import warnings
 from typing import List
 from warnings import warn
 
+from feynml.connector import Connector
+from feynml.feynmandiagram import FeynmanDiagram
+from feynml.leg import Leg
+from feynml.vertex import Vertex
 from pylatex import Command
 from pylatex.utils import NoEscape
 
-from pyfeyn2.feynmandiagram import Connector, FeynmanDiagram, Leg, Vertex
 from pyfeyn2.render.latex.latex import LatexRender
 
 # converte FeynmanDiagram to tikz-feynman
