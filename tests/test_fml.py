@@ -1,21 +1,19 @@
 from pathlib import Path
 
+# Load an FML file and check that it is the same as the original
+# FeynmanDiagram object
+from feynml.feynmandiagram import FeynmanDiagram
+from feynml.feynml import FeynML
+from feynml.head import Head
+from feynml.leg import Leg
+from feynml.meta import Meta
+from feynml.momentum import Momentum
+from feynml.propagator import Propagator
+from feynml.vertex import Vertex
 from xsdata.formats.dataclass.parsers import XmlParser
 from xsdata.formats.dataclass.serializers import XmlSerializer
 from xsdata.formats.dataclass.serializers.config import SerializerConfig
 
-# Load an FML file and check that it is the same as the original
-# FeynmanDiagram object
-from pyfeyn2.feynmandiagram import (
-    FeynmanDiagram,
-    FeynML,
-    Head,
-    Leg,
-    Meta,
-    Momentum,
-    Propagator,
-    Vertex,
-)
 from pyfeyn2.render.pyx.pyxrender import PyxRender
 
 

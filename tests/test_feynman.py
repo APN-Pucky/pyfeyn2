@@ -1,4 +1,7 @@
-from pyfeyn2.feynmandiagram import FeynmanDiagram, Leg, Propagator, Vertex
+from feynml.feynmandiagram import FeynmanDiagram
+from feynml.leg import Leg
+from feynml.propagator import Propagator
+from feynml.vertex import Vertex
 
 
 def test_gluons():

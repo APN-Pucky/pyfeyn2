@@ -42,7 +42,7 @@ mkfeyndiag = "pyfeyn2.mkfeyndiag:main"
 optional = true
 
 [tool.poetry.group.docs.dependencies]
-sphinx = "*"
+sphinx = "<7.0.0"
 sphinx-rtd-theme = "*"
 sphinxcontrib-napoleon = "*"
 nbsphinx = "*"
