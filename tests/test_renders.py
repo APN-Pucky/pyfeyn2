@@ -1,6 +1,9 @@
 import pytest
+from feynml.feynmandiagram import FeynmanDiagram
+from feynml.leg import Leg
+from feynml.propagator import Propagator
+from feynml.vertex import Vertex
 
-from pyfeyn2.feynmandiagram import FeynmanDiagram, Leg, Propagator, Vertex
 from pyfeyn2.render.all import AllRender, renders
 
 

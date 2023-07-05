@@ -4,7 +4,7 @@ from feynml.propagator import Propagator
 from feynml.vertex import Vertex
 
 
-def test_gluons():
+def get_test_gluons():
     fd = FeynmanDiagram()
     v1 = Vertex("v1").with_xy(-1, 0)
     v2 = Vertex("v2").with_xy(1, 0)
@@ -21,7 +21,7 @@ def test_gluons():
     return fd
 
 
-def test_many_gluons():
+def get_test_many_gluons():
     fd = FeynmanDiagram()
     v1 = Vertex("v1")
     v2 = Vertex("v2")

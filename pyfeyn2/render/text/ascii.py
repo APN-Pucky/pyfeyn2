@@ -1,7 +1,8 @@
 from typing import List
 from warnings import warn
 
-from pyfeyn2.feynmandiagram import Point
+from feynml.point import Point
+
 from pyfeyn2.render.render import Render
 from pyfeyn2.render.text.label import Label
 from pyfeyn2.render.text.line import ASCIILine

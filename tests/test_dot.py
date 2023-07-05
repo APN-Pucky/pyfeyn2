@@ -1,9 +1,9 @@
 from pyfeyn2.render.latex.dot import DotRender, feynman_to_dot
-from tests.test_feynman import test_gluons, test_many_gluons
+from tests.test_feynman import get_test_gluons, get_test_many_gluons
 
 
 def test_dot():
-    fd = test_gluons()
+    fd = get_test_gluons()
 
     print(feynman_to_dot(fd))
     dr = DotRender(fd)
@@ -12,7 +12,7 @@ def test_dot():
 
 
 def test_dot2():
-    fd = test_many_gluons()
+    fd = get_test_many_gluons()
 
     print(feynman_to_dot(fd))
     dr = DotRender(fd)
