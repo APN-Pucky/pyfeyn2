@@ -40,7 +40,7 @@
               <img src="../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.3.3-4-g0c2db242
+                2.3.3-35-g734f456f
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -173,6 +173,13 @@ from pyfeyn2.render.text.unicode import UnicodeRender
         action=&quot;store_true&quot;,
         help=&quot;Show the output file.&quot;,
     )
+    parser.add_argument(
+        &quot;--diagram&quot;,
+        metavar=&quot;DIAGRAM&quot;,
+        default=None,
+        type=str,
+        help=&quot;Diagram id to render.&quot;,
+    )
 
     args = parser.parse_args()
 
@@ -201,9 +208,9 @@ from pyfeyn2.render.text.unicode import UnicodeRender
         for diagram in fml.diagrams:
             diagram.external_sheet = cssutils.parseString(style_string)
 
-    # TODO think about how to handle multiple diagrams
     for i, d in enumerate(fml.diagrams):
-        renderer(d).render(file=args.output + f&quot;_{i}&quot;, show=args.show)</div>
+        if args.diagram is None or args.diagram == d.id:
+            renderer(d).render(file=args.output + f&quot;_{i}&quot;, show=args.show)</div>
 </pre></div>
 
            </div>
