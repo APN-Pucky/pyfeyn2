@@ -40,7 +40,7 @@
               <img src="../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.3.3
+                2.3.4
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -108,16 +108,13 @@
              
   <h1>Source code for feynml.feynml</h1><div class="highlight"><pre>
 <span></span>import logging
+import os
 import warnings
 from dataclasses import dataclass, field
 from importlib.metadata import version
 from typing import List, Optional
 
-import cssutils
-from smpl_doc import doc
-from xsdata.formats.dataclass.parsers import XmlParser
-from xsdata.formats.dataclass.serializers import XmlSerializer
-from xsdata.formats.dataclass.serializers.config import SerializerConfig
+import smpl_io.io as io
 
 from feynml.feynmandiagram import FeynmanDiagram
 from feynml.head import Head
@@ -126,10 +123,6 @@ from feynml.meta import Meta
 from feynml.sheet import SheetHandler
 from feynml.styled import CSSSheet
 from feynml.xml import XML
-
-# We don&#39;t want to see the cssutils warnings, since we have custom properties
-cssutils.log.setLevel(logging.CRITICAL)
-
 
 feynml_version = version(&quot;feynml&quot;)
 
@@ -168,6 +161,13 @@ class FeynML(SheetHandler, XML):
         metadata={&quot;name&quot;: &quot;diagram&quot;, &quot;type&quot;: &quot;Element&quot;, &quot;namespace&quot;: &quot;&quot;},
     )
 
+    def get_root(self):
+        return self.head.root
+
+    def with_root(self, root):
+        self.head.root = root
+        return self
+
     def get_diagram(self, idd):
         for d in self.diagrams:
             if d.id == idd:
@@ -191,7 +191,20 @@ class FeynML(SheetHandler, XML):
 
 <div class="viewcode-block" id="FeynML.with_sheet"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.FeynML.html#feynml.feynml.FeynML.with_sheet">[docs]</a>    def with_sheet(self, sheet):
         self.head.with_sheet(sheet)
-        return self</div></div>
+        return self</div>
+
+<div class="viewcode-block" id="FeynML.from_xml_file"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.FeynML.html#feynml.feynml.FeynML.from_xml_file">[docs]</a>    @classmethod
+    def from_xml_file(cls, file: str):
+        &quot;&quot;&quot;Load self from XML file.&quot;&quot;&quot;
+        # get parent directory of file
+        r = cls.from_xml(io.read(file))
+        # check if file exists
+        if os.path.isfile(file):
+            r.head.root = os.path.dirname(file) + &quot;/&quot;
+        elif file.startswith(&quot;http&quot;):
+            # remove last file in url
+            r.head.root = &quot;/&quot;.join(file.split(&quot;/&quot;)[:-1]) + &quot;/&quot;
+        return r</div></div>
 </pre></div>
 
            </div>

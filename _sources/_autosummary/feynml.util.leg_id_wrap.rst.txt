@@ -1,0 +1,6 @@
+feynml.util.leg\_id\_wrap
+=========================
+
+.. currentmodule:: feynml.util
+
+.. autofunction:: leg_id_wrap

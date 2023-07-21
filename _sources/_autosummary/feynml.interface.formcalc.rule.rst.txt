@@ -1,0 +1,31 @@
+feynml.interface.formcalc.rule
+==============================
+
+.. automodule:: feynml.interface.formcalc.rule
+  
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :toctree:                                         
+      :template: custom-class-template.rst               
+   
+      Rule
+   
+   
+
+   
+   
+   
+
+
+

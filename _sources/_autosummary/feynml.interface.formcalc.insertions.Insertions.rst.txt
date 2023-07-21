@@ -1,0 +1,36 @@
+feynml.interface.formcalc.insertions.Insertions
+===============================================
+
+.. currentmodule:: feynml.interface.formcalc.insertions
+
+.. autoclass:: Insertions
+   :members:                                   
+   :show-inheritance:                           
+   :inherited-members:                         
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Insertions.__init__
+      ~Insertions.from_str
+      ~Insertions.get_pdgid
+      ~Insertions.n
+      ~Insertions.re
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~Insertions.generic
+      ~Insertions.classes
+   
+   

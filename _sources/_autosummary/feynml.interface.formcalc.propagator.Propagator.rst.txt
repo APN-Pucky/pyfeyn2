@@ -1,0 +1,38 @@
+feynml.interface.formcalc.propagator.Propagator
+===============================================
+
+.. currentmodule:: feynml.interface.formcalc.propagator
+
+.. autoclass:: Propagator
+   :members:                                   
+   :show-inheritance:                           
+   :inherited-members:                         
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Propagator.__init__
+      ~Propagator.from_str
+      ~Propagator.n
+      ~Propagator.re
+      ~Propagator.to_feynml
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~Propagator.type
+      ~Propagator.v1
+      ~Propagator.v2
+      ~Propagator.f
+   
+   

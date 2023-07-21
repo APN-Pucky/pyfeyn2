@@ -40,7 +40,7 @@
               <img src="../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.3.3
+                2.3.4
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -175,12 +175,30 @@ class PDG(Identifiable):
                 self.type = &quot;boson&quot;
             elif self.pdgid == 25:
                 self.type = &quot;higgs&quot;
+            elif self.pdgid == 2212:
+                self.type = &quot;fermion&quot;
+            elif self.pdgid == -2212:
+                self.type = &quot;anti fermion&quot;
+            elif self.pdgid &lt; 1000000 and self.pdgid &gt; 100:
+                if self.particle.pdgid.J == 0:
+                    self.type = &quot;line&quot;
+                elif self.particle.pdgid.J == 1:
+                    self.type = &quot;line&quot;
+                elif self.particle.pdgid.J == 0.5:
+                    self.type = &quot;fermion&quot;
+            elif self.pdgid &gt; -1000000 and self.pdgid &lt; -100:
+                if self.particle.pdgid.J == 0:
+                    self.type = &quot;line&quot;
+                elif self.particle.pdgid.J == 1:
+                    self.type = &quot;line&quot;
+                elif self.particle.pdgid.J == 0.5:
+                    self.type = &quot;anti fermion&quot;
             else:
                 warnings.warn(
                     f&quot;Inferring type from pdgid not implemented for pdgid {self.pdgid} &quot;
                 )
                 self.type = &quot;line&quot;
-            if tmptype is not None and self.type != tmptype:
+            if tmptype is not None and tmptype != &quot;&quot; and self.type != tmptype:
                 warnings.warn(
                     f&quot;Type {tmptype} is not consistent with pdgid {self.pdgid}, using {self.type} instead. Using {tmptype} now.&quot;
                 )

@@ -1,0 +1,43 @@
+feynml.interface.formcalc
+=========================
+
+.. automodule:: feynml.interface.formcalc
+  
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+
+.. rubric:: Modules
+
+.. autosummary::
+   :toctree:
+   :template: custom-module-template.rst                
+   :recursive:
+
+   feynml.interface.formcalc.fermion
+   feynml.interface.formcalc.feynmangraph
+   feynml.interface.formcalc.field
+   feynml.interface.formcalc.insertions
+   feynml.interface.formcalc.particle
+   feynml.interface.formcalc.propagator
+   feynml.interface.formcalc.rule
+   feynml.interface.formcalc.sequenceform
+   feynml.interface.formcalc.topology
+   feynml.interface.formcalc.topologylist
+   feynml.interface.formcalc.vector
+   feynml.interface.formcalc.vertex
+

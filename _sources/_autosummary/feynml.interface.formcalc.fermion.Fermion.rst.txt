@@ -1,0 +1,38 @@
+feynml.interface.formcalc.fermion.Fermion
+=========================================
+
+.. currentmodule:: feynml.interface.formcalc.fermion
+
+.. autoclass:: Fermion
+   :members:                                   
+   :show-inheritance:                           
+   :inherited-members:                         
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Fermion.__init__
+      ~Fermion.from_str
+      ~Fermion.get_pdgid
+      ~Fermion.n
+      ~Fermion.re
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~Fermion.sign
+      ~Fermion.type
+      ~Fermion.i
+      ~Fermion.sequenceform
+   
+   

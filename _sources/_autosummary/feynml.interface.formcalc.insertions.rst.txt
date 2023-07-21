@@ -1,0 +1,31 @@
+feynml.interface.formcalc.insertions
+====================================
+
+.. automodule:: feynml.interface.formcalc.insertions
+  
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :toctree:                                         
+      :template: custom-class-template.rst               
+   
+      Insertions
+   
+   
+
+   
+   
+   
+
+
+

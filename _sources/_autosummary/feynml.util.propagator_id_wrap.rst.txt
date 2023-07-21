@@ -1,0 +1,6 @@
+feynml.util.propagator\_id\_wrap
+================================
+
+.. currentmodule:: feynml.util
+
+.. autofunction:: propagator_id_wrap

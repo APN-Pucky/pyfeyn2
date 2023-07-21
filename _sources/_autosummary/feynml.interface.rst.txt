@@ -28,8 +28,8 @@ feynml.interface
    :template: custom-module-template.rst                
    :recursive:
 
+   feynml.interface.formcalc
    feynml.interface.hepmc
    feynml.interface.lhe
    feynml.interface.qgraf
-   feynml.interface.util
 

@@ -40,7 +40,7 @@
               <img src="../../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.3.3
+                2.3.4
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
@@ -165,7 +165,13 @@ shape_map = {
     if style.getProperty(&quot;line&quot;) is not None:
         ret += type_map[style.getProperty(&quot;line&quot;).value]
     else:
-        ret += type_map[c.type]  # fallback to type if no style
+        if c.type is not None:
+            ret += type_map[c.type]  # fallback to type if no style
+        else:
+            warnings.warn(
+                f&quot;No type or style set for connector  {c.id} {c.type} {c.pdgid}&quot;
+            )
+            ret += &quot;plain&quot;
 
     if c.label is not None:
         ret += &quot;,edge label=&quot; + c.label

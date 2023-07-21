@@ -22,6 +22,7 @@ pyfeyn2.feynmandiagram.FeynmanDiagram
       ~FeynmanDiagram.add_rules
       ~FeynmanDiagram.from_xml
       ~FeynmanDiagram.from_xml_file
+      ~FeynmanDiagram.get
       ~FeynmanDiagram.get_bounding_box
       ~FeynmanDiagram.get_connections
       ~FeynmanDiagram.get_leg
@@ -31,7 +32,12 @@ pyfeyn2.feynmandiagram.FeynmanDiagram
       ~FeynmanDiagram.get_style
       ~FeynmanDiagram.get_style_property
       ~FeynmanDiagram.get_vertex
+      ~FeynmanDiagram.has
       ~FeynmanDiagram.has_id
+      ~FeynmanDiagram.has_leg
+      ~FeynmanDiagram.has_propagator
+      ~FeynmanDiagram.has_vertex
+      ~FeynmanDiagram.has_vertex_id
       ~FeynmanDiagram.put_style
       ~FeynmanDiagram.put_styles
       ~FeynmanDiagram.raw_style

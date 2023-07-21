@@ -1,0 +1,36 @@
+feynml.interface.formcalc.vertex.Vertex
+=======================================
+
+.. currentmodule:: feynml.interface.formcalc.vertex
+
+.. autoclass:: Vertex
+   :members:                                   
+   :show-inheritance:                           
+   :inherited-members:                         
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Vertex.__init__
+      ~Vertex.from_str
+      ~Vertex.n
+      ~Vertex.re
+      ~Vertex.to_feynml
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~Vertex.i
+      ~Vertex.j
+   
+   

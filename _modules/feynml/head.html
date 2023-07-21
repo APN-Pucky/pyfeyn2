@@ -40,7 +40,7 @@
               <img src="../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.3.3
+                2.3.4
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -111,23 +111,15 @@
 import warnings
 from dataclasses import dataclass, field
 from importlib.metadata import version
-from typing import List, Optional, Union
+from typing import List, Optional
 
 import cssutils
 import smpl_io.io as io
-from cssselect import GenericTranslator, SelectorError
-from lxml import etree
 
-from feynml.id import Identifiable
-from feynml.leg import Leg
 from feynml.link import Link
 from feynml.meta import Meta as alias_meta
-from feynml.propagator import Propagator
 from feynml.sheet import SheetHandler
 from feynml.styled import CSSSheet, Styled
-from feynml.type import get_default_sheet
-from feynml.vertex import Vertex
-from feynml.xml import XML
 
 
 <div class="viewcode-block" id="Head"><a class="viewcode-back" href="../../_autosummary/feynml.head.Head.html#feynml.head.Head">[docs]</a>@dataclass
@@ -144,6 +136,7 @@ class Head(SheetHandler):
         metadata={&quot;name&quot;: &quot;link&quot;, &quot;namespace&quot;: &quot;&quot;},
     )
     cached_links = {}
+    root = &quot;.&quot;  # root directory for relative links
     title: Optional[str] = field(default=None, metadata={&quot;type&quot;: &quot;Element&quot;})
 
     # description: Optional[str] = field(default=&quot;&quot;, metadata={&quot;type&quot;: &quot;Element&quot;})
@@ -165,12 +158,22 @@ class Head(SheetHandler):
         &quot;&quot;&quot;
         ret = {}
         for m in self.links:
-            if m.ref in self.cached_links and cached:
-                ret[m.ref] = self.cached_links[m.ref]
+            if m.rel in self.cached_links and cached:
+                ret[m.rel] = self.cached_links[m.rel]
             else:
-                ret[m.ref] = io.read(m.href)
+                # handle absolute or relative
+                if m.href.startswith(&quot;http&quot;):
+                    print(&quot;Direct&quot;)
+                    ret[m.rel] = io.read(m.href)
+                    print(ret[m.rel])
+                elif m.href.startswith(&quot;/&quot;):
+                    ret[m.rel] = io.read(m.href)
+                else:
+                    ret[m.rel] = io.read(self.root + m.href)
+                if m.rel == &quot;stylesheet&quot;:
+                    ret[m.rel] = cssutils.parseString(ret[m.rel])
                 if cache:
-                    self.cached_links[m.ref] = ret[m.ref]
+                    self.cached_links[m.rel] = ret[m.rel]
         return ret</div>
 
 <div class="viewcode-block" id="Head.get_meta_dict"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.Head.html#feynml.head.Head.get_meta_dict">[docs]</a>    def get_meta_dict(self):

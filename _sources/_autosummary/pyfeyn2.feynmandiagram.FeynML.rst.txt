@@ -22,11 +22,13 @@ pyfeyn2.feynmandiagram.FeynML
       ~FeynML.from_xml
       ~FeynML.from_xml_file
       ~FeynML.get_diagram
+      ~FeynML.get_root
       ~FeynML.get_sheet
       ~FeynML.get_sheets
       ~FeynML.get_style
       ~FeynML.get_style_property
       ~FeynML.to_xml
+      ~FeynML.with_root
       ~FeynML.with_rule
       ~FeynML.with_rules
       ~FeynML.with_sheet
