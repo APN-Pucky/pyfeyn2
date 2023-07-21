@@ -40,7 +40,7 @@
               <img src="../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.3.3-40-g88670c18
+                2.3.4
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -107,22 +107,7 @@
            <div itemprop="articleBody">
              
   <h1>Source code for feynml.util</h1><div class="highlight"><pre>
-<div class="viewcode-block" id="len_not_none"><a class="viewcode-back" href="../../_autosummary/feynml.util.len_not_none.html#feynml.util.len_not_none">[docs]</a><span></span>def len_not_none(arr):
-    &quot;&quot;&quot;
-    Length of a List/tuple ignoring None values (e.g. regex non matches at the end)
-
-    Example
-
-    &gt;&gt;&gt; len_not_none((1,2,3,None))
-    3
-    &gt;&gt;&gt; len_not_none([1,2,3,None])
-    3
-    &quot;&quot;&quot;
-    i = 0
-    for a in arr:
-        if a is not None:
-            i += 1
-    return i</div>
+<span></span>from smpl_doc.doc import deprecated
 
 
 <div class="viewcode-block" id="id_wrap"><a class="viewcode-back" href="../../_autosummary/feynml.util.id_wrap.html#feynml.util.id_wrap">[docs]</a>def id_wrap(idd, id_type=&quot;&quot;):

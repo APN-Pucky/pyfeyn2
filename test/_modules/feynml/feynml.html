@@ -40,7 +40,7 @@
               <img src="../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.3.3-40-g88670c18
+                2.3.4
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -114,12 +114,7 @@ from dataclasses import dataclass, field
 from importlib.metadata import version
 from typing import List, Optional
 
-import cssutils
 import smpl_io.io as io
-from smpl_doc import doc
-from xsdata.formats.dataclass.parsers import XmlParser
-from xsdata.formats.dataclass.serializers import XmlSerializer
-from xsdata.formats.dataclass.serializers.config import SerializerConfig
 
 from feynml.feynmandiagram import FeynmanDiagram
 from feynml.head import Head
@@ -128,10 +123,6 @@ from feynml.meta import Meta
 from feynml.sheet import SheetHandler
 from feynml.styled import CSSSheet
 from feynml.xml import XML
-
-# We don&#39;t want to see the cssutils warnings, since we have custom properties
-cssutils.log.setLevel(logging.CRITICAL)
-
 
 feynml_version = version(&quot;feynml&quot;)
 

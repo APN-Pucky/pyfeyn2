@@ -40,7 +40,7 @@
               <img src="../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.3.3-40-g88670c18
+                2.3.4
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -255,19 +255,18 @@ class FeynmanDiagram(SheetHandler, XML, Styled, Identifiable):
 
 <div class="viewcode-block" id="FeynmanDiagram.get_style"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.FeynmanDiagram.html#feynml.feynmandiagram.FeynmanDiagram.get_style">[docs]</a>    @doc.append_doc(Head.get_style)
     def get_style(self, obj, xml: XML = None) -&gt; cssutils.css.CSSStyleDeclaration:
-        if self.parent_fml is not None:
-            return super().get_style(obj, self.parent_fml)
-        elif xml is not None:
+        # as of now, we don&#39;t have any xpath/styles from the fml itself
+        # if self.parent_fml is not None:
+        #    return super().get_style(obj, self.parent_fml)
+        if xml is not None:
             return super().get_style(obj, xml)
         else:
-            warnings.warn(&quot;No parent fml, returning default style&quot;)
             return super().get_style(obj, self)</div>
 
 <div class="viewcode-block" id="FeynmanDiagram.get_sheets"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.FeynmanDiagram.html#feynml.feynmandiagram.FeynmanDiagram.get_sheets">[docs]</a>    def get_sheets(self):
         if self.parent_fml is not None:
             return self.parent_fml.get_sheets() + [self.sheet]
         else:
-            warnings.warn(&quot;No parent fml, returning default sheet&quot;)
             return super().get_sheets() + [self.sheet]</div>
 
 <div class="viewcode-block" id="FeynmanDiagram.get_sheet"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.FeynmanDiagram.html#feynml.feynmandiagram.FeynmanDiagram.get_sheet">[docs]</a>    def get_sheet(self):

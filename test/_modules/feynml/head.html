@@ -40,7 +40,7 @@
               <img src="../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.3.3-40-g88670c18
+                2.3.4
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -111,23 +111,15 @@
 import warnings
 from dataclasses import dataclass, field
 from importlib.metadata import version
-from typing import List, Optional, Union
+from typing import List, Optional
 
 import cssutils
 import smpl_io.io as io
-from cssselect import GenericTranslator, SelectorError
-from lxml import etree
 
-from feynml.id import Identifiable
-from feynml.leg import Leg
 from feynml.link import Link
 from feynml.meta import Meta as alias_meta
-from feynml.propagator import Propagator
 from feynml.sheet import SheetHandler
 from feynml.styled import CSSSheet, Styled
-from feynml.type import get_default_sheet
-from feynml.vertex import Vertex
-from feynml.xml import XML
 
 
 <div class="viewcode-block" id="Head"><a class="viewcode-back" href="../../_autosummary/feynml.head.Head.html#feynml.head.Head">[docs]</a>@dataclass
