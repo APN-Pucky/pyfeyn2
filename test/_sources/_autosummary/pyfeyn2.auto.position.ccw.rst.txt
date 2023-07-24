@@ -1,0 +1,6 @@
+pyfeyn2.auto.position.ccw
+=========================
+
+.. currentmodule:: pyfeyn2.auto.position
+
+.. autofunction:: ccw

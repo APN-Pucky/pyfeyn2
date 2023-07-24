@@ -40,7 +40,7 @@
               <img src="../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.3.4
+                2.3.5
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -107,8 +107,240 @@
            <div itemprop="articleBody">
              
   <h1>Source code for pyfeyn2.auto.position</h1><div class="highlight"><pre>
-<span></span>from pyfeyn2.feynmandiagram import Propagator
+<span></span>import itertools
+import logging
+from itertools import permutations
+
+import numpy as np
+from feynml import Point, Propagator
+
 from pyfeyn2.interface.dot import dot_to_positions, feynman_to_dot
+
+
+# from https://stackoverflow.com/a/9997374
+<div class="viewcode-block" id="ccw"><a class="viewcode-back" href="../../../_autosummary/pyfeyn2.auto.position.ccw.html#pyfeyn2.auto.position.ccw">[docs]</a>def ccw(A, B, C):
+    &quot;&quot;&quot;
+    Return true if the points A, B, and C are in counter-clockwise order.
+    &quot;&quot;&quot;
+    return (C.y - A.y) * (B.x - A.x) &gt; (B.y - A.y) * (C.x - A.x)</div>
+
+
+# Return true if line segments AB and CD intersect
+<div class="viewcode-block" id="intersect"><a class="viewcode-back" href="../../../_autosummary/pyfeyn2.auto.position.intersect.html#pyfeyn2.auto.position.intersect">[docs]</a>def intersect(A, B, C, D):
+    &quot;&quot;&quot;
+    Return true if line segments AB and CD intersect
+
+    Parameters
+    ----------
+    A : Point
+        The first point of the first line segment.
+    B : Point
+        The second point of the first line segment.
+    C : Point
+        The first point of the second line segment.
+    D : Point
+        The second point of the second line segment.
+
+    Returns
+    -------
+    bool
+        True if the line segments intersect, False otherwise.
+
+    Examples
+    --------
+    &gt;&gt;&gt; A = Point(0, 0)
+    &gt;&gt;&gt; B = Point(1, 1)
+    &gt;&gt;&gt; C = Point(0, 1)
+    &gt;&gt;&gt; D = Point(1, 0)
+    &gt;&gt;&gt; intersect(A, B, C, D)
+    True
+    &gt;&gt;&gt; A,B,C,D = Point(0,0), Point(1,1), Point(0,0), Point(1,0)
+    &gt;&gt;&gt; intersect(A, B, C, D)
+    False
+    &quot;&quot;&quot;
+    if A.x == C.x and A.y == C.y:
+        return False
+    if A.x == D.x and A.y == D.y:
+        return False
+    if B.x == C.x and B.y == C.y:
+        return False
+    if B.x == D.x and B.y == D.y:
+        return False
+    return ccw(A, C, D) != ccw(B, C, D) and ccw(A, B, C) != ccw(A, B, D)</div>
+
+
+<div class="viewcode-block" id="require_xy"><a class="viewcode-back" href="../../../_autosummary/pyfeyn2.auto.position.require_xy.html#pyfeyn2.auto.position.require_xy">[docs]</a>def require_xy(points):
+    # check if a vertex or leg is missing a x or y position
+    for v in points:
+        if v.x is None:
+            raise Exception(f&quot;Vertex or leg {v} is missing x position.&quot;)
+        if v.y is None:
+            raise Exception(f&quot;Vertex or leg {v} is missing y position.&quot;)</div>
+
+
+def _compute_number_of_intersects(fd):
+    &quot;&quot;&quot;
+    Computes the number of crossed propagators/legs in a Feynman diagram
+    &quot;&quot;&quot;
+    # check if a vertex or leg is missing a x or y position
+    points = [*fd.vertices, *fd.legs]
+    require_xy(points)
+    lines = []
+    for p in fd.propagators:
+        src = fd.get_point(p.source)
+        tar = fd.get_point(p.target)
+        lines.append([src, tar])
+    for l in fd.legs:
+        if l.is_incoming():
+            src = Point(l.x, l.y)
+            tar = fd.get_point(l.target)
+            lines.append([src, tar])
+        elif l.is_outgoing():
+            src = fd.get_point(l.target)
+            tar = Point(l.x, l.y)
+            lines.append([src, tar])
+
+    ci = 0
+    for i, l1 in enumerate(lines):
+        for _, l2 in enumerate(lines[i + 1 :]):
+            # test if the lines cross, without changing the lines
+            if intersect(l1[0], l1[1], l2[0], l2[1]):
+                ci += 1
+    return ci
+
+
+<div class="viewcode-block" id="auto_remove_intersections_by_align_legs"><a class="viewcode-back" href="../../../_autosummary/pyfeyn2.auto.position.auto_remove_intersections_by_align_legs.html#pyfeyn2.auto.position.auto_remove_intersections_by_align_legs">[docs]</a>def auto_remove_intersections_by_align_legs(fd, adjust_points=False, size=5):
+    &quot;&quot;&quot;
+    Automatically remove intersections by aligning the legs and reshufffling (permuting) them.
+    &quot;&quot;&quot;
+    fd = auto_align_legs(fd)
+    if adjust_points:
+        fd = feynman_adjust_points(fd, size=size, clear_vertices=True)
+    min_intersections = np.inf
+    min_perm = 0
+    inc = [l for l in fd.legs if l.is_incoming()]
+    outc = [l for l in fd.legs if l.is_outgoing()]
+    xyin = [[l.x, l.y] for l in inc]
+    xyout = [[l.x, l.y] for l in outc]
+    # loop over all permutations of incoming and outgoing legs
+    for i, o in itertools.product(
+        set(permutations(range(len(inc)))), set(permutations(range(len(outc))))
+    ):
+        for xyi, l in zip(xyin, i):
+            inc[l].x = xyi[0]
+            inc[l].y = xyi[1]
+        for xyo, l in zip(xyout, o):
+            outc[l].x = xyo[0]
+            outc[l].y = xyo[1]
+        if adjust_points:
+            fd = feynman_adjust_points(fd, size=size, clear_vertices=True)
+        ci = _compute_number_of_intersects(fd)
+        print(ci)
+        logging.debug(f&quot;auto_remove_intersections_by_align_legs: {ci}&quot;)
+        if ci &lt; min_intersections:
+            min_intersections = ci
+            min_perm = (i, o)
+            logging.debug(f&quot;auto_remove_intersections_by_align_legs: {ci}&quot;)
+            logging.debug(f&quot;auto_remove_intersections_by_align_legs: {i} {o}&quot;)
+            logging.debug(f&quot;auto_remove_intersections_by_align_legs: {xyin} {xyout}&quot;)
+    # use/return best permutation
+    for xyi, l in zip(xyin, min_perm[0]):
+        inc[l].x = xyi[0]
+        inc[l].y = xyi[1]
+    for xyo, l in zip(xyout, min_perm[1]):
+        outc[l].x = xyo[0]
+        outc[l].y = xyo[1]
+    if adjust_points:
+        fd = feynman_adjust_points(fd, size=size, clear_vertices=True)
+    return fd</div>
+
+
+<div class="viewcode-block" id="auto_align_legs"><a class="viewcode-back" href="../../../_autosummary/pyfeyn2.auto.position.auto_align_legs.html#pyfeyn2.auto.position.auto_align_legs">[docs]</a>def auto_align_legs(fd, incoming=None, outgoing=None):
+    &quot;&quot;&quot;
+    Automatically reshuffle the legs of a Feynman diagram.
+    &quot;&quot;&quot;
+    f_min_x, f_min_y, f_max_x, f_max_y = fd.get_bounding_box()
+    inc = [l for l in fd.legs if l.is_incoming()]
+    outc = [l for l in fd.legs if l.is_outgoing()]
+    if incoming is None:
+        incoming = [[f_min_x, y] for y in np.linspace(f_min_y, f_max_y, len(inc))]
+    if outgoing is None:
+        outgoing = [[f_max_x, y] for y in np.linspace(f_min_y, f_max_y, len(outc))]
+    _auto_align(inc, incoming)
+    _auto_align(outc, outgoing)
+    return fd</div>
+
+
+def _auto_align(points, positions):
+    &quot;&quot;&quot;
+    Automatically position the vertices and legs on a list of positions.
+    &quot;&quot;&quot;
+    logging.debug(f&quot;_auto_align: positions {positions}&quot;)
+    # check if a vertex or leg is missing a x or y position
+    require_xy(points)
+    vpl = len(points)
+    # table of distances between vertices v and points p
+    dist = np.ones((vpl, len(positions))) * np.inf
+    for i, v in enumerate(points):
+        for j, p in enumerate(positions):
+            dist[i][j] = np.sqrt((v.x - p[0]) ** 2 + (v.y - p[1]) ** 2)
+    for i in range(vpl):
+        min_i, min_j = np.unravel_index(dist.argmin(), dist.shape)
+        v = points[min_i]
+        v.x = positions[min_j][0]
+        v.y = positions[min_j][1]
+        # remove min_i and min_j from dist
+        dist[min_i, :] = np.inf
+        dist[:, min_j] = np.inf
+
+
+<div class="viewcode-block" id="auto_align"><a class="viewcode-back" href="../../../_autosummary/pyfeyn2.auto.position.auto_align.html#pyfeyn2.auto.position.auto_align">[docs]</a>def auto_align(fd, positions):
+    &quot;&quot;&quot;
+    Automatically position the vertices and legs on a list of positions.
+
+    Parameters
+    ----------
+    fd : FeynmanDiagram
+        The Feynman diagram to be positioned.
+    positions : list of tuple
+        A list of tuples of the form (x,y) with the positions of the vertices
+
+    Returns
+    -------
+    FeynmanDiagram
+        The Feynman diagram with the vertices and legs positioned.
+    &quot;&quot;&quot;
+    _auto_align([*fd.vertices, *fd.legs], positions)
+    return fd</div>
+
+
+<div class="viewcode-block" id="auto_grid"><a class="viewcode-back" href="../../../_autosummary/pyfeyn2.auto.position.auto_grid.html#pyfeyn2.auto.position.auto_grid">[docs]</a>def auto_grid(fd, n_x=None, n_y=None, min_x=None, min_y=None, max_x=None, max_y=None):
+    &quot;&quot;&quot;
+    Automatically position the vertices and legs on a grid, with the given
+    minimum and maximum values for x and y, and the number of grid points, but
+    avoid placing vertices or legs on the same position.
+    &quot;&quot;&quot;
+    # get the bounding box and construct grid from that
+    f_min_x, f_min_y, f_max_x, f_max_y = fd.get_bounding_box()
+    if n_x is None:
+        n_x = len(fd.vertices) + len(fd.legs)
+    if n_y is None:
+        n_y = len(fd.vertices) + len(fd.legs)
+    if min_x is None:
+        min_x = f_min_x
+    if max_x is None:
+        max_x = f_max_x
+    if min_y is None:
+        min_y = f_min_y
+    if max_y is None:
+        max_y = f_max_y
+    logging.debug(f&quot;auto_grid {n_x}, {n_y}, {min_x}, {min_y}, {max_x}, {max_y}&quot;)
+
+    xvalues = np.linspace(min_x, max_x, n_x)
+    yvalues = np.linspace(min_y, max_y, n_y)
+    xx, yy = np.meshgrid(xvalues, yvalues)
+    positions = [[x, y] for x, y in zip(xx.flatten(), yy.flatten())]
+    return auto_align(fd, positions)</div>
 
 
 <div class="viewcode-block" id="auto_position"><a class="viewcode-back" href="../../../_autosummary/pyfeyn2.auto.position.auto_position.html#pyfeyn2.auto.position.auto_position">[docs]</a>def auto_position(fd, layout=&quot;neato&quot;, clear_vertices=True):

@@ -40,7 +40,7 @@
               <img src="../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.3.4
+                2.3.5
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -110,20 +110,19 @@
 <span></span>&quot;&quot;&quot;Moved to :py:mod:`feynml`&quot;&quot;&quot;
 from importlib.metadata import version
 
-from feynml.connector import Connector as Connector_
-from feynml.feynmandiagram import FeynmanDiagram as FeynmanDiagram_
-from feynml.feynml import FeynML as FeynML_
-from feynml.head import Head as Head_
-
 # from feynml.feynml import Tool as Tool_
-from feynml.leg import Leg as Leg_
-from feynml.meta import Meta as Meta_
-from feynml.momentum import Momentum as Momentum_
-from feynml.pdgid import PDG as PDG_
-from feynml.point import Point as Point_
-from feynml.propagator import Propagator as Propagator_
-from feynml.styled import Styled as Styled_
-from feynml.vertex import Vertex as Vertex_
+from feynml import PDG as PDG_
+from feynml import Connector as Connector_
+from feynml import FeynmanDiagram as FeynmanDiagram_
+from feynml import FeynML as FeynML_
+from feynml import Head as Head_
+from feynml import Leg as Leg_
+from feynml import Meta as Meta_
+from feynml import Point as Point_
+from feynml import Propagator as Propagator_
+from feynml import Styled as Styled_
+from feynml import Vertex as Vertex_
+from feynml.momentum import Momentum as Momentum_  # TODO fix to feynml only
 from smpl_doc import doc
 
 

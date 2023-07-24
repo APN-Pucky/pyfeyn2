@@ -40,7 +40,7 @@
               <img src="../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.3.4
+                2.3.5
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -113,6 +113,7 @@ from dataclasses import dataclass, field
 from typing import List, Optional, Union
 
 import cssutils
+import numpy as np
 import smpl_doc.doc as doc
 from cssselect import GenericTranslator, SelectorError
 from lxml import etree
@@ -226,32 +227,30 @@ class FeynmanDiagram(SheetHandler, XML, Styled, Identifiable):
         self.propagators.remove(propagator)
         return self
 
-    def get_bounding_box(self):
-        min_x = 0
-        min_y = 0
-        max_x = 0
-        max_y = 0
-        for v in self.vertices:
+<div class="viewcode-block" id="FeynmanDiagram.get_bounding_box"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.FeynmanDiagram.html#feynml.feynmandiagram.FeynmanDiagram.get_bounding_box">[docs]</a>    def get_bounding_box(self):
+        &quot;&quot;&quot;
+        Get the bounding box of the diagram, i.e. the smallest rectangle that contains all vertices and legs.
+
+        Returns:
+            (min_x, min_y, max_x, max_y): The bounding box
+        &quot;&quot;&quot;
+        min_x = np.inf
+        min_y = np.inf
+        max_x = -np.inf
+        max_y = -np.inf
+        for v in [*self.vertices, *self.legs]:
             if v.x is None or v.y is None:
                 warnings.warn(
-                    &quot;Vertex &quot; + v.id + &quot; has no position, skipping it in bounding box&quot;
+                    f&quot;Vertex or leg {v}&quot;
+                    + v.id
+                    + &quot; has no position, skipping it in bounding box&quot;
                 )
                 continue
             min_x = min(min_x, v.x)
             min_y = min(min_y, v.y)
             max_x = max(max_x, v.x)
             max_y = max(max_y, v.y)
-        for leg in self.legs:
-            if leg.x is None or leg.y is None:
-                warnings.warn(
-                    &quot;Leg &quot; + leg.id + &quot; has no position, skipping it in bounding box&quot;
-                )
-                continue
-            min_x = min(min_x, leg.x)
-            min_y = min(min_y, leg.y)
-            max_x = max(max_x, leg.x)
-            max_y = max(max_y, leg.y)
-        return min_x, min_y, max_x, max_y
+        return min_x, min_y, max_x, max_y</div>
 
 <div class="viewcode-block" id="FeynmanDiagram.get_style"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.FeynmanDiagram.html#feynml.feynmandiagram.FeynmanDiagram.get_style">[docs]</a>    @doc.append_doc(Head.get_style)
     def get_style(self, obj, xml: XML = None) -&gt; cssutils.css.CSSStyleDeclaration:
