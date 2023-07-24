@@ -14,11 +14,18 @@ pyfeyn2.auto.position
    .. autosummary::
       :toctree:                                         
    
+      auto_align
+      auto_align_legs
+      auto_grid
       auto_position
+      auto_remove_intersections_by_align_legs
+      ccw
       feynman_adjust_points
       incoming_to_left
+      intersect
       outgoing_to_right
       remove_unnecessary_vertices
+      require_xy
       scale_positions
    
    

@@ -1,0 +1,6 @@
+pyfeyn2.auto.position.auto\_align
+=================================
+
+.. currentmodule:: pyfeyn2.auto.position
+
+.. autofunction:: auto_align

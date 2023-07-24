@@ -1,0 +1,6 @@
+pyfeyn2.auto.position.intersect
+===============================
+
+.. currentmodule:: pyfeyn2.auto.position
+
+.. autofunction:: intersect

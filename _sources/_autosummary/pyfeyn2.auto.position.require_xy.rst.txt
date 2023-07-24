@@ -1,0 +1,6 @@
+pyfeyn2.auto.position.require\_xy
+=================================
+
+.. currentmodule:: pyfeyn2.auto.position
+
+.. autofunction:: require_xy

@@ -40,7 +40,7 @@
               <img src="../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.3.4
+                2.3.5
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -133,7 +133,7 @@ from pyfeyn2.render.text.unicode import UnicodeRender
     return class_for_name(&quot;.&quot;.join(s.split(&quot;.&quot;)[0:-1]), s.split(&quot;.&quot;)[-1])</div>
 
 
-<div class="viewcode-block" id="main"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.mkfeyndiag.main.html#pyfeyn2.mkfeyndiag.main">[docs]</a>def main():
+<div class="viewcode-block" id="main"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.mkfeyndiag.main.html#pyfeyn2.mkfeyndiag.main">[docs]</a>def main(argv=None):
     # parse command line options with argparse
     parser = argparse.ArgumentParser(
         prog=&quot;pyfeyn2.mkfeyndiag&quot;,
@@ -181,7 +181,7 @@ from pyfeyn2.render.text.unicode import UnicodeRender
         help=&quot;Diagram id to render.&quot;,
     )
 
-    args = parser.parse_args()
+    args = parser.parse_args(argv)
 
     arenderer = args.renderer
     renderer = None
