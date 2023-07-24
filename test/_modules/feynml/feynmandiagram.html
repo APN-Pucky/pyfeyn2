@@ -40,7 +40,7 @@
               <img src="../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.3.5
+                2.3.5-2-g713dd986
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -217,11 +217,37 @@ class FeynmanDiagram(SheetHandler, XML, Styled, Identifiable):
         return None
 
     def get_connections(self, vertex):
-        return [
-            p
-            for p in self.propagators
-            if p.source == vertex.id or p.target == vertex.id
-        ] + [leg for leg in self.legs if leg.target == vertex.id]
+        return (
+            [
+                p
+                for p in self.propagators
+                if p.source == vertex.id or p.target == vertex.id
+            ]
+            + [leg for leg in self.legs if leg.target == vertex.id]
+            + [leg for leg in self.legs if leg.id == vertex.id]
+        )
+
+    def get_neighbours(self, vertex):
+        return [v for v in self.vertices if self.are_neighbours(vertex, v)] + [
+            l for l in self.legs if self.are_neighbours(vertex, l)
+        ]
+
+    def are_neighbours(self, vertex1, vertex2):
+        return any(
+            [
+                p
+                for p in self.propagators
+                if (p.source == vertex1.id and p.target == vertex2.id)
+                or (p.source == vertex2.id and p.target == vertex1.id)
+            ]
+        ) or any(
+            [
+                l
+                for l in self.legs
+                if (l.id == vertex1.id and l.target == vertex2.id)
+                or (l.id == vertex2.id and l.target == vertex1.id)
+            ]
+        )
 
     def remove_propagator(self, propagator):
         self.propagators.remove(propagator)
@@ -288,7 +314,13 @@ class FeynmanDiagram(SheetHandler, XML, Styled, Identifiable):
         return propagator in self.propagators
 
     def has(self, obj):
-        return self.has_vertex(obj) or self.has_leg(obj) or self.has_propagator(obj)</div>
+        return self.has_vertex(obj) or self.has_leg(obj) or self.has_propagator(obj)
+
+    def get_incoming(self):
+        return [leg for leg in self.legs if leg.is_incoming()]
+
+    def get_outgoing(self):
+        return [leg for leg in self.legs if leg.is_outgoing()]</div>
 </pre></div>
 
            </div>

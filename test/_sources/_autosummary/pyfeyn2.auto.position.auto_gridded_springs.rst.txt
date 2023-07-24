@@ -1,0 +1,6 @@
+pyfeyn2.auto.position.auto\_gridded\_springs
+============================================
+
+.. currentmodule:: pyfeyn2.auto.position
+
+.. autofunction:: auto_gridded_springs

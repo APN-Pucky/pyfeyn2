@@ -1,0 +1,6 @@
+pyfeyn2.auto.position.auto\_vdw
+===============================
+
+.. currentmodule:: pyfeyn2.auto.position
+
+.. autofunction:: auto_vdw
