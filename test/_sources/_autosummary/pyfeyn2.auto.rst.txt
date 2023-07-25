@@ -32,5 +32,4 @@ pyfeyn2.auto
    pyfeyn2.auto.diagram
    pyfeyn2.auto.label
    pyfeyn2.auto.position
-   pyfeyn2.auto.reshuffle
 

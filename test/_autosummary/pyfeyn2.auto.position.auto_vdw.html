@@ -43,7 +43,7 @@
               <img src="../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.3.5-2-g713dd986
+                2.3.5-7-gd223c7bd
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -95,7 +95,6 @@
 <li class="toctree-l4"><a class="reference internal" href="pyfeyn2.auto.position.set_none_xy_to_zero.html">pyfeyn2.auto.position.set_none_xy_to_zero</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="pyfeyn2.auto.reshuffle.html">pyfeyn2.auto.reshuffle</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="pyfeyn2.feynmandiagram.html">pyfeyn2.feynmandiagram</a></li>
@@ -147,10 +146,28 @@
 <h1>pyfeyn2.auto.position.auto_vdw<a class="headerlink" href="#pyfeyn2-auto-position-auto-vdw" title="Permalink to this heading"></a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="pyfeyn2.auto.position.auto_vdw">
-<span class="sig-prename descclassname"><span class="pre">pyfeyn2.auto.position.</span></span><span class="sig-name descname"><span class="pre">auto_vdw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fix_legs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">LJ</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_symmetry</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_symmetry</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">intersection</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/auto/position.html#auto_vdw"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.auto.position.auto_vdw" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">pyfeyn2.auto.position.</span></span><span class="sig-name descname"><span class="pre">auto_vdw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">points</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">LJ</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_symmetry</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_symmetry</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">intersection</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/auto/position.html#auto_vdw"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.auto.position.auto_vdw" title="Permalink to this definition"></a></dt>
 <dd><p>Minimizes Lennard-Jones potential between vertices and legs (scaled by LJ).
 Further the function to be minimized gets punished by the number of intersections scaled by intersection.
 The function to be minimized gets punished by the asymmetry in x and y direction scaled by x_symmetry and y_symmetry.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fd</strong> (<a class="reference internal" href="feynml.feynmandiagram.FeynmanDiagram.html#feynml.feynmandiagram.FeynmanDiagram" title="feynml.feynmandiagram.FeynmanDiagram"><em>FeynmanDiagram</em></a>) – The Feynman diagram to be positioned.</p></li>
+<li><p><strong>points</strong> (<em>list</em><em> of </em><a class="reference internal" href="feynml.point.Point.html#feynml.point.Point" title="feynml.point.Point"><em>Point</em></a><em>, </em><em>optional</em>) – The points (leg or vertex) to be positioned. Recommended values are fd.vertices or [<a href="#id1"><span class="problematic" id="id2">*</span></a>fd.vertices, <a href="#id3"><span class="problematic" id="id4">*</span></a>fd.legs]</p></li>
+<li><p><strong>LJ</strong> (<em>float</em><em>, </em><em>optional</em>) – The strength of the Lennard-Jones potential, by default 1.0</p></li>
+<li><p><strong>y_symmetry</strong> (<em>float</em><em>, </em><em>optional</em>) – The strength of the punishment for asymmetry in y direction, by default 0.0</p></li>
+<li><p><strong>x_symmetry</strong> (<em>float</em><em>, </em><em>optional</em>) – The strength of the punishment for asymmetry in x direction, by default 0.0</p></li>
+<li><p><strong>intersection</strong> (<em>float</em><em>, </em><em>optional</em>) – The strength of the punishment for intersections, by default 0.0</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The Feynman diagram with the vertices and legs positioned.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="feynml.feynmandiagram.FeynmanDiagram.html#feynml.feynmandiagram.FeynmanDiagram" title="feynml.feynmandiagram.FeynmanDiagram">FeynmanDiagram</a></p>
+</dd>
+</dl>
 </dd></dl>
 
 </section>
