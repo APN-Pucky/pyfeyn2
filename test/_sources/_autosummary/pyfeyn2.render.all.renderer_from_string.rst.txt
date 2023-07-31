@@ -1,6 +1,6 @@
-pyfeyn2.mkfeyndiag.renderer\_from\_string
+pyfeyn2.render.all.renderer\_from\_string
 =========================================
 
-.. currentmodule:: pyfeyn2.mkfeyndiag
+.. currentmodule:: pyfeyn2.render.all
 
 .. autofunction:: renderer_from_string

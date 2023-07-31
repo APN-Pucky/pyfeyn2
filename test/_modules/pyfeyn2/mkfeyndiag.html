@@ -40,7 +40,7 @@
               <img src="../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.3.5-7-gd223c7bd
+                2.3.6
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -121,18 +121,6 @@ from pyfeyn2.render.text.ascii import ASCIIRender
 from pyfeyn2.render.text.unicode import UnicodeRender
 
 
-<div class="viewcode-block" id="class_for_name"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.mkfeyndiag.class_for_name.html#pyfeyn2.mkfeyndiag.class_for_name">[docs]</a>def class_for_name(module_name, class_name):
-    # load the module, will raise ImportError if module cannot be loaded
-    m = importlib.import_module(module_name)
-    # get the class, will raise AttributeError if class cannot be found
-    c = getattr(m, class_name)
-    return c</div>
-
-
-<div class="viewcode-block" id="renderer_from_string"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.mkfeyndiag.renderer_from_string.html#pyfeyn2.mkfeyndiag.renderer_from_string">[docs]</a>def renderer_from_string(s):
-    return class_for_name(&quot;.&quot;.join(s.split(&quot;.&quot;)[0:-1]), s.split(&quot;.&quot;)[-1])</div>
-
-
 <div class="viewcode-block" id="main"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.mkfeyndiag.main.html#pyfeyn2.mkfeyndiag.main">[docs]</a>def main(argv=None):
     # parse command line options with argparse
     parser = argparse.ArgumentParser(
@@ -185,16 +173,7 @@ from pyfeyn2.render.text.unicode import UnicodeRender
 
     arenderer = args.renderer
     renderer = None
-    if arenderer is None:
-        pass
-    elif arenderer.lower() == &quot;ascii&quot;:
-        renderer = ASCIIRender
-    elif arenderer.lower() == &quot;unicode&quot;:
-        renderer = UnicodeRender
-    elif arenderer.lower() in renderall.renders:
-        renderer = renderall.renders[arenderer.lower()]
-    else:
-        renderer = renderer_from_string(arenderer)
+    renderer = renderall.renderer_from_string(arenderer)
 
     xml_string = Path(args.input).read_text()
     parser = XmlParser()
@@ -202,7 +181,7 @@ from pyfeyn2.render.text.unicode import UnicodeRender
 
     if renderer is None:
         arenderer = fml.head.get_meta_dict()[&quot;renderer&quot;]
-        renderer = renderer_from_string(arenderer)
+        renderer = renderall.renderer_from_string(arenderer)
     if args.style is not None:
         style_string = Path(args.style).read_text()
         for diagram in fml.diagrams:

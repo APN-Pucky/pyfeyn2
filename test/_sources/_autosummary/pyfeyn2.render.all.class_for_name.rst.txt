@@ -1,0 +1,6 @@
+pyfeyn2.render.all.class\_for\_name
+===================================
+
+.. currentmodule:: pyfeyn2.render.all
+
+.. autofunction:: class_for_name

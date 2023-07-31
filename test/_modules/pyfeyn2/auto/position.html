@@ -40,7 +40,7 @@
               <img src="../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.3.5-7-gd223c7bd
+                2.3.6
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -268,13 +268,15 @@ def _compute_number_of_intersects(fd):
     &quot;&quot;&quot;
     Automatically reshuffle the legs of a Feynman diagram.
     &quot;&quot;&quot;
-    f_min_x, f_min_y, f_max_x, f_max_y = fd.get_bounding_box()
+    set_none_xy_to_zero(fd.legs)
     inc = [l for l in fd.legs if l.is_incoming()]
     outc = [l for l in fd.legs if l.is_outgoing()]
-    if incoming is None:
-        incoming = [[f_min_x, y] for y in np.linspace(f_min_y, f_max_y, len(inc))]
-    if outgoing is None:
-        outgoing = [[f_max_x, y] for y in np.linspace(f_min_y, f_max_y, len(outc))]
+    if incoming is None or outgoing is None:
+        f_min_x, f_min_y, f_max_x, f_max_y = fd.get_bounding_box()
+        if incoming is None:
+            incoming = [[f_min_x, y] for y in np.linspace(f_min_y, f_max_y, len(inc))]
+        if outgoing is None:
+            outgoing = [[f_max_x, y] for y in np.linspace(f_min_y, f_max_y, len(outc))]
     _auto_align(inc, incoming)
     _auto_align(outc, outgoing)
     return fd</div>
