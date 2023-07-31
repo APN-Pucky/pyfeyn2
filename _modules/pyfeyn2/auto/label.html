@@ -40,7 +40,7 @@
               <img src="../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.3.5
+                2.3.6
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -119,7 +119,8 @@
 
 <div class="viewcode-block" id="auto_label_propagators"><a class="viewcode-back" href="../../../_autosummary/pyfeyn2.auto.label.auto_label_propagators.html#pyfeyn2.auto.label.auto_label_propagators">[docs]</a>def auto_label_propagators(ifd, replace=False):
     &quot;&quot;&quot;Automatically label propagators.&quot;&quot;&quot;
-    fd = copy.deepcopy(ifd)
+    # fd = copy.deepcopy(ifd)
+    fd = ifd
     objs = fd.propagators
     for p in objs:
         if p.label is None or replace:
@@ -129,7 +130,8 @@
 
 <div class="viewcode-block" id="auto_label_legs"><a class="viewcode-back" href="../../../_autosummary/pyfeyn2.auto.label.auto_label_legs.html#pyfeyn2.auto.label.auto_label_legs">[docs]</a>def auto_label_legs(ifd, replace=False):
     &quot;&quot;&quot;Automatically label legs.&quot;&quot;&quot;
-    fd = copy.deepcopy(ifd)
+    # fd = copy.deepcopy(ifd)
+    fd = ifd
     objs = fd.legs
     for p in objs:
         if p.particle is None or replace:

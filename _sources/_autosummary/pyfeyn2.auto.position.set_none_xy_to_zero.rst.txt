@@ -1,0 +1,6 @@
+pyfeyn2.auto.position.set\_none\_xy\_to\_zero
+=============================================
+
+.. currentmodule:: pyfeyn2.auto.position
+
+.. autofunction:: set_none_xy_to_zero

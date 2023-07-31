@@ -40,7 +40,7 @@
               <img src="../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.3.5
+                2.3.6
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -107,7 +107,8 @@
            <div itemprop="articleBody">
              
   <h1>Source code for pyfeyn2.render.all</h1><div class="highlight"><pre>
-<span></span>import shutil
+<span></span>import importlib
+import shutil
 import tempfile
 import traceback
 from typing import List
@@ -123,7 +124,9 @@ from pyfeyn2.render.latex.latex import LatexRender
 from pyfeyn2.render.latex.tikzfeynman import TikzFeynmanRender
 from pyfeyn2.render.mpl.feynmanrender import FeynmanRender
 from pyfeyn2.render.pyx.pyxrender import PyxRender
+from pyfeyn2.render.text.ascii import ASCIIRender
 from pyfeyn2.render.text.asciipdf import ASCIIPDFRender
+from pyfeyn2.render.text.unicode import UnicodeRender
 from pyfeyn2.render.text.unicodepdf import UnicodePDFRender
 
 renders = {
@@ -135,6 +138,27 @@ renders = {
     &quot;asciipdf&quot;: ASCIIPDFRender,
     &quot;unicodepdf&quot;: UnicodePDFRender,
 }
+
+
+<div class="viewcode-block" id="class_for_name"><a class="viewcode-back" href="../../../_autosummary/pyfeyn2.render.all.class_for_name.html#pyfeyn2.render.all.class_for_name">[docs]</a>def class_for_name(module_name, class_name):
+    # load the module, will raise ImportError if module cannot be loaded
+    m = importlib.import_module(module_name)
+    # get the class, will raise AttributeError if class cannot be found
+    c = getattr(m, class_name)
+    return c</div>
+
+
+<div class="viewcode-block" id="renderer_from_string"><a class="viewcode-back" href="../../../_autosummary/pyfeyn2.render.all.renderer_from_string.html#pyfeyn2.render.all.renderer_from_string">[docs]</a>def renderer_from_string(s):
+    if s is None:
+        return None
+    elif s.lower() == &quot;ascii&quot;:
+        return ASCIIRender
+    elif s.lower() == &quot;unicode&quot;:
+        return UnicodeRender
+    elif s.lower() in renders:
+        return renders[s.lower()]
+    else:
+        return class_for_name(&quot;.&quot;.join(s.split(&quot;.&quot;)[0:-1]), s.split(&quot;.&quot;)[-1])</div>
 
 
 <div class="viewcode-block" id="AllRender"><a class="viewcode-back" href="../../../_autosummary/pyfeyn2.render.all.AllRender.html#pyfeyn2.render.all.AllRender">[docs]</a>class AllRender(LatexRender):

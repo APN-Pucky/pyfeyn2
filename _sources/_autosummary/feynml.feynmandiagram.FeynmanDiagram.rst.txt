@@ -20,12 +20,16 @@ feynml.feynmandiagram.FeynmanDiagram
       ~FeynmanDiagram.add
       ~FeynmanDiagram.add_rule
       ~FeynmanDiagram.add_rules
+      ~FeynmanDiagram.are_neighbours
       ~FeynmanDiagram.from_xml
       ~FeynmanDiagram.from_xml_file
       ~FeynmanDiagram.get
       ~FeynmanDiagram.get_bounding_box
       ~FeynmanDiagram.get_connections
+      ~FeynmanDiagram.get_incoming
       ~FeynmanDiagram.get_leg
+      ~FeynmanDiagram.get_neighbours
+      ~FeynmanDiagram.get_outgoing
       ~FeynmanDiagram.get_point
       ~FeynmanDiagram.get_sheet
       ~FeynmanDiagram.get_sheets

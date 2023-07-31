@@ -9,6 +9,14 @@ pyfeyn2.render.all
 
    
    
+   .. rubric:: Functions
+
+   .. autosummary::
+      :toctree:                                         
+   
+      class_for_name
+      renderer_from_string
+   
    
 
    
