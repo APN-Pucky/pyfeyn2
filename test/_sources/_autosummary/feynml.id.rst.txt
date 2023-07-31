@@ -9,6 +9,13 @@ feynml.id
 
    
    
+   .. rubric:: Functions
+
+   .. autosummary::
+      :toctree:                                         
+   
+      generate_new_id
+   
    
 
    

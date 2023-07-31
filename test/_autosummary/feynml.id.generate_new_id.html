@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>feynml.interface.formcalc.propagator &mdash; pyfeyn2  documentation</title>
+  <title>feynml.id.generate_new_id &mdash; pyfeyn2  documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/plot_directive.css" type="text/css" />
@@ -26,8 +26,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="feynml.interface.formcalc.propagator.Propagator" href="feynml.interface.formcalc.propagator.Propagator.html" />
-    <link rel="prev" title="feynml.interface.formcalc.particle.Particle" href="feynml.interface.formcalc.particle.Particle.html" /> 
+    <link rel="next" title="feynml.id.Identifiable" href="feynml.id.Identifiable.html" />
+    <link rel="prev" title="feynml.id" href="feynml.id.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -77,28 +77,15 @@
 <li class="toctree-l2"><a class="reference internal" href="feynml.feynmandiagram.html">feynml.feynmandiagram</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.feynml.html">feynml.feynml</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.head.html">feynml.head</a></li>
-<li class="toctree-l2"><a class="reference internal" href="feynml.id.html">feynml.id</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="feynml.interface.html">feynml.interface</a><ul class="current">
-<li class="toctree-l3 current"><a class="reference internal" href="feynml.interface.formcalc.html">feynml.interface.formcalc</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="feynml.interface.formcalc.fermion.html">feynml.interface.formcalc.fermion</a></li>
-<li class="toctree-l4"><a class="reference internal" href="feynml.interface.formcalc.feynmangraph.html">feynml.interface.formcalc.feynmangraph</a></li>
-<li class="toctree-l4"><a class="reference internal" href="feynml.interface.formcalc.field.html">feynml.interface.formcalc.field</a></li>
-<li class="toctree-l4"><a class="reference internal" href="feynml.interface.formcalc.insertions.html">feynml.interface.formcalc.insertions</a></li>
-<li class="toctree-l4"><a class="reference internal" href="feynml.interface.formcalc.particle.html">feynml.interface.formcalc.particle</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">feynml.interface.formcalc.propagator</a></li>
-<li class="toctree-l4"><a class="reference internal" href="feynml.interface.formcalc.rule.html">feynml.interface.formcalc.rule</a></li>
-<li class="toctree-l4"><a class="reference internal" href="feynml.interface.formcalc.sequenceform.html">feynml.interface.formcalc.sequenceform</a></li>
-<li class="toctree-l4"><a class="reference internal" href="feynml.interface.formcalc.topology.html">feynml.interface.formcalc.topology</a></li>
-<li class="toctree-l4"><a class="reference internal" href="feynml.interface.formcalc.topologylist.html">feynml.interface.formcalc.topologylist</a></li>
-<li class="toctree-l4"><a class="reference internal" href="feynml.interface.formcalc.vector.html">feynml.interface.formcalc.vector</a></li>
-<li class="toctree-l4"><a class="reference internal" href="feynml.interface.formcalc.vertex.html">feynml.interface.formcalc.vertex</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="feynml.id.html">feynml.id</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">feynml.id.generate_new_id</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#feynml.id.generate_new_id"><code class="docutils literal notranslate"><span class="pre">generate_new_id()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="feynml.interface.hepmc.html">feynml.interface.hepmc</a></li>
-<li class="toctree-l3"><a class="reference internal" href="feynml.interface.lhe.html">feynml.interface.lhe</a></li>
-<li class="toctree-l3"><a class="reference internal" href="feynml.interface.qgraf.html">feynml.interface.qgraf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="feynml.id.Identifiable.html">feynml.id.Identifiable</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="feynml.interface.html">feynml.interface</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.labeled.html">feynml.labeled</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.leg.html">feynml.leg</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.line.html">feynml.line</a></li>
@@ -147,11 +134,10 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="feynml.html">feynml</a></li>
-          <li class="breadcrumb-item"><a href="feynml.interface.html">feynml.interface</a></li>
-          <li class="breadcrumb-item"><a href="feynml.interface.formcalc.html">feynml.interface.formcalc</a></li>
-      <li class="breadcrumb-item active">feynml.interface.formcalc.propagator</li>
+          <li class="breadcrumb-item"><a href="feynml.id.html">feynml.id</a></li>
+      <li class="breadcrumb-item active">feynml.id.generate_new_id</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/_autosummary/feynml.interface.formcalc.propagator.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/_autosummary/feynml.id.generate_new_id.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -159,24 +145,21 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="module-feynml.interface.formcalc.propagator">
-<span id="feynml-interface-formcalc-propagator"></span><h1>feynml.interface.formcalc.propagator<a class="headerlink" href="#module-feynml.interface.formcalc.propagator" title="Permalink to this heading"></a></h1>
-<p class="rubric">Classes</p>
-<table class="autosummary longtable docutils align-default">
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="feynml.interface.formcalc.propagator.Propagator.html#feynml.interface.formcalc.propagator.Propagator" title="feynml.interface.formcalc.propagator.Propagator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Propagator</span></code></a>(type, v1, v2, f)</p></td>
-<td><p></p></td>
-</tr>
-</tbody>
-</table>
+  <section id="feynml-id-generate-new-id">
+<h1>feynml.id.generate_new_id<a class="headerlink" href="#feynml-id-generate-new-id" title="Permalink to this heading"></a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="feynml.id.generate_new_id">
+<span class="sig-prename descclassname"><span class="pre">feynml.id.</span></span><span class="sig-name descname"><span class="pre">generate_new_id</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/feynml/id.html#generate_new_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#feynml.id.generate_new_id" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="feynml.interface.formcalc.particle.Particle.html" class="btn btn-neutral float-left" title="feynml.interface.formcalc.particle.Particle" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="feynml.interface.formcalc.propagator.Propagator.html" class="btn btn-neutral float-right" title="feynml.interface.formcalc.propagator.Propagator" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="feynml.id.html" class="btn btn-neutral float-left" title="feynml.id" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="feynml.id.Identifiable.html" class="btn btn-neutral float-right" title="feynml.id.Identifiable" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

@@ -43,7 +43,7 @@
               <img src="../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.3.6
+                2.3.6-6-ga4d0580d
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -157,11 +157,17 @@
 </div>
 </p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.PDG.with_id" title="pyfeyn2.feynmandiagram.PDG.with_id"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_id</span></code></a>(value[, k])</p></td>
-<td><p>Set id to <cite>value</cite> and return self.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.PDG.is_anti" title="pyfeyn2.feynmandiagram.PDG.is_anti"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_anti</span></code></a>()</p></td>
+<td><p>Return True if the particle is an anti particle, False otherwise.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.PDG.with_name" title="pyfeyn2.feynmandiagram.PDG.with_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_name</span></code></a>(value[, k])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.PDG.with_id" title="pyfeyn2.feynmandiagram.PDG.with_id"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_id</span></code></a>(id)</p></td>
+<td><p>set id</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.PDG.with_name" title="pyfeyn2.feynmandiagram.PDG.with_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_name</span></code></a>(value[, k])</p></td>
 <td><p>Set name to <cite>value</cite> and return self.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.PDG.with_new_id" title="pyfeyn2.feynmandiagram.PDG.with_new_id"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_new_id</span></code></a>()</p></td>
+<td><p>generate new id</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.PDG.with_particle" title="pyfeyn2.feynmandiagram.PDG.with_particle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_particle</span></code></a>(value[, k])</p></td>
 <td><p>Set particle to <cite>value</cite> and return self.</p></td>
@@ -194,6 +200,12 @@
 </tr>
 </tbody>
 </table>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.PDG.is_anti">
+<span class="sig-name descname"><span class="pre">is_anti</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/feynml/pdgid.html#PDG.is_anti"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.PDG.is_anti" title="Permalink to this definition"></a></dt>
+<dd><p>Return True if the particle is an anti particle, False otherwise.</p>
+</dd></dl>
+
 <dl class="py attribute">
 <dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.PDG.name">
 <span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#pyfeyn2.feynmandiagram.PDG.name" title="Permalink to this definition"></a></dt>
@@ -220,14 +232,20 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.PDG.with_id">
-<span class="sig-name descname"><span class="pre">with_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'id'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.feynmandiagram.PDG.with_id" title="Permalink to this definition"></a></dt>
-<dd><p>Set id to <cite>value</cite> and return self.</p>
+<span class="sig-name descname"><span class="pre">with_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.feynmandiagram.PDG.with_id" title="Permalink to this definition"></a></dt>
+<dd><p>set id</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.PDG.with_name">
 <span class="sig-name descname"><span class="pre">with_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'name'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.feynmandiagram.PDG.with_name" title="Permalink to this definition"></a></dt>
 <dd><p>Set name to <cite>value</cite> and return self.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.PDG.with_new_id">
+<span class="sig-name descname"><span class="pre">with_new_id</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.feynmandiagram.PDG.with_new_id" title="Permalink to this definition"></a></dt>
+<dd><p>generate new id</p>
 </dd></dl>
 
 <dl class="py method">

@@ -43,7 +43,7 @@
               <img src="../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.3.6
+                2.3.6-6-ga4d0580d
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -157,20 +157,32 @@
 </div>
 </p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Leg.get_length" title="pyfeyn2.feynmandiagram.Leg.get_length"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_length</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Leg.conjugate" title="pyfeyn2.feynmandiagram.Leg.conjugate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">conjugate</span></code></a>()</p></td>
+<td><p>Set incoming to outgoing and vice versa.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Leg.get_length" title="pyfeyn2.feynmandiagram.Leg.get_length"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_length</span></code></a>()</p></td>
 <td><p>Get length of the connector</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_style_property</span></code>(key)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_style_property</span></code>(key)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Leg.get_tension" title="pyfeyn2.feynmandiagram.Leg.get_tension"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_tension</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Leg.get_tension" title="pyfeyn2.feynmandiagram.Leg.get_tension"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_tension</span></code></a>()</p></td>
 <td><p>Get tension of the connector</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Leg.is_incoming" title="pyfeyn2.feynmandiagram.Leg.is_incoming"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_incoming</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Leg.incoming" title="pyfeyn2.feynmandiagram.Leg.incoming"><code class="xref py py-obj docutils literal notranslate"><span class="pre">incoming</span></code></a>()</p></td>
+<td><p>Set the leg to be incoming.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Leg.is_anti" title="pyfeyn2.feynmandiagram.Leg.is_anti"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_anti</span></code></a>()</p></td>
+<td><p>Return True if the particle is an anti particle, False otherwise.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Leg.is_incoming" title="pyfeyn2.feynmandiagram.Leg.is_incoming"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_incoming</span></code></a>()</p></td>
 <td><p>Return True if the leg is incoming, False otherwise.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Leg.is_outgoing" title="pyfeyn2.feynmandiagram.Leg.is_outgoing"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_outgoing</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Leg.is_outgoing" title="pyfeyn2.feynmandiagram.Leg.is_outgoing"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_outgoing</span></code></a>()</p></td>
 <td><p>Return True if the leg is outgoing, False otherwise.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Leg.outgoing" title="pyfeyn2.feynmandiagram.Leg.outgoing"><code class="xref py py-obj docutils literal notranslate"><span class="pre">outgoing</span></code></a>()</p></td>
+<td><p>Set the leg to be outgoing.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Leg.put_style" title="pyfeyn2.feynmandiagram.Leg.put_style"><code class="xref py py-obj docutils literal notranslate"><span class="pre">put_style</span></code></a>(key, value)</p></td>
 <td><p><div class="deprecated">
@@ -196,11 +208,11 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Leg.with_external" title="pyfeyn2.feynmandiagram.Leg.with_external"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_external</span></code></a>(value[, k])</p></td>
 <td><p>Set external to <cite>value</cite> and return self.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Leg.with_id" title="pyfeyn2.feynmandiagram.Leg.with_id"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_id</span></code></a>(value[, k])</p></td>
-<td><p>Set id to <cite>value</cite> and return self.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Leg.with_id" title="pyfeyn2.feynmandiagram.Leg.with_id"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_id</span></code></a>(id)</p></td>
+<td><p>set id</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_incoming</span></code>()</p></td>
-<td><p></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Leg.with_incoming" title="pyfeyn2.feynmandiagram.Leg.with_incoming"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_incoming</span></code></a>()</p></td>
+<td><p>Set the leg to be incoming.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Leg.with_label" title="pyfeyn2.feynmandiagram.Leg.with_label"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_label</span></code></a>(value[, k])</p></td>
 <td><p>Set label to <cite>value</cite> and return self.</p></td>
@@ -214,43 +226,46 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Leg.with_name" title="pyfeyn2.feynmandiagram.Leg.with_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_name</span></code></a>(value[, k])</p></td>
 <td><p>Set name to <cite>value</cite> and return self.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_outgoing</span></code>()</p></td>
-<td><p></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Leg.with_new_id" title="pyfeyn2.feynmandiagram.Leg.with_new_id"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_new_id</span></code></a>()</p></td>
+<td><p>generate new id</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Leg.with_particle" title="pyfeyn2.feynmandiagram.Leg.with_particle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_particle</span></code></a>(value[, k])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Leg.with_outgoing" title="pyfeyn2.feynmandiagram.Leg.with_outgoing"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_outgoing</span></code></a>()</p></td>
+<td><p>Set the leg to be outgoing.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Leg.with_particle" title="pyfeyn2.feynmandiagram.Leg.with_particle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_particle</span></code></a>(value[, k])</p></td>
 <td><p>Set particle to <cite>value</cite> and return self.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Leg.with_pdgid" title="pyfeyn2.feynmandiagram.Leg.with_pdgid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_pdgid</span></code></a>(value[, k])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Leg.with_pdgid" title="pyfeyn2.feynmandiagram.Leg.with_pdgid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_pdgid</span></code></a>(value[, k])</p></td>
 <td><p>Set pdgid to <cite>value</cite> and return self.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_point</span></code>(p)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_point</span></code>(p)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Leg.with_sense" title="pyfeyn2.feynmandiagram.Leg.with_sense"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_sense</span></code></a>(value[, k])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Leg.with_sense" title="pyfeyn2.feynmandiagram.Leg.with_sense"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_sense</span></code></a>(value[, k])</p></td>
 <td><p>Set sense to <cite>value</cite> and return self.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_style</span></code>(style)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_style</span></code>(style)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_style_properties</span></code>(**kwargs)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_style_properties</span></code>(**kwargs)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_style_property</span></code>(key, value)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_style_property</span></code>(key, value)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_target</span></code>(target)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_target</span></code>(target)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Leg.with_tension" title="pyfeyn2.feynmandiagram.Leg.with_tension"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_tension</span></code></a>(tension)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Leg.with_tension" title="pyfeyn2.feynmandiagram.Leg.with_tension"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_tension</span></code></a>(tension)</p></td>
 <td><p>Add tension to the connector</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Leg.with_type" title="pyfeyn2.feynmandiagram.Leg.with_type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_type</span></code></a>(value[, k])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Leg.with_type" title="pyfeyn2.feynmandiagram.Leg.with_type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_type</span></code></a>(value[, k])</p></td>
 <td><p>Set type to <cite>value</cite> and return self.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_xy</span></code>(x, y)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_xy</span></code>(x, y)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_xyz</span></code>(x, y, z)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_xyz</span></code>(x, y, z)</p></td>
 <td><p></p></td>
 </tr>
 </tbody>
@@ -311,6 +326,12 @@
 <dd><p>CSS class string.</p>
 </dd></dl>
 
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Leg.conjugate">
+<span class="sig-name descname"><span class="pre">conjugate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/feynml/leg.html#Leg.conjugate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.Leg.conjugate" title="Permalink to this definition"></a></dt>
+<dd><p>Set incoming to outgoing and vice versa.</p>
+</dd></dl>
+
 <dl class="py attribute">
 <dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Leg.external">
 <span class="sig-name descname"><span class="pre">external</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#pyfeyn2.feynmandiagram.Leg.external" title="Permalink to this definition"></a></dt>
@@ -327,6 +348,18 @@
 <dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Leg.get_tension">
 <span class="sig-name descname"><span class="pre">get_tension</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.feynmandiagram.Leg.get_tension" title="Permalink to this definition"></a></dt>
 <dd><p>Get tension of the connector</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Leg.incoming">
+<span class="sig-name descname"><span class="pre">incoming</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.feynmandiagram.Leg.incoming" title="Permalink to this definition"></a></dt>
+<dd><p>Set the leg to be incoming.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Leg.is_anti">
+<span class="sig-name descname"><span class="pre">is_anti</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.feynmandiagram.Leg.is_anti" title="Permalink to this definition"></a></dt>
+<dd><p>Return True if the particle is an anti particle, False otherwise.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -351,6 +384,12 @@
 <dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Leg.name">
 <span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#pyfeyn2.feynmandiagram.Leg.name" title="Permalink to this definition"></a></dt>
 <dd><p>Name of the particle</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Leg.outgoing">
+<span class="sig-name descname"><span class="pre">outgoing</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.feynmandiagram.Leg.outgoing" title="Permalink to this definition"></a></dt>
+<dd><p>Set the leg to be outgoing.</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -413,8 +452,14 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Leg.with_id">
-<span class="sig-name descname"><span class="pre">with_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'id'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.feynmandiagram.Leg.with_id" title="Permalink to this definition"></a></dt>
-<dd><p>Set id to <cite>value</cite> and return self.</p>
+<span class="sig-name descname"><span class="pre">with_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.feynmandiagram.Leg.with_id" title="Permalink to this definition"></a></dt>
+<dd><p>set id</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Leg.with_incoming">
+<span class="sig-name descname"><span class="pre">with_incoming</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/feynml/leg.html#Leg.with_incoming"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.Leg.with_incoming" title="Permalink to this definition"></a></dt>
+<dd><p>Set the leg to be incoming.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -439,6 +484,18 @@
 <dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Leg.with_name">
 <span class="sig-name descname"><span class="pre">with_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'name'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.feynmandiagram.Leg.with_name" title="Permalink to this definition"></a></dt>
 <dd><p>Set name to <cite>value</cite> and return self.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Leg.with_new_id">
+<span class="sig-name descname"><span class="pre">with_new_id</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.feynmandiagram.Leg.with_new_id" title="Permalink to this definition"></a></dt>
+<dd><p>generate new id</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Leg.with_outgoing">
+<span class="sig-name descname"><span class="pre">with_outgoing</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/feynml/leg.html#Leg.with_outgoing"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.Leg.with_outgoing" title="Permalink to this definition"></a></dt>
+<dd><p>Set the leg to be outgoing.</p>
 </dd></dl>
 
 <dl class="py method">

@@ -21,6 +21,7 @@ pyfeyn2.feynmandiagram.Propagator
       ~Propagator.get_length
       ~Propagator.get_style_property
       ~Propagator.get_tension
+      ~Propagator.is_anti
       ~Propagator.put_style
       ~Propagator.put_styles
       ~Propagator.raw_style
@@ -31,6 +32,7 @@ pyfeyn2.feynmandiagram.Propagator
       ~Propagator.with_length
       ~Propagator.with_momentum
       ~Propagator.with_name
+      ~Propagator.with_new_id
       ~Propagator.with_particle
       ~Propagator.with_pdgid
       ~Propagator.with_source

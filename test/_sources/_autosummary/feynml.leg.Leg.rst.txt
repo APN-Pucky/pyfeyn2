@@ -17,11 +17,15 @@ feynml.leg.Leg
    .. autosummary::
    
       ~Leg.__init__
+      ~Leg.conjugate
       ~Leg.get_length
       ~Leg.get_style_property
       ~Leg.get_tension
+      ~Leg.incoming
+      ~Leg.is_anti
       ~Leg.is_incoming
       ~Leg.is_outgoing
+      ~Leg.outgoing
       ~Leg.put_style
       ~Leg.put_styles
       ~Leg.raw_style
@@ -34,6 +38,7 @@ feynml.leg.Leg
       ~Leg.with_length
       ~Leg.with_momentum
       ~Leg.with_name
+      ~Leg.with_new_id
       ~Leg.with_outgoing
       ~Leg.with_particle
       ~Leg.with_pdgid

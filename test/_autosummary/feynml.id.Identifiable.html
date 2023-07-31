@@ -27,7 +27,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="feynml.interface" href="feynml.interface.html" />
-    <link rel="prev" title="feynml.id" href="feynml.id.html" /> 
+    <link rel="prev" title="feynml.id.generate_new_id" href="feynml.id.generate_new_id.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -43,7 +43,7 @@
               <img src="../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.3.6
+                2.3.6-6-ga4d0580d
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -78,6 +78,7 @@
 <li class="toctree-l2"><a class="reference internal" href="feynml.feynml.html">feynml.feynml</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.head.html">feynml.head</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="feynml.id.html">feynml.id</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="feynml.id.generate_new_id.html">feynml.id.generate_new_id</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">feynml.id.Identifiable</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#feynml.id.Identifiable"><code class="docutils literal notranslate"><span class="pre">Identifiable</span></code></a></li>
 </ul>
@@ -161,8 +162,11 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#feynml.id.Identifiable.__init__" title="feynml.id.Identifiable.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>([id])</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#feynml.id.Identifiable.with_id" title="feynml.id.Identifiable.with_id"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_id</span></code></a>(value[, k])</p></td>
-<td><p>Set id to <cite>value</cite> and return self.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#feynml.id.Identifiable.with_id" title="feynml.id.Identifiable.with_id"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_id</span></code></a>(id)</p></td>
+<td><p>set id</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#feynml.id.Identifiable.with_new_id" title="feynml.id.Identifiable.with_new_id"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_new_id</span></code></a>()</p></td>
+<td><p>generate new id</p></td>
 </tr>
 </tbody>
 </table>
@@ -176,8 +180,14 @@
 </table>
 <dl class="py method">
 <dt class="sig sig-object py" id="feynml.id.Identifiable.with_id">
-<span class="sig-name descname"><span class="pre">with_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'id'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#feynml.id.Identifiable.with_id" title="Permalink to this definition"></a></dt>
-<dd><p>Set id to <cite>value</cite> and return self.</p>
+<span class="sig-name descname"><span class="pre">with_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/feynml/id.html#Identifiable.with_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#feynml.id.Identifiable.with_id" title="Permalink to this definition"></a></dt>
+<dd><p>set id</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="feynml.id.Identifiable.with_new_id">
+<span class="sig-name descname"><span class="pre">with_new_id</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/feynml/id.html#Identifiable.with_new_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#feynml.id.Identifiable.with_new_id" title="Permalink to this definition"></a></dt>
+<dd><p>generate new id</p>
 </dd></dl>
 
 </dd></dl>
@@ -188,7 +198,7 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="feynml.id.html" class="btn btn-neutral float-left" title="feynml.id" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="feynml.id.generate_new_id.html" class="btn btn-neutral float-left" title="feynml.id.generate_new_id" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="feynml.interface.html" class="btn btn-neutral float-right" title="feynml.interface" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

@@ -17,8 +17,10 @@ feynml.pdgid.PDG
    .. autosummary::
    
       ~PDG.__init__
+      ~PDG.is_anti
       ~PDG.with_id
       ~PDG.with_name
+      ~PDG.with_new_id
       ~PDG.with_particle
       ~PDG.with_pdgid
       ~PDG.with_type

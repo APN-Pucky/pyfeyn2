@@ -40,7 +40,7 @@
               <img src="../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.3.6
+                2.3.6-6-ga4d0580d
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -120,7 +120,9 @@ from feynml.targeting import Targeting
 <div class="viewcode-block" id="Leg"><a class="viewcode-back" href="../../_autosummary/feynml.leg.Leg.html#feynml.leg.Leg">[docs]</a>@withify()
 @dataclass
 class Leg(Point, Targeting, Connector):
-    sense: str = field(default=None, metadata={})
+    sense: str = field(
+        default=None, metadata={}
+    )  # TODO why is this a string and not a bool?!?
     &quot;&quot;&quot;Sense of the leg, either &#39;incoming&#39; or &#39;outgoing&#39;&quot;&quot;&quot;
 
     external: Optional[str] = field(
@@ -136,13 +138,26 @@ class Leg(Point, Targeting, Connector):
         &quot;&quot;&quot;Return True if the leg is outgoing, False otherwise.&quot;&quot;&quot;
         return &quot;out&quot; == self.sense[:3] or self.sense[:7] == &quot;anti-in&quot;</div>
 
-    def with_incoming(self):
+<div class="viewcode-block" id="Leg.with_incoming"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.Leg.html#feynml.leg.Leg.with_incoming">[docs]</a>    def with_incoming(self):
+        &quot;&quot;&quot;Set the leg to be incoming.&quot;&quot;&quot;
         self.sense = &quot;incoming&quot;
-        return self
+        return self</div>
 
-    def with_outgoing(self):
+    incoming = with_incoming
+
+<div class="viewcode-block" id="Leg.with_outgoing"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.Leg.html#feynml.leg.Leg.with_outgoing">[docs]</a>    def with_outgoing(self):
+        &quot;&quot;&quot;Set the leg to be outgoing.&quot;&quot;&quot;
         self.sense = &quot;outgoing&quot;
         return self</div>
+
+    outgoing = with_outgoing
+
+<div class="viewcode-block" id="Leg.conjugate"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.Leg.html#feynml.leg.Leg.conjugate">[docs]</a>    def conjugate(self):
+        &quot;&quot;&quot;Set incoming to outgoing and vice versa.&quot;&quot;&quot;
+        if self.is_incoming():
+            return self.with_outgoing()
+        elif self.is_outgoing():
+            return self.with_incoming()</div></div>
 </pre></div>
 
            </div>
