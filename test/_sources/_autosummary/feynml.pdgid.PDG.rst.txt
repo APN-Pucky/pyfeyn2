@@ -18,6 +18,9 @@ feynml.pdgid.PDG
    
       ~PDG.__init__
       ~PDG.is_anti
+      ~PDG.is_anti_fermion
+      ~PDG.is_any_fermion
+      ~PDG.is_fermion
       ~PDG.with_id
       ~PDG.with_name
       ~PDG.with_new_id

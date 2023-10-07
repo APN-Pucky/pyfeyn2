@@ -21,8 +21,13 @@ pyfeyn2.feynmandiagram.Leg
       ~Leg.get_length
       ~Leg.get_style_property
       ~Leg.get_tension
+      ~Leg.goes_into
+      ~Leg.goes_out_of
       ~Leg.incoming
       ~Leg.is_anti
+      ~Leg.is_anti_fermion
+      ~Leg.is_any_fermion
+      ~Leg.is_fermion
       ~Leg.is_incoming
       ~Leg.is_outgoing
       ~Leg.outgoing

@@ -40,7 +40,7 @@
               <img src="../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.3.6-6-ga4d0580d
+                2.3.6-55-g30bd1bda
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -142,6 +142,14 @@ class Leg(Point, Targeting, Connector):
         &quot;&quot;&quot;Set the leg to be incoming.&quot;&quot;&quot;
         self.sense = &quot;incoming&quot;
         return self</div>
+
+<div class="viewcode-block" id="Leg.goes_into"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.Leg.html#feynml.leg.Leg.goes_into">[docs]</a>    def goes_into(self, vertex):
+        &quot;&quot;&quot;Return True if the leg goes into the vertex, False otherwise.&quot;&quot;&quot;
+        return self.target == vertex.id and self.is_incoming()</div>
+
+<div class="viewcode-block" id="Leg.goes_out_of"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.Leg.html#feynml.leg.Leg.goes_out_of">[docs]</a>    def goes_out_of(self, vertex):
+        &quot;&quot;&quot;Return True if the leg goes out of the vertex, False otherwise.&quot;&quot;&quot;
+        return self.target == vertex.id and self.is_outgoing()</div>
 
     incoming = with_incoming
 

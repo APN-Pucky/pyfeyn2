@@ -24,11 +24,15 @@ feynml.feynmandiagram.FeynmanDiagram
       ~FeynmanDiagram.conjugated
       ~FeynmanDiagram.copy
       ~FeynmanDiagram.deepcopy
+      ~FeynmanDiagram.follow_anti_fermion_line
       ~FeynmanDiagram.from_xml
       ~FeynmanDiagram.from_xml_file
       ~FeynmanDiagram.get
       ~FeynmanDiagram.get_bounding_box
       ~FeynmanDiagram.get_connections
+      ~FeynmanDiagram.get_fermion_factor
+      ~FeynmanDiagram.get_fermion_line_ends
+      ~FeynmanDiagram.get_fermion_lines
       ~FeynmanDiagram.get_incoming
       ~FeynmanDiagram.get_leg
       ~FeynmanDiagram.get_loose_vertices

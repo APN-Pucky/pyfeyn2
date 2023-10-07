@@ -21,7 +21,12 @@ pyfeyn2.feynmandiagram.Propagator
       ~Propagator.get_length
       ~Propagator.get_style_property
       ~Propagator.get_tension
+      ~Propagator.goes_into
+      ~Propagator.goes_out_of
       ~Propagator.is_anti
+      ~Propagator.is_anti_fermion
+      ~Propagator.is_any_fermion
+      ~Propagator.is_fermion
       ~Propagator.put_style
       ~Propagator.put_styles
       ~Propagator.raw_style

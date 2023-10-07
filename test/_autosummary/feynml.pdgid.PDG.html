@@ -43,7 +43,7 @@
               <img src="../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.3.6-6-ga4d0580d
+                2.3.6-55-g30bd1bda
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -164,22 +164,31 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#feynml.pdgid.PDG.is_anti" title="feynml.pdgid.PDG.is_anti"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_anti</span></code></a>()</p></td>
 <td><p>Return True if the particle is an anti particle, False otherwise.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#feynml.pdgid.PDG.with_id" title="feynml.pdgid.PDG.with_id"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_id</span></code></a>(id)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#feynml.pdgid.PDG.is_anti_fermion" title="feynml.pdgid.PDG.is_anti_fermion"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_anti_fermion</span></code></a>()</p></td>
+<td><p>Return True if the particle is an anti fermion, False otherwise.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#feynml.pdgid.PDG.is_any_fermion" title="feynml.pdgid.PDG.is_any_fermion"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_any_fermion</span></code></a>()</p></td>
+<td><p>Return True if the particle is a fermion or anti fermion, False otherwise.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#feynml.pdgid.PDG.is_fermion" title="feynml.pdgid.PDG.is_fermion"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_fermion</span></code></a>()</p></td>
+<td><p>Return True if the particle is a fermion, False otherwise.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#feynml.pdgid.PDG.with_id" title="feynml.pdgid.PDG.with_id"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_id</span></code></a>(id)</p></td>
 <td><p>set id</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#feynml.pdgid.PDG.with_name" title="feynml.pdgid.PDG.with_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_name</span></code></a>(value[, k])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#feynml.pdgid.PDG.with_name" title="feynml.pdgid.PDG.with_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_name</span></code></a>(value[, k])</p></td>
 <td><p>Set name to <cite>value</cite> and return self.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#feynml.pdgid.PDG.with_new_id" title="feynml.pdgid.PDG.with_new_id"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_new_id</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#feynml.pdgid.PDG.with_new_id" title="feynml.pdgid.PDG.with_new_id"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_new_id</span></code></a>()</p></td>
 <td><p>generate new id</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#feynml.pdgid.PDG.with_particle" title="feynml.pdgid.PDG.with_particle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_particle</span></code></a>(value[, k])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#feynml.pdgid.PDG.with_particle" title="feynml.pdgid.PDG.with_particle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_particle</span></code></a>(value[, k])</p></td>
 <td><p>Set particle to <cite>value</cite> and return self.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#feynml.pdgid.PDG.with_pdgid" title="feynml.pdgid.PDG.with_pdgid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_pdgid</span></code></a>(value[, k])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#feynml.pdgid.PDG.with_pdgid" title="feynml.pdgid.PDG.with_pdgid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_pdgid</span></code></a>(value[, k])</p></td>
 <td><p>Set pdgid to <cite>value</cite> and return self.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#feynml.pdgid.PDG.with_type" title="feynml.pdgid.PDG.with_type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_type</span></code></a>(value[, k])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#feynml.pdgid.PDG.with_type" title="feynml.pdgid.PDG.with_type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_type</span></code></a>(value[, k])</p></td>
 <td><p>Set type to <cite>value</cite> and return self.</p></td>
 </tr>
 </tbody>
@@ -208,6 +217,24 @@
 <dt class="sig sig-object py" id="feynml.pdgid.PDG.is_anti">
 <span class="sig-name descname"><span class="pre">is_anti</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/feynml/pdgid.html#PDG.is_anti"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#feynml.pdgid.PDG.is_anti" title="Permalink to this definition"></a></dt>
 <dd><p>Return True if the particle is an anti particle, False otherwise.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="feynml.pdgid.PDG.is_anti_fermion">
+<span class="sig-name descname"><span class="pre">is_anti_fermion</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/feynml/pdgid.html#PDG.is_anti_fermion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#feynml.pdgid.PDG.is_anti_fermion" title="Permalink to this definition"></a></dt>
+<dd><p>Return True if the particle is an anti fermion, False otherwise.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="feynml.pdgid.PDG.is_any_fermion">
+<span class="sig-name descname"><span class="pre">is_any_fermion</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/feynml/pdgid.html#PDG.is_any_fermion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#feynml.pdgid.PDG.is_any_fermion" title="Permalink to this definition"></a></dt>
+<dd><p>Return True if the particle is a fermion or anti fermion, False otherwise.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="feynml.pdgid.PDG.is_fermion">
+<span class="sig-name descname"><span class="pre">is_fermion</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/feynml/pdgid.html#PDG.is_fermion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#feynml.pdgid.PDG.is_fermion" title="Permalink to this definition"></a></dt>
+<dd><p>Return True if the particle is a fermion, False otherwise.</p>
 </dd></dl>
 
 <dl class="py attribute">
