@@ -21,6 +21,12 @@ feynml.propagator.Propagator
       ~Propagator.get_length
       ~Propagator.get_style_property
       ~Propagator.get_tension
+      ~Propagator.goes_into
+      ~Propagator.goes_out_of
+      ~Propagator.is_anti
+      ~Propagator.is_anti_fermion
+      ~Propagator.is_any_fermion
+      ~Propagator.is_fermion
       ~Propagator.put_style
       ~Propagator.put_styles
       ~Propagator.raw_style
@@ -31,6 +37,7 @@ feynml.propagator.Propagator
       ~Propagator.with_length
       ~Propagator.with_momentum
       ~Propagator.with_name
+      ~Propagator.with_new_id
       ~Propagator.with_particle
       ~Propagator.with_pdgid
       ~Propagator.with_source

@@ -1,0 +1,6 @@
+feynml.id.generate\_new\_id
+===========================
+
+.. currentmodule:: feynml.id
+
+.. autofunction:: generate_new_id

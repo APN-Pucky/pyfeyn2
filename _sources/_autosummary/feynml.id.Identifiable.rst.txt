@@ -18,6 +18,7 @@ feynml.id.Identifiable
    
       ~Identifiable.__init__
       ~Identifiable.with_id
+      ~Identifiable.with_new_id
    
    
 

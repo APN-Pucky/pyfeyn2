@@ -20,6 +20,12 @@ feynml.connector.Connector
       ~Connector.get_length
       ~Connector.get_style_property
       ~Connector.get_tension
+      ~Connector.goes_into
+      ~Connector.goes_out_of
+      ~Connector.is_anti
+      ~Connector.is_anti_fermion
+      ~Connector.is_any_fermion
+      ~Connector.is_fermion
       ~Connector.put_style
       ~Connector.put_styles
       ~Connector.raw_style
@@ -30,6 +36,7 @@ feynml.connector.Connector
       ~Connector.with_length
       ~Connector.with_momentum
       ~Connector.with_name
+      ~Connector.with_new_id
       ~Connector.with_particle
       ~Connector.with_pdgid
       ~Connector.with_style

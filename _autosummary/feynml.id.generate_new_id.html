@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>feynml.interface.qgraf.get_style &mdash; pyfeyn2  documentation</title>
+  <title>feynml.id.generate_new_id &mdash; pyfeyn2  documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/plot_directive.css" type="text/css" />
@@ -26,8 +26,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="feynml.labeled" href="feynml.labeled.html" />
-    <link rel="prev" title="feynml.interface.qgraf.style" href="feynml.interface.qgraf.style.html" /> 
+    <link rel="next" title="feynml.id.Identifiable" href="feynml.id.Identifiable.html" />
+    <link rel="prev" title="feynml.id" href="feynml.id.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -77,18 +77,15 @@
 <li class="toctree-l2"><a class="reference internal" href="feynml.feynmandiagram.html">feynml.feynmandiagram</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.feynml.html">feynml.feynml</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.head.html">feynml.head</a></li>
-<li class="toctree-l2"><a class="reference internal" href="feynml.id.html">feynml.id</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="feynml.interface.html">feynml.interface</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="feynml.interface.formcalc.html">feynml.interface.formcalc</a></li>
-<li class="toctree-l3"><a class="reference internal" href="feynml.interface.hepmc.html">feynml.interface.hepmc</a></li>
-<li class="toctree-l3"><a class="reference internal" href="feynml.interface.lhe.html">feynml.interface.lhe</a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="feynml.interface.qgraf.html">feynml.interface.qgraf</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="feynml.interface.qgraf.style.html">feynml.interface.qgraf.style</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">feynml.interface.qgraf.get_style</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="feynml.id.html">feynml.id</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">feynml.id.generate_new_id</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#feynml.id.generate_new_id"><code class="docutils literal notranslate"><span class="pre">generate_new_id()</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="feynml.id.Identifiable.html">feynml.id.Identifiable</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="feynml.interface.html">feynml.interface</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.labeled.html">feynml.labeled</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.leg.html">feynml.leg</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.line.html">feynml.line</a></li>
@@ -137,11 +134,10 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="feynml.html">feynml</a></li>
-          <li class="breadcrumb-item"><a href="feynml.interface.html">feynml.interface</a></li>
-          <li class="breadcrumb-item"><a href="feynml.interface.qgraf.html">feynml.interface.qgraf</a></li>
-      <li class="breadcrumb-item active">feynml.interface.qgraf.get_style</li>
+          <li class="breadcrumb-item"><a href="feynml.id.html">feynml.id</a></li>
+      <li class="breadcrumb-item active">feynml.id.generate_new_id</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/_autosummary/feynml.interface.qgraf.get_style.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/_autosummary/feynml.id.generate_new_id.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -149,13 +145,12 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="feynml-interface-qgraf-get-style">
-<h1>feynml.interface.qgraf.get_style<a class="headerlink" href="#feynml-interface-qgraf-get-style" title="Permalink to this heading"></a></h1>
+  <section id="feynml-id-generate-new-id">
+<h1>feynml.id.generate_new_id<a class="headerlink" href="#feynml-id-generate-new-id" title="Permalink to this heading"></a></h1>
 <dl class="py function">
-<dt class="sig sig-object py" id="feynml.interface.qgraf.get_style">
-<span class="sig-prename descclassname"><span class="pre">feynml.interface.qgraf.</span></span><span class="sig-name descname"><span class="pre">get_style</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../_modules/feynml/interface/qgraf.html#get_style"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#feynml.interface.qgraf.get_style" title="Permalink to this definition"></a></dt>
-<dd><p>Get the style for qgraf to produce feynml.</p>
-</dd></dl>
+<dt class="sig sig-object py" id="feynml.id.generate_new_id">
+<span class="sig-prename descclassname"><span class="pre">feynml.id.</span></span><span class="sig-name descname"><span class="pre">generate_new_id</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/feynml/id.html#generate_new_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#feynml.id.generate_new_id" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
 
 </section>
 
@@ -163,8 +158,8 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="feynml.interface.qgraf.style.html" class="btn btn-neutral float-left" title="feynml.interface.qgraf.style" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="feynml.labeled.html" class="btn btn-neutral float-right" title="feynml.labeled" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="feynml.id.html" class="btn btn-neutral float-left" title="feynml.id" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="feynml.id.Identifiable.html" class="btn btn-neutral float-right" title="feynml.id.Identifiable" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

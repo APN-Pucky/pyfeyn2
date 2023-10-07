@@ -40,7 +40,7 @@
               <img src="../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.3.6
+                2.3.7
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -125,6 +125,12 @@ class Connector(Labeled, Styled, PDG):
         default=None, metadata={&quot;name&quot;: &quot;momentum&quot;, &quot;type&quot;: &quot;Element&quot;}
     )
     &quot;&quot;&quot;Momentum of the connector&quot;&quot;&quot;
+
+    def goes_into(self, vertex):
+        raise NotImplementedError
+
+    def goes_out_of(self, vertex):
+        raise NotImplementedError
 
 <div class="viewcode-block" id="Connector.with_tension"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.Connector.html#feynml.connector.Connector.with_tension">[docs]</a>    def with_tension(self, tension: float):
         &quot;&quot;&quot;Add tension to the connector&quot;&quot;&quot;

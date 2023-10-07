@@ -40,7 +40,7 @@
               <img src="../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.3.6
+                2.3.7
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -192,6 +192,11 @@ class FeynML(SheetHandler, XML):
 <div class="viewcode-block" id="FeynML.with_sheet"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.FeynML.html#feynml.feynml.FeynML.with_sheet">[docs]</a>    def with_sheet(self, sheet):
         self.head.with_sheet(sheet)
         return self</div>
+
+    def _ipython_display_(self):
+        for d in self.diagrams:
+            d._ipython_display_()
+        return self
 
 <div class="viewcode-block" id="FeynML.from_xml_file"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.FeynML.html#feynml.feynml.FeynML.from_xml_file">[docs]</a>    @classmethod
     def from_xml_file(cls, file: str):

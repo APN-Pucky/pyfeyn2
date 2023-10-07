@@ -40,7 +40,7 @@
               <img src="../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.3.6
+                2.3.7
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -410,6 +410,9 @@ def _get_grid(fd, n_x=None, n_y=None, min_x=None, min_y=None, max_x=None, max_y=
     for v in fd.vertices:
         v.x *= scale
         v.y *= scale
+    for l in fd.legs:
+        l.x *= scale
+        l.y *= scale
     return fd</div>
 
 

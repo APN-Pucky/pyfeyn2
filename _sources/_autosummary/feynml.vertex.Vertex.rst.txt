@@ -25,6 +25,7 @@ feynml.vertex.Vertex
       ~Vertex.with_color
       ~Vertex.with_id
       ~Vertex.with_label
+      ~Vertex.with_new_id
       ~Vertex.with_point
       ~Vertex.with_shape
       ~Vertex.with_style

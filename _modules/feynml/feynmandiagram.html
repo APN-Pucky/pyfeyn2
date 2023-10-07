@@ -40,7 +40,7 @@
               <img src="../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.3.6
+                2.3.7
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -107,7 +107,8 @@
            <div itemprop="articleBody">
              
   <h1>Source code for feynml.feynmandiagram</h1><div class="highlight"><pre>
-<span></span>import logging
+<span></span>import copy
+import logging
 import warnings
 from dataclasses import dataclass, field
 from typing import List, Optional, Union
@@ -320,7 +321,144 @@ class FeynmanDiagram(SheetHandler, XML, Styled, Identifiable):
         return [leg for leg in self.legs if leg.is_incoming()]
 
     def get_outgoing(self):
-        return [leg for leg in self.legs if leg.is_outgoing()]</div>
+        return [leg for leg in self.legs if leg.is_outgoing()]
+
+    def get_unpositioned_vertices(self):
+        return [v for v in self.vertices if v.x is None or v.y is None]
+
+    def get_loose_vertices(self):
+        return [v for v in self.vertices if not self.get_connections(v)]
+
+    def get_fermion_factor(self, fd):
+        # TODO assert same legs!
+        perms = 0
+        fl1 = sorted(self.get_fermion_line_ends())
+        fl2 = sorted(fd.get_fermion_line_ends())
+        # find fl1[0][0] in fl2
+        for fl1i in range(len(fl1)):
+            for fl1j in [0, 1]:
+                for i in range(len(fl2)):
+                    for j in [0, 1]:
+                        if i != fl1i and fl2[i][j].id == fl1[fl1i][fl1j].id:
+                            perms += 1
+                            fl2[fl1i][fl1j], fl2[i][j] = fl2[i][j], fl2[fl1i][fl1j]
+        print(perms)
+        return (-1) ** perms
+
+    def get_fermion_line_ends(self):
+        fl = self.get_fermion_lines()
+        ret = [[f[0], f[-1]] for f in fl]
+        return ret
+
+    def get_fermion_lines(self):
+        ret = []
+        for leg in self.legs:
+            if leg.is_outgoing() and leg.is_fermion():
+                ret.append(self.follow_anti_fermion_line(leg))
+            if leg.is_incoming() and leg.is_anti_fermion():
+                ret.append(self.follow_anti_fermion_line(leg))
+        # assert elements in total list are unique, every element can only be in one fermion line
+        # assert len([y for r in ret for y in r]) == len(set([y for r in ret for y in r]))
+        return ret
+
+    def follow_anti_fermion_line(self, leg):
+        # assert leg.is_anti_fermion()
+        chain = []
+        chain.append(leg)
+        v = None
+        if isinstance(leg, Leg):
+            if leg.is_incoming() and leg.is_fermion():
+                return chain
+            if leg.is_outgoing() and leg.is_fermion():
+                v = self.get_vertex(leg.target)
+            if leg.is_incoming() and leg.is_anti_fermion():
+                v = self.get_vertex(leg.target)
+            if leg.is_outgoing() and leg.is_anti_fermion():
+                return chain
+        chain.append(v)
+        # TODO handle case where there are mutliple fermions ( i.e. checkc the flow)
+        cs = self.get_connections(v)
+        for c in cs:
+            if c != leg and c.is_any_fermion():
+                return chain + self.follow_anti_fermion_line(c)
+            if c != leg and c in chain:
+                return chain
+        # TODO needs to handle loops and stop if already in chain
+        raise Exception(&quot;Could not find fermion line end&quot;)
+
+    def copy(self, new_vertex_ids=True, new_leg_ids=True, new_propagator_ids=True):
+        copy = self.deepcopy()
+        id_map = {}
+        # Now generate new ids for all elements
+        for v in copy.vertices:
+            oid = v.id
+            if new_vertex_ids:
+                v = v.with_new_id()
+            id_map[oid] = v.id
+        for l in copy.legs:
+            oid = l.id
+            if new_leg_ids:
+                l = l.with_new_id()
+            id_map[oid] = l.id
+        for p in copy.propagators:
+            oid = p.id
+            if new_propagator_ids:
+                p = p.with_new_id()
+            id_map[oid] = p.id
+        # Now replace all ids in the diagram
+        for l in copy.legs:
+            l.target = id_map[l.target]
+        for p in copy.propagators:
+            p.source = id_map[p.source]
+            p.target = id_map[p.target]
+        return copy
+
+    def deepcopy(self):
+        return copy.deepcopy(self)
+
+    def conjugated(
+        self, new_vertex_ids=True, new_leg_ids=True, new_propagator_ids=True
+    ):
+        return self.copy(
+            new_vertex_ids=new_vertex_ids,
+            new_leg_ids=new_leg_ids,
+            new_propagator_ids=new_propagator_ids,
+        )._conjugate()
+
+    def _conjugate(self):
+        for leg in self.legs:
+            leg.conjugate()
+        return self
+
+    def render(self, render=&quot;tikz&quot;, show=True, file=None):
+        import pyfeyn2.render.all as renderall
+        from pyfeyn2.auto.label import auto_label
+        from pyfeyn2.auto.position import (
+            auto_align_legs,
+            auto_vdw,
+            feynman_adjust_points,
+        )
+
+        # deepcopy to avoid modifying the original diagram
+        fd = self.deepcopy()
+        # remove all unpositioned vertices
+        fd = auto_align_legs(
+            fd,
+            incoming=[(0, i) for i in np.linspace(0, 10, len(self.get_incoming()))],
+            outgoing=[(10, i) for i in np.linspace(0, 10, len(self.get_outgoing()))],
+        )
+        fd = auto_vdw(fd, points=[v for v in fd.vertices if v.x is None or v.y is None])
+        auto_label([*fd.propagators, *fd.legs])
+        renderer = renderall.renderer_from_string(render)
+        renderer(fd).render(show=show, file=file)
+
+    def _ipython_display_(self):
+        try:
+            self.render(show=True)
+        except ImportError as e:
+            warnings.warn(&quot;Could not import pyfeyn2, cannot render diagram&quot;)
+            pass
+        return self</div>
 </pre></div>
 
            </div>

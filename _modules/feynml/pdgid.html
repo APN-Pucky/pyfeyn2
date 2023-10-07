@@ -40,7 +40,7 @@
               <img src="../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.3.6
+                2.3.7
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -207,6 +207,22 @@ class PDG(Identifiable):
                     f&quot;Type {tmptype} is not consistent with pdgid {self.pdgid}, using {self.type} instead. Using {tmptype} now.&quot;
                 )
                 self.type = tmptype
+
+<div class="viewcode-block" id="PDG.is_anti_fermion"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.PDG.html#feynml.pdgid.PDG.is_anti_fermion">[docs]</a>    def is_anti_fermion(self):
+        &quot;&quot;&quot;Return True if the particle is an anti fermion, False otherwise.&quot;&quot;&quot;
+        return self.type == &quot;anti fermion&quot;</div>
+
+<div class="viewcode-block" id="PDG.is_fermion"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.PDG.html#feynml.pdgid.PDG.is_fermion">[docs]</a>    def is_fermion(self):
+        &quot;&quot;&quot;Return True if the particle is a fermion, False otherwise.&quot;&quot;&quot;
+        return self.type == &quot;fermion&quot;</div>
+
+<div class="viewcode-block" id="PDG.is_any_fermion"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.PDG.html#feynml.pdgid.PDG.is_any_fermion">[docs]</a>    def is_any_fermion(self):
+        &quot;&quot;&quot;Return True if the particle is a fermion or anti fermion, False otherwise.&quot;&quot;&quot;
+        return self.type == &quot;fermion&quot; or self.type == &quot;anti fermion&quot;</div>
+
+<div class="viewcode-block" id="PDG.is_anti"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.PDG.html#feynml.pdgid.PDG.is_anti">[docs]</a>    def is_anti(self):
+        &quot;&quot;&quot;Return True if the particle is an anti particle, False otherwise.&quot;&quot;&quot;
+        return self.pdgid &lt; 0  # TODO use pdg option?</div>
 
     def __post_init__(self):
         super().__post_init__()

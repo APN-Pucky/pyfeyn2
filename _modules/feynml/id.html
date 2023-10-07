@@ -40,7 +40,7 @@
               <img src="../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.3.6
+                2.3.7
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -116,6 +116,12 @@ from smpl_util.util import withify
 global_id = 0
 
 
+<div class="viewcode-block" id="generate_new_id"><a class="viewcode-back" href="../../_autosummary/feynml.id.generate_new_id.html#feynml.id.generate_new_id">[docs]</a>def generate_new_id():
+    global global_id
+    global_id = global_id + 1
+    return global_id</div>
+
+
 <div class="viewcode-block" id="Identifiable"><a class="viewcode-back" href="../../_autosummary/feynml.id.Identifiable.html#feynml.id.Identifiable">[docs]</a>@withify()
 @dataclass
 class Identifiable:
@@ -125,11 +131,29 @@ class Identifiable:
     # id2: Optional[str] = field(default=None, metadata={&quot;name&quot;: &quot;id2&quot;, &quot;namespace&quot;: &quot;&quot;})
 
     def __post_init__(self):
-        global global_id
         if self.id is None:
             # use some global counter to generate unique id
-            self.id = self.__class__.__name__ + str(global_id)
-            global_id = global_id + 1</div>
+            self.with_new_id()
+
+<div class="viewcode-block" id="Identifiable.with_id"><a class="viewcode-back" href="../../_autosummary/feynml.id.Identifiable.html#feynml.id.Identifiable.with_id">[docs]</a>    def with_id(self, id: str):
+        &quot;&quot;&quot;set id&quot;&quot;&quot;
+        self.id = id
+        return self</div>
+
+<div class="viewcode-block" id="Identifiable.with_new_id"><a class="viewcode-back" href="../../_autosummary/feynml.id.Identifiable.html#feynml.id.Identifiable.with_new_id">[docs]</a>    def with_new_id(self):
+        &quot;&quot;&quot;generate new id&quot;&quot;&quot;
+        id = generate_new_id()
+        self.id = self.__class__.__name__ + str(id)
+        return self</div>
+
+    def __lt__(self, other):
+        return self.id &lt; other.id
+
+    def __gt__(self, other):
+        return self.id &gt; other.id
+
+    def __hash__(self):
+        return hash(self.id)</div>
 </pre></div>
 
            </div>
