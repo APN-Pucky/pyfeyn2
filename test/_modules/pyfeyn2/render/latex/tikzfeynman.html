@@ -40,7 +40,7 @@
               <img src="../../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.3.7
+                2.3.8
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
@@ -184,9 +184,9 @@ shape_map = {
         and style.getProperty(&quot;momentum-arrow&quot;).value == &quot;true&quot;
     ):
         if style.getProperty(&quot;momentum-arrow-sense&quot;) is not None:
-            if style.getProperty(&quot;momentum-arrow-sense&quot;).value == -1:
+            if style.getProperty(&quot;momentum-arrow-sense&quot;).value == &quot;-1&quot;:
                 ret += &quot;,momentum&#39;=&quot; + c.momentum.name
-            elif style.getProperty(&quot;momentum-arrow-sense&quot;).value == 0:
+            elif style.getProperty(&quot;momentum-arrow-sense&quot;).value == &quot;0&quot;:
                 warn(
                     &quot;momentum-arrow=true but momentum-arrow-sense=0, ignoring momentum-arrow&quot;
                 )
