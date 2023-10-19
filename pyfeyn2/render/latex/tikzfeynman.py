@@ -42,7 +42,8 @@ type_map = {
     "phantom": "draw=none",
     "line": "plain",
     "plain": "plain",
-    "proton": "fermion, preaction={draw,double distance =%(double_distance)s,}",
+    "baryon": "fermion, preaction={draw,double distance =%(double_distance)s,}",
+    "anti baryon": "anti fermion, preaction={draw,double distance =%(double_distance)s,}",
 }
 
 shape_map = {
@@ -58,8 +59,8 @@ def stylize_connect(fd: FeynmanDiagram, c: Connector):
     style = fd.get_style(c)
     double_distance = (
         style.getProperty("double-distance").value
-        if style.getProperty("momentum-arrow") is not None
-        else "2pt"
+        if style.getProperty("double-distance") is not None
+        else "3pt"
     )
     ret = ""
     if style.getProperty("line") is not None:
