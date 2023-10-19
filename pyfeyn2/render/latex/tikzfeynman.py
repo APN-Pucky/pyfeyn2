@@ -44,6 +44,7 @@ type_map = {
     "plain": "plain",
     "baryon": "fermion, preaction={draw,double distance =%(double_distance)s,}",
     "anti baryon": "anti fermion, preaction={draw,double distance =%(double_distance)s,}",
+    "meson": "double distance =%(double_distance)s",
 }
 
 shape_map = {
@@ -232,6 +233,7 @@ class TikzFeynmanRender(LatexRender):
             "bend-min-distance",
             "momentum-arrow",
             "momentum-arrow-sense",
+            "double-distance",
         ]
 
     @classmethod

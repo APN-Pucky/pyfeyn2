@@ -1208,12 +1208,14 @@ numpy = ">=1.6"
 
 [[package]]
 name = "feynml"
-version = "0.2.19.5"
+version = "0.2.20"
 description = "Feynman diagram markup language"
 optional = false
-python-versions = "^3.8"
-files = []
-develop = true
+python-versions = ">=3.8,<4.0"
+files = [
+    {file = "feynml-0.2.20-py3-none-any.whl", hash = "sha256:914e3a4fbac8e3d2580dd9d49b882e5223962af16bbb52240c360b235ada95a2"},
+    {file = "feynml-0.2.20.tar.gz", hash = "sha256:9f2b0fed9c3e8a5fd23961334e4bf39a24749555a99ba7adea9819818c76bd7d"},
+]
 
 [package.dependencies]
 cssselect = "*"
@@ -1221,20 +1223,16 @@ cssutils = "*"
 deprecated = "*"
 deprecation = "*"
 particle = "*"
-pyhepmc = {version = "*", optional = true}
-pylhe = {version = "*", optional = true}
-pyqgraf = {version = ">=0.0.3", optional = true}
-smpl_doc = "^1.1.3"
-smpl_io = "^1.1.2"
+pyhepmc = {version = "*", optional = true, markers = "extra == \"interfaces\""}
+pylhe = {version = "*", optional = true, markers = "extra == \"interfaces\""}
+pyqgraf = {version = ">=0.0.3", optional = true, markers = "extra == \"interfaces\""}
+smpl_doc = ">=1.1.3,<2.0.0"
+smpl_io = ">=1.1.2,<2.0.0"
 smpl_util = "*"
 xsdata = {version = "*", extras = ["cli", "lxml", "soap"]}
 
 [package.extras]
 interfaces = ["pyhepmc", "pylhe", "pyqgraf (>=0.0.3)"]
-
-[package.source]
-type = "directory"
-url = "../feynml"
 
 [[package]]
 name = "filelock"
@@ -5060,4 +5058,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.8"
-content-hash = "5cfd5e40a2fc39fb0cf19364935ac6893b47e56048dc881827e42e22f4a1f20a"
+content-hash = "c908712ec6a478bf84abb93252e0443091432d58fee577fdeed4e258cc0ef57d"
