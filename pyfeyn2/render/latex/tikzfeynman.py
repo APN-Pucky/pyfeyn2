@@ -42,6 +42,7 @@ type_map = {
     "phantom": "draw=none",
     "line": "plain",
     "plain": "plain",
+    "proton": "fermion, preaction={draw,double distance =%(double_distance)s,}",
 }
 
 shape_map = {
@@ -55,6 +56,11 @@ shape_map = {
 
 def stylize_connect(fd: FeynmanDiagram, c: Connector):
     style = fd.get_style(c)
+    double_distance = (
+        style.getProperty("double-distance").value
+        if style.getProperty("momentum-arrow") is not None
+        else "2pt"
+    )
     ret = ""
     if style.getProperty("line") is not None:
         ret += type_map[style.getProperty("line").value]
@@ -102,7 +108,7 @@ def stylize_connect(fd: FeynmanDiagram, c: Connector):
             + str(style.getProperty("bend-min-distance").value)
         )
 
-    return ret
+    return ret % {"double_distance": double_distance}
 
 
 def stylize_node(fd: FeynmanDiagram, v: Vertex):
