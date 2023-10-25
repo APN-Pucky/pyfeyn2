@@ -42,6 +42,7 @@ Several of these are integrated into pyfeyn2.
 ## Troubleshooting
 
 *   [ImageMagick security policy 'PDF' blocking conversion]( https://stackoverflow.com/questions/52998331/imagemagick-security-policy-pdf-blocking-conversion )
+*   [Graphviz missing on mac](https://graphviz.org/download/#mac)
 
 ## Development
 
