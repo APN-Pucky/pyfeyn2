@@ -226,6 +226,7 @@ class FeynmanRender(Render):
             "xamp",
             "yamp",
             "nloops",
+            "double-distance",
         ]
 
     @classmethod
