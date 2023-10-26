@@ -61,8 +61,8 @@ def stylize_connect(fd: FeynmanDiagram, c: Connector):
     double_distance = (
         style.getProperty("double-distance").value
         if style.getProperty("double-distance") is not None
-        else "3pt"
-    )
+        else "3"
+    ) + "pt"
     rets = []
     frets = []
     if style.getProperty("line") is not None:

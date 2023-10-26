@@ -26,6 +26,17 @@ namedlines = {
         {"style": "wiggly"},
         {"style": "simple"},
     ],
+    "meson": [{"style": "double"}],
+    "baryon": [
+        {"style": "simple", "zorder": -2, "linewidth": 8.0},
+        {"style": "simple", "zorder": -1, "linewidth": 4.0, "color": "w"},
+        {"style": "simple", "zorder": 0, "linewidth": 2.0},
+    ],
+    "anti baryon": [
+        {"style": "simple", "zorder": -2, "linewidth": 8.0},
+        {"style": "simple", "zorder": -1, "linewidth": 4.0, "color": "w"},
+        {"style": "simple", "zorder": 0, "linewidth": 2.0},
+    ],
     "phantom": [{"style": "simple", "alpha": 0.0}],
 }
 
@@ -33,6 +44,11 @@ namedlines = {
 def get_styled_lines(fd: FeynmanDiagram, p: Union[Propagator, Leg]) -> List[dict]:
     ret = []
     style = fd.get_style(p)
+    double_distance = float(
+        style.getProperty("double-distance").value
+        if style.getProperty("double-distance") is not None
+        else "3"
+    )
     if style.getProperty("line") is not None:
         lname = style.getProperty("line").value
     else:
@@ -58,18 +74,14 @@ def get_styled_lines(fd: FeynmanDiagram, p: Union[Propagator, Leg]) -> List[dict
                 d["arrow"] = False
         else:
             d["arrow"] = False
+        if d["style"] == "double":
+            d["linewidth"] = double_distance
         # copy css style to feynman kwargs dict
-        for k in [
-            "xamp",
-            "yamp",
-        ]:
-            if style.getProperty(k) is not None:
-                d[k] = float(style.getProperty(k).value)
-        for k in ["nloops"]:
-            if style.getProperty(k) is not None:
+        for k in ["xamp", "yamp", "nloops"]:
+            if style.getProperty(k) is not None and k not in d:
                 d[k] = float(style.getProperty(k).value)
         for k in ["color"]:
-            if style.getProperty(k) is not None:
+            if style.getProperty(k) is not None and k not in d:
                 d[k] = style.getProperty(k).value
         ret.append(d)
     return ret

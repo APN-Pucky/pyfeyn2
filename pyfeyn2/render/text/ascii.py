@@ -119,6 +119,49 @@ class Higgs(ASCIILine):
         )
 
 
+class Baryon(ASCIILine):
+    def __init__(self, **kwargs):
+        super().__init__(
+            begin="*",
+            end="*",
+            style=Cross(
+                left="BB<BB",
+                right="BB>BB",
+                up="BB^BB",
+                down="BBvBB",
+            ),
+            **kwargs,
+        )
+
+
+class AntiBaryon(ASCIILine):
+    def __init__(self, **kwargs):
+        super().__init__(
+            begin="*",
+            end="*",
+            style=Cross(
+                left="BB>BB",
+                right="BB<BB",
+                up="BBvBB",
+                down="BB^BB",
+            ),
+            **kwargs,
+        )
+
+
+class Meson(ASCIILine):
+    def __init__(self, **kwargs):
+        super().__init__(
+            begin="*",
+            end="*",
+            style=Cross(
+                vert="M",
+                horz="M",
+            ),
+            **kwargs,
+        )
+
+
 class Gluino(ASCIILine):
     def __init__(self, **kwargs):
         super().__init__(
@@ -159,6 +202,9 @@ class ASCIIRender(Render):
         "gluino": Gluino,
         "gaugino": Gaugino,
         "phantom": Phantom,
+        "baryon": Baryon,
+        "anti baryon": Baryon,
+        "meson": Meson,
         "line": Line,
         # TODO what is this?
         "label": Label,
