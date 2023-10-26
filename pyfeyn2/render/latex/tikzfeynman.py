@@ -14,37 +14,37 @@ from pyfeyn2.render.latex.latex import LatexRender
 # converte FeynmanDiagram to tikz-feynman
 
 type_map = {
-    "gluon": "gluon",
-    "ghost": "ghost",
-    "photon": "photon",
-    "boson": "photon",
-    "fermion": "fermion",
-    "anti fermion": "anti fermion",
-    "charged boson": "charged boson",
-    "anti charged boson": "anti charged boson",
-    "scalar": "scalar",
-    "charged scalar": "charged scalar",
-    "anti charged scalar": "anti charged scalar",
-    "majorana": "majorana",
-    "anti majorana": "anti majorana",
+    "gluon": ["gluon"],
+    "ghost": ["ghost"],
+    "photon": ["photon"],
+    "boson": ["photon"],
+    "fermion": ["fermion"],
+    "anti fermion": ["anti fermion"],
+    "charged boson": ["charged boson"],
+    "anti charged boson": ["anti charged boson"],
+    "scalar": ["scalar"],
+    "charged scalar": ["charged scalar"],
+    "anti charged scalar": ["anti charged scalar"],
+    "majorana": ["majorana"],
+    "anti majorana": ["anti majorana"],
     # SUSY
-    "gaugino": "plain,boson",
-    "chargino": "plain,boson",
-    "neutralino": "plain,boson",
-    "squark": "charged scalar",
-    "slepton": "charged scalar",
-    "anti squark": "anti charged scalar",
-    "anti slepton": "anti charged scalar",
-    "gluino": "plain,gluon",
-    "higgs": "scalar",
-    "vector": "boson",
+    "gaugino": ["plain,boson"],
+    "chargino": ["plain,boson"],
+    "neutralino": ["plain,boson"],
+    "squark": ["charged scalar"],
+    "slepton": ["charged scalar"],
+    "anti squark": ["anti charged scalar"],
+    "anti slepton": ["anti charged scalar"],
+    "gluino": ["plain,gluon"],
+    "higgs": ["scalar"],
+    "vector": ["boson"],
     # UTIL
-    "phantom": "draw=none",
-    "line": "plain",
-    "plain": "plain",
-    "baryon": "fermion, preaction={draw,double distance =%(double_distance)s,}",
-    "anti baryon": "anti fermion, preaction={draw,double distance =%(double_distance)s,}",
-    "meson": "double distance =%(double_distance)s",
+    "phantom": ["draw=none"],
+    "line": ["plain"],
+    "plain": ["plain"],
+    "baryon": ["fermion", "double=none, double distance=%(double_distance)s"],
+    "anti baryon": ["anti fermion", "double=none, double distance=%(double_distance)s"],
+    "meson": ["double=none,double distance =%(double_distance)s"],
 }
 
 shape_map = {
@@ -63,54 +63,56 @@ def stylize_connect(fd: FeynmanDiagram, c: Connector):
         if style.getProperty("double-distance") is not None
         else "3pt"
     )
-    ret = ""
+    rets = []
+    frets = []
     if style.getProperty("line") is not None:
-        ret += type_map[style.getProperty("line").value]
+        rets += type_map[style.getProperty("line").value]
     else:
         if c.type is not None:
-            ret += type_map[c.type]  # fallback to type if no style
+            rets += type_map[c.type]  # fallback to type if no style
         else:
             warnings.warn(
                 f"No type or style set for connector  {c.id} {c.type} {c.pdgid}"
             )
-            ret += "plain"
-
-    if c.label is not None:
-        ret += ",edge label=" + c.label
-    # if c.edge_label_ is not None: style += ",edge label'=" + c.edge_label_
-    if (
-        style.getProperty("momentum-arrow") is not None
-        and style.getProperty("momentum-arrow").value == "true"
-    ):
-        if style.getProperty("momentum-arrow-sense") is not None:
-            if style.getProperty("momentum-arrow-sense").value == "-1":
-                ret += ",momentum'=" + c.momentum.name
-            elif style.getProperty("momentum-arrow-sense").value == "0":
-                warn(
-                    "momentum-arrow=true but momentum-arrow-sense=0, ignoring momentum-arrow"
-                )
-                pass
+            rets += ["plain"]
+    for ret in rets:
+        if c.label is not None:
+            ret += ",edge label=" + c.label
+        # if c.edge_label_ is not None: style += ",edge label'=" + c.edge_label_
+        if (
+            style.getProperty("momentum-arrow") is not None
+            and style.getProperty("momentum-arrow").value == "true"
+        ):
+            if style.getProperty("momentum-arrow-sense") is not None:
+                if style.getProperty("momentum-arrow-sense").value == "-1":
+                    ret += ",momentum'=" + c.momentum.name
+                elif style.getProperty("momentum-arrow-sense").value == "0":
+                    warn(
+                        "momentum-arrow=true but momentum-arrow-sense=0, ignoring momentum-arrow"
+                    )
+                    pass
+                else:
+                    ret += ",momentum=" + c.momentum.name
             else:
                 ret += ",momentum=" + c.momentum.name
-        else:
-            ret += ",momentum=" + c.momentum.name
-    if style.opacity is not None and style.opacity != "":
-        ret += ",opacity=" + str(style.opacity)
-    if style.color is not None and style.color != "":
-        ret += "," + str(style.color)
-    if style.getProperty("bend-direction") is not None:
-        ret += ",bend " + str(style.getProperty("bend-direction").value)
-    if style.getProperty("bend-loop") is not None:
-        ret += (
-            ",loop , in="
-            + str(style.getProperty("bend-in").value)
-            + ", out="
-            + str(style.getProperty("bend-out").value)
-            + ", min distance="
-            + str(style.getProperty("bend-min-distance").value)
-        )
-
-    return ret % {"double_distance": double_distance}
+        if style.opacity is not None and style.opacity != "":
+            ret += ",opacity=" + str(style.opacity)
+        if style.color is not None and style.color != "":
+            ret += "," + str(style.color)
+        if style.getProperty("bend-direction") is not None:
+            ret += ",bend " + str(style.getProperty("bend-direction").value)
+        if style.getProperty("bend-loop") is not None:
+            ret += (
+                ",loop , in="
+                + str(style.getProperty("bend-in").value)
+                + ", out="
+                + str(style.getProperty("bend-out").value)
+                + ", min distance="
+                + str(style.getProperty("bend-min-distance").value)
+            )
+        ret = ret % {"double_distance": double_distance}
+        frets.append(ret)
+    return frets
 
 
 def stylize_node(fd: FeynmanDiagram, v: Vertex):
@@ -167,24 +169,33 @@ def feynman_to_tikz_feynman(fd):
     direct = "*"
 
     src = "\\begin{tikzpicture}\n"
+    src += "\\pgfsetblendmode{multiply}\n"
     src += "\\begin{feynman}\n"
     for v in fd.vertices:
         src += stylize_node(fd, v)
     for l in fd.legs:
         src += stylize_leg_node(l)
-    src += f"\t\\diagram{direct}" + "{\n"
     for p in fd.propagators:
-        style = stylize_connect(fd, p)
-        src += get_line(p.source, p.target, style)
+        styles = stylize_connect(fd, p)
+        for style in styles:
+            src += "\\begin{scope}[transparency group]"
+            src += f"\t\\diagram{direct}" + "{\n"
+            src += get_line(p.source, p.target, style)
+            src += "\t};\n"
+            src += "\\end{scope}"
     for l in fd.legs:
-        style = stylize_connect(fd, l)
-        if l.is_incoming():
-            src += get_line(l.id, l.target, style)
-        elif l.is_outgoing():
-            src += get_line(l.target, l.id, style)
-        else:
-            raise Exception("Unknown sense")
-    src += "\t};\n"
+        styles = stylize_connect(fd, l)
+        for style in styles:
+            src += "\\begin{scope}[transparency group]"
+            src += f"\t\\diagram{direct}" + "{\n"
+            if l.is_incoming():
+                src += get_line(l.id, l.target, style)
+            elif l.is_outgoing():
+                src += get_line(l.target, l.id, style)
+            else:
+                raise Exception("Unknown sense")
+            src += "\t};\n"
+            src += "\\end{scope}"
     src += "\\end{feynman}\n"
     src += "\\end{tikzpicture}\n"
     return src
