@@ -301,7 +301,7 @@ def scale_positions(fd, scale):
     for v in fd.vertices:
         if v.x is not None:
             v.x *= scale
-        if v,y is not None:
+        if v.y is not None:
             v.y *= scale
     for l in fd.legs:
         if l.x is not None:
