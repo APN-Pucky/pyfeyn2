@@ -299,11 +299,15 @@ def outgoing_to_right(fd):
 def scale_positions(fd, scale):
     """Scale the positions of the vertices and legs."""
     for v in fd.vertices:
-        v.x *= scale
-        v.y *= scale
+        if v.x is not None:
+            v.x *= scale
+        if v,y is not None:
+            v.y *= scale
     for l in fd.legs:
-        l.x *= scale
-        l.y *= scale
+        if l.x is not None:
+            l.x *= scale
+        if l.y is not None:
+            l.y *= scale
     return fd
 
 
