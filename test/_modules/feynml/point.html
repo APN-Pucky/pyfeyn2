@@ -40,7 +40,7 @@
               <img src="../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.3.8
+                2.3.10-3-gf74dff75
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -129,6 +129,14 @@ class Point:
     def with_point(self, p):
         self.x = float(p.x)
         self.y = float(p.y)
+        return self
+
+    def with_x(self, x):
+        self.x = float(x)
+        return self
+
+    def with_y(self, y):
+        self.y = float(y)
         return self
 
     def with_xy(self, x, y):

@@ -40,7 +40,7 @@
               <img src="../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.3.8
+                2.3.10-3-gf74dff75
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -408,11 +408,15 @@ def _get_grid(fd, n_x=None, n_y=None, min_x=None, min_y=None, max_x=None, max_y=
 <div class="viewcode-block" id="scale_positions"><a class="viewcode-back" href="../../../_autosummary/pyfeyn2.auto.position.scale_positions.html#pyfeyn2.auto.position.scale_positions">[docs]</a>def scale_positions(fd, scale):
     &quot;&quot;&quot;Scale the positions of the vertices and legs.&quot;&quot;&quot;
     for v in fd.vertices:
-        v.x *= scale
-        v.y *= scale
+        if v.x is not None:
+            v.x *= scale
+        if v.y is not None:
+            v.y *= scale
     for l in fd.legs:
-        l.x *= scale
-        l.y *= scale
+        if l.x is not None:
+            l.x *= scale
+        if l.y is not None:
+            l.y *= scale
     return fd</div>
 
 

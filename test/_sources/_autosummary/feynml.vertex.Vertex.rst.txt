@@ -31,8 +31,10 @@ feynml.vertex.Vertex
       ~Vertex.with_style
       ~Vertex.with_style_properties
       ~Vertex.with_style_property
+      ~Vertex.with_x
       ~Vertex.with_xy
       ~Vertex.with_xyz
+      ~Vertex.with_y
    
    
 

@@ -1,0 +1,174 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# anti baryon"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "tikz:\n"
+     ]
+    },
+    {
+     "data": {
+      "image/png": "iVBORw0KGgoAAAANSUhEUgAAAKMAAAAaCAQAAABxoCS2AAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAACYktHRAD/h4/MvwAAAAlwSFlzAAAAZAAAAGQAD5bF3QAAAAd0SU1FB+cKExUQGmLE6/oAAAJkSURBVGje7Zg/b9QwGMZ/D6pUmFA+Ap5BqpQBxMLiL8CQrxAGZhQ+Qm6H4foR7iS2LjQ7LbpITAxInIpE1QU1CIFgM8Plcn+g6fVa1wHdz4tjJ4/fe85+7USODZfnRugA/g82Nl4JGxuvhI2NV0JHbZRVLhs6itUJbOPUKg2Uz7e7AtjYuBqKGqt22Q1txWW4BhtlZM7oyqYVV7jx2irLdwaYxd5tVE5ErD7IaqS+UlkNFIEsMbFyGVmNFhc1ALESJcoVzavUOpkynYJSfdQAZCYKSpWCMqXLo3nGeS1EOIeDfayDnP7sykFOXt/X1Jon6xYM+4sq0766ntaaiQPLoH56hFkezWfZ8vwnVUgpFdP5UF1YYSxL5BZVJj0FAEMyRURUgGWaGiqSdUZbF8+LWkYjSjds+0Er5Ly7Z6u4ioIEW5s6w/9CnsN3bkwpXDmp/iX7TWi1UYaSh60qPbLa4KLRMte783te1AzJZTEUJPzgHshiMCTCFRQkSqhkiUHLM6pSQoXlCcyplPXdqauNcmOVFACukFFGiaWHmWjOjeYT38nXQdy6BZnVeltV0lXH81X0b39vVJ+CivF5p07fdPSdemVKgNAm0v3ZqJTKDUNHcR5bALKd/Axwmx12uMmB4tChtLDrxky2mFdvXMcYuKTJ31noYFp58ax5i/m87fc0cBG+s8ceJ3MtR3Qnuj/5cgvqRX28fRw6moZ3HPJ1oeVTp238NbPx/rfHoaNZYMiQ2a7yiPwSWr55eQq1ja+PPjwIHc4iMXc45C0/gQN6ocNp4f3JUzp/4FFKQumeh47jPH4DA20CF+Idf/QAAAAldEVYdGRhdGU6Y3JlYXRlADIwMjMtMTAtMTlUMjE6MTY6MjYrMDA6MDDbw7WBAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDIzLTEwLTE5VDIxOjE2OjI2KzAwOjAwqp4NPQAAACh0RVh0ZGF0ZTp0aW1lc3RhbXAAMjAyMy0xMC0xOVQyMToxNjoyNiswMDowMP2LLOIAAAATdEVYdHBkZjpWZXJzaW9uAFBERi0xLjVTNlrBAAAASnRFWHRzaWduYXR1cmUAODBhNGEzMGNlYTIxMzg5N2U1YmM4NGFmZmMxMzVkODMwZDEyMWM3ZWRiZTJjMWViMTlhN2Y2NWJmNWRmOWJhN0Yc/KYAAAAASUVORK5CYII=",
+      "text/plain": [
+       "<wand.image.Image: 80a4a30 'PDF' (163x26)>"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "pyx:\n",
+      "pyx failed:\n",
+      "Traceback (most recent call last):\n",
+      "  File \"/home/apn/git/pyfeyn2/pyfeyn2/render/all.py\", line 109, in render\n",
+      "    render(fd).render(dirpath + \"/\" + name + \".pdf\", **dynarg)\n",
+      "  File \"/home/apn/git/pyfeyn2/pyfeyn2/render/pyx/pyxrender.py\", line 66, in render\n",
+      "    nl = NamedLine[lname](Point(src.x, src.y), Point(tar.x, tar.y))\n",
+      "         ~~~~~~~~~^^^^^^^\n",
+      "KeyError: 'anti baryon'\n",
+      "\n",
+      "feynmp:\n",
+      "feynmp failed:\n",
+      "Traceback (most recent call last):\n",
+      "  File \"/home/apn/git/pyfeyn2/pyfeyn2/render/all.py\", line 109, in render\n",
+      "    render(fd).render(dirpath + \"/\" + name + \".pdf\", **dynarg)\n",
+      "    ^^^^^^^^^^\n",
+      "  File \"/home/apn/git/pyfeyn2/pyfeyn2/render/latex/feynmp.py\", line 181, in __init__\n",
+      "    self.set_feynman_diagram(fd)\n",
+      "  File \"/home/apn/git/pyfeyn2/pyfeyn2/render/latex/feynmp.py\", line 185, in set_feynman_diagram\n",
+      "    self.set_src_diag(NoEscape(feynman_to_feynmp(fd)))\n",
+      "                               ^^^^^^^^^^^^^^^^^^^^^\n",
+      "  File \"/home/apn/git/pyfeyn2/pyfeyn2/render/latex/feynmp.py\", line 139, in feynman_to_feynmp\n",
+      "    tttype = type_map[pstyle.getProperty(\"line\").value]\n",
+      "             ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+      "KeyError: 'anti baryon'\n",
+      "\n",
+      "feynman:\n",
+      "feynman failed:\n",
+      "Traceback (most recent call last):\n",
+      "  File \"/home/apn/git/pyfeyn2/pyfeyn2/render/all.py\", line 109, in render\n",
+      "    render(fd).render(dirpath + \"/\" + name + \".pdf\", **dynarg)\n",
+      "  File \"/home/apn/git/pyfeyn2/pyfeyn2/render/mpl/feynmanrender.py\", line 169, in render\n",
+      "    for style in get_styled_lines(self.fd, p):\n",
+      "                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+      "  File \"/home/apn/git/pyfeyn2/pyfeyn2/render/mpl/feynmanrender.py\", line 40, in get_styled_lines\n",
+      "    for i in namedlines[lname]:\n",
+      "             ~~~~~~~~~~^^^^^^^\n",
+      "KeyError: 'anti baryon'\n",
+      "\n",
+      "dot:\n",
+      "dot failed:\n",
+      "Traceback (most recent call last):\n",
+      "  File \"/home/apn/git/pyfeyn2/pyfeyn2/render/all.py\", line 109, in render\n",
+      "    render(fd).render(dirpath + \"/\" + name + \".pdf\", **dynarg)\n",
+      "    ^^^^^^^^^^\n",
+      "  File \"/home/apn/git/pyfeyn2/pyfeyn2/render/latex/dot.py\", line 80, in __init__\n",
+      "    self.set_feynman_diagram(fd)\n",
+      "  File \"/home/apn/git/pyfeyn2/pyfeyn2/render/latex/dot.py\", line 84, in set_feynman_diagram\n",
+      "    self.src_dot = feynman_to_dot(\n",
+      "                   ^^^^^^^^^^^^^^^\n",
+      "  File \"/home/apn/git/pyfeyn2/pyfeyn2/interface/dot.py\", line 61, in feynman_to_dot\n",
+      "    thestyle = styler(fd, p)\n",
+      "               ^^^^^^^^^^^^^\n",
+      "  File \"/home/apn/git/pyfeyn2/pyfeyn2/render/latex/dot.py\", line 40, in stylize_connect\n",
+      "    style = 'style=\"{}\",texmode=\"raw\"'.format(map_feyn_to_tikz[lname])\n",
+      "                                              ~~~~~~~~~~~~~~~~^^^^^^^\n",
+      "KeyError: 'anti baryon'\n",
+      "\n",
+      "asciipdf:\n",
+      "asciipdf failed:\n",
+      "Traceback (most recent call last):\n",
+      "  File \"/home/apn/git/pyfeyn2/pyfeyn2/render/all.py\", line 109, in render\n",
+      "    render(fd).render(dirpath + \"/\" + name + \".pdf\", **dynarg)\n",
+      "  File \"/home/apn/git/pyfeyn2/pyfeyn2/render/text/asciipdf.py\", line 25, in render\n",
+      "    ASCIIRender.render(\n",
+      "  File \"/home/apn/git/pyfeyn2/pyfeyn2/render/text/ascii.py\", line 244, in render\n",
+      "    self.draw_connector(pane, p, src, tar, fmt)\n",
+      "  File \"/home/apn/git/pyfeyn2/pyfeyn2/render/text/ascii.py\", line 198, in draw_connector\n",
+      "    self.namedlines[lname]().draw(pane, src, tar, **fmt, **tmp_fmt)\n",
+      "    ~~~~~~~~~~~~~~~^^^^^^^\n",
+      "KeyError: 'anti baryon'\n",
+      "\n",
+      "unicodepdf:\n",
+      "unicodepdf failed:\n",
+      "Traceback (most recent call last):\n",
+      "  File \"/home/apn/git/pyfeyn2/pyfeyn2/render/all.py\", line 109, in render\n",
+      "    render(fd).render(dirpath + \"/\" + name + \".pdf\", **dynarg)\n",
+      "  File \"/home/apn/git/pyfeyn2/pyfeyn2/render/text/unicodepdf.py\", line 64, in render\n",
+      "    UnicodeRender.render(\n",
+      "  File \"/home/apn/git/pyfeyn2/pyfeyn2/render/text/ascii.py\", line 244, in render\n",
+      "    self.draw_connector(pane, p, src, tar, fmt)\n",
+      "  File \"/home/apn/git/pyfeyn2/pyfeyn2/render/text/ascii.py\", line 198, in draw_connector\n",
+      "    self.namedlines[lname]().draw(pane, src, tar, **fmt, **tmp_fmt)\n",
+      "    ~~~~~~~~~~~~~~~^^^^^^^\n",
+      "KeyError: 'anti baryon'\n",
+      "\n"
+     ]
+    },
+    {
+     "data": {
+      "image/png": "iVBORw0KGgoAAAANSUhEUgAAAgcAAAIHCAYAAAALof87AAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90bGliIHZlcnNpb24zLjcuMywgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy/OQEPoAAAACXBIWXMAAA9hAAAPYQGoP6dpAAAH/ElEQVR4nO3WoQHAIBDAwNL9d34MJhOAuJsgMmtm5gMAOP7bAQDAW8wBABDmAAAIcwAAhDkAAMIcAABhDgCAMAcAQJgDACDMAQAQ5gAACHMAAIQ5AADCHAAAYQ4AgDAHAECYAwAgzAEAEOYAAAhzAACEOQAAwhwAAGEOAIAwBwBAmAMAIMwBABDmAAAIcwAAhDkAAMIcAABhDgCAMAcAQJgDACDMAQAQ5gAACHMAAIQ5AADCHAAAYQ4AgDAHAECYAwAgzAEAEOYAAAhzAACEOQAAwhwAAGEOAIAwBwBAmAMAIMwBABDmAAAIcwAAhDkAAMIcAABhDgCAMAcAQJgDACDMAQAQ5gAACHMAAIQ5AADCHAAAYQ4AgDAHAECYAwAgzAEAEOYAAAhzAACEOQAAwhwAAGEOAIAwBwBAmAMAIMwBABDmAAAIcwAAhDkAAMIcAABhDgCAMAcAQJgDACDMAQAQ5gAACHMAAIQ5AADCHAAAYQ4AgDAHAECYAwAgzAEAEOYAAAhzAACEOQAAwhwAAGEOAIAwBwBAmAMAIMwBABDmAAAIcwAAhDkAAMIcAABhDgCAMAcAQJgDACDMAQAQ5gAACHMAAIQ5AADCHAAAYQ4AgDAHAECYAwAgzAEAEOYAAAhzAACEOQAAwhwAAGEOAIAwBwBAmAMAIMwBABDmAAAIcwAAhDkAAMIcAABhDgCAMAcAQJgDACDMAQAQ5gAACHMAAIQ5AADCHAAAYQ4AgDAHAECYAwAgzAEAEOYAAAhzAACEOQAAwhwAAGEOAIAwBwBAmAMAIMwBABDmAAAIcwAAhDkAAMIcAABhDgCAMAcAQJgDACDMAQAQ5gAACHMAAIQ5AADCHAAAYQ4AgDAHAECYAwAgzAEAEOYAAAhzAACEOQAAwhwAAGEOAIAwBwBAmAMAIMwBABDmAAAIcwAAhDkAAMIcAABhDgCAMAcAQJgDACDMAQAQ5gAACHMAAIQ5AADCHAAAYQ4AgDAHAECYAwAgzAEAEOYAAAhzAACEOQAAwhwAAGEOAIAwBwBAmAMAIMwBABDmAAAIcwAAhDkAAMIcAABhDgCAMAcAQJgDACDMAQAQ5gAACHMAAIQ5AADCHAAAYQ4AgDAHAECYAwAgzAEAEOYAAAhzAACEOQAAwhwAAGEOAIAwBwBAmAMAIMwBABDmAAAIcwAAhDkAAMIcAABhDgCAMAcAQJgDACDMAQAQ5gAACHMAAIQ5AADCHAAAYQ4AgDAHAECYAwAgzAEAEOYAAAhzAACEOQAAwhwAAGEOAIAwBwBAmAMAIMwBABDmAAAIcwAAhDkAAMIcAABhDgCAMAcAQJgDACDMAQAQ5gAACHMAAIQ5AADCHAAAYQ4AgDAHAECYAwAgzAEAEOYAAAhzAACEOQAAwhwAAGEOAIAwBwBAmAMAIMwBABDmAAAIcwAAhDkAAMIcAABhDgCAMAcAQJgDACDMAQAQ5gAACHMAAIQ5AADCHAAAYQ4AgDAHAECYAwAgzAEAEOYAAAhzAACEOQAAwhwAAGEOAIAwBwBAmAMAIMwBABDmAAAIcwAAhDkAAMIcAABhDgCAMAcAQJgDACDMAQAQ5gAACHMAAIQ5AADCHAAAYQ4AgDAHAECYAwAgzAEAEOYAAAhzAACEOQAAwhwAAGEOAIAwBwBAmAMAIMwBABDmAAAIcwAAhDkAAMIcAABhDgCAMAcAQJgDACDMAQAQ5gAACHMAAIQ5AADCHAAAYQ4AgDAHAECYAwAgzAEAEOYAAAhzAACEOQAAwhwAAGEOAIAwBwBAmAMAIMwBABDmAAAIcwAAhDkAAMIcAABhDgCAMAcAQJgDACDMAQAQ5gAACHMAAIQ5AADCHAAAYQ4AgDAHAECYAwAgzAEAEOYAAAhzAACEOQAAwhwAAGEOAIAwBwBAmAMAIMwBABDmAAAIcwAAhDkAAMIcAABhDgCAMAcAQJgDACDMAQAQ5gAACHMAAIQ5AADCHAAAYQ4AgDAHAECYAwAgzAEAEOYAAAhzAACEOQAAwhwAAGEOAIAwBwBAmAMAIMwBABDmAAAIcwAAhDkAAMIcAABhDgCAMAcAQJgDACDMAQAQ5gAACHMAAIQ5AADCHAAAYQ4AgDAHAECYAwAgzAEAEOYAAAhzAACEOQAAwhwAAGEOAIAwBwBAmAMAIMwBABDmAAAIcwAAhDkAAMIcAABhDgCAMAcAQJgDACDMAQAQ5gAACHMAAIQ5AADCHAAAYQ4AgDAHAECYAwAgzAEAEOYAAAhzAACEOQAAwhwAAGEOAIAwBwBAmAMAIMwBABDmAAAIcwAAhDkAAMIcAABhDgCAMAcAQJgDACDMAQAQ5gAACHMAAIQ5AADCHAAAYQ4AgDAHAECYAwAgzAEAEOYAAAhzAACEOQAAwhwAAGEOAIAwBwBAmAMAIMwBABDmAAAIcwAAhDkAAMIcAABhDgCAMAcAQJgDACDMAQAQ5gAACHMAAIQ5AADCHAAAYQ4AgDAHAECYAwAgzAEAEOYAAAhzAACEOQAAwhwAAGEOAIAwBwBAmAMAIMwBABDmAAAIcwAAhDkAAMIcAABhDgCAMAcAQJgDACDMAQAQ5gAACHMAAIQ5AADCHAAAYQ4AgDAHAECYAwAgzAEAEOYAAAhzAACEOQAAwhwAAGEOAIAwBwBAmAMAIMwBABDmAAAIcwAAhDkAAMIcAABhDgCAMAcAQJgDACDMAQAQ5gAACHMAAIQ5AADCHAAAsQFPvggKfg649gAAAABJRU5ErkJggg==",
+      "text/plain": [
+       "<Figure size 500x500 with 1 Axes>"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "from pyfeyn2.render.all import AllRender\n",
+    "ar = AllRender().demo_propagator(\"anti baryon\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.11.5"
+  },
+  "vscode": {
+   "interpreter": {
+    "hash": "31f2aee4e71d21fbe5cf8b01ff0e069b9275f58929596ceb00d14d90e3e16cd6"
+   }
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 4
+}

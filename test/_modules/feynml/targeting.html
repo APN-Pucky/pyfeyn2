@@ -40,7 +40,7 @@
               <img src="../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.3.8
+                2.3.10-3-gf74dff75
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -110,11 +110,22 @@
 <span></span>from dataclasses import dataclass, field
 from typing import Optional
 
+from feynml.id import Identifiable
+from feynml.pdgid import PDG
+
 
 <div class="viewcode-block" id="Targeting"><a class="viewcode-back" href="../../_autosummary/feynml.targeting.Targeting.html#feynml.targeting.Targeting">[docs]</a>@dataclass
 class Targeting:
     target: Optional[str] = field(default=&quot;&quot;, metadata={})
     &quot;&quot;&quot;Target of the object&quot;&quot;&quot;
+
+    def __post_init__(self):
+        if isinstance(self, PDG):
+            PDG.__post_init__(self)
+        elif isinstance(self, Identifiable):
+            Identifiable.__post_init__(self)
+        if isinstance(self.target, Identifiable):
+            self.target = self.target.id
 
     def with_target(self, target):
         if isinstance(target, str):

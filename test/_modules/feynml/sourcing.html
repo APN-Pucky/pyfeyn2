@@ -40,7 +40,7 @@
               <img src="../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.3.8
+                2.3.10-3-gf74dff75
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -110,11 +110,22 @@
 <span></span>from dataclasses import dataclass, field
 from typing import Optional
 
+from feynml.id import Identifiable
+from feynml.pdgid import PDG
+
 
 <div class="viewcode-block" id="Sourcing"><a class="viewcode-back" href="../../_autosummary/feynml.sourcing.Sourcing.html#feynml.sourcing.Sourcing">[docs]</a>@dataclass
 class Sourcing:
     source: Optional[str] = field(default=&quot;&quot;, metadata={})
     &quot;&quot;&quot;Source of the object&quot;&quot;&quot;
+
+    def __post_init__(self):
+        if isinstance(self, PDG):
+            PDG.__post_init__(self)
+        elif isinstance(self, Identifiable):
+            Identifiable.__post_init__(self)
+        if isinstance(self.source, Identifiable):
+            self.source = self.source.id
 
     def with_source(self, source):
         if isinstance(source, str):
