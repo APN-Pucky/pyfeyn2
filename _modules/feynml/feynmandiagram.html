@@ -40,7 +40,7 @@
               <img src="../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.3.8
+                2.3.11
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -342,7 +342,7 @@ class FeynmanDiagram(SheetHandler, XML, Styled, Identifiable):
                         if i != fl1i and fl2[i][j].id == fl1[fl1i][fl1j].id:
                             perms += 1
                             fl2[fl1i][fl1j], fl2[i][j] = fl2[i][j], fl2[fl1i][fl1j]
-        print(perms)
+        # print(perms)
         return (-1) ** perms
 
     def get_fermion_line_ends(self):
@@ -375,6 +375,18 @@ class FeynmanDiagram(SheetHandler, XML, Styled, Identifiable):
                 v = self.get_vertex(leg.target)
             if leg.is_outgoing() and leg.is_anti_fermion():
                 return chain
+        elif isinstance(leg, Propagator):
+            if leg.is_fermion():
+                v = self.get_vertex(leg.source)
+            elif leg.is_anti_fermion():
+                v = self.get_vertex(leg.target)
+            else:
+                raise Exception(
+                    &quot;Propagator not connected to leg&quot;
+                )  # when hit change to check full chain
+        else:
+            raise Exception(&quot;Unknown leg type&quot;)
+
         chain.append(v)
         # TODO handle case where there are mutliple fermions ( i.e. checkc the flow)
         cs = self.get_connections(v)
@@ -385,6 +397,18 @@ class FeynmanDiagram(SheetHandler, XML, Styled, Identifiable):
                 return chain
         # TODO needs to handle loops and stop if already in chain
         raise Exception(&quot;Could not find fermion line end&quot;)
+
+    def has_pdgid(self, pdgid):
+        for p in [*self.propagators, *self.legs]:
+            if p.pdgid == pdgid:
+                return True
+        return False
+
+    def get_leg_by_pdgid(self, pdgid):
+        for leg in self.legs:
+            if leg.pdgid == pdgid:
+                return leg
+        return None
 
     def copy(self, new_vertex_ids=True, new_leg_ids=True, new_propagator_ids=True):
         copy = self.deepcopy()
@@ -414,7 +438,12 @@ class FeynmanDiagram(SheetHandler, XML, Styled, Identifiable):
         return copy
 
     def deepcopy(self):
-        return copy.deepcopy(self)
+        savesheets = self.sheet
+        self.sheet = None
+        ret = copy.deepcopy(self)
+        self.sheet = savesheets
+        ret.sheet = cssutils.parseString(self.sheet.cssText)
+        return ret
 
     def conjugated(
         self, new_vertex_ids=True, new_leg_ids=True, new_propagator_ids=True
@@ -428,10 +457,15 @@ class FeynmanDiagram(SheetHandler, XML, Styled, Identifiable):
     def _conjugate(self):
         for leg in self.legs:
             leg.conjugate()
+        for propagator in self.propagators:
+            propagator.conjugate()
         return self
 
-    def render(self, render=&quot;tikz&quot;, show=True, file=None):
+    def render(
+        self, render=&quot;tikz&quot;, show=True, file=None, auto_position=True, deepcopy=True
+    ):
         import pyfeyn2.render.all as renderall
+        from pyfeyn2.auto.bend import auto_bend
         from pyfeyn2.auto.label import auto_label
         from pyfeyn2.auto.position import (
             auto_align_legs,
@@ -440,15 +474,24 @@ class FeynmanDiagram(SheetHandler, XML, Styled, Identifiable):
         )
 
         # deepcopy to avoid modifying the original diagram
-        fd = self.deepcopy()
-        # remove all unpositioned vertices
-        fd = auto_align_legs(
-            fd,
-            incoming=[(0, i) for i in np.linspace(0, 10, len(self.get_incoming()))],
-            outgoing=[(10, i) for i in np.linspace(0, 10, len(self.get_outgoing()))],
-        )
-        fd = auto_vdw(fd, points=[v for v in fd.vertices if v.x is None or v.y is None])
+        if deepcopy:
+            fd = self.deepcopy()
+        else:
+            fd = self
+        if auto_position:
+            # remove all unpositioned vertices
+            fd = auto_align_legs(
+                fd,
+                incoming=[(0, i) for i in np.linspace(0, 10, len(self.get_incoming()))],
+                outgoing=[
+                    (10, i) for i in np.linspace(0, 10, len(self.get_outgoing()))
+                ],
+            )
+            p = [v for v in fd.vertices if v.x is None or v.y is None]
+            if len(p) &gt; 0:
+                fd = auto_vdw(fd, points=p)
         auto_label([*fd.propagators, *fd.legs])
+        fd = auto_bend(fd)
         renderer = renderall.renderer_from_string(render)
         renderer(fd).render(show=show, file=file)
 

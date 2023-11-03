@@ -18,8 +18,10 @@ feynml.point.Point
    
       ~Point.__init__
       ~Point.with_point
+      ~Point.with_x
       ~Point.with_xy
       ~Point.with_xyz
+      ~Point.with_y
    
    
 

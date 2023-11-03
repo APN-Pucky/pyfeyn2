@@ -40,7 +40,7 @@
               <img src="../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.3.8
+                2.3.11
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -111,6 +111,8 @@
 
 from smpl_util.util import withify
 
+from feynml.id import Identifiable
+from feynml.pdgid import PDG
 from feynml.sourcing import Sourcing
 from feynml.targeting import Targeting
 
@@ -118,6 +120,14 @@ from feynml.targeting import Targeting
 <div class="viewcode-block" id="Line"><a class="viewcode-back" href="../../_autosummary/feynml.line.Line.html#feynml.line.Line">[docs]</a>@withify()
 @dataclass
 class Line(Targeting, Sourcing):
+    def __post_init__(self):
+        if isinstance(self, PDG):
+            PDG.__post_init__(self)
+        elif isinstance(self, Identifiable):
+            Identifiable.__post_init__(self)
+        Targeting.__post_init__(self)
+        Sourcing.__post_init__(self)
+
     def connect(self, source, target):
         return self.with_source(source).with_target(target)</div>
 </pre></div>

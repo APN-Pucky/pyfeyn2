@@ -55,8 +55,10 @@ pyfeyn2.feynmandiagram.Leg
       ~Leg.with_target
       ~Leg.with_tension
       ~Leg.with_type
+      ~Leg.with_x
       ~Leg.with_xy
       ~Leg.with_xyz
+      ~Leg.with_y
    
    
 

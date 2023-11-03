@@ -40,7 +40,7 @@
               <img src="../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.3.8
+                2.3.11
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -124,7 +124,15 @@ class Propagator(Line, Connector):
 
 <div class="viewcode-block" id="Propagator.goes_out_of"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.Propagator.html#feynml.propagator.Propagator.goes_out_of">[docs]</a>    def goes_out_of(self, vertex):
         &quot;&quot;&quot;Return True if the propagator goes out of the vertex, False otherwise.&quot;&quot;&quot;
-        return self.target == vertex.id</div></div>
+        return self.target == vertex.id</div>
+
+<div class="viewcode-block" id="Propagator.conjugate"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.Propagator.html#feynml.propagator.Propagator.conjugate">[docs]</a>    def conjugate(self):
+        &quot;&quot;&quot;Return the conjugate of the propagator.&quot;&quot;&quot;
+        tar = self.target
+        src = self.source
+        return self.with_target(src).with_source(
+            tar
+        )  # this is inprinciple the same as negating the id</div></div>
 </pre></div>
 
            </div>

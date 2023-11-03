@@ -43,7 +43,7 @@
               <img src="../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.3.8
+                2.3.11
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -148,7 +148,7 @@
 <h1>feynml.feynmandiagram.FeynmanDiagram<a class="headerlink" href="#feynml-feynmandiagram-feynmandiagram" title="Permalink to this heading"></a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="feynml.feynmandiagram.FeynmanDiagram">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">feynml.feynmandiagram.</span></span><span class="sig-name descname"><span class="pre">FeynmanDiagram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id:</span> <span class="pre">Union[str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style:</span> <span class="pre">cssutils.css.cssstyledeclaration.CSSStyleDeclaration</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clazz:</span> <span class="pre">Union[str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">NoneType]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">propagators:</span> <span class="pre">List[feynml.propagator.Propagator]</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertices:</span> <span class="pre">List[feynml.vertex.Vertex]</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">legs:</span> <span class="pre">List[feynml.leg.Leg]</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sheet:</span> <span class="pre">cssutils.css.cssstylesheet.CSSStyleSheet</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/feynml/feynmandiagram.html#FeynmanDiagram"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#feynml.feynmandiagram.FeynmanDiagram" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">feynml.feynmandiagram.</span></span><span class="sig-name descname"><span class="pre">FeynmanDiagram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id:</span> <span class="pre">Optional[str]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style:</span> <span class="pre">cssutils.css.cssstyledeclaration.CSSStyleDeclaration</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clazz:</span> <span class="pre">Optional[str]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">propagators:</span> <span class="pre">List[feynml.propagator.Propagator]</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertices:</span> <span class="pre">List[feynml.vertex.Vertex]</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">legs:</span> <span class="pre">List[feynml.leg.Leg]</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sheet:</span> <span class="pre">cssutils.css.cssstylesheet.CSSStyleSheet</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/feynml/feynmandiagram.html#FeynmanDiagram"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#feynml.feynmandiagram.FeynmanDiagram" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="feynml.sheet.SheetHandler.html#feynml.sheet.SheetHandler" title="feynml.sheet.SheetHandler"><code class="xref py py-class docutils literal notranslate"><span class="pre">SheetHandler</span></code></a>, <a class="reference internal" href="feynml.xml.XML.html#feynml.xml.XML" title="feynml.xml.XML"><code class="xref py py-class docutils literal notranslate"><span class="pre">XML</span></code></a>, <a class="reference internal" href="feynml.styled.Styled.html#feynml.styled.Styled" title="feynml.styled.Styled"><code class="xref py py-class docutils literal notranslate"><span class="pre">Styled</span></code></a>, <a class="reference internal" href="feynml.id.Identifiable.html#feynml.id.Identifiable" title="feynml.id.Identifiable"><code class="xref py py-class docutils literal notranslate"><span class="pre">Identifiable</span></code></a></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="feynml.feynmandiagram.FeynmanDiagram.__init__">
@@ -215,43 +215,49 @@
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_leg</span></code>(idd)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_loose_vertices</span></code>()</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_leg_by_pdgid</span></code>(pdgid)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_neighbours</span></code>(vertex)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_loose_vertices</span></code>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_outgoing</span></code>()</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_neighbours</span></code>(vertex)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_point</span></code>(idd)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_outgoing</span></code>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#feynml.feynmandiagram.FeynmanDiagram.get_sheet" title="feynml.feynmandiagram.FeynmanDiagram.get_sheet"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_sheet</span></code></a>()</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_point</span></code>(idd)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#feynml.feynmandiagram.FeynmanDiagram.get_sheet" title="feynml.feynmandiagram.FeynmanDiagram.get_sheet"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_sheet</span></code></a>()</p></td>
 <td><p>Return the sheet.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#feynml.feynmandiagram.FeynmanDiagram.get_sheets" title="feynml.feynmandiagram.FeynmanDiagram.get_sheets"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_sheets</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#feynml.feynmandiagram.FeynmanDiagram.get_sheets" title="feynml.feynmandiagram.FeynmanDiagram.get_sheets"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_sheets</span></code></a>()</p></td>
 <td><p>Return the sheet.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#feynml.feynmandiagram.FeynmanDiagram.get_style" title="feynml.feynmandiagram.FeynmanDiagram.get_style"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_style</span></code></a>(obj[, xml])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#feynml.feynmandiagram.FeynmanDiagram.get_style" title="feynml.feynmandiagram.FeynmanDiagram.get_style"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_style</span></code></a>(obj[, xml])</p></td>
 <td><p>Get the style of an object.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#feynml.feynmandiagram.FeynmanDiagram.get_style_property" title="feynml.feynmandiagram.FeynmanDiagram.get_style_property"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_style_property</span></code></a>(obj, property_name[, xml])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#feynml.feynmandiagram.FeynmanDiagram.get_style_property" title="feynml.feynmandiagram.FeynmanDiagram.get_style_property"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_style_property</span></code></a>(obj, property_name[, xml])</p></td>
 <td><p>Get a style property of an object.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_unpositioned_vertices</span></code>()</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_unpositioned_vertices</span></code>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_vertex</span></code>(idd)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_vertex</span></code>(idd)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">has</span></code>(obj)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">has</span></code>(obj)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">has_id</span></code>(id)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">has_id</span></code>(id)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">has_leg</span></code>(leg)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">has_leg</span></code>(leg)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">has_pdgid</span></code>(pdgid)</p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">has_propagator</span></code>(propagator)</p></td>
@@ -281,7 +287,7 @@
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_propagator</span></code>(propagator)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">render</span></code>([render, show, file])</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">render</span></code>([render, show, file, auto_position, ...])</p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#feynml.feynmandiagram.FeynmanDiagram.to_xml" title="feynml.feynmandiagram.FeynmanDiagram.to_xml"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_xml</span></code></a>()</p></td>

@@ -40,7 +40,7 @@
               <img src="../../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.3.8
+                2.3.11
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
@@ -123,34 +123,37 @@ from pyfeyn2.render.latex.latex import LatexRender
 # converte FeynmanDiagram to tikz-feynman
 
 type_map = {
-    &quot;gluon&quot;: &quot;gluon&quot;,
-    &quot;ghost&quot;: &quot;ghost&quot;,
-    &quot;photon&quot;: &quot;photon&quot;,
-    &quot;boson&quot;: &quot;photon&quot;,
-    &quot;fermion&quot;: &quot;fermion&quot;,
-    &quot;anti fermion&quot;: &quot;anti fermion&quot;,
-    &quot;charged boson&quot;: &quot;charged boson&quot;,
-    &quot;anti charged boson&quot;: &quot;anti charged boson&quot;,
-    &quot;scalar&quot;: &quot;scalar&quot;,
-    &quot;charged scalar&quot;: &quot;charged scalar&quot;,
-    &quot;anti charged scalar&quot;: &quot;anti charged scalar&quot;,
-    &quot;majorana&quot;: &quot;majorana&quot;,
-    &quot;anti majorana&quot;: &quot;anti majorana&quot;,
+    &quot;gluon&quot;: [&quot;gluon&quot;],
+    &quot;ghost&quot;: [&quot;ghost&quot;],
+    &quot;photon&quot;: [&quot;photon&quot;],
+    &quot;boson&quot;: [&quot;photon&quot;],
+    &quot;fermion&quot;: [&quot;fermion&quot;],
+    &quot;anti fermion&quot;: [&quot;anti fermion&quot;],
+    &quot;charged boson&quot;: [&quot;charged boson&quot;],
+    &quot;anti charged boson&quot;: [&quot;anti charged boson&quot;],
+    &quot;scalar&quot;: [&quot;scalar&quot;],
+    &quot;charged scalar&quot;: [&quot;charged scalar&quot;],
+    &quot;anti charged scalar&quot;: [&quot;anti charged scalar&quot;],
+    &quot;majorana&quot;: [&quot;majorana&quot;],
+    &quot;anti majorana&quot;: [&quot;anti majorana&quot;],
     # SUSY
-    &quot;gaugino&quot;: &quot;plain,boson&quot;,
-    &quot;chargino&quot;: &quot;plain,boson&quot;,
-    &quot;neutralino&quot;: &quot;plain,boson&quot;,
-    &quot;squark&quot;: &quot;charged scalar&quot;,
-    &quot;slepton&quot;: &quot;charged scalar&quot;,
-    &quot;anti squark&quot;: &quot;anti charged scalar&quot;,
-    &quot;anti slepton&quot;: &quot;anti charged scalar&quot;,
-    &quot;gluino&quot;: &quot;plain,gluon&quot;,
-    &quot;higgs&quot;: &quot;scalar&quot;,
-    &quot;vector&quot;: &quot;boson&quot;,
+    &quot;gaugino&quot;: [&quot;plain,boson&quot;],
+    &quot;chargino&quot;: [&quot;plain,boson&quot;],
+    &quot;neutralino&quot;: [&quot;plain,boson&quot;],
+    &quot;squark&quot;: [&quot;charged scalar&quot;],
+    &quot;slepton&quot;: [&quot;charged scalar&quot;],
+    &quot;anti squark&quot;: [&quot;anti charged scalar&quot;],
+    &quot;anti slepton&quot;: [&quot;anti charged scalar&quot;],
+    &quot;gluino&quot;: [&quot;plain,gluon&quot;],
+    &quot;higgs&quot;: [&quot;scalar&quot;],
+    &quot;vector&quot;: [&quot;boson&quot;],
     # UTIL
-    &quot;phantom&quot;: &quot;draw=none&quot;,
-    &quot;line&quot;: &quot;plain&quot;,
-    &quot;plain&quot;: &quot;plain&quot;,
+    &quot;phantom&quot;: [&quot;draw=none&quot;],
+    &quot;line&quot;: [&quot;plain&quot;],
+    &quot;plain&quot;: [&quot;plain&quot;],
+    &quot;baryon&quot;: [&quot;fermion&quot;, &quot;double=none, double distance=%(double_distance)s&quot;],
+    &quot;anti baryon&quot;: [&quot;anti fermion&quot;, &quot;double=none, double distance=%(double_distance)s&quot;],
+    &quot;meson&quot;: [&quot;double=none,double distance =%(double_distance)s&quot;],
 }
 
 shape_map = {
@@ -164,54 +167,71 @@ shape_map = {
 
 <div class="viewcode-block" id="stylize_connect"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.latex.tikzfeynman.stylize_connect.html#pyfeyn2.render.latex.tikzfeynman.stylize_connect">[docs]</a>def stylize_connect(fd: FeynmanDiagram, c: Connector):
     style = fd.get_style(c)
-    ret = &quot;&quot;
+    double_distance = (
+        style.getProperty(&quot;double-distance&quot;).value
+        if style.getProperty(&quot;double-distance&quot;) is not None
+        else &quot;3&quot;
+    ) + &quot;pt&quot;
+    label_side = (
+        style.getProperty(&quot;label-side&quot;).value
+        if style.getProperty(&quot;label-side&quot;) is not None
+        else &quot;left&quot;
+    )
+    rets = []
+    frets = []
     if style.getProperty(&quot;line&quot;) is not None:
-        ret += type_map[style.getProperty(&quot;line&quot;).value]
+        rets += type_map[style.getProperty(&quot;line&quot;).value]
     else:
         if c.type is not None:
-            ret += type_map[c.type]  # fallback to type if no style
+            rets += type_map[c.type]  # fallback to type if no style
         else:
             warnings.warn(
                 f&quot;No type or style set for connector  {c.id} {c.type} {c.pdgid}&quot;
             )
-            ret += &quot;plain&quot;
-
-    if c.label is not None:
-        ret += &quot;,edge label=&quot; + c.label
-    # if c.edge_label_ is not None: style += &quot;,edge label&#39;=&quot; + c.edge_label_
-    if (
-        style.getProperty(&quot;momentum-arrow&quot;) is not None
-        and style.getProperty(&quot;momentum-arrow&quot;).value == &quot;true&quot;
-    ):
-        if style.getProperty(&quot;momentum-arrow-sense&quot;) is not None:
-            if style.getProperty(&quot;momentum-arrow-sense&quot;).value == &quot;-1&quot;:
-                ret += &quot;,momentum&#39;=&quot; + c.momentum.name
-            elif style.getProperty(&quot;momentum-arrow-sense&quot;).value == &quot;0&quot;:
-                warn(
-                    &quot;momentum-arrow=true but momentum-arrow-sense=0, ignoring momentum-arrow&quot;
-                )
-                pass
+            rets += [&quot;plain&quot;]
+    for ret in rets:
+        if c.label is not None:
+            if label_side == &quot;left&quot;:
+                ret += &quot;,edge label=&quot; + c.label
+            elif label_side == &quot;right&quot;:
+                ret += &quot;,edge label&#39;=&quot; + c.label
+            else:
+                warnings.warn(f&quot;Unknown label-side {label_side}&quot;)
+                ret += &quot;,edge label=&quot; + c.label
+        if (
+            style.getProperty(&quot;momentum-arrow&quot;) is not None
+            and style.getProperty(&quot;momentum-arrow&quot;).value == &quot;true&quot;
+        ):
+            if style.getProperty(&quot;momentum-arrow-sense&quot;) is not None:
+                if style.getProperty(&quot;momentum-arrow-sense&quot;).value == &quot;-1&quot;:
+                    ret += &quot;,momentum&#39;=&quot; + c.momentum.name
+                elif style.getProperty(&quot;momentum-arrow-sense&quot;).value == &quot;0&quot;:
+                    warn(
+                        &quot;momentum-arrow=true but momentum-arrow-sense=0, ignoring momentum-arrow&quot;
+                    )
+                    pass
+                else:
+                    ret += &quot;,momentum=&quot; + c.momentum.name
             else:
                 ret += &quot;,momentum=&quot; + c.momentum.name
-        else:
-            ret += &quot;,momentum=&quot; + c.momentum.name
-    if style.opacity is not None and style.opacity != &quot;&quot;:
-        ret += &quot;,opacity=&quot; + str(style.opacity)
-    if style.color is not None and style.color != &quot;&quot;:
-        ret += &quot;,&quot; + str(style.color)
-    if style.getProperty(&quot;bend-direction&quot;) is not None:
-        ret += &quot;,bend &quot; + str(style.getProperty(&quot;bend-direction&quot;).value)
-    if style.getProperty(&quot;bend-loop&quot;) is not None:
-        ret += (
-            &quot;,loop , in=&quot;
-            + str(style.getProperty(&quot;bend-in&quot;).value)
-            + &quot;, out=&quot;
-            + str(style.getProperty(&quot;bend-out&quot;).value)
-            + &quot;, min distance=&quot;
-            + str(style.getProperty(&quot;bend-min-distance&quot;).value)
-        )
-
-    return ret</div>
+        if style.opacity is not None and style.opacity != &quot;&quot;:
+            ret += &quot;,opacity=&quot; + str(style.opacity)
+        if style.color is not None and style.color != &quot;&quot;:
+            ret += &quot;,&quot; + str(style.color)
+        if style.getProperty(&quot;bend-direction&quot;) is not None:
+            ret += &quot;,bend &quot; + str(style.getProperty(&quot;bend-direction&quot;).value)
+        if style.getProperty(&quot;bend-loop&quot;) is not None:
+            ret += (
+                &quot;,loop , in=&quot;
+                + str(style.getProperty(&quot;bend-in&quot;).value)
+                + &quot;, out=&quot;
+                + str(style.getProperty(&quot;bend-out&quot;).value)
+                + &quot;, min distance=&quot;
+                + str(style.getProperty(&quot;bend-min-distance&quot;).value)
+            )
+        ret = ret % {&quot;double_distance&quot;: double_distance}
+        frets.append(ret)
+    return frets</div>
 
 
 <div class="viewcode-block" id="stylize_node"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.latex.tikzfeynman.stylize_node.html#pyfeyn2.render.latex.tikzfeynman.stylize_node">[docs]</a>def stylize_node(fd: FeynmanDiagram, v: Vertex):
@@ -268,24 +288,33 @@ shape_map = {
     direct = &quot;*&quot;
 
     src = &quot;\\begin{tikzpicture}\n&quot;
+    src += &quot;\\pgfsetblendmode{multiply}\n&quot;
     src += &quot;\\begin{feynman}\n&quot;
     for v in fd.vertices:
         src += stylize_node(fd, v)
     for l in fd.legs:
         src += stylize_leg_node(l)
-    src += f&quot;\t\\diagram{direct}&quot; + &quot;{\n&quot;
     for p in fd.propagators:
-        style = stylize_connect(fd, p)
-        src += get_line(p.source, p.target, style)
+        styles = stylize_connect(fd, p)
+        for style in styles:
+            src += &quot;\\begin{scope}[transparency group]&quot;
+            src += f&quot;\t\\diagram{direct}&quot; + &quot;{\n&quot;
+            src += get_line(p.source, p.target, style)
+            src += &quot;\t};\n&quot;
+            src += &quot;\\end{scope}&quot;
     for l in fd.legs:
-        style = stylize_connect(fd, l)
-        if l.is_incoming():
-            src += get_line(l.id, l.target, style)
-        elif l.is_outgoing():
-            src += get_line(l.target, l.id, style)
-        else:
-            raise Exception(&quot;Unknown sense&quot;)
-    src += &quot;\t};\n&quot;
+        styles = stylize_connect(fd, l)
+        for style in styles:
+            src += &quot;\\begin{scope}[transparency group]&quot;
+            src += f&quot;\t\\diagram{direct}&quot; + &quot;{\n&quot;
+            if l.is_incoming():
+                src += get_line(l.id, l.target, style)
+            elif l.is_outgoing():
+                src += get_line(l.target, l.id, style)
+            else:
+                raise Exception(&quot;Unknown sense&quot;)
+            src += &quot;\t};\n&quot;
+            src += &quot;\\end{scope}&quot;
     src += &quot;\\end{feynman}\n&quot;
     src += &quot;\\end{tikzpicture}\n&quot;
     return src</div>
@@ -334,6 +363,8 @@ shape_map = {
             &quot;bend-min-distance&quot;,
             &quot;momentum-arrow&quot;,
             &quot;momentum-arrow-sense&quot;,
+            &quot;double-distance&quot;,
+            &quot;label-side&quot;,
         ]
 
     @classmethod

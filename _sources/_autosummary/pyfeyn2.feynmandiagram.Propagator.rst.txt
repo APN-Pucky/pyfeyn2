@@ -17,6 +17,7 @@ pyfeyn2.feynmandiagram.Propagator
    .. autosummary::
    
       ~Propagator.__init__
+      ~Propagator.conjugate
       ~Propagator.connect
       ~Propagator.get_length
       ~Propagator.get_style_property

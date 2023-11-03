@@ -35,6 +35,7 @@ pyfeyn2.feynmandiagram.FeynmanDiagram
       ~FeynmanDiagram.get_fermion_lines
       ~FeynmanDiagram.get_incoming
       ~FeynmanDiagram.get_leg
+      ~FeynmanDiagram.get_leg_by_pdgid
       ~FeynmanDiagram.get_loose_vertices
       ~FeynmanDiagram.get_neighbours
       ~FeynmanDiagram.get_outgoing
@@ -48,6 +49,7 @@ pyfeyn2.feynmandiagram.FeynmanDiagram
       ~FeynmanDiagram.has
       ~FeynmanDiagram.has_id
       ~FeynmanDiagram.has_leg
+      ~FeynmanDiagram.has_pdgid
       ~FeynmanDiagram.has_propagator
       ~FeynmanDiagram.has_vertex
       ~FeynmanDiagram.has_vertex_id
