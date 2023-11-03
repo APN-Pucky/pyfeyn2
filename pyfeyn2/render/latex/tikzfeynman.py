@@ -63,6 +63,11 @@ def stylize_connect(fd: FeynmanDiagram, c: Connector):
         if style.getProperty("double-distance") is not None
         else "3"
     ) + "pt"
+    label_side = (
+        style.getProperty("label-side").value
+        if style.getProperty("label-side") is not None
+        else "left"
+    )
     rets = []
     frets = []
     if style.getProperty("line") is not None:
@@ -77,8 +82,13 @@ def stylize_connect(fd: FeynmanDiagram, c: Connector):
             rets += ["plain"]
     for ret in rets:
         if c.label is not None:
-            ret += ",edge label=" + c.label
-        # if c.edge_label_ is not None: style += ",edge label'=" + c.edge_label_
+            if label_side == "left":
+                ret += ",edge label=" + c.label
+            elif label_side == "right":
+                ret += ",edge label'=" + c.label
+            else:
+                warnings.warn(f"Unknown label-side {label_side}")
+                ret += ",edge label=" + c.label
         if (
             style.getProperty("momentum-arrow") is not None
             and style.getProperty("momentum-arrow").value == "true"
@@ -245,6 +255,7 @@ class TikzFeynmanRender(LatexRender):
             "momentum-arrow",
             "momentum-arrow-sense",
             "double-distance",
+            "label-side",
         ]
 
     @classmethod

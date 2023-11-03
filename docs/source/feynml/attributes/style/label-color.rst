@@ -1,4 +1,4 @@
-.. _color:
+.. _label-color:
 
 color
 =========
