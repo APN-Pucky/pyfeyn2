@@ -40,7 +40,7 @@
               <img src="../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.3.11-1-g5666e456
+                2.3.11-2-g5d21685e
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -309,7 +309,7 @@ def _auto_align(points, positions):
         dist[:, min_j] = np.inf
 
 
-<div class="viewcode-block" id="auto_align"><a class="viewcode-back" href="../../../_autosummary/pyfeyn2.auto.position.auto_align.html#pyfeyn2.auto.position.auto_align">[docs]</a>def auto_align(fd, positions):
+<div class="viewcode-block" id="auto_align"><a class="viewcode-back" href="../../../_autosummary/pyfeyn2.auto.position.auto_align.html#pyfeyn2.auto.position.auto_align">[docs]</a>def auto_align(fd, positions, legs=True, vertices=True):
     &quot;&quot;&quot;
     Automatically position the vertices and legs on a list of positions.
 
@@ -319,13 +319,20 @@ def _auto_align(points, positions):
         The Feynman diagram to be positioned.
     positions : list of tuple
         A list of tuples of the form (x,y) with the positions of the vertices
+        and legs.
+    legs : bool, optional
+        Whether to position the legs, by default True
+    vertices : bool, optional
+        Whether to position the vertices, by default True
 
     Returns
     -------
     FeynmanDiagram
         The Feynman diagram with the vertices and legs positioned.
     &quot;&quot;&quot;
-    _auto_align([*fd.vertices, *fd.legs], positions)
+    _auto_align(
+        [*(fd.vertices if vertices else []), *(fd.legs if legs else [])], positions
+    )
     return fd</div>
 
 
