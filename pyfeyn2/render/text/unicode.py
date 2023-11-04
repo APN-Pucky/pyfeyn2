@@ -2,6 +2,7 @@ from pylatexenc.latex2text import LatexNodes2Text
 
 from pyfeyn2.render.text.ascii import ASCIIRender, Label
 from pyfeyn2.render.text.line import ASCIILine
+from pyfeyn2.render.text.point import ASCIIPoint
 from pyfeyn2.render.text.style import Compass
 
 
@@ -59,4 +60,15 @@ class UnicodeRender(ASCIIRender):
         "label": ULabel,
         "fermion": UFermion,
         "anti fermion": AntiUFermion,
+    }
+
+    namedshapes = {
+        **ASCIIRender.namedshapes,
+        "triangle": ASCIIPoint("▲"),
+        "square": ASCIIPoint("■"),
+        "dot": ASCIIPoint("●"),
+        "diamond": ASCIIPoint("◆"),
+        "pentagram": ASCIIPoint("⛤"),
+        "star": ASCIIPoint("★"),
+        "blob": ASCIIPoint("◍"),
     }

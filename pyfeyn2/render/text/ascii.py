@@ -217,6 +217,7 @@ class ASCIIRender(Render):
         "square": ASCIIPoint("#"),
         "blob": ASCIIPoint("@"),
         "star": ASCIIPoint("*"),
+        "star": ASCIIPoint("*"),
     }
 
     def __init__(self, fd=None, *args, **kwargs):

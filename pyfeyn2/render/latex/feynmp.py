@@ -52,7 +52,6 @@ type_map = {
     "gaugino": ["photon", "plain"],
 }
 
-# TODO fill styles: full,empty,shaded,hatched,gray50,gray30,gray70
 shape_map = {
     "empty": "empty",
     "dot": "circle",
@@ -69,6 +68,7 @@ shape_map = {
     "triacross": "triacross",
     "pentacross": "pentacross",
     "hexacross": "hexacross",
+    "star": "pentagram",
 }
 
 
