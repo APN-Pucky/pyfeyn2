@@ -1,5 +1,6 @@
 import os
 import subprocess
+import tempfile
 from pathlib import Path
 
 from pyfeyn2.render.latex.latex import LatexRender
@@ -32,7 +33,10 @@ class MetaPostRender(LatexRender):
         width=None,
         height=None,
         clean_up=True,
+        temp_dir=None,
     ):
+        if temp_dir is None:
+            temp_dir = tempfile.TemporaryDirectory()
         super().render(
             file,
             show=False,
@@ -40,8 +44,10 @@ class MetaPostRender(LatexRender):
             width=width,
             height=height,
             clean_up=False,
+            temp_dir=temp_dir,
         )
-        parent_dir = Path(file if file else "tmp.pdf").parent.absolute()
+        # parent_dir = Path(file if file else "tmp.pdf").parent.absolute()
+        parent_dir = temp_dir.name
         # for filename in os.listdir(parent_dir):
         #    if filename.endswith(".dvi"):
         #        os.remove(filename)
@@ -63,15 +69,17 @@ class MetaPostRender(LatexRender):
             width=width,
             height=height,
             clean_up=clean_up,
+            temp_dir=temp_dir,
         )
-        if clean_up:
-            for filename in os.listdir(parent_dir):
-                if filename.endswith(".mp") and filename.startswith("tmp"):
-                    os.remove(Path.joinpath(parent_dir, filename))
-                elif filename.endswith(".log") and filename.startswith("tmp"):
-                    os.remove(Path.joinpath(parent_dir, filename))
-                elif filename.endswith(".1") and filename.startswith(
-                    "tmp"
-                ):  # TODO maybe add more numbers
-                    os.remove(Path.joinpath(parent_dir, filename))
+        # TODO this should no longer be necessary
+        # if clean_up:
+        #    for filename in os.listdir(parent_dir):
+        #        if filename.endswith(".mp") and filename.startswith("tmp"):
+        #            os.remove(Path.joinpath(parent_dir, filename))
+        #        elif filename.endswith(".log") and filename.startswith("tmp"):
+        #            os.remove(Path.joinpath(parent_dir, filename))
+        #        elif filename.endswith(".1") and filename.startswith(
+        #            "tmp"
+        #        ):  # TODO maybe add more numbers
+        #            os.remove(Path.joinpath(parent_dir, filename))
         return ret

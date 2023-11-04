@@ -1,5 +1,8 @@
 import os
 import re
+import shutil
+import tempfile
+from pathlib import Path
 
 from IPython.display import display
 from pylatex import Document
@@ -46,23 +49,35 @@ class LatexRender(Document, Render):
         width=None,
         height=None,
         clean_up=True,
+        temp_dir=None,
     ):
-        delete = False
+        if temp_dir is None:
+            temp_dir = tempfile.TemporaryDirectory()
+        copy = True
         if file is None:
-            delete = True
+            copy = False
             file = "tmp"
         file = re.sub(r"\.pdf$", "", file.strip())
+        tfile = re.sub(r"\.pdf$", "", os.path.basename(file).strip())
+        tfile = os.path.join(temp_dir.name, tfile)
         self.generate_pdf(
-            file,
+            tfile,
             clean_tex=clean_up,
             compiler="lualatex",
             compiler_args=["-shell-escape"],
         )
-        wi = WImage(
-            filename=file + ".pdf", resolution=resolution, width=width, height=height
-        )
-        if delete:
-            os.remove(file + ".pdf")
+        file += ".pdf"
+        tfile += ".pdf"
+        wi = WImage(filename=tfile, resolution=resolution, width=width, height=height)
+        if copy:
+            # Copy tfile to file
+            Path(file).parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy(tfile, file)
+            # os.rename(tfile + ".pdf", file)
+        # if delete:
+        #    os.remove(tfile + ".pdf")
+        if clean_up and temp_dir:
+            temp_dir.cleanup()
         if show:
             display(wi)
         return wi
