@@ -200,7 +200,7 @@ def _auto_align(points, positions):
         dist[:, min_j] = np.inf
 
 
-def auto_align(fd, positions):
+def auto_align(fd, positions, legs=True, vertices=True):
     """
     Automatically position the vertices and legs on a list of positions.
 
@@ -210,13 +210,20 @@ def auto_align(fd, positions):
         The Feynman diagram to be positioned.
     positions : list of tuple
         A list of tuples of the form (x,y) with the positions of the vertices
+        and legs.
+    legs : bool, optional
+        Whether to position the legs, by default True
+    vertices : bool, optional
+        Whether to position the vertices, by default True
 
     Returns
     -------
     FeynmanDiagram
         The Feynman diagram with the vertices and legs positioned.
     """
-    _auto_align([*fd.vertices, *fd.legs], positions)
+    _auto_align(
+        [*(fd.vertices if vertices else []), *(fd.legs if legs else [])], positions
+    )
     return fd
 
 
