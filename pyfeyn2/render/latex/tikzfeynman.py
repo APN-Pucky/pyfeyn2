@@ -39,12 +39,12 @@ type_map = {
     "higgs": ["scalar"],
     "vector": ["boson"],
     # UTIL
-    "phantom": ["draw=none"],
-    "line": ["plain"],
-    "plain": ["plain"],
-    "baryon": ["fermion", "double=none, double distance=%(double_distance)s"],
-    "anti baryon": ["anti fermion", "double=none, double distance=%(double_distance)s"],
-    "meson": ["double=none,double distance =%(double_distance)s"],
+    "phantom": "draw=none",
+    "line": "plain",
+    "plain": "plain",
+    "baryon": "fermion, preaction={draw,double distance =%(double_distance)s %(color)s,}",
+    "anti baryon": "anti fermion, preaction={draw,double distance =%(double_distance)s %(color)s,}",
+    "meson": "double distance =%(double_distance)s",
 }
 
 shape_map = {
@@ -105,24 +105,27 @@ def stylize_connect(fd: FeynmanDiagram, c: Connector):
                     ret += ",momentum=" + c.momentum.name
             else:
                 ret += ",momentum=" + c.momentum.name
-        if style.opacity is not None and style.opacity != "":
-            ret += ",opacity=" + str(style.opacity)
-        if style.color is not None and style.color != "":
-            ret += "," + str(style.color)
-        if style.getProperty("bend-direction") is not None:
-            ret += ",bend " + str(style.getProperty("bend-direction").value)
-        if style.getProperty("bend-loop") is not None:
-            ret += (
-                ",loop , in="
-                + str(style.getProperty("bend-in").value)
-                + ", out="
-                + str(style.getProperty("bend-out").value)
-                + ", min distance="
-                + str(style.getProperty("bend-min-distance").value)
-            )
-        ret = ret % {"double_distance": double_distance}
-        frets.append(ret)
-    return frets
+        else:
+            ret += ",momentum=" + c.momentum.name
+    if style.opacity is not None and style.opacity != "":
+        ret += ",opacity=" + str(style.opacity)
+    color = ""
+    if style.color is not None and style.color != "":
+        color = "," + str(style.color)
+    ret += color
+    if style.getProperty("bend-direction") is not None:
+        ret += ",bend " + str(style.getProperty("bend-direction").value)
+    if style.getProperty("bend-loop") is not None:
+        ret += (
+            ",loop , in="
+            + str(style.getProperty("bend-in").value)
+            + ", out="
+            + str(style.getProperty("bend-out").value)
+            + ", min distance="
+            + str(style.getProperty("bend-min-distance").value)
+        )
+
+    return ret % {"double_distance": double_distance, "color": color}
 
 
 def stylize_node(fd: FeynmanDiagram, v: Vertex):
