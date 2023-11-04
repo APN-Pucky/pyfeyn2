@@ -4,6 +4,7 @@ from typing import List
 import requests
 from IPython.display import SVG, display
 
+from pyfeyn2.feynmandiagram import Connector, FeynmanDiagram
 from pyfeyn2.render.render import Render
 
 
@@ -19,21 +20,34 @@ def mm(graph):
     display(Image(url="" + base64_string))
 
 
+def stylize_connect(fd: FeynmanDiagram, c: Connector):
+    ret = ""
+    if c.label is None:
+        ret = "---"
+    else:
+        ret = f"-- {c.label} ---"
+    return ret
+
+
 def feynman_to_mm(fd):
     src = "graph LR;\n"
     for v in fd.vertices:
-        src += f"{v.id}(vertex);\n"
+        src += f"{v.id}:::hidden;\n"
     for l in fd.legs:
-        src += f"{l.id}(leg);\n"
+        src += f"{l.id}:::hidden;\n"
     for l in fd.legs:
+        sty = stylize_connect(fd, l)
         if l.is_incoming():
-            src += f"{l.id} --> {l.target};\n"
+            src += f"{l.id} {sty} {l.target};\n"
         elif l.is_outgoing():
-            src += f"{l.target} --> {l.id};\n"
+            src += f"{l.target} {sty} {l.id};\n"
         else:
             raise Exception("Unknown leg sense. Should be either incoming or outgoing.")
     for p in fd.propagators:
-        src += f"{p.source} --> {p.target};\n"
+        sty = stylize_connect(fd, p)
+        src += f"{p.source} {sty} {p.target};\n"
+
+    src += "classDef hidden display: none;\n"
     # print(src)
     return src
 

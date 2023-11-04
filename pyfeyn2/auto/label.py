@@ -1,11 +1,14 @@
 import copy
 
 
-def auto_label(objs, replace=False):
+def auto_label(objs, replace=False, latex=True):
     """Automatically label objects."""
     for p in objs:
         if (p.label is None or replace) and p.particle is not None:
-            p.label = "$" + p.particle.latex_name + "$"
+            if latex:
+                p.label = "$" + p.particle.latex_name + "$"
+            else:
+                p.label = p.particle.name
 
 
 def auto_label_propagators(ifd, replace=False):
