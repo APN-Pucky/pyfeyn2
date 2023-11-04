@@ -1,5 +1,7 @@
 import os
 import re
+import tempfile
+from pathlib import Path
 
 from IPython.display import display
 from pylatex import Document
@@ -47,13 +49,14 @@ class LatexRender(Document, Render):
         height=None,
         clean_up=True,
     ):
+        temp_dir = tempfile.TemporaryDirectory()
         delete = False
         if file is None:
             delete = True
             file = "tmp"
         file = re.sub(r"\.pdf$", "", file.strip())
         self.generate_pdf(
-            file,
+            os.path.join(temp_dir.name, file),
             clean_tex=clean_up,
             compiler="lualatex",
             compiler_args=["-shell-escape"],
@@ -61,6 +64,8 @@ class LatexRender(Document, Render):
         wi = WImage(
             filename=file + ".pdf", resolution=resolution, width=width, height=height
         )
+        if clean_up:
+            temp_dir.cleanup()
         if delete:
             os.remove(file + ".pdf")
         if show:
