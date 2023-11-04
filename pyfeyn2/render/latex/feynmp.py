@@ -52,6 +52,25 @@ type_map = {
     "gaugino": ["photon", "plain"],
 }
 
+shape_map = {
+    "empty": "empty",
+    "dot": "circle",
+    "square": "square",
+    "triangle": "triangle",
+    "diamond": "diamond",
+    "pentagon": "pentagon",
+    "hexagon": "hexagon",
+    "triagrram": "triagram",
+    "tetragram": "tetragram",
+    "pentragram": "pentagram",
+    "hexagram": "hexagram",
+    "cross": "cross",
+    "triacross": "triacross",
+    "pentacross": "pentacross",
+    "hexacross": "hexacross",
+    "star": "pentagram",
+}
+
 
 def stylize_line(fd: feynmandiagram, c: Connector) -> str:
     cstyle = fd.get_style(c)
@@ -151,8 +170,18 @@ def feynman_to_feynmp(fd):
 
     # Add labels
     for v in fd.vertices:
+        style = fd.get_style(v)
         if v.label is not None:
             src += f"\t\t\\fmflabel{{{v.label}}}{{{v.id}}}\n"
+        if style.getProperty("symbol") is not None:
+            shape = shape_map[style.getProperty("symbol").value]
+            fill = style.getPropertyValue("symbol-fill")
+            if not fill == "":
+                fill = f",decor.filled={fill}"
+            size = style.getPropertyValue("symbol-size")
+            if not size == "":
+                size = f",decor.size={size}"
+            src += f"\t\t\\fmfv{{decor.shape={shape}{fill}{size}}}{{{v.id}}}\n"
     src += "\\end{fmfgraph*}\n"
     src += "\\end{fmffile}\n"
     return src
@@ -198,4 +227,10 @@ class FeynmpRender(MetaPostRender):
             "line",
             "direction",
             "tension",
+            "symbol-fill",
+            "symbol-size",
         ]
+
+    @classmethod
+    def valid_shapes(cls) -> List[str]:
+        return super().valid_types() + list(shape_map.keys())
