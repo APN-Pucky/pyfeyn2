@@ -40,7 +40,7 @@
               <img src="../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.3.11-3-gae1a2386
+                2.3.11-4-g697b5b90
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -118,6 +118,7 @@ from feynml.type import get_types
 from matplotlib import pyplot as plt
 from pylatex import Figure, NoEscape, SubFigure
 
+from pyfeyn2.render.js.mermaid import MermaidRender
 from pyfeyn2.render.latex.dot import DotRender
 from pyfeyn2.render.latex.feynmp import FeynmpRender
 from pyfeyn2.render.latex.latex import LatexRender
@@ -135,6 +136,7 @@ renders = {
     &quot;feynmp&quot;: FeynmpRender,
     &quot;feynman&quot;: FeynmanRender,
     &quot;dot&quot;: DotRender,
+    &quot;mermaid&quot;: MermaidRender,
     &quot;asciipdf&quot;: ASCIIPDFRender,
     &quot;unicodepdf&quot;: UnicodePDFRender,
 }

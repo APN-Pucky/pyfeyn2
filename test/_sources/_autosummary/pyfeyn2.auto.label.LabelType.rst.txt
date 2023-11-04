@@ -1,0 +1,27 @@
+pyfeyn2.auto.label.LabelType
+============================
+
+.. currentmodule:: pyfeyn2.auto.label
+
+.. autoclass:: LabelType
+   :members:                                   
+   :show-inheritance:                           
+   :inherited-members:                         
+
+   
+   .. automethod:: __init__
+
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~LabelType.LATEX
+      ~LabelType.UNICODE
+      ~LabelType.ASCII
+   
+   

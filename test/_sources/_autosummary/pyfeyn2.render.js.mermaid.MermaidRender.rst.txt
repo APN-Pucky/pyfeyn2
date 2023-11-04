@@ -1,0 +1,39 @@
+pyfeyn2.render.js.mermaid.MermaidRender
+=======================================
+
+.. currentmodule:: pyfeyn2.render.js.mermaid
+
+.. autoclass:: MermaidRender
+   :members:                                   
+   :show-inheritance:                           
+   :inherited-members:                         
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~MermaidRender.__init__
+      ~MermaidRender.demo_propagator
+      ~MermaidRender.demo_vertex
+      ~MermaidRender.get_src
+      ~MermaidRender.render
+      ~MermaidRender.set_feynman_diagram
+      ~MermaidRender.set_src
+      ~MermaidRender.valid_attribute
+      ~MermaidRender.valid_attributes
+      ~MermaidRender.valid_shape
+      ~MermaidRender.valid_shapes
+      ~MermaidRender.valid_style
+      ~MermaidRender.valid_styles
+      ~MermaidRender.valid_type
+      ~MermaidRender.valid_types
+   
+   
+
+   
+   
+   

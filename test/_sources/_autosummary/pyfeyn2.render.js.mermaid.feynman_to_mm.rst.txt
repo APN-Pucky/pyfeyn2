@@ -1,0 +1,6 @@
+pyfeyn2.render.js.mermaid.feynman\_to\_mm
+=========================================
+
+.. currentmodule:: pyfeyn2.render.js.mermaid
+
+.. autofunction:: feynman_to_mm
