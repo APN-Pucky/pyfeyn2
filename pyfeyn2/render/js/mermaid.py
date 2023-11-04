@@ -93,8 +93,8 @@ class MermaidRender(Render):
 
     @classmethod
     def valid_types(cls) -> List[str]:
-        return super().valid_types() + list(type_map.keys())
+        return super().valid_types()
 
     @classmethod
     def valid_shapes(cls) -> List[str]:
-        return super().valid_types() + list(shape_map.keys())
+        return super().valid_types()
