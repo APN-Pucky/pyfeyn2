@@ -17,8 +17,6 @@ def mm(graph):
     r = requests.get("https://mermaid.ink/svg/" + base64_string)
     return r.content
 
-    display(Image(url="" + base64_string))
-
 
 def stylize_connect(fd: FeynmanDiagram, c: Connector):
     ret = ""
@@ -66,6 +64,10 @@ class MermaidRender(Render):
         self,
         file=None,
         show=True,
+        resolution=100,
+        width=None,
+        height=None,
+        clean_up=True,
     ):
         svg = mm(self.get_src())
         if file:

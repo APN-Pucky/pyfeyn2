@@ -1,4 +1,5 @@
 import copy
+from ast import List
 from enum import Enum
 
 from pylatexenc.latex2text import LatexNodes2Text
@@ -10,7 +11,9 @@ class LabelType(Enum):
     ASCII = 3
 
 
-def auto_label(objs, replace=False, type=LabelType.LATEX):
+def auto_label(
+    objs: List, replace: bool = False, label_type: LabelType = LabelType.LATEX
+):
     """
     Automatically label objects.
 
@@ -24,13 +27,13 @@ def auto_label(objs, replace=False, type=LabelType.LATEX):
     """
     for p in objs:
         if (p.label is None or replace) and p.particle is not None:
-            if type == LabelType.LATEX:
+            if label_type == LabelType.LATEX:
                 p.label = "$" + p.particle.latex_name + "$"
-            elif type == LabelType.UNICODE:
+            elif label_type == LabelType.UNICODE:
                 p.label = LatexNodes2Text().latex_to_text(
                     "$" + p.particle.latex_name + "$"
                 )
-            elif type == LabelType.ASCII:
+            elif label_type == LabelType.ASCII:
                 p.label = p.particle.name
             else:
                 raise Exception("Unknown label type.")
