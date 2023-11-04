@@ -9,6 +9,7 @@ from feynml.type import get_types
 from matplotlib import pyplot as plt
 from pylatex import Figure, NoEscape, SubFigure
 
+from pyfeyn2.render.js.mermaid import MermaidRender
 from pyfeyn2.render.latex.dot import DotRender
 from pyfeyn2.render.latex.feynmp import FeynmpRender
 from pyfeyn2.render.latex.latex import LatexRender
@@ -26,6 +27,7 @@ renders = {
     "feynmp": FeynmpRender,
     "feynman": FeynmanRender,
     "dot": DotRender,
+    "mermaid": MermaidRender,
     "asciipdf": ASCIIPDFRender,
     "unicodepdf": UnicodePDFRender,
 }
