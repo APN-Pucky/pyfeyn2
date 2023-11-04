@@ -1,5 +1,6 @@
 import os
 import re
+import shutil
 import tempfile
 from pathlib import Path
 
@@ -52,9 +53,9 @@ class LatexRender(Document, Render):
     ):
         if temp_dir is None:
             temp_dir = tempfile.TemporaryDirectory()
-        delete = False
+        copy = True
         if file is None:
-            delete = True
+            copy = False
             file = "tmp"
         file = re.sub(r"\.pdf$", "", file.strip())
         tfile = re.sub(r"\.pdf$", "", os.path.basename(file).strip())
@@ -65,15 +66,16 @@ class LatexRender(Document, Render):
             compiler="lualatex",
             compiler_args=["-shell-escape"],
         )
-        wi = WImage(
-            filename=tfile + ".pdf", resolution=resolution, width=width, height=height
-        )
-        if file is not None:
+        file += ".pdf"
+        tfile += ".pdf"
+        wi = WImage(filename=tfile, resolution=resolution, width=width, height=height)
+        if copy:
             # Copy tfile to file
             Path(file).parent.mkdir(parents=True, exist_ok=True)
-            os.rename(tfile + ".pdf", file)
-        if delete:
-            os.remove(tfile + ".pdf")
+            shutil.copy(tfile, file)
+            # os.rename(tfile + ".pdf", file)
+        # if delete:
+        #    os.remove(tfile + ".pdf")
         if clean_up and temp_dir:
             temp_dir.cleanup()
         if show:

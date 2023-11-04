@@ -72,14 +72,14 @@ class MetaPostRender(LatexRender):
             temp_dir=temp_dir,
         )
         # TODO this should no longer be necessary
-        if clean_up:
-            for filename in os.listdir(parent_dir):
-                if filename.endswith(".mp") and filename.startswith("tmp"):
-                    os.remove(Path.joinpath(parent_dir, filename))
-                elif filename.endswith(".log") and filename.startswith("tmp"):
-                    os.remove(Path.joinpath(parent_dir, filename))
-                elif filename.endswith(".1") and filename.startswith(
-                    "tmp"
-                ):  # TODO maybe add more numbers
-                    os.remove(Path.joinpath(parent_dir, filename))
+        # if clean_up:
+        #    for filename in os.listdir(parent_dir):
+        #        if filename.endswith(".mp") and filename.startswith("tmp"):
+        #            os.remove(Path.joinpath(parent_dir, filename))
+        #        elif filename.endswith(".log") and filename.startswith("tmp"):
+        #            os.remove(Path.joinpath(parent_dir, filename))
+        #        elif filename.endswith(".1") and filename.startswith(
+        #            "tmp"
+        #        ):  # TODO maybe add more numbers
+        #            os.remove(Path.joinpath(parent_dir, filename))
         return ret
