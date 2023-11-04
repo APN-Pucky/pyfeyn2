@@ -40,7 +40,7 @@
               <img src="../../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.3.10-3-gf74dff75
+                2.3.11-1-g5666e456
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
@@ -109,6 +109,9 @@
   <h1>Source code for pyfeyn2.render.latex.latex</h1><div class="highlight"><pre>
 <span></span>import os
 import re
+import shutil
+import tempfile
+from pathlib import Path
 
 from IPython.display import display
 from pylatex import Document
@@ -155,23 +158,35 @@ from pyfeyn2.render.render import Render
         width=None,
         height=None,
         clean_up=True,
+        temp_dir=None,
     ):
-        delete = False
+        if temp_dir is None:
+            temp_dir = tempfile.TemporaryDirectory()
+        copy = True
         if file is None:
-            delete = True
+            copy = False
             file = &quot;tmp&quot;
         file = re.sub(r&quot;\.pdf$&quot;, &quot;&quot;, file.strip())
+        tfile = re.sub(r&quot;\.pdf$&quot;, &quot;&quot;, os.path.basename(file).strip())
+        tfile = os.path.join(temp_dir.name, tfile)
         self.generate_pdf(
-            file,
+            tfile,
             clean_tex=clean_up,
             compiler=&quot;lualatex&quot;,
             compiler_args=[&quot;-shell-escape&quot;],
         )
-        wi = WImage(
-            filename=file + &quot;.pdf&quot;, resolution=resolution, width=width, height=height
-        )
-        if delete:
-            os.remove(file + &quot;.pdf&quot;)
+        file += &quot;.pdf&quot;
+        tfile += &quot;.pdf&quot;
+        wi = WImage(filename=tfile, resolution=resolution, width=width, height=height)
+        if copy:
+            # Copy tfile to file
+            Path(file).parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy(tfile, file)
+            # os.rename(tfile + &quot;.pdf&quot;, file)
+        # if delete:
+        #    os.remove(tfile + &quot;.pdf&quot;)
+        if clean_up and temp_dir:
+            temp_dir.cleanup()
         if show:
             display(wi)
         return wi</div></div>

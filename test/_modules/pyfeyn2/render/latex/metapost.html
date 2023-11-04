@@ -40,7 +40,7 @@
               <img src="../../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.3.10-3-gf74dff75
+                2.3.11-1-g5666e456
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
@@ -109,6 +109,7 @@
   <h1>Source code for pyfeyn2.render.latex.metapost</h1><div class="highlight"><pre>
 <span></span>import os
 import subprocess
+import tempfile
 from pathlib import Path
 
 from pyfeyn2.render.latex.latex import LatexRender
@@ -141,7 +142,10 @@ from pyfeyn2.render.latex.latex import LatexRender
         width=None,
         height=None,
         clean_up=True,
+        temp_dir=None,
     ):
+        if temp_dir is None:
+            temp_dir = tempfile.TemporaryDirectory()
         super().render(
             file,
             show=False,
@@ -149,8 +153,10 @@ from pyfeyn2.render.latex.latex import LatexRender
             width=width,
             height=height,
             clean_up=False,
+            temp_dir=temp_dir,
         )
-        parent_dir = Path(file if file else &quot;tmp.pdf&quot;).parent.absolute()
+        # parent_dir = Path(file if file else &quot;tmp.pdf&quot;).parent.absolute()
+        parent_dir = temp_dir.name
         # for filename in os.listdir(parent_dir):
         #    if filename.endswith(&quot;.dvi&quot;):
         #        os.remove(filename)
@@ -172,17 +178,19 @@ from pyfeyn2.render.latex.latex import LatexRender
             width=width,
             height=height,
             clean_up=clean_up,
+            temp_dir=temp_dir,
         )
-        if clean_up:
-            for filename in os.listdir(parent_dir):
-                if filename.endswith(&quot;.mp&quot;) and filename.startswith(&quot;tmp&quot;):
-                    os.remove(Path.joinpath(parent_dir, filename))
-                elif filename.endswith(&quot;.log&quot;) and filename.startswith(&quot;tmp&quot;):
-                    os.remove(Path.joinpath(parent_dir, filename))
-                elif filename.endswith(&quot;.1&quot;) and filename.startswith(
-                    &quot;tmp&quot;
-                ):  # TODO maybe add more numbers
-                    os.remove(Path.joinpath(parent_dir, filename))
+        # TODO this should no longer be necessary
+        # if clean_up:
+        #    for filename in os.listdir(parent_dir):
+        #        if filename.endswith(&quot;.mp&quot;) and filename.startswith(&quot;tmp&quot;):
+        #            os.remove(Path.joinpath(parent_dir, filename))
+        #        elif filename.endswith(&quot;.log&quot;) and filename.startswith(&quot;tmp&quot;):
+        #            os.remove(Path.joinpath(parent_dir, filename))
+        #        elif filename.endswith(&quot;.1&quot;) and filename.startswith(
+        #            &quot;tmp&quot;
+        #        ):  # TODO maybe add more numbers
+        #            os.remove(Path.joinpath(parent_dir, filename))
         return ret</div></div>
 </pre></div>
 
