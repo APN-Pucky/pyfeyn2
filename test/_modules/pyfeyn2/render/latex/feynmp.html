@@ -40,7 +40,7 @@
               <img src="../../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.3.11-2-g5d21685e
+                2.3.11-3-gae1a2386
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
@@ -161,6 +161,25 @@ type_map = {
     &quot;gaugino&quot;: [&quot;photon&quot;, &quot;plain&quot;],
 }
 
+shape_map = {
+    &quot;empty&quot;: &quot;empty&quot;,
+    &quot;dot&quot;: &quot;circle&quot;,
+    &quot;square&quot;: &quot;square&quot;,
+    &quot;triangle&quot;: &quot;triangle&quot;,
+    &quot;diamond&quot;: &quot;diamond&quot;,
+    &quot;pentagon&quot;: &quot;pentagon&quot;,
+    &quot;hexagon&quot;: &quot;hexagon&quot;,
+    &quot;triagrram&quot;: &quot;triagram&quot;,
+    &quot;tetragram&quot;: &quot;tetragram&quot;,
+    &quot;pentragram&quot;: &quot;pentagram&quot;,
+    &quot;hexagram&quot;: &quot;hexagram&quot;,
+    &quot;cross&quot;: &quot;cross&quot;,
+    &quot;triacross&quot;: &quot;triacross&quot;,
+    &quot;pentacross&quot;: &quot;pentacross&quot;,
+    &quot;hexacross&quot;: &quot;hexacross&quot;,
+    &quot;star&quot;: &quot;pentagram&quot;,
+}
+
 
 <div class="viewcode-block" id="stylize_line"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.latex.feynmp.stylize_line.html#pyfeyn2.render.latex.feynmp.stylize_line">[docs]</a>def stylize_line(fd: feynmandiagram, c: Connector) -&gt; str:
     cstyle = fd.get_style(c)
@@ -260,8 +279,18 @@ type_map = {
 
     # Add labels
     for v in fd.vertices:
+        style = fd.get_style(v)
         if v.label is not None:
             src += f&quot;\t\t\\fmflabel{{{v.label}}}{{{v.id}}}\n&quot;
+        if style.getProperty(&quot;symbol&quot;) is not None:
+            shape = shape_map[style.getProperty(&quot;symbol&quot;).value]
+            fill = style.getPropertyValue(&quot;symbol-fill&quot;)
+            if not fill == &quot;&quot;:
+                fill = f&quot;,decor.filled={fill}&quot;
+            size = style.getPropertyValue(&quot;symbol-size&quot;)
+            if not size == &quot;&quot;:
+                size = f&quot;,decor.size={size}&quot;
+            src += f&quot;\t\t\\fmfv{{decor.shape={shape}{fill}{size}}}{{{v.id}}}\n&quot;
     src += &quot;\\end{fmfgraph*}\n&quot;
     src += &quot;\\end{fmffile}\n&quot;
     return src</div>
@@ -307,7 +336,13 @@ type_map = {
             &quot;line&quot;,
             &quot;direction&quot;,
             &quot;tension&quot;,
-        ]</div>
+            &quot;symbol-fill&quot;,
+            &quot;symbol-size&quot;,
+        ]
+
+    @classmethod
+    def valid_shapes(cls) -&gt; List[str]:
+        return super().valid_types() + list(shape_map.keys())</div>
 </pre></div>
 
            </div>

@@ -3,8 +3,8 @@
 shape
 =====
 | Format: String
-| Elements: :ref:`vertex`
-| Implementation: :py:class:`pyfeyn2.feynmandiagram.Vertex`
+| Elements: :ref:`vertex`, :ref:`leg`
+| Implementation: :py:class:`pyfeyn2.feynmandiagram.Vertex`  :py:class:`pyfeyn2.feynmandiagram.Leg`
 
 The shape indicates the style of the vetex used to draw. 
 The following shapes are available: 
