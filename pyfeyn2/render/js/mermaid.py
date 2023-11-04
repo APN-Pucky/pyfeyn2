@@ -2,7 +2,7 @@ import base64
 from typing import List
 
 import requests
-from IPython.display import Image, display
+from IPython.display import SVG, display
 
 from pyfeyn2.render.render import Render
 
@@ -11,6 +11,8 @@ def mm(graph):
     graphbytes = graph.encode("utf8")
     base64_bytes = base64.b64encode(graphbytes)
     base64_string = base64_bytes.decode("ascii")
+    # print("graph: ", graph)
+    # print("b64: ", base64_string)
     r = requests.get("https://mermaid.ink/svg/" + base64_string)
     return r.content
 
@@ -24,9 +26,15 @@ def feynman_to_mm(fd):
     for l in fd.legs:
         src += f"{l.id}(leg);\n"
     for l in fd.legs:
-        src += f"{l.id} --> {l.target};\n"
+        if l.is_incoming():
+            src += f"{l.id} --> {l.target};\n"
+        elif l.is_outgoing():
+            src += f"{l.target} --> {l.id};\n"
+        else:
+            raise Exception("Unknown leg sense. Should be either incoming or outgoing.")
     for p in fd.propagators:
         src += f"{p.source} --> {p.target};\n"
+    # print(src)
     return src
 
 
@@ -37,7 +45,8 @@ class MermaidRender(Render):
         *args,
         **kwargs,
     ):
-        super().__init__(self, fd)
+        super().__init__(fd)
+        self.set_feynman_diagram(fd)
 
     def render(
         self,
@@ -48,7 +57,7 @@ class MermaidRender(Render):
         if file:
             with open(file + ".svg", "wb") as f:
                 f.write(svg)
-        img = Image(data=svg)
+        img = SVG(data=svg)
         if show:
             display(img)
         return img
