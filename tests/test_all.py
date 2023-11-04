@@ -13,6 +13,12 @@ def test_all_demo_propagator():
         plt.close()
 
 
+def test_all_demo_vertex():
+    for prop in AllRender.valid_types():
+        AllRender().demo_vertex(prop, show=False)
+        plt.close()
+
+
 def test_all_2_to_2_gluons():
     fd = FeynmanDiagram()
     v1 = Vertex("v1").with_xy(-1, 0)
