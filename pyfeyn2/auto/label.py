@@ -1,14 +1,39 @@
 import copy
+from enum import Enum
+
+from pylatexenc.latex2text import LatexNodes2Text
 
 
-def auto_label(objs, replace=False, latex=True):
-    """Automatically label objects."""
+class LabelType(Enum):
+    LATEX = 1
+    UNICODE = 2
+    ASCII = 3
+
+
+def auto_label(objs, replace=False, type=LabelType.LATEX):
+    """
+    Automatically label objects.
+
+    Parameters
+    ----------
+    objs : list
+        List of objects to label.
+    replace : bool, optional
+        Whether to replace existing labels. The default is False.
+
+    """
     for p in objs:
         if (p.label is None or replace) and p.particle is not None:
-            if latex:
+            if type == LabelType.LATEX:
                 p.label = "$" + p.particle.latex_name + "$"
-            else:
+            elif type == LabelType.UNICODE:
+                p.label = LatexNodes2Text().latex_to_text(
+                    "$" + p.particle.latex_name + "$"
+                )
+            elif type == LabelType.ASCII:
                 p.label = p.particle.name
+            else:
+                raise Exception("Unknown label type.")
 
 
 def auto_label_propagators(ifd, replace=False):
