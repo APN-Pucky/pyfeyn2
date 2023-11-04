@@ -48,26 +48,34 @@ class LatexRender(Document, Render):
         width=None,
         height=None,
         clean_up=True,
+        temp_dir=None,
     ):
-        temp_dir = tempfile.TemporaryDirectory()
+        if temp_dir is None:
+            temp_dir = tempfile.TemporaryDirectory()
         delete = False
         if file is None:
             delete = True
             file = "tmp"
         file = re.sub(r"\.pdf$", "", file.strip())
+        tfile = re.sub(r"\.pdf$", "", os.path.basename(file).strip())
+        tfile = os.path.join(temp_dir.name, tfile)
         self.generate_pdf(
-            os.path.join(temp_dir.name, file),
+            tfile,
             clean_tex=clean_up,
             compiler="lualatex",
             compiler_args=["-shell-escape"],
         )
         wi = WImage(
-            filename=file + ".pdf", resolution=resolution, width=width, height=height
+            filename=tfile + ".pdf", resolution=resolution, width=width, height=height
         )
-        if clean_up:
-            temp_dir.cleanup()
+        if file is not None:
+            # Copy tfile to file
+            Path(file).parent.mkdir(parents=True, exist_ok=True)
+            os.rename(tfile + ".pdf", file)
         if delete:
-            os.remove(file + ".pdf")
+            os.remove(tfile + ".pdf")
+        if clean_up and temp_dir:
+            temp_dir.cleanup()
         if show:
             display(wi)
         return wi
