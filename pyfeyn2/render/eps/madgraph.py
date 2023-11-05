@@ -6,11 +6,9 @@ import tempfile
 from pathlib import Path
 from typing import List
 
-import matplotlib.image as mpimg
-from IPython.display import SVG, display
+from IPython.display import display
 from wand.image import Image as WImage
 
-from pyfeyn2.feynmandiagram import Connector, FeynmanDiagram
 from pyfeyn2.render.render import Render
 
 type_map = {
@@ -62,7 +60,7 @@ def feynman_to_eps(fd):
     return text
 
 
-class MadgraphRender(Render):
+class MadGraphRender(Render):
     def __init__(
         self,
         fd=None,

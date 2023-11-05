@@ -19,7 +19,7 @@ def eps_to_feynml(filename: str, Nincoming=2):
     diags = reg.group(1).split("diagram")
     # print(diags)
     diagrams = []
-    id = 0
+    idd = 0
     for d in diags:
         vertices = []
         lines = []
@@ -48,25 +48,25 @@ def eps_to_feynml(filename: str, Nincoming=2):
                     round(float(match.group(4)), 5),
                 )
                 line = match.group(6)
-                id += 1
-                id1 = id
+                idd += 1
+                id1 = idd
                 for v in vertices:
                     if x1 == v.x and y1 == v.y:
                         id1 = v.id
                         v1 = v
                         break
-                if id1 == id:
+                if id1 == idd:
                     vertices.append(v1 := Vertex(id=id1, x=x1, y=y1))
-                id += 1
-                id2 = id
+                idd += 1
+                id2 = idd
                 for v in vertices:
                     if x2 == v.x and y2 == v.y:
                         id2 = v.id
                         v2 = v
                         break
-                if id2 == id:
+                if id2 == idd:
                     vertices.append(v2 := Vertex(id=id2, x=x2, y=y2))
-                id += 1
+                idd += 1
                 plabel = None
                 num = None
                 if match2:
@@ -77,7 +77,7 @@ def eps_to_feynml(filename: str, Nincoming=2):
                         plabel = "Z0"
                 if match3:
                     num = int(match3.group(1))
-                lines.append([id, v1, v2, line, "prop", plabel, num])
+                lines.append([idd, v1, v2, line, "prop", plabel, num])
         for l1 in lines:
             inc = True
             exl = True

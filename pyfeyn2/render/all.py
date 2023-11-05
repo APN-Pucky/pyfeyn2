@@ -30,6 +30,7 @@ renders = {
     "mermaid": MermaidRender,
     "asciipdf": ASCIIPDFRender,
     "unicodepdf": UnicodePDFRender,
+    "madgraph": MadGraphRender,
 }
 
 
