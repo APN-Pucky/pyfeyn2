@@ -76,8 +76,8 @@ class LatexRender(Document, Render):
             # os.rename(tfile + ".pdf", file)
         # if delete:
         #    os.remove(tfile + ".pdf")
-        if clean_up and temp_dir:
-            temp_dir.cleanup()
         if show:
             display(wi)
+        if clean_up and temp_dir:
+            temp_dir.cleanup()
         return wi

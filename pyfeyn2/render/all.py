@@ -9,13 +9,13 @@ from feynml.type import get_types
 from matplotlib import pyplot as plt
 from pylatex import Figure, NoEscape, SubFigure
 
-from pyfeyn2.render.eps.madgraph import MadGraphRender
 from pyfeyn2.render.js.mermaid import MermaidRender
 from pyfeyn2.render.latex.dot import DotRender
 from pyfeyn2.render.latex.feynmp import FeynmpRender
 from pyfeyn2.render.latex.latex import LatexRender
 from pyfeyn2.render.latex.tikzfeynman import TikzFeynmanRender
 from pyfeyn2.render.mpl.feynmanrender import FeynmanRender
+from pyfeyn2.render.ps.madgraph import MadGraphRender
 from pyfeyn2.render.pyx.pyxrender import PyxRender
 from pyfeyn2.render.text.ascii import ASCIIRender
 from pyfeyn2.render.text.asciipdf import ASCIIPDFRender
