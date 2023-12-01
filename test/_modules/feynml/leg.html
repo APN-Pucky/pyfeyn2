@@ -40,7 +40,7 @@
               <img src="../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.3.11-5-gb93adedb
+                2.3.11-20-gfb98c7ff
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -120,6 +120,8 @@ from feynml.targeting import Targeting
 <div class="viewcode-block" id="Leg"><a class="viewcode-back" href="../../_autosummary/feynml.leg.Leg.html#feynml.leg.Leg">[docs]</a>@withify()
 @dataclass
 class Leg(Point, Targeting, Connector):
+    shape: Optional[str] = field(default=None, metadata={&quot;type&quot;: &quot;Attribute&quot;})
+    &quot;&quot;&quot;Shape of the leg end&quot;&quot;&quot;
     sense: str = field(
         default=None, metadata={}
     )  # TODO why is this a string and not a bool?!?
