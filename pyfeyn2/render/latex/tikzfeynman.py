@@ -16,6 +16,7 @@ from pyfeyn2.render.latex.latex import LatexRender
 type_map = {
     "gluon": ["gluon"],
     "ghost": ["ghost"],
+    "anti ghost": ["ghost"],
     "photon": ["photon"],
     "boson": ["photon"],
     "fermion": ["fermion"],

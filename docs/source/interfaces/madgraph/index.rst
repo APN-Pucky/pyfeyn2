@@ -1,6 +1,19 @@
 =======================================
+MadGraph Post-Script Reader
+=======================================
+
+Transforms a MadGraph postscript file into a FeynML file.
+
+.. code-block:: python
+
+    from feynml.interface.madgraph.ps import ps_to_feynml
+    fml = ps_to_feynml("tests/interface/lo.ps")
+
+=======================================
 MadGraph Export Plugin Integration
 =======================================
+
+Export FeynML files directly from MadGraph by following these steps:
 
 .. code-block:: bash
 

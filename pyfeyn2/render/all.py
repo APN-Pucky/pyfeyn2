@@ -15,6 +15,7 @@ from pyfeyn2.render.latex.feynmp import FeynmpRender
 from pyfeyn2.render.latex.latex import LatexRender
 from pyfeyn2.render.latex.tikzfeynman import TikzFeynmanRender
 from pyfeyn2.render.mpl.feynmanrender import FeynmanRender
+from pyfeyn2.render.ps.madgraph import MadGraphRender
 from pyfeyn2.render.pyx.pyxrender import PyxRender
 from pyfeyn2.render.text.ascii import ASCIIRender
 from pyfeyn2.render.text.asciipdf import ASCIIPDFRender
@@ -30,6 +31,7 @@ renders = {
     "mermaid": MermaidRender,
     "asciipdf": ASCIIPDFRender,
     "unicodepdf": UnicodePDFRender,
+    "madgraph": MadGraphRender,
 }
 
 

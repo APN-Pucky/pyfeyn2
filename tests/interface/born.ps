@@ -1,152 +1,7 @@
-import os
-import re
-import shutil
-import subprocess
-import tempfile
-from pathlib import Path
-from typing import List
-
-import matplotlib.image as mpimg
-from IPython.display import SVG, display
-from wand.image import Image as WImage
-
-from pyfeyn2.feynmandiagram import Connector, FeynmanDiagram
-from pyfeyn2.render.render import Render
-
-type_map = {
-    "line": "Ffermion",
-    "plain": "Ffermion",
-    "fermion": "Ffermion",
-    "higgs": "FHiggs",
-    "ghost": "Fghost",
-    "photon": "0 Fphoton",
-    "gluon": "Fgluon",
-    "scurly": ["Fgluon", "Ffermion"],
-    "swavy": ["0 Fphoton", "Ffermion"],
-}
-
-shape_map = {
-    "empty": "empty",
-    "blob": "Fblob",
-}
-
-
-def feynman_to_eps(fd):
-    text = "%%%%!PS-Adobe-2.0\n"
-    text += "%%%%DocumentFonts: Helvetica\n"
-    text += "%%%%" + "BoundingBox: -20 -20 %(width)s %(height)s \n"
-    # text += "%%%%Pages: 1\n"
-    text += "%(header)s"
-    text += "/PageWidth 10 def\n"
-    text += "/PageHeight 10 def\n"
-    text += "/PageSize [PageWidth PageHeight] def\n"
-
-    for p in fd.propagators:
-        style = fd.get_style(p)
-        src = fd.get_vertex(p.source)
-        dst = fd.get_vertex(p.target)
-        line = type_map[style.getProperty("line").value]
-        text += f"{src.x} {src.y} {dst.x} {dst.y} {line} \n"
-    for l in fd.legs:
-        style = fd.get_style(l)
-        dst = fd.get_vertex(l.target)
-        line = type_map[style.getProperty("line").value]
-        if l.is_incoming():
-            text += f"{l.x} {l.y} {dst.x} {dst.y} {line} \n"
-        elif l.is_outgoing():
-            text += f"{dst.x} {dst.y} {l.x} {l.y} {line} \n"
-        else:
-            raise Exception("Unknown leg sense. Should be either incoming or outgoing.")
-    text += "showpage\n"
-    text += "%%%%trailer\n"
-    return text
-
-
-class MadgraphRender(Render):
-    def __init__(
-        self,
-        fd=None,
-        *args,
-        **kwargs,
-    ):
-        super().__init__(fd)
-        self.set_feynman_diagram(fd)
-
-    def render(
-        self,
-        file=None,
-        show=True,
-        resolution=100,
-        width=100,
-        height=100,
-        clean_up=True,
-        temp_dir=None,
-    ):
-        if temp_dir is None:
-            temp_dir = tempfile.TemporaryDirectory()
-        eps = self.get_src() % {"width": width, "height": height, "header": header}
-        copy = True
-        if file is None:
-            copy = False
-            file = "tmp"
-        file = re.sub(r"\.e?ps$", "", re.sub(r"\.pdf$", "", file.strip()))
-        tfile = re.sub(
-            r"\.e?ps$", "", re.sub(r"\.pdf$", "", os.path.basename(file).strip())
-        )
-        tfile = os.path.join(temp_dir.name, tfile)
-        with open(tfile + ".ps", "w") as f:
-            f.write(eps)
-        subprocess.call(
-            # ["gs",
-            # "-sDEVICE=pdfwrite",
-            # "-sOutputFile=" +tfile + ".pdf",
-            # "-dBATCH",
-            # "-dNOPAUSE",
-            #     tfile + ".ps"],
-            ["ps2pdf", "-dEPSCrop", f"-g{width*10}x{height*10}", tfile + ".ps"],
-            cwd=temp_dir.name,
-            stdout=subprocess.DEVNULL,
-            stderr=subprocess.STDOUT,
-        )
-        wi = WImage(
-            filename=tfile + ".pdf", resolution=resolution, width=width, height=height
-        )
-        if copy:
-            # Copy tfile to file
-            Path(file).parent.mkdir(parents=True, exist_ok=True)
-            shutil.copy(tfile + ".ps", file + ".ps")
-            shutil.copy(tfile + ".pdf", file + ".pdf")
-        if clean_up and temp_dir:
-            temp_dir.cleanup()
-        if show:
-            display(wi)
-        return wi
-
-    def set_feynman_diagram(self, fd):
-        super().set_feynman_diagram(fd)
-        self.set_src(feynman_to_eps(fd))
-
-    @classmethod
-    def valid_styles(cls) -> bool:
-        return super().valid_styles() + []
-
-    @classmethod
-    def valid_attributes(cls) -> List[str]:
-        return super().valid_attributes() + [
-            "label",
-            "style",
-        ]
-
-    @classmethod
-    def valid_types(cls) -> List[str]:
-        return super().valid_types() + list(type_map.keys())
-
-    @classmethod
-    def valid_shapes(cls) -> List[str]:
-        return super().valid_types() + list(shape_map.keys())
-
-
-header = """
+%!PS-Adobe-2.0
+%%BoundingBox: -20 -20 450  450 
+%%DocumentFonts: Helvetica
+%%Pages:  1 
 %!MadGraph
 %
 % Feynman Diagrams drawn by MadGraph5_aMC@NLO
@@ -492,9 +347,99 @@ x2 y2 xstop ystop Fhiggs
 /x2 xmid xunit 5.2 mul add def
 /y2 ymid yunit 5.2 mul add def
 gsave x1 y1 x2 y2 wedge fill grestore} def
-%% End of the header
+% End of the header
 
 %%Page:       1       1
-%%PageBoundingBox:-20 -20 %(width)s %(height)s
+%%PageBoundingBox:-20 -20 600 800
 %%PageFonts: Helvetica
-"""
+
+/Helvetica findfont 9 scalefont setfont
+ 50         770  moveto
+ () show
+ 525         770  moveto
+ (page 1/1) show
+ 260         50  moveto
+ (Diagrams made by MadGraph5_aMC@NLO) show
+75 560 141.66666666666666 635.0 0 Fgluon 
+ 102.33333333333333  600.5 moveto 
+(g)   show
+ 67.0  560 moveto 
+(1)   show
+75 710 141.66666666666666 635.0 0 Fgluon 
+ 110.33333333333334  675.5 moveto 
+(g)   show
+ 67.0  710 moveto 
+(2)   show
+141.66666666666666 635.0 208.33333333333331 635.0 0 Fgluon 
+ 173.0  638.75 moveto 
+(g)   show
+263.8033529558562 572.5962279246618 208.33333333333331 635.0 Ffermion 
+ 238.06834314459476  606.7981139623308 moveto 
+(t~)   show
+ 271.8033529558562  563.5962279246618 moveto 
+(4)   show
+208.33333333333331 635.0 263.8033529558562 697.4037720753383 Ffermion 
+ 230.06834314459476  669.2018860376692 moveto 
+(t)   show
+ 271.8033529558562  706.4037720753383 moveto 
+(3)   show
+ 115.0  534.5 moveto 
+(born diagram 1 )   show
+ 195.0  534.5 moveto 
+ (QCD=2, QED=0)   show
+450.0 597.5 550.0 560 Ffermion 
+ 502.0  581.75 moveto 
+(t)   show
+ 558.0  557.0 moveto 
+(3)   show
+350 560 450.0 597.5 0 Fgluon 
+ 394.0  581.75 moveto 
+(g)   show
+ 342.0  560 moveto 
+(1)   show
+450.0 672.5 450.0 597.5 Ffermion 
+ 453.0  633.5 moveto 
+(t~)   show
+550.0 710 450.0 672.5 Ffermion 
+ 488.0  697.25 moveto 
+(t~)   show
+ 558.0  713.0 moveto 
+(4)   show
+350 710 450.0 672.5 0 Fgluon 
+ 402.0  694.25 moveto 
+(g)   show
+ 342.0  710 moveto 
+(2)   show
+ 390.0  534.5 moveto 
+(born diagram 2 )   show
+ 470.0  534.5 moveto 
+ (QCD=2, QED=0)   show
+275.0 340 175.0 377.5 Ffermion 
+ 227.0  361.75 moveto 
+(t~)   show
+ 283.0  337.0 moveto 
+(4)   show
+75 340 175.0 377.5 0 Fgluon 
+ 119.0  361.75 moveto 
+(g)   show
+ 67.0  340 moveto 
+(1)   show
+175.0 377.5 175.0 452.5 Ffermion 
+ 178.0  413.5 moveto 
+(t)   show
+175.0 452.5 275.0 490 Ffermion 
+ 219.0  474.25 moveto 
+(t)   show
+ 283.0  493.0 moveto 
+(3)   show
+75 490 175.0 452.5 0 Fgluon 
+ 127.0  474.25 moveto 
+(g)   show
+ 67.0  490 moveto 
+(2)   show
+ 115.0  314.5 moveto 
+(born diagram 3 )   show
+ 195.0  314.5 moveto 
+ (QCD=2, QED=0)   show
+showpage
+%%trailer
