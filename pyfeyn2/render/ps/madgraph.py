@@ -29,7 +29,7 @@ shape_map = {
 }
 
 
-def feynman_to_eps(fd):
+def feynman_to_ps(fd):
     text = "%%%%!PS-Adobe-2.0\n"
     text += "%%%%DocumentFonts: Helvetica\n"
     text += "%%%%" + "BoundingBox: -20 -20 %(width)s %(height)s \n"
@@ -82,7 +82,7 @@ class MadGraphRender(Render):
     ):
         if temp_dir is None:
             temp_dir = tempfile.TemporaryDirectory()
-        eps = self.get_src() % {"width": width, "height": height, "header": header}
+        ps = self.get_src() % {"width": width, "height": height, "header": header}
         copy = True
         if file is None:
             copy = False
@@ -93,7 +93,7 @@ class MadGraphRender(Render):
         )
         tfile = os.path.join(temp_dir.name, tfile)
         with open(tfile + ".ps", "w") as f:
-            f.write(eps)
+            f.write(ps)
         subprocess.call(
             # ["gs",
             # "-sDEVICE=pdfwrite",
@@ -122,7 +122,7 @@ class MadGraphRender(Render):
 
     def set_feynman_diagram(self, fd):
         super().set_feynman_diagram(fd)
-        self.set_src(feynman_to_eps(fd))
+        self.set_src(feynman_to_ps(fd))
 
     @classmethod
     def valid_styles(cls) -> bool:
