@@ -27,6 +27,7 @@ pyfeyn2.feynmandiagram.FeynML
       ~FeynML.get_sheets
       ~FeynML.get_style
       ~FeynML.get_style_property
+      ~FeynML.render
       ~FeynML.to_xml
       ~FeynML.with_root
       ~FeynML.with_rule

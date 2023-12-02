@@ -22,6 +22,14 @@ pyfeyn2.auto.label
 
    
    
+   .. rubric:: Classes
+
+   .. autosummary::
+      :toctree:                                         
+      :template: custom-class-template.rst               
+   
+      LabelType
+   
    
 
    

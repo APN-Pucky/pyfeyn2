@@ -1,0 +1,6 @@
+pyfeyn2.render.js.mermaid.mm
+============================
+
+.. currentmodule:: pyfeyn2.render.js.mermaid
+
+.. autofunction:: mm

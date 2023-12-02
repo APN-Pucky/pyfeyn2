@@ -29,6 +29,7 @@ pyfeyn2.render
    :recursive:
 
    pyfeyn2.render.all
+   pyfeyn2.render.js
    pyfeyn2.render.latex
    pyfeyn2.render.pyx
    pyfeyn2.render.render

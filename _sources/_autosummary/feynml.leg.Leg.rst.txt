@@ -49,6 +49,7 @@ feynml.leg.Leg
       ~Leg.with_pdgid
       ~Leg.with_point
       ~Leg.with_sense
+      ~Leg.with_shape
       ~Leg.with_style
       ~Leg.with_style_properties
       ~Leg.with_style_property
@@ -77,6 +78,7 @@ feynml.leg.Leg
       ~Leg.particle
       ~Leg.pdgid
       ~Leg.sense
+      ~Leg.shape
       ~Leg.target
       ~Leg.type
       ~Leg.x

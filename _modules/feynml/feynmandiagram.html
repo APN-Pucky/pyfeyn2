@@ -1,14 +1,16 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>feynml.feynmandiagram &mdash; pyfeyn2  documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/plot_directive.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/jupyter-sphinx.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/thebelab.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/thebelab.css" />
+
+  
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -40,7 +42,7 @@
               <img src="../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.3.11
+                2.4.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -410,6 +412,20 @@ class FeynmanDiagram(SheetHandler, XML, Styled, Identifiable):
                 return leg
         return None
 
+<div class="viewcode-block" id="FeynmanDiagram.scale_positions"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.FeynmanDiagram.html#feynml.feynmandiagram.FeynmanDiagram.scale_positions">[docs]</a>    def scale_positions(self, scale):
+        &quot;&quot;&quot;Scale the positions of the vertices and legs.&quot;&quot;&quot;
+        for v in self.vertices:
+            if v.x is not None:
+                v.x *= scale
+            if v.y is not None:
+                v.y *= scale
+        for l in self.legs:
+            if l.x is not None:
+                l.x *= scale
+            if l.y is not None:
+                l.y *= scale
+        return self</div>
+
     def copy(self, new_vertex_ids=True, new_leg_ids=True, new_propagator_ids=True):
         copy = self.deepcopy()
         id_map = {}
@@ -462,7 +478,13 @@ class FeynmanDiagram(SheetHandler, XML, Styled, Identifiable):
         return self
 
     def render(
-        self, render=&quot;tikz&quot;, show=True, file=None, auto_position=True, deepcopy=True
+        self,
+        render=&quot;tikz&quot;,
+        show=True,
+        file=None,
+        auto_position=True,
+        auto_position_legs=True,
+        deepcopy=True,
     ):
         import pyfeyn2.render.all as renderall
         from pyfeyn2.auto.bend import auto_bend
@@ -480,13 +502,16 @@ class FeynmanDiagram(SheetHandler, XML, Styled, Identifiable):
             fd = self
         if auto_position:
             # remove all unpositioned vertices
-            fd = auto_align_legs(
-                fd,
-                incoming=[(0, i) for i in np.linspace(0, 10, len(self.get_incoming()))],
-                outgoing=[
-                    (10, i) for i in np.linspace(0, 10, len(self.get_outgoing()))
-                ],
-            )
+            if auto_position_legs:
+                fd = auto_align_legs(
+                    fd,
+                    incoming=[
+                        (0, i) for i in np.linspace(0, 10, len(self.get_incoming()))
+                    ],
+                    outgoing=[
+                        (10, i) for i in np.linspace(0, 10, len(self.get_outgoing()))
+                    ],
+                )
             p = [v for v in fd.vertices if v.x is None or v.y is None]
             if len(p) &gt; 0:
                 fd = auto_vdw(fd, points=p)
@@ -499,8 +524,7 @@ class FeynmanDiagram(SheetHandler, XML, Styled, Identifiable):
         try:
             self.render(show=True)
         except ImportError as e:
-            warnings.warn(&quot;Could not import pyfeyn2, cannot render diagram&quot;)
-            pass
+            warnings.warn(&quot;Could not import pyfeyn2, cannot render diagram&quot; + str(e))
         return self</div>
 </pre></div>
 

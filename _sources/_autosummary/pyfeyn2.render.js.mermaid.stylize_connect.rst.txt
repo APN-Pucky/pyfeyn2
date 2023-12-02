@@ -1,0 +1,6 @@
+pyfeyn2.render.js.mermaid.stylize\_connect
+==========================================
+
+.. currentmodule:: pyfeyn2.render.js.mermaid
+
+.. autofunction:: stylize_connect

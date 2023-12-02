@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pyfeyn2.render.js.mermaid &mdash; pyfeyn2  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/plot_directive.css" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/jupyter-sphinx.css" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/thebelab.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/sphinx_highlight.js"></script>
+        <script src="../../../../_static/thebelab-helper.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            pyfeyn2
+              <img src="../../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                2.4.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">FeynML:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../feynml/index.html">FeynML</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Gallery:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../gallery/index.html">Gallery</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Renderers:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../renderers/index.html">Renderers</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Interfaces:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../interfaces/index.html">Interfaces</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Modules:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../_autosummary/pyfeyn2.html">pyfeyn2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../_autosummary/feynml.html">feynml</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Versions:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://pyfeyn2.readthedocs.io/en/stable/">RTD</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/pyfeyn2/">Stable</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/pyfeyn2/test/">Dev</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Links:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/APN-Pucky/pyfeyn2">GitHub</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">pyfeyn2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">pyfeyn2.render.js.mermaid</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for pyfeyn2.render.js.mermaid</h1><div class="highlight"><pre>
+<span></span>import base64
+from typing import List
+
+import requests
+from IPython.display import SVG, display
+
+from pyfeyn2.feynmandiagram import Connector, FeynmanDiagram
+from pyfeyn2.render.render import Render
+
+
+<div class="viewcode-block" id="mm"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.js.mermaid.mm.html#pyfeyn2.render.js.mermaid.mm">[docs]</a>def mm(graph):
+    graphbytes = graph.encode(&quot;utf8&quot;)
+    base64_bytes = base64.b64encode(graphbytes)
+    base64_string = base64_bytes.decode(&quot;ascii&quot;)
+    # print(&quot;graph: &quot;, graph)
+    # print(&quot;b64: &quot;, base64_string)
+    r = requests.get(&quot;https://mermaid.ink/svg/&quot; + base64_string)
+    return r.content</div>
+
+
+<div class="viewcode-block" id="stylize_connect"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.js.mermaid.stylize_connect.html#pyfeyn2.render.js.mermaid.stylize_connect">[docs]</a>def stylize_connect(fd: FeynmanDiagram, c: Connector):
+    ret = &quot;&quot;
+    if c.label is None:
+        ret = &quot;---&quot;
+    else:
+        ret = f&quot;-- {c.label} ---&quot;
+    return ret</div>
+
+
+<div class="viewcode-block" id="feynman_to_mm"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.js.mermaid.feynman_to_mm.html#pyfeyn2.render.js.mermaid.feynman_to_mm">[docs]</a>def feynman_to_mm(fd):
+    src = &quot;graph LR;\n&quot;
+    for v in fd.vertices:
+        src += f&quot;{v.id}:::hidden;\n&quot;
+    for l in fd.legs:
+        src += f&quot;{l.id}:::hidden;\n&quot;
+    for l in fd.legs:
+        sty = stylize_connect(fd, l)
+        if l.is_incoming():
+            src += f&quot;{l.id} {sty} {l.target};\n&quot;
+        elif l.is_outgoing():
+            src += f&quot;{l.target} {sty} {l.id};\n&quot;
+        else:
+            raise Exception(&quot;Unknown leg sense. Should be either incoming or outgoing.&quot;)
+    for p in fd.propagators:
+        sty = stylize_connect(fd, p)
+        src += f&quot;{p.source} {sty} {p.target};\n&quot;
+
+    src += &quot;classDef hidden display: none;\n&quot;
+    # print(src)
+    return src</div>
+
+
+<div class="viewcode-block" id="MermaidRender"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.js.mermaid.MermaidRender.html#pyfeyn2.render.js.mermaid.MermaidRender">[docs]</a>class MermaidRender(Render):
+<div class="viewcode-block" id="MermaidRender.__init__"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.js.mermaid.MermaidRender.html#pyfeyn2.render.js.mermaid.MermaidRender.__init__">[docs]</a>    def __init__(
+        self,
+        fd=None,
+        *args,
+        **kwargs,
+    ):
+        super().__init__(fd)
+        self.set_feynman_diagram(fd)</div>
+
+<div class="viewcode-block" id="MermaidRender.render"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.js.mermaid.MermaidRender.html#pyfeyn2.render.js.mermaid.MermaidRender.render">[docs]</a>    def render(
+        self,
+        file=None,
+        show=True,
+        resolution=100,
+        width=None,
+        height=None,
+        clean_up=True,
+    ):
+        svg = mm(self.get_src())
+        if file:
+            with open(file + &quot;.svg&quot;, &quot;wb&quot;) as f:
+                f.write(svg)
+        img = SVG(data=svg)
+        if show:
+            display(img)
+        return img</div>
+
+    def set_feynman_diagram(self, fd):
+        super().set_feynman_diagram(fd)
+        self.set_src(feynman_to_mm(fd))
+
+    @classmethod
+    def valid_styles(cls) -&gt; bool:
+        return super().valid_styles() + []
+
+    @classmethod
+    def valid_attributes(cls) -&gt; List[str]:
+        return super().valid_attributes() + [
+            &quot;label&quot;,
+            &quot;style&quot;,
+        ]
+
+    @classmethod
+    def valid_types(cls) -&gt; List[str]:
+        return super().valid_types()
+
+    @classmethod
+    def valid_shapes(cls) -&gt; List[str]:
+        return super().valid_types()</div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Alexander Puck Neuwirth.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
