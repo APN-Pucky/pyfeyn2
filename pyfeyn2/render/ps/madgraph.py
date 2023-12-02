@@ -68,7 +68,8 @@ class MadGraphRender(Render):
         **kwargs,
     ):
         super().__init__(fd)
-        self.set_feynman_diagram(fd)
+        if fd is not None:
+            self.set_feynman_diagram(fd)
 
     def render(
         self,
