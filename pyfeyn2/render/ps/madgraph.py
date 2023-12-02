@@ -21,6 +21,7 @@ type_map = {
     "gluon": "Fgluon",
     "scurly": ["Fgluon", "Ffermion"],
     "swavy": ["0 Fphoton", "Ffermion"],
+    "phantom": "phantom",
 }
 
 shape_map = {
@@ -44,11 +45,15 @@ def feynman_to_ps(fd):
         src = fd.get_vertex(p.source)
         dst = fd.get_vertex(p.target)
         line = type_map[style.getProperty("line").value]
+        if line == "phantom":
+            continue
         text += f"{src.x} {src.y} {dst.x} {dst.y} {line} \n"
     for l in fd.legs:
         style = fd.get_style(l)
         dst = fd.get_vertex(l.target)
         line = type_map[style.getProperty("line").value]
+        if line == "phantom":
+            continue
         if l.is_incoming():
             text += f"{l.x} {l.y} {dst.x} {dst.y} {line} \n"
         elif l.is_outgoing():
