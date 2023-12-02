@@ -1,15 +1,17 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>&lt;no title&gt; &mdash; pyfeyn2  documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/plot_directive.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/jupyter-sphinx.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/thebelab.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/thebelab.css" />
+
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -41,7 +43,7 @@
               <img src="../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.3.11-20-gfb98c7ff
+                2.3.11-21-g1b3f54cf
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -118,6 +120,7 @@
 <th class="head"><p>mermaid</p></th>
 <th class="head"><p>asciipdf</p></th>
 <th class="head"><p>unicodepdf</p></th>
+<th class="head"><p>madgraph</p></th>
 </tr>
 </thead>
 <tbody>
@@ -130,6 +133,7 @@
 <td><p>✖</p></td>
 <td><p>✔</p></td>
 <td><p>✔</p></td>
+<td><p>✖</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="../feynml/attributes/type/anti%20fermion.html"><span class="std std-ref">anti fermion</span></a></p></td>
 <td><p>✔</p></td>
@@ -140,6 +144,7 @@
 <td><p>✖</p></td>
 <td><p>✔</p></td>
 <td><p>✔</p></td>
+<td><p>✖</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="../feynml/attributes/type/baryon.html"><span class="std std-ref">baryon</span></a></p></td>
 <td><p>✔</p></td>
@@ -150,6 +155,7 @@
 <td><p>✖</p></td>
 <td><p>✔</p></td>
 <td><p>✔</p></td>
+<td><p>✖</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="../feynml/attributes/type/boson.html"><span class="std std-ref">boson</span></a></p></td>
 <td><p>✔</p></td>
@@ -160,9 +166,11 @@
 <td><p>✖</p></td>
 <td><p>✔</p></td>
 <td><p>✔</p></td>
+<td><p>✖</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="../feynml/attributes/type/chargino.html"><span class="std std-ref">chargino</span></a></p></td>
 <td><p>✔</p></td>
+<td><p>✖</p></td>
 <td><p>✖</p></td>
 <td><p>✖</p></td>
 <td><p>✖</p></td>
@@ -180,6 +188,7 @@
 <td><p>✖</p></td>
 <td><p>✔</p></td>
 <td><p>✔</p></td>
+<td><p>✔</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="../feynml/attributes/type/gaugino.html"><span class="std std-ref">gaugino</span></a></p></td>
 <td><p>✔</p></td>
@@ -190,6 +199,7 @@
 <td><p>✖</p></td>
 <td><p>✔</p></td>
 <td><p>✔</p></td>
+<td><p>✖</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="../feynml/attributes/type/ghost.html"><span class="std std-ref">ghost</span></a></p></td>
 <td><p>✔</p></td>
@@ -198,6 +208,7 @@
 <td><p>✔</p></td>
 <td><p>✔</p></td>
 <td><p>✖</p></td>
+<td><p>✔</p></td>
 <td><p>✔</p></td>
 <td><p>✔</p></td>
 </tr>
@@ -210,6 +221,7 @@
 <td><p>✖</p></td>
 <td><p>✔</p></td>
 <td><p>✔</p></td>
+<td><p>✖</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="../feynml/attributes/type/gluon.html"><span class="std std-ref">gluon</span></a></p></td>
 <td><p>✔</p></td>
@@ -220,10 +232,12 @@
 <td><p>✖</p></td>
 <td><p>✔</p></td>
 <td><p>✔</p></td>
+<td><p>✔</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="../feynml/attributes/type/gravitino.html"><span class="std std-ref">gravitino</span></a></p></td>
 <td><p>✖</p></td>
 <td><p>✔</p></td>
+<td><p>✖</p></td>
 <td><p>✖</p></td>
 <td><p>✖</p></td>
 <td><p>✖</p></td>
@@ -240,6 +254,7 @@
 <td><p>✖</p></td>
 <td><p>✖</p></td>
 <td><p>✖</p></td>
+<td><p>✖</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="../feynml/attributes/type/higgs.html"><span class="std std-ref">higgs</span></a></p></td>
 <td><p>✔</p></td>
@@ -250,8 +265,10 @@
 <td><p>✖</p></td>
 <td><p>✔</p></td>
 <td><p>✔</p></td>
+<td><p>✔</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="../feynml/attributes/type/higgsino.html"><span class="std std-ref">higgsino</span></a></p></td>
+<td><p>✖</p></td>
 <td><p>✖</p></td>
 <td><p>✖</p></td>
 <td><p>✖</p></td>
@@ -270,9 +287,11 @@
 <td><p>✖</p></td>
 <td><p>✔</p></td>
 <td><p>✔</p></td>
+<td><p>✔</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="../feynml/attributes/type/majorana.html"><span class="std std-ref">majorana</span></a></p></td>
 <td><p>✔</p></td>
+<td><p>✖</p></td>
 <td><p>✖</p></td>
 <td><p>✖</p></td>
 <td><p>✖</p></td>
@@ -290,9 +309,11 @@
 <td><p>✖</p></td>
 <td><p>✔</p></td>
 <td><p>✔</p></td>
+<td><p>✖</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="../feynml/attributes/type/neutralino.html"><span class="std std-ref">neutralino</span></a></p></td>
 <td><p>✔</p></td>
+<td><p>✖</p></td>
 <td><p>✖</p></td>
 <td><p>✖</p></td>
 <td><p>✖</p></td>
@@ -310,6 +331,7 @@
 <td><p>✖</p></td>
 <td><p>✔</p></td>
 <td><p>✔</p></td>
+<td><p>✔</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="../feynml/attributes/type/photon.html"><span class="std std-ref">photon</span></a></p></td>
 <td><p>✔</p></td>
@@ -318,6 +340,7 @@
 <td><p>✔</p></td>
 <td><p>✔</p></td>
 <td><p>✖</p></td>
+<td><p>✔</p></td>
 <td><p>✔</p></td>
 <td><p>✔</p></td>
 </tr>
@@ -330,6 +353,7 @@
 <td><p>✖</p></td>
 <td><p>✔</p></td>
 <td><p>✔</p></td>
+<td><p>✖</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="../feynml/attributes/type/slepton.html"><span class="std std-ref">slepton</span></a></p></td>
 <td><p>✔</p></td>
@@ -340,6 +364,7 @@
 <td><p>✖</p></td>
 <td><p>✔</p></td>
 <td><p>✔</p></td>
+<td><p>✖</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="../feynml/attributes/type/squark.html"><span class="std std-ref">squark</span></a></p></td>
 <td><p>✔</p></td>
@@ -350,6 +375,7 @@
 <td><p>✖</p></td>
 <td><p>✔</p></td>
 <td><p>✔</p></td>
+<td><p>✖</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="../feynml/attributes/type/vector.html"><span class="std std-ref">vector</span></a></p></td>
 <td><p>✔</p></td>
@@ -360,6 +386,7 @@
 <td><p>✖</p></td>
 <td><p>✔</p></td>
 <td><p>✔</p></td>
+<td><p>✖</p></td>
 </tr>
 </tbody>
 </table>

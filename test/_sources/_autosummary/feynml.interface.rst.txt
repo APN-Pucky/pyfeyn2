@@ -30,6 +30,7 @@ feynml.interface
 
    feynml.interface.formcalc
    feynml.interface.hepmc
+   feynml.interface.interface
    feynml.interface.lhe
    feynml.interface.qgraf
 

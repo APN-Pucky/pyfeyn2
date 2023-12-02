@@ -58,6 +58,7 @@ feynml.feynmandiagram.FeynmanDiagram
       ~FeynmanDiagram.raw_style
       ~FeynmanDiagram.remove_propagator
       ~FeynmanDiagram.render
+      ~FeynmanDiagram.scale_positions
       ~FeynmanDiagram.to_xml
       ~FeynmanDiagram.with_class
       ~FeynmanDiagram.with_color
