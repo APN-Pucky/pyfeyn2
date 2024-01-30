@@ -43,6 +43,7 @@ type_map = {
     "phantom": ["draw=none"],
     "line": ["plain"],
     "plain": ["plain"],
+    "remnant": ["plain", "double=none, double distance=%(double_distance)s"],
     "baryon": ["fermion", "double=none, double distance=%(double_distance)s"],
     "anti baryon": ["anti fermion", "double=none, double distance=%(double_distance)s"],
     "meson": ["double=none,double distance =%(double_distance)s"],
