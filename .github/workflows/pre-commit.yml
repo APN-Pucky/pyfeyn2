@@ -15,4 +15,4 @@ jobs:
     - name: Install poetry-dynamic-versioning
       run: |
         pip install poetry-dynamic-versioning
-    - uses: pre-commit/action@v3.0.0
+    - uses: pre-commit/action@v3.0.1
