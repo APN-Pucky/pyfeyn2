@@ -5,8 +5,8 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>feynml.styled.CSSSheetConverter &mdash; pyfeyn2  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
       <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
       <link rel="stylesheet" type="text/css" href="../_static/thebelab.css" />
@@ -16,11 +16,11 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=b3ba4146"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
         <script src="../_static/thebelab-helper.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
@@ -45,7 +45,7 @@
               <img src="../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.4.0-28-g5231e2b5
+                2.4.0-57-gb92dc34e
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -166,24 +166,32 @@
 <td><p></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#feynml.styled.CSSSheetConverter.deserialize" title="feynml.styled.CSSSheetConverter.deserialize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">deserialize</span></code></a>(value, **kwargs)</p></td>
-<td><p>Convert any type to the converter dedicated type.</p></td>
+<td><p>Convert a value to a python type.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#feynml.styled.CSSSheetConverter.serialize" title="feynml.styled.CSSSheetConverter.serialize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">serialize</span></code></a>(value, **kwargs)</p></td>
-<td><p>Convert value to string.</p></td>
+<td><p>Convert value to string for serialization.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">validate_input_type</span></code>(value, tp)</p></td>
-<td><p></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#feynml.styled.CSSSheetConverter.validate_input_type" title="feynml.styled.CSSSheetConverter.validate_input_type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">validate_input_type</span></code></a>(value, tp)</p></td>
+<td><p>Validate the input value type matches the required type.</p></td>
 </tr>
 </tbody>
 </table>
 <dl class="py method">
 <dt class="sig sig-object py" id="feynml.styled.CSSSheetConverter.deserialize">
 <em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">deserialize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">CSSStyleSheet</span></span></span><a class="reference internal" href="../_modules/feynml/styled.html#CSSSheetConverter.deserialize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#feynml.styled.CSSSheetConverter.deserialize" title="Permalink to this definition"></a></dt>
-<dd><p>Convert any type to the converter dedicated type.</p>
+<dd><p>Convert a value to a python type.</p>
 <dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> – The input value</p></li>
+<li><p><strong>**kwargs</strong> – Additional keyword arguments needed per converter</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The converted value.</p>
+</dd>
 <dt class="field-odd">Raises<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>ConverterError</strong> – if converter fails with and expected
-ValueError</p>
+<dd class="field-odd"><p><strong>ConverterError</strong> – if the value can’t be converted.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -191,7 +199,24 @@ ValueError</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="feynml.styled.CSSSheetConverter.serialize">
 <em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">serialize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">CSSStyleSheet</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../_modules/feynml/styled.html#CSSSheetConverter.serialize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#feynml.styled.CSSSheetConverter.serialize" title="Permalink to this definition"></a></dt>
-<dd><p>Convert value to string.</p>
+<dd><p>Convert value to string for serialization.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> – The input value</p></li>
+<li><p><strong>**kwargs</strong> – Additional keyword arguments needed per converter</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The converted string value.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="feynml.styled.CSSSheetConverter.validate_input_type">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">validate_input_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Type</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#feynml.styled.CSSSheetConverter.validate_input_type" title="Permalink to this definition"></a></dt>
+<dd><p>Validate the input value type matches the required type.</p>
 </dd></dl>
 
 </dd></dl>
