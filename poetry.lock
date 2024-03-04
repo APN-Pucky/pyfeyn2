@@ -1611,13 +1611,13 @@ test = ["flaky", "ipyparallel", "pre-commit", "pytest (>=7.0)", "pytest-asyncio"
 
 [[package]]
 name = "ipyparallel"
-version = "8.6.1"
+version = "8.7.0"
 description = "Interactive Parallel Computing with IPython"
 optional = false
-python-versions = ">=3.7"
+python-versions = ">=3.8"
 files = [
-    {file = "ipyparallel-8.6.1-py3-none-any.whl", hash = "sha256:39324d481759f74c9be4fb0deb025d446de6246f08fb81490443c9f55e2f056c"},
-    {file = "ipyparallel-8.6.1.tar.gz", hash = "sha256:a39aa5ef9560170bf0e9afedca9ff045e1b9c1832c49303377edcc91cea9fb77"},
+    {file = "ipyparallel-8.7.0-py3-none-any.whl", hash = "sha256:7748d0ca42b5ac04374316846df4858bd8f495fff58536d91d988ed367eb1c3c"},
+    {file = "ipyparallel-8.7.0.tar.gz", hash = "sha256:403c0971ae56c2b6a39ffe8f35f31c7fd170ce127924629459cdd7f7a0b4e7c3"},
 ]
 
 [package.dependencies]
