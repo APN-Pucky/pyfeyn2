@@ -11,6 +11,8 @@ date-released: '2023-11-02'
 doi: 10.5281/zenodo.10067115
 license: GPL-3.0-only
 type: software
+repository-code: "https://github.com/APN-Pucky/pyfeyn2"
+url: "https://github.com/APN-Pucky/pyfeyn2"
 identifiers:
   - description: Zenodo release
     type: doi
