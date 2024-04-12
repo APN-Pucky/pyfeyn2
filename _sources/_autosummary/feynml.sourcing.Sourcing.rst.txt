@@ -17,6 +17,7 @@ feynml.sourcing.Sourcing
    .. autosummary::
    
       ~Sourcing.__init__
+      ~Sourcing.goes_out_of
       ~Sourcing.with_source
    
    

@@ -1,0 +1,6 @@
+pyfeyn2.auto.position.lennard\_jones
+====================================
+
+.. currentmodule:: pyfeyn2.auto.position
+
+.. autofunction:: lennard_jones

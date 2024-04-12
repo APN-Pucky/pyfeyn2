@@ -1,0 +1,6 @@
+pyfeyn2.auto.position.quad
+==========================
+
+.. currentmodule:: pyfeyn2.auto.position
+
+.. autofunction:: quad

@@ -18,6 +18,8 @@ feynml.line.Line
    
       ~Line.__init__
       ~Line.connect
+      ~Line.goes_into
+      ~Line.goes_out_of
       ~Line.with_source
       ~Line.with_target
    
