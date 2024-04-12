@@ -261,13 +261,13 @@ def _get_grid(fd, n_x=None, n_y=None, min_x=None, min_y=None, max_x=None, max_y=
     return positions
 
 
-def auto_position(fd, layout="neato", clear_vertices=True):
+def auto_position(fd, layout="neato", size=5, clear_vertices=True):
     """Automatically position the vertices and legs."""
     # fd = scale_positions(fd, 10)
     fd = fd.with_style(f"layout : {layout}")
     fd = incoming_to_left(fd)
     fd = outgoing_to_right(fd)
-    fd = feynman_adjust_points(fd, size=5, clear_vertices=clear_vertices)
+    fd = feynman_adjust_points(fd, size=size, clear_vertices=clear_vertices)
     # fd = remove_unnecessary_vertices(fd)
     return fd
 
@@ -372,7 +372,75 @@ def remove_unnecessary_vertices(feyndiag):
     return fd
 
 
-def auto_vdw(fd, points=None, LJ=1.0, y_symmetry=0.0, x_symmetry=0.0, intersection=0.0):
+def quad(points, cons, all_points, *args, dis=1.0):
+    for i, p in enumerate(points):
+        p.x = args[2 * i]
+        p.y = args[2 * i + 1]
+    r = dis
+    LenJ = 0
+    if dis != 0.0:
+        for i, p in enumerate(points):
+            for j in cons[i]:
+                if all_points[j].x is not None and all_points[j].y is not None:
+                    LenJ = LenJ + (
+                        (
+                            (
+                                (
+                                    (p.x - all_points[j].x) ** 2
+                                    + (p.y - all_points[j].y) ** 2
+                                )
+                                ** 0.5
+                                - r
+                            )
+                        )
+                        ** 2
+                    )
+    return LenJ
+
+
+def lennard_jones(points, cons, all_points, *args, LJ=1.0):
+    for i, p in enumerate(points):
+        p.x = args[2 * i]
+        p.y = args[2 * i + 1]
+    r = LJ
+    LenJ = 0
+    if LJ != 0.0:
+        for i, p in enumerate(points):
+            for j in cons[i]:
+                if all_points[j].x is not None and all_points[j].y is not None:
+                    LenJ = (
+                        LenJ
+                        - (
+                            (
+                                (
+                                    (
+                                        (p.x - all_points[j].x) ** 2
+                                        + (p.y - all_points[j].y) ** 2
+                                    )
+                                    ** 0.5
+                                )
+                                / r
+                            )
+                            ** 6
+                        )
+                        + (
+                            (
+                                (
+                                    (p.x - all_points[j].x) ** 2
+                                    + (p.y - all_points[j].y) ** 2
+                                )
+                                ** 0.5
+                            )
+                            / r
+                        )
+                        ** 12
+                    )
+    return LenJ
+
+
+def auto_vdw(
+    fd, points=None, LJ=0.0, dis=4.0, y_symmetry=0.0, x_symmetry=0.0, intersection=0.0
+):
     """
     Minimizes Lennard-Jones potential between vertices and legs (scaled by LJ).
     Further the function to be minimized gets punished by the number of intersections scaled by intersection.
@@ -397,13 +465,9 @@ def auto_vdw(fd, points=None, LJ=1.0, y_symmetry=0.0, x_symmetry=0.0, intersecti
     -------
     FeynmanDiagram
         The Feynman diagram with the vertices and legs positioned.
-
-
-
     """
     if points is None:
         points = fd.vertices
-    r = LJ
     all_points = [*fd.vertices, *fd.legs]
     set_none_xy_to_zero(points)
     # get distance to connected points
@@ -426,38 +490,8 @@ def auto_vdw(fd, points=None, LJ=1.0, y_symmetry=0.0, x_symmetry=0.0, intersecti
         for i, p in enumerate(points):
             p.x = args[2 * i]
             p.y = args[2 * i + 1]
-        LenJ = 0
-        if LJ != 0.0:
-            for i, p in enumerate(points):
-                for j in cons[i]:
-                    if all_points[j].x is not None and all_points[j].y is not None:
-                        LenJ = (
-                            LenJ
-                            - (
-                                (
-                                    (
-                                        (
-                                            (p.x - all_points[j].x) ** 2
-                                            + (p.y - all_points[j].y) ** 2
-                                        )
-                                        ** 0.5
-                                    )
-                                    / r
-                                )
-                                ** 6
-                            )
-                            + (
-                                (
-                                    (
-                                        (p.x - all_points[j].x) ** 2
-                                        + (p.y - all_points[j].y) ** 2
-                                    )
-                                    ** 0.5
-                                )
-                                / r
-                            )
-                            ** 12
-                        )
+        LenJ = lennard_jones(points, cons, all_points, *args, LJ=LJ)
+        qdis = quad(points, cons, all_points, *args, dis=dis)
         inter = 0
         if intersection != 0.0:
             inter += intersection * _compute_number_of_intersects(fd)
@@ -499,9 +533,7 @@ def auto_vdw(fd, points=None, LJ=1.0, y_symmetry=0.0, x_symmetry=0.0, intersecti
                         min_dist = dist
                 pun += min_dist
             pun_y = pun
-        # TODO add punishment for intersections
-        # TODO add punishment for asymmetry
-        return LenJ + inter + pun_x * x_symmetry + pun_y * y_symmetry
+        return qdis + LenJ + inter + pun_x * x_symmetry + pun_y * y_symmetry
 
     m = iminuit.Minuit(fun, *[0 for _ in range(len(points) * 2)])
     v = m.migrad()
