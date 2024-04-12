@@ -439,10 +439,10 @@ def lennard_jones(points, cons, all_points, *args, LJ=1.0):
 
 
 def auto_vdw(
-    fd, points=None, LJ=0.0, dis=4.0, y_symmetry=0.0, x_symmetry=0.0, intersection=0.0
+    fd, points=None, LJ=0.0, dis=None, y_symmetry=0.0, x_symmetry=0.0, intersection=0.0
 ):
     """
-    Minimizes Lennard-Jones potential between vertices and legs (scaled by LJ).
+    Minimizes a potential between vertices and legs.
     Further the function to be minimized gets punished by the number of intersections scaled by intersection.
     The function to be minimized gets punished by the asymmetry in x and y direction scaled by x_symmetry and y_symmetry.
 
@@ -468,6 +468,10 @@ def auto_vdw(
     """
     if points is None:
         points = fd.vertices
+    if dis is None:
+        # set dis to number of points
+        dis = 4.0 / (len(points) / 2) ** 0.5
+
     all_points = [*fd.vertices, *fd.legs]
     set_none_xy_to_zero(points)
     # get distance to connected points
