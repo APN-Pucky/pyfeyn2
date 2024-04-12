@@ -42,7 +42,7 @@
               <img src="../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.4.0-63-g5f43d1fb
+                2.4.1
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -134,7 +134,11 @@ class Targeting:
             self.target = target
         else:
             self.target = target.id
-        return self</div>
+        return self
+
+<div class="viewcode-block" id="Targeting.goes_into"><a class="viewcode-back" href="../../_autosummary/feynml.targeting.Targeting.html#feynml.targeting.Targeting.goes_into">[docs]</a>    def goes_into(self, vertex):
+        &quot;&quot;&quot;Return True if the propagator goes into the vertex, False otherwise.&quot;&quot;&quot;
+        return self.target == vertex.id</div></div>
 </pre></div>
 
            </div>

@@ -30,6 +30,7 @@ pyfeyn2.feynmandiagram.FeynmanDiagram
       ~FeynmanDiagram.get
       ~FeynmanDiagram.get_bounding_box
       ~FeynmanDiagram.get_connections
+      ~FeynmanDiagram.get_externals_size
       ~FeynmanDiagram.get_fermion_factor
       ~FeynmanDiagram.get_fermion_line_ends
       ~FeynmanDiagram.get_fermion_lines

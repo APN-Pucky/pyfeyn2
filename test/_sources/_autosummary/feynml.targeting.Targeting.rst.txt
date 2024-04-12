@@ -17,6 +17,7 @@ feynml.targeting.Targeting
    .. autosummary::
    
       ~Targeting.__init__
+      ~Targeting.goes_into
       ~Targeting.with_target
    
    

@@ -42,7 +42,7 @@
               <img src="../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.4.0-63-g5f43d1fb
+                2.4.1
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -134,7 +134,11 @@ class Sourcing:
             self.source = source
         else:
             self.source = source.id
-        return self</div>
+        return self
+
+<div class="viewcode-block" id="Sourcing.goes_out_of"><a class="viewcode-back" href="../../_autosummary/feynml.sourcing.Sourcing.html#feynml.sourcing.Sourcing.goes_out_of">[docs]</a>    def goes_out_of(self, vertex):
+        &quot;&quot;&quot;Return True if the propagator goes out of the vertex, False otherwise.&quot;&quot;&quot;
+        return self.source == vertex.id</div></div>
 </pre></div>
 
            </div>

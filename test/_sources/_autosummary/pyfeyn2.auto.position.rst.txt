@@ -25,7 +25,9 @@ pyfeyn2.auto.position
       feynman_adjust_points
       incoming_to_left
       intersect
+      lennard_jones
       outgoing_to_right
+      quad
       remove_unnecessary_vertices
       require_xy
       scale_positions

@@ -42,7 +42,7 @@
               <img src="../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.4.0-63-g5f43d1fb
+                2.4.1
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -372,13 +372,13 @@ def _get_grid(fd, n_x=None, n_y=None, min_x=None, min_y=None, max_x=None, max_y=
     return positions
 
 
-<div class="viewcode-block" id="auto_position"><a class="viewcode-back" href="../../../_autosummary/pyfeyn2.auto.position.auto_position.html#pyfeyn2.auto.position.auto_position">[docs]</a>def auto_position(fd, layout=&quot;neato&quot;, clear_vertices=True):
+<div class="viewcode-block" id="auto_position"><a class="viewcode-back" href="../../../_autosummary/pyfeyn2.auto.position.auto_position.html#pyfeyn2.auto.position.auto_position">[docs]</a>def auto_position(fd, layout=&quot;neato&quot;, size=5, clear_vertices=True):
     &quot;&quot;&quot;Automatically position the vertices and legs.&quot;&quot;&quot;
     # fd = scale_positions(fd, 10)
     fd = fd.with_style(f&quot;layout : {layout}&quot;)
     fd = incoming_to_left(fd)
     fd = outgoing_to_right(fd)
-    fd = feynman_adjust_points(fd, size=5, clear_vertices=clear_vertices)
+    fd = feynman_adjust_points(fd, size=size, clear_vertices=clear_vertices)
     # fd = remove_unnecessary_vertices(fd)
     return fd</div>
 
@@ -483,7 +483,75 @@ def _get_grid(fd, n_x=None, n_y=None, min_x=None, min_y=None, max_x=None, max_y=
     return fd</div>
 
 
-<div class="viewcode-block" id="auto_vdw"><a class="viewcode-back" href="../../../_autosummary/pyfeyn2.auto.position.auto_vdw.html#pyfeyn2.auto.position.auto_vdw">[docs]</a>def auto_vdw(fd, points=None, LJ=1.0, y_symmetry=0.0, x_symmetry=0.0, intersection=0.0):
+<div class="viewcode-block" id="quad"><a class="viewcode-back" href="../../../_autosummary/pyfeyn2.auto.position.quad.html#pyfeyn2.auto.position.quad">[docs]</a>def quad(points, cons, all_points, *args, dis=1.0):
+    for i, p in enumerate(points):
+        p.x = args[2 * i]
+        p.y = args[2 * i + 1]
+    r = dis
+    LenJ = 0
+    if dis != 0.0:
+        for i, p in enumerate(points):
+            for j in cons[i]:
+                if all_points[j].x is not None and all_points[j].y is not None:
+                    LenJ = LenJ + (
+                        (
+                            (
+                                (
+                                    (p.x - all_points[j].x) ** 2
+                                    + (p.y - all_points[j].y) ** 2
+                                )
+                                ** 0.5
+                                - r
+                            )
+                        )
+                        ** 2
+                    )
+    return LenJ</div>
+
+
+<div class="viewcode-block" id="lennard_jones"><a class="viewcode-back" href="../../../_autosummary/pyfeyn2.auto.position.lennard_jones.html#pyfeyn2.auto.position.lennard_jones">[docs]</a>def lennard_jones(points, cons, all_points, *args, LJ=1.0):
+    for i, p in enumerate(points):
+        p.x = args[2 * i]
+        p.y = args[2 * i + 1]
+    r = LJ
+    LenJ = 0
+    if LJ != 0.0:
+        for i, p in enumerate(points):
+            for j in cons[i]:
+                if all_points[j].x is not None and all_points[j].y is not None:
+                    LenJ = (
+                        LenJ
+                        - (
+                            (
+                                (
+                                    (
+                                        (p.x - all_points[j].x) ** 2
+                                        + (p.y - all_points[j].y) ** 2
+                                    )
+                                    ** 0.5
+                                )
+                                / r
+                            )
+                            ** 6
+                        )
+                        + (
+                            (
+                                (
+                                    (p.x - all_points[j].x) ** 2
+                                    + (p.y - all_points[j].y) ** 2
+                                )
+                                ** 0.5
+                            )
+                            / r
+                        )
+                        ** 12
+                    )
+    return LenJ</div>
+
+
+<div class="viewcode-block" id="auto_vdw"><a class="viewcode-back" href="../../../_autosummary/pyfeyn2.auto.position.auto_vdw.html#pyfeyn2.auto.position.auto_vdw">[docs]</a>def auto_vdw(
+    fd, points=None, LJ=0.0, dis=4.0, y_symmetry=0.0, x_symmetry=0.0, intersection=0.0
+):
     &quot;&quot;&quot;
     Minimizes Lennard-Jones potential between vertices and legs (scaled by LJ).
     Further the function to be minimized gets punished by the number of intersections scaled by intersection.
@@ -508,13 +576,9 @@ def _get_grid(fd, n_x=None, n_y=None, min_x=None, min_y=None, max_x=None, max_y=
     -------
     FeynmanDiagram
         The Feynman diagram with the vertices and legs positioned.
-
-
-
     &quot;&quot;&quot;
     if points is None:
         points = fd.vertices
-    r = LJ
     all_points = [*fd.vertices, *fd.legs]
     set_none_xy_to_zero(points)
     # get distance to connected points
@@ -537,38 +601,8 @@ def _get_grid(fd, n_x=None, n_y=None, min_x=None, min_y=None, max_x=None, max_y=
         for i, p in enumerate(points):
             p.x = args[2 * i]
             p.y = args[2 * i + 1]
-        LenJ = 0
-        if LJ != 0.0:
-            for i, p in enumerate(points):
-                for j in cons[i]:
-                    if all_points[j].x is not None and all_points[j].y is not None:
-                        LenJ = (
-                            LenJ
-                            - (
-                                (
-                                    (
-                                        (
-                                            (p.x - all_points[j].x) ** 2
-                                            + (p.y - all_points[j].y) ** 2
-                                        )
-                                        ** 0.5
-                                    )
-                                    / r
-                                )
-                                ** 6
-                            )
-                            + (
-                                (
-                                    (
-                                        (p.x - all_points[j].x) ** 2
-                                        + (p.y - all_points[j].y) ** 2
-                                    )
-                                    ** 0.5
-                                )
-                                / r
-                            )
-                            ** 12
-                        )
+        LenJ = lennard_jones(points, cons, all_points, *args, LJ=LJ)
+        qdis = quad(points, cons, all_points, *args, dis=dis)
         inter = 0
         if intersection != 0.0:
             inter += intersection * _compute_number_of_intersects(fd)
@@ -610,9 +644,7 @@ def _get_grid(fd, n_x=None, n_y=None, min_x=None, min_y=None, max_x=None, max_y=
                         min_dist = dist
                 pun += min_dist
             pun_y = pun
-        # TODO add punishment for intersections
-        # TODO add punishment for asymmetry
-        return LenJ + inter + pun_x * x_symmetry + pun_y * y_symmetry
+        return qdis + LenJ + inter + pun_x * x_symmetry + pun_y * y_symmetry
 
     m = iminuit.Minuit(fun, *[0 for _ in range(len(points) * 2)])
     v = m.migrad()

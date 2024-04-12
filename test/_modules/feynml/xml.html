@@ -42,7 +42,7 @@
               <img src="../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.4.0-63-g5f43d1fb
+                2.4.1
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -118,7 +118,7 @@ from xsdata.formats.dataclass.serializers.config import SerializerConfig
 <div class="viewcode-block" id="XML"><a class="viewcode-back" href="../../_autosummary/feynml.xml.XML.html#feynml.xml.XML">[docs]</a>class XML:
 <div class="viewcode-block" id="XML.to_xml"><a class="viewcode-back" href="../../_autosummary/feynml.xml.XML.html#feynml.xml.XML.to_xml">[docs]</a>    def to_xml(self) -&gt; str:
         &quot;&quot;&quot;Return self as XML.&quot;&quot;&quot;
-        config = SerializerConfig(pretty_print=True)
+        config = SerializerConfig(indent=&quot;  &quot;)
         serializer = XmlSerializer(config=config)
         return serializer.render(self)</div>
 
