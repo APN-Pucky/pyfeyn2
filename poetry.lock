@@ -3058,13 +3058,13 @@ testing = ["docopt", "pytest (<6.0.0)"]
 
 [[package]]
 name = "particle"
-version = "0.23.1"
+version = "0.24.0"
 description = "Extended PDG particle data and MC identification codes"
 optional = false
-python-versions = ">=3.7"
+python-versions = ">=3.8"
 files = [
-    {file = "particle-0.23.1-py3-none-any.whl", hash = "sha256:1c68a36f1c3640bd8e5d4f47fc026064aa28264dfd283121d1f784d55947f1b7"},
-    {file = "particle-0.23.1.tar.gz", hash = "sha256:eee28b0e846bfea4dfd70e9ec5ffe3244613db08b6b6a9b773f55a4310752fab"},
+    {file = "particle-0.24.0-py3-none-any.whl", hash = "sha256:b83cabbd0fd293737c4a8a352156c86b4dd50edb899ab7cc5c008e778861ab53"},
+    {file = "particle-0.24.0.tar.gz", hash = "sha256:8ab4b5dd4547ba2dae8354955a435210892a575dff46f323cac6cf40600b976a"},
 ]
 
 [package.dependencies]
