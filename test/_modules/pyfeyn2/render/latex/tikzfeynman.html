@@ -42,7 +42,7 @@
               <img src="../../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.4.1-1-g23cd8ee0
+                2.4.1-12-g9bf8a42a
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
@@ -246,6 +246,7 @@ shape_map = {
         ret += &quot;label=&quot; + v.label + &quot;,&quot;
     if style.getProperty(&quot;symbol&quot;) is not None:
         ret += shape_map[style.getProperty(&quot;symbol&quot;).value] + &quot;,&quot;
+        ret += &quot;scale=&quot; + style.getPropertyValue(&quot;symbol-size&quot;, &quot;1&quot;) + &quot;,&quot;
         suffix = &quot;&quot;
 
     end = ret[:-1]
@@ -358,6 +359,7 @@ shape_map = {
         return super().valid_styles() + [
             &quot;line&quot;,
             &quot;symbol&quot;,
+            &quot;symbol-size&quot;,
             &quot;color&quot;,
             &quot;opacity&quot;,
             &quot;bend-direction&quot;,
