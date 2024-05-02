@@ -135,6 +135,7 @@ def stylize_node(fd: FeynmanDiagram, v: Vertex):
         ret += "label=" + v.label + ","
     if style.getProperty("symbol") is not None:
         ret += shape_map[style.getProperty("symbol").value] + ","
+        ret += "scale=" + style.getPropertyValue("symbol-size", "1") + ","
         suffix = ""
 
     end = ret[:-1]
@@ -247,6 +248,7 @@ class TikzFeynmanRender(LatexRender):
         return super().valid_styles() + [
             "line",
             "symbol",
+            "symbol-size",
             "color",
             "opacity",
             "bend-direction",
