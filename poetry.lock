@@ -122,13 +122,13 @@ test = ["dateparser (==1.*)", "pre-commit", "pytest", "pytest-cov", "pytest-mock
 
 [[package]]
 name = "asciidraw"
-version = "0.0.1"
+version = "0.1.2"
 description = "asciidraw is a simple python library to draw ascii art diagrams."
 optional = false
 python-versions = "<4.0,>=3.8"
 files = [
-    {file = "asciidraw-0.0.1-py3-none-any.whl", hash = "sha256:4e17d52fb01898c85a728eddf448860c82429536508509a7706dbb92a6891867"},
-    {file = "asciidraw-0.0.1.tar.gz", hash = "sha256:0008647e836e1e7d4e846c554ff306c01ad88a010a1d5052f4a269118ad02c2d"},
+    {file = "asciidraw-0.1.2-py3-none-any.whl", hash = "sha256:9f335854a8bd2fca950fbdb76ec4a2e723f49fc9e5df273498779133f6e8e498"},
+    {file = "asciidraw-0.1.2.tar.gz", hash = "sha256:eb8163b626e5a4b45109c7933be1464106a714a935d8c6c9c8993a00997ebe13"},
 ]
 
 [package.dependencies]
@@ -5375,4 +5375,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "jaraco.test", "more
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.8"
-content-hash = "bc0a1e7d60efe25dd436d1fc567cbdc518013fc052085941b54c983c392d954d"
+content-hash = "34cc9f19be80dccc65f54b6f879508ae4913b31c714ce64b6549a290aa2df8ae"

@@ -19,8 +19,6 @@ class ULabel(Label):
 class UFermion(ASCIILine):
     def __init__(self):
         super().__init__(
-            begin="*",
-            end="*",
             style=Compass(
                 ww="←",
                 ee="→",
@@ -30,6 +28,8 @@ class UFermion(ASCIILine):
                 ne="↗",
                 sw="↙",
                 se="↘",
+                begin="*",
+                end="*",
             ),
         )
 
@@ -37,8 +37,6 @@ class UFermion(ASCIILine):
 class AntiUFermion(ASCIILine):
     def __init__(self):
         super().__init__(
-            begin="*",
-            end="*",
             style=Compass(
                 ee="←",
                 ww="→",
@@ -48,6 +46,8 @@ class AntiUFermion(ASCIILine):
                 nw="↘",
                 sw="↗",
                 ne="↙",
+                begin="*",
+                end="*",
             ),
         )
 

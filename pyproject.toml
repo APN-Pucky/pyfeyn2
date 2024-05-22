@@ -34,8 +34,8 @@ colorama = "*"
 termcolor = "*"
 feynml = {version = ">=0.2.24", extras = ["interfaces"]}
 #feynml= {path = "../feynml", develop = true, extras = ["interfaces"]}
-asciidraw = ">=0.0.1"
 #asciidraw = {path = "../asciidraw", develop = true}
+asciidraw = ">=0.1.2"
 
 [tool.poetry.scripts]
 mkfeyndiag = "pyfeyn2.mkfeyndiag:main"
