@@ -1,9 +1,9 @@
+from asciidraw.line import ASCIILine
+from asciidraw.point import ASCIIPoint
+from asciidraw.style import Compass
 from pylatexenc.latex2text import LatexNodes2Text
 
 from pyfeyn2.render.text.ascii import ASCIIRender, Label
-from pyfeyn2.render.text.line import ASCIILine
-from pyfeyn2.render.text.point import ASCIIPoint
-from pyfeyn2.render.text.style import Compass
 
 
 class ULabel(Label):
@@ -68,6 +68,8 @@ class UnicodeRender(ASCIIRender):
         "square": ASCIIPoint("■"),
         "dot": ASCIIPoint("●"),
         "diamond": ASCIIPoint("◆"),
+        "vertical ellipse": ASCIIPoint("⬮"),
+        "horizontal ellipse": ASCIIPoint("⬬"),
         "pentagram": ASCIIPoint("⛤"),
         "star": ASCIIPoint("★"),
         "blob": ASCIIPoint("◍"),
