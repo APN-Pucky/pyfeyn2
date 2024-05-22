@@ -181,7 +181,9 @@ class Phantom(ASCIILine):
     def __init__(self, **kwargs):
         super().__init__(begin=None, end=None, style=Cross(vert="", horz=""), **kwargs)
 
-    def draw(self, pane, isrc, itar, scalex=1, scaley=1, kickx=0, kicky=0):
+    def draw(
+        self, pane, isrcx, isrcy, itarx, itary, scalex=1, scaley=1, kickx=0, kicky=0
+    ):
         pass
 
 
@@ -240,17 +242,21 @@ class ASCIIRender(Render):
         else:
             lname = p.type  # fallback no style
         if pstyle.getProperty("color") is not None:
-            tmp_fmt["colorer"] = lambda t: self.get_color_text(
+            tmp_fmt["wrap"] = lambda t: self.get_color_text(
                 t, pstyle.getProperty("color").value
             )
-        self.namedlines[lname]().draw(pane, src, tar, **fmt, **tmp_fmt)
+        self.namedlines[lname]().draw(
+            pane, src.x, src.y, tar.x, tar.y, **fmt, **tmp_fmt
+        )
         if p.label is not None:
             tmp_fmt = {}
             if pstyle.getProperty("label-color") is not None:
-                tmp_fmt["colorer"] = lambda t: self.get_color_text(
+                tmp_fmt["wrap"] = lambda t: self.get_color_text(
                     t, pstyle.getProperty("label-color").value
                 )
-            self.namedlines["label"](p.label).draw(pane, src, tar, **fmt, **tmp_fmt)
+            self.namedlines["label"](p.label).draw(
+                pane, src.x, src.y, tar.x, tar.y, **fmt, **tmp_fmt
+            )
 
     def render(
         self,
@@ -305,22 +311,24 @@ class ASCIIRender(Render):
             ssss = self.fd.get_style(v)
             if ssss.getProperty("symbol") is not None:
                 if ssss.getProperty("color") is not None:
-                    tmp_fmt["colorer"] = lambda t: self.get_color_text(
+                    tmp_fmt["wrap"] = lambda t: self.get_color_text(
                         t, ssss.getProperty("color").value
                     )
                 self.namedshapes[ssss.getProperty("symbol").value].draw(
-                    pane, v, **fmt, **tmp_fmt
+                    pane, v.x, v.y, **fmt, **tmp_fmt
                 )
             if v.label is not None:
                 tmp_fmt = {}
                 if ssss.getProperty("label-color") is not None:
-                    tmp_fmt["colorer"] = lambda t: self.get_color_text(
+                    tmp_fmt["wrap"] = lambda t: self.get_color_text(
                         t, ssss.getProperty("label-color").value
                     )
                 self.namedlines["label"](v.label).draw(
                     pane,
-                    Point(v.x - len(v.label) / 2, v.y),
-                    Point(v.x + len(v.label) / 2, v.y),
+                    v.x - len(v.label) / 2,
+                    v.y,
+                    v.x + len(v.label) / 2,
+                    v.y,
                     **fmt,
                     **tmp_fmt,
                 )
