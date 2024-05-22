@@ -1,14 +1,6 @@
 from typing import List
 from warnings import warn
 
-from feynml.point import Point
-
-from pyfeyn2.render.render import Render
-from pyfeyn2.render.text.label import Label
-from pyfeyn2.render.text.line import ASCIILine
-from pyfeyn2.render.text.point import ASCIIPoint
-from pyfeyn2.render.text.style import Cross
-
 try:
     import colorama
     from termcolor import colored
@@ -17,6 +9,15 @@ except ImportError:
 
     def colored(text, color):
         return text
+
+
+from asciidraw.label import Label
+from asciidraw.line import ASCIILine
+from asciidraw.point import ASCIIPoint
+from asciidraw.style import Cross
+from feynml.point import Point
+
+from pyfeyn2.render.render import Render
 
 
 class Gluon(ASCIILine):
