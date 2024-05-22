@@ -23,27 +23,33 @@ from pyfeyn2.render.render import Render
 class Gluon(ASCIILine):
     def __init__(self, **kwargs):
         super().__init__(
-            style=Cross(vert=["O"], horz=["O"]), begin="*", end="*", **kwargs
+            style=Cross(vert=["O"], horz=["O"], begin="*", end="*"), **kwargs
         )
 
 
 class Photon(ASCIILine):
     def __init__(self, **kwargs):
         super().__init__(
-            begin="*", end="*", style=Cross(vert=["(", ")"], horz=["~"]), **kwargs
+            style=Cross(
+                vert=["(", ")"],
+                horz=["~"],
+                begin="*",
+                end="*",
+            ),
+            **kwargs,
         )
 
 
 class Fermion(ASCIILine):
     def __init__(self, **kwargs):
         super().__init__(
-            begin="*",
-            end="*",
             style=Cross(
                 left="--<--",
                 right="-->--",
                 up="||^||",
                 down="||v||",
+                begin="*",
+                end="*",
             ),
             **kwargs,
         )
@@ -52,13 +58,13 @@ class Fermion(ASCIILine):
 class AntiFermion(ASCIILine):
     def __init__(self, **kwargs):
         super().__init__(
-            begin="*",
-            end="*",
             style=Cross(
                 left="-->--",
                 right="--<--",
                 up="||v||",
                 down="||^||",
+                begin="*",
+                end="*",
             ),
             **kwargs,
         )
@@ -67,13 +73,13 @@ class AntiFermion(ASCIILine):
 class Line(ASCIILine):
     def __init__(self, **kwargs):
         super().__init__(
-            begin="*",
-            end="*",
             style=Cross(
                 left="-----",
                 right="-----",
                 up="|||||",
                 down="|||||",
+                begin="*",
+                end="*",
             ),
             **kwargs,
         )
@@ -82,13 +88,13 @@ class Line(ASCIILine):
 class Scalar(ASCIILine):
     def __init__(self, **kwargs):
         super().__init__(
-            begin="*",
-            end="*",
             style=Cross(
                 left="..<..",
                 right="..>..",
                 up="::^::",
                 down="::v::",
+                begin="*",
+                end="*",
             ),
             **kwargs,
         )
@@ -97,11 +103,11 @@ class Scalar(ASCIILine):
 class Ghost(ASCIILine):
     def __init__(self, **kwargs):
         super().__init__(
-            begin="*",
-            end="*",
             style=Cross(
                 vert=":",
                 horz=".",
+                begin="*",
+                end="*",
             ),
             **kwargs,
         )
@@ -110,11 +116,11 @@ class Ghost(ASCIILine):
 class Higgs(ASCIILine):
     def __init__(self, **kwargs):
         super().__init__(
-            begin="*",
-            end="*",
             style=Cross(
                 vert="=",
                 horz="H",
+                begin="*",
+                end="*",
             ),
             **kwargs,
         )
@@ -123,13 +129,13 @@ class Higgs(ASCIILine):
 class Baryon(ASCIILine):
     def __init__(self, **kwargs):
         super().__init__(
-            begin="*",
-            end="*",
             style=Cross(
                 left="BB<BB",
                 right="BB>BB",
                 up="BB^BB",
                 down="BBvBB",
+                begin="*",
+                end="*",
             ),
             **kwargs,
         )
@@ -138,13 +144,13 @@ class Baryon(ASCIILine):
 class AntiBaryon(ASCIILine):
     def __init__(self, **kwargs):
         super().__init__(
-            begin="*",
-            end="*",
             style=Cross(
                 left="BB>BB",
                 right="BB<BB",
                 up="BBvBB",
                 down="BB^BB",
+                begin="*",
+                end="*",
             ),
             **kwargs,
         )
@@ -153,11 +159,11 @@ class AntiBaryon(ASCIILine):
 class Meson(ASCIILine):
     def __init__(self, **kwargs):
         super().__init__(
-            begin="*",
-            end="*",
             style=Cross(
                 vert="M",
                 horz="M",
+                begin="*",
+                end="*",
             ),
             **kwargs,
         )
@@ -166,20 +172,32 @@ class Meson(ASCIILine):
 class Gluino(ASCIILine):
     def __init__(self, **kwargs):
         super().__init__(
-            begin="*", end="*", style=Cross(vert=["&"], horz=["&"]), **kwargs
+            style=Cross(
+                vert=["&"],
+                horz=["&"],
+                begin="*",
+                end="*",
+            ),
+            **kwargs,
         )
 
 
 class Gaugino(ASCIILine):
     def __init__(self, **kwargs):
         super().__init__(
-            begin="*", end="*", style=Cross(vert=["$"], horz=["$"]), **kwargs
+            style=Cross(
+                vert=["$"],
+                horz=["$"],
+                begin="*",
+                end="*",
+            ),
+            **kwargs,
         )
 
 
 class Phantom(ASCIILine):
     def __init__(self, **kwargs):
-        super().__init__(begin=None, end=None, style=Cross(vert="", horz=""), **kwargs)
+        super().__init__(style=Cross(vert="", horz="", begin=None, end=None), **kwargs)
 
     def draw(
         self, pane, isrcx, isrcy, itarx, itary, scalex=1, scaley=1, kickx=0, kicky=0
