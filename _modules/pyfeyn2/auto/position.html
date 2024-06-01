@@ -42,7 +42,7 @@
               <img src="../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.4.1
+                2.4.2
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -550,10 +550,10 @@ def _get_grid(fd, n_x=None, n_y=None, min_x=None, min_y=None, max_x=None, max_y=
 
 
 <div class="viewcode-block" id="auto_vdw"><a class="viewcode-back" href="../../../_autosummary/pyfeyn2.auto.position.auto_vdw.html#pyfeyn2.auto.position.auto_vdw">[docs]</a>def auto_vdw(
-    fd, points=None, LJ=0.0, dis=4.0, y_symmetry=0.0, x_symmetry=0.0, intersection=0.0
+    fd, points=None, LJ=0.0, dis=None, y_symmetry=0.0, x_symmetry=0.0, intersection=0.0
 ):
     &quot;&quot;&quot;
-    Minimizes Lennard-Jones potential between vertices and legs (scaled by LJ).
+    Minimizes a potential between vertices and legs.
     Further the function to be minimized gets punished by the number of intersections scaled by intersection.
     The function to be minimized gets punished by the asymmetry in x and y direction scaled by x_symmetry and y_symmetry.
 
@@ -579,6 +579,10 @@ def _get_grid(fd, n_x=None, n_y=None, min_x=None, min_y=None, max_x=None, max_y=
     &quot;&quot;&quot;
     if points is None:
         points = fd.vertices
+    if dis is None:
+        # set dis to number of points
+        dis = 4.0 / (len(points) / 2) ** 0.5
+
     all_points = [*fd.vertices, *fd.legs]
     set_none_xy_to_zero(points)
     # get distance to connected points
