@@ -1,7 +1,0 @@
-/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/docs/source/interfaces/qgraf/1_to_1/_skbuild/linux-x86_64-3.9/cmake-build/CMakeFiles/qgraf.dir
-/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/docs/source/interfaces/qgraf/1_to_1/_skbuild/linux-x86_64-3.9/cmake-build/CMakeFiles/edit_cache.dir
-/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/docs/source/interfaces/qgraf/1_to_1/_skbuild/linux-x86_64-3.9/cmake-build/CMakeFiles/rebuild_cache.dir
-/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/docs/source/interfaces/qgraf/1_to_1/_skbuild/linux-x86_64-3.9/cmake-build/CMakeFiles/list_install_components.dir
-/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/docs/source/interfaces/qgraf/1_to_1/_skbuild/linux-x86_64-3.9/cmake-build/CMakeFiles/install.dir
-/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/docs/source/interfaces/qgraf/1_to_1/_skbuild/linux-x86_64-3.9/cmake-build/CMakeFiles/install/local.dir
-/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/docs/source/interfaces/qgraf/1_to_1/_skbuild/linux-x86_64-3.9/cmake-build/CMakeFiles/install/strip.dir

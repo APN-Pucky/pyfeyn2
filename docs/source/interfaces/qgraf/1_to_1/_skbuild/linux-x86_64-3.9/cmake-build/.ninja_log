@@ -1,7 +1,0 @@
-# ninja log v5
-0	17	1672143522612951667	CMakeFiles/qgraf.dir/qgraf-3.4.2.f-pp.f	c5dee747168e989e
-0	17	1672143522612951667	CMakeFiles/qgraf.dir/qgraf-3.4.2.f.o.ddi	c5dee747168e989e
-17	21	1672143522616951726	CMakeFiles/qgraf.dir/Fortran.dd	2f62b1104f77857f
-21	925	1672143523520965031	CMakeFiles/qgraf.dir/qgraf-3.4.2.f.o	ca7d1657c7369f40
-925	962	1672143523557965576	qgraf	fd7e9093f3d35dd0
-962	967	0	CMakeFiles/install.util	b872f1928039ff7d

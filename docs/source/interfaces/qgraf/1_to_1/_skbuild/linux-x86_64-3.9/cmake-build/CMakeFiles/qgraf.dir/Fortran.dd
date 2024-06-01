@@ -1,2 +1,0 @@
-ninja_dyndep_version = 1.0
-build CMakeFiles/qgraf.dir/qgraf-3.4.2.f.o: dyndep
