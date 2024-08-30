@@ -2,7 +2,9 @@
 name = "pyfeyn2"
 version = "0.0.0"
 description = "PyFeyn is a package which makes drawing Feynman diagrams simple and programmatic.  Feynman diagrams are important constructs in perturbative field theory, so being able to draw them in a programmatic fashion is important if attempting to enumerate a large number of diagram configurations is important. The output quality of PyFeyn diagrams (into PDF or EPS formats) is very high, and special effects can be obtained by using constructs from PyX, which PyFeyn is based around"
-authors = ["Alexander Puck Neuwirth <alexander@neuwirth-informatik.de>"]
+authors = [
+    { name = "Alexander Puck Neuwirth", email =  "alexander@neuwirth-informatik.de>" },
+]
 readme = "README.md"
 repository = "https://github.com/APN-Pucky/pyfeyn2"
 

@@ -1,0 +1,26 @@
+{
+    "description": "Package to draw Feynman diagrams in python.",
+    "license": "GPL-3.0-only",
+    "title": "pyfeyn2",
+    "version": "2.4.2",
+    "upload_type": "software",
+    "creators": [
+        {
+            "affiliation": "Institut für Theoretische Physik, Universität Münster",
+            "name": "Alexander Puck Neuwirth",
+            "orcid": "0000-0002-2484-1328"
+        }
+    ],
+    "access_right": "open",
+    "keywords": [
+      "physics",
+      "python"
+    ],
+    "related_identifiers": [
+        {
+            "scheme": "url",
+            "identifier": "https://github.com/APN-Pucky/pyfeyn2/tree/2.4.2",
+            "relation": "isSupplementTo"
+        }
+    ]
+}
