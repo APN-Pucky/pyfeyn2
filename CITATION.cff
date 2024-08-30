@@ -1,13 +1,13 @@
 cff-version: 1.2.0
 title: 'pyfeyn2'
-version: 2.3.10
-abstract: Fork of pyfeyn with new features
+version: 2.4.2
+abstract: Package to draw Feynman diagrams in python. Fork of pyfeyn with new features.
 message: If you use this software, please cite it using these metadata.
 authors:
 - family-names: Neuwirth
   given-names: Alexander Puck
   orcid: "https://orcid.org/0000-0002-2484-1328"
-date-released: '2023-11-02'
+date-released: '2024-06-01'
 doi: 10.5281/zenodo.10067115
 license: GPL-3.0-only
 type: software
