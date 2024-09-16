@@ -3185,13 +3185,13 @@ testing = ["docopt", "pytest"]
 
 [[package]]
 name = "particle"
-version = "0.25.0"
+version = "0.25.1"
 description = "Extended PDG particle data and MC identification codes"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "particle-0.25.0-py3-none-any.whl", hash = "sha256:59846fe8b6cf861f8cac9367304dc7e1069903f6ae1b59e9341fa47928629ac1"},
-    {file = "particle-0.25.0.tar.gz", hash = "sha256:8e2d5fa36555e6af218b66e97b9585b1d4f52085785d96c067736f0b2e57f5ad"},
+    {file = "particle-0.25.1-py3-none-any.whl", hash = "sha256:2fd02b3ba2282cd80fcd98e65f8f537195482c6e52a0895357e833da826eb42a"},
+    {file = "particle-0.25.1.tar.gz", hash = "sha256:9706748e95a706dffd49426db393298197fe1af819721c5d2c6e515764a1fb01"},
 ]
 
 [package.dependencies]
@@ -3201,7 +3201,8 @@ importlib-resources = {version = ">=2.0", markers = "python_version < \"3.9\""}
 typing-extensions = {version = ">=4.5", markers = "python_version < \"3.13\""}
 
 [package.extras]
-dev = ["pandas", "pytest (>=6)", "pytest-benchmark", "tabulate"]
+all = ["pandas", "pre-commit", "pytest (>=6)", "pytest-benchmark", "pytest-cov", "tabulate"]
+dev = ["pandas", "pre-commit", "pytest (>=6)", "pytest-benchmark", "tabulate"]
 test = ["pandas", "pytest (>=6)", "pytest-benchmark", "pytest-cov", "tabulate"]
 
 [[package]]
