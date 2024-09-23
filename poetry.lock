@@ -5307,13 +5307,13 @@ test = ["pytest"]
 
 [[package]]
 name = "xsdata"
-version = "24.7"
+version = "24.9"
 description = "Python XML Binding"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "xsdata-24.7-py3-none-any.whl", hash = "sha256:19022456c59358cef32573f6aef22eebd0a9e52625ec8d8c6f36b7b083077958"},
-    {file = "xsdata-24.7.tar.gz", hash = "sha256:80bf84d7ec8d6f1d021c6d1acf8bfe6ade7a9b70eac7c1c197d4b858c990ea85"},
+    {file = "xsdata-24.9-py3-none-any.whl", hash = "sha256:2ff69f75ebf8fbb384df35cc622d3e597616857b6dcc5c0b06a4d7aeec8cefbc"},
+    {file = "xsdata-24.9.tar.gz", hash = "sha256:ecbc872f9bb12658e820126626930371fa3c5170ffa8ac183cc57e342a26e5fb"},
 ]
 
 [package.dependencies]
