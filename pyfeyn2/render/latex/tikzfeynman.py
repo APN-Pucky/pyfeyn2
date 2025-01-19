@@ -135,7 +135,10 @@ def stylize_node(fd: FeynmanDiagram, v: Vertex):
         ret += "label=" + v.label + ","
     if style.getProperty("symbol") is not None:
         ret += shape_map[style.getProperty("symbol").value] + ","
-        ret += "scale=" + style.getPropertyValue("symbol-size", "1") + ","
+        size = style.getPropertyValue("symbol-size", "1")
+        if size == "":
+            size = "1"
+        ret += "scale=" + size + ","
         suffix = ""
 
     end = ret[:-1]
