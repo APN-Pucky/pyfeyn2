@@ -1,0 +1,61 @@
+name: CI/CD
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+  # Run daily at 0:01 UTC
+  schedule:
+  - cron:  '1 0 * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest]
+        python-version: ['3.9', '3.10', '3.11', '3.12', '3.13']
+
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v5
+      with:
+        python-version: ${{ matrix.python-version }}
+        allow-prereleases: true
+
+    - uses: astral-sh/setup-uv@v3
+
+    - name: Install dependencies
+      run: |
+        uv pip install --system '.[test]'
+        uv pip list
+
+    - name: Test with pytest
+      run: |
+        pytest --cov --cov-report=xml -r sx
+
+    - name: Report core project coverage with Codecov
+      if: >-
+        github.event_name != 'schedule'
+      uses: codecov/codecov-action@v5
+      with:
+        fail_ci_if_error: true
+        files: ./coverage.xml
+        flags: unittests-python-${{ matrix.python-version }}
+        name: pyfeyn2
+        token: ${{ secrets.CODECOV_TOKEN }}
