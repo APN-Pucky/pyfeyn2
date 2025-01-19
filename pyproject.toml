@@ -1,91 +1,91 @@
-[tool.poetry]
-name = "pyfeyn2"
-version = "0.0.0"
-description = "PyFeyn is a package which makes drawing Feynman diagrams simple and programmatic.  Feynman diagrams are important constructs in perturbative field theory, so being able to draw them in a programmatic fashion is important if attempting to enumerate a large number of diagram configurations is important. The output quality of PyFeyn diagrams (into PDF or EPS formats) is very high, and special effects can be obtained by using constructs from PyX, which PyFeyn is based around"
-authors = ["Alexander Puck Neuwirth <alexander@neuwirth-informatik.de>"]
-readme = "README.md"
-repository = "https://github.com/APN-Pucky/pyfeyn2"
-
-[tool.poetry.dependencies]
-python = "^3.8"
-particle = "*"
-xsdata = {version = "*", extras = ["cli","lxml","soap"]}
-pylatex = "*"
-dot2tex = "*"
-matplotlib = ">=1.4.0,<4.0.0"
-Wand = "*"
-numpy = "*" # Upper limit due to feynman using np.complex
-pyx = ">=0.12,<1.0.0" # Original pyfeyn
-pydot = "*"
-feynman=">=2.1"
-cssutils= "*"
-pylatexenc = "*"
-pygments = "*"
-graphviz = "*"
-ipyparallel = "*"
-deprecated = "*"
-deprecation = "*"
-cssselect ="*"
-smpl_io = "*"
-smpl_doc = "*"
-smpl_util= "*"
-iminuit = "*"
-colorama = "*"
-termcolor = "*"
-feynml = {version = ">=0.2.24", extras = ["interfaces"]}
-#feynml= {path = "../feynml", develop = true, extras = ["interfaces"]}
-#asciidraw = {path = "../asciidraw", develop = true}
-asciidraw = ">=0.1.2"
-
-[tool.poetry.scripts]
-mkfeyndiag = "pyfeyn2.mkfeyndiag:main"
-
-[tool.poetry.group.docs]
-optional = true
-
-[tool.poetry.group.docs.dependencies]
-sphinx = "<8.0.0"
-sphinx-rtd-theme = "*"
-sphinxcontrib-napoleon = "*"
-nbsphinx = "*"
-jupyter-sphinx = "*"
-sphinx_autobuild = "*"
-sphinx_math_dollar = "*"
-myst-parser  = "*"
-toml = "*"
-
-[tool.poetry.group.test]
-optional = true
-
-[tool.poetry.group.test.dependencies]
-pytest = "*"
-pytest-cov =  "*"
-pytest-profiling =  "*"
-pytest-line-profiler-apn = ">=0.1.3"
-
-[tool.poetry.group.dev]
-optional = true
-
-[tool.poetry.group.dev.dependencies]
-pre-commit = ">=2.20,<4.0"
-ipython =  "*"
-jupyterlab =  "*"
-jupyter = "*"
-poetry-dynamic-versioning = {extras = ["plugin"], version = ">=0.21.1,<1.7.0"}
-
 [build-system]
-requires = ["poetry-core>=1.0.0", "poetry-dynamic-versioning"]
-build-backend = "poetry_dynamic_versioning.backend"
+requires = [
+  "hatchling",
+  "hatch-vcs",
+]
+build-backend = "hatchling.build"
 
-[tool.poetry-dynamic-versioning]
-enable = true
-vcs = "git"
-style = "pep440"
-dirty = true
-# modified dunami default pattern without v
-pattern = '(?x)(?# ignore whitespace)^((?P<epoch>\d+)!)?(?P<base>\d+(\.\d+)*)(?# v1.2.3 or v1!2000.1.2)([-._]?((?P<stage>[a-zA-Z]+)[-._]?(?P<revision>\d+)?))?(?# b0)(\+(?P<tagged_metadata>.+))?$(?# +linux)'
-strict = true
-format-jinja = "{% if distance == 0 %}{{ base }}{% else %}{{ base }}.{{ distance }}{% endif %}"
+[project]
+name = "pyfeyn2"
+dynamic = ["version"]
+description = 'PyFeyn is a package which makes drawing Feynman diagrams simple and programmatic.  Feynman diagrams are important constructs in perturbative field theory, so being able to draw them in a programmatic fashion is important if attempting to enumerate a large number of diagram configurations is important. The output quality of PyFeyn diagrams (into PDF or EPS formats) is very high, and special effects can be obtained by using constructs from PyX, which PyFeyn is based around'
+readme = "README.md"
+requires-python = ">=3.8"
+keywords = []
+authors = [
+  { name = "Alexander Puck Neuwirth", email = "alexander@neuwirth-informatik.de" },
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "Intended Audience :: Science/Research",
+  "License :: OSI Approved :: BSD License",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "Programming Language :: Python :: Implementation :: PyPy",
+  "Topic :: Scientific/Engineering",
+]
+dependencies = [
+    "feynml",
+    "pylatex",
+    "dot2tex",
+    "matplotlib",
+    "Wand",
+    "numpy",
+    "pyx", # Original pyfeyn
+    "pydot",
+    "feynman>=2.1",
+    "pylatexenc",
+    "pygments",
+    "graphviz",
+    "ipyparallel",
+    "iminuit",
+    "feynml>=0.2.24[interfaces]",
+    "asciidraw>=0.1.2",
+]
+
+[project.optional-dependencies]
+lint = [
+    "ruff",
+]
+docs = [
+    "sphinx<8.0.0",
+    "sphinx-rtd-theme",
+    "sphinxcontrib-napoleon",
+    "nbsphinx",
+    "jupyter-sphinx",
+    "sphinx_autobuild",
+    "sphinx_math_dollar",
+    "myst-parser",
+    "toml",
+]
+test = [
+    "pytest",
+    "pytest-cov",
+]
+dev = [
+    "pre-commit",
+    "ipython",
+    "jupyter",
+    "jupyterlab",
+]
+
+[project.urls]
+Documentation = "https://github.com/APN-Pucky/pyfeyn2#readme"
+Issues = "https://github.com/APN-Pucky/pyfeyn2/issues"
+Source = "https://github.com/APN-Pucky/pyfeyn2/"
+
+[tool.hatch]
+version.source = "vcs"
+
+[tool.hatch.scripts]
+mkfeyndiag = "pyfeyn2.mkfeyndiag:main"
 
 [tool.pytest.ini_options]
 minversion = "6.0"
