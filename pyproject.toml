@@ -46,7 +46,7 @@ dependencies = [
     "graphviz",
     "ipyparallel",
     "iminuit",
-    "feynml>=0.2.24[interfaces]",
+    "feynml[interfaces]>=0.2.24",
     "asciidraw>=0.1.2",
 ]
 
@@ -74,6 +74,13 @@ dev = [
     "ipython",
     "jupyter",
     "jupyterlab",
+]
+
+[tool.hatch.envs.full]
+features = [
+  "dev",
+  "docs",
+  "test",
 ]
 
 [project.urls]
