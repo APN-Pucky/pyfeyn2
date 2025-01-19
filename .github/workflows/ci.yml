@@ -54,6 +54,7 @@ jobs:
         texlive-latex-base
         texlive-fonts-extra
         texlive-extra-utils
+        feynmf
 
     - name: Test with pytest
       run: |
