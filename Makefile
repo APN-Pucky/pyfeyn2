@@ -18,7 +18,7 @@ build:
 
 test:
 	rm -f .coverage coverage.xml
-	hatch run all:pytest
+	hatch run all:pytest --cov=pyfeyn2 --cov-config=.coveragerc --cov-append --cov-report=term --cov-report=xml
 
 commit: 
 	-git add .

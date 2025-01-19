@@ -97,7 +97,7 @@ mkfeyndiag = "pyfeyn2.mkfeyndiag:main"
 [tool.pytest.ini_options]
 minversion = "6.0"
 testpaths = ["tests"]
-addopts = [ "-Werror","-v","--cov=pyfeyn2","--cov-config=.coveragerc","--cov-append","--cov-report=term","--cov-report=xml","--doctest-modules","--ignore=docs/source/conf.py" ]
+addopts = [ "-Werror","-v","--doctest-modules","--ignore=docs/source/conf.py" ]
 filterwarnings = [
     'error',
     'ignore: pkg_resources is deprecated as an API:DeprecationWarning',
