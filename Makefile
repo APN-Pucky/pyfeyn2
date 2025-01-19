@@ -18,7 +18,7 @@ build:
 
 test:
 	rm -f .coverage coverage.xml
-	hatch test --extras test
+	hatch run all:pytest
 
 commit: 
 	-git add .

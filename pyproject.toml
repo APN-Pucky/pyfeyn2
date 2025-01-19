@@ -50,6 +50,11 @@ dependencies = [
     "asciidraw>=0.1.2",
 ]
 
+[project.urls]
+Documentation = "https://github.com/APN-Pucky/pyfeyn2#readme"
+Issues = "https://github.com/APN-Pucky/pyfeyn2/issues"
+Source = "https://github.com/APN-Pucky/pyfeyn2/"
+
 [project.optional-dependencies]
 lint = [
     "ruff",
@@ -76,17 +81,12 @@ dev = [
     "jupyterlab",
 ]
 
-[tool.hatch.envs.full]
+[tool.hatch.envs.all]
 features = [
   "dev",
   "docs",
   "test",
 ]
-
-[project.urls]
-Documentation = "https://github.com/APN-Pucky/pyfeyn2#readme"
-Issues = "https://github.com/APN-Pucky/pyfeyn2/issues"
-Source = "https://github.com/APN-Pucky/pyfeyn2/"
 
 [tool.hatch]
 version.source = "vcs"
@@ -100,5 +100,6 @@ testpaths = ["tests"]
 addopts = [ "-Werror","-v","--cov=pyfeyn2","--cov-config=.coveragerc","--cov-append","--cov-report=term","--cov-report=xml","--doctest-modules","--ignore=docs/source/conf.py" ]
 filterwarnings = [
     'error',
-    'ignore: pkg_resources is deprecated as an API:DeprecationWarning'
+    'ignore: pkg_resources is deprecated as an API:DeprecationWarning',
+    "ignore:The 'wheel' package is no longer the canonical location of the 'bdist_wheel' command:DeprecationWarning",
 ]
