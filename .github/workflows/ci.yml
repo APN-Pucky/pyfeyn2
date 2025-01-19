@@ -45,6 +45,16 @@ jobs:
         uv pip install --system '.[test]'
         uv pip list
 
+    - name: Install external packages
+      run: >-
+        sudo apt-get update -y &&
+        sudo apt-get install -y
+        latexmk
+        graphviz
+        texlive-latex-base
+        texlive-fonts-extra
+        texlive-extra-utils
+
     - name: Test with pytest
       run: |
         pytest --cov --cov-report=xml -r sx
