@@ -1,24 +1,24 @@
 livehtml:
-	poetry run $(MAKE) -C docs livehtml
+	hatch run all:$(MAKE) -C docs livehtml
 
 html:
-	poetry run $(MAKE) -C docs html
+	hatch run all:$(MAKE) -C docs html
 
 pdf:
-	poetry run $(MAKE) -C docs latexpdf
+	hatch run all:$(MAKE) -C docs latexpdf
 	
 doc: html
 
 install:
-	poetry install --with docs --with dev --with test
+	hatch env create
 	python3 -m pip install --user .
 
 build:
-	poetry build
+	hatch build
 
 test:
 	rm -f .coverage coverage.xml
-	poetry run pytest
+	hatch run all:pytest
 
 commit: 
 	-git add .

@@ -12,7 +12,7 @@ jobs:
     devel:
       runs-on: ubuntu-latest
       container:
-        image: apnpucky/ubuntu-python-latexmk
+        image: apnpucky/ubuntu-hatch-latexmk
       steps:
         - uses: APN-Pucky/make-python-action@main
           with:

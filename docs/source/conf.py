@@ -35,9 +35,9 @@ try:
     info = toml.load("../../pyproject.toml")
 except FileNotFoundError:
     info = toml.load("pyproject.toml")
-project = info["tool"]["poetry"]["name"]
+project = info["project"]["name"]
 copyright = str(datetime.datetime.now().year) + ", Alexander Puck Neuwirth"
-author = ", ".join(info["tool"]["poetry"]["authors"])
+author = ", ".join([a["name"] for a in info["project"]["authors"]])
 version = re.sub("^", "", os.popen("git describe --tags").read().strip())
 rst_epilog = f""".. |project| replace:: {project}\n\n"""
 
