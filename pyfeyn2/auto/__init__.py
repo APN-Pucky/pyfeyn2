@@ -29,7 +29,7 @@ def auto_default(
         if len(p) > 0:
             fd = auto_vdw(fd, points=p)
         if auto_position_legs:
-            auto_remove_intersections_by_permuting_legs(fd)
+            auto_remove_intersections_by_permuting_legs(fd, adjust_points=True)
             if len(p) > 0:
                 fd = auto_vdw(fd, points=p)
     auto_label([*fd.propagators, *fd.legs])
