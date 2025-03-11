@@ -81,6 +81,9 @@ dev = [
     "jupyterlab",
 ]
 
+[tool.hatch.metadata]
+allow-direct-references = true
+
 [tool.hatch.envs.all]
 features = [
   "dev",
