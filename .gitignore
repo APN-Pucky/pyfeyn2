@@ -153,3 +153,4 @@ tests/out.pdf
 
 .vscode/*
 tmp-*
+pyfeyn2/version.py

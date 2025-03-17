@@ -82,6 +82,7 @@ def stylize_connect(fd: FeynmanDiagram, c: Connector):
                 f"No type or style set for connector  {c.id} {c.type} {c.pdgid}"
             )
             rets += ["plain"]
+    # TODO labels could be in general in {   } to allow commas in general
     for ret in rets:
         if c.label is not None:
             if label_side == "left":

@@ -39,7 +39,7 @@ def test_fml_print():
         ),
         diagrams=[fd],
     )
-    config = SerializerConfig(pretty_print=True)
+    config = SerializerConfig(indent="  ")
     serializer = XmlSerializer(config=config)
     print(serializer.render(fml))
 
@@ -75,7 +75,7 @@ def test_fml_css():
             print("NE", l.style.opacity)
             print(l.style)
             print("tot", l.style.cssText)
-    config = SerializerConfig(pretty_print=True)
+    config = SerializerConfig(indent="  ")
     serializer = XmlSerializer(config=config)
     print(serializer.render(fml))
 

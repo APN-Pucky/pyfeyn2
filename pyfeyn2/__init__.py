@@ -1,6 +1,5 @@
 """PyFeyn2: A Python package for drawing Feynman diagrams."""
-from importlib.metadata import version
+# Convenient access to the version number
+from .version import version as __version__  # noqa: F401
 
 package = "pyfeyn2"
-
-__version__ = version(package)

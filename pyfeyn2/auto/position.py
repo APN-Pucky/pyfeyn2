@@ -109,11 +109,10 @@ def _compute_number_of_intersects(fd):
     return ci
 
 
-def auto_remove_intersections_by_align_legs(fd, adjust_points=False, size=5):
+def auto_remove_intersections_by_permuting_legs(fd, adjust_points=False, size=10):
     """
     Automatically remove intersections by aligning the legs and reshufffling (permuting) them.
     """
-    fd = auto_align_legs(fd)
     if adjust_points:
         fd = feynman_adjust_points(fd, size=size, clear_vertices=True)
     min_intersections = np.inf
@@ -135,14 +134,14 @@ def auto_remove_intersections_by_align_legs(fd, adjust_points=False, size=5):
         if adjust_points:
             fd = feynman_adjust_points(fd, size=size, clear_vertices=True)
         ci = _compute_number_of_intersects(fd)
-        print(ci)
-        logging.debug(f"auto_remove_intersections_by_align_legs: {ci}")
+        # print(ci)
+        logging.debug(f"auto_remove_intersections_by_align_legs: {ci=}")
         if ci < min_intersections:
             min_intersections = ci
             min_perm = (i, o)
-            logging.debug(f"auto_remove_intersections_by_align_legs: {ci}")
-            logging.debug(f"auto_remove_intersections_by_align_legs: {i} {o}")
-            logging.debug(f"auto_remove_intersections_by_align_legs: {xyin} {xyout}")
+            logging.debug(f"auto_remove_intersections_by_align_legs: {ci=}")
+            logging.debug(f"auto_remove_intersections_by_align_legs: {i=} {o=}")
+            logging.debug(f"auto_remove_intersections_by_align_legs: {xyin=} {xyout=}")
     # use/return best permutation
     for xyi, l in zip(xyin, min_perm[0]):
         inc[l].x = xyi[0]
@@ -153,6 +152,16 @@ def auto_remove_intersections_by_align_legs(fd, adjust_points=False, size=5):
     if adjust_points:
         fd = feynman_adjust_points(fd, size=size, clear_vertices=True)
     return fd
+
+
+def auto_remove_intersections_by_align_legs(fd, adjust_points=False, size=10):
+    """
+    Automatically remove intersections by aligning the legs and reshufffling (permuting) them.
+    """
+    fd = auto_align_legs(fd)
+    return auto_remove_intersections_by_permuting_legs(
+        fd, adjust_points=adjust_points, size=size
+    )
 
 
 def auto_align_legs(fd, incoming=None, outgoing=None):
@@ -318,7 +327,7 @@ def scale_positions(fd, scale):
     return fd
 
 
-def feynman_adjust_points(feyndiag, size=5, clear_vertices=False):
+def feynman_adjust_points(feyndiag, size=10, clear_vertices=False):
     """Adjust the points of the vertices and legs using Dot language algorithms."""
     fd = feyndiag
     if clear_vertices:
