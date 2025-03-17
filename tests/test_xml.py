@@ -22,7 +22,7 @@ def test_print_as_xml():
     fd.vertices.append(v2)
     fd.legs.append(l1)
 
-    config = SerializerConfig(pretty_print=True)
+    config = SerializerConfig(indent="  ")
     serializer = XmlSerializer(config=config)
     print(serializer.render(fd))
 

@@ -1,6 +1,5 @@
 import numpy as np
 
-import pyfeyn2.render.all as renderall
 from pyfeyn2.auto.bend import auto_bend
 from pyfeyn2.auto.debug import auto_debug
 from pyfeyn2.auto.label import auto_label
