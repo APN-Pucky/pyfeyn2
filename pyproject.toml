@@ -50,7 +50,7 @@ dependencies = [
     "graphviz",
     "ipyparallel",
     "iminuit",
-    "feynml[interfaces]>=0.2.24",
+    "feynml[interfaces]>=0.3.0",
     "asciidraw>=0.1.2",
 ]
 
