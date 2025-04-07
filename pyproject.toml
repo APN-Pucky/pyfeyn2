@@ -38,7 +38,7 @@ classifiers = [
 dependencies = [
     "feynml",
     "pylatex",
-    "apn_dot2tex>=2.11.5",
+    "apn_dot2tex>=2.11.7",
     "matplotlib",
     "Wand",
     "numpy",
