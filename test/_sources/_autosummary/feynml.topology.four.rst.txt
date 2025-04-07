@@ -1,0 +1,35 @@
+feynml.topology.four
+====================
+
+.. automodule:: feynml.topology.four
+  
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+      :toctree:                                         
+   
+      decay
+      fusion
+      s_channel
+      t_channel
+      u_channel
+      v_channel
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+

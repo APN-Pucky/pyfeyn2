@@ -1,30 +1,28 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>feynml.styled.Styled &mdash; pyfeyn2  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
       <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
       <link rel="stylesheet" type="text/css" href="../_static/thebelab.css" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=b3ba4146"></script>
-        <script src="../_static/doctools.js?v=888ff710"></script>
-        <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
-        <script src="../_static/thebelab-helper.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/thebelab-helper.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -44,9 +42,6 @@
             pyfeyn2
               <img src="../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
-              <div class="version">
-                2.4.2-43-gab3f1774
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -85,8 +80,10 @@
 <li class="toctree-l2"><a class="reference internal" href="feynml.leg.html">feynml.leg</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.line.html">feynml.line</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.link.html">feynml.link</a></li>
+<li class="toctree-l2"><a class="reference internal" href="feynml.log.html">feynml.log</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.meta.html">feynml.meta</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.momentum.html">feynml.momentum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="feynml.particle.html">feynml.particle</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.particles.html">feynml.particles</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.pdgid.html">feynml.pdgid</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.point.html">feynml.point</a></li>
@@ -104,6 +101,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.targeting.html">feynml.targeting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="feynml.topology.html">feynml.topology</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.type.html">feynml.type</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.util.html">feynml.util</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.vertex.html">feynml.vertex</a></li>
@@ -149,14 +147,14 @@
            <div itemprop="articleBody">
              
   <section id="feynml-styled-styled">
-<h1>feynml.styled.Styled<a class="headerlink" href="#feynml-styled-styled" title="Permalink to this heading"></a></h1>
+<h1>feynml.styled.Styled<a class="headerlink" href="#feynml-styled-styled" title="Link to this heading"></a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="feynml.styled.Styled">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">feynml.styled.</span></span><span class="sig-name descname"><span class="pre">Styled</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">style:</span> <span class="pre">cssutils.css.cssstyledeclaration.CSSStyleDeclaration</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clazz:</span> <span class="pre">Optional[str]</span> <span class="pre">=</span> <span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/feynml/styled.html#Styled"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#feynml.styled.Styled" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">feynml.styled.</span></span><span class="sig-name descname"><span class="pre">Styled</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">style:</span> <span class="pre">cssutils.css.cssstyledeclaration.CSSStyleDeclaration</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clazz:</span> <span class="pre">Optional[str]</span> <span class="pre">=</span> <span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/feynml/styled.html#Styled"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#feynml.styled.Styled" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="feynml.styled.Styled.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">style:</span> <span class="pre">~cssutils.css.cssstyledeclaration.CSSStyleDeclaration</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clazz:</span> <span class="pre">str</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#feynml.styled.Styled.__init__" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">style:</span> <span class="pre">~cssutils.css.cssstyledeclaration.CSSStyleDeclaration</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clazz:</span> <span class="pre">str</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#feynml.styled.Styled.__init__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <p class="rubric">Methods</p>
@@ -169,16 +167,10 @@
 <td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#feynml.styled.Styled.put_style" title="feynml.styled.Styled.put_style"><code class="xref py py-obj docutils literal notranslate"><span class="pre">put_style</span></code></a>(key, value)</p></td>
-<td><p><div class="deprecated">
-<p><span class="versionmodified deprecated">Deprecated since version 0.0.0.</span></p>
-</div>
-</p></td>
+<td><p></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#feynml.styled.Styled.put_styles" title="feynml.styled.Styled.put_styles"><code class="xref py py-obj docutils literal notranslate"><span class="pre">put_styles</span></code></a>(**kwargs)</p></td>
-<td><p><div class="deprecated">
-<p><span class="versionmodified deprecated">Deprecated since version 0.0.0.</span></p>
-</div>
-</p></td>
+<td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">raw_style</span></code>()</p></td>
 <td><p></p></td>
@@ -213,13 +205,13 @@
 </table>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="feynml.styled.Styled.clazz">
-<span class="sig-name descname"><span class="pre">clazz</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#feynml.styled.Styled.clazz" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">clazz</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#feynml.styled.Styled.clazz" title="Link to this definition"></a></dt>
 <dd><p>CSS class string.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="feynml.styled.Styled.put_style">
-<span class="sig-name descname"><span class="pre">put_style</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/feynml/styled.html#Styled.put_style"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#feynml.styled.Styled.put_style" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">put_style</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/feynml/styled.html#Styled.put_style"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#feynml.styled.Styled.put_style" title="Link to this definition"></a></dt>
 <dd><div class="deprecated">
 <p><span class="versionmodified deprecated">Deprecated since version 0.0.0.</span></p>
 </div>
@@ -227,7 +219,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="feynml.styled.Styled.put_styles">
-<span class="sig-name descname"><span class="pre">put_styles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/feynml/styled.html#Styled.put_styles"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#feynml.styled.Styled.put_styles" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">put_styles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/feynml/styled.html#Styled.put_styles"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#feynml.styled.Styled.put_styles" title="Link to this definition"></a></dt>
 <dd><div class="deprecated">
 <p><span class="versionmodified deprecated">Deprecated since version 0.0.0.</span></p>
 </div>
@@ -235,7 +227,7 @@
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="feynml.styled.Styled.style">
-<span class="sig-name descname"><span class="pre">style</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">CSSStyleDeclaration</span></em><a class="headerlink" href="#feynml.styled.Styled.style" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">style</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">CSSStyleDeclaration</span></em><a class="headerlink" href="#feynml.styled.Styled.style" title="Link to this definition"></a></dt>
 <dd><p>CSS style string.</p>
 </dd></dl>
 
@@ -254,7 +246,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2024, Alexander Puck Neuwirth.</p>
+    <p>&#169; Copyright 2025, Alexander Puck Neuwirth.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

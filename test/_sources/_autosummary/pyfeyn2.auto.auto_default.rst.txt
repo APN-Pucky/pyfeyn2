@@ -1,0 +1,6 @@
+pyfeyn2.auto.auto\_default
+==========================
+
+.. currentmodule:: pyfeyn2.auto
+
+.. autofunction:: auto_default

@@ -1,0 +1,261 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>feynml.topology &mdash; pyfeyn2  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/thebelab.css" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/thebelab-helper.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            pyfeyn2
+              <img src="../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">FeynML:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../feynml/index.html">FeynML</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Gallery:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../gallery/index.html">Gallery</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Renderers:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../renderers/index.html">Renderers</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Interfaces:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../interfaces/index.html">Interfaces</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Modules:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../_autosummary/pyfeyn2.html">pyfeyn2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../_autosummary/feynml.html">feynml</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Versions:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://pyfeyn2.readthedocs.io/en/stable/">RTD</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/pyfeyn2/">Stable</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/pyfeyn2/test/">Dev</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Links:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/APN-Pucky/pyfeyn2">GitHub</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">pyfeyn2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">feynml.topology</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for feynml.topology</h1><div class="highlight"><pre>
+<span></span>&quot;&quot;&quot;
+Generate a list of topologies with incoming/outgoing number of legs and loops.
+&quot;&quot;&quot;
+
+import itertools
+import logging
+from typing import List
+
+from feynmodel.feyn_model import FeynModel
+
+from feynml.feynmandiagram import FeynmanDiagram
+from feynml.feynml import FeynML
+from feynml.leg import Leg
+from feynml.pdgid import pdgid_param
+from feynml.topology import three
+
+
+<div class="viewcode-block" id="generate_fml">
+<a class="viewcode-back" href="../../_autosummary/feynml.topology.generate_fml.html#feynml.topology.generate_fml">[docs]</a>
+def generate_fml(
+    feyn_model: FeynModel,
+    incoming_pdgs: List[int],
+    outgoing_pdgs: List[int],
+    loops: int = 0,
+):
+    fml = generate_topologies(len(incoming_pdgs), len(outgoing_pdgs), loops=loops)
+    return insert_fields(fml, feyn_model, incoming_pdgs, outgoing_pdgs)</div>
+
+
+
+<div class="viewcode-block" id="insert_fields">
+<a class="viewcode-back" href="../../_autosummary/feynml.topology.insert_fields.html#feynml.topology.insert_fields">[docs]</a>
+def insert_fields(
+    fml: FeynML, fm: FeynModel, incoming: List[int], outgoing: List[int], progress=True
+) -&gt; FeynML:
+    &quot;&quot;&quot;
+    For each diagram deep copy it.
+    Then loop over every propagator and over every particle from the feynmodel (itertools).
+    If the diagram is valid for given models&#39; vertices add it to the return list (to be implemented in FeynmanDiagram class taking also the model as parameter).
+    &quot;&quot;&quot;
+    # TODO maybe skip already inserted fields!, maybe skip legs?
+    # TODO assert inserted legs
+    ret = []
+    for _fdi, fd in enumerate(fml.diagrams):
+        for i, le in enumerate([ll for ll in fd.legs if ll.is_incoming()]):
+            le.with_pdgid(incoming[i], feynmodel=fm, sync=True)
+        for i, le in enumerate([ll for ll in fd.legs if ll.is_outgoing()]):
+            le.with_pdgid(outgoing[i], feynmodel=fm, sync=True)
+        # TODO speed up, by not considering all combinations but only the valid ones, step by step
+        # TODO remove duplicates from list
+        for ps in itertools.product(
+            [p.pdg_code for p in fm.particles], repeat=len(fd.propagators)
+        ):
+            for i, p in enumerate(ps):
+                fd.propagators[i].with_pdgid(
+                    pdgid=p, feynmodel=fm, sync=True
+                )  # we need sync to know if it is a fermion
+            if fd.is_valid(fm, only_vertex=True):
+                # deep copy is very slow..
+                ret.append(fd.fastcopy())
+
+    return FeynML(diagrams=ret)</div>
+
+
+
+<div class="viewcode-block" id="generate_topologies">
+<a class="viewcode-back" href="../../_autosummary/feynml.topology.generate_topologies.html#feynml.topology.generate_topologies">[docs]</a>
+def generate_topologies(incoming: int, outgoing: int, loops: int = 0) -&gt; FeynML:
+    logging.debug(f&quot;generate_topologies({incoming}, {outgoing}, {loops})&quot;)
+    assert incoming &gt; 0
+    assert outgoing &gt; 0
+    if loops == 0:
+        fds = []
+        if incoming == 2 and outgoing == 1:
+            fds = [three.fusion()]
+        elif incoming == 1 and outgoing == 2:
+            fds = [three.decay()]
+        # subtract one from either incoming or outgoing in case one is already zero
+        elif outgoing &gt; 1:
+            for fd in generate_topologies(incoming, outgoing - 1, loops).diagrams:
+                fds.extend(add_leg(fd, sense=&quot;outgoing&quot;))
+        elif incoming &gt; 1:
+            for fd in generate_topologies(incoming - 1, outgoing, loops).diagrams:
+                fds.extend(add_leg(fd, sense=&quot;incoming&quot;))
+        else:
+            raise ValueError(f&quot;unexpected incoming={incoming} and outgoing={outgoing}&quot;)
+
+    else:
+        fds = generate_topologies(incoming, outgoing + 2, loops - 1).diagrams
+        for fd in fds:
+            fd.merge_legs(fd.legs[-1], fd.legs[-2])
+
+    for i, fdsi in enumerate(fds):
+        for j in range(i + 1, len(fds)):
+            if fdsi is not None and fds[j] is not None and fdsi.is_isomorphic(fds[j]):
+                logging.debug(f&quot;removing isomorphic diagrams {i} and {j}&quot;)
+                fds[j] = None
+    # remove Nones
+    fds = [fd for fd in fds if fd is not None]
+    logging.debug(f&quot;return_topologies({incoming}, {outgoing}, {loops})&quot;)
+    return FeynML(diagrams=fds)</div>
+
+
+
+<div class="viewcode-block" id="add_leg">
+<a class="viewcode-back" href="../../_autosummary/feynml.topology.add_leg.html#feynml.topology.add_leg">[docs]</a>
+def add_leg(fd: FeynmanDiagram, sense):
+    fds = []
+    # fd.render(debug=True)
+    for i, _ in enumerate(fd.vertices):
+        fd_new = fd.deepcopy()
+        fd_new.add(Leg(**pdgid_param(None), sense=sense, target=fd_new.vertices[i].id))
+        fds.append(fd_new)
+    for i, _ in enumerate(fd.legs):
+        fd_new = fd.deepcopy()
+        fd_new.emission(fd_new.legs[i], Leg(**pdgid_param(None), sense=sense))
+        fds.append(fd_new)
+    for i, _ in enumerate(fd.propagators):
+        fd_new = fd.deepcopy()
+        fd_new.emission(fd_new.propagators[i], Leg(**pdgid_param(None), sense=sense))
+        fds.append(fd_new)
+    # for i in fds:
+    #    i.render(debug=True)
+    return fds</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Alexander Puck Neuwirth.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

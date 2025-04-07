@@ -20,6 +20,7 @@ pyfeyn2.auto.position
       auto_gridded_springs
       auto_position
       auto_remove_intersections_by_align_legs
+      auto_remove_intersections_by_permuting_legs
       auto_vdw
       ccw
       feynman_adjust_points

@@ -28,9 +28,9 @@ pyfeyn2.render.latex
    :template: custom-module-template.rst                
    :recursive:
 
-   pyfeyn2.render.latex.dot
-   pyfeyn2.render.latex.feynmp
-   pyfeyn2.render.latex.latex
-   pyfeyn2.render.latex.metapost
-   pyfeyn2.render.latex.tikzfeynman
+   dot
+   feynmp
+   latex
+   metapost
+   tikzfeynman
 

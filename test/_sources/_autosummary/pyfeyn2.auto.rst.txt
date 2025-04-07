@@ -9,6 +9,13 @@ pyfeyn2.auto
 
    
    
+   .. rubric:: Functions
+
+   .. autosummary::
+      :toctree:                                         
+   
+      auto_default
+   
    
 
    
@@ -28,8 +35,9 @@ pyfeyn2.auto
    :template: custom-module-template.rst                
    :recursive:
 
-   pyfeyn2.auto.bend
-   pyfeyn2.auto.diagram
-   pyfeyn2.auto.label
-   pyfeyn2.auto.position
+   bend
+   debug
+   diagram
+   label
+   position
 

@@ -1,0 +1,6 @@
+feynml.topology.add\_leg
+========================
+
+.. currentmodule:: feynml.topology
+
+.. autofunction:: add_leg

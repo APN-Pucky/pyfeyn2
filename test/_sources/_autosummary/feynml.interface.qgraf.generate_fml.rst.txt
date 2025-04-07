@@ -1,0 +1,6 @@
+feynml.interface.qgraf.generate\_fml
+====================================
+
+.. currentmodule:: feynml.interface.qgraf
+
+.. autofunction:: generate_fml

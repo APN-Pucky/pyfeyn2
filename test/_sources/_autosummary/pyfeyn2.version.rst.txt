@@ -1,0 +1,23 @@
+pyfeyn2.version
+===============
+
+.. automodule:: pyfeyn2.version
+  
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+

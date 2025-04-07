@@ -29,6 +29,7 @@ feynml.connector.Connector
       ~Connector.put_style
       ~Connector.put_styles
       ~Connector.raw_style
+      ~Connector.replace_vertex
       ~Connector.with_class
       ~Connector.with_color
       ~Connector.with_id
@@ -37,12 +38,12 @@ feynml.connector.Connector
       ~Connector.with_momentum
       ~Connector.with_name
       ~Connector.with_new_id
-      ~Connector.with_particle
       ~Connector.with_pdgid
       ~Connector.with_style
       ~Connector.with_style_properties
       ~Connector.with_style_property
       ~Connector.with_tension
+      ~Connector.with_texname
       ~Connector.with_type
    
    
@@ -58,8 +59,8 @@ feynml.connector.Connector
       ~Connector.label
       ~Connector.momentum
       ~Connector.name
-      ~Connector.particle
       ~Connector.pdgid
+      ~Connector.texname
       ~Connector.type
       ~Connector.style
    

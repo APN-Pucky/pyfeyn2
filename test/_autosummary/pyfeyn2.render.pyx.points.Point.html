@@ -1,30 +1,28 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>pyfeyn2.render.pyx.points.Point &mdash; pyfeyn2  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
       <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
       <link rel="stylesheet" type="text/css" href="../_static/thebelab.css" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=b3ba4146"></script>
-        <script src="../_static/doctools.js?v=888ff710"></script>
-        <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
-        <script src="../_static/thebelab-helper.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/thebelab-helper.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -44,9 +42,6 @@
             pyfeyn2
               <img src="../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
-              <div class="version">
-                2.4.2-43-gab3f1774
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -96,6 +91,7 @@
 <li class="toctree-l3"><a class="reference internal" href="pyfeyn2.render.render.html">pyfeyn2.render.render</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="pyfeyn2.version.html">pyfeyn2.version</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="feynml.html">feynml</a></li>
@@ -140,15 +136,15 @@
            <div itemprop="articleBody">
              
   <section id="pyfeyn2-render-pyx-points-point">
-<h1>pyfeyn2.render.pyx.points.Point<a class="headerlink" href="#pyfeyn2-render-pyx-points-point" title="Permalink to this heading"></a></h1>
+<h1>pyfeyn2.render.pyx.points.Point<a class="headerlink" href="#pyfeyn2-render-pyx-points-point" title="Link to this heading"></a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="pyfeyn2.render.pyx.points.Point">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyfeyn2.render.pyx.points.</span></span><span class="sig-name descname"><span class="pre">Point</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blob</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">labels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/points.html#Point"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.points.Point" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyfeyn2.render.pyx.points.</span></span><span class="sig-name descname"><span class="pre">Point</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blob</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">labels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/points.html#Point"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.points.Point" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Base class for all pointlike objects in Feynman diagrams.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.render.pyx.points.Point.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blob</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">labels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/points.html#Point.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.points.Point.__init__" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blob</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">labels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/points.html#Point.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.points.Point.__init__" title="Link to this definition"></a></dt>
 <dd><p>Constructor.</p>
 </dd></dl>
 
@@ -222,123 +218,123 @@
 </table>
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.render.pyx.points.Point.addLabel">
-<span class="sig-name descname"><span class="pre">addLabel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">displace=0.3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angle=0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size=&lt;pyx.text.size</span> <span class="pre">object&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/points.html#Point.addLabel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.points.Point.addLabel" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">addLabel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">displace=0.3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angle=0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size=&lt;pyx.text.size</span> <span class="pre">object&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/points.html#Point.addLabel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.points.Point.addLabel" title="Link to this definition"></a></dt>
 <dd><p>Add a LaTeX label to this point, either via parameters or actually as
 a PointLable object.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.render.pyx.points.Point.arg">
-<span class="sig-name descname"><span class="pre">arg</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">otherpoint</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/points.html#Point.arg"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.points.Point.arg" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">arg</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">otherpoint</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/points.html#Point.arg"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.points.Point.arg" title="Link to this definition"></a></dt>
 <dd><p>Return the angle between the x-axis and the straight line defined
 by this point and the argument (cf. complex numbers).</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.render.pyx.points.Point.distance">
-<span class="sig-name descname"><span class="pre">distance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">otherpoint</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/points.html#Point.distance"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.points.Point.distance" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">distance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">otherpoint</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/points.html#Point.distance"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.points.Point.distance" title="Link to this definition"></a></dt>
 <dd><p>Calculate the distance between this point and the argument.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.render.pyx.points.Point.draw">
-<span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">canvas</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/points.html#Point.draw"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.points.Point.draw" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">canvas</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/points.html#Point.draw"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.points.Point.draw" title="Link to this definition"></a></dt>
 <dd><p>Do nothing (abstract base class).</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.render.pyx.points.Point.getBlob">
-<span class="sig-name descname"><span class="pre">getBlob</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/points.html#Point.getBlob"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.points.Point.getBlob" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">getBlob</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/points.html#Point.getBlob"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.points.Point.getBlob" title="Link to this definition"></a></dt>
 <dd><p>Get the attached blob.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.render.pyx.points.Point.getPath">
-<span class="sig-name descname"><span class="pre">getPath</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/points.html#Point.getPath"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.points.Point.getPath" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">getPath</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/points.html#Point.getPath"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.points.Point.getPath" title="Link to this definition"></a></dt>
 <dd><p>Return the path of the attached blob path, if there is one, otherwise None.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.render.pyx.points.Point.getX">
-<span class="sig-name descname"><span class="pre">getX</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/points.html#Point.getX"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.points.Point.getX" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">getX</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/points.html#Point.getX"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.points.Point.getX" title="Link to this definition"></a></dt>
 <dd><p>Return the x-coordinate of this point.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.render.pyx.points.Point.getXY">
-<span class="sig-name descname"><span class="pre">getXY</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/points.html#Point.getXY"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.points.Point.getXY" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">getXY</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/points.html#Point.getXY"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.points.Point.getXY" title="Link to this definition"></a></dt>
 <dd><p>Return the x and y coordinates of this point as a 2-tuple.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.render.pyx.points.Point.getY">
-<span class="sig-name descname"><span class="pre">getY</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/points.html#Point.getY"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.points.Point.getY" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">getY</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/points.html#Point.getY"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.points.Point.getY" title="Link to this definition"></a></dt>
 <dd><p>Return the y-coordinate of this point.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.render.pyx.points.Point.intercept">
-<span class="sig-name descname"><span class="pre">intercept</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">otherpoint</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/points.html#Point.intercept"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.points.Point.intercept" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">intercept</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">otherpoint</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/points.html#Point.intercept"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.points.Point.intercept" title="Link to this definition"></a></dt>
 <dd><p>Return the y-intercept of the straight line defined by this point and the argument.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.render.pyx.points.Point.midpoint">
-<span class="sig-name descname"><span class="pre">midpoint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">otherpoint</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/points.html#Point.midpoint"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.points.Point.midpoint" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">midpoint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">otherpoint</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/points.html#Point.midpoint"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.points.Point.midpoint" title="Link to this definition"></a></dt>
 <dd><p>Return the point midway between this point and the argument.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.render.pyx.points.Point.removeLabels">
-<span class="sig-name descname"><span class="pre">removeLabels</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/points.html#Point.removeLabels"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.points.Point.removeLabels" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">removeLabels</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/points.html#Point.removeLabels"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.points.Point.removeLabels" title="Link to this definition"></a></dt>
 <dd><p>Remove all labels from this point.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.render.pyx.points.Point.setBlob">
-<span class="sig-name descname"><span class="pre">setBlob</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">blob</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/points.html#Point.setBlob"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.points.Point.setBlob" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">setBlob</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">blob</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/points.html#Point.setBlob"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.points.Point.setBlob" title="Link to this definition"></a></dt>
 <dd><p>Set the attached blob.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.render.pyx.points.Point.setX">
-<span class="sig-name descname"><span class="pre">setX</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/points.html#Point.setX"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.points.Point.setX" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">setX</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/points.html#Point.setX"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.points.Point.setX" title="Link to this definition"></a></dt>
 <dd><p>Set the x-coordinate of this point.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.render.pyx.points.Point.setXY">
-<span class="sig-name descname"><span class="pre">setXY</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xpos</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ypos</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/points.html#Point.setXY"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.points.Point.setXY" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">setXY</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xpos</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ypos</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/points.html#Point.setXY"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.points.Point.setXY" title="Link to this definition"></a></dt>
 <dd><p>Set the x and y coordinates of this point.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.render.pyx.points.Point.setY">
-<span class="sig-name descname"><span class="pre">setY</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/points.html#Point.setY"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.points.Point.setY" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">setY</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/points.html#Point.setY"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.points.Point.setY" title="Link to this definition"></a></dt>
 <dd><p>Set the y-coordinate of this point.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.render.pyx.points.Point.tangent">
-<span class="sig-name descname"><span class="pre">tangent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">otherpoint</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/points.html#Point.tangent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.points.Point.tangent" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">tangent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">otherpoint</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/points.html#Point.tangent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.points.Point.tangent" title="Link to this definition"></a></dt>
 <dd><p>Return the tangent of the straight line defined by this point and the argument.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.render.pyx.points.Point.x">
-<span class="sig-name descname"><span class="pre">x</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/points.html#Point.x"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.points.Point.x" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">x</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/points.html#Point.x"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.points.Point.x" title="Link to this definition"></a></dt>
 <dd><p>Alias for getX().</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.render.pyx.points.Point.xy">
-<span class="sig-name descname"><span class="pre">xy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/points.html#Point.xy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.points.Point.xy" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">xy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/points.html#Point.xy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.points.Point.xy" title="Link to this definition"></a></dt>
 <dd><p>Alias for getXY().</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.render.pyx.points.Point.y">
-<span class="sig-name descname"><span class="pre">y</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/points.html#Point.y"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.points.Point.y" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">y</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/points.html#Point.y"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.points.Point.y" title="Link to this definition"></a></dt>
 <dd><p>Alias for getY().</p>
 </dd></dl>
 
@@ -357,7 +353,7 @@ by this point and the argument (cf. complex numbers).</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2024, Alexander Puck Neuwirth.</p>
+    <p>&#169; Copyright 2025, Alexander Puck Neuwirth.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

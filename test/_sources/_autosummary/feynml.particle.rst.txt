@@ -1,0 +1,32 @@
+feynml.particle
+===============
+
+.. automodule:: feynml.particle
+  
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :toctree:                                         
+      :template: custom-class-template.rst               
+   
+      Particle
+      ParticleType
+   
+   
+
+   
+   
+   
+
+
+

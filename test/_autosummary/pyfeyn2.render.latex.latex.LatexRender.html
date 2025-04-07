@@ -1,30 +1,28 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>pyfeyn2.render.latex.latex.LatexRender &mdash; pyfeyn2  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
       <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
       <link rel="stylesheet" type="text/css" href="../_static/thebelab.css" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=b3ba4146"></script>
-        <script src="../_static/doctools.js?v=888ff710"></script>
-        <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
-        <script src="../_static/thebelab-helper.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/thebelab-helper.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -44,9 +42,6 @@
             pyfeyn2
               <img src="../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
-              <div class="version">
-                2.4.2-43-gab3f1774
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -92,6 +87,7 @@
 <li class="toctree-l3"><a class="reference internal" href="pyfeyn2.render.render.html">pyfeyn2.render.render</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="pyfeyn2.version.html">pyfeyn2.version</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="feynml.html">feynml</a></li>
@@ -136,14 +132,14 @@
            <div itemprop="articleBody">
              
   <section id="pyfeyn2-render-latex-latex-latexrender">
-<h1>pyfeyn2.render.latex.latex.LatexRender<a class="headerlink" href="#pyfeyn2-render-latex-latex-latexrender" title="Permalink to this heading"></a></h1>
+<h1>pyfeyn2.render.latex.latex.LatexRender<a class="headerlink" href="#pyfeyn2-render-latex-latex-latexrender" title="Link to this heading"></a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="pyfeyn2.render.latex.latex.LatexRender">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyfeyn2.render.latex.latex.</span></span><span class="sig-name descname"><span class="pre">LatexRender</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">documentclass</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'standalone'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">document_options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/latex/latex.html#LatexRender"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.latex.latex.LatexRender" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyfeyn2.render.latex.latex.</span></span><span class="sig-name descname"><span class="pre">LatexRender</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">documentclass</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'standalone'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">document_options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/latex/latex.html#LatexRender"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.latex.latex.LatexRender" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Document</span></code>, <a class="reference internal" href="pyfeyn2.render.render.Render.html#pyfeyn2.render.render.Render" title="pyfeyn2.render.render.Render"><code class="xref py py-class docutils literal notranslate"><span class="pre">Render</span></code></a></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.render.latex.latex.LatexRender.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">documentclass</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'standalone'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">document_options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/latex/latex.html#LatexRender.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.latex.latex.LatexRender.__init__" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">documentclass</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'standalone'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">document_options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/latex/latex.html#LatexRender.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.latex.latex.LatexRender.__init__" title="Link to this definition"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -173,12 +169,7 @@ is <cite>None</cite> it will use the value from the active config. Which is
 <table class="autosummary longtable docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.render.latex.latex.LatexRender.__init__" title="pyfeyn2.render.latex.latex.LatexRender.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>([fd, documentclass, document_options])</p></td>
-<td><p><dl class="field-list simple">
-<dt class="field-odd">param default_filepath<span class="colon">:</span></dt>
-<dd class="field-odd"><p>The default path to save files.</p>
-</dd>
-</dl>
-</p></td>
+<td><p></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.render.latex.latex.LatexRender.add_color" title="pyfeyn2.render.latex.latex.LatexRender.add_color"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_color</span></code></a>(name, model, description)</p></td>
 <td><p>Add a color that can be used throughout the document.</p></td>
@@ -336,7 +327,7 @@ is <cite>None</cite> it will use the value from the active config. Which is
 </table>
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.render.latex.latex.LatexRender.add_color">
-<span class="sig-name descname"><span class="pre">add_color</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.latex.latex.LatexRender.add_color" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">add_color</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.latex.latex.LatexRender.add_color" title="Link to this definition"></a></dt>
 <dd><p>Add a color that can be used throughout the document.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -351,19 +342,19 @@ is <cite>None</cite> it will use the value from the active config. Which is
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.render.latex.latex.LatexRender.append">
-<span class="sig-name descname"><span class="pre">append</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.latex.latex.LatexRender.append" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">append</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.latex.latex.LatexRender.append" title="Link to this definition"></a></dt>
 <dd><p>S.append(value) – append value to the end of the sequence</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="pyfeyn2.render.latex.latex.LatexRender.begin_paragraph">
-<span class="sig-name descname"><span class="pre">begin_paragraph</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#pyfeyn2.render.latex.latex.LatexRender.begin_paragraph" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">begin_paragraph</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#pyfeyn2.render.latex.latex.LatexRender.begin_paragraph" title="Link to this definition"></a></dt>
 <dd><p>Start a new paragraph before this environment.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.render.latex.latex.LatexRender.change_document_style">
-<span class="sig-name descname"><span class="pre">change_document_style</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">style</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.latex.latex.LatexRender.change_document_style" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">change_document_style</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">style</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.latex.latex.LatexRender.change_document_style" title="Link to this definition"></a></dt>
 <dd><p>Alternate page style for the entire document.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -374,7 +365,7 @@ is <cite>None</cite> it will use the value from the active config. Which is
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.render.latex.latex.LatexRender.change_length">
-<span class="sig-name descname"><span class="pre">change_length</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.latex.latex.LatexRender.change_length" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">change_length</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.latex.latex.LatexRender.change_length" title="Link to this definition"></a></dt>
 <dd><p>Change the length of a certain parameter to a certain value.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -388,7 +379,7 @@ is <cite>None</cite> it will use the value from the active config. Which is
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.render.latex.latex.LatexRender.change_page_style">
-<span class="sig-name descname"><span class="pre">change_page_style</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">style</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.latex.latex.LatexRender.change_page_style" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">change_page_style</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">style</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.latex.latex.LatexRender.change_page_style" title="Link to this definition"></a></dt>
 <dd><p>Alternate page styles of the current page.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -399,17 +390,17 @@ is <cite>None</cite> it will use the value from the active config. Which is
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.render.latex.latex.LatexRender.clear">
-<span class="sig-name descname"><span class="pre">clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span> <span class="pre">--</span> <span class="pre">remove</span> <span class="pre">all</span> <span class="pre">items</span> <span class="pre">from</span> <span class="pre">S</span></span></span><a class="headerlink" href="#pyfeyn2.render.latex.latex.LatexRender.clear" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span> <span class="pre">--</span> <span class="pre">remove</span> <span class="pre">all</span> <span class="pre">items</span> <span class="pre">from</span> <span class="pre">S</span></span></span><a class="headerlink" href="#pyfeyn2.render.latex.latex.LatexRender.clear" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.render.latex.latex.LatexRender.count">
-<span class="sig-name descname"><span class="pre">count</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">integer</span> <span class="pre">--</span> <span class="pre">return</span> <span class="pre">number</span> <span class="pre">of</span> <span class="pre">occurrences</span> <span class="pre">of</span> <span class="pre">value</span></span></span><a class="headerlink" href="#pyfeyn2.render.latex.latex.LatexRender.count" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">count</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">integer</span> <span class="pre">--</span> <span class="pre">return</span> <span class="pre">number</span> <span class="pre">of</span> <span class="pre">occurrences</span> <span class="pre">of</span> <span class="pre">value</span></span></span><a class="headerlink" href="#pyfeyn2.render.latex.latex.LatexRender.count" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.render.latex.latex.LatexRender.create">
-<span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">child</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.latex.latex.LatexRender.create" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">child</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.latex.latex.LatexRender.create" title="Link to this definition"></a></dt>
 <dd><p>Add a LaTeX object to current container, context-manager style.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -420,7 +411,7 @@ is <cite>None</cite> it will use the value from the active config. Which is
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.render.latex.latex.LatexRender.dump">
-<span class="sig-name descname"><span class="pre">dump</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_w</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.latex.latex.LatexRender.dump" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">dump</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_w</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.latex.latex.LatexRender.dump" title="Link to this definition"></a></dt>
 <dd><p>Write the LaTeX representation of the class to a file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -431,7 +422,7 @@ is <cite>None</cite> it will use the value from the active config. Which is
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.render.latex.latex.LatexRender.dump_packages">
-<span class="sig-name descname"><span class="pre">dump_packages</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_w</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.latex.latex.LatexRender.dump_packages" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">dump_packages</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_w</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.latex.latex.LatexRender.dump_packages" title="Link to this definition"></a></dt>
 <dd><p>Write the LaTeX representation of the packages to a file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -442,7 +433,7 @@ is <cite>None</cite> it will use the value from the active config. Which is
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.render.latex.latex.LatexRender.dumps">
-<span class="sig-name descname"><span class="pre">dumps</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.latex.latex.LatexRender.dumps" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">dumps</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.latex.latex.LatexRender.dumps" title="Link to this definition"></a></dt>
 <dd><p>Represent the document as a string in LaTeX syntax.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
@@ -453,7 +444,7 @@ is <cite>None</cite> it will use the value from the active config. Which is
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.render.latex.latex.LatexRender.dumps_as_content">
-<span class="sig-name descname"><span class="pre">dumps_as_content</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.latex.latex.LatexRender.dumps_as_content" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">dumps_as_content</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.latex.latex.LatexRender.dumps_as_content" title="Link to this definition"></a></dt>
 <dd><p>Create a string representation of the object as content.</p>
 <p>This is currently only used to add new lines before and after the
 output of the dumps function. These can be added or removed by changing
@@ -463,7 +454,7 @@ attributes of the class.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.render.latex.latex.LatexRender.dumps_content">
-<span class="sig-name descname"><span class="pre">dumps_content</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.latex.latex.LatexRender.dumps_content" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">dumps_content</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.latex.latex.LatexRender.dumps_content" title="Link to this definition"></a></dt>
 <dd><p>Represent the container as a string in LaTeX syntax.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -480,7 +471,7 @@ attributes of the class.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.render.latex.latex.LatexRender.dumps_packages">
-<span class="sig-name descname"><span class="pre">dumps_packages</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.latex.latex.LatexRender.dumps_packages" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">dumps_packages</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.latex.latex.LatexRender.dumps_packages" title="Link to this definition"></a></dt>
 <dd><p>Represent the packages needed as a string in LaTeX syntax.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -494,26 +485,26 @@ attributes of the class.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="pyfeyn2.render.latex.latex.LatexRender.end_paragraph">
-<span class="sig-name descname"><span class="pre">end_paragraph</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#pyfeyn2.render.latex.latex.LatexRender.end_paragraph" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">end_paragraph</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#pyfeyn2.render.latex.latex.LatexRender.end_paragraph" title="Link to this definition"></a></dt>
 <dd><p>Start a new paragraph after this environment.</p>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="pyfeyn2.render.latex.latex.LatexRender.escape">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">escape</span></span><a class="headerlink" href="#pyfeyn2.render.latex.latex.LatexRender.escape" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">escape</span></span><a class="headerlink" href="#pyfeyn2.render.latex.latex.LatexRender.escape" title="Link to this definition"></a></dt>
 <dd><p>Determine whether or not to escape content of this class.</p>
 <p>This defaults to <cite>True</cite> for most classes.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.render.latex.latex.LatexRender.extend">
-<span class="sig-name descname"><span class="pre">extend</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.latex.latex.LatexRender.extend" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">extend</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.latex.latex.LatexRender.extend" title="Link to this definition"></a></dt>
 <dd><p>S.extend(iterable) – extend sequence by appending elements from the iterable</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.render.latex.latex.LatexRender.generate_pdf">
-<span class="sig-name descname"><span class="pre">generate_pdf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clean</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clean_tex</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compiler</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compiler_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">silent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.latex.latex.LatexRender.generate_pdf" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">generate_pdf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clean</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clean_tex</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compiler</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compiler_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">silent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.latex.latex.LatexRender.generate_pdf" title="Link to this definition"></a></dt>
 <dd><p>Generate a pdf file from the document.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -536,7 +527,7 @@ this is None it defaults to an empty list.</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.render.latex.latex.LatexRender.generate_tex">
-<span class="sig-name descname"><span class="pre">generate_tex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.latex.latex.LatexRender.generate_tex" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">generate_tex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.latex.latex.LatexRender.generate_tex" title="Link to this definition"></a></dt>
 <dd><p>Generate a .tex file for the document.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -548,7 +539,7 @@ default filepath attribute is used as the path.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.render.latex.latex.LatexRender.index">
-<span class="sig-name descname"><span class="pre">index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="optional">[</span>, <em class="sig-param"><span class="n"><span class="pre">start</span></span></em><span class="optional">[</span>, <em class="sig-param"><span class="n"><span class="pre">stop</span></span></em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">integer</span> <span class="pre">--</span> <span class="pre">return</span> <span class="pre">first</span> <span class="pre">index</span> <span class="pre">of</span> <span class="pre">value.</span></span></span><a class="headerlink" href="#pyfeyn2.render.latex.latex.LatexRender.index" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="optional">[</span>, <em class="sig-param"><span class="n"><span class="pre">start</span></span></em><span class="optional">[</span>, <em class="sig-param"><span class="n"><span class="pre">stop</span></span></em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">integer</span> <span class="pre">--</span> <span class="pre">return</span> <span class="pre">first</span> <span class="pre">index</span> <span class="pre">of</span> <span class="pre">value.</span></span></span><a class="headerlink" href="#pyfeyn2.render.latex.latex.LatexRender.index" title="Link to this definition"></a></dt>
 <dd><p>Raises ValueError if the value is not present.</p>
 <p>Supporting start and stop arguments is optional, but
 recommended.</p>
@@ -556,59 +547,59 @@ recommended.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.render.latex.latex.LatexRender.insert">
-<span class="sig-name descname"><span class="pre">insert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">item</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.latex.latex.LatexRender.insert" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">insert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">item</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.latex.latex.LatexRender.insert" title="Link to this definition"></a></dt>
 <dd><p>S.insert(index, value) – insert value before index</p>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="pyfeyn2.render.latex.latex.LatexRender.latex_name">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">latex_name</span></span><a class="headerlink" href="#pyfeyn2.render.latex.latex.LatexRender.latex_name" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">latex_name</span></span><a class="headerlink" href="#pyfeyn2.render.latex.latex.LatexRender.latex_name" title="Link to this definition"></a></dt>
 <dd><p>Return the name of the class used in LaTeX.</p>
 <p>It can be <cite>None</cite> when the class doesn’t have a name.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="pyfeyn2.render.latex.latex.LatexRender.omit_if_empty">
-<span class="sig-name descname"><span class="pre">omit_if_empty</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#pyfeyn2.render.latex.latex.LatexRender.omit_if_empty" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">omit_if_empty</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#pyfeyn2.render.latex.latex.LatexRender.omit_if_empty" title="Link to this definition"></a></dt>
 <dd><p>Set to true if this full container should be equivalent to an empty
 string if it has no content.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.render.latex.latex.LatexRender.pop">
-<span class="sig-name descname"><span class="pre">pop</span></span><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em><span class="optional">]</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">item</span> <span class="pre">--</span> <span class="pre">remove</span> <span class="pre">and</span> <span class="pre">return</span> <span class="pre">item</span> <span class="pre">at</span> <span class="pre">index</span> <span class="pre">(default</span> <span class="pre">last).</span></span></span><a class="headerlink" href="#pyfeyn2.render.latex.latex.LatexRender.pop" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">pop</span></span><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em><span class="optional">]</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">item</span> <span class="pre">--</span> <span class="pre">remove</span> <span class="pre">and</span> <span class="pre">return</span> <span class="pre">item</span> <span class="pre">at</span> <span class="pre">index</span> <span class="pre">(default</span> <span class="pre">last).</span></span></span><a class="headerlink" href="#pyfeyn2.render.latex.latex.LatexRender.pop" title="Link to this definition"></a></dt>
 <dd><p>Raise IndexError if list is empty or index is out of range.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.render.latex.latex.LatexRender.remove">
-<span class="sig-name descname"><span class="pre">remove</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.latex.latex.LatexRender.remove" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">remove</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.latex.latex.LatexRender.remove" title="Link to this definition"></a></dt>
 <dd><p>S.remove(value) – remove first occurrence of value.
 Raise ValueError if the value is not present.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.render.latex.latex.LatexRender.render">
-<span class="sig-name descname"><span class="pre">render</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resolution</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clean_up</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">temp_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/latex/latex.html#LatexRender.render"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.latex.latex.LatexRender.render" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">render</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resolution</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clean_up</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">temp_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/latex/latex.html#LatexRender.render"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.latex.latex.LatexRender.render" title="Link to this definition"></a></dt>
 <dd><p>Render the diagram.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.render.latex.latex.LatexRender.reverse">
-<span class="sig-name descname"><span class="pre">reverse</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.latex.latex.LatexRender.reverse" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">reverse</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.latex.latex.LatexRender.reverse" title="Link to this definition"></a></dt>
 <dd><p>S.reverse() – reverse <em>IN PLACE</em></p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="pyfeyn2.render.latex.latex.LatexRender.separate_paragraph">
-<span class="sig-name descname"><span class="pre">separate_paragraph</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#pyfeyn2.render.latex.latex.LatexRender.separate_paragraph" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">separate_paragraph</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#pyfeyn2.render.latex.latex.LatexRender.separate_paragraph" title="Link to this definition"></a></dt>
 <dd><p>Same as enabling <cite>begin_paragraph</cite> and <cite>end_paragraph</cite>, so
 effectively placing this element in its own paragraph.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.render.latex.latex.LatexRender.set_variable">
-<span class="sig-name descname"><span class="pre">set_variable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.latex.latex.LatexRender.set_variable" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">set_variable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.latex.latex.LatexRender.set_variable" title="Link to this definition"></a></dt>
 <dd><p>Add a variable which can be used inside the document.</p>
 <p>Variables are defined before the preamble. If a variable with that name
 has already been set, the new value will override it for future uses.
@@ -638,7 +629,7 @@ This is done by appending <code class="docutils literal notranslate"><span class
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2024, Alexander Puck Neuwirth.</p>
+    <p>&#169; Copyright 2025, Alexander Puck Neuwirth.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

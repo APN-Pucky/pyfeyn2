@@ -1,30 +1,28 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>pyfeyn2.feynmandiagram.PDG &mdash; pyfeyn2  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
       <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
       <link rel="stylesheet" type="text/css" href="../_static/thebelab.css" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=b3ba4146"></script>
-        <script src="../_static/doctools.js?v=888ff710"></script>
-        <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
-        <script src="../_static/thebelab-helper.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/thebelab-helper.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -44,9 +42,6 @@
             pyfeyn2
               <img src="../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
-              <div class="version">
-                2.4.2-43-gab3f1774
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -95,6 +90,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="pyfeyn2.mkfeyndiag.html">pyfeyn2.mkfeyndiag</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pyfeyn2.render.html">pyfeyn2.render</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyfeyn2.version.html">pyfeyn2.version</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="feynml.html">feynml</a></li>
@@ -137,14 +133,14 @@
            <div itemprop="articleBody">
              
   <section id="pyfeyn2-feynmandiagram-pdg">
-<h1>pyfeyn2.feynmandiagram.PDG<a class="headerlink" href="#pyfeyn2-feynmandiagram-pdg" title="Permalink to this heading"></a></h1>
+<h1>pyfeyn2.feynmandiagram.PDG<a class="headerlink" href="#pyfeyn2-feynmandiagram-pdg" title="Link to this heading"></a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.PDG">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyfeyn2.feynmandiagram.</span></span><span class="sig-name descname"><span class="pre">PDG</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/feynmandiagram.html#PDG"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.PDG" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyfeyn2.feynmandiagram.</span></span><span class="sig-name descname"><span class="pre">PDG</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/feynmandiagram.html#PDG"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.PDG" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="feynml.pdgid.PDG.html#feynml.pdgid.PDG" title="feynml.pdgid.PDG"><code class="xref py py-class docutils literal notranslate"><span class="pre">PDG</span></code></a></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.PDG.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/feynmandiagram.html#PDG.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.PDG.__init__" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/feynmandiagram.html#PDG.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.PDG.__init__" title="Link to this definition"></a></dt>
 <dd><div class="deprecated">
 <p><span class="versionmodified deprecated">Deprecated since version 2.2.6.</span></p>
 </div>
@@ -154,10 +150,7 @@
 <table class="autosummary longtable docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.PDG.__init__" title="pyfeyn2.feynmandiagram.PDG.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(*args, **kwargs)</p></td>
-<td><p><div class="deprecated">
-<p><span class="versionmodified deprecated">Deprecated since version 2.2.6.</span></p>
-</div>
-</p></td>
+<td><p></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.PDG.is_anti" title="pyfeyn2.feynmandiagram.PDG.is_anti"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_anti</span></code></a>()</p></td>
 <td><p>Return True if the particle is an anti particle, False otherwise.</p></td>
@@ -180,11 +173,11 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.PDG.with_new_id" title="pyfeyn2.feynmandiagram.PDG.with_new_id"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_new_id</span></code></a>()</p></td>
 <td><p>generate new id</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.PDG.with_particle" title="pyfeyn2.feynmandiagram.PDG.with_particle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_particle</span></code></a>(value[, k])</p></td>
-<td><p>Set particle to <cite>value</cite> and return self.</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_pdgid</span></code>([pdgid, type, name, feynmodel, sync])</p></td>
+<td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.PDG.with_pdgid" title="pyfeyn2.feynmandiagram.PDG.with_pdgid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_pdgid</span></code></a>(value[, k])</p></td>
-<td><p>Set pdgid to <cite>value</cite> and return self.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.PDG.with_texname" title="pyfeyn2.feynmandiagram.PDG.with_texname"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_texname</span></code></a>(value[, k])</p></td>
+<td><p>Set texname to <cite>value</cite> and return self.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.PDG.with_type" title="pyfeyn2.feynmandiagram.PDG.with_type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_type</span></code></a>(value[, k])</p></td>
 <td><p>Set type to <cite>value</cite> and return self.</p></td>
@@ -200,98 +193,92 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.PDG.name" title="pyfeyn2.feynmandiagram.PDG.name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">name</span></code></a></p></td>
 <td><p>Name of the particle</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.PDG.particle" title="pyfeyn2.feynmandiagram.PDG.particle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">particle</span></code></a></p></td>
-<td><p>Particle object from the particle package</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.PDG.pdgid" title="pyfeyn2.feynmandiagram.PDG.pdgid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pdgid</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.PDG.pdgid" title="pyfeyn2.feynmandiagram.PDG.pdgid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pdgid</span></code></a></p></td>
 <td><p>PDG ID of the particle</p></td>
 </tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.PDG.texname" title="pyfeyn2.feynmandiagram.PDG.texname"><code class="xref py py-obj docutils literal notranslate"><span class="pre">texname</span></code></a></p></td>
+<td><p>LaTeX name of the particle</p></td>
+</tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.PDG.type" title="pyfeyn2.feynmandiagram.PDG.type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">type</span></code></a></p></td>
-<td><p>Type of the particle, e.g.</p></td>
+<td><p>Type of the particle, e.g. fermion, boson, etc.</p></td>
 </tr>
 </tbody>
 </table>
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.PDG.is_anti">
-<span class="sig-name descname"><span class="pre">is_anti</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/feynml/pdgid.html#PDG.is_anti"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.PDG.is_anti" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">is_anti</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/feynml/pdgid.html#PDG.is_anti"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.PDG.is_anti" title="Link to this definition"></a></dt>
 <dd><p>Return True if the particle is an anti particle, False otherwise.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.PDG.is_anti_fermion">
-<span class="sig-name descname"><span class="pre">is_anti_fermion</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/feynml/pdgid.html#PDG.is_anti_fermion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.PDG.is_anti_fermion" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">is_anti_fermion</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/feynml/pdgid.html#PDG.is_anti_fermion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.PDG.is_anti_fermion" title="Link to this definition"></a></dt>
 <dd><p>Return True if the particle is an anti fermion, False otherwise.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.PDG.is_any_fermion">
-<span class="sig-name descname"><span class="pre">is_any_fermion</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/feynml/pdgid.html#PDG.is_any_fermion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.PDG.is_any_fermion" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">is_any_fermion</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/feynml/pdgid.html#PDG.is_any_fermion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.PDG.is_any_fermion" title="Link to this definition"></a></dt>
 <dd><p>Return True if the particle is a fermion or anti fermion, False otherwise.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.PDG.is_fermion">
-<span class="sig-name descname"><span class="pre">is_fermion</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/feynml/pdgid.html#PDG.is_fermion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.PDG.is_fermion" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">is_fermion</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/feynml/pdgid.html#PDG.is_fermion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.PDG.is_fermion" title="Link to this definition"></a></dt>
 <dd><p>Return True if the particle is a fermion, False otherwise.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.PDG.name">
-<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#pyfeyn2.feynmandiagram.PDG.name" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#pyfeyn2.feynmandiagram.PDG.name" title="Link to this definition"></a></dt>
 <dd><p>Name of the particle</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.PDG.particle">
-<span class="sig-name descname"><span class="pre">particle</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="feynml.interface.formcalc.particle.Particle.html#feynml.interface.formcalc.particle.Particle" title="feynml.interface.formcalc.particle.Particle"><span class="pre">Particle</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#pyfeyn2.feynmandiagram.PDG.particle" title="Permalink to this definition"></a></dt>
-<dd><p>Particle object from the particle package</p>
-</dd></dl>
-
-<dl class="py attribute">
 <dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.PDG.pdgid">
-<span class="sig-name descname"><span class="pre">pdgid</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#pyfeyn2.feynmandiagram.PDG.pdgid" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">pdgid</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#pyfeyn2.feynmandiagram.PDG.pdgid" title="Link to this definition"></a></dt>
 <dd><p>PDG ID of the particle</p>
 </dd></dl>
 
 <dl class="py attribute">
+<dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.PDG.texname">
+<span class="sig-name descname"><span class="pre">texname</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#pyfeyn2.feynmandiagram.PDG.texname" title="Link to this definition"></a></dt>
+<dd><p>LaTeX name of the particle</p>
+</dd></dl>
+
+<dl class="py attribute">
 <dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.PDG.type">
-<span class="sig-name descname"><span class="pre">type</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#pyfeyn2.feynmandiagram.PDG.type" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">type</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#pyfeyn2.feynmandiagram.PDG.type" title="Link to this definition"></a></dt>
 <dd><p>Type of the particle, e.g. fermion, boson, etc.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.PDG.with_id">
-<span class="sig-name descname"><span class="pre">with_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.feynmandiagram.PDG.with_id" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">with_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.feynmandiagram.PDG.with_id" title="Link to this definition"></a></dt>
 <dd><p>set id</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.PDG.with_name">
-<span class="sig-name descname"><span class="pre">with_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'name'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.feynmandiagram.PDG.with_name" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">with_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'name'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.feynmandiagram.PDG.with_name" title="Link to this definition"></a></dt>
 <dd><p>Set name to <cite>value</cite> and return self.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.PDG.with_new_id">
-<span class="sig-name descname"><span class="pre">with_new_id</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.feynmandiagram.PDG.with_new_id" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">with_new_id</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.feynmandiagram.PDG.with_new_id" title="Link to this definition"></a></dt>
 <dd><p>generate new id</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.PDG.with_particle">
-<span class="sig-name descname"><span class="pre">with_particle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'particle'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.feynmandiagram.PDG.with_particle" title="Permalink to this definition"></a></dt>
-<dd><p>Set particle to <cite>value</cite> and return self.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.PDG.with_pdgid">
-<span class="sig-name descname"><span class="pre">with_pdgid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'pdgid'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.feynmandiagram.PDG.with_pdgid" title="Permalink to this definition"></a></dt>
-<dd><p>Set pdgid to <cite>value</cite> and return self.</p>
+<dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.PDG.with_texname">
+<span class="sig-name descname"><span class="pre">with_texname</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'texname'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.feynmandiagram.PDG.with_texname" title="Link to this definition"></a></dt>
+<dd><p>Set texname to <cite>value</cite> and return self.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.PDG.with_type">
-<span class="sig-name descname"><span class="pre">with_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'type'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.feynmandiagram.PDG.with_type" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">with_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'type'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.feynmandiagram.PDG.with_type" title="Link to this definition"></a></dt>
 <dd><p>Set type to <cite>value</cite> and return self.</p>
 </dd></dl>
 
@@ -310,7 +297,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2024, Alexander Puck Neuwirth.</p>
+    <p>&#169; Copyright 2025, Alexander Puck Neuwirth.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

@@ -17,6 +17,7 @@ feynml.particles
       get_either_particle
       get_name
       get_particle
+      get_particle_and_name_from_pdgid
    
    
 

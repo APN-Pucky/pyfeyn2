@@ -1,0 +1,6 @@
+pyfeyn2.auto.position.auto\_remove\_intersections\_by\_permuting\_legs
+======================================================================
+
+.. currentmodule:: pyfeyn2.auto.position
+
+.. autofunction:: auto_remove_intersections_by_permuting_legs

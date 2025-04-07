@@ -1,34 +1,32 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>pyfeyn2.auto &mdash; pyfeyn2  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
       <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
       <link rel="stylesheet" type="text/css" href="../_static/thebelab.css" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=b3ba4146"></script>
-        <script src="../_static/doctools.js?v=888ff710"></script>
-        <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
-        <script src="../_static/thebelab-helper.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/thebelab-helper.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="pyfeyn2.auto.bend" href="pyfeyn2.auto.bend.html" />
+    <link rel="next" title="pyfeyn2.auto.auto_default" href="pyfeyn2.auto.auto_default.html" />
     <link rel="prev" title="pyfeyn2" href="pyfeyn2.html" /> 
 </head>
 
@@ -44,9 +42,6 @@
             pyfeyn2
               <img src="../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
-              <div class="version">
-                2.4.2-43-gab3f1774
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -75,7 +70,9 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="pyfeyn2.html">pyfeyn2</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">pyfeyn2.auto</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyfeyn2.auto.auto_default.html">pyfeyn2.auto.auto_default</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyfeyn2.auto.bend.html">pyfeyn2.auto.bend</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyfeyn2.auto.debug.html">pyfeyn2.auto.debug</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyfeyn2.auto.diagram.html">pyfeyn2.auto.diagram</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyfeyn2.auto.label.html">pyfeyn2.auto.label</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyfeyn2.auto.position.html">pyfeyn2.auto.position</a></li>
@@ -84,6 +81,7 @@
 <li class="toctree-l2"><a class="reference internal" href="pyfeyn2.feynmandiagram.html">pyfeyn2.feynmandiagram</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pyfeyn2.mkfeyndiag.html">pyfeyn2.mkfeyndiag</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pyfeyn2.render.html">pyfeyn2.render</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyfeyn2.version.html">pyfeyn2.version</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="feynml.html">feynml</a></li>
@@ -125,20 +123,31 @@
            <div itemprop="articleBody">
              
   <section id="module-pyfeyn2.auto">
-<span id="pyfeyn2-auto"></span><h1>pyfeyn2.auto<a class="headerlink" href="#module-pyfeyn2.auto" title="Permalink to this heading"></a></h1>
+<span id="pyfeyn2-auto"></span><h1>pyfeyn2.auto<a class="headerlink" href="#module-pyfeyn2.auto" title="Link to this heading"></a></h1>
+<p class="rubric">Functions</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyfeyn2.auto.auto_default.html#pyfeyn2.auto.auto_default" title="pyfeyn2.auto.auto_default"><code class="xref py py-obj docutils literal notranslate"><span class="pre">auto_default</span></code></a>(fd[, auto_position, ...])</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
 <p class="rubric">Modules</p>
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyfeyn2.auto.bend.html#module-pyfeyn2.auto.bend" title="pyfeyn2.auto.bend"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyfeyn2.auto.bend</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyfeyn2.auto.bend.html#module-pyfeyn2.auto.bend" title="pyfeyn2.auto.bend"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bend</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyfeyn2.auto.diagram.html#module-pyfeyn2.auto.diagram" title="pyfeyn2.auto.diagram"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyfeyn2.auto.diagram</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyfeyn2.auto.debug.html#module-pyfeyn2.auto.debug" title="pyfeyn2.auto.debug"><code class="xref py py-obj docutils literal notranslate"><span class="pre">debug</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyfeyn2.auto.label.html#module-pyfeyn2.auto.label" title="pyfeyn2.auto.label"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyfeyn2.auto.label</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyfeyn2.auto.diagram.html#module-pyfeyn2.auto.diagram" title="pyfeyn2.auto.diagram"><code class="xref py py-obj docutils literal notranslate"><span class="pre">diagram</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyfeyn2.auto.position.html#module-pyfeyn2.auto.position" title="pyfeyn2.auto.position"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyfeyn2.auto.position</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyfeyn2.auto.label.html#module-pyfeyn2.auto.label" title="pyfeyn2.auto.label"><code class="xref py py-obj docutils literal notranslate"><span class="pre">label</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyfeyn2.auto.position.html#module-pyfeyn2.auto.position" title="pyfeyn2.auto.position"><code class="xref py py-obj docutils literal notranslate"><span class="pre">position</span></code></a></p></td>
 <td><p></p></td>
 </tr>
 </tbody>
@@ -150,13 +159,13 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="pyfeyn2.html" class="btn btn-neutral float-left" title="pyfeyn2" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="pyfeyn2.auto.bend.html" class="btn btn-neutral float-right" title="pyfeyn2.auto.bend" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="pyfeyn2.auto.auto_default.html" class="btn btn-neutral float-right" title="pyfeyn2.auto.auto_default" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2024, Alexander Puck Neuwirth.</p>
+    <p>&#169; Copyright 2025, Alexander Puck Neuwirth.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

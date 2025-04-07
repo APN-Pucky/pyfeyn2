@@ -1,0 +1,6 @@
+feynml.topology.insert\_fields
+==============================
+
+.. currentmodule:: feynml.topology
+
+.. autofunction:: insert_fields

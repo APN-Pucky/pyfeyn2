@@ -1,29 +1,27 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../../../../">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>pyfeyn2.render.latex.tikzfeynman &mdash; pyfeyn2  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../../../_static/plot_directive.css" />
       <link rel="stylesheet" type="text/css" href="../../../../_static/jupyter-sphinx.css" />
       <link rel="stylesheet" type="text/css" href="../../../../_static/thebelab.css" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../../../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js?v=b3ba4146"></script>
-        <script src="../../../../_static/doctools.js?v=888ff710"></script>
-        <script src="../../../../_static/sphinx_highlight.js?v=4825356b"></script>
-        <script src="../../../../_static/thebelab-helper.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../../_static/thebelab-helper.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" /> 
@@ -41,9 +39,6 @@
             pyfeyn2
               <img src="../../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
-              <div class="version">
-                2.4.2-43-gab3f1774
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -169,7 +164,9 @@ shape_map = {
 }
 
 
-<div class="viewcode-block" id="stylize_connect"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.latex.tikzfeynman.stylize_connect.html#pyfeyn2.render.latex.tikzfeynman.stylize_connect">[docs]</a>def stylize_connect(fd: FeynmanDiagram, c: Connector):
+<div class="viewcode-block" id="stylize_connect">
+<a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.latex.tikzfeynman.stylize_connect.html#pyfeyn2.render.latex.tikzfeynman.stylize_connect">[docs]</a>
+def stylize_connect(fd: FeynmanDiagram, c: Connector):
     style = fd.get_style(c)
     double_distance = (
         style.getProperty(&quot;double-distance&quot;).value
@@ -193,6 +190,7 @@ shape_map = {
                 f&quot;No type or style set for connector  {c.id} {c.type} {c.pdgid}&quot;
             )
             rets += [&quot;plain&quot;]
+    # TODO labels could be in general in {   } to allow commas in general
     for ret in rets:
         if c.label is not None:
             if label_side == &quot;left&quot;:
@@ -238,7 +236,10 @@ shape_map = {
     return frets</div>
 
 
-<div class="viewcode-block" id="stylize_node"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.latex.tikzfeynman.stylize_node.html#pyfeyn2.render.latex.tikzfeynman.stylize_node">[docs]</a>def stylize_node(fd: FeynmanDiagram, v: Vertex):
+
+<div class="viewcode-block" id="stylize_node">
+<a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.latex.tikzfeynman.stylize_node.html#pyfeyn2.render.latex.tikzfeynman.stylize_node">[docs]</a>
+def stylize_node(fd: FeynmanDiagram, v: Vertex):
     style = fd.get_style(v)
     ret = &quot;&quot;
     suffix = None
@@ -246,7 +247,10 @@ shape_map = {
         ret += &quot;label=&quot; + v.label + &quot;,&quot;
     if style.getProperty(&quot;symbol&quot;) is not None:
         ret += shape_map[style.getProperty(&quot;symbol&quot;).value] + &quot;,&quot;
-        ret += &quot;scale=&quot; + style.getPropertyValue(&quot;symbol-size&quot;, &quot;1&quot;) + &quot;,&quot;
+        size = style.getPropertyValue(&quot;symbol-size&quot;, &quot;1&quot;)
+        if size == &quot;&quot;:
+            size = &quot;1&quot;
+        ret += &quot;scale=&quot; + size + &quot;,&quot;
         suffix = &quot;&quot;
 
     end = ret[:-1]
@@ -269,7 +273,10 @@ shape_map = {
     )</div>
 
 
-<div class="viewcode-block" id="stylize_leg_node"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.latex.tikzfeynman.stylize_leg_node.html#pyfeyn2.render.latex.tikzfeynman.stylize_leg_node">[docs]</a>def stylize_leg_node(l: Leg):
+
+<div class="viewcode-block" id="stylize_leg_node">
+<a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.latex.tikzfeynman.stylize_leg_node.html#pyfeyn2.render.latex.tikzfeynman.stylize_leg_node">[docs]</a>
+def stylize_leg_node(l: Leg):
     style = &quot;&quot;
     if l.external is not None:
         style += &quot;label=&quot; + l.external + &quot;,&quot;
@@ -281,7 +288,10 @@ shape_map = {
     return f&quot;\t\\vertex ({l.id}) [{sty}] at ({l.x},{l.y});\n&quot;</div>
 
 
-<div class="viewcode-block" id="get_line"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.latex.tikzfeynman.get_line.html#pyfeyn2.render.latex.tikzfeynman.get_line">[docs]</a>def get_line(source_id, target_id, style):
+
+<div class="viewcode-block" id="get_line">
+<a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.latex.tikzfeynman.get_line.html#pyfeyn2.render.latex.tikzfeynman.get_line">[docs]</a>
+def get_line(source_id, target_id, style):
     # Fix self-loop
     if source_id == target_id:
         return f&quot;\t\t({source_id}) -- [{style}] ({target_id}clone),\n&quot;
@@ -289,7 +299,10 @@ shape_map = {
         return f&quot;\t\t({source_id}) -- [{style}] ({target_id}),\n&quot;</div>
 
 
-<div class="viewcode-block" id="feynman_to_tikz_feynman"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.latex.tikzfeynman.feynman_to_tikz_feynman.html#pyfeyn2.render.latex.tikzfeynman.feynman_to_tikz_feynman">[docs]</a>def feynman_to_tikz_feynman(fd):
+
+<div class="viewcode-block" id="feynman_to_tikz_feynman">
+<a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.latex.tikzfeynman.feynman_to_tikz_feynman.html#pyfeyn2.render.latex.tikzfeynman.feynman_to_tikz_feynman">[docs]</a>
+def feynman_to_tikz_feynman(fd):
     direct = &quot;*&quot;
 
     src = &quot;\\begin{tikzpicture}\n&quot;
@@ -325,8 +338,13 @@ shape_map = {
     return src</div>
 
 
-<div class="viewcode-block" id="TikzFeynmanRender"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.latex.tikzfeynman.TikzFeynmanRender.html#pyfeyn2.render.latex.tikzfeynman.TikzFeynmanRender">[docs]</a>class TikzFeynmanRender(LatexRender):
-<div class="viewcode-block" id="TikzFeynmanRender.__init__"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.latex.tikzfeynman.TikzFeynmanRender.html#pyfeyn2.render.latex.tikzfeynman.TikzFeynmanRender.__init__">[docs]</a>    def __init__(
+
+<div class="viewcode-block" id="TikzFeynmanRender">
+<a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.latex.tikzfeynman.TikzFeynmanRender.html#pyfeyn2.render.latex.tikzfeynman.TikzFeynmanRender">[docs]</a>
+class TikzFeynmanRender(LatexRender):
+<div class="viewcode-block" id="TikzFeynmanRender.__init__">
+<a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.latex.tikzfeynman.TikzFeynmanRender.html#pyfeyn2.render.latex.tikzfeynman.TikzFeynmanRender.__init__">[docs]</a>
+    def __init__(
         self,
         fd=None,
         documentclass=&quot;standalone&quot;,
@@ -349,6 +367,7 @@ shape_map = {
         )
         if fd is not None:
             self.set_feynman_diagram(fd)</div>
+
 
     def set_feynman_diagram(self, fd):
         super().set_feynman_diagram(fd)
@@ -389,6 +408,7 @@ shape_map = {
     @classmethod
     def valid_shapes(cls) -&gt; List[str]:
         return super().valid_types() + list(shape_map.keys())</div>
+
 </pre></div>
 
            </div>
@@ -398,7 +418,7 @@ shape_map = {
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2024, Alexander Puck Neuwirth.</p>
+    <p>&#169; Copyright 2025, Alexander Puck Neuwirth.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

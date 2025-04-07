@@ -23,8 +23,13 @@ pyfeyn2.feynmandiagram.FeynmanDiagram
       ~FeynmanDiagram.are_neighbours
       ~FeynmanDiagram.conjugated
       ~FeynmanDiagram.copy
+      ~FeynmanDiagram.decay
       ~FeynmanDiagram.deepcopy
+      ~FeynmanDiagram.emission
+      ~FeynmanDiagram.fastcopy
+      ~FeynmanDiagram.find_vertex_in_model
       ~FeynmanDiagram.follow_anti_fermion_line
+      ~FeynmanDiagram.from_matrix
       ~FeynmanDiagram.from_xml
       ~FeynmanDiagram.from_xml_file
       ~FeynmanDiagram.get
@@ -39,6 +44,8 @@ pyfeyn2.feynmandiagram.FeynmanDiagram
       ~FeynmanDiagram.get_leg_by_pdgid
       ~FeynmanDiagram.get_loose_vertices
       ~FeynmanDiagram.get_neighbours
+      ~FeynmanDiagram.get_number_of_incoming
+      ~FeynmanDiagram.get_number_of_outgoing
       ~FeynmanDiagram.get_outgoing
       ~FeynmanDiagram.get_point
       ~FeynmanDiagram.get_sheet
@@ -47,6 +54,7 @@ pyfeyn2.feynmandiagram.FeynmanDiagram
       ~FeynmanDiagram.get_style_property
       ~FeynmanDiagram.get_unpositioned_vertices
       ~FeynmanDiagram.get_vertex
+      ~FeynmanDiagram.get_vertex_index
       ~FeynmanDiagram.has
       ~FeynmanDiagram.has_id
       ~FeynmanDiagram.has_leg
@@ -54,12 +62,23 @@ pyfeyn2.feynmandiagram.FeynmanDiagram
       ~FeynmanDiagram.has_propagator
       ~FeynmanDiagram.has_vertex
       ~FeynmanDiagram.has_vertex_id
+      ~FeynmanDiagram.insert_bubble
+      ~FeynmanDiagram.insert_tadpole
+      ~FeynmanDiagram.insert_vertex_loop
+      ~FeynmanDiagram.is_isomorphic
+      ~FeynmanDiagram.is_valid
+      ~FeynmanDiagram.merge
+      ~FeynmanDiagram.merge_legs
+      ~FeynmanDiagram.merge_vertices
       ~FeynmanDiagram.put_style
       ~FeynmanDiagram.put_styles
       ~FeynmanDiagram.raw_style
+      ~FeynmanDiagram.remove
       ~FeynmanDiagram.remove_propagator
       ~FeynmanDiagram.render
       ~FeynmanDiagram.scale_positions
+      ~FeynmanDiagram.to_graph
+      ~FeynmanDiagram.to_matrix
       ~FeynmanDiagram.to_xml
       ~FeynmanDiagram.with_class
       ~FeynmanDiagram.with_color

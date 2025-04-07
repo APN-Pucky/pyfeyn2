@@ -1,30 +1,28 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>feynml.feynmandiagram.FeynmanDiagram &mdash; pyfeyn2  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
       <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
       <link rel="stylesheet" type="text/css" href="../_static/thebelab.css" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=b3ba4146"></script>
-        <script src="../_static/doctools.js?v=888ff710"></script>
-        <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
-        <script src="../_static/thebelab-helper.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/thebelab-helper.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -44,9 +42,6 @@
             pyfeyn2
               <img src="../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
-              <div class="version">
-                2.4.2-43-gab3f1774
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -91,8 +86,10 @@
 <li class="toctree-l2"><a class="reference internal" href="feynml.leg.html">feynml.leg</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.line.html">feynml.line</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.link.html">feynml.link</a></li>
+<li class="toctree-l2"><a class="reference internal" href="feynml.log.html">feynml.log</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.meta.html">feynml.meta</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.momentum.html">feynml.momentum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="feynml.particle.html">feynml.particle</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.particles.html">feynml.particles</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.pdgid.html">feynml.pdgid</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.point.html">feynml.point</a></li>
@@ -102,6 +99,7 @@
 <li class="toctree-l2"><a class="reference internal" href="feynml.sourcing.html">feynml.sourcing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.styled.html">feynml.styled</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.targeting.html">feynml.targeting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="feynml.topology.html">feynml.topology</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.type.html">feynml.type</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.util.html">feynml.util</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.vertex.html">feynml.vertex</a></li>
@@ -147,14 +145,14 @@
            <div itemprop="articleBody">
              
   <section id="feynml-feynmandiagram-feynmandiagram">
-<h1>feynml.feynmandiagram.FeynmanDiagram<a class="headerlink" href="#feynml-feynmandiagram-feynmandiagram" title="Permalink to this heading"></a></h1>
+<h1>feynml.feynmandiagram.FeynmanDiagram<a class="headerlink" href="#feynml-feynmandiagram-feynmandiagram" title="Link to this heading"></a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="feynml.feynmandiagram.FeynmanDiagram">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">feynml.feynmandiagram.</span></span><span class="sig-name descname"><span class="pre">FeynmanDiagram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id:</span> <span class="pre">Optional[str]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style:</span> <span class="pre">cssutils.css.cssstyledeclaration.CSSStyleDeclaration</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clazz:</span> <span class="pre">Optional[str]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">propagators:</span> <span class="pre">List[feynml.propagator.Propagator]</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertices:</span> <span class="pre">List[feynml.vertex.Vertex]</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">legs:</span> <span class="pre">List[feynml.leg.Leg]</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sheet:</span> <span class="pre">cssutils.css.cssstylesheet.CSSStyleSheet</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/feynml/feynmandiagram.html#FeynmanDiagram"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#feynml.feynmandiagram.FeynmanDiagram" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">feynml.feynmandiagram.</span></span><span class="sig-name descname"><span class="pre">FeynmanDiagram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id:</span> <span class="pre">Optional[str]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style:</span> <span class="pre">cssutils.css.cssstyledeclaration.CSSStyleDeclaration</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clazz:</span> <span class="pre">Optional[str]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">propagators:</span> <span class="pre">List[feynml.propagator.Propagator]</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertices:</span> <span class="pre">List[feynml.vertex.Vertex]</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">legs:</span> <span class="pre">List[feynml.leg.Leg]</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sheet:</span> <span class="pre">cssutils.css.cssstylesheet.CSSStyleSheet</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/feynml/feynmandiagram.html#FeynmanDiagram"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#feynml.feynmandiagram.FeynmanDiagram" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="feynml.sheet.SheetHandler.html#feynml.sheet.SheetHandler" title="feynml.sheet.SheetHandler"><code class="xref py py-class docutils literal notranslate"><span class="pre">SheetHandler</span></code></a>, <a class="reference internal" href="feynml.xml.XML.html#feynml.xml.XML" title="feynml.xml.XML"><code class="xref py py-class docutils literal notranslate"><span class="pre">XML</span></code></a>, <a class="reference internal" href="feynml.styled.Styled.html#feynml.styled.Styled" title="feynml.styled.Styled"><code class="xref py py-class docutils literal notranslate"><span class="pre">Styled</span></code></a>, <a class="reference internal" href="feynml.id.Identifiable.html#feynml.id.Identifiable" title="feynml.id.Identifiable"><code class="xref py py-class docutils literal notranslate"><span class="pre">Identifiable</span></code></a></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="feynml.feynmandiagram.FeynmanDiagram.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id:</span> <span class="pre">str</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style:</span> <span class="pre">~cssutils.css.cssstyledeclaration.CSSStyleDeclaration</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clazz:</span> <span class="pre">str</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">propagators:</span> <span class="pre">~typing.List[~feynml.propagator.Propagator]</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertices:</span> <span class="pre">~typing.List[~feynml.vertex.Vertex]</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">legs:</span> <span class="pre">~typing.List[~feynml.leg.Leg]</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sheet:</span> <span class="pre">~cssutils.css.cssstylesheet.CSSStyleSheet</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#feynml.feynmandiagram.FeynmanDiagram.__init__" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id:</span> <span class="pre">str</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style:</span> <span class="pre">~cssutils.css.cssstyledeclaration.CSSStyleDeclaration</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clazz:</span> <span class="pre">str</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">propagators:</span> <span class="pre">~typing.List[~feynml.propagator.Propagator]</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertices:</span> <span class="pre">~typing.List[~feynml.vertex.Vertex]</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">legs:</span> <span class="pre">~typing.List[~feynml.leg.Leg]</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sheet:</span> <span class="pre">~cssutils.css.cssstylesheet.CSSStyleSheet</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#feynml.feynmandiagram.FeynmanDiagram.__init__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <p class="rubric">Methods</p>
@@ -175,82 +173,106 @@
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">are_neighbours</span></code>(vertex1, vertex2)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">conjugated</span></code>([new_vertex_ids, new_leg_ids, ...])</p></td>
-<td><p></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#feynml.feynmandiagram.FeynmanDiagram.conjugated" title="feynml.feynmandiagram.FeynmanDiagram.conjugated"><code class="xref py py-obj docutils literal notranslate"><span class="pre">conjugated</span></code></a>([new_vertex_ids, new_leg_ids, ...])</p></td>
+<td><p>Warning: This does not mathematically conjugate the diagram, but only switches directions.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">copy</span></code>([new_vertex_ids, new_leg_ids, ...])</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">deepcopy</span></code>()</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">decay</span></code>(leg, *new_legs)</p></td>
 <td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">deepcopy</span></code>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#feynml.feynmandiagram.FeynmanDiagram.emission" title="feynml.feynmandiagram.FeynmanDiagram.emission"><code class="xref py py-obj docutils literal notranslate"><span class="pre">emission</span></code></a>(leg_or_propagator[, new, start, ...])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">fastcopy</span></code>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#feynml.feynmandiagram.FeynmanDiagram.find_vertex_in_model" title="feynml.feynmandiagram.FeynmanDiagram.find_vertex_in_model"><code class="xref py py-obj docutils literal notranslate"><span class="pre">find_vertex_in_model</span></code></a>(vertex, model)</p></td>
+<td><p>Finds the model vertex corresponding to the given FeynmanDiagram vertex</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">follow_anti_fermion_line</span></code>(leg)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#feynml.feynmandiagram.FeynmanDiagram.from_xml" title="feynml.feynmandiagram.FeynmanDiagram.from_xml"><code class="xref py py-obj docutils literal notranslate"><span class="pre">from_xml</span></code></a>(xml)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">from_matrix</span></code>(matrix, li, lo)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#feynml.feynmandiagram.FeynmanDiagram.from_xml" title="feynml.feynmandiagram.FeynmanDiagram.from_xml"><code class="xref py py-obj docutils literal notranslate"><span class="pre">from_xml</span></code></a>(xml)</p></td>
 <td><p>Load self from XML.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#feynml.feynmandiagram.FeynmanDiagram.from_xml_file" title="feynml.feynmandiagram.FeynmanDiagram.from_xml_file"><code class="xref py py-obj docutils literal notranslate"><span class="pre">from_xml_file</span></code></a>(file)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#feynml.feynmandiagram.FeynmanDiagram.from_xml_file" title="feynml.feynmandiagram.FeynmanDiagram.from_xml_file"><code class="xref py py-obj docutils literal notranslate"><span class="pre">from_xml_file</span></code></a>(file)</p></td>
 <td><p>Load self from XML file.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get</span></code>(lmbda)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get</span></code>(lmbda)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#feynml.feynmandiagram.FeynmanDiagram.get_bounding_box" title="feynml.feynmandiagram.FeynmanDiagram.get_bounding_box"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_bounding_box</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#feynml.feynmandiagram.FeynmanDiagram.get_bounding_box" title="feynml.feynmandiagram.FeynmanDiagram.get_bounding_box"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_bounding_box</span></code></a>()</p></td>
 <td><p>Get the bounding box of the diagram, i.e. the smallest rectangle that contains all vertices and legs.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_connections</span></code>(vertex)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_connections</span></code>(vertex)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_externals_size</span></code>()</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_externals_size</span></code>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_fermion_factor</span></code>(fd)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_fermion_factor</span></code>(fd)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_fermion_line_ends</span></code>()</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_fermion_line_ends</span></code>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_fermion_lines</span></code>()</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_fermion_lines</span></code>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_incoming</span></code>()</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_incoming</span></code>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_leg</span></code>(idd)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_leg</span></code>(idd)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_leg_by_pdgid</span></code>(pdgid)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_leg_by_pdgid</span></code>(pdgid)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_loose_vertices</span></code>()</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_loose_vertices</span></code>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_neighbours</span></code>(vertex)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_neighbours</span></code>(vertex)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_outgoing</span></code>()</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_number_of_incoming</span></code>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_point</span></code>(idd)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_number_of_outgoing</span></code>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#feynml.feynmandiagram.FeynmanDiagram.get_sheet" title="feynml.feynmandiagram.FeynmanDiagram.get_sheet"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_sheet</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_outgoing</span></code>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_point</span></code>(idd)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#feynml.feynmandiagram.FeynmanDiagram.get_sheet" title="feynml.feynmandiagram.FeynmanDiagram.get_sheet"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_sheet</span></code></a>()</p></td>
 <td><p>Return the sheet.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#feynml.feynmandiagram.FeynmanDiagram.get_sheets" title="feynml.feynmandiagram.FeynmanDiagram.get_sheets"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_sheets</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#feynml.feynmandiagram.FeynmanDiagram.get_sheets" title="feynml.feynmandiagram.FeynmanDiagram.get_sheets"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_sheets</span></code></a>()</p></td>
 <td><p>Return the sheet.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#feynml.feynmandiagram.FeynmanDiagram.get_style" title="feynml.feynmandiagram.FeynmanDiagram.get_style"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_style</span></code></a>(obj[, xml])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#feynml.feynmandiagram.FeynmanDiagram.get_style" title="feynml.feynmandiagram.FeynmanDiagram.get_style"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_style</span></code></a>(obj[, xml])</p></td>
 <td><p>Get the style of an object.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#feynml.feynmandiagram.FeynmanDiagram.get_style_property" title="feynml.feynmandiagram.FeynmanDiagram.get_style_property"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_style_property</span></code></a>(obj, property_name[, xml])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#feynml.feynmandiagram.FeynmanDiagram.get_style_property" title="feynml.feynmandiagram.FeynmanDiagram.get_style_property"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_style_property</span></code></a>(obj, property_name[, xml])</p></td>
 <td><p>Get a style property of an object.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_unpositioned_vertices</span></code>()</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_unpositioned_vertices</span></code>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_vertex</span></code>(idd)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_vertex</span></code>(idd)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_vertex_index</span></code>(vertex)</p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">has</span></code>(obj)</p></td>
@@ -274,70 +296,97 @@
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">has_vertex_id</span></code>(vertexid)</p></td>
 <td><p></p></td>
 </tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#feynml.feynmandiagram.FeynmanDiagram.insert_bubble" title="feynml.feynmandiagram.FeynmanDiagram.insert_bubble"><code class="xref py py-obj docutils literal notranslate"><span class="pre">insert_bubble</span></code></a>(leg_or_propagator[, ...])</p></td>
+<td><p>Adds a bubble loop to a propagator or leg.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">insert_tadpole</span></code>(leg_or_propagator[, ...])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">insert_vertex_loop</span></code>(vertex, *new_propagators)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_isomorphic</span></code>(fd)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_valid</span></code>(fm[, only_vertex])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#feynml.feynmandiagram.FeynmanDiagram.merge" title="feynml.feynmandiagram.FeynmanDiagram.merge"><code class="xref py py-obj docutils literal notranslate"><span class="pre">merge</span></code></a>(*obj)</p></td>
+<td><p>Merges objects together</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#feynml.feynmandiagram.FeynmanDiagram.merge_legs" title="feynml.feynmandiagram.FeynmanDiagram.merge_legs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">merge_legs</span></code></a>(leg1, leg2)</p></td>
+<td><p>Merges two legs to a single propagator.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#feynml.feynmandiagram.FeynmanDiagram.merge_vertices" title="feynml.feynmandiagram.FeynmanDiagram.merge_vertices"><code class="xref py py-obj docutils literal notranslate"><span class="pre">merge_vertices</span></code></a>(*vertices[, tadpole])</p></td>
+<td><p>Merges vertices to a single vertex.</p></td>
+</tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#feynml.feynmandiagram.FeynmanDiagram.put_style" title="feynml.feynmandiagram.FeynmanDiagram.put_style"><code class="xref py py-obj docutils literal notranslate"><span class="pre">put_style</span></code></a>(key, value)</p></td>
-<td><p><div class="deprecated">
-<p><span class="versionmodified deprecated">Deprecated since version 0.0.0.</span></p>
-</div>
-</p></td>
+<td><p></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#feynml.feynmandiagram.FeynmanDiagram.put_styles" title="feynml.feynmandiagram.FeynmanDiagram.put_styles"><code class="xref py py-obj docutils literal notranslate"><span class="pre">put_styles</span></code></a>(**kwargs)</p></td>
-<td><p><div class="deprecated">
-<p><span class="versionmodified deprecated">Deprecated since version 0.0.0.</span></p>
-</div>
-</p></td>
+<td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">raw_style</span></code>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_propagator</span></code>(propagator)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove</span></code>(*fd_all)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">render</span></code>([render, show, file, auto_position, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#feynml.feynmandiagram.FeynmanDiagram.remove_propagator" title="feynml.feynmandiagram.FeynmanDiagram.remove_propagator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_propagator</span></code></a>(propagator)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#feynml.feynmandiagram.FeynmanDiagram.scale_positions" title="feynml.feynmandiagram.FeynmanDiagram.scale_positions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scale_positions</span></code></a>(scale)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">render</span></code>([render, show, file, auto_position, ...])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#feynml.feynmandiagram.FeynmanDiagram.scale_positions" title="feynml.feynmandiagram.FeynmanDiagram.scale_positions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scale_positions</span></code></a>(scale)</p></td>
 <td><p>Scale the positions of the vertices and legs.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#feynml.feynmandiagram.FeynmanDiagram.to_xml" title="feynml.feynmandiagram.FeynmanDiagram.to_xml"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_xml</span></code></a>()</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_graph</span></code>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_matrix</span></code>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#feynml.feynmandiagram.FeynmanDiagram.to_xml" title="feynml.feynmandiagram.FeynmanDiagram.to_xml"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_xml</span></code></a>()</p></td>
 <td><p>Return self as XML.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_class</span></code>(clazz)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_class</span></code>(clazz)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_color</span></code>(color)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_color</span></code>(color)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#feynml.feynmandiagram.FeynmanDiagram.with_id" title="feynml.feynmandiagram.FeynmanDiagram.with_id"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_id</span></code></a>(id)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#feynml.feynmandiagram.FeynmanDiagram.with_id" title="feynml.feynmandiagram.FeynmanDiagram.with_id"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_id</span></code></a>(id)</p></td>
 <td><p>set id</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#feynml.feynmandiagram.FeynmanDiagram.with_legs" title="feynml.feynmandiagram.FeynmanDiagram.with_legs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_legs</span></code></a>(value[, k])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#feynml.feynmandiagram.FeynmanDiagram.with_legs" title="feynml.feynmandiagram.FeynmanDiagram.with_legs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_legs</span></code></a>(value[, k])</p></td>
 <td><p>Set legs to <cite>value</cite> and return self.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#feynml.feynmandiagram.FeynmanDiagram.with_new_id" title="feynml.feynmandiagram.FeynmanDiagram.with_new_id"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_new_id</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#feynml.feynmandiagram.FeynmanDiagram.with_new_id" title="feynml.feynmandiagram.FeynmanDiagram.with_new_id"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_new_id</span></code></a>()</p></td>
 <td><p>generate new id</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#feynml.feynmandiagram.FeynmanDiagram.with_propagators" title="feynml.feynmandiagram.FeynmanDiagram.with_propagators"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_propagators</span></code></a>(value[, k])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#feynml.feynmandiagram.FeynmanDiagram.with_propagators" title="feynml.feynmandiagram.FeynmanDiagram.with_propagators"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_propagators</span></code></a>(value[, k])</p></td>
 <td><p>Set propagators to <cite>value</cite> and return self.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#feynml.feynmandiagram.FeynmanDiagram.with_rule" title="feynml.feynmandiagram.FeynmanDiagram.with_rule"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_rule</span></code></a>(rule)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#feynml.feynmandiagram.FeynmanDiagram.with_rule" title="feynml.feynmandiagram.FeynmanDiagram.with_rule"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_rule</span></code></a>(rule)</p></td>
 <td><p>Replace rules of the style.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#feynml.feynmandiagram.FeynmanDiagram.with_rules" title="feynml.feynmandiagram.FeynmanDiagram.with_rules"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_rules</span></code></a>(rules)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#feynml.feynmandiagram.FeynmanDiagram.with_rules" title="feynml.feynmandiagram.FeynmanDiagram.with_rules"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_rules</span></code></a>(rules)</p></td>
 <td><p>Replace rules of the style.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#feynml.feynmandiagram.FeynmanDiagram.with_sheet" title="feynml.feynmandiagram.FeynmanDiagram.with_sheet"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_sheet</span></code></a>(sheet)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#feynml.feynmandiagram.FeynmanDiagram.with_sheet" title="feynml.feynmandiagram.FeynmanDiagram.with_sheet"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_sheet</span></code></a>(sheet)</p></td>
 <td><p>Return the object with the sheet.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_style</span></code>(style)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_style</span></code>(style)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_style_properties</span></code>(**kwargs)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_style_properties</span></code>(**kwargs)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_style_property</span></code>(key, value)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_style_property</span></code>(key, value)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#feynml.feynmandiagram.FeynmanDiagram.with_vertices" title="feynml.feynmandiagram.FeynmanDiagram.with_vertices"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_vertices</span></code></a>(value[, k])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#feynml.feynmandiagram.FeynmanDiagram.with_vertices" title="feynml.feynmandiagram.FeynmanDiagram.with_vertices"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_vertices</span></code></a>(value[, k])</p></td>
 <td><p>Set vertices to <cite>value</cite> and return self.</p></td>
 </tr>
 </tbody>
@@ -376,37 +425,64 @@
 </table>
 <dl class="py method">
 <dt class="sig sig-object py" id="feynml.feynmandiagram.FeynmanDiagram.add_rule">
-<span class="sig-name descname"><span class="pre">add_rule</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rule</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#feynml.feynmandiagram.FeynmanDiagram.add_rule" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">add_rule</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rule</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#feynml.feynmandiagram.FeynmanDiagram.add_rule" title="Link to this definition"></a></dt>
 <dd><p>Add a rule to the style.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="feynml.feynmandiagram.FeynmanDiagram.add_rules">
-<span class="sig-name descname"><span class="pre">add_rules</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rules</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#feynml.feynmandiagram.FeynmanDiagram.add_rules" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">add_rules</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rules</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#feynml.feynmandiagram.FeynmanDiagram.add_rules" title="Link to this definition"></a></dt>
 <dd><p>Add rules to the style.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="feynml.feynmandiagram.FeynmanDiagram.clazz">
-<span class="sig-name descname"><span class="pre">clazz</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#feynml.feynmandiagram.FeynmanDiagram.clazz" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">clazz</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#feynml.feynmandiagram.FeynmanDiagram.clazz" title="Link to this definition"></a></dt>
 <dd><p>CSS class string.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="feynml.feynmandiagram.FeynmanDiagram.conjugated">
+<span class="sig-name descname"><span class="pre">conjugated</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_vertex_ids</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_leg_ids</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_propagator_ids</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/feynml/feynmandiagram.html#FeynmanDiagram.conjugated"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#feynml.feynmandiagram.FeynmanDiagram.conjugated" title="Link to this definition"></a></dt>
+<dd><p>Warning: This does not mathematically conjugate the diagram, but only switches directions.
+Differences to the mathematical conjugation are missing complex conjugation of i’s and wrong momenta for e.g. 3g-vertex.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="feynml.feynmandiagram.FeynmanDiagram.emission">
+<span class="sig-name descname"><span class="pre">emission</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">leg_or_propagator</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="feynml.leg.Leg.html#feynml.leg.Leg" title="feynml.leg.Leg"><span class="pre">Leg</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="feynml.propagator.Propagator.html#feynml.propagator.Propagator" title="feynml.propagator.Propagator"><span class="pre">Propagator</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">new</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="feynml.leg.Leg.html#feynml.leg.Leg" title="feynml.leg.Leg"><span class="pre">Leg</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sense</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'outgoing'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">position_ratio</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inplace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/feynml/feynmandiagram.html#FeynmanDiagram.emission"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#feynml.feynmandiagram.FeynmanDiagram.emission" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>inplace</strong> – If true keeps the original propagator/leg line, else the new intermediate Vertex can be located anywhere.</p></li>
+<li><p><strong>position_ratio</strong> – The position of the new vertex on the line between the source and target of the propagator/leg.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="feynml.feynmandiagram.FeynmanDiagram.find_vertex_in_model">
+<span class="sig-name descname"><span class="pre">find_vertex_in_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vertex</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="feynml.vertex.Vertex.html#feynml.vertex.Vertex" title="feynml.vertex.Vertex"><span class="pre">Vertex</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">FeynModel</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/feynml/feynmandiagram.html#FeynmanDiagram.find_vertex_in_model"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#feynml.feynmandiagram.FeynmanDiagram.find_vertex_in_model" title="Link to this definition"></a></dt>
+<dd><p>Finds the model vertex corresponding to the given FeynmanDiagram vertex</p>
+<p>Note: Sorting is to check for the correct particles in a vertex given they can be in any order and have duplicates</p>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="feynml.feynmandiagram.FeynmanDiagram.from_xml">
-<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_xml</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xml</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#feynml.feynmandiagram.FeynmanDiagram.from_xml" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_xml</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xml</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#feynml.feynmandiagram.FeynmanDiagram.from_xml" title="Link to this definition"></a></dt>
 <dd><p>Load self from XML.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="feynml.feynmandiagram.FeynmanDiagram.from_xml_file">
-<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_xml_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#feynml.feynmandiagram.FeynmanDiagram.from_xml_file" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_xml_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#feynml.feynmandiagram.FeynmanDiagram.from_xml_file" title="Link to this definition"></a></dt>
 <dd><p>Load self from XML file.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="feynml.feynmandiagram.FeynmanDiagram.get_bounding_box">
-<span class="sig-name descname"><span class="pre">get_bounding_box</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/feynml/feynmandiagram.html#FeynmanDiagram.get_bounding_box"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#feynml.feynmandiagram.FeynmanDiagram.get_bounding_box" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">get_bounding_box</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/feynml/feynmandiagram.html#FeynmanDiagram.get_bounding_box"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#feynml.feynmandiagram.FeynmanDiagram.get_bounding_box" title="Link to this definition"></a></dt>
 <dd><p>Get the bounding box of the diagram, i.e. the smallest rectangle that contains all vertices and legs.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -420,32 +496,58 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="feynml.feynmandiagram.FeynmanDiagram.get_sheet">
-<span class="sig-name descname"><span class="pre">get_sheet</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/feynml/feynmandiagram.html#FeynmanDiagram.get_sheet"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#feynml.feynmandiagram.FeynmanDiagram.get_sheet" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">get_sheet</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/feynml/feynmandiagram.html#FeynmanDiagram.get_sheet"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#feynml.feynmandiagram.FeynmanDiagram.get_sheet" title="Link to this definition"></a></dt>
 <dd><p>Return the sheet.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="feynml.feynmandiagram.FeynmanDiagram.get_sheets">
-<span class="sig-name descname"><span class="pre">get_sheets</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/feynml/feynmandiagram.html#FeynmanDiagram.get_sheets"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#feynml.feynmandiagram.FeynmanDiagram.get_sheets" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">get_sheets</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/feynml/feynmandiagram.html#FeynmanDiagram.get_sheets"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#feynml.feynmandiagram.FeynmanDiagram.get_sheets" title="Link to this definition"></a></dt>
 <dd><p>Return the sheet.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="feynml.feynmandiagram.FeynmanDiagram.get_style">
-<span class="sig-name descname"><span class="pre">get_style</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xml</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="feynml.xml.XML.html#feynml.xml.XML" title="feynml.xml.XML"><span class="pre">XML</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">CSSStyleDeclaration</span></span></span><a class="reference internal" href="../_modules/feynml/feynmandiagram.html#FeynmanDiagram.get_style"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#feynml.feynmandiagram.FeynmanDiagram.get_style" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">get_style</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xml</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="feynml.xml.XML.html#feynml.xml.XML" title="feynml.xml.XML"><span class="pre">XML</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">CSSStyleDeclaration</span></span></span><a class="reference internal" href="../_modules/feynml/feynmandiagram.html#FeynmanDiagram.get_style"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#feynml.feynmandiagram.FeynmanDiagram.get_style" title="Link to this definition"></a></dt>
 <dd><p>Get the style of an object.</p>
-<p>This is prefered over accessing the style attribute directly, since it includes class and pdgid definitions.</p>
+<p>This is preferred over accessing the style attribute directly, since it includes class and pdgid definitions.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="feynml.feynmandiagram.FeynmanDiagram.get_style_property">
-<span class="sig-name descname"><span class="pre">get_style_property</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">property_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xml</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="feynml.xml.XML.html#feynml.xml.XML" title="feynml.xml.XML"><span class="pre">XML</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#feynml.feynmandiagram.FeynmanDiagram.get_style_property" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">get_style_property</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">property_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xml</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="feynml.xml.XML.html#feynml.xml.XML" title="feynml.xml.XML"><span class="pre">XML</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#feynml.feynmandiagram.FeynmanDiagram.get_style_property" title="Link to this definition"></a></dt>
 <dd><p>Get a style property of an object.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="feynml.feynmandiagram.FeynmanDiagram.insert_bubble">
+<span class="sig-name descname"><span class="pre">insert_bubble</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">leg_or_propagator</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="feynml.leg.Leg.html#feynml.leg.Leg" title="feynml.leg.Leg"><span class="pre">Leg</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="feynml.propagator.Propagator.html#feynml.propagator.Propagator" title="feynml.propagator.Propagator"><span class="pre">Propagator</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_propagator1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">None</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="feynml.propagator.Propagator.html#feynml.propagator.Propagator" title="feynml.propagator.Propagator"><span class="pre">Propagator</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_propagator2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">None</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="feynml.propagator.Propagator.html#feynml.propagator.Propagator" title="feynml.propagator.Propagator"><span class="pre">Propagator</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/feynml/feynmandiagram.html#FeynmanDiagram.insert_bubble"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#feynml.feynmandiagram.FeynmanDiagram.insert_bubble" title="Link to this definition"></a></dt>
+<dd><p>Adds a bubble loop to a propagator or leg.</p>
+<p>TODO add ascii example diagram here for documentation (also emission() etc.)
+TODO add tests, needs testing</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="feynml.feynmandiagram.FeynmanDiagram.merge">
+<span class="sig-name descname"><span class="pre">merge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">obj</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/feynml/feynmandiagram.html#FeynmanDiagram.merge"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#feynml.feynmandiagram.FeynmanDiagram.merge" title="Link to this definition"></a></dt>
+<dd><p>Merges objects together</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="feynml.feynmandiagram.FeynmanDiagram.merge_legs">
+<span class="sig-name descname"><span class="pre">merge_legs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">leg1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">leg2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/feynml/feynmandiagram.html#FeynmanDiagram.merge_legs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#feynml.feynmandiagram.FeynmanDiagram.merge_legs" title="Link to this definition"></a></dt>
+<dd><p>Merges two legs to a single propagator.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="feynml.feynmandiagram.FeynmanDiagram.merge_vertices">
+<span class="sig-name descname"><span class="pre">merge_vertices</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">vertices</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tadpole</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="feynml.vertex.Vertex.html#feynml.vertex.Vertex" title="feynml.vertex.Vertex"><span class="pre">Vertex</span></a></span></span><a class="reference internal" href="../_modules/feynml/feynmandiagram.html#FeynmanDiagram.merge_vertices"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#feynml.feynmandiagram.FeynmanDiagram.merge_vertices" title="Link to this definition"></a></dt>
+<dd><p>Merges vertices to a single vertex.</p>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="feynml.feynmandiagram.FeynmanDiagram.put_style">
-<span class="sig-name descname"><span class="pre">put_style</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#feynml.feynmandiagram.FeynmanDiagram.put_style" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">put_style</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#feynml.feynmandiagram.FeynmanDiagram.put_style" title="Link to this definition"></a></dt>
 <dd><div class="deprecated">
 <p><span class="versionmodified deprecated">Deprecated since version 0.0.0.</span></p>
 </div>
@@ -453,7 +555,15 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="feynml.feynmandiagram.FeynmanDiagram.put_styles">
-<span class="sig-name descname"><span class="pre">put_styles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#feynml.feynmandiagram.FeynmanDiagram.put_styles" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">put_styles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#feynml.feynmandiagram.FeynmanDiagram.put_styles" title="Link to this definition"></a></dt>
+<dd><div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version 0.0.0.</span></p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="feynml.feynmandiagram.FeynmanDiagram.remove_propagator">
+<span class="sig-name descname"><span class="pre">remove_propagator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">propagator</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/feynml/feynmandiagram.html#FeynmanDiagram.remove_propagator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#feynml.feynmandiagram.FeynmanDiagram.remove_propagator" title="Link to this definition"></a></dt>
 <dd><div class="deprecated">
 <p><span class="versionmodified deprecated">Deprecated since version 0.0.0.</span></p>
 </div>
@@ -461,67 +571,67 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="feynml.feynmandiagram.FeynmanDiagram.scale_positions">
-<span class="sig-name descname"><span class="pre">scale_positions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scale</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/feynml/feynmandiagram.html#FeynmanDiagram.scale_positions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#feynml.feynmandiagram.FeynmanDiagram.scale_positions" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">scale_positions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scale</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/feynml/feynmandiagram.html#FeynmanDiagram.scale_positions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#feynml.feynmandiagram.FeynmanDiagram.scale_positions" title="Link to this definition"></a></dt>
 <dd><p>Scale the positions of the vertices and legs.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="feynml.feynmandiagram.FeynmanDiagram.style">
-<span class="sig-name descname"><span class="pre">style</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">CSSString</span></em><a class="headerlink" href="#feynml.feynmandiagram.FeynmanDiagram.style" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">style</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">CSSString</span></em><a class="headerlink" href="#feynml.feynmandiagram.FeynmanDiagram.style" title="Link to this definition"></a></dt>
 <dd><p>CSS style string.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="feynml.feynmandiagram.FeynmanDiagram.to_xml">
-<span class="sig-name descname"><span class="pre">to_xml</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#feynml.feynmandiagram.FeynmanDiagram.to_xml" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">to_xml</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#feynml.feynmandiagram.FeynmanDiagram.to_xml" title="Link to this definition"></a></dt>
 <dd><p>Return self as XML.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="feynml.feynmandiagram.FeynmanDiagram.with_id">
-<span class="sig-name descname"><span class="pre">with_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#feynml.feynmandiagram.FeynmanDiagram.with_id" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">with_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#feynml.feynmandiagram.FeynmanDiagram.with_id" title="Link to this definition"></a></dt>
 <dd><p>set id</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="feynml.feynmandiagram.FeynmanDiagram.with_legs">
-<span class="sig-name descname"><span class="pre">with_legs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'legs'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#feynml.feynmandiagram.FeynmanDiagram.with_legs" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">with_legs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'legs'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#feynml.feynmandiagram.FeynmanDiagram.with_legs" title="Link to this definition"></a></dt>
 <dd><p>Set legs to <cite>value</cite> and return self.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="feynml.feynmandiagram.FeynmanDiagram.with_new_id">
-<span class="sig-name descname"><span class="pre">with_new_id</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#feynml.feynmandiagram.FeynmanDiagram.with_new_id" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">with_new_id</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#feynml.feynmandiagram.FeynmanDiagram.with_new_id" title="Link to this definition"></a></dt>
 <dd><p>generate new id</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="feynml.feynmandiagram.FeynmanDiagram.with_propagators">
-<span class="sig-name descname"><span class="pre">with_propagators</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'propagators'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#feynml.feynmandiagram.FeynmanDiagram.with_propagators" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">with_propagators</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'propagators'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#feynml.feynmandiagram.FeynmanDiagram.with_propagators" title="Link to this definition"></a></dt>
 <dd><p>Set propagators to <cite>value</cite> and return self.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="feynml.feynmandiagram.FeynmanDiagram.with_rule">
-<span class="sig-name descname"><span class="pre">with_rule</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rule</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#feynml.feynmandiagram.FeynmanDiagram.with_rule" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">with_rule</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rule</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#feynml.feynmandiagram.FeynmanDiagram.with_rule" title="Link to this definition"></a></dt>
 <dd><p>Replace rules of the style.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="feynml.feynmandiagram.FeynmanDiagram.with_rules">
-<span class="sig-name descname"><span class="pre">with_rules</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rules</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#feynml.feynmandiagram.FeynmanDiagram.with_rules" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">with_rules</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rules</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#feynml.feynmandiagram.FeynmanDiagram.with_rules" title="Link to this definition"></a></dt>
 <dd><p>Replace rules of the style.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="feynml.feynmandiagram.FeynmanDiagram.with_sheet">
-<span class="sig-name descname"><span class="pre">with_sheet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sheet</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/feynml/feynmandiagram.html#FeynmanDiagram.with_sheet"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#feynml.feynmandiagram.FeynmanDiagram.with_sheet" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">with_sheet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sheet</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/feynml/feynmandiagram.html#FeynmanDiagram.with_sheet"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#feynml.feynmandiagram.FeynmanDiagram.with_sheet" title="Link to this definition"></a></dt>
 <dd><p>Return the object with the sheet.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="feynml.feynmandiagram.FeynmanDiagram.with_vertices">
-<span class="sig-name descname"><span class="pre">with_vertices</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'vertices'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#feynml.feynmandiagram.FeynmanDiagram.with_vertices" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">with_vertices</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'vertices'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#feynml.feynmandiagram.FeynmanDiagram.with_vertices" title="Link to this definition"></a></dt>
 <dd><p>Set vertices to <cite>value</cite> and return self.</p>
 </dd></dl>
 
@@ -540,7 +650,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2024, Alexander Puck Neuwirth.</p>
+    <p>&#169; Copyright 2025, Alexander Puck Neuwirth.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

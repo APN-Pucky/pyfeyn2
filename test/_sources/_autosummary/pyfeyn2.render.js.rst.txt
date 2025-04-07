@@ -28,5 +28,5 @@ pyfeyn2.render.js
    :template: custom-module-template.rst                
    :recursive:
 
-   pyfeyn2.render.js.mermaid
+   mermaid
 

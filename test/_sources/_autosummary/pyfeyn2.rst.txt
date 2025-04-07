@@ -28,8 +28,9 @@
    :template: custom-module-template.rst                
    :recursive:
 
-   pyfeyn2.auto
-   pyfeyn2.feynmandiagram
-   pyfeyn2.mkfeyndiag
-   pyfeyn2.render
+   auto
+   feynmandiagram
+   mkfeyndiag
+   render
+   version
 

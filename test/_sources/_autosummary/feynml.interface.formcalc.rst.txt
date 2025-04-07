@@ -28,16 +28,16 @@ feynml.interface.formcalc
    :template: custom-module-template.rst                
    :recursive:
 
-   feynml.interface.formcalc.fermion
-   feynml.interface.formcalc.feynmangraph
-   feynml.interface.formcalc.field
-   feynml.interface.formcalc.insertions
-   feynml.interface.formcalc.particle
-   feynml.interface.formcalc.propagator
-   feynml.interface.formcalc.rule
-   feynml.interface.formcalc.sequenceform
-   feynml.interface.formcalc.topology
-   feynml.interface.formcalc.topologylist
-   feynml.interface.formcalc.vector
-   feynml.interface.formcalc.vertex
+   fermion
+   feynmangraph
+   field
+   insertions
+   particle
+   propagator
+   rule
+   sequenceform
+   topology
+   topologylist
+   vector
+   vertex
 

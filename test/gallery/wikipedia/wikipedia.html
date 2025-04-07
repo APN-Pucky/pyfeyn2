@@ -1,0 +1,511 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wikipedia &mdash; pyfeyn2  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/thebelab.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/nbsphinx-code-cells.css?v=2aa19091" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/thebelab-helper.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Renderers" href="../../renderers/index.html" />
+    <link rel="prev" title="Pyfeyn" href="../pyfeyn/pyfeyn.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            pyfeyn2
+              <img src="../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">FeynML:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../feynml/index.html">FeynML</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Gallery:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Gallery</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../all/all.html">All</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../feynman/feynman.html">Feynman</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../feynmf/feynmf.html">FeynMF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overleaf/overleaf.html">Overleaf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pyfeyn/pyfeyn.html">Pyfeyn</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Wikipedia</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#electron-capture">electron capture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#beta-decay">beta decay</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Renderers:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../renderers/index.html">Renderers</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Interfaces:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../interfaces/index.html">Interfaces</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Modules:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../_autosummary/pyfeyn2.html">pyfeyn2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../_autosummary/feynml.html">feynml</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Versions:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://pyfeyn2.readthedocs.io/en/stable/">RTD</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/pyfeyn2/">Stable</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/pyfeyn2/test/">Dev</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Links:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/APN-Pucky/pyfeyn2">GitHub</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">pyfeyn2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Gallery</a></li>
+      <li class="breadcrumb-item active">Wikipedia</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/gallery/wikipedia/wikipedia.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="Wikipedia">
+<h1>Wikipedia<a class="headerlink" href="#Wikipedia" title="Link to this heading"></a></h1>
+<p>From: <a class="reference external" href="https://en.wikipedia.org/wiki/Beta_decay">https://en.wikipedia.org/wiki/Beta_decay</a></p>
+<section id="electron-capture">
+<h2>electron capture<a class="headerlink" href="#electron-capture" title="Link to this heading"></a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">feynml</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">feynml.topology</span><span class="w"> </span><span class="kn">import</span> <span class="n">two_to_two</span> <span class="k">as</span> <span class="n">t2t</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pyfeyn2.auto</span><span class="w"> </span><span class="kn">import</span> <span class="n">auto_default</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pyfeyn2.render.all</span><span class="w"> </span><span class="kn">import</span> <span class="n">AllRender</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fd</span> <span class="o">=</span> <span class="n">t2t</span><span class="o">.</span><span class="n">t_channel</span><span class="p">(</span><span class="mi">2212</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">24</span><span class="p">,</span><span class="mi">2112</span><span class="p">,</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ar</span> <span class="o">=</span> <span class="n">AllRender</span><span class="p">(</span><span class="n">auto_default</span><span class="p">(</span><span class="n">fd</span><span class="p">))</span>
+<span class="n">ar</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+tikz:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/gallery_wikipedia_wikipedia_3_1.png" src="../../_images/gallery_wikipedia_wikipedia_3_1.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+pyx:
+pyx failed:
+Traceback (most recent call last):
+  File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/all.py&#34;, line 113, in render
+    render(fd).render(dirpath + &#34;/&#34; + name + &#34;.pdf&#34;, **dynarg)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/pyx/pyxrender.py&#34;, line 50, in render
+    nl = NamedLine[lname](lp, Point(tar.x, tar.y))
+         ~~~~~~~~~^^^^^^^
+KeyError: &#39;baryon&#39;
+
+feynmp:
+feynmp failed:
+Traceback (most recent call last):
+  File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/all.py&#34;, line 113, in render
+    render(fd).render(dirpath + &#34;/&#34; + name + &#34;.pdf&#34;, **dynarg)
+    ~~~~~~^^^^
+  File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/latex/feynmp.py&#34;, line 210, in __init__
+    self.set_feynman_diagram(fd)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^
+  File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/latex/feynmp.py&#34;, line 214, in set_feynman_diagram
+    self.set_src_diag(NoEscape(feynman_to_feynmp(fd)))
+                               ~~~~~~~~~~~~~~~~~^^^^
+  File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/latex/feynmp.py&#34;, line 152, in feynman_to_feynmp
+    src = do_legs(src, incoming, True)
+  File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/latex/feynmp.py&#34;, line 135, in do_legs
+    tttype = type_map[lstyle.getProperty(&#34;line&#34;).value]
+             ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: &#39;baryon&#39;
+
+feynman:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/gallery_wikipedia_wikipedia_3_3.png" src="../../_images/gallery_wikipedia_wikipedia_3_3.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+dot:
+dot failed:
+Traceback (most recent call last):
+  File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/all.py&#34;, line 113, in render
+    render(fd).render(dirpath + &#34;/&#34; + name + &#34;.pdf&#34;, **dynarg)
+    ~~~~~~^^^^
+  File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/latex/dot.py&#34;, line 80, in __init__
+    self.set_feynman_diagram(fd)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^
+  File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/latex/dot.py&#34;, line 84, in set_feynman_diagram
+    self.src_dot = feynman_to_dot(
+                   ~~~~~~~~~~~~~~^
+        fd, styler=stylize_connect, resubstituteslash=False
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File &#34;/home/apn/git/pyfeyn2/pyfeyn2/interface/dot.py&#34;, line 70, in feynman_to_dot
+    thestyle = styler(fd, l)
+  File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/latex/dot.py&#34;, line 40, in stylize_connect
+    style = &#39;style=&#34;{}&#34;,texmode=&#34;raw&#34;&#39;.format(map_feyn_to_tikz[lname])
+                                              ~~~~~~~~~~~~~~~~^^^^^^^
+KeyError: &#39;baryon&#39;
+
+mermaid:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/gallery_wikipedia_wikipedia_3_5.svg" src="../../_images/gallery_wikipedia_wikipedia_3_5.svg" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+asciipdf:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/gallery_wikipedia_wikipedia_3_7.png" src="../../_images/gallery_wikipedia_wikipedia_3_7.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+unicodepdf:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/gallery_wikipedia_wikipedia_3_9.png" src="../../_images/gallery_wikipedia_wikipedia_3_9.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+madgraph:
+madgraph failed:
+Traceback (most recent call last):
+  File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/all.py&#34;, line 113, in render
+    render(fd).render(dirpath + &#34;/&#34; + name + &#34;.pdf&#34;, **dynarg)
+    ~~~~~~^^^^
+  File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/ps/madgraph.py&#34;, line 77, in __init__
+    self.set_feynman_diagram(fd)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^
+  File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/ps/madgraph.py&#34;, line 131, in set_feynman_diagram
+    self.set_src(feynman_to_ps(fd))
+                 ~~~~~~~~~~~~~^^^^
+  File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/ps/madgraph.py&#34;, line 47, in feynman_to_ps
+    line = type_map[style.getProperty(&#34;line&#34;).value]
+           ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: &#39;boson&#39;
+
+</pre></div></div>
+</div>
+</section>
+<section id="beta-decay">
+<h2>beta decay<a class="headerlink" href="#beta-decay" title="Link to this heading"></a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">l</span> <span class="p">:</span> <span class="n">l</span><span class="o">.</span><span class="n">pdgid</span> <span class="o">==</span> <span class="mi">11</span><span class="p">,</span><span class="n">fd</span><span class="o">.</span><span class="n">legs</span><span class="p">):</span>
+    <span class="n">l</span><span class="o">.</span><span class="n">with_pdgid</span><span class="p">(</span><span class="o">-</span><span class="mi">11</span><span class="p">)</span><span class="o">.</span><span class="n">with_sense</span><span class="p">(</span><span class="s2">&quot;outgoing&quot;</span><span class="p">)</span>
+<span class="n">ar</span> <span class="o">=</span> <span class="n">AllRender</span><span class="p">(</span><span class="n">auto_default</span><span class="p">(</span><span class="n">fd</span><span class="p">))</span>
+<span class="n">ar</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+tikz:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/gallery_wikipedia_wikipedia_5_1.png" src="../../_images/gallery_wikipedia_wikipedia_5_1.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+pyx:
+pyx failed:
+Traceback (most recent call last):
+  File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/all.py&#34;, line 113, in render
+    render(fd).render(dirpath + &#34;/&#34; + name + &#34;.pdf&#34;, **dynarg)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/pyx/pyxrender.py&#34;, line 50, in render
+    nl = NamedLine[lname](lp, Point(tar.x, tar.y))
+         ~~~~~~~~~^^^^^^^
+KeyError: &#39;baryon&#39;
+
+feynmp:
+feynmp failed:
+Traceback (most recent call last):
+  File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/all.py&#34;, line 113, in render
+    render(fd).render(dirpath + &#34;/&#34; + name + &#34;.pdf&#34;, **dynarg)
+    ~~~~~~^^^^
+  File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/latex/feynmp.py&#34;, line 210, in __init__
+    self.set_feynman_diagram(fd)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^
+  File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/latex/feynmp.py&#34;, line 214, in set_feynman_diagram
+    self.set_src_diag(NoEscape(feynman_to_feynmp(fd)))
+                               ~~~~~~~~~~~~~~~~~^^^^
+  File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/latex/feynmp.py&#34;, line 152, in feynman_to_feynmp
+    src = do_legs(src, incoming, True)
+  File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/latex/feynmp.py&#34;, line 135, in do_legs
+    tttype = type_map[lstyle.getProperty(&#34;line&#34;).value]
+             ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: &#39;baryon&#39;
+
+feynman:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/gallery_wikipedia_wikipedia_5_3.png" src="../../_images/gallery_wikipedia_wikipedia_5_3.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+dot:
+dot failed:
+Traceback (most recent call last):
+  File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/all.py&#34;, line 113, in render
+    render(fd).render(dirpath + &#34;/&#34; + name + &#34;.pdf&#34;, **dynarg)
+    ~~~~~~^^^^
+  File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/latex/dot.py&#34;, line 80, in __init__
+    self.set_feynman_diagram(fd)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^
+  File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/latex/dot.py&#34;, line 84, in set_feynman_diagram
+    self.src_dot = feynman_to_dot(
+                   ~~~~~~~~~~~~~~^
+        fd, styler=stylize_connect, resubstituteslash=False
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File &#34;/home/apn/git/pyfeyn2/pyfeyn2/interface/dot.py&#34;, line 70, in feynman_to_dot
+    thestyle = styler(fd, l)
+  File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/latex/dot.py&#34;, line 40, in stylize_connect
+    style = &#39;style=&#34;{}&#34;,texmode=&#34;raw&#34;&#39;.format(map_feyn_to_tikz[lname])
+                                              ~~~~~~~~~~~~~~~~^^^^^^^
+KeyError: &#39;baryon&#39;
+
+mermaid:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/gallery_wikipedia_wikipedia_5_5.svg" src="../../_images/gallery_wikipedia_wikipedia_5_5.svg" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+asciipdf:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/gallery_wikipedia_wikipedia_5_7.png" src="../../_images/gallery_wikipedia_wikipedia_5_7.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+unicodepdf:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/gallery_wikipedia_wikipedia_5_9.png" src="../../_images/gallery_wikipedia_wikipedia_5_9.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+madgraph:
+madgraph failed:
+Traceback (most recent call last):
+  File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/all.py&#34;, line 113, in render
+    render(fd).render(dirpath + &#34;/&#34; + name + &#34;.pdf&#34;, **dynarg)
+    ~~~~~~^^^^
+  File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/ps/madgraph.py&#34;, line 77, in __init__
+    self.set_feynman_diagram(fd)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^
+  File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/ps/madgraph.py&#34;, line 131, in set_feynman_diagram
+    self.set_src(feynman_to_ps(fd))
+                 ~~~~~~~~~~~~~^^^^
+  File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/ps/madgraph.py&#34;, line 47, in feynman_to_ps
+    line = type_map[style.getProperty(&#34;line&#34;).value]
+           ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: &#39;boson&#39;
+
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../pyfeyn/pyfeyn.html" class="btn btn-neutral float-left" title="Pyfeyn" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../renderers/index.html" class="btn btn-neutral float-right" title="Renderers" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Alexander Puck Neuwirth.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

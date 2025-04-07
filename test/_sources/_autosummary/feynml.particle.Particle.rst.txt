@@ -1,0 +1,47 @@
+feynml.particle.Particle
+========================
+
+.. currentmodule:: feynml.particle
+
+.. autoclass:: Particle
+   :members:                                   
+   :show-inheritance:                           
+   :inherited-members:                         
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Particle.__init__
+      ~Particle.fromfeynmodel
+      ~Particle.fromname
+      ~Particle.frompdg
+      ~Particle.get_particletype
+      ~Particle.get_type
+      ~Particle.with_charge
+      ~Particle.with_mass
+      ~Particle.with_name
+      ~Particle.with_pdgid
+      ~Particle.with_spin
+      ~Particle.with_texname
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~Particle.charge
+      ~Particle.mass
+      ~Particle.name
+      ~Particle.pdgid
+      ~Particle.spin
+      ~Particle.texname
+   
+   

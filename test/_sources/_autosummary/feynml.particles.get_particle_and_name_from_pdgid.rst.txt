@@ -1,0 +1,6 @@
+feynml.particles.get\_particle\_and\_name\_from\_pdgid
+======================================================
+
+.. currentmodule:: feynml.particles
+
+.. autofunction:: get_particle_and_name_from_pdgid

@@ -1,0 +1,349 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>feynml.particle &mdash; pyfeyn2  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/thebelab.css" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/thebelab-helper.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            pyfeyn2
+              <img src="../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">FeynML:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../feynml/index.html">FeynML</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Gallery:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../gallery/index.html">Gallery</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Renderers:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../renderers/index.html">Renderers</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Interfaces:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../interfaces/index.html">Interfaces</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Modules:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../_autosummary/pyfeyn2.html">pyfeyn2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../_autosummary/feynml.html">feynml</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Versions:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://pyfeyn2.readthedocs.io/en/stable/">RTD</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/pyfeyn2/">Stable</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/pyfeyn2/test/">Dev</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Links:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/APN-Pucky/pyfeyn2">GitHub</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">pyfeyn2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">feynml.particle</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for feynml.particle</h1><div class="highlight"><pre>
+<span></span>from enum import Enum
+from typing import Optional
+from dataclasses import dataclass, field
+import warnings
+
+from smpl_util.util import withify
+
+from feynmodel.feyn_model import FeynModel
+
+from feynml.particles import get_either_particle, get_particle_and_name_from_pdgid
+
+
+<div class="viewcode-block" id="ParticleType">
+<a class="viewcode-back" href="../../_autosummary/feynml.particle.ParticleType.html#feynml.particle.ParticleType">[docs]</a>
+class ParticleType(Enum):
+    &quot;&quot;&quot;Enum for particle types&quot;&quot;&quot;
+
+    FERMION = &quot;fermion&quot;
+    ANTI_FERMION = &quot;anti fermion&quot;
+    PHOTON = &quot;photon&quot;
+    GLUON = &quot;gluon&quot;
+    BOSON = &quot;boson&quot;
+    HIGGS = &quot;higgs&quot;
+    BARYON = &quot;baryon&quot;
+    ANTI_BARYON = &quot;anti baryon&quot;
+    MESON = &quot;meson&quot;
+    GAUGINO = &quot;gaugino&quot;
+    SLEPTON = &quot;slepton&quot;
+    SQUARK = &quot;squark&quot;
+    GLUINO = &quot;gluino&quot;
+    NONE = &quot;line&quot;</div>
+
+
+
+<div class="viewcode-block" id="Particle">
+<a class="viewcode-back" href="../../_autosummary/feynml.particle.Particle.html#feynml.particle.Particle">[docs]</a>
+@withify()
+@dataclass
+class Particle:
+    pdgid: Optional[int] = field(
+        default=None, metadata={&quot;name&quot;: &quot;pdgid&quot;, &quot;namespace&quot;: &quot;&quot;, &quot;type&quot;: &quot;Attribute&quot;}
+    )
+    &quot;&quot;&quot;PDGID of the particle&quot;&quot;&quot;
+    name: Optional[str] = field(default=None, metadata={&quot;type&quot;: &quot;Element&quot;})
+    &quot;&quot;&quot;Name of the particle&quot;&quot;&quot;
+    mass: Optional[float] = field(default=None, metadata={&quot;type&quot;: &quot;Element&quot;})
+    &quot;&quot;&quot;Mass of the particle&quot;&quot;&quot;
+    charge: Optional[float] = field(default=None, metadata={&quot;type&quot;: &quot;Element&quot;})
+    &quot;&quot;&quot;Charge of the particle&quot;&quot;&quot;
+    spin: Optional[int] = field(default=None, metadata={&quot;type&quot;: &quot;Element&quot;})
+    &quot;&quot;&quot;Spin of the particle&quot;&quot;&quot;
+    texname: Optional[str] = field(default=None, metadata={&quot;type&quot;: &quot;Element&quot;})
+
+    def get_type(self) -&gt; str:
+        return self.get_particletype().value
+
+    def get_particletype(self) -&gt; ParticleType:
+        if self.pdgid in range(1, 7):
+            return ParticleType.FERMION
+        elif -self.pdgid in range(1, 7):
+            return ParticleType.ANTI_FERMION
+        elif self.pdgid == 22:
+            return ParticleType.PHOTON
+        elif self.pdgid == 21:
+            return ParticleType.GLUON
+        elif self.pdgid in range(11, 19):
+            return ParticleType.FERMION
+        elif -self.pdgid in range(11, 19):
+            return ParticleType.ANTI_FERMION
+        elif abs(self.pdgid) == 24:
+            return ParticleType.BOSON
+        elif self.pdgid == 23:
+            return ParticleType.BOSON
+        elif self.pdgid == 25:
+            return ParticleType.HIGGS
+        elif self.pdgid == 2212:  # proton
+            return ParticleType.BARYON
+        elif self.pdgid == 2112:  # neutron
+            return ParticleType.BARYON
+        elif self.pdgid == -2212:  # anti proton
+            return ParticleType.ANTI_BARYON
+        elif self.pdgid == 111:  # pion
+            return ParticleType.MESON
+        elif abs(self.pdgid) == 211:  # pion
+            return ParticleType.MESON
+        elif abs(self.pdgid) in [
+            1000022,
+            1000023,
+            1000024,
+            1000025,
+            1000035,
+            1000037,
+        ]:
+            return ParticleType.GAUGINO
+        elif abs(self.pdgid) in [
+            1000011,
+            1000012,
+            1000013,
+            1000014,
+            1000015,
+            1000016,
+        ]:
+            return ParticleType.SLEPTON
+        elif abs(self.pdgid) in [
+            2000011,
+            2000012,
+            2000013,
+            2000014,
+            2000015,
+            2000016,
+        ]:
+            return ParticleType.SLEPTON
+        elif abs(self.pdgid) in [
+            1000001,
+            1000002,
+            1000003,
+            1000004,
+            1000005,
+            1000006,
+        ]:
+            return ParticleType.SQUARK
+        elif abs(self.pdgid) in [
+            2000001,
+            2000002,
+            2000003,
+            2000004,
+            2000005,
+            2000006,
+        ]:
+            return ParticleType.SQUARK
+        elif abs(self.pdgid) in [1000021]:
+            return ParticleType.GLUNINO
+        elif abs(self.pdgid) &gt; 9000000:
+            return ParticleType.NONE
+        elif self.pdgid &lt; 1000000 and self.pdgid &gt; 100:
+            if self.spin == 1:
+                return ParticleType.NONE
+            elif self.spin == 3:
+                return ParticleType.NONE
+            elif self.spin == 2:
+                return ParticleType.FERMION
+            elif self.spin == 4:
+                return ParticleType.FERMION
+        elif self.pdgid &gt; -1000000 and self.pdgid &lt; -100:
+            if self.spin == 1:
+                return ParticleType.NONE
+            elif self.spin == 3:
+                return ParticleType.NONE
+            elif self.spin == 2:
+                return ParticleType.ANTI_FERMION
+            elif self.spin == 4:
+                return ParticleType.ANTI_FERMION
+        else:
+            warnings.warn(
+                f&quot;Inferring type from pdgid not implemented for pdgid {self.pdgid} in {self}&quot;
+            )
+            return ParticleType.NONE
+
+    # creator function static
+<div class="viewcode-block" id="Particle.fromfeynmodel">
+<a class="viewcode-back" href="../../_autosummary/feynml.particle.Particle.html#feynml.particle.Particle.fromfeynmodel">[docs]</a>
+    @staticmethod
+    def fromfeynmodel(pdgid: int, fm: FeynModel) -&gt; &quot;Particle&quot;:
+        &quot;&quot;&quot;Create a Particle from a FeynModel&quot;&quot;&quot;
+        p = fm.get_particle(pdg_code=pdgid)
+        return Particle(
+            pdgid=pdgid,
+            name=p.name,
+            mass=p.mass,
+            charge=p.charge,
+            spin=p.spin,
+            texname=p.texname,
+        )</div>
+
+
+<div class="viewcode-block" id="Particle.frompdg">
+<a class="viewcode-back" href="../../_autosummary/feynml.particle.Particle.html#feynml.particle.Particle.frompdg">[docs]</a>
+    @staticmethod
+    def frompdg(pdgid: int) -&gt; &quot;Particle&quot;:
+        &quot;&quot;&quot;Create a Particle from a PDG&quot;&quot;&quot;
+        particle, name = get_particle_and_name_from_pdgid(pdgid)
+        return Particle(
+            pdgid=pdgid,
+            name=name,
+            mass=particle.mass,
+            charge=particle.pdgid.charge,
+            spin=round(particle.pdgid.J * 2 + 1),
+            texname=particle.latex_name,
+        )</div>
+
+
+<div class="viewcode-block" id="Particle.fromname">
+<a class="viewcode-back" href="../../_autosummary/feynml.particle.Particle.html#feynml.particle.Particle.fromname">[docs]</a>
+    @staticmethod
+    def fromname(name: str) -&gt; &quot;Particle&quot;:
+        &quot;&quot;&quot;Create a Particle from a name&quot;&quot;&quot;
+        particle = get_either_particle(
+            programmatic_name=name,
+            name=name,
+            evtgen_name=name,
+            html_name=name,
+            latex_name=name,
+        )
+        return Particle(
+            pdgid=int(particle.pdgid),
+            name=name,
+            mass=particle.mass,
+            charge=particle.pdgid.charge,
+            spin=round(particle.pdgid.J * 2 + 1),
+            texname=particle.latex_name,
+        )</div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Alexander Puck Neuwirth.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
