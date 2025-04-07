@@ -38,6 +38,8 @@ poetry shell
 *   <http://www.feyndiagram.com/>
 *   <https://web.physik.rwth-aachen.de/user/harlander/software/feyngame/>
 *   <https://jaxodraw.sourceforge.io/>
+*   <https://feynman.aivazis.com/>
+*   <https://feynarts.de/>
 
 Several of these are integrated into pyfeyn2.
 
