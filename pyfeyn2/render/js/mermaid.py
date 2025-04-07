@@ -14,7 +14,10 @@ def mm(graph, timeout=2):
     base64_string = base64_bytes.decode("ascii")
     # print("graph: ", graph)
     # print("b64: ", base64_string)
-    r = requests.get("https://mermaid.ink/svg/" + base64_string, timeout=timeout)
+    try:
+        r = requests.get("https://mermaid.ink/svg/" + base64_string, timeout=timeout)
+    except requests.exceptions.Timeout:
+        return None
     return r.content
 
 
