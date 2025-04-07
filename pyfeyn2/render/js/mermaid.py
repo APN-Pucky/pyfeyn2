@@ -8,13 +8,16 @@ from pyfeyn2.feynmandiagram import Connector, FeynmanDiagram
 from pyfeyn2.render.render import Render
 
 
-def mm(graph):
+def mm(graph, timeout=2):
     graphbytes = graph.encode("utf8")
     base64_bytes = base64.b64encode(graphbytes)
     base64_string = base64_bytes.decode("ascii")
     # print("graph: ", graph)
     # print("b64: ", base64_string)
-    r = requests.get("https://mermaid.ink/svg/" + base64_string)
+    try:
+        r = requests.get("https://mermaid.ink/svg/" + base64_string, timeout=timeout)
+    except requests.exceptions.Timeout:
+        return None
     return r.content
 
 
@@ -54,10 +57,12 @@ class MermaidRender(Render):
     def __init__(
         self,
         fd=None,
+        timeout=2,
         *args,
         **kwargs,
     ):
         super().__init__(fd)
+        self.timeout = timeout
         self.set_feynman_diagram(fd)
 
     def render(
@@ -69,7 +74,7 @@ class MermaidRender(Render):
         height=None,
         clean_up=True,
     ):
-        svg = mm(self.get_src())
+        svg = mm(self.get_src(), timeout=self.timeout)
         if file:
             with open(file + ".svg", "wb") as f:
                 f.write(svg)

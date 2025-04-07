@@ -3,11 +3,7 @@ import numpy as np
 from pyfeyn2.auto.bend import auto_bend
 from pyfeyn2.auto.debug import auto_debug
 from pyfeyn2.auto.label import auto_label
-from pyfeyn2.auto.position import (
-    auto_align_legs,
-    auto_remove_intersections_by_permuting_legs,
-    auto_vdw,
-)
+from pyfeyn2.auto.position import auto_align_legs, auto_vdw
 
 
 def auto_default(
@@ -27,10 +23,10 @@ def auto_default(
         p = [v for v in fd.vertices if v.x is None or v.y is None]
         if len(p) > 0:
             fd = auto_vdw(fd, points=p)
-        if auto_position_legs:
-            auto_remove_intersections_by_permuting_legs(fd, adjust_points=True)
-            if len(p) > 0:
-                fd = auto_vdw(fd, points=p)
+        # if auto_position_legs:
+        #    auto_remove_intersections_by_permuting_legs(fd, adjust_points=True)
+        #    if len(p) > 0:
+        #        fd = auto_vdw(fd, points=p)
     auto_label([*fd.propagators, *fd.legs])
     fd = auto_bend(fd)
     # Last step enable debug

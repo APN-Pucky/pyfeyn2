@@ -1,6 +1,6 @@
 from warnings import warn
 
-import dot2tex
+import apn_dot2tex as dot2tex
 
 REPLACE_THIS_WITH_A_BACKSLASH = "¬"
 

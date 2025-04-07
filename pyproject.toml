@@ -38,7 +38,7 @@ classifiers = [
 dependencies = [
     "feynml",
     "pylatex",
-    "dot2tex",
+    "apn_dot2tex>=2.11.10",
     "matplotlib",
     "Wand",
     "numpy",
@@ -50,7 +50,7 @@ dependencies = [
     "graphviz",
     "ipyparallel",
     "iminuit",
-    "feynml[interfaces]>=0.3.0",
+    "feynml[interfaces]>=0.3.1",
     "asciidraw>=0.1.2",
 ]
 

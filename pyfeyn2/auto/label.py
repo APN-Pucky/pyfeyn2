@@ -26,15 +26,13 @@ def auto_label(
 
     """
     for p in objs:
-        if (p.label is None or replace) and p.particle is not None:
+        if (p.label is None or replace) and p.texname is not None:
             if label_type == LabelType.LATEX:
-                p.label = "$" + p.particle.latex_name + "$"
+                p.label = "$" + p.texname + "$"
             elif label_type == LabelType.UNICODE:
-                p.label = LatexNodes2Text().latex_to_text(
-                    "$" + p.particle.latex_name + "$"
-                )
+                p.label = LatexNodes2Text().latex_to_text("$" + p.texname + "$")
             elif label_type == LabelType.ASCII:
-                p.label = p.particle.name
+                p.label = p.name
             else:
                 raise Exception("Unknown label type.")
 
@@ -46,7 +44,7 @@ def auto_label_propagators(ifd, replace=False):
     objs = fd.propagators
     for p in objs:
         if p.label is None or replace:
-            p.label = "$" + p.particle.latex_name + "$"
+            p.label = "$" + p.texname + "$"
     return fd
 
 
@@ -56,6 +54,6 @@ def auto_label_legs(ifd, replace=False):
     fd = ifd
     objs = fd.legs
     for p in objs:
-        if p.particle is None or replace:
-            p.particle = "$" + p.particle.latex_name + "$"
+        if p.label is None or replace:
+            p.label = "$" + p.texname + "$"
     return fd
