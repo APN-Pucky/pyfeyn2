@@ -3,11 +3,7 @@ import numpy as np
 from pyfeyn2.auto.bend import auto_bend
 from pyfeyn2.auto.debug import auto_debug
 from pyfeyn2.auto.label import auto_label
-from pyfeyn2.auto.position import (
-    auto_align_legs,
-    auto_remove_intersections_by_permuting_legs,
-    auto_vdw,
-)
+from pyfeyn2.auto.position import auto_align_legs, auto_vdw
 
 
 def auto_default(
