@@ -73,6 +73,7 @@ class DotRender(LatexRender):
             Command("usetikzlibrary", NoEscape("snakes,arrows,shapes"))
         )
         self.preamble.append(Command("usepackage", NoEscape("amsmath")))
+        self.preamble.append(Command("usepackage", NoEscape("xcolor")))
         self.preamble.append(
             Command("usetikzlibrary", NoEscape("decorations.markings"))
         )
