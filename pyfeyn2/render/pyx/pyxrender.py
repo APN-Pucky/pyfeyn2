@@ -243,4 +243,6 @@ class PyxRender(Render):
             "arrow-size",
             "arrow-angle",
             "arrow-constrict",
+            "momentum-arrow",
+            "momentum-arrow-sense",
         ]

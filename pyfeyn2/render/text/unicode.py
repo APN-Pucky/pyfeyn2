@@ -13,6 +13,10 @@ class ULabel(Label):
         Converts LaTeX to unicode.
         """
         ret = LatexNodes2Text().latex_to_text(s)
+        ret = ret.replace("^++", "⁺⁺")
+        ret = ret.replace("^+", "⁺")
+        ret = ret.replace("^--", "⁻⁻")
+        ret = ret.replace("^-", "⁻")
         return ret
 
 

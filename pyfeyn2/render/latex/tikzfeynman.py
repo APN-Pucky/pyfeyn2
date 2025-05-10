@@ -55,33 +55,32 @@ shape_map = {
     "empty": "empty dot",
     "cross": "crossed dot",
     "blob": "blob",
+    "star": "star, star points=5, fill",
+    "pentagon": "regular pentagon, pentagon points=5, fill",
+    "ellipse": "ellipse, fill",
+    "diamond": "diamond, fill",
 }
+
+
+def get_property_value(style, prop, default=None):
+    if style.getProperty(prop) is not None:
+        return style.getProperty(prop).value
+    else:
+        return default
 
 
 def stylize_connect(fd: FeynmanDiagram, c: Connector):
     style = fd.get_style(c)
-    double_distance = (
-        style.getProperty("double-distance").value
-        if style.getProperty("double-distance") is not None
-        else "3"
-    ) + "pt"
-    label_side = (
-        style.getProperty("label-side").value
-        if style.getProperty("label-side") is not None
-        else "left"
-    )
+    double_distance = get_property_value(style, "double-distance", "3") + "pt"
+    label_side = get_property_value(style, "label-side", "left")
     rets = []
     frets = []
-    if style.getProperty("line") is not None:
-        rets += type_map[style.getProperty("line").value]
+    ttype = get_property_value(style, "line", c.type)  # fallback to type if no style
+    if ttype is not None:
+        rets += type_map[ttype]
     else:
-        if c.type is not None:
-            rets += type_map[c.type]  # fallback to type if no style
-        else:
-            warnings.warn(
-                f"No type or style set for connector  {c.id} {c.type} {c.pdgid}"
-            )
-            rets += ["plain"]
+        warnings.warn(f"No type or style set for connector  {c.id} {c.type} {c.pdgid}")
+        rets += ["plain"]
     # TODO labels could be in general in {   } to allow commas in general
     for ret in rets:
         if c.label is not None:
@@ -92,28 +91,39 @@ def stylize_connect(fd: FeynmanDiagram, c: Connector):
             else:
                 warnings.warn(f"Unknown label-side {label_side}")
                 ret += ",edge label=" + c.label
-        if (
-            style.getProperty("momentum-arrow") is not None
-            and style.getProperty("momentum-arrow").value == "true"
-        ):
-            if style.getProperty("momentum-arrow-sense") is not None:
-                if style.getProperty("momentum-arrow-sense").value == "-1":
-                    ret += ",momentum'=" + c.momentum.name
-                elif style.getProperty("momentum-arrow-sense").value == "0":
-                    warn(
-                        "momentum-arrow=true but momentum-arrow-sense=0, ignoring momentum-arrow"
-                    )
-                    pass
-                else:
-                    ret += ",momentum=" + c.momentum.name
+        if get_property_value(style, "momentum-arrow", None) == "true":
+            sense = get_property_value(style, "momentum-arrow-sense", "1")
+            rev = ""
+            if sense == "-1":
+                rev = "reversed "
+            elif sense == "1":
+                rev = ""
             else:
-                ret += ",momentum=" + c.momentum.name
+                warn(
+                    "momentum-arrow=true but momentum-arrow-sense is not 1 or -1, ignoring momentum-arrow-sense"
+                )
+
+            mas = get_property_value(style, "momentum-arrow-side", "1")
+            if mas == "-1":
+                ret += f",{rev}momentum'=" + (
+                    c.momentum.name if c.momentum is not None else ""
+                )
+            elif mas == "0":
+                warn(
+                    "momentum-arrow=true but momentum-arrow-side=0, ignoring momentum-arrow"
+                )
+            else:
+                ret += f",{rev}momentum=" + (
+                    c.momentum.name if c.momentum is not None else ""
+                )
+
         if style.opacity is not None and style.opacity != "":
             ret += ",opacity=" + str(style.opacity)
         if style.color is not None and style.color != "":
             ret += "," + str(style.color)
-        if style.getProperty("bend-direction") is not None:
-            ret += ",bend " + str(style.getProperty("bend-direction").value)
+        bend_direction = get_property_value(style, "bend-direction", None)
+        if bend_direction is not None:
+            ret += ",bend " + str(bend_direction)
         if style.getProperty("bend-loop") is not None:
             ret += (
                 ",loop , in="
@@ -262,6 +272,7 @@ class TikzFeynmanRender(LatexRender):
             "bend-min-distance",
             "momentum-arrow",
             "momentum-arrow-sense",
+            "momentum-arrow-side",
             "double-distance",
             "label-side",
         ]

@@ -18,10 +18,13 @@ import os
 import re
 import sys
 
-import toml
-
 sys.path.insert(0, os.path.abspath("../.."))
 import copy
+
+try:
+    import tomllib  # Python 3.11+
+except ImportError:
+    import tomli as tomllib  # Python <= 3.10
 
 from smpl_doc import doc
 from smpl_io import io
@@ -31,10 +34,14 @@ from pyfeyn2.render import all
 
 # -- Project information -----------------------------------------------------
 
+
 try:
-    info = toml.load("../../pyproject.toml")
+    with open("../../pyproject.toml", "rb") as f:
+        info = tomllib.load(f)
 except FileNotFoundError:
-    info = toml.load("pyproject.toml")
+    with open("pyproject.toml", "rb") as f:
+        info = tomllib.load(f)
+
 project = info["project"]["name"]
 copyright = str(datetime.datetime.now().year) + ", Alexander Puck Neuwirth"
 author = ", ".join([a["name"] for a in info["project"]["authors"]])

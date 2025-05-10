@@ -134,8 +134,8 @@ class FeynmanRender(Render):
             if l.y > maxy:
                 maxy = l.y
 
-        scalex = 1.0 / (maxx - minx) * buffer
-        scaley = 1.0 / (maxy - miny) * buffer
+        scalex = 1.0 / (maxx - minx) * buffer if maxx - minx != 0 else 1.0
+        scaley = 1.0 / (maxy - miny) * buffer if maxy - miny != 0 else 1.0
 
         kickx = -minx + 1 / scalex * (1 - buffer) / 2.0
         kicky = -miny + 1 / scaley * (1 - buffer) / 2.0
@@ -171,10 +171,10 @@ class FeynmanRender(Render):
             byid[v.id] = diagram.vertex(
                 xy=((v.x + kickx) * scalex, (v.y + kicky) * scaley), **tmp_fmt
             )
-            if v.label is not None:
-                byid[v.id].text(
-                    v.label, color=self.fd.get_style_property(v, "label-color")
-                )
+            # if v.label is not None:
+            #    byid[v.id].text(
+            #        v.label, color=self.fd.get_style_property(v, "label-color")
+            #    )
 
         for p in self.fd.propagators:
             cur = None

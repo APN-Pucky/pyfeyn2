@@ -1,88 +1,13 @@
-
-
-*                  H_0iggs
-
-*  [H_0,H_0,+]
-
-*   le_minusptonu_es
-
-  [e_minus,e_plus,-]
-
-*                  nu_ee_minusutrinu_eos
-
-  [nu_e,nu_e_bar,-]
-
-*              quarks
-
-* [u,u_bar,-]
-* [d,d_bar,-]
-
-
-*      photonu_e, W-bosonu_e, Z_0-bosonu_e, gluonu_e
-
-  [gamma,gamma,+]
-  [W_minus,W_plus,+]
-  [Z_0,Z_0,+]
-* [g,g,+]
-
-*                 cubic ve_minusrtice_minuss
-
-
-  [W_plus,W_minus,gamma]
-  [W_plus,W_minus,Z_0]
-* [g,g,g]
-
-
-*  [W_plus,W_minus,H_0]
-*  [Z_0,Z_0,H_0]
-*  [H_0,H_0,H_0]
-
-* yukawa
-
-*  [e_plus,e_minus,H_0]
-*  [mu_plus,mu_minus,H_0]
-*  [tau_plus,tau_minus,H_0]
-
-* [u_bar,u,H_0]
-* [d_bar,d,H_0]
-
-* fe_minusrmionu_e - gauge_minus bosonu_e
-
-  [e_plus,e_minus,gamma]
-
-  [e_plus,e_minus,Z_0]
-
-  [nu_e_bar,nu_e,Z_0]
-
-  [nu_e_bar,e_minus,W_plus]
-
-  [e_plus,nu_e,W_minus]
-
-* [u_bar,u,gamma]
-* [d_bar,d,gamma]
-
-* [u_bar,u,Z_0]
-* [d_bar,d,Z_0]
-
-
-* [u_bar,u,g]
-* [d_bar,d,g]
-
-* K-M
-
-* [u_bar,d,W_plus]
-
-* [d_bar,u,W_minus]
-
-
-*                     quartic ve_minusrtice_minuss
-
-  [W_plus,W_minus,gamma,gamma]
-*  [W_plus,W_minus,Z_0,Z_0]
-*  [W_plus,W_minus,gamma,Z_0]
-*  [W_plus,W_minus,W_plus,W_minus]
-* [g,g,g,g]
-
-*  [W_plus,W_minus,H_0,H_0]
-*  [Z_0,Z_0,H_0,H_0]
-*  [H_0,H_0,H_0,H_0]
+  [i28533896172696947i,i111460582454643i,-]
+  [i1853185893i,i7959372805443838322i,-]
+  [i444016192865i,i444016192865i,+]
+  [i24593246498747763i,i96067419665779i,+]
+  [i5922608i,i5922608i,+]
+  [i96067419665779i,i24593246498747763i,i444016192865i]
+  [i96067419665779i,i24593246498747763i,i5922608i]
+  [i111460582454643i,i28533896172696947i,i444016192865i]
+  [i111460582454643i,i28533896172696947i,i5922608i]
+  [i7959372805443838322i,i1853185893i,i5922608i]
+  [i7959372805443838322i,i28533896172696947i,i96067419665779i]
+  [i111460582454643i,i1853185893i,i24593246498747763i]
+  [i96067419665779i,i24593246498747763i,i444016192865i,i444016192865i]

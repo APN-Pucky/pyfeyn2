@@ -34,6 +34,13 @@ renders = {
     "madgraph": MadGraphRender,
 }
 
+try:
+    from pyfeyn2.render.root.rootpdfrender import ROOTPDFRender
+
+    renders["root"] = ROOTPDFRender
+except ImportError:
+    pass
+
 
 def class_for_name(module_name, class_name):
     # load the module, will raise ImportError if module cannot be loaded
