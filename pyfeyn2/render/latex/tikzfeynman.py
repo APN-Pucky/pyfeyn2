@@ -55,6 +55,10 @@ shape_map = {
     "empty": "empty dot",
     "cross": "crossed dot",
     "blob": "blob",
+    "star": "star, star points=5, fill",
+    "pentagon": "regular pentagon, pentagon points=5, fill",
+    "ellipse": "ellipse, fill",
+    "diamond": "diamond, fill",
 }
 
 
@@ -88,16 +92,30 @@ def stylize_connect(fd: FeynmanDiagram, c: Connector):
                 warnings.warn(f"Unknown label-side {label_side}")
                 ret += ",edge label=" + c.label
         if get_property_value(style, "momentum-arrow", None) == "true":
-            mas = get_property_value(style, "momentum-arrow-sense", None)
+            dir = get_property_value(style, "momentum-arrow-sense", "1")
+            rev = ""
+            if dir == "-1":
+                rev = "reversed "
+            elif dir == "1":
+                rev = ""
+            else:
+                warn(
+                    "momentum-arrow=true but momentum-arrow-sense is not 1 or -1, ignoring momentum-arrow-sense"
+                )
+
+            mas = get_property_value(style, "momentum-arrow-side", "1")
             if mas == "-1":
-                ret += ",momentum'=" + c.momentum.name
+                ret += f",{rev}momentum'=" + (
+                    c.momentum.name if c.momentum is not None else ""
+                )
             elif mas == "0":
                 warn(
-                    "momentum-arrow=true but momentum-arrow-sense=0, ignoring momentum-arrow"
+                    "momentum-arrow=true but momentum-arrow-side=0, ignoring momentum-arrow"
                 )
-                pass
             else:
-                ret += ",momentum=" + c.momentum.name
+                ret += f",{rev}momentum=" + (
+                    c.momentum.name if c.momentum is not None else ""
+                )
 
         if style.opacity is not None and style.opacity != "":
             ret += ",opacity=" + str(style.opacity)
@@ -254,6 +272,7 @@ class TikzFeynmanRender(LatexRender):
             "bend-min-distance",
             "momentum-arrow",
             "momentum-arrow-sense",
+            "momentum-arrow-side",
             "double-distance",
             "label-side",
         ]

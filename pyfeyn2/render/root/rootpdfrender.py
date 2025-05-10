@@ -68,39 +68,3 @@ class ROOTPDFRender(LatexRender, ROOTRender):
         # Then convert ROOT to LaTeX
         self.set_src_diag(NoEscape(root_to_latex(self.get_src_root())))
         LatexRender.render(self, file, show, resolution, width, height, clean_up)
-
-    @classmethod
-    def valid_styles(cls) -> bool:
-        return super().valid_styles() + [
-            "line",
-            "symbol",
-            "symbol-size",
-            "color",
-            "opacity",
-            "bend-direction",
-            "bend-in",
-            "bend-out",
-            "bend-loop",
-            "bend-min-distance",
-            "momentum-arrow",
-            "momentum-arrow-sense",
-            "double-distance",
-            "label-side",
-        ]
-
-    @classmethod
-    def valid_attributes(cls) -> List[str]:
-        return super().valid_attributes() + [
-            "x",
-            "y",
-            "label",
-            "style",
-        ]
-
-    @classmethod
-    def valid_types(cls) -> List[str]:
-        return super().valid_types() + []
-
-    @classmethod
-    def valid_shapes(cls) -> List[str]:
-        return super().valid_types() + []

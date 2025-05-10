@@ -134,8 +134,8 @@ class FeynmanRender(Render):
             if l.y > maxy:
                 maxy = l.y
 
-        scalex = 1.0 / (maxx - minx) * buffer
-        scaley = 1.0 / (maxy - miny) * buffer
+        scalex = 1.0 / (maxx - minx) * buffer if maxx - minx != 0 else 1.0
+        scaley = 1.0 / (maxy - miny) * buffer if maxy - miny != 0 else 1.0
 
         kickx = -minx + 1 / scalex * (1 - buffer) / 2.0
         kicky = -miny + 1 / scaley * (1 - buffer) / 2.0
