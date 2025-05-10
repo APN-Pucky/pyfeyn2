@@ -92,11 +92,11 @@ def stylize_connect(fd: FeynmanDiagram, c: Connector):
                 warnings.warn(f"Unknown label-side {label_side}")
                 ret += ",edge label=" + c.label
         if get_property_value(style, "momentum-arrow", None) == "true":
-            dir = get_property_value(style, "momentum-arrow-sense", "1")
+            sense = get_property_value(style, "momentum-arrow-sense", "1")
             rev = ""
-            if dir == "-1":
+            if sense == "-1":
                 rev = "reversed "
-            elif dir == "1":
+            elif sense == "1":
                 rev = ""
             else:
                 warn(
