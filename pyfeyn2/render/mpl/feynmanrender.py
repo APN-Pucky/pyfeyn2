@@ -171,10 +171,10 @@ class FeynmanRender(Render):
             byid[v.id] = diagram.vertex(
                 xy=((v.x + kickx) * scalex, (v.y + kicky) * scaley), **tmp_fmt
             )
-            if v.label is not None:
-                byid[v.id].text(
-                    v.label, color=self.fd.get_style_property(v, "label-color")
-                )
+            # if v.label is not None:
+            #    byid[v.id].text(
+            #        v.label, color=self.fd.get_style_property(v, "label-color")
+            #    )
 
         for p in self.fd.propagators:
             cur = None

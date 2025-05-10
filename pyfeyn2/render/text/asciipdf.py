@@ -18,8 +18,8 @@ class ASCIIPDFRender(PlainPDFRender, ASCIIRender):
         file=None,
         show=True,
         resolution=100,
-        width=None,
-        height=None,
+        width=80,
+        height=40,
         clean_up=True,
     ):
         ASCIIRender.render(

@@ -26,7 +26,9 @@ def stylize_connect(fd: FeynmanDiagram, c: Connector):
     if c.label is None:
         ret = "---"
     else:
-        ret = f"-- {c.label} ---"
+        # replace every single $ with two $$
+        label = c.label.replace("$", "$$")
+        ret = f"-- {label} ---"
     return ret
 
 
@@ -79,6 +81,7 @@ class MermaidRender(Render):
             with open(file + ".svg", "wb") as f:
                 f.write(svg)
         img = SVG(data=svg)
+
         if show:
             display(img)
         return img

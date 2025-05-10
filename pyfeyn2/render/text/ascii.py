@@ -281,8 +281,8 @@ class ASCIIRender(Render):
         file=None,
         show=True,
         resolution=100,
-        width=None,
-        height=None,
+        width=80,
+        height=40,
         clean_up=True,
     ):
         minx, miny, maxx, maxy = self.fd.get_bounding_box()

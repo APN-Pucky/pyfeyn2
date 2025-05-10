@@ -1,8 +1,25 @@
 # Adapted code from https://github.com/aminnj/pyfeyn/blob/main/pyfeyn.py
 import math
 
-import ROOT
 import ROOT as r
+
+color_map = {
+    None: None,
+    "": r.kBlack,
+    "white": r.kWhite,
+    "black": r.kBlack,
+    "red": r.kRed,
+    "green": r.kGreen,
+    "blue": r.kBlue,
+    "cyan": r.kCyan,
+    "magenta": r.kMagenta,
+    "yellow": r.kYellow,
+    "gray": r.kGray,
+    "orange": r.kOrange,
+    "pink": r.kPink,
+    "purple": r.kViolet,
+    "brown": r.kBrown,
+}
 
 
 class Label(object):
@@ -19,7 +36,10 @@ class Label(object):
     ):
         self.x1 = x1
         self.y1 = y1
-        self.text = text
+        if text is not None:
+            self.text = text.replace("$", "")
+        else:
+            self.text = None
         self.offsetx = offsetx
         self.offsety = offsety
         self.textsize = textsize
@@ -48,7 +68,8 @@ class Label(object):
         t.DrawLatex(
             self.x1 + self.offsetx,
             self.y1 + self.offsety,
-            self.transform_text(self.text),
+            self.text,
+            # self.transform_text(self.text),
         )
 
 
@@ -56,7 +77,7 @@ class Marker(object):
     def __init__(self, color=None, radius=2, linewidth=0):
         self.x = None
         self.y = None
-        self.color = color
+        self.color = color_map[color]
         self.radius = radius
         self.linewidth = linewidth
 
@@ -99,55 +120,119 @@ class Propagator(object):
         label=Label(),
         autolabel=True,
         linewidth=2,
-        linecolor=None,
-        fliparrow=False,
-        noarrow=False,
+        linecolor="black",
+        label_shift_amount=0.5,
+        double_distance=3,
+        # fliparrow=False,
+        # noarrow=True,
     ):
+        linecolor = color_map[linecolor]
         if linecolor is None:
             linecolor = r.kBlack
+        self.double_distance = double_distance
         self.v1 = v1
         self.v2 = v2
         self.typ = typ
         self.label = label
         self.linewidth = linewidth
         self.linecolor = linecolor
-        self.fliparrow = fliparrow
-        self.noarrow = noarrow
+        self.fliparrow = False
+        self.noarrow = True
 
-        if autolabel:
+        if typ == "fermion":
+            self.fliparrow = True
+            self.noarrow = False
+        if typ == "anti fermion":
+            self.fliparrow = False
+            self.noarrow = False
+        if typ == "baryon":
+            self.fliparrow = True
+            self.noarrow = False
+        if typ == "anti baryon":
+            self.fliparrow = False
+            self.noarrow = False
+        if typ == "squark":
+            self.fliparrow = True
+            self.noarrow = False
+        if typ == "anti squark":
+            self.fliparrow = False
+            self.noarrow = False
+
+        # Calculate the direction vector
+        dx = self.v2.x1 - self.v1.x1
+        dy = self.v2.y1 - self.v1.y1
+
+        # Calculate the length of the direction vector
+        length = math.sqrt(dx**2 + dy**2)
+
+        # Normalize the orthogonal vector (dy, -dx) or (-dy, dx)
+        # Let's use (dy, -dx) for this example
+        self.orthogonal_x = dy / length * 2  # * len(self.label.text)
+        self.orthogonal_y = -dx / length
+
+        if autolabel and self.label.text is not None:
+            # Define the shift amount
             self.label.set_location(
-                0.5 * (self.v1.x1 + self.v2.x1), 0.5 * (self.v1.y1 + self.v2.y1)
+                0.5 * (self.v1.x1 + self.v2.x1)
+                + label_shift_amount * self.orthogonal_x,
+                0.5 * (self.v1.y1 + self.v2.y1) + label_shift_amount * self.orthogonal_y
+                # 0.5 * (self.v1.x1 + self.v2.x1), 0.5 * (self.v1.y1 + self.v2.y1)
             )
 
     def draw(self, _nodelete=[]):
         prop1, prop2 = None, None
         drawopt = ""
-        if self.typ == "line":
+        if self.typ == "line" or self.typ == "fermion" or self.typ == "anti fermion":
             prop1 = r.TLine(self.v1.x1, self.v1.y1, self.v2.x1, self.v2.y1)
-        if self.typ == "dashedline":
+        elif self.typ == "baryon" or self.typ == "anti baryon":
+            scale = 0.02
+            prop1 = r.TLine(
+                self.v1.x1 + scale * self.double_distance * self.orthogonal_x,
+                self.v1.y1 + scale * self.double_distance * self.orthogonal_y,
+                self.v2.x1 + scale * self.double_distance * self.orthogonal_x,
+                self.v2.y1 + scale * self.double_distance * self.orthogonal_y,
+            )
+            prop1.SetLineColor(self.linecolor)
+            prop1.SetLineWidth(self.linewidth)
+            prop1.Draw(drawopt)
+            _nodelete.append(prop1)
+            prop1 = r.TLine(
+                self.v1.x1 - scale * self.double_distance * self.orthogonal_x,
+                self.v1.y1 - scale * self.double_distance * self.orthogonal_y,
+                self.v2.x1 - scale * self.double_distance * self.orthogonal_x,
+                self.v2.y1 - scale * self.double_distance * self.orthogonal_y,
+            )
+            prop1.SetLineColor(self.linecolor)
+            prop1.SetLineWidth(self.linewidth)
+            prop1.Draw(drawopt)
+            _nodelete.append(prop1)
+            prop1 = r.TLine(self.v1.x1, self.v1.y1, self.v2.x1, self.v2.y1)
+        elif self.typ == "phantom":
+            pass  # no TLine here, but Vertices are to be drawn later
+        elif self.typ == "higgs" or self.typ == "squark" or self.typ == "anti squark":
             prop1 = r.TLine(self.v1.x1, self.v1.y1, self.v2.x1, self.v2.y1)
             r.gStyle.SetLineStyleString(11, "50 30")
             prop1.SetLineStyle(11)
-        if self.typ == "dottedline":
+        elif self.typ == "ghost":
             prop1 = r.TLine(self.v1.x1, self.v1.y1, self.v2.x1, self.v2.y1)
             r.gStyle.SetLineStyleString(11, "20 50")
             prop1.SetLineStyle(11)
-        elif self.typ == "curlyline":
+        elif self.typ == "gluon":
             prop1 = r.TCurlyLine(self.v1.x1, self.v1.y1, self.v2.x1, self.v2.y1)
             prop1.SetWaveLength(prop1.GetWaveLength() * 1.6)
             prop1.SetAmplitude(prop1.GetAmplitude() * 1.4)
-        elif self.typ == "wavyline":
+        elif self.typ == "photon" or self.typ == "boson":
             prop1 = r.TCurlyLine(self.v1.x1, self.v1.y1, self.v2.x1, self.v2.y1)
             prop1.SetWavy()
             prop1.SetWaveLength(prop1.GetWaveLength() * 1.6)
             prop1.SetAmplitude(prop1.GetAmplitude() * 1.4)
-        elif self.typ == "wavystraightline":
+        elif self.typ == "gluino":
             prop1 = r.TCurlyLine(self.v1.x1, self.v1.y1, self.v2.x1, self.v2.y1)
             prop1.SetWavy()
             prop1.SetWaveLength(prop1.GetWaveLength() * 1.6)
             prop1.SetAmplitude(prop1.GetAmplitude() * 1.4)
             prop2 = r.TLine(self.v1.x1, self.v1.y1, self.v2.x1, self.v2.y1)
-        elif self.typ == "curlystraightline":
+        elif self.typ == "charged boson":
             prop1 = r.TCurlyLine(self.v1.x1, self.v1.y1, self.v2.x1, self.v2.y1)
             prop1.SetWaveLength(prop1.GetWaveLength() * 1.6)
             prop1.SetAmplitude(prop1.GetAmplitude() * 1.4)
@@ -190,27 +275,7 @@ class Propagator(object):
             _nodelete.append(prop2)
 
         if not self.noarrow:
-            if self.typ in ["line", "dashedline"]:
-                c1 = self.v1.x1, self.v1.y1
-                c2 = self.v2.x1, self.v2.y1
-                if self.fliparrow:
-                    c1, c2 = c2, c1
-                mult = 0.54
-                awidth = 0.025
-                a1 = r.TArrow(
-                    c1[0],
-                    c1[1],
-                    (1.0 - mult) * c1[0] + mult * c2[0],
-                    (1.0 - mult) * c1[1] + mult * c2[1],
-                    awidth,
-                    "|>",
-                )
-                a1.SetLineWidth(0)
-                a1.SetFillColor(self.linecolor)
-                a1.SetAngle(40)
-                a1.Draw()
-                _nodelete.append(a1)
-            elif self.typ.startswith("arc"):
+            if self.typ.startswith("arc"):
                 phimin, phimax = list(
                     map(float, self.typ.split("(", 1)[1].split(")", 1)[0].split(","))
                 )
@@ -224,6 +289,26 @@ class Propagator(object):
                 awidth = 0.025
                 a1 = r.TArrow(
                     xc - dx / 2, yc - dy / 2, xc + dx / 2, yc + dy / 2, awidth, "|>"
+                )
+                a1.SetLineWidth(0)
+                a1.SetFillColor(self.linecolor)
+                a1.SetAngle(40)
+                a1.Draw()
+                _nodelete.append(a1)
+            else:
+                c1 = self.v1.x1, self.v1.y1
+                c2 = self.v2.x1, self.v2.y1
+                if self.fliparrow:
+                    c1, c2 = c2, c1
+                mult = 0.54
+                awidth = 0.025
+                a1 = r.TArrow(
+                    c1[0],
+                    c1[1],
+                    (1.0 - mult) * c1[0] + mult * c2[0],
+                    (1.0 - mult) * c1[1] + mult * c2[1],
+                    awidth,
+                    "|>",
                 )
                 a1.SetLineWidth(0)
                 a1.SetFillColor(self.linecolor)

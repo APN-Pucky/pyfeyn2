@@ -1,7 +1,8 @@
+import latexcodec
 from asciidraw.line import ASCIILine
 from asciidraw.point import ASCIIPoint
 from asciidraw.style import Compass
-from pylatexenc.latex2text import LatexNodes2Text
+from pylatexenc.latex2text import latex2text
 
 from pyfeyn2.render.text.ascii import ASCIIRender, Label
 
@@ -12,7 +13,11 @@ class ULabel(Label):
         """
         Converts LaTeX to unicode.
         """
-        ret = LatexNodes2Text().latex_to_text(s)
+        ret = latex2text(s)
+        ret = ret.replace("^++", "⁺⁺")
+        ret = ret.replace("^+", "⁺")
+        ret = ret.replace("^--", "⁻⁻")
+        ret = ret.replace("^-", "⁻")
         return ret
 
 

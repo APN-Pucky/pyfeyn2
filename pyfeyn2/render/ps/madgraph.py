@@ -15,9 +15,11 @@ type_map = {
     "line": "Ffermion",
     "plain": "Ffermion",
     "fermion": "Ffermion",
+    "anti fermion": "Fantifermion",
     "higgs": "FHiggs",
     "ghost": "Fghost",
     "photon": "0 Fphoton",
+    "boson": "0 Fphoton",
     "gluon": "Fgluon",
     "scurly": ["Fgluon", "Ffermion"],
     "swavy": ["0 Fphoton", "Ffermion"],
@@ -293,6 +295,12 @@ Floop} def
 /Fx1 exch def newpath Fx2 Fx1 sub Fy2 Fy1 sub
 Fbasis Fx1 Fy1 moveto Fx2 Fy2 lineto stroke Fx1
 Fx2 add 2 div Fy1 Fy2 add 2 div Farrow } def
+
+/Fantifermion
+  {/Fy2 exch def /Fx2 exch def /Fy1 exch def
+   /Fx1 exch def newpath Fx1 Fx2 sub Fy1 Fy2 sub
+   Fbasis Fx2 Fy2 moveto Fx1 Fy1 lineto stroke Fx2
+   Fx1 add 2 div Fy2 Fy1 add 2 div Farrow } def
 
 /Fscalar
 {newpath moveto lineto stroke} def

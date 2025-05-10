@@ -1,6 +1,5 @@
 """Moved to :py:mod:`feynml`"""
 from importlib.metadata import version
-from warnings import deprecated
 
 # from feynml.feynml import Tool as Tool_
 from feynml import PDG as PDG_
@@ -15,6 +14,7 @@ from feynml import Propagator as Propagator_
 from feynml import Styled as Styled_
 from feynml import Vertex as Vertex_
 from feynml.momentum import Momentum as Momentum_  # TODO fix to feynml only
+from smpl.doc import deprecated
 
 
 class Head(Head_):

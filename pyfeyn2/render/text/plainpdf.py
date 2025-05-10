@@ -28,6 +28,14 @@ class PlainPDFRender(LatexRender):
         )
         self.preamble.append(Command("usepackage", NoEscape("listings")))
         self.preamble.append(Command("usepackage", NoEscape("xcolor")))
+        self.preamble.append(Command("usepackage", NoEscape("geometry")))
+        # \geometry{paperwidth=10000pt, paperheight=297mm} % Set an extremely wide page
+        self.preamble.append(
+            Command(
+                "geometry",
+                NoEscape("paperwidth=10000pt, paperheight=297mm, margin=0pt"),
+            )
+        )
         self.environment = environment
         self.environment_arg = environment_arg
 

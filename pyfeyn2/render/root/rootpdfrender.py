@@ -40,10 +40,12 @@ class ROOTPDFRender(LatexRender, ROOTRender):
             document_options=document_options,
             **kwargs,
         )
-        self.preamble.append(Command("RequirePackage", "luatex85"))
-        self.preamble.append(
-            Command("usepackage", NoEscape("tikz-feynman"), "compat=1.1.0")
-        )
+        # self.preamble.append(Command("RequirePackage", "luatex85"))
+        self.preamble.append(Command("usepackage", NoEscape("tikz")))
+        self.preamble.append(Command("usetikzlibrary", NoEscape("patterns")))
+        self.preamble.append(Command("usetikzlibrary", NoEscape("plotmarks")))
+        # fhout.write("\\usetikzlibrary{patterns}\n")
+        # fhout.write("\\usetikzlibrary{plotmarks}\n")
 
     def render(
         self,
