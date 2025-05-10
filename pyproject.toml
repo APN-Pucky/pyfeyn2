@@ -72,6 +72,7 @@ docs = [
     "sphinx_autobuild",
     "sphinx_math_dollar",
     "myst-parser",
+    "tomli",
 ]
 test = [
     "pytest",

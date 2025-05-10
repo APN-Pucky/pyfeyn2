@@ -20,7 +20,11 @@ import sys
 
 sys.path.insert(0, os.path.abspath("../.."))
 import copy
-import tomllib
+
+try:
+    import tomllib  # Python 3.11+
+except ImportError:
+    import tomli as tomlib  # Python <= 3.10
 
 from smpl_doc import doc
 from smpl_io import io
