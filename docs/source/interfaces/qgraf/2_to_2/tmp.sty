@@ -11,7 +11,7 @@
 <<feynml>>
 <diagram>
   <back>
- <<diagram 
+ <<diagram
           id="Diagram<diagram_index>"
           incoming="<legs_in>"
           outgoing="<legs_out>"
@@ -19,13 +19,13 @@
           symmmetry_factor="<symmetry_factor>"
  >>
 
-<vertex_loop> 
+<vertex_loop>
   <<vertex id="Vert<vertex_index>">>
   <</vertex>>
 <end>
 
 <in_loop>
-  <<leg id="In<in_index>">>  
+  <<leg id="In<in_index>">>
         <<name>><field><</name>>
         <<sense>>incoming<</sense>>
         <<target>>Vert<vertex_index><</target>>
@@ -35,8 +35,8 @@
   <</leg>>
 <end>
 
-<out_loop> 
-  <<leg id="Out<out_index>">>  
+<out_loop>
+  <<leg id="Out<out_index>">>
         <<name>><field><</name>>
         <<sense>>outgoing<</sense>>
         <<target>>Vert<vertex_index><</target>>
@@ -46,8 +46,8 @@
   <</leg>>
 <end>
 
-<propagator_loop> 
-  <<propagator id="Prop<propagator_index>">>  
+<propagator_loop>
+  <<propagator id="Prop<propagator_index>">>
         <<name>><field><</name>>
         <<source>>Vert<dual-vertex_index><</source>>
         <<target>>Vert<vertex_index><</target>>

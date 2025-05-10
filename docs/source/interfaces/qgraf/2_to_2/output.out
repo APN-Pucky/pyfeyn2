@@ -4,8 +4,8 @@
   output= 'output.out' ;
   style= 'tmp.sty' ;
   model = 'tmp.model';
-  in= nu_e[p1], nu_e_bar[p2];
-  out= nu_e[p3], nu_e_bar[p4];
+  in= i1853185893i[p1], i7959372805443838322i[p2];
+  out= i1853185893i[p3], i7959372805443838322i[p4];
   loops= 1;
   loop_momentum= l;
   options= notadpole,onshell;
@@ -40,7 +40,7 @@
 
 
   <leg id="In1">
-        <name>nu_e</name>
+        <name>i1853185893i</name>
         <sense>incoming</sense>
         <target>Vert1</target>
         <momentum>
@@ -49,7 +49,7 @@
   </leg>
 
   <leg id="In2">
-        <name>nu_e_bar</name>
+        <name>i7959372805443838322i</name>
         <sense>incoming</sense>
         <target>Vert1</target>
         <momentum>
@@ -60,7 +60,7 @@
 
 
   <leg id="Out1">
-        <name>nu_e</name>
+        <name>i1853185893i</name>
         <sense>outgoing</sense>
         <target>Vert2</target>
         <momentum>
@@ -69,7 +69,7 @@
   </leg>
 
   <leg id="Out2">
-        <name>nu_e_bar</name>
+        <name>i7959372805443838322i</name>
         <sense>outgoing</sense>
         <target>Vert2</target>
         <momentum>
@@ -80,7 +80,7 @@
 
 
   <propagator id="Prop1">
-        <name>Z_0</name>
+        <name>i5922608i</name>
         <source>Vert3</source>
         <target>Vert1</target>
         <momentum>
@@ -89,7 +89,7 @@
   </propagator>
 
   <propagator id="Prop2">
-        <name>Z_0</name>
+        <name>i5922608i</name>
         <source>Vert4</source>
         <target>Vert2</target>
         <momentum>
@@ -98,7 +98,7 @@
   </propagator>
 
   <propagator id="Prop3">
-        <name>e_minus</name>
+        <name>i28533896172696947i</name>
         <source>Vert4</source>
         <target>Vert3</target>
         <momentum>
@@ -107,7 +107,7 @@
   </propagator>
 
   <propagator id="Prop4">
-        <name>e_minus</name>
+        <name>i28533896172696947i</name>
         <source>Vert3</source>
         <target>Vert4</target>
         <momentum>
@@ -142,7 +142,7 @@
 
 
   <leg id="In1">
-        <name>nu_e</name>
+        <name>i1853185893i</name>
         <sense>incoming</sense>
         <target>Vert1</target>
         <momentum>
@@ -151,7 +151,7 @@
   </leg>
 
   <leg id="In2">
-        <name>nu_e_bar</name>
+        <name>i7959372805443838322i</name>
         <sense>incoming</sense>
         <target>Vert1</target>
         <momentum>
@@ -162,7 +162,7 @@
 
 
   <leg id="Out1">
-        <name>nu_e</name>
+        <name>i1853185893i</name>
         <sense>outgoing</sense>
         <target>Vert2</target>
         <momentum>
@@ -171,7 +171,7 @@
   </leg>
 
   <leg id="Out2">
-        <name>nu_e_bar</name>
+        <name>i7959372805443838322i</name>
         <sense>outgoing</sense>
         <target>Vert2</target>
         <momentum>
@@ -182,7 +182,7 @@
 
 
   <propagator id="Prop1">
-        <name>Z_0</name>
+        <name>i5922608i</name>
         <source>Vert3</source>
         <target>Vert1</target>
         <momentum>
@@ -191,7 +191,7 @@
   </propagator>
 
   <propagator id="Prop2">
-        <name>Z_0</name>
+        <name>i5922608i</name>
         <source>Vert4</source>
         <target>Vert2</target>
         <momentum>
@@ -200,7 +200,7 @@
   </propagator>
 
   <propagator id="Prop3">
-        <name>nu_e</name>
+        <name>i1853185893i</name>
         <source>Vert4</source>
         <target>Vert3</target>
         <momentum>
@@ -209,7 +209,7 @@
   </propagator>
 
   <propagator id="Prop4">
-        <name>nu_e</name>
+        <name>i1853185893i</name>
         <source>Vert3</source>
         <target>Vert4</target>
         <momentum>
@@ -244,7 +244,7 @@
 
 
   <leg id="In1">
-        <name>nu_e</name>
+        <name>i1853185893i</name>
         <sense>incoming</sense>
         <target>Vert1</target>
         <momentum>
@@ -253,7 +253,7 @@
   </leg>
 
   <leg id="In2">
-        <name>nu_e_bar</name>
+        <name>i7959372805443838322i</name>
         <sense>incoming</sense>
         <target>Vert1</target>
         <momentum>
@@ -264,7 +264,7 @@
 
 
   <leg id="Out1">
-        <name>nu_e</name>
+        <name>i1853185893i</name>
         <sense>outgoing</sense>
         <target>Vert2</target>
         <momentum>
@@ -273,7 +273,7 @@
   </leg>
 
   <leg id="Out2">
-        <name>nu_e_bar</name>
+        <name>i7959372805443838322i</name>
         <sense>outgoing</sense>
         <target>Vert2</target>
         <momentum>
@@ -284,7 +284,7 @@
 
 
   <propagator id="Prop1">
-        <name>Z_0</name>
+        <name>i5922608i</name>
         <source>Vert3</source>
         <target>Vert1</target>
         <momentum>
@@ -293,7 +293,7 @@
   </propagator>
 
   <propagator id="Prop2">
-        <name>Z_0</name>
+        <name>i5922608i</name>
         <source>Vert4</source>
         <target>Vert2</target>
         <momentum>
@@ -302,7 +302,7 @@
   </propagator>
 
   <propagator id="Prop3">
-        <name>W_minus</name>
+        <name>i24593246498747763i</name>
         <source>Vert4</source>
         <target>Vert3</target>
         <momentum>
@@ -311,7 +311,7 @@
   </propagator>
 
   <propagator id="Prop4">
-        <name>W_minus</name>
+        <name>i24593246498747763i</name>
         <source>Vert3</source>
         <target>Vert4</target>
         <momentum>
@@ -346,7 +346,7 @@
 
 
   <leg id="In1">
-        <name>nu_e</name>
+        <name>i1853185893i</name>
         <sense>incoming</sense>
         <target>Vert1</target>
         <momentum>
@@ -355,7 +355,7 @@
   </leg>
 
   <leg id="In2">
-        <name>nu_e_bar</name>
+        <name>i7959372805443838322i</name>
         <sense>incoming</sense>
         <target>Vert2</target>
         <momentum>
@@ -366,7 +366,7 @@
 
 
   <leg id="Out1">
-        <name>nu_e</name>
+        <name>i1853185893i</name>
         <sense>outgoing</sense>
         <target>Vert1</target>
         <momentum>
@@ -375,7 +375,7 @@
   </leg>
 
   <leg id="Out2">
-        <name>nu_e_bar</name>
+        <name>i7959372805443838322i</name>
         <sense>outgoing</sense>
         <target>Vert2</target>
         <momentum>
@@ -386,7 +386,7 @@
 
 
   <propagator id="Prop1">
-        <name>Z_0</name>
+        <name>i5922608i</name>
         <source>Vert3</source>
         <target>Vert1</target>
         <momentum>
@@ -395,7 +395,7 @@
   </propagator>
 
   <propagator id="Prop2">
-        <name>Z_0</name>
+        <name>i5922608i</name>
         <source>Vert4</source>
         <target>Vert2</target>
         <momentum>
@@ -404,7 +404,7 @@
   </propagator>
 
   <propagator id="Prop3">
-        <name>e_minus</name>
+        <name>i28533896172696947i</name>
         <source>Vert4</source>
         <target>Vert3</target>
         <momentum>
@@ -413,7 +413,7 @@
   </propagator>
 
   <propagator id="Prop4">
-        <name>e_minus</name>
+        <name>i28533896172696947i</name>
         <source>Vert3</source>
         <target>Vert4</target>
         <momentum>
@@ -448,7 +448,7 @@
 
 
   <leg id="In1">
-        <name>nu_e</name>
+        <name>i1853185893i</name>
         <sense>incoming</sense>
         <target>Vert1</target>
         <momentum>
@@ -457,7 +457,7 @@
   </leg>
 
   <leg id="In2">
-        <name>nu_e_bar</name>
+        <name>i7959372805443838322i</name>
         <sense>incoming</sense>
         <target>Vert2</target>
         <momentum>
@@ -468,7 +468,7 @@
 
 
   <leg id="Out1">
-        <name>nu_e</name>
+        <name>i1853185893i</name>
         <sense>outgoing</sense>
         <target>Vert1</target>
         <momentum>
@@ -477,7 +477,7 @@
   </leg>
 
   <leg id="Out2">
-        <name>nu_e_bar</name>
+        <name>i7959372805443838322i</name>
         <sense>outgoing</sense>
         <target>Vert2</target>
         <momentum>
@@ -488,7 +488,7 @@
 
 
   <propagator id="Prop1">
-        <name>Z_0</name>
+        <name>i5922608i</name>
         <source>Vert3</source>
         <target>Vert1</target>
         <momentum>
@@ -497,7 +497,7 @@
   </propagator>
 
   <propagator id="Prop2">
-        <name>Z_0</name>
+        <name>i5922608i</name>
         <source>Vert4</source>
         <target>Vert2</target>
         <momentum>
@@ -506,7 +506,7 @@
   </propagator>
 
   <propagator id="Prop3">
-        <name>nu_e</name>
+        <name>i1853185893i</name>
         <source>Vert4</source>
         <target>Vert3</target>
         <momentum>
@@ -515,7 +515,7 @@
   </propagator>
 
   <propagator id="Prop4">
-        <name>nu_e</name>
+        <name>i1853185893i</name>
         <source>Vert3</source>
         <target>Vert4</target>
         <momentum>
@@ -550,7 +550,7 @@
 
 
   <leg id="In1">
-        <name>nu_e</name>
+        <name>i1853185893i</name>
         <sense>incoming</sense>
         <target>Vert1</target>
         <momentum>
@@ -559,7 +559,7 @@
   </leg>
 
   <leg id="In2">
-        <name>nu_e_bar</name>
+        <name>i7959372805443838322i</name>
         <sense>incoming</sense>
         <target>Vert2</target>
         <momentum>
@@ -570,7 +570,7 @@
 
 
   <leg id="Out1">
-        <name>nu_e</name>
+        <name>i1853185893i</name>
         <sense>outgoing</sense>
         <target>Vert1</target>
         <momentum>
@@ -579,7 +579,7 @@
   </leg>
 
   <leg id="Out2">
-        <name>nu_e_bar</name>
+        <name>i7959372805443838322i</name>
         <sense>outgoing</sense>
         <target>Vert2</target>
         <momentum>
@@ -590,7 +590,7 @@
 
 
   <propagator id="Prop1">
-        <name>Z_0</name>
+        <name>i5922608i</name>
         <source>Vert3</source>
         <target>Vert1</target>
         <momentum>
@@ -599,7 +599,7 @@
   </propagator>
 
   <propagator id="Prop2">
-        <name>Z_0</name>
+        <name>i5922608i</name>
         <source>Vert4</source>
         <target>Vert2</target>
         <momentum>
@@ -608,7 +608,7 @@
   </propagator>
 
   <propagator id="Prop3">
-        <name>W_minus</name>
+        <name>i24593246498747763i</name>
         <source>Vert4</source>
         <target>Vert3</target>
         <momentum>
@@ -617,7 +617,7 @@
   </propagator>
 
   <propagator id="Prop4">
-        <name>W_minus</name>
+        <name>i24593246498747763i</name>
         <source>Vert3</source>
         <target>Vert4</target>
         <momentum>
@@ -652,7 +652,7 @@
 
 
   <leg id="In1">
-        <name>nu_e</name>
+        <name>i1853185893i</name>
         <sense>incoming</sense>
         <target>Vert1</target>
         <momentum>
@@ -661,7 +661,7 @@
   </leg>
 
   <leg id="In2">
-        <name>nu_e_bar</name>
+        <name>i7959372805443838322i</name>
         <sense>incoming</sense>
         <target>Vert1</target>
         <momentum>
@@ -672,7 +672,7 @@
 
 
   <leg id="Out1">
-        <name>nu_e</name>
+        <name>i1853185893i</name>
         <sense>outgoing</sense>
         <target>Vert2</target>
         <momentum>
@@ -681,7 +681,7 @@
   </leg>
 
   <leg id="Out2">
-        <name>nu_e_bar</name>
+        <name>i7959372805443838322i</name>
         <sense>outgoing</sense>
         <target>Vert3</target>
         <momentum>
@@ -692,7 +692,7 @@
 
 
   <propagator id="Prop1">
-        <name>Z_0</name>
+        <name>i5922608i</name>
         <source>Vert4</source>
         <target>Vert1</target>
         <momentum>
@@ -701,7 +701,7 @@
   </propagator>
 
   <propagator id="Prop2">
-        <name>e_minus</name>
+        <name>i28533896172696947i</name>
         <source>Vert3</source>
         <target>Vert2</target>
         <momentum>
@@ -710,7 +710,7 @@
   </propagator>
 
   <propagator id="Prop3">
-        <name>W_minus</name>
+        <name>i24593246498747763i</name>
         <source>Vert2</source>
         <target>Vert4</target>
         <momentum>
@@ -719,7 +719,7 @@
   </propagator>
 
   <propagator id="Prop4">
-        <name>W_minus</name>
+        <name>i24593246498747763i</name>
         <source>Vert4</source>
         <target>Vert3</target>
         <momentum>
@@ -754,7 +754,7 @@
 
 
   <leg id="In1">
-        <name>nu_e</name>
+        <name>i1853185893i</name>
         <sense>incoming</sense>
         <target>Vert1</target>
         <momentum>
@@ -763,7 +763,7 @@
   </leg>
 
   <leg id="In2">
-        <name>nu_e_bar</name>
+        <name>i7959372805443838322i</name>
         <sense>incoming</sense>
         <target>Vert1</target>
         <momentum>
@@ -774,7 +774,7 @@
 
 
   <leg id="Out1">
-        <name>nu_e</name>
+        <name>i1853185893i</name>
         <sense>outgoing</sense>
         <target>Vert2</target>
         <momentum>
@@ -783,7 +783,7 @@
   </leg>
 
   <leg id="Out2">
-        <name>nu_e_bar</name>
+        <name>i7959372805443838322i</name>
         <sense>outgoing</sense>
         <target>Vert3</target>
         <momentum>
@@ -794,7 +794,7 @@
 
 
   <propagator id="Prop1">
-        <name>Z_0</name>
+        <name>i5922608i</name>
         <source>Vert4</source>
         <target>Vert1</target>
         <momentum>
@@ -803,7 +803,7 @@
   </propagator>
 
   <propagator id="Prop2">
-        <name>W_minus</name>
+        <name>i24593246498747763i</name>
         <source>Vert2</source>
         <target>Vert3</target>
         <momentum>
@@ -812,7 +812,7 @@
   </propagator>
 
   <propagator id="Prop3">
-        <name>e_minus</name>
+        <name>i28533896172696947i</name>
         <source>Vert4</source>
         <target>Vert2</target>
         <momentum>
@@ -821,7 +821,7 @@
   </propagator>
 
   <propagator id="Prop4">
-        <name>e_minus</name>
+        <name>i28533896172696947i</name>
         <source>Vert3</source>
         <target>Vert4</target>
         <momentum>
@@ -856,7 +856,7 @@
 
 
   <leg id="In1">
-        <name>nu_e</name>
+        <name>i1853185893i</name>
         <sense>incoming</sense>
         <target>Vert1</target>
         <momentum>
@@ -865,7 +865,7 @@
   </leg>
 
   <leg id="In2">
-        <name>nu_e_bar</name>
+        <name>i7959372805443838322i</name>
         <sense>incoming</sense>
         <target>Vert1</target>
         <momentum>
@@ -876,7 +876,7 @@
 
 
   <leg id="Out1">
-        <name>nu_e</name>
+        <name>i1853185893i</name>
         <sense>outgoing</sense>
         <target>Vert2</target>
         <momentum>
@@ -885,7 +885,7 @@
   </leg>
 
   <leg id="Out2">
-        <name>nu_e_bar</name>
+        <name>i7959372805443838322i</name>
         <sense>outgoing</sense>
         <target>Vert3</target>
         <momentum>
@@ -896,7 +896,7 @@
 
 
   <propagator id="Prop1">
-        <name>Z_0</name>
+        <name>i5922608i</name>
         <source>Vert4</source>
         <target>Vert1</target>
         <momentum>
@@ -905,7 +905,7 @@
   </propagator>
 
   <propagator id="Prop2">
-        <name>Z_0</name>
+        <name>i5922608i</name>
         <source>Vert3</source>
         <target>Vert2</target>
         <momentum>
@@ -914,7 +914,7 @@
   </propagator>
 
   <propagator id="Prop3">
-        <name>nu_e</name>
+        <name>i1853185893i</name>
         <source>Vert4</source>
         <target>Vert2</target>
         <momentum>
@@ -923,7 +923,7 @@
   </propagator>
 
   <propagator id="Prop4">
-        <name>nu_e</name>
+        <name>i1853185893i</name>
         <source>Vert3</source>
         <target>Vert4</target>
         <momentum>
@@ -958,7 +958,7 @@
 
 
   <leg id="In1">
-        <name>nu_e</name>
+        <name>i1853185893i</name>
         <sense>incoming</sense>
         <target>Vert1</target>
         <momentum>
@@ -967,7 +967,7 @@
   </leg>
 
   <leg id="In2">
-        <name>nu_e_bar</name>
+        <name>i7959372805443838322i</name>
         <sense>incoming</sense>
         <target>Vert2</target>
         <momentum>
@@ -978,7 +978,7 @@
 
 
   <leg id="Out1">
-        <name>nu_e</name>
+        <name>i1853185893i</name>
         <sense>outgoing</sense>
         <target>Vert1</target>
         <momentum>
@@ -987,7 +987,7 @@
   </leg>
 
   <leg id="Out2">
-        <name>nu_e_bar</name>
+        <name>i7959372805443838322i</name>
         <sense>outgoing</sense>
         <target>Vert3</target>
         <momentum>
@@ -998,7 +998,7 @@
 
 
   <propagator id="Prop1">
-        <name>Z_0</name>
+        <name>i5922608i</name>
         <source>Vert4</source>
         <target>Vert1</target>
         <momentum>
@@ -1007,7 +1007,7 @@
   </propagator>
 
   <propagator id="Prop2">
-        <name>e_minus</name>
+        <name>i28533896172696947i</name>
         <source>Vert3</source>
         <target>Vert2</target>
         <momentum>
@@ -1016,7 +1016,7 @@
   </propagator>
 
   <propagator id="Prop3">
-        <name>W_minus</name>
+        <name>i24593246498747763i</name>
         <source>Vert2</source>
         <target>Vert4</target>
         <momentum>
@@ -1025,7 +1025,7 @@
   </propagator>
 
   <propagator id="Prop4">
-        <name>W_minus</name>
+        <name>i24593246498747763i</name>
         <source>Vert4</source>
         <target>Vert3</target>
         <momentum>
@@ -1060,7 +1060,7 @@
 
 
   <leg id="In1">
-        <name>nu_e</name>
+        <name>i1853185893i</name>
         <sense>incoming</sense>
         <target>Vert1</target>
         <momentum>
@@ -1069,7 +1069,7 @@
   </leg>
 
   <leg id="In2">
-        <name>nu_e_bar</name>
+        <name>i7959372805443838322i</name>
         <sense>incoming</sense>
         <target>Vert2</target>
         <momentum>
@@ -1080,7 +1080,7 @@
 
 
   <leg id="Out1">
-        <name>nu_e</name>
+        <name>i1853185893i</name>
         <sense>outgoing</sense>
         <target>Vert1</target>
         <momentum>
@@ -1089,7 +1089,7 @@
   </leg>
 
   <leg id="Out2">
-        <name>nu_e_bar</name>
+        <name>i7959372805443838322i</name>
         <sense>outgoing</sense>
         <target>Vert3</target>
         <momentum>
@@ -1100,7 +1100,7 @@
 
 
   <propagator id="Prop1">
-        <name>Z_0</name>
+        <name>i5922608i</name>
         <source>Vert4</source>
         <target>Vert1</target>
         <momentum>
@@ -1109,7 +1109,7 @@
   </propagator>
 
   <propagator id="Prop2">
-        <name>W_minus</name>
+        <name>i24593246498747763i</name>
         <source>Vert2</source>
         <target>Vert3</target>
         <momentum>
@@ -1118,7 +1118,7 @@
   </propagator>
 
   <propagator id="Prop3">
-        <name>e_minus</name>
+        <name>i28533896172696947i</name>
         <source>Vert4</source>
         <target>Vert2</target>
         <momentum>
@@ -1127,7 +1127,7 @@
   </propagator>
 
   <propagator id="Prop4">
-        <name>e_minus</name>
+        <name>i28533896172696947i</name>
         <source>Vert3</source>
         <target>Vert4</target>
         <momentum>
@@ -1162,7 +1162,7 @@
 
 
   <leg id="In1">
-        <name>nu_e</name>
+        <name>i1853185893i</name>
         <sense>incoming</sense>
         <target>Vert1</target>
         <momentum>
@@ -1171,7 +1171,7 @@
   </leg>
 
   <leg id="In2">
-        <name>nu_e_bar</name>
+        <name>i7959372805443838322i</name>
         <sense>incoming</sense>
         <target>Vert2</target>
         <momentum>
@@ -1182,7 +1182,7 @@
 
 
   <leg id="Out1">
-        <name>nu_e</name>
+        <name>i1853185893i</name>
         <sense>outgoing</sense>
         <target>Vert1</target>
         <momentum>
@@ -1191,7 +1191,7 @@
   </leg>
 
   <leg id="Out2">
-        <name>nu_e_bar</name>
+        <name>i7959372805443838322i</name>
         <sense>outgoing</sense>
         <target>Vert3</target>
         <momentum>
@@ -1202,7 +1202,7 @@
 
 
   <propagator id="Prop1">
-        <name>Z_0</name>
+        <name>i5922608i</name>
         <source>Vert4</source>
         <target>Vert1</target>
         <momentum>
@@ -1211,7 +1211,7 @@
   </propagator>
 
   <propagator id="Prop2">
-        <name>Z_0</name>
+        <name>i5922608i</name>
         <source>Vert3</source>
         <target>Vert2</target>
         <momentum>
@@ -1220,7 +1220,7 @@
   </propagator>
 
   <propagator id="Prop3">
-        <name>nu_e</name>
+        <name>i1853185893i</name>
         <source>Vert4</source>
         <target>Vert2</target>
         <momentum>
@@ -1229,7 +1229,7 @@
   </propagator>
 
   <propagator id="Prop4">
-        <name>nu_e</name>
+        <name>i1853185893i</name>
         <source>Vert3</source>
         <target>Vert4</target>
         <momentum>
@@ -1264,7 +1264,7 @@
 
 
   <leg id="In1">
-        <name>nu_e</name>
+        <name>i1853185893i</name>
         <sense>incoming</sense>
         <target>Vert2</target>
         <momentum>
@@ -1273,7 +1273,7 @@
   </leg>
 
   <leg id="In2">
-        <name>nu_e_bar</name>
+        <name>i7959372805443838322i</name>
         <sense>incoming</sense>
         <target>Vert1</target>
         <momentum>
@@ -1284,7 +1284,7 @@
 
 
   <leg id="Out1">
-        <name>nu_e</name>
+        <name>i1853185893i</name>
         <sense>outgoing</sense>
         <target>Vert3</target>
         <momentum>
@@ -1293,7 +1293,7 @@
   </leg>
 
   <leg id="Out2">
-        <name>nu_e_bar</name>
+        <name>i7959372805443838322i</name>
         <sense>outgoing</sense>
         <target>Vert1</target>
         <momentum>
@@ -1304,7 +1304,7 @@
 
 
   <propagator id="Prop1">
-        <name>Z_0</name>
+        <name>i5922608i</name>
         <source>Vert4</source>
         <target>Vert1</target>
         <momentum>
@@ -1313,7 +1313,7 @@
   </propagator>
 
   <propagator id="Prop2">
-        <name>e_minus</name>
+        <name>i28533896172696947i</name>
         <source>Vert2</source>
         <target>Vert3</target>
         <momentum>
@@ -1322,7 +1322,7 @@
   </propagator>
 
   <propagator id="Prop3">
-        <name>W_minus</name>
+        <name>i24593246498747763i</name>
         <source>Vert4</source>
         <target>Vert2</target>
         <momentum>
@@ -1331,7 +1331,7 @@
   </propagator>
 
   <propagator id="Prop4">
-        <name>W_minus</name>
+        <name>i24593246498747763i</name>
         <source>Vert3</source>
         <target>Vert4</target>
         <momentum>
@@ -1366,7 +1366,7 @@
 
 
   <leg id="In1">
-        <name>nu_e</name>
+        <name>i1853185893i</name>
         <sense>incoming</sense>
         <target>Vert2</target>
         <momentum>
@@ -1375,7 +1375,7 @@
   </leg>
 
   <leg id="In2">
-        <name>nu_e_bar</name>
+        <name>i7959372805443838322i</name>
         <sense>incoming</sense>
         <target>Vert1</target>
         <momentum>
@@ -1386,7 +1386,7 @@
 
 
   <leg id="Out1">
-        <name>nu_e</name>
+        <name>i1853185893i</name>
         <sense>outgoing</sense>
         <target>Vert3</target>
         <momentum>
@@ -1395,7 +1395,7 @@
   </leg>
 
   <leg id="Out2">
-        <name>nu_e_bar</name>
+        <name>i7959372805443838322i</name>
         <sense>outgoing</sense>
         <target>Vert1</target>
         <momentum>
@@ -1406,7 +1406,7 @@
 
 
   <propagator id="Prop1">
-        <name>Z_0</name>
+        <name>i5922608i</name>
         <source>Vert4</source>
         <target>Vert1</target>
         <momentum>
@@ -1415,7 +1415,7 @@
   </propagator>
 
   <propagator id="Prop2">
-        <name>W_minus</name>
+        <name>i24593246498747763i</name>
         <source>Vert3</source>
         <target>Vert2</target>
         <momentum>
@@ -1424,7 +1424,7 @@
   </propagator>
 
   <propagator id="Prop3">
-        <name>e_minus</name>
+        <name>i28533896172696947i</name>
         <source>Vert2</source>
         <target>Vert4</target>
         <momentum>
@@ -1433,7 +1433,7 @@
   </propagator>
 
   <propagator id="Prop4">
-        <name>e_minus</name>
+        <name>i28533896172696947i</name>
         <source>Vert4</source>
         <target>Vert3</target>
         <momentum>
@@ -1468,7 +1468,7 @@
 
 
   <leg id="In1">
-        <name>nu_e</name>
+        <name>i1853185893i</name>
         <sense>incoming</sense>
         <target>Vert2</target>
         <momentum>
@@ -1477,7 +1477,7 @@
   </leg>
 
   <leg id="In2">
-        <name>nu_e_bar</name>
+        <name>i7959372805443838322i</name>
         <sense>incoming</sense>
         <target>Vert1</target>
         <momentum>
@@ -1488,7 +1488,7 @@
 
 
   <leg id="Out1">
-        <name>nu_e</name>
+        <name>i1853185893i</name>
         <sense>outgoing</sense>
         <target>Vert3</target>
         <momentum>
@@ -1497,7 +1497,7 @@
   </leg>
 
   <leg id="Out2">
-        <name>nu_e_bar</name>
+        <name>i7959372805443838322i</name>
         <sense>outgoing</sense>
         <target>Vert1</target>
         <momentum>
@@ -1508,7 +1508,7 @@
 
 
   <propagator id="Prop1">
-        <name>Z_0</name>
+        <name>i5922608i</name>
         <source>Vert4</source>
         <target>Vert1</target>
         <momentum>
@@ -1517,7 +1517,7 @@
   </propagator>
 
   <propagator id="Prop2">
-        <name>Z_0</name>
+        <name>i5922608i</name>
         <source>Vert3</source>
         <target>Vert2</target>
         <momentum>
@@ -1526,7 +1526,7 @@
   </propagator>
 
   <propagator id="Prop3">
-        <name>nu_e</name>
+        <name>i1853185893i</name>
         <source>Vert2</source>
         <target>Vert4</target>
         <momentum>
@@ -1535,7 +1535,7 @@
   </propagator>
 
   <propagator id="Prop4">
-        <name>nu_e</name>
+        <name>i1853185893i</name>
         <source>Vert4</source>
         <target>Vert3</target>
         <momentum>
@@ -1570,7 +1570,7 @@
 
 
   <leg id="In1">
-        <name>nu_e</name>
+        <name>i1853185893i</name>
         <sense>incoming</sense>
         <target>Vert2</target>
         <momentum>
@@ -1579,7 +1579,7 @@
   </leg>
 
   <leg id="In2">
-        <name>nu_e_bar</name>
+        <name>i7959372805443838322i</name>
         <sense>incoming</sense>
         <target>Vert3</target>
         <momentum>
@@ -1590,7 +1590,7 @@
 
 
   <leg id="Out1">
-        <name>nu_e</name>
+        <name>i1853185893i</name>
         <sense>outgoing</sense>
         <target>Vert1</target>
         <momentum>
@@ -1599,7 +1599,7 @@
   </leg>
 
   <leg id="Out2">
-        <name>nu_e_bar</name>
+        <name>i7959372805443838322i</name>
         <sense>outgoing</sense>
         <target>Vert1</target>
         <momentum>
@@ -1610,7 +1610,7 @@
 
 
   <propagator id="Prop1">
-        <name>Z_0</name>
+        <name>i5922608i</name>
         <source>Vert4</source>
         <target>Vert1</target>
         <momentum>
@@ -1619,7 +1619,7 @@
   </propagator>
 
   <propagator id="Prop2">
-        <name>e_minus</name>
+        <name>i28533896172696947i</name>
         <source>Vert2</source>
         <target>Vert3</target>
         <momentum>
@@ -1628,7 +1628,7 @@
   </propagator>
 
   <propagator id="Prop3">
-        <name>W_minus</name>
+        <name>i24593246498747763i</name>
         <source>Vert4</source>
         <target>Vert2</target>
         <momentum>
@@ -1637,7 +1637,7 @@
   </propagator>
 
   <propagator id="Prop4">
-        <name>W_minus</name>
+        <name>i24593246498747763i</name>
         <source>Vert3</source>
         <target>Vert4</target>
         <momentum>
@@ -1672,7 +1672,7 @@
 
 
   <leg id="In1">
-        <name>nu_e</name>
+        <name>i1853185893i</name>
         <sense>incoming</sense>
         <target>Vert2</target>
         <momentum>
@@ -1681,7 +1681,7 @@
   </leg>
 
   <leg id="In2">
-        <name>nu_e_bar</name>
+        <name>i7959372805443838322i</name>
         <sense>incoming</sense>
         <target>Vert3</target>
         <momentum>
@@ -1692,7 +1692,7 @@
 
 
   <leg id="Out1">
-        <name>nu_e</name>
+        <name>i1853185893i</name>
         <sense>outgoing</sense>
         <target>Vert1</target>
         <momentum>
@@ -1701,7 +1701,7 @@
   </leg>
 
   <leg id="Out2">
-        <name>nu_e_bar</name>
+        <name>i7959372805443838322i</name>
         <sense>outgoing</sense>
         <target>Vert1</target>
         <momentum>
@@ -1712,7 +1712,7 @@
 
 
   <propagator id="Prop1">
-        <name>Z_0</name>
+        <name>i5922608i</name>
         <source>Vert4</source>
         <target>Vert1</target>
         <momentum>
@@ -1721,7 +1721,7 @@
   </propagator>
 
   <propagator id="Prop2">
-        <name>W_minus</name>
+        <name>i24593246498747763i</name>
         <source>Vert3</source>
         <target>Vert2</target>
         <momentum>
@@ -1730,7 +1730,7 @@
   </propagator>
 
   <propagator id="Prop3">
-        <name>e_minus</name>
+        <name>i28533896172696947i</name>
         <source>Vert2</source>
         <target>Vert4</target>
         <momentum>
@@ -1739,7 +1739,7 @@
   </propagator>
 
   <propagator id="Prop4">
-        <name>e_minus</name>
+        <name>i28533896172696947i</name>
         <source>Vert4</source>
         <target>Vert3</target>
         <momentum>
@@ -1774,7 +1774,7 @@
 
 
   <leg id="In1">
-        <name>nu_e</name>
+        <name>i1853185893i</name>
         <sense>incoming</sense>
         <target>Vert2</target>
         <momentum>
@@ -1783,7 +1783,7 @@
   </leg>
 
   <leg id="In2">
-        <name>nu_e_bar</name>
+        <name>i7959372805443838322i</name>
         <sense>incoming</sense>
         <target>Vert3</target>
         <momentum>
@@ -1794,7 +1794,7 @@
 
 
   <leg id="Out1">
-        <name>nu_e</name>
+        <name>i1853185893i</name>
         <sense>outgoing</sense>
         <target>Vert1</target>
         <momentum>
@@ -1803,7 +1803,7 @@
   </leg>
 
   <leg id="Out2">
-        <name>nu_e_bar</name>
+        <name>i7959372805443838322i</name>
         <sense>outgoing</sense>
         <target>Vert1</target>
         <momentum>
@@ -1814,7 +1814,7 @@
 
 
   <propagator id="Prop1">
-        <name>Z_0</name>
+        <name>i5922608i</name>
         <source>Vert4</source>
         <target>Vert1</target>
         <momentum>
@@ -1823,7 +1823,7 @@
   </propagator>
 
   <propagator id="Prop2">
-        <name>Z_0</name>
+        <name>i5922608i</name>
         <source>Vert3</source>
         <target>Vert2</target>
         <momentum>
@@ -1832,7 +1832,7 @@
   </propagator>
 
   <propagator id="Prop3">
-        <name>nu_e</name>
+        <name>i1853185893i</name>
         <source>Vert2</source>
         <target>Vert4</target>
         <momentum>
@@ -1841,7 +1841,7 @@
   </propagator>
 
   <propagator id="Prop4">
-        <name>nu_e</name>
+        <name>i1853185893i</name>
         <source>Vert4</source>
         <target>Vert3</target>
         <momentum>
@@ -1876,7 +1876,7 @@
 
 
   <leg id="In1">
-        <name>nu_e</name>
+        <name>i1853185893i</name>
         <sense>incoming</sense>
         <target>Vert1</target>
         <momentum>
@@ -1885,7 +1885,7 @@
   </leg>
 
   <leg id="In2">
-        <name>nu_e_bar</name>
+        <name>i7959372805443838322i</name>
         <sense>incoming</sense>
         <target>Vert2</target>
         <momentum>
@@ -1896,7 +1896,7 @@
 
 
   <leg id="Out1">
-        <name>nu_e</name>
+        <name>i1853185893i</name>
         <sense>outgoing</sense>
         <target>Vert3</target>
         <momentum>
@@ -1905,7 +1905,7 @@
   </leg>
 
   <leg id="Out2">
-        <name>nu_e_bar</name>
+        <name>i7959372805443838322i</name>
         <sense>outgoing</sense>
         <target>Vert4</target>
         <momentum>
@@ -1916,7 +1916,7 @@
 
 
   <propagator id="Prop1">
-        <name>e_minus</name>
+        <name>i28533896172696947i</name>
         <source>Vert1</source>
         <target>Vert2</target>
         <momentum>
@@ -1925,7 +1925,7 @@
   </propagator>
 
   <propagator id="Prop2">
-        <name>W_minus</name>
+        <name>i24593246498747763i</name>
         <source>Vert3</source>
         <target>Vert1</target>
         <momentum>
@@ -1934,7 +1934,7 @@
   </propagator>
 
   <propagator id="Prop3">
-        <name>W_minus</name>
+        <name>i24593246498747763i</name>
         <source>Vert2</source>
         <target>Vert4</target>
         <momentum>
@@ -1943,7 +1943,7 @@
   </propagator>
 
   <propagator id="Prop4">
-        <name>e_minus</name>
+        <name>i28533896172696947i</name>
         <source>Vert4</source>
         <target>Vert3</target>
         <momentum>
@@ -1978,7 +1978,7 @@
 
 
   <leg id="In1">
-        <name>nu_e</name>
+        <name>i1853185893i</name>
         <sense>incoming</sense>
         <target>Vert1</target>
         <momentum>
@@ -1987,7 +1987,7 @@
   </leg>
 
   <leg id="In2">
-        <name>nu_e_bar</name>
+        <name>i7959372805443838322i</name>
         <sense>incoming</sense>
         <target>Vert2</target>
         <momentum>
@@ -1998,7 +1998,7 @@
 
 
   <leg id="Out1">
-        <name>nu_e</name>
+        <name>i1853185893i</name>
         <sense>outgoing</sense>
         <target>Vert3</target>
         <momentum>
@@ -2007,7 +2007,7 @@
   </leg>
 
   <leg id="Out2">
-        <name>nu_e_bar</name>
+        <name>i7959372805443838322i</name>
         <sense>outgoing</sense>
         <target>Vert4</target>
         <momentum>
@@ -2018,7 +2018,7 @@
 
 
   <propagator id="Prop1">
-        <name>nu_e</name>
+        <name>i1853185893i</name>
         <source>Vert1</source>
         <target>Vert2</target>
         <momentum>
@@ -2027,7 +2027,7 @@
   </propagator>
 
   <propagator id="Prop2">
-        <name>Z_0</name>
+        <name>i5922608i</name>
         <source>Vert3</source>
         <target>Vert1</target>
         <momentum>
@@ -2036,7 +2036,7 @@
   </propagator>
 
   <propagator id="Prop3">
-        <name>Z_0</name>
+        <name>i5922608i</name>
         <source>Vert4</source>
         <target>Vert2</target>
         <momentum>
@@ -2045,7 +2045,7 @@
   </propagator>
 
   <propagator id="Prop4">
-        <name>nu_e</name>
+        <name>i1853185893i</name>
         <source>Vert4</source>
         <target>Vert3</target>
         <momentum>
@@ -2080,7 +2080,7 @@
 
 
   <leg id="In1">
-        <name>nu_e</name>
+        <name>i1853185893i</name>
         <sense>incoming</sense>
         <target>Vert1</target>
         <momentum>
@@ -2089,7 +2089,7 @@
   </leg>
 
   <leg id="In2">
-        <name>nu_e_bar</name>
+        <name>i7959372805443838322i</name>
         <sense>incoming</sense>
         <target>Vert2</target>
         <momentum>
@@ -2100,7 +2100,7 @@
 
 
   <leg id="Out1">
-        <name>nu_e</name>
+        <name>i1853185893i</name>
         <sense>outgoing</sense>
         <target>Vert3</target>
         <momentum>
@@ -2109,7 +2109,7 @@
   </leg>
 
   <leg id="Out2">
-        <name>nu_e_bar</name>
+        <name>i7959372805443838322i</name>
         <sense>outgoing</sense>
         <target>Vert4</target>
         <momentum>
@@ -2120,7 +2120,7 @@
 
 
   <propagator id="Prop1">
-        <name>W_minus</name>
+        <name>i24593246498747763i</name>
         <source>Vert2</source>
         <target>Vert1</target>
         <momentum>
@@ -2129,7 +2129,7 @@
   </propagator>
 
   <propagator id="Prop2">
-        <name>e_minus</name>
+        <name>i28533896172696947i</name>
         <source>Vert1</source>
         <target>Vert3</target>
         <momentum>
@@ -2138,7 +2138,7 @@
   </propagator>
 
   <propagator id="Prop3">
-        <name>e_minus</name>
+        <name>i28533896172696947i</name>
         <source>Vert4</source>
         <target>Vert2</target>
         <momentum>
@@ -2147,7 +2147,7 @@
   </propagator>
 
   <propagator id="Prop4">
-        <name>W_minus</name>
+        <name>i24593246498747763i</name>
         <source>Vert3</source>
         <target>Vert4</target>
         <momentum>
@@ -2182,7 +2182,7 @@
 
 
   <leg id="In1">
-        <name>nu_e</name>
+        <name>i1853185893i</name>
         <sense>incoming</sense>
         <target>Vert1</target>
         <momentum>
@@ -2191,7 +2191,7 @@
   </leg>
 
   <leg id="In2">
-        <name>nu_e_bar</name>
+        <name>i7959372805443838322i</name>
         <sense>incoming</sense>
         <target>Vert2</target>
         <momentum>
@@ -2202,7 +2202,7 @@
 
 
   <leg id="Out1">
-        <name>nu_e</name>
+        <name>i1853185893i</name>
         <sense>outgoing</sense>
         <target>Vert3</target>
         <momentum>
@@ -2211,7 +2211,7 @@
   </leg>
 
   <leg id="Out2">
-        <name>nu_e_bar</name>
+        <name>i7959372805443838322i</name>
         <sense>outgoing</sense>
         <target>Vert4</target>
         <momentum>
@@ -2222,7 +2222,7 @@
 
 
   <propagator id="Prop1">
-        <name>Z_0</name>
+        <name>i5922608i</name>
         <source>Vert2</source>
         <target>Vert1</target>
         <momentum>
@@ -2231,7 +2231,7 @@
   </propagator>
 
   <propagator id="Prop2">
-        <name>nu_e</name>
+        <name>i1853185893i</name>
         <source>Vert1</source>
         <target>Vert3</target>
         <momentum>
@@ -2240,7 +2240,7 @@
   </propagator>
 
   <propagator id="Prop3">
-        <name>nu_e</name>
+        <name>i1853185893i</name>
         <source>Vert4</source>
         <target>Vert2</target>
         <momentum>
@@ -2249,7 +2249,7 @@
   </propagator>
 
   <propagator id="Prop4">
-        <name>Z_0</name>
+        <name>i5922608i</name>
         <source>Vert4</source>
         <target>Vert3</target>
         <momentum>
@@ -2284,7 +2284,7 @@
 
 
   <leg id="In1">
-        <name>nu_e</name>
+        <name>i1853185893i</name>
         <sense>incoming</sense>
         <target>Vert1</target>
         <momentum>
@@ -2293,7 +2293,7 @@
   </leg>
 
   <leg id="In2">
-        <name>nu_e_bar</name>
+        <name>i7959372805443838322i</name>
         <sense>incoming</sense>
         <target>Vert2</target>
         <momentum>
@@ -2304,7 +2304,7 @@
 
 
   <leg id="Out1">
-        <name>nu_e</name>
+        <name>i1853185893i</name>
         <sense>outgoing</sense>
         <target>Vert4</target>
         <momentum>
@@ -2313,7 +2313,7 @@
   </leg>
 
   <leg id="Out2">
-        <name>nu_e_bar</name>
+        <name>i7959372805443838322i</name>
         <sense>outgoing</sense>
         <target>Vert3</target>
         <momentum>
@@ -2324,7 +2324,7 @@
 
 
   <propagator id="Prop1">
-        <name>nu_e</name>
+        <name>i1853185893i</name>
         <source>Vert1</source>
         <target>Vert2</target>
         <momentum>
@@ -2333,7 +2333,7 @@
   </propagator>
 
   <propagator id="Prop2">
-        <name>Z_0</name>
+        <name>i5922608i</name>
         <source>Vert3</source>
         <target>Vert1</target>
         <momentum>
@@ -2342,7 +2342,7 @@
   </propagator>
 
   <propagator id="Prop3">
-        <name>Z_0</name>
+        <name>i5922608i</name>
         <source>Vert4</source>
         <target>Vert2</target>
         <momentum>
@@ -2351,7 +2351,7 @@
   </propagator>
 
   <propagator id="Prop4">
-        <name>nu_e</name>
+        <name>i1853185893i</name>
         <source>Vert3</source>
         <target>Vert4</target>
         <momentum>
@@ -2386,7 +2386,7 @@
 
 
   <leg id="In1">
-        <name>nu_e</name>
+        <name>i1853185893i</name>
         <sense>incoming</sense>
         <target>Vert1</target>
         <momentum>
@@ -2395,7 +2395,7 @@
   </leg>
 
   <leg id="In2">
-        <name>nu_e_bar</name>
+        <name>i7959372805443838322i</name>
         <sense>incoming</sense>
         <target>Vert4</target>
         <momentum>
@@ -2406,7 +2406,7 @@
 
 
   <leg id="Out1">
-        <name>nu_e</name>
+        <name>i1853185893i</name>
         <sense>outgoing</sense>
         <target>Vert2</target>
         <momentum>
@@ -2415,7 +2415,7 @@
   </leg>
 
   <leg id="Out2">
-        <name>nu_e_bar</name>
+        <name>i7959372805443838322i</name>
         <sense>outgoing</sense>
         <target>Vert3</target>
         <momentum>
@@ -2426,7 +2426,7 @@
 
 
   <propagator id="Prop1">
-        <name>nu_e</name>
+        <name>i1853185893i</name>
         <source>Vert1</source>
         <target>Vert2</target>
         <momentum>
@@ -2435,7 +2435,7 @@
   </propagator>
 
   <propagator id="Prop2">
-        <name>Z_0</name>
+        <name>i5922608i</name>
         <source>Vert3</source>
         <target>Vert1</target>
         <momentum>
@@ -2444,7 +2444,7 @@
   </propagator>
 
   <propagator id="Prop3">
-        <name>Z_0</name>
+        <name>i5922608i</name>
         <source>Vert4</source>
         <target>Vert2</target>
         <momentum>
@@ -2453,7 +2453,7 @@
   </propagator>
 
   <propagator id="Prop4">
-        <name>nu_e</name>
+        <name>i1853185893i</name>
         <source>Vert3</source>
         <target>Vert4</target>
         <momentum>
