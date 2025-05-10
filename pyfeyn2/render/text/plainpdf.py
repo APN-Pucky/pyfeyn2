@@ -69,7 +69,7 @@ class PlainPDFRender(LatexRender):
                 else ""
             )
             + "\n"
-            + self.src_txt
+            + self.get_src_txt()
             + f"\\end{{{self.environment}}}\n"
         )
         LatexRender.render(self, file, show, resolution, width, height, clean_up)

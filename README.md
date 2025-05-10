@@ -16,12 +16,13 @@ PyFeyn is a Python-language based system for drawing Feynman diagrams. It was in
 *   (graphviz)
 *   (feynmp-auto/feynmf)
 
+
 ## Installation
 
 ```sh
-poerty install --with docs --with dev
-poetry shell
+pip install pyfeyn2
 ```
+
 
 ## Documentation
 
@@ -48,13 +49,12 @@ Several of these are integrated into pyfeyn2.
 *   [ImageMagick security policy 'PDF' blocking conversion]( https://stackoverflow.com/questions/52998331/imagemagick-security-policy-pdf-blocking-conversion )
 *   [Graphviz missing on mac](https://graphviz.org/download/#mac)
 
+
 ## Development
 
-
-### package/python structure:
-
-*   <https://mathspp.com/blog/how-to-create-a-python-package-in-2022>
-*   <https://www.brainsorting.com/posts/publish-a-package-on-pypi-using-poetry/>
+```sh
+pip install -e . --user --break-system-packages
+```
 
 [pypi image]: https://badge.fury.io/py/pyfeyn2.svg
 [pypi link]: https://pypi.org/project/pyfeyn2/

@@ -2,8 +2,8 @@
  output= 'output.out' ;
  style= 'tmp.sty' ;
  model = 'tmp.model';
- in= nu_e[p1], nu_e_bar[p2];
- out= nu_e[p3], nu_e_bar[p4];
+ in= i1853185893i[p1], i7959372805443838322i[p2];
+ out= i1853185893i[p3], i7959372805443838322i[p4];
  loops= 1;
  loop_momentum= l;
  options= notadpole,onshell;
