@@ -1,12 +1,9 @@
 import tempfile
-from typing import List
 
 from pylatex import Command
 from pylatex.utils import NoEscape
 
 from pyfeyn2.render.latex.latex import LatexRender
-from pyfeyn2.render.render import Render
-from pyfeyn2.render.root.pyfeyn import Propagator, Vertex
 from pyfeyn2.render.root.rootrender import ROOTRender
 
 
