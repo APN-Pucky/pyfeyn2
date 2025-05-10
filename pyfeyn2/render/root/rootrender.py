@@ -1,6 +1,7 @@
 import tempfile
 from typing import List
 
+import ROOT
 from pylatex import Command
 from pylatex.utils import NoEscape
 
@@ -45,7 +46,6 @@ class ROOTRender(Render):
             width = 600
         if height is None:
             height = 600
-        import ROOT
 
         minx, miny, maxx, maxy = self.fd.get_bounding_box()
         canvas = ROOT.TCanvas("c", "A canvas", 10, 10, width, height)

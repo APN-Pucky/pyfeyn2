@@ -1,5 +1,6 @@
 """Moved to :py:mod:`feynml`"""
 from importlib.metadata import version
+from warnings import deprecated
 
 # from feynml.feynml import Tool as Tool_
 from feynml import PDG as PDG_
@@ -14,14 +15,13 @@ from feynml import Propagator as Propagator_
 from feynml import Styled as Styled_
 from feynml import Vertex as Vertex_
 from feynml.momentum import Momentum as Momentum_  # TODO fix to feynml only
-from smpl_doc import doc
 
 
 class Head(Head_):
     class Meta(Head_.Meta):
         pass
 
-    @doc.deprecated("2.2.6", "Directly use feynml.head.Head")
+    @deprecated("2.2.6", "Directly use feynml.head.Head")
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
@@ -30,7 +30,7 @@ class Meta(Meta_):
     class Meta(Meta_.Meta):
         pass
 
-    @doc.deprecated("2.2.6", "Directly use feynml.meta.Meta")
+    @deprecated("2.2.6", "Directly use feynml.meta.Meta")
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
@@ -39,13 +39,13 @@ class Meta(Meta_):
 #    class Meta(Tool_.Meta):
 #        pass
 #
-#    @doc.deprecated("2.2.6", "Directly use feynml.feynml.Tool")
+#    @deprecated("2.2.6", "Directly use feynml.feynml.Tool")
 #    def __init__(self, *args, **kwargs):
 #        super().__init__(*args, **kwargs)
 
 
 class Connector(Connector_):
-    @doc.deprecated("2.2.6", "Directly use feynml.connector.Connector")
+    @deprecated("2.2.6", "Directly use feynml.connector.Connector")
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
@@ -54,13 +54,13 @@ class FeynmanDiagram(FeynmanDiagram_):
     class Meta(FeynmanDiagram_.Meta):
         pass
 
-    @doc.deprecated("2.2.6", "Directly use feynml.feynmandiagram.FeynDiagram")
+    @deprecated("2.2.6", "Directly use feynml.feynmandiagram.FeynDiagram")
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
 
 class Leg(Leg_):
-    @doc.deprecated("2.2.6", "Directly use feynml.leg.Leg")
+    @deprecated("2.2.6", "Directly use feynml.leg.Leg")
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
@@ -69,42 +69,42 @@ class Momentum(Momentum_):
     class Meta(Momentum_.Meta):
         pass
 
-    @doc.deprecated("2.2.6", "Directly use feynml.momentum.Momentum")
+    @deprecated("2.2.6", "Directly use feynml.momentum.Momentum")
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
 
 class PDG(PDG_):
-    @doc.deprecated("2.2.6", "Directly use feynml.pdgid.PDG")
+    @deprecated("2.2.6", "Directly use feynml.pdgid.PDG")
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
 
 class Vertex(Vertex_):
-    @doc.deprecated("2.2.6", "Directly use feynml.vertex.Vertex")
+    @deprecated("2.2.6", "Directly use feynml.vertex.Vertex")
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
 
 class Styled(Styled_):
-    @doc.deprecated("2.2.6", "Directly use feynml.styled.Styled")
+    @deprecated("2.2.6", "Directly use feynml.styled.Styled")
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
 
 class Propagator(Propagator_):
-    @doc.deprecated("2.2.6", "Directly use feynml.propagator.Propagator")
+    @deprecated("2.2.6", "Directly use feynml.propagator.Propagator")
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
 
 class Point(Point_):
-    @doc.deprecated("2.2.6", "Directly use feynml.point.Point")
+    @deprecated("2.2.6", "Directly use feynml.point.Point")
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
 
-# @doc.deprecated("2.2.6", "Directly use feynml.feynml.FeynML")
+# @deprecated("2.2.6", "Directly use feynml.feynml.FeynML")
 class FeynML(FeynML_):
     """FeynML with pyfeyn2 meta tag."""
 

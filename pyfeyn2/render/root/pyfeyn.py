@@ -1,6 +1,9 @@
 # Adapted code from https://github.com/aminnj/pyfeyn/blob/main/pyfeyn.py
 import math
 
+import ROOT
+import ROOT as r
+
 
 class Label(object):
     def __init__(
@@ -36,11 +39,10 @@ class Label(object):
         return text
 
     def draw(self):
-        import ROOT
 
         if not self.text:
             return
-        t = ROOT.TLatex()
+        t = r.TLatex()
         t.SetTextAlign(self.textalign)
         t.SetTextSize(self.textsize)
         t.DrawLatex(
@@ -63,11 +65,9 @@ class Marker(object):
         self.y = y
 
     def draw(self):
-        import ROOT
-
         if self.color is None:
             return
-        m = ROOT.TEllipse(self.x, self.y, self.radius)
+        m = r.TEllipse(self.x, self.y, self.radius)
         m.SetFillColor(self.color)
         m.SetLineWidth(self.linewidth)
         m.Draw()
@@ -103,10 +103,8 @@ class Propagator(object):
         fliparrow=False,
         noarrow=False,
     ):
-        import ROOT
-
         if linecolor is None:
-            linecolor = ROOT.kBlack
+            linecolor = r.kBlack
         self.v1 = v1
         self.v2 = v2
         self.typ = typ
@@ -122,8 +120,6 @@ class Propagator(object):
             )
 
     def draw(self, _nodelete=[]):
-        import ROOT as r
-
         prop1, prop2 = None, None
         drawopt = ""
         if self.typ == "line":
