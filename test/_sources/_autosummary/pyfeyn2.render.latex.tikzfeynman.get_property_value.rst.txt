@@ -1,0 +1,6 @@
+pyfeyn2.render.latex.tikzfeynman.get\_property\_value
+=====================================================
+
+.. currentmodule:: pyfeyn2.render.latex.tikzfeynman
+
+.. autofunction:: get_property_value

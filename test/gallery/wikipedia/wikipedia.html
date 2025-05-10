@@ -128,18 +128,19 @@
 <section id="electron-capture">
 <h2>electron capture<a class="headerlink" href="#electron-capture" title="Link to this heading"></a></h2>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">feynml</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">feynml.topology</span><span class="w"> </span><span class="kn">import</span> <span class="n">two_to_two</span> <span class="k">as</span> <span class="n">t2t</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">feynml.topology</span><span class="w"> </span><span class="kn">import</span> <span class="n">four</span> <span class="k">as</span> <span class="n">t2t</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">pyfeyn2.auto</span><span class="w"> </span><span class="kn">import</span> <span class="n">auto_default</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pyfeyn2.render.latex.tikzfeynman</span><span class="w"> </span><span class="kn">import</span> <span class="n">TikzFeynmanRender</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">pyfeyn2.render.all</span><span class="w"> </span><span class="kn">import</span> <span class="n">AllRender</span>
 </pre></div>
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fd</span> <span class="o">=</span> <span class="n">t2t</span><span class="o">.</span><span class="n">t_channel</span><span class="p">(</span><span class="mi">2212</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">24</span><span class="p">,</span><span class="mi">2112</span><span class="p">,</span><span class="mi">12</span><span class="p">)</span>
@@ -171,9 +172,8 @@ tikz:
 pyx:
 pyx failed:
 Traceback (most recent call last):
-  File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/all.py&#34;, line 113, in render
+  File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/all.py&#34;, line 120, in render
     render(fd).render(dirpath + &#34;/&#34; + name + &#34;.pdf&#34;, **dynarg)
-    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/pyx/pyxrender.py&#34;, line 50, in render
     nl = NamedLine[lname](lp, Point(tar.x, tar.y))
          ~~~~~~~~~^^^^^^^
@@ -182,17 +182,17 @@ KeyError: &#39;baryon&#39;
 feynmp:
 feynmp failed:
 Traceback (most recent call last):
-  File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/all.py&#34;, line 113, in render
+  File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/all.py&#34;, line 120, in render
     render(fd).render(dirpath + &#34;/&#34; + name + &#34;.pdf&#34;, **dynarg)
-    ~~~~~~^^^^
+    ^^^^^^^^^^
   File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/latex/feynmp.py&#34;, line 210, in __init__
     self.set_feynman_diagram(fd)
-    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^
   File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/latex/feynmp.py&#34;, line 214, in set_feynman_diagram
     self.set_src_diag(NoEscape(feynman_to_feynmp(fd)))
-                               ~~~~~~~~~~~~~~~~~^^^^
+                               ^^^^^^^^^^^^^^^^^^^^^
   File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/latex/feynmp.py&#34;, line 152, in feynman_to_feynmp
     src = do_legs(src, incoming, True)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/latex/feynmp.py&#34;, line 135, in do_legs
     tttype = type_map[lstyle.getProperty(&#34;line&#34;).value]
              ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -216,21 +216,17 @@ feynman:
 dot:
 dot failed:
 Traceback (most recent call last):
-  File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/all.py&#34;, line 113, in render
+  File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/all.py&#34;, line 120, in render
     render(fd).render(dirpath + &#34;/&#34; + name + &#34;.pdf&#34;, **dynarg)
-    ~~~~~~^^^^
+    ^^^^^^^^^^
   File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/latex/dot.py&#34;, line 80, in __init__
     self.set_feynman_diagram(fd)
-    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^
   File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/latex/dot.py&#34;, line 84, in set_feynman_diagram
     self.src_dot = feynman_to_dot(
-                   ~~~~~~~~~~~~~~^
-        fd, styler=stylize_connect, resubstituteslash=False
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    )
-    ^
+                   ^^^^^^^^^^^^^^^
   File &#34;/home/apn/git/pyfeyn2/pyfeyn2/interface/dot.py&#34;, line 70, in feynman_to_dot
     thestyle = styler(fd, l)
+               ^^^^^^^^^^^^^
   File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/latex/dot.py&#34;, line 40, in stylize_connect
     style = &#39;style=&#34;{}&#34;,texmode=&#34;raw&#34;&#39;.format(map_feyn_to_tikz[lname])
                                               ~~~~~~~~~~~~~~~~^^^^^^^
@@ -276,7 +272,7 @@ unicodepdf:
 <img alt="../../_images/gallery_wikipedia_wikipedia_3_9.png" src="../../_images/gallery_wikipedia_wikipedia_3_9.png" />
 </div>
 </div>
-<div class="nboutput nblast docutils container">
+<div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
@@ -284,27 +280,43 @@ unicodepdf:
 madgraph:
 madgraph failed:
 Traceback (most recent call last):
-  File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/all.py&#34;, line 113, in render
+  File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/all.py&#34;, line 120, in render
     render(fd).render(dirpath + &#34;/&#34; + name + &#34;.pdf&#34;, **dynarg)
-    ~~~~~~^^^^
-  File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/ps/madgraph.py&#34;, line 77, in __init__
+    ^^^^^^^^^^
+  File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/ps/madgraph.py&#34;, line 79, in __init__
     self.set_feynman_diagram(fd)
-    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^
-  File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/ps/madgraph.py&#34;, line 131, in set_feynman_diagram
+  File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/ps/madgraph.py&#34;, line 133, in set_feynman_diagram
     self.set_src(feynman_to_ps(fd))
-                 ~~~~~~~~~~~~~^^^^
-  File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/ps/madgraph.py&#34;, line 47, in feynman_to_ps
+                 ^^^^^^^^^^^^^^^^^
+  File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/ps/madgraph.py&#34;, line 56, in feynman_to_ps
     line = type_map[style.getProperty(&#34;line&#34;).value]
            ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-KeyError: &#39;boson&#39;
+KeyError: &#39;baryon&#39;
 
+root:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/gallery_wikipedia_wikipedia_3_11.png" src="../../_images/gallery_wikipedia_wikipedia_3_11.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+Info in &lt;TCanvas::SaveSource&gt;: C++ Macro file: /tmp/tmpw3x1amey.tex has been generated
+Info in &lt;TCanvas::Print&gt;: TeX file /tmp/tmpfqf1epqm.tex has been created
 </pre></div></div>
 </div>
 </section>
 <section id="beta-decay">
 <h2>beta decay<a class="headerlink" href="#beta-decay" title="Link to this heading"></a></h2>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">l</span> <span class="p">:</span> <span class="n">l</span><span class="o">.</span><span class="n">pdgid</span> <span class="o">==</span> <span class="mi">11</span><span class="p">,</span><span class="n">fd</span><span class="o">.</span><span class="n">legs</span><span class="p">):</span>
@@ -337,9 +349,8 @@ tikz:
 pyx:
 pyx failed:
 Traceback (most recent call last):
-  File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/all.py&#34;, line 113, in render
+  File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/all.py&#34;, line 120, in render
     render(fd).render(dirpath + &#34;/&#34; + name + &#34;.pdf&#34;, **dynarg)
-    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/pyx/pyxrender.py&#34;, line 50, in render
     nl = NamedLine[lname](lp, Point(tar.x, tar.y))
          ~~~~~~~~~^^^^^^^
@@ -348,17 +359,17 @@ KeyError: &#39;baryon&#39;
 feynmp:
 feynmp failed:
 Traceback (most recent call last):
-  File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/all.py&#34;, line 113, in render
+  File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/all.py&#34;, line 120, in render
     render(fd).render(dirpath + &#34;/&#34; + name + &#34;.pdf&#34;, **dynarg)
-    ~~~~~~^^^^
+    ^^^^^^^^^^
   File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/latex/feynmp.py&#34;, line 210, in __init__
     self.set_feynman_diagram(fd)
-    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^
   File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/latex/feynmp.py&#34;, line 214, in set_feynman_diagram
     self.set_src_diag(NoEscape(feynman_to_feynmp(fd)))
-                               ~~~~~~~~~~~~~~~~~^^^^
+                               ^^^^^^^^^^^^^^^^^^^^^
   File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/latex/feynmp.py&#34;, line 152, in feynman_to_feynmp
     src = do_legs(src, incoming, True)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/latex/feynmp.py&#34;, line 135, in do_legs
     tttype = type_map[lstyle.getProperty(&#34;line&#34;).value]
              ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -382,21 +393,17 @@ feynman:
 dot:
 dot failed:
 Traceback (most recent call last):
-  File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/all.py&#34;, line 113, in render
+  File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/all.py&#34;, line 120, in render
     render(fd).render(dirpath + &#34;/&#34; + name + &#34;.pdf&#34;, **dynarg)
-    ~~~~~~^^^^
+    ^^^^^^^^^^
   File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/latex/dot.py&#34;, line 80, in __init__
     self.set_feynman_diagram(fd)
-    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^
   File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/latex/dot.py&#34;, line 84, in set_feynman_diagram
     self.src_dot = feynman_to_dot(
-                   ~~~~~~~~~~~~~~^
-        fd, styler=stylize_connect, resubstituteslash=False
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    )
-    ^
+                   ^^^^^^^^^^^^^^^
   File &#34;/home/apn/git/pyfeyn2/pyfeyn2/interface/dot.py&#34;, line 70, in feynman_to_dot
     thestyle = styler(fd, l)
+               ^^^^^^^^^^^^^
   File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/latex/dot.py&#34;, line 40, in stylize_connect
     style = &#39;style=&#34;{}&#34;,texmode=&#34;raw&#34;&#39;.format(map_feyn_to_tikz[lname])
                                               ~~~~~~~~~~~~~~~~^^^^^^^
@@ -442,7 +449,7 @@ unicodepdf:
 <img alt="../../_images/gallery_wikipedia_wikipedia_5_9.png" src="../../_images/gallery_wikipedia_wikipedia_5_9.png" />
 </div>
 </div>
-<div class="nboutput nblast docutils container">
+<div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
@@ -450,20 +457,36 @@ unicodepdf:
 madgraph:
 madgraph failed:
 Traceback (most recent call last):
-  File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/all.py&#34;, line 113, in render
+  File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/all.py&#34;, line 120, in render
     render(fd).render(dirpath + &#34;/&#34; + name + &#34;.pdf&#34;, **dynarg)
-    ~~~~~~^^^^
-  File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/ps/madgraph.py&#34;, line 77, in __init__
+    ^^^^^^^^^^
+  File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/ps/madgraph.py&#34;, line 79, in __init__
     self.set_feynman_diagram(fd)
-    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^
-  File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/ps/madgraph.py&#34;, line 131, in set_feynman_diagram
+  File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/ps/madgraph.py&#34;, line 133, in set_feynman_diagram
     self.set_src(feynman_to_ps(fd))
-                 ~~~~~~~~~~~~~^^^^
-  File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/ps/madgraph.py&#34;, line 47, in feynman_to_ps
+                 ^^^^^^^^^^^^^^^^^
+  File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/ps/madgraph.py&#34;, line 56, in feynman_to_ps
     line = type_map[style.getProperty(&#34;line&#34;).value]
            ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-KeyError: &#39;boson&#39;
+KeyError: &#39;baryon&#39;
 
+root:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/gallery_wikipedia_wikipedia_5_11.png" src="../../_images/gallery_wikipedia_wikipedia_5_11.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+Info in &lt;TCanvas::SaveSource&gt;: C++ Macro file: /tmp/tmpepwmfzyy.tex has been generated
+Info in &lt;TCanvas::Print&gt;: TeX file /tmp/tmplio0nm1l.tex has been created
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">

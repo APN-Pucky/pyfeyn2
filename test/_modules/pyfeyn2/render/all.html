@@ -140,6 +140,13 @@ renders = {
     &quot;madgraph&quot;: MadGraphRender,
 }
 
+try:
+    from pyfeyn2.render.root.rootpdfrender import ROOTPDFRender
+
+    renders[&quot;root&quot;] = ROOTPDFRender
+except ImportError:
+    pass
+
 
 <div class="viewcode-block" id="class_for_name">
 <a class="viewcode-back" href="../../../_autosummary/pyfeyn2.render.all.class_for_name.html#pyfeyn2.render.all.class_for_name">[docs]</a>

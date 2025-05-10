@@ -125,12 +125,13 @@
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pyfeyn2.feynmandiagram</span><span class="w"> </span><span class="kn">import</span> <span class="n">FeynmanDiagram</span><span class="p">,</span> <span class="n">Leg</span><span class="p">,</span> <span class="n">Propagator</span><span class="p">,</span> <span class="n">Vertex</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">feynml</span><span class="w"> </span><span class="kn">import</span> <span class="n">FeynmanDiagram</span><span class="p">,</span> <span class="n">Leg</span><span class="p">,</span> <span class="n">Propagator</span><span class="p">,</span> <span class="n">Vertex</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">pyfeyn2.render.all</span><span class="w"> </span><span class="kn">import</span> <span class="n">AllRender</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pyfeyn2.render.latex.tikzfeynman</span><span class="w"> </span><span class="kn">import</span> <span class="n">TikzFeynmanRender</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">pyfeyn2.auto.position</span><span class="w"> </span><span class="kn">import</span> <span class="n">feynman_adjust_points</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">pyfeyn2.auto.label</span><span class="w"> </span><span class="kn">import</span> <span class="n">auto_label</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">pyfeyn2.auto.bend</span><span class="w"> </span><span class="kn">import</span> <span class="n">auto_bend</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">pyfeyn2.feynmandiagram</span><span class="w"> </span><span class="kn">import</span> <span class="n">Momentum</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">feynml</span><span class="w"> </span><span class="kn">import</span> <span class="n">Momentum</span>
 </pre></div>
 </div>
 </div>
@@ -149,7 +150,7 @@
     <span class="n">Propagator</span><span class="p">(</span><span class="n">pdgid</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">v2</span><span class="p">,</span> <span class="n">v3</span><span class="p">),</span>
     <span class="n">Propagator</span><span class="p">(</span><span class="n">pdgid</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">v2</span><span class="p">,</span><span class="n">v4</span><span class="p">),</span>
     <span class="n">Propagator</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;g&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">v3</span><span class="p">,</span><span class="n">v4</span><span class="p">)</span><span class="o">.</span><span class="n">with_style</span><span class="p">(</span><span class="s2">&quot;bend-direction : left&quot;</span><span class="p">),</span>
-    <span class="n">Leg</span><span class="p">(</span><span class="n">pdgid</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span><span class="o">.</span><span class="n">with_target</span><span class="p">(</span><span class="n">v1</span><span class="p">)</span><span class="o">.</span><span class="n">with_xy</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">with_incoming</span><span class="p">()</span><span class="o">.</span><span class="n">with_style</span><span class="p">(</span><span class="s2">&quot;momentum-arrow : true; momentum-arrow-flip : true&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">with_momentum</span><span class="p">(</span><span class="n">Momentum</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;$</span><span class="se">\\</span><span class="s2">vec p$&quot;</span><span class="p">)),</span>
+    <span class="n">Leg</span><span class="p">(</span><span class="n">pdgid</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span><span class="o">.</span><span class="n">with_target</span><span class="p">(</span><span class="n">v1</span><span class="p">)</span><span class="o">.</span><span class="n">with_xy</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">with_incoming</span><span class="p">()</span><span class="o">.</span><span class="n">with_style</span><span class="p">(</span><span class="s2">&quot;momentum-arrow : true; momentum-arrow-sense : 1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">with_momentum</span><span class="p">(</span><span class="n">Momentum</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;$</span><span class="se">\\</span><span class="s2">vec p$&quot;</span><span class="p">)),</span>
     <span class="n">Leg</span><span class="p">(</span><span class="n">pdgid</span><span class="o">=-</span><span class="mi">11</span><span class="p">)</span><span class="o">.</span><span class="n">with_target</span><span class="p">(</span><span class="n">v1</span><span class="p">)</span><span class="o">.</span><span class="n">with_xy</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">with_incoming</span><span class="p">(),</span>
     <span class="n">Leg</span><span class="p">(</span><span class="n">pdgid</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">with_target</span><span class="p">(</span><span class="n">v3</span><span class="p">)</span><span class="o">.</span><span class="n">with_xy</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">with_outgoing</span><span class="p">(),</span>
     <span class="n">Leg</span><span class="p">(</span><span class="n">pdgid</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">with_target</span><span class="p">(</span><span class="n">v4</span><span class="p">)</span><span class="o">.</span><span class="n">with_xy</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">with_outgoing</span><span class="p">(),</span>
@@ -165,28 +166,6 @@
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-pyx:
-pyx failed:
-Traceback (most recent call last):
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/all.py&#34;, line 86, in render
-    render(fd).render(dirpath + &#34;/&#34; + name + &#34;.pdf&#34;, **dynarg)
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/pyx/pyxrender.py&#34;, line 43, in render
-    nl = NamedLine[l.type](Point(l.x, l.y), Point(tar.x, tar.y))
-KeyError: &#39;anti fermion&#39;
-
-feynmp:
-feynmp failed:
-Traceback (most recent call last):
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/all.py&#34;, line 86, in render
-    render(fd).render(dirpath + &#34;/&#34; + name + &#34;.pdf&#34;, **dynarg)
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/latex/feynmp.py&#34;, line 139, in __init__
-    self.set_feynman_diagram(fd)
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/latex/feynmp.py&#34;, line 143, in set_feynman_diagram
-    self.set_src_diag(NoEscape(feynman_to_feynmp(fd)))
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/latex/feynmp.py&#34;, line 91, in feynman_to_feynmp
-    tttype = type_map[l.type]
-KeyError: &#39;anti fermion&#39;
-
 tikz:
 </pre></div></div>
 </div>
@@ -202,75 +181,144 @@ tikz:
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-dot:
-dot failed:
-Traceback (most recent call last):
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/all.py&#34;, line 86, in render
-    render(fd).render(dirpath + &#34;/&#34; + name + &#34;.pdf&#34;, **dynarg)
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/latex/dot.py&#34;, line 72, in __init__
-    self.set_feynman_diagram(fd)
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/latex/dot.py&#34;, line 76, in set_feynman_diagram
-    self.src_dot = feynman_to_dot(
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/interface/dot.py&#34;, line 27, in feynman_to_dot
-    thestyle = styler(p)
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/latex/dot.py&#34;, line 33, in stylize_connect
-    style = &#39;style=&#34;{}&#34;,texmode=&#34;raw&#34;&#39;.format(map_feyn_to_tikz[c.type])
-KeyError: &#39;anti fermion&#39;
-
-feynman:
-feynman failed:
-Traceback (most recent call last):
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/all.py&#34;, line 86, in render
-    render(fd).render(dirpath + &#34;/&#34; + name + &#34;.pdf&#34;, **dynarg)
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/mpl/feynmanrender.py&#34;, line 75, in render
-    byid[v.id] = diagram.vertex(
-  File &#34;/home/apn/.cache/pypoetry/virtualenvs/pyfeyn2-CEvJ4jFG-py3.9/lib/python3.9/site-packages/feynman/diagrams/diagrams.py&#34;, line 73, in vertex
-    v = Vertex(xy, **kwargs)
-  File &#34;/home/apn/.cache/pypoetry/virtualenvs/pyfeyn2-CEvJ4jFG-py3.9/lib/python3.9/site-packages/feynman/core/vertex.py&#34;, line 64, in __init__
-    cxy = (np.complex(*xy) + np.complex(*dxy) + np.complex(dx, dy)
-  File &#34;/home/apn/.cache/pypoetry/virtualenvs/pyfeyn2-CEvJ4jFG-py3.9/lib/python3.9/site-packages/numpy/__init__.py&#34;, line 284, in __getattr__
-    raise AttributeError(&#34;module {!r} has no attribute &#34;
-AttributeError: module &#39;numpy&#39; has no attribute &#39;complex&#39;
-
-mpl:
-mpl failed:
-Traceback (most recent call last):
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/all.py&#34;, line 86, in render
-    render(fd).render(dirpath + &#34;/&#34; + name + &#34;.pdf&#34;, **dynarg)
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/mpl/mpl.py&#34;, line 138, in render
-    namedlines[p.type](idtopos[p.source], idtopos[p.target])
-KeyError: &#39;anti fermion&#39;
-
-ascii:
-ascii failed:
-Traceback (most recent call last):
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/all.py&#34;, line 86, in render
-    render(fd).render(dirpath + &#34;/&#34; + name + &#34;.pdf&#34;, **dynarg)
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/text/asciipdf.py&#34;, line 25, in render
-    ASCIIRender.render(self, file, show, resolution, width, height)
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/text/ascii.py&#34;, line 150, in render
-    self.namedlines[p.type]().draw(pane, src, tar, **fmt)
-KeyError: &#39;anti fermion&#39;
-
-unicode:
-unicode failed:
-Traceback (most recent call last):
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/all.py&#34;, line 86, in render
-    render(fd).render(dirpath + &#34;/&#34; + name + &#34;.pdf&#34;, **dynarg)
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/text/unicodepdf.py&#34;, line 64, in render
-    UnicodeRender.render(self, file, show, resolution, width, height)
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/text/ascii.py&#34;, line 150, in render
-    self.namedlines[p.type]().draw(pane, src, tar, **fmt)
-KeyError: &#39;anti fermion&#39;
-
+pyx:
 </pre></div></div>
 </div>
-<div class="nboutput nblast docutils container">
+<div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
 <img alt="../../_images/gallery_pyfeyn_pyfeyn_2_3.png" src="../../_images/gallery_pyfeyn_pyfeyn_2_3.png" />
 </div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+feynmp:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/gallery_pyfeyn_pyfeyn_2_5.png" src="../../_images/gallery_pyfeyn_pyfeyn_2_5.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+feynman:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/gallery_pyfeyn_pyfeyn_2_7.png" src="../../_images/gallery_pyfeyn_pyfeyn_2_7.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+dot:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/gallery_pyfeyn_pyfeyn_2_9.png" src="../../_images/gallery_pyfeyn_pyfeyn_2_9.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+mermaid:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/gallery_pyfeyn_pyfeyn_2_11.svg" src="../../_images/gallery_pyfeyn_pyfeyn_2_11.svg" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+asciipdf:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/gallery_pyfeyn_pyfeyn_2_13.png" src="../../_images/gallery_pyfeyn_pyfeyn_2_13.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+unicodepdf:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/gallery_pyfeyn_pyfeyn_2_15.png" src="../../_images/gallery_pyfeyn_pyfeyn_2_15.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+madgraph:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/gallery_pyfeyn_pyfeyn_2_17.png" src="../../_images/gallery_pyfeyn_pyfeyn_2_17.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+root:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/gallery_pyfeyn_pyfeyn_2_19.png" src="../../_images/gallery_pyfeyn_pyfeyn_2_19.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+Info in &lt;TCanvas::SaveSource&gt;: C++ Macro file: /tmp/tmpirofgrqd.tex has been generated
+Info in &lt;TCanvas::Print&gt;: TeX file /tmp/tmpphtm9s41.tex has been created
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
@@ -300,28 +348,6 @@ KeyError: &#39;anti fermion&#39;
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-pyx:
-pyx failed:
-Traceback (most recent call last):
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/all.py&#34;, line 86, in render
-    render(fd).render(dirpath + &#34;/&#34; + name + &#34;.pdf&#34;, **dynarg)
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/pyx/pyxrender.py&#34;, line 53, in render
-    nl = NamedLine[p.type](Point(src.x, src.y), Point(tar.x, tar.y))
-KeyError: &#39;anti fermion&#39;
-
-feynmp:
-feynmp failed:
-Traceback (most recent call last):
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/all.py&#34;, line 86, in render
-    render(fd).render(dirpath + &#34;/&#34; + name + &#34;.pdf&#34;, **dynarg)
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/latex/feynmp.py&#34;, line 139, in __init__
-    self.set_feynman_diagram(fd)
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/latex/feynmp.py&#34;, line 143, in set_feynman_diagram
-    self.set_src_diag(NoEscape(feynman_to_feynmp(fd)))
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/latex/feynmp.py&#34;, line 104, in feynman_to_feynmp
-    tttype = type_map[p.type]
-KeyError: &#39;anti fermion&#39;
-
 tikz:
 </pre></div></div>
 </div>
@@ -337,69 +363,145 @@ tikz:
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-dot:
-dot failed:
-Traceback (most recent call last):
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/all.py&#34;, line 86, in render
-    render(fd).render(dirpath + &#34;/&#34; + name + &#34;.pdf&#34;, **dynarg)
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/latex/dot.py&#34;, line 72, in __init__
-    self.set_feynman_diagram(fd)
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/latex/dot.py&#34;, line 76, in set_feynman_diagram
-    self.src_dot = feynman_to_dot(
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/interface/dot.py&#34;, line 27, in feynman_to_dot
-    thestyle = styler(p)
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/latex/dot.py&#34;, line 33, in stylize_connect
-    style = &#39;style=&#34;{}&#34;,texmode=&#34;raw&#34;&#39;.format(map_feyn_to_tikz[c.type])
-KeyError: &#39;anti fermion&#39;
-
-feynman:
-feynman failed:
-Traceback (most recent call last):
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/all.py&#34;, line 86, in render
-    render(fd).render(dirpath + &#34;/&#34; + name + &#34;.pdf&#34;, **dynarg)
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/mpl/feynmanrender.py&#34;, line 68, in render
-    scaley = 1.0 / (maxy - miny) * buffer
-ZeroDivisionError: float division by zero
-
-mpl:
-mpl failed:
-Traceback (most recent call last):
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/all.py&#34;, line 86, in render
-    render(fd).render(dirpath + &#34;/&#34; + name + &#34;.pdf&#34;, **dynarg)
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/mpl/mpl.py&#34;, line 138, in render
-    namedlines[p.type](idtopos[p.source], idtopos[p.target])
-KeyError: &#39;anti fermion&#39;
-
-ascii:
-ascii failed:
-Traceback (most recent call last):
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/all.py&#34;, line 86, in render
-    render(fd).render(dirpath + &#34;/&#34; + name + &#34;.pdf&#34;, **dynarg)
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/text/asciipdf.py&#34;, line 25, in render
-    ASCIIRender.render(self, file, show, resolution, width, height)
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/text/ascii.py&#34;, line 150, in render
-    self.namedlines[p.type]().draw(pane, src, tar, **fmt)
-KeyError: &#39;anti fermion&#39;
-
-unicode:
-unicode failed:
-Traceback (most recent call last):
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/all.py&#34;, line 86, in render
-    render(fd).render(dirpath + &#34;/&#34; + name + &#34;.pdf&#34;, **dynarg)
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/text/unicodepdf.py&#34;, line 64, in render
-    UnicodeRender.render(self, file, show, resolution, width, height)
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/text/ascii.py&#34;, line 150, in render
-    self.namedlines[p.type]().draw(pane, src, tar, **fmt)
-KeyError: &#39;anti fermion&#39;
-
+pyx:
 </pre></div></div>
 </div>
-<div class="nboutput nblast docutils container">
+<div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
 <img alt="../../_images/gallery_pyfeyn_pyfeyn_3_3.png" src="../../_images/gallery_pyfeyn_pyfeyn_3_3.png" />
 </div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+feynmp:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/gallery_pyfeyn_pyfeyn_3_5.png" src="../../_images/gallery_pyfeyn_pyfeyn_3_5.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+feynman:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/gallery_pyfeyn_pyfeyn_3_7.png" src="../../_images/gallery_pyfeyn_pyfeyn_3_7.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+dot:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/gallery_pyfeyn_pyfeyn_3_9.png" src="../../_images/gallery_pyfeyn_pyfeyn_3_9.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+mermaid:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/gallery_pyfeyn_pyfeyn_3_11.svg" src="../../_images/gallery_pyfeyn_pyfeyn_3_11.svg" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+asciipdf:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/gallery_pyfeyn_pyfeyn_3_13.png" src="../../_images/gallery_pyfeyn_pyfeyn_3_13.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+unicodepdf:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/gallery_pyfeyn_pyfeyn_3_15.png" src="../../_images/gallery_pyfeyn_pyfeyn_3_15.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+madgraph:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/gallery_pyfeyn_pyfeyn_3_17.png" src="../../_images/gallery_pyfeyn_pyfeyn_3_17.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+root:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/gallery_pyfeyn_pyfeyn_3_19.png" src="../../_images/gallery_pyfeyn_pyfeyn_3_19.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+Error in &lt;TCanvas::Range&gt;: illegal world coordinates range: x1=-4.400000, y1=0.000000, x2=4.400000, y2=0.000000
+Info in &lt;TCanvas::SaveSource&gt;: C++ Macro file: /tmp/tmpwnvz1tx4.tex has been generated
+Info in &lt;TCanvas::Print&gt;: TeX file /tmp/tmp82w82usj.tex has been created
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
@@ -429,28 +531,6 @@ KeyError: &#39;anti fermion&#39;
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-pyx:
-pyx failed:
-Traceback (most recent call last):
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/all.py&#34;, line 86, in render
-    render(fd).render(dirpath + &#34;/&#34; + name + &#34;.pdf&#34;, **dynarg)
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/pyx/pyxrender.py&#34;, line 53, in render
-    nl = NamedLine[p.type](Point(src.x, src.y), Point(tar.x, tar.y))
-KeyError: &#39;anti fermion&#39;
-
-feynmp:
-feynmp failed:
-Traceback (most recent call last):
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/all.py&#34;, line 86, in render
-    render(fd).render(dirpath + &#34;/&#34; + name + &#34;.pdf&#34;, **dynarg)
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/latex/feynmp.py&#34;, line 139, in __init__
-    self.set_feynman_diagram(fd)
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/latex/feynmp.py&#34;, line 143, in set_feynman_diagram
-    self.set_src_diag(NoEscape(feynman_to_feynmp(fd)))
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/latex/feynmp.py&#34;, line 104, in feynman_to_feynmp
-    tttype = type_map[p.type]
-KeyError: &#39;anti fermion&#39;
-
 tikz:
 </pre></div></div>
 </div>
@@ -466,103 +546,161 @@ tikz:
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-dot:
-dot failed:
-Traceback (most recent call last):
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/all.py&#34;, line 86, in render
-    render(fd).render(dirpath + &#34;/&#34; + name + &#34;.pdf&#34;, **dynarg)
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/latex/dot.py&#34;, line 72, in __init__
-    self.set_feynman_diagram(fd)
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/latex/dot.py&#34;, line 76, in set_feynman_diagram
-    self.src_dot = feynman_to_dot(
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/interface/dot.py&#34;, line 27, in feynman_to_dot
-    thestyle = styler(p)
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/latex/dot.py&#34;, line 33, in stylize_connect
-    style = &#39;style=&#34;{}&#34;,texmode=&#34;raw&#34;&#39;.format(map_feyn_to_tikz[c.type])
-KeyError: &#39;anti fermion&#39;
-
-feynman:
-feynman failed:
-Traceback (most recent call last):
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/all.py&#34;, line 86, in render
-    render(fd).render(dirpath + &#34;/&#34; + name + &#34;.pdf&#34;, **dynarg)
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/mpl/feynmanrender.py&#34;, line 68, in render
-    scaley = 1.0 / (maxy - miny) * buffer
-ZeroDivisionError: float division by zero
-
-mpl:
-mpl failed:
-Traceback (most recent call last):
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/all.py&#34;, line 86, in render
-    render(fd).render(dirpath + &#34;/&#34; + name + &#34;.pdf&#34;, **dynarg)
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/mpl/mpl.py&#34;, line 138, in render
-    namedlines[p.type](idtopos[p.source], idtopos[p.target])
-KeyError: &#39;anti fermion&#39;
-
-ascii:
-ascii failed:
-Traceback (most recent call last):
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/all.py&#34;, line 86, in render
-    render(fd).render(dirpath + &#34;/&#34; + name + &#34;.pdf&#34;, **dynarg)
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/text/asciipdf.py&#34;, line 25, in render
-    ASCIIRender.render(self, file, show, resolution, width, height)
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/text/ascii.py&#34;, line 150, in render
-    self.namedlines[p.type]().draw(pane, src, tar, **fmt)
-KeyError: &#39;anti fermion&#39;
-
-unicode:
-unicode failed:
-Traceback (most recent call last):
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/all.py&#34;, line 86, in render
-    render(fd).render(dirpath + &#34;/&#34; + name + &#34;.pdf&#34;, **dynarg)
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/text/unicodepdf.py&#34;, line 64, in render
-    UnicodeRender.render(self, file, show, resolution, width, height)
-  File &#34;/home/apn/data/de.neuwirthinformatik.Alexander/Development/git/pyfeyn2/pyfeyn2/render/text/ascii.py&#34;, line 150, in render
-    self.namedlines[p.type]().draw(pane, src, tar, **fmt)
-KeyError: &#39;anti fermion&#39;
-
+pyx:
 </pre></div></div>
 </div>
-<div class="nboutput nblast docutils container">
+<div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
 <img alt="../../_images/gallery_pyfeyn_pyfeyn_4_3.png" src="../../_images/gallery_pyfeyn_pyfeyn_4_3.png" />
 </div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+feynmp:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/gallery_pyfeyn_pyfeyn_4_5.png" src="../../_images/gallery_pyfeyn_pyfeyn_4_5.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+feynman:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/gallery_pyfeyn_pyfeyn_4_7.png" src="../../_images/gallery_pyfeyn_pyfeyn_4_7.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+dot:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/gallery_pyfeyn_pyfeyn_4_9.png" src="../../_images/gallery_pyfeyn_pyfeyn_4_9.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+mermaid:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/gallery_pyfeyn_pyfeyn_4_11.svg" src="../../_images/gallery_pyfeyn_pyfeyn_4_11.svg" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+asciipdf:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/gallery_pyfeyn_pyfeyn_4_13.png" src="../../_images/gallery_pyfeyn_pyfeyn_4_13.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+unicodepdf:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/gallery_pyfeyn_pyfeyn_4_15.png" src="../../_images/gallery_pyfeyn_pyfeyn_4_15.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+madgraph:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/gallery_pyfeyn_pyfeyn_4_17.png" src="../../_images/gallery_pyfeyn_pyfeyn_4_17.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+root:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/gallery_pyfeyn_pyfeyn_4_19.png" src="../../_images/gallery_pyfeyn_pyfeyn_4_19.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+Error in &lt;TCanvas::Range&gt;: illegal world coordinates range: x1=-2.200000, y1=0.000000, x2=2.200000, y2=0.000000
+Info in &lt;TCanvas::SaveSource&gt;: C++ Macro file: /tmp/tmpuaegz_vt.tex has been generated
+Info in &lt;TCanvas::Print&gt;: TeX file /tmp/tmpmqxqycro.tex has been created
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-&#39;&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;\n&lt;diagram id=&#34;FeynmanDiagram31&#34; default_style=&#34;true&#34; style=&#34;&#34;&gt;\n  &lt;propagator id=&#34;Propagator32&#34; pdgid=&#34;6&#34; type=&#34;fermion&#34; style=&#34;bend-direction: right&#34; label=&#34;$t$&#34;&gt;\n    &lt;name&gt;t&lt;/name&gt;\n    &lt;source&gt;Vertex27&lt;/source&gt;\n    &lt;target&gt;Vertex28&lt;/target&gt;\n  &lt;/propagator&gt;\n  &lt;propagator id=&#34;Propagator33&#34; pdgid=&#34;-6&#34; type=&#34;anti fermion&#34; style=&#34;bend-direction: left&#34; label=&#34;$\\overline{t}$&#34;&gt;\n    &lt;name&gt;t~&lt;/name&gt;\n    &lt;source&gt;Vertex27&lt;/source&gt;\n    &lt;target&gt;Vertex28&lt;/target&gt;\n  &lt;/propagator&gt;\n  &lt;vertex id=&#34;Vertex27&#34; style=&#34;&#34; x=&#34;-2&#34; y=&#34;0&#34;/&gt;\n  &lt;vertex id=&#34;Vertex28&#34; style=&#34;&#34; x=&#34;2&#34; y=&#34;0&#34;/&gt;\n&lt;/diagram&gt;\n&#39;
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-cssutils.css.CSSStyleDeclaration(cssText=&#39;ok: true; kek: true; kek: true&#39;)
-</pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:

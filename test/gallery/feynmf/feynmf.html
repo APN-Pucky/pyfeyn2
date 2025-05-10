@@ -132,18 +132,19 @@
 <section id="Box">
 <h2>Box<a class="headerlink" href="#Box" title="Link to this heading"></a></h2>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">feynml</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">feynml.topology</span><span class="w"> </span><span class="kn">import</span> <span class="n">two_to_two</span> <span class="k">as</span> <span class="n">t2t</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">feynml.topology</span><span class="w"> </span><span class="kn">import</span> <span class="n">four</span> <span class="k">as</span> <span class="n">t2t</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">pyfeyn2.auto</span><span class="w"> </span><span class="kn">import</span> <span class="n">auto_default</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pyfeyn2.render.latex.tikzfeynman</span><span class="w"> </span><span class="kn">import</span> <span class="n">TikzFeynmanRender</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">pyfeyn2.render.all</span><span class="w"> </span><span class="kn">import</span> <span class="n">AllRender</span>
 </pre></div>
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fd</span> <span class="o">=</span> <span class="n">t2t</span><span class="o">.</span><span class="n">v_channel</span><span class="p">(</span><span class="s2">&quot;b&quot;</span><span class="p">,</span><span class="s2">&quot;c_bar&quot;</span><span class="p">,</span><span class="s2">&quot;b_bar&quot;</span><span class="p">,</span><span class="s2">&quot;c&quot;</span><span class="p">)</span>
@@ -276,35 +277,50 @@ unicodepdf:
 <img alt="../../_images/gallery_feynmf_feynmf_3_15.png" src="../../_images/gallery_feynmf_feynmf_3_15.png" />
 </div>
 </div>
-<div class="nboutput nblast docutils container">
+<div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 madgraph:
-madgraph failed:
-Traceback (most recent call last):
-  File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/all.py&#34;, line 113, in render
-    render(fd).render(dirpath + &#34;/&#34; + name + &#34;.pdf&#34;, **dynarg)
-    ~~~~~~^^^^
-  File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/ps/madgraph.py&#34;, line 77, in __init__
-    self.set_feynman_diagram(fd)
-    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^
-  File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/ps/madgraph.py&#34;, line 131, in set_feynman_diagram
-    self.set_src(feynman_to_ps(fd))
-                 ~~~~~~~~~~~~~^^^^
-  File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/ps/madgraph.py&#34;, line 47, in feynman_to_ps
-    line = type_map[style.getProperty(&#34;line&#34;).value]
-           ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-KeyError: &#39;boson&#39;
-
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/gallery_feynmf_feynmf_3_17.png" src="../../_images/gallery_feynmf_feynmf_3_17.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+root:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/gallery_feynmf_feynmf_3_19.png" src="../../_images/gallery_feynmf_feynmf_3_19.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+Info in &lt;TCanvas::SaveSource&gt;: C++ Macro file: /tmp/tmpvr78t6t3.tex has been generated
+Info in &lt;TCanvas::Print&gt;: TeX file /tmp/tmpei2rm9jo.tex has been created
 </pre></div></div>
 </div>
 </section>
 <section id="2-to-4">
 <h2>2 to 4<a class="headerlink" href="#2-to-4" title="Link to this heading"></a></h2>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fd</span> <span class="o">=</span> <span class="n">t2t</span><span class="o">.</span><span class="n">s_channel</span><span class="p">(</span><span class="s2">&quot;e-&quot;</span><span class="p">,</span><span class="s2">&quot;e+&quot;</span><span class="p">,</span><span class="s2">&quot;gamma&quot;</span><span class="p">,</span><span class="s2">&quot;W+&quot;</span><span class="p">,</span><span class="s2">&quot;W-&quot;</span><span class="p">)</span>
@@ -436,32 +452,47 @@ unicodepdf:
 <img alt="../../_images/gallery_feynmf_feynmf_5_15.png" src="../../_images/gallery_feynmf_feynmf_5_15.png" />
 </div>
 </div>
-<div class="nboutput nblast docutils container">
+<div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 madgraph:
-madgraph failed:
-Traceback (most recent call last):
-  File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/all.py&#34;, line 113, in render
-    render(fd).render(dirpath + &#34;/&#34; + name + &#34;.pdf&#34;, **dynarg)
-    ~~~~~~^^^^
-  File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/ps/madgraph.py&#34;, line 77, in __init__
-    self.set_feynman_diagram(fd)
-    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^
-  File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/ps/madgraph.py&#34;, line 131, in set_feynman_diagram
-    self.set_src(feynman_to_ps(fd))
-                 ~~~~~~~~~~~~~^^^^
-  File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/ps/madgraph.py&#34;, line 47, in feynman_to_ps
-    line = type_map[style.getProperty(&#34;line&#34;).value]
-           ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-KeyError: &#39;boson&#39;
-
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/gallery_feynmf_feynmf_5_17.png" src="../../_images/gallery_feynmf_feynmf_5_17.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+root:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/gallery_feynmf_feynmf_5_19.png" src="../../_images/gallery_feynmf_feynmf_5_19.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+Info in &lt;TCanvas::SaveSource&gt;: C++ Macro file: /tmp/tmpha6i3skt.tex has been generated
+Info in &lt;TCanvas::Print&gt;: TeX file /tmp/tmprn4a10hv.tex has been created
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fd</span> <span class="o">=</span> <span class="n">t2t</span><span class="o">.</span><span class="n">s_channel</span><span class="p">(</span><span class="s2">&quot;e-&quot;</span><span class="p">,</span><span class="s2">&quot;e+&quot;</span><span class="p">,</span><span class="s2">&quot;gamma&quot;</span><span class="p">,</span><span class="s2">&quot;W-&quot;</span><span class="p">,</span><span class="s2">&quot;W+&quot;</span><span class="p">)</span>
@@ -594,29 +625,52 @@ unicodepdf:
 <img alt="../../_images/gallery_feynmf_feynmf_6_15.png" src="../../_images/gallery_feynmf_feynmf_6_15.png" />
 </div>
 </div>
-<div class="nboutput nblast docutils container">
+<div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 madgraph:
-madgraph failed:
-Traceback (most recent call last):
-  File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/all.py&#34;, line 113, in render
-    render(fd).render(dirpath + &#34;/&#34; + name + &#34;.pdf&#34;, **dynarg)
-    ~~~~~~^^^^
-  File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/ps/madgraph.py&#34;, line 77, in __init__
-    self.set_feynman_diagram(fd)
-    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^
-  File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/ps/madgraph.py&#34;, line 131, in set_feynman_diagram
-    self.set_src(feynman_to_ps(fd))
-                 ~~~~~~~~~~~~~^^^^
-  File &#34;/home/apn/git/pyfeyn2/pyfeyn2/render/ps/madgraph.py&#34;, line 47, in feynman_to_ps
-    line = type_map[style.getProperty(&#34;line&#34;).value]
-           ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-KeyError: &#39;boson&#39;
-
 </pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/gallery_feynmf_feynmf_6_17.png" src="../../_images/gallery_feynmf_feynmf_6_17.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+root:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/gallery_feynmf_feynmf_6_19.png" src="../../_images/gallery_feynmf_feynmf_6_19.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+Info in &lt;TCanvas::SaveSource&gt;: C++ Macro file: /tmp/tmpdfd34jt1.tex has been generated
+Info in &lt;TCanvas::Print&gt;: TeX file /tmp/tmp6g7j28pe.tex has been created
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
