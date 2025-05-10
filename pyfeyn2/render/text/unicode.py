@@ -1,4 +1,3 @@
-import latexcodec
 from asciidraw.line import ASCIILine
 from asciidraw.point import ASCIIPoint
 from asciidraw.style import Compass

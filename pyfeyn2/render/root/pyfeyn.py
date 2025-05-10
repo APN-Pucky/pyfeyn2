@@ -106,7 +106,9 @@ class Vertex(object):
         if autolabel:
             self.label.set_location(self.x1, self.y1)
 
-    def draw(self, _nodelete=[]):
+    def draw(self, _nodelete=None):
+        if _nodelete is None:
+            _nodelete = []
         self.label.draw()
         self.marker.draw()
 
@@ -179,7 +181,9 @@ class Propagator(object):
                 # 0.5 * (self.v1.x1 + self.v2.x1), 0.5 * (self.v1.y1 + self.v2.y1)
             )
 
-    def draw(self, _nodelete=[]):
+    def draw(self, _nodelete=None):
+        if _nodelete is None:
+            _nodelete = []
         prop1, prop2 = None, None
         drawopt = ""
         if self.typ == "line" or self.typ == "fermion" or self.typ == "anti fermion":
