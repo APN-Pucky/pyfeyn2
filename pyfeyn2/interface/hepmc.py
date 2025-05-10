@@ -3,5 +3,5 @@ from feynml.interface.hepmc import hepmc_event_to_feynman as _event_to_feynman
 from smpl_doc.doc import deprecated
 
 event_to_feynman = deprecated(
-    "2.2.6", "Directly use feynml.interface.hepmc.event_to_feynman()"
+    "2.2.6", "Directly use feynml.interface.hepmc.hepmc_event_to_feynman()"
 )(_event_to_feynman)

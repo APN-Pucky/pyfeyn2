@@ -177,6 +177,8 @@ class ROOTRender(Render):
             "boson",
             "fermion",
             "anti fermion",
+            "squark",
+            "anti squark",
         ]
 
     @classmethod
