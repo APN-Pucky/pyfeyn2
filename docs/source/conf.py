@@ -24,7 +24,7 @@ import copy
 try:
     import tomllib  # Python 3.11+
 except ImportError:
-    import tomli as tomlib  # Python <= 3.10
+    import tomli as tomllib  # Python <= 3.10
 
 from smpl_doc import doc
 from smpl_io import io
