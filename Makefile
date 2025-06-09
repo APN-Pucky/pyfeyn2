@@ -10,8 +10,7 @@ pdf:
 doc: html
 
 install:
-	hatch env create
-	python3 -m pip install --user .
+	python3 -m pip install --user . --break-system-packages
 
 build:
 	hatch build
