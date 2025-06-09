@@ -97,7 +97,13 @@ features = [
 
 [tool.hatch]
 version.source = "vcs"
-build.hooks.vcs.version-file = "pyfeyn2/version.py"
+
+[tool.hatch.build]
+hooks.vcs.version-file = "pyfeyn2/version.py"
+exclude = [
+  "docs/",
+  "debug/",
+]
 
 [tool.hatch.scripts]
 mkfeyndiag = "pyfeyn2.mkfeyndiag:main"
