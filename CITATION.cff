@@ -4,8 +4,8 @@ version: 2.4.2
 abstract: Package to draw Feynman diagrams in python. Fork of pyfeyn with new features.
 message: If you use this software, please cite it using these metadata.
 authors:
-- family-names: Neuwirth
-  given-names: Alexander Puck
+- family-names: "Neuwirth"
+  given-names: "Alexander Puck"
   orcid: "https://orcid.org/0000-0002-2484-1328"
 date-released: '2024-06-01'
 doi: 10.5281/zenodo.10067115
