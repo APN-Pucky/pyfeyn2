@@ -1,0 +1,6 @@
+feynml.topology.three.decay
+===========================
+
+.. currentmodule:: feynml.topology.three
+
+.. autofunction:: decay

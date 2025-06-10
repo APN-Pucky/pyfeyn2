@@ -1,0 +1,6 @@
+feynml.topology.three.fusion
+============================
+
+.. currentmodule:: feynml.topology.three
+
+.. autofunction:: fusion

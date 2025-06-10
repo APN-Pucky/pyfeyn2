@@ -1,29 +1,27 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>feynml.styled &mdash; pyfeyn2  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css" />
       <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
       <link rel="stylesheet" type="text/css" href="../../_static/thebelab.css" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=b3ba4146"></script>
-        <script src="../../_static/doctools.js?v=888ff710"></script>
-        <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
-        <script src="../../_static/thebelab-helper.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/thebelab-helper.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" /> 
@@ -41,9 +39,6 @@
             pyfeyn2
               <img src="../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
-              <div class="version">
-                2.4.2
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -114,7 +109,9 @@ from dataclasses import dataclass, field
 from typing import Optional
 
 import cssutils
-from smpl_doc.doc import deprecated
+
+# from warnings import deprecated
+from smpl.doc import deprecated
 from xsdata.formats.converter import Converter, converter
 
 # We don&#39;t want to see the cssutils warnings, since we have custom properties
@@ -124,31 +121,51 @@ CSSString = cssutils.css.CSSStyleDeclaration
 CSSSheet = cssutils.css.CSSStyleSheet
 
 
-<div class="viewcode-block" id="CSSStringConverter"><a class="viewcode-back" href="../../_autosummary/feynml.styled.CSSStringConverter.html#feynml.styled.CSSStringConverter">[docs]</a>class CSSStringConverter(Converter):
-<div class="viewcode-block" id="CSSStringConverter.deserialize"><a class="viewcode-back" href="../../_autosummary/feynml.styled.CSSStringConverter.html#feynml.styled.CSSStringConverter.deserialize">[docs]</a>    @staticmethod
+<div class="viewcode-block" id="CSSStringConverter">
+<a class="viewcode-back" href="../../_autosummary/feynml.styled.CSSStringConverter.html#feynml.styled.CSSStringConverter">[docs]</a>
+class CSSStringConverter(Converter):
+<div class="viewcode-block" id="CSSStringConverter.deserialize">
+<a class="viewcode-back" href="../../_autosummary/feynml.styled.CSSStringConverter.html#feynml.styled.CSSStringConverter.deserialize">[docs]</a>
+    @staticmethod
     def deserialize(value: str, **kwargs) -&gt; CSSString:
         return cssutils.parseStyle(value)</div>
 
-<div class="viewcode-block" id="CSSStringConverter.serialize"><a class="viewcode-back" href="../../_autosummary/feynml.styled.CSSStringConverter.html#feynml.styled.CSSStringConverter.serialize">[docs]</a>    @staticmethod
+
+<div class="viewcode-block" id="CSSStringConverter.serialize">
+<a class="viewcode-back" href="../../_autosummary/feynml.styled.CSSStringConverter.html#feynml.styled.CSSStringConverter.serialize">[docs]</a>
+    @staticmethod
     def serialize(value: CSSString, **kwargs) -&gt; str:
-        return value.cssText.replace(&quot;\n&quot;, &quot; &quot;)</div></div>
+        return value.cssText.replace(&quot;\n&quot;, &quot; &quot;)</div>
+</div>
 
 
-<div class="viewcode-block" id="CSSSheetConverter"><a class="viewcode-back" href="../../_autosummary/feynml.styled.CSSSheetConverter.html#feynml.styled.CSSSheetConverter">[docs]</a>class CSSSheetConverter(Converter):
-<div class="viewcode-block" id="CSSSheetConverter.deserialize"><a class="viewcode-back" href="../../_autosummary/feynml.styled.CSSSheetConverter.html#feynml.styled.CSSSheetConverter.deserialize">[docs]</a>    @staticmethod
+
+<div class="viewcode-block" id="CSSSheetConverter">
+<a class="viewcode-back" href="../../_autosummary/feynml.styled.CSSSheetConverter.html#feynml.styled.CSSSheetConverter">[docs]</a>
+class CSSSheetConverter(Converter):
+<div class="viewcode-block" id="CSSSheetConverter.deserialize">
+<a class="viewcode-back" href="../../_autosummary/feynml.styled.CSSSheetConverter.html#feynml.styled.CSSSheetConverter.deserialize">[docs]</a>
+    @staticmethod
     def deserialize(value: str, **kwargs) -&gt; CSSSheet:
         return cssutils.parseString(value)</div>
 
-<div class="viewcode-block" id="CSSSheetConverter.serialize"><a class="viewcode-back" href="../../_autosummary/feynml.styled.CSSSheetConverter.html#feynml.styled.CSSSheetConverter.serialize">[docs]</a>    @staticmethod
+
+<div class="viewcode-block" id="CSSSheetConverter.serialize">
+<a class="viewcode-back" href="../../_autosummary/feynml.styled.CSSSheetConverter.html#feynml.styled.CSSSheetConverter.serialize">[docs]</a>
+    @staticmethod
     def serialize(value: CSSSheet, **kwargs) -&gt; str:
-        return value.cssText.decode(&quot;utf-8&quot;)  # .replace(&quot;\n&quot;, &quot; &quot;)</div></div>
+        return value.cssText.decode(&quot;utf-8&quot;)  # .replace(&quot;\n&quot;, &quot; &quot;)</div>
+</div>
+
 
 
 converter.register_converter(CSSString, CSSStringConverter())
 converter.register_converter(CSSSheet, CSSSheetConverter())
 
 
-<div class="viewcode-block" id="Styled"><a class="viewcode-back" href="../../_autosummary/feynml.styled.Styled.html#feynml.styled.Styled">[docs]</a>@dataclass
+<div class="viewcode-block" id="Styled">
+<a class="viewcode-back" href="../../_autosummary/feynml.styled.Styled.html#feynml.styled.Styled">[docs]</a>
+@dataclass
 class Styled:
     style: CSSString = field(
         default_factory=lambda: cssutils.parseStyle(&quot;&quot;),
@@ -165,24 +182,27 @@ class Styled:
     def raw_style(self):
         return self.style.cssText.replace(&quot;\n&quot;, &quot; &quot;)
 
-<div class="viewcode-block" id="Styled.put_style"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.Styled.html#feynml.styled.Styled.put_style">[docs]</a>    @deprecated(&quot;0.0.0&quot;, &quot;use with_style_property&quot;)
+<div class="viewcode-block" id="Styled.put_style">
+<a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.Styled.html#feynml.styled.Styled.put_style">[docs]</a>
+    @deprecated(&quot;use with_style_property&quot;)
     def put_style(self, key, value):
         return self.put_styles(**{key: value})</div>
 
-<div class="viewcode-block" id="Styled.put_styles"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.Styled.html#feynml.styled.Styled.put_styles">[docs]</a>    @deprecated(&quot;0.0.0&quot;, &quot;use with_style_properties&quot;)
+
+<div class="viewcode-block" id="Styled.put_styles">
+<a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.Styled.html#feynml.styled.Styled.put_styles">[docs]</a>
+    @deprecated(&quot;use with_style_properties&quot;)
     def put_styles(self, **kwargs):
         if self.style is not None:
             for key, value in kwargs.items():
                 self.style.setProperty(key, value)
         return self</div>
 
+
     def get_style_property(self, key):
         if self.style is None:
             return None
-        if self.style.getProperty(key) is not None:
-            return self.style.getProperty(key).value
-        else:
-            return None
+        return self.style.getPropertyValue(key, default=None)
 
     def with_style_property(self, key, value):
         if self.style is not None:
@@ -205,6 +225,7 @@ class Styled:
 
     def with_color(self, color):
         return self.with_style_property(&quot;color&quot;, color)</div>
+
 </pre></div>
 
            </div>
@@ -214,7 +235,7 @@ class Styled:
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2024, Alexander Puck Neuwirth.</p>
+    <p>&#169; Copyright 2025, Alexander Puck Neuwirth.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

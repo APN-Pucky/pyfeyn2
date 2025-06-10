@@ -1,0 +1,6 @@
+feynml.topology.four.s\_channel
+===============================
+
+.. currentmodule:: feynml.topology.four
+
+.. autofunction:: s_channel

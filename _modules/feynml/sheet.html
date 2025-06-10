@@ -1,29 +1,27 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>feynml.sheet &mdash; pyfeyn2  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css" />
       <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
       <link rel="stylesheet" type="text/css" href="../../_static/thebelab.css" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=b3ba4146"></script>
-        <script src="../../_static/doctools.js?v=888ff710"></script>
-        <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
-        <script src="../../_static/thebelab-helper.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/thebelab-helper.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" /> 
@@ -41,9 +39,6 @@
             pyfeyn2
               <img src="../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
-              <div class="version">
-                2.4.2
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -189,8 +184,8 @@ default_sheet = cssutils.parseString(
         [shape=hexacross] {
             symbol : pentacross;
         }
-        
-        
+
+
 
         /*************************************************************************/
         /* Propagator */
@@ -323,34 +318,50 @@ default_sheet = cssutils.parseString(
 )
 
 
-<div class="viewcode-block" id="get_default_sheet"><a class="viewcode-back" href="../../_autosummary/feynml.sheet.get_default_sheet.html#feynml.sheet.get_default_sheet">[docs]</a>def get_default_sheet() -&gt; cssutils.css.CSSStyleSheet:
+<div class="viewcode-block" id="get_default_sheet">
+<a class="viewcode-back" href="../../_autosummary/feynml.sheet.get_default_sheet.html#feynml.sheet.get_default_sheet">[docs]</a>
+def get_default_sheet() -&gt; cssutils.css.CSSStyleSheet:
     &quot;&quot;&quot;Return the default sheet.&quot;&quot;&quot;
     return default_sheet</div>
 
 
-<div class="viewcode-block" id="SheetHandler"><a class="viewcode-back" href="../../_autosummary/feynml.sheet.SheetHandler.html#feynml.sheet.SheetHandler">[docs]</a>class SheetHandler:
+
+<div class="viewcode-block" id="SheetHandler">
+<a class="viewcode-back" href="../../_autosummary/feynml.sheet.SheetHandler.html#feynml.sheet.SheetHandler">[docs]</a>
+class SheetHandler:
     &quot;&quot;&quot;Sheet class.&quot;&quot;&quot;
 
     default_sheet: cssutils.css.CSSStyleSheet = get_default_sheet()
 
-<div class="viewcode-block" id="SheetHandler.get_sheets"><a class="viewcode-back" href="../../_autosummary/feynml.sheet.SheetHandler.html#feynml.sheet.SheetHandler.get_sheets">[docs]</a>    def get_sheets(self) -&gt; List[cssutils.css.CSSStyleSheet]:
+<div class="viewcode-block" id="SheetHandler.get_sheets">
+<a class="viewcode-back" href="../../_autosummary/feynml.sheet.SheetHandler.html#feynml.sheet.SheetHandler.get_sheets">[docs]</a>
+    def get_sheets(self) -&gt; List[cssutils.css.CSSStyleSheet]:
         &quot;&quot;&quot;Return the sheet.&quot;&quot;&quot;
         return [self.default_sheet]</div>
 
-<div class="viewcode-block" id="SheetHandler.get_sheet"><a class="viewcode-back" href="../../_autosummary/feynml.sheet.SheetHandler.html#feynml.sheet.SheetHandler.get_sheet">[docs]</a>    def get_sheet(self) -&gt; cssutils.css.CSSStyleSheet:
+
+<div class="viewcode-block" id="SheetHandler.get_sheet">
+<a class="viewcode-back" href="../../_autosummary/feynml.sheet.SheetHandler.html#feynml.sheet.SheetHandler.get_sheet">[docs]</a>
+    def get_sheet(self) -&gt; cssutils.css.CSSStyleSheet:
         &quot;&quot;&quot;Return the sheet.&quot;&quot;&quot;
         return self.default_sheet</div>
 
-<div class="viewcode-block" id="SheetHandler.with_sheet"><a class="viewcode-back" href="../../_autosummary/feynml.sheet.SheetHandler.html#feynml.sheet.SheetHandler.with_sheet">[docs]</a>    def with_sheet(self, sheet):
+
+<div class="viewcode-block" id="SheetHandler.with_sheet">
+<a class="viewcode-back" href="../../_autosummary/feynml.sheet.SheetHandler.html#feynml.sheet.SheetHandler.with_sheet">[docs]</a>
+    def with_sheet(self, sheet):
         &quot;&quot;&quot;Return the object with the sheet.&quot;&quot;&quot;
         self.default_sheet = sheet
         return self</div>
 
-<div class="viewcode-block" id="SheetHandler.get_style"><a class="viewcode-back" href="../../_autosummary/feynml.sheet.SheetHandler.html#feynml.sheet.SheetHandler.get_style">[docs]</a>    def get_style(self, obj, xml: XML = None) -&gt; cssutils.css.CSSStyleDeclaration:
+
+<div class="viewcode-block" id="SheetHandler.get_style">
+<a class="viewcode-back" href="../../_autosummary/feynml.sheet.SheetHandler.html#feynml.sheet.SheetHandler.get_style">[docs]</a>
+    def get_style(self, obj, xml: XML = None) -&gt; cssutils.css.CSSStyleDeclaration:
         &quot;&quot;&quot;
         Get the style of an object.
 
-        This is prefered over accessing the style attribute directly, since it includes class and pdgid definitions.
+        This is preferred over accessing the style attribute directly, since it includes class and pdgid definitions.
         &quot;&quot;&quot;
         # selectorText is string
         css = []
@@ -364,16 +375,16 @@ default_sheet = cssutils.parseString(
             cssText=&quot;;&quot;.join([c.cssText for c in css])
         )</div>
 
-<div class="viewcode-block" id="SheetHandler.get_style_property"><a class="viewcode-back" href="../../_autosummary/feynml.sheet.SheetHandler.html#feynml.sheet.SheetHandler.get_style_property">[docs]</a>    def get_style_property(self, obj, property_name, xml: XML = None) -&gt; str:
+
+<div class="viewcode-block" id="SheetHandler.get_style_property">
+<a class="viewcode-back" href="../../_autosummary/feynml.sheet.SheetHandler.html#feynml.sheet.SheetHandler.get_style_property">[docs]</a>
+    def get_style_property(self, obj, property_name, xml: XML = None) -&gt; str:
         &quot;&quot;&quot;
         Get a style property of an object.
         &quot;&quot;&quot;
         style = self.get_style(obj, xml=xml)
-        p = style.getProperty(property_name)
-        if p is None:
-            return None
-        else:
-            return p.value</div>
+        return style.getPropertyValue(property_name, default=None)</div>
+
 
     def _get_obj_style(
         self, obj: Identifiable, xml: XML = None
@@ -424,36 +435,47 @@ default_sheet = cssutils.parseString(
             cssText=&quot;;&quot;.join([r.style.cssText for r in ret])
         )
 
-<div class="viewcode-block" id="SheetHandler.add_rule"><a class="viewcode-back" href="../../_autosummary/feynml.sheet.SheetHandler.html#feynml.sheet.SheetHandler.add_rule">[docs]</a>    def add_rule(self, rule: str):
+<div class="viewcode-block" id="SheetHandler.add_rule">
+<a class="viewcode-back" href="../../_autosummary/feynml.sheet.SheetHandler.html#feynml.sheet.SheetHandler.add_rule">[docs]</a>
+    def add_rule(self, rule: str):
         &quot;&quot;&quot;
         Add a rule to the style.
         &quot;&quot;&quot;
         self.get_sheet().add(rule)
         return self</div>
 
-<div class="viewcode-block" id="SheetHandler.add_rules"><a class="viewcode-back" href="../../_autosummary/feynml.sheet.SheetHandler.html#feynml.sheet.SheetHandler.add_rules">[docs]</a>    def add_rules(self, rules: str):
+
+<div class="viewcode-block" id="SheetHandler.add_rules">
+<a class="viewcode-back" href="../../_autosummary/feynml.sheet.SheetHandler.html#feynml.sheet.SheetHandler.add_rules">[docs]</a>
+    def add_rules(self, rules: str):
         &quot;&quot;&quot;
         Add rules to the style.
         &quot;&quot;&quot;
-        self.with_sheet(
+        return self.with_sheet(
             cssutils.parseString(
                 self.get_sheet().cssText.decode(&quot;utf-8&quot;) + &quot;\n&quot; + rules
             )
-        )
-        return self</div>
+        )</div>
 
-<div class="viewcode-block" id="SheetHandler.with_rule"><a class="viewcode-back" href="../../_autosummary/feynml.sheet.SheetHandler.html#feynml.sheet.SheetHandler.with_rule">[docs]</a>    def with_rule(self, rule: str):
+
+<div class="viewcode-block" id="SheetHandler.with_rule">
+<a class="viewcode-back" href="../../_autosummary/feynml.sheet.SheetHandler.html#feynml.sheet.SheetHandler.with_rule">[docs]</a>
+    def with_rule(self, rule: str):
         &quot;&quot;&quot;
         Replace rules of the style.
         &quot;&quot;&quot;
         return self.with_rules(rule)</div>
 
-<div class="viewcode-block" id="SheetHandler.with_rules"><a class="viewcode-back" href="../../_autosummary/feynml.sheet.SheetHandler.html#feynml.sheet.SheetHandler.with_rules">[docs]</a>    def with_rules(self, rules: str):
+
+<div class="viewcode-block" id="SheetHandler.with_rules">
+<a class="viewcode-back" href="../../_autosummary/feynml.sheet.SheetHandler.html#feynml.sheet.SheetHandler.with_rules">[docs]</a>
+    def with_rules(self, rules: str):
         &quot;&quot;&quot;
         Replace rules of the style.
         &quot;&quot;&quot;
-        self.with_sheet(cssutils.parseString(rules))
-        return self</div></div>
+        return self.with_sheet(cssutils.parseString(rules))</div>
+</div>
+
 </pre></div>
 
            </div>
@@ -463,7 +485,7 @@ default_sheet = cssutils.parseString(
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2024, Alexander Puck Neuwirth.</p>
+    <p>&#169; Copyright 2025, Alexander Puck Neuwirth.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

@@ -1,30 +1,28 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>pyfeyn2.render.pyx.pyxrender.PyxRender &mdash; pyfeyn2  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
       <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
       <link rel="stylesheet" type="text/css" href="../_static/thebelab.css" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=b3ba4146"></script>
-        <script src="../_static/doctools.js?v=888ff710"></script>
-        <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
-        <script src="../_static/thebelab-helper.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/thebelab-helper.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -44,9 +42,6 @@
             pyfeyn2
               <img src="../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
-              <div class="version">
-                2.4.2
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -96,6 +91,7 @@
 <li class="toctree-l3"><a class="reference internal" href="pyfeyn2.render.render.html">pyfeyn2.render.render</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="pyfeyn2.version.html">pyfeyn2.version</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="feynml.html">feynml</a></li>
@@ -140,14 +136,14 @@
            <div itemprop="articleBody">
              
   <section id="pyfeyn2-render-pyx-pyxrender-pyxrender">
-<h1>pyfeyn2.render.pyx.pyxrender.PyxRender<a class="headerlink" href="#pyfeyn2-render-pyx-pyxrender-pyxrender" title="Permalink to this heading"></a></h1>
+<h1>pyfeyn2.render.pyx.pyxrender.PyxRender<a class="headerlink" href="#pyfeyn2-render-pyx-pyxrender-pyxrender" title="Link to this heading"></a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="pyfeyn2.render.pyx.pyxrender.PyxRender">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyfeyn2.render.pyx.pyxrender.</span></span><span class="sig-name descname"><span class="pre">PyxRender</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/pyxrender.html#PyxRender"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.pyxrender.PyxRender" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyfeyn2.render.pyx.pyxrender.</span></span><span class="sig-name descname"><span class="pre">PyxRender</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/pyxrender.html#PyxRender"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.pyxrender.PyxRender" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="pyfeyn2.render.render.Render.html#pyfeyn2.render.render.Render" title="pyfeyn2.render.render.Render"><code class="xref py py-class docutils literal notranslate"><span class="pre">Render</span></code></a></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.render.pyx.pyxrender.PyxRender.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/pyxrender.html#PyxRender.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.pyxrender.PyxRender.__init__" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/pyxrender.html#PyxRender.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.pyxrender.PyxRender.__init__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <p class="rubric">Methods</p>
@@ -205,13 +201,13 @@
 </table>
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.render.pyx.pyxrender.PyxRender.apply_layout">
-<span class="sig-name descname"><span class="pre">apply_layout</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stylestring</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obj</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/pyxrender.html#PyxRender.apply_layout"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.pyxrender.PyxRender.apply_layout" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">apply_layout</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stylestring</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obj</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/pyxrender.html#PyxRender.apply_layout"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.pyxrender.PyxRender.apply_layout" title="Link to this definition"></a></dt>
 <dd><p>Apply the decorators encoded in a style string to an object.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.render.pyx.pyxrender.PyxRender.render">
-<span class="sig-name descname"><span class="pre">render</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resolution</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">200</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clean_up</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/pyxrender.html#PyxRender.render"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.pyxrender.PyxRender.render" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">render</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resolution</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">200</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clean_up</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/pyxrender.html#PyxRender.render"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.pyxrender.PyxRender.render" title="Link to this definition"></a></dt>
 <dd><p>Render the diagram.</p>
 </dd></dl>
 
@@ -230,7 +226,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2024, Alexander Puck Neuwirth.</p>
+    <p>&#169; Copyright 2025, Alexander Puck Neuwirth.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

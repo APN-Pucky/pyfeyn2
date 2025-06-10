@@ -1,29 +1,27 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>feynml.feynmandiagram &mdash; pyfeyn2  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css" />
       <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
       <link rel="stylesheet" type="text/css" href="../../_static/thebelab.css" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=b3ba4146"></script>
-        <script src="../../_static/doctools.js?v=888ff710"></script>
-        <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
-        <script src="../../_static/thebelab-helper.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/thebelab-helper.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" /> 
@@ -41,9 +39,6 @@
             pyfeyn2
               <img src="../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
-              <div class="version">
-                2.4.2
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -113,31 +108,39 @@
 import logging
 import warnings
 from dataclasses import dataclass, field
-from typing import List, Optional, Union
+from typing import List, Union
 
+import networkx as nx
 import cssutils
 import numpy as np
-import smpl_doc.doc as doc
-from cssselect import GenericTranslator, SelectorError
-from lxml import etree
-from smpl_util.util import withify
+import smpl.doc as doc
 
+# from warnings import deprecated
+from smpl.doc import deprecated
+from smpl.util import withify
+
+from feynmodel.feyn_model import FeynModel
+
+from feynml.connector import Connector
 from feynml.head import Head
 from feynml.id import Identifiable
 from feynml.leg import Leg
+from feynml.pdgid import is_pdgid_param, pdgid_param, to_pdgid
 from feynml.propagator import Propagator
 from feynml.sheet import SheetHandler
 from feynml.styled import CSSSheet, Styled
 from feynml.vertex import Vertex
 from feynml.xml import XML
 
-from .type import get_default_sheet
+from .log import debug
 
 # We don&#39;t want to see the cssutils warnings, since we have custom properties
 cssutils.log.setLevel(logging.CRITICAL)
 
 
-<div class="viewcode-block" id="FeynmanDiagram"><a class="viewcode-back" href="../../_autosummary/feynml.feynmandiagram.FeynmanDiagram.html#feynml.feynmandiagram.FeynmanDiagram">[docs]</a>@withify()
+<div class="viewcode-block" id="FeynmanDiagram">
+<a class="viewcode-back" href="../../_autosummary/feynml.feynmandiagram.FeynmanDiagram.html#feynml.feynmandiagram.FeynmanDiagram">[docs]</a>
+@withify()
 @dataclass
 class FeynmanDiagram(SheetHandler, XML, Styled, Identifiable):
     class Meta:
@@ -168,6 +171,107 @@ class FeynmanDiagram(SheetHandler, XML, Styled, Identifiable):
         },
     )
 
+    def get_vertex_index(self, vertex: Union[Vertex, int]) -&gt; int:
+        if isinstance(vertex, Vertex):
+            vertex = vertex.id
+        for i, v in enumerate(self.vertices):
+            if v.id == vertex:
+                return i
+
+    def is_isomorphic(self, fd: &quot;FeynmanDiagram&quot;):
+        G1 = self.to_graph()
+        G2 = fd.to_graph()
+        return nx.is_isomorphic(
+            G1,
+            G2,
+            node_match=lambda a1, a2: a1[&quot;sense&quot;] == a2[&quot;sense&quot;]
+            and a1[&quot;lid&quot;] == a2[&quot;lid&quot;],
+        )
+
+    def to_graph(self):
+        G = nx.Graph()
+        for v in self.vertices:
+            G.add_node(v.id, sense=None, lid=None)
+        # G.add_node(&quot;incoming&quot;, sense=&quot;incoming&quot;, lid=0)
+        # G.add_node(&quot;outgoing&quot;, sense=&quot;outgoing&quot;, lid=0)
+        n_in = 0
+        n_out = 0
+        for leg in self.legs:
+            if leg.is_incoming():
+                n_in += 1
+                G.add_node(leg.id, sense=&quot;incoming&quot;, lid=n_in)
+                # G.add_edge(l.id, &quot;incoming&quot;)
+                G.add_edge(leg.id, leg.target)
+            else:
+                n_out += 1
+                G.add_node(leg.id, sense=&quot;outgoing&quot;, lid=n_out)
+                # G.add_edge(l.id, &quot;outgoing&quot;)
+                G.add_edge(leg.target, leg.id)
+        for p in self.propagators:
+            G.add_edge(p.source, p.target)
+        return G
+
+    def get_number_of_incoming(self):
+        return len([leg for leg in self.legs if leg.is_incoming()])
+
+    def get_number_of_outgoing(self):
+        return len([leg for leg in self.legs if leg.is_outgoing()])
+
+    def to_matrix(self):
+        # Create a square matrix of arrays of size len(vert) + incoming + outgoing category
+        li = self.get_number_of_incoming()
+        lo = self.get_number_of_outgoing()
+        lv = len(self.vertices) + li + lo
+        mat = np.frompyfunc(list, 0, 1)(np.empty((lv, lv), dtype=object))
+        for p in self.propagators:
+            i = self.get_vertex_index(p.source) + li
+            j = self.get_vertex_index(p.target) + li
+            mat[i, j].append(p.pdgid)
+
+        for i, leg in enumerate([leg for leg in self.legs if leg.is_incoming()]):
+            j = self.get_vertex_index(leg.target) + li
+            mat[i, j].append(leg.pdgid)
+        for j, leg in enumerate([leg for leg in self.legs if leg.is_outgoing()]):
+            i = self.get_vertex_index(leg.target) + li
+            mat[i, -j - 1].append(leg.pdgid)
+        # util data
+        # mat[0,0] = [li]
+        # mat[-1,-1] = [lo]
+        return mat
+
+    @staticmethod
+    def from_matrix(matrix, li, lo):
+        fd = FeynmanDiagram()
+        # li = matrix[0,0][0]
+        # lo = matrix[-1,-1][0]
+        matrix[0, 0] = []
+        matrix[-1, -1] = []
+        lv = len(matrix)
+        for _ in range(lv - li - lo):
+            fd.add(Vertex())
+        for i in range(li, lv - lo):
+            for j in range(li, lv - lo):
+                for id in matrix[i, j]:
+                    fd.add(
+                        Propagator(pdgid=id).connect(
+                            fd.vertices[i - li], fd.vertices[j - li]
+                        )
+                    )
+        # We need to keep the leg order
+        for ii in range(li):
+            for i in range(li, lv - lo):
+                for id in matrix[ii, i]:
+                    fd.add(
+                        Leg(pdgid=id, sense=&quot;incoming&quot;).with_target(fd.vertices[i - li])
+                    )
+        for jj in range(lo):
+            for i in range(li, lv - lo):
+                for id in matrix[i, -jj - 1]:
+                    fd.add(
+                        Leg(pdgid=id, sense=&quot;outgoing&quot;).with_target(fd.vertices[i - li])
+                    )
+        return fd
+
     def add(self, *fd_all: List[Union[Propagator, Vertex, Leg]]):
         for a in fd_all:
             if isinstance(a, Propagator):
@@ -180,17 +284,30 @@ class FeynmanDiagram(SheetHandler, XML, Styled, Identifiable):
                 raise Exception(&quot;Unknown type: &quot; + str(type(a)) + &quot; &quot; + str(a))
         return self
 
+    def remove(self, *fd_all: List[Union[Propagator, Vertex, Leg]]):
+        for a in fd_all:
+            if isinstance(a, Propagator):
+                self.propagators.remove(a)
+            elif isinstance(a, Vertex):
+                self.vertices.remove(a)
+            elif isinstance(a, Leg):
+                self.legs.remove(a)
+            else:
+                raise Exception(&quot;Unknown type: &quot; + str(type(a)) + &quot; &quot; + str(a))
+        return self
+        return self
+
     def has_id(self, id):
-        for l in [self.propagators, self.vertices, self.legs]:
-            for a in l:
+        for le in [self.propagators, self.vertices, self.legs]:
+            for a in le:
                 if a.id == id:
                     return True
         return False
 
     def get(self, lmbda):
         ret = []
-        for l in [self.propagators, self.vertices, self.legs]:
-            for a in l:
+        for le in [self.propagators, self.vertices, self.legs]:
+            for a in le:
                 try:
                     if lmbda(a):
                         ret.append(a)
@@ -219,7 +336,7 @@ class FeynmanDiagram(SheetHandler, XML, Styled, Identifiable):
                 return leg
         return None
 
-    def get_connections(self, vertex):
+    def get_connections(self, vertex: Vertex) -&gt; List[Connector]:
         return (
             [
                 p
@@ -227,12 +344,12 @@ class FeynmanDiagram(SheetHandler, XML, Styled, Identifiable):
                 if p.source == vertex.id or p.target == vertex.id
             ]
             + [leg for leg in self.legs if leg.target == vertex.id]
-            + [leg for leg in self.legs if leg.id == vertex.id]
+            + [leg for leg in self.legs if leg.id == vertex.id]  # This seems od!
         )
 
     def get_neighbours(self, vertex):
         return [v for v in self.vertices if self.are_neighbours(vertex, v)] + [
-            l for l in self.legs if self.are_neighbours(vertex, l)
+            le for le in self.legs if self.are_neighbours(vertex, le)
         ]
 
     def are_neighbours(self, vertex1, vertex2):
@@ -245,18 +362,267 @@ class FeynmanDiagram(SheetHandler, XML, Styled, Identifiable):
             ]
         ) or any(
             [
-                l
-                for l in self.legs
-                if (l.id == vertex1.id and l.target == vertex2.id)
-                or (l.id == vertex2.id and l.target == vertex1.id)
+                le
+                for le in self.legs
+                if (le.id == vertex1.id and le.target == vertex2.id)
+                or (le.id == vertex2.id and le.target == vertex1.id)
             ]
         )
 
+<div class="viewcode-block" id="FeynmanDiagram.remove_propagator">
+<a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.FeynmanDiagram.html#feynml.feynmandiagram.FeynmanDiagram.remove_propagator">[docs]</a>
+    @deprecated(&quot;use remove(propagator) instead&quot;)
     def remove_propagator(self, propagator):
         self.propagators.remove(propagator)
-        return self
+        return self</div>
 
-<div class="viewcode-block" id="FeynmanDiagram.get_bounding_box"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.FeynmanDiagram.html#feynml.feynmandiagram.FeynmanDiagram.get_bounding_box">[docs]</a>    def get_bounding_box(self):
+
+    def insert_tadpole(
+        self,
+        leg_or_propagator: Union[Leg, Propagator],
+        new_propagator: Union[None, int] = None,
+    ):
+        v1, l1, s1, e1 = self.emission(
+            leg_or_propagator=leg_or_propagator, new=new_propagator
+        )
+        v2, l2, s2, e2 = self.emission(leg_or_propagator=e1, new=new_propagator)
+        v = self.merge_vertices(v1, v2)
+        p = self.merge_legs(l1, l2)
+        return v, p
+
+<div class="viewcode-block" id="FeynmanDiagram.insert_bubble">
+<a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.FeynmanDiagram.html#feynml.feynmandiagram.FeynmanDiagram.insert_bubble">[docs]</a>
+    def insert_bubble(
+        self,
+        leg_or_propagator: Union[Leg, Propagator],
+        new_propagator1: Union[None, int, Propagator] = None,
+        new_propagator2: Union[None, int, Propagator] = None,
+    ):
+        &quot;&quot;&quot;
+        Adds a bubble loop to a propagator or leg.
+
+        TODO add ascii example diagram here for documentation (also emission() etc.)
+        TODO add tests, needs testing
+        &quot;&quot;&quot;
+        v1, l1, s1, e1 = self.emission(
+            leg_or_propagator=leg_or_propagator, new=new_propagator1
+        )
+        v2, l2, s2, e2 = self.emission(
+            leg_or_propagator=e1, new=new_propagator1, start=new_propagator2
+        )
+        np = self.merge(l1, l2)
+        return v1, v2, np, s2, s1, e2</div>
+
+
+    def insert_vertex_loop(self, vertex: Vertex, *new_propagators):
+        if new_propagators is None or len(new_propagators) == 0:
+            new_propagators = [None] * len(self.get_connections(vertex))
+        else:
+            new_propagators = list(new_propagators)
+        # should cover insert_triangle, insert_box, pentagram, ...
+        assert len(new_propagators) == len(self.get_connections(vertex))
+        new_vertices = [None] * len(new_propagators)
+        # Add new vertices
+        for i in range(len(new_propagators)):
+            new_vertices[i] = Vertex()
+            self.add(new_vertices[i])
+            if new_propagators is None or isinstance(new_propagators[i], (int, str)):
+                new_propagators[i] = Propagator(**pdgid_param(new_propagators[i]))
+            self.add(new_propagators[i])
+
+        for i, op in enumerate(self.get_connections(vertex)):
+            op.replace_vertex(vertex, new_vertices[i])
+            new_propagators[i].with_source(new_vertices[i])
+            new_propagators[i - 1].with_target(new_vertices[i])
+        self.remove(vertex)
+        return new_vertices, new_propagators
+
+<div class="viewcode-block" id="FeynmanDiagram.merge">
+<a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.FeynmanDiagram.html#feynml.feynmandiagram.FeynmanDiagram.merge">[docs]</a>
+    def merge(self, *obj):
+        &quot;&quot;&quot;
+        Merges objects together
+        &quot;&quot;&quot;
+        if len(obj) == 2 and isinstance(obj[0], Leg) and isinstance(obj[1], Leg):
+            return self.merge_legs(obj[0], obj[1])
+        else:
+            vs = True
+            for v in obj:
+                if not isinstance(v, Vertex):
+                    vs = False
+            if vs:
+                return self.merge_vertices(obj)</div>
+
+
+<div class="viewcode-block" id="FeynmanDiagram.merge_legs">
+<a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.FeynmanDiagram.html#feynml.feynmandiagram.FeynmanDiagram.merge_legs">[docs]</a>
+    def merge_legs(self, leg1, leg2):
+        &quot;&quot;&quot;
+        Merges two legs to a single propagator.
+        &quot;&quot;&quot;
+        assert self.has(leg1) and self.has(leg2)
+        new_propagator = Propagator(
+            pdgid=leg1.pdgid, source=leg1.target, target=leg2.target
+        )  # Maybe we want to copy more properties
+        self.add(new_propagator)
+        self.remove(leg1)
+        self.remove(leg2)
+        return new_propagator</div>
+
+
+<div class="viewcode-block" id="FeynmanDiagram.merge_vertices">
+<a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.FeynmanDiagram.html#feynml.feynmandiagram.FeynmanDiagram.merge_vertices">[docs]</a>
+    def merge_vertices(self, *vertices, tadpole=False) -&gt; Vertex:
+        &quot;&quot;&quot;
+        Merges vertices to a single vertex.
+        &quot;&quot;&quot;
+        # We keep the first vertex and its properties
+        v0 = vertices[0]
+        # We need to remove propagators between two vertices that are replaced (unless it should become a tadpole)
+        if not tadpole:
+            for p in self.propagators:
+                for v1 in vertices:
+                    for v2 in vertices:
+                        if v1 != v2 and p.connects(v1, v2, directional=True):
+                            self.remove(p)
+        for v in vertices[1:]:
+            for c in self.get_connections(v):
+                c.replace_vertex(v, v0)
+            self.remove(v)
+        return v0</div>
+
+
+    def decay(self, leg: Leg, *new_legs):
+        assert self.has(leg)
+        self.add(v := Vertex())
+        if leg.is_outgoing():
+            self.add(p := Propagator(pdgid=leg.pdgid, source=leg.target, target=v))
+        elif leg.is_incoming():
+            self.add(p := Propagator(pdgid=leg.pdgid, source=v, target=leg.target))
+        else:
+            raise Exception(&quot;Leg is not incoming or outgoing&quot;)
+        r_legs = [None] * len(new_legs)
+        for i, ls in enumerate(new_legs):
+            r_legs[i] = Leg(**pdgid_param(ls), target=v, sense=leg.sense)
+            self.add(r_legs[i])
+        self.remove(leg)
+        return v, p, r_legs
+
+<div class="viewcode-block" id="FeynmanDiagram.emission">
+<a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.FeynmanDiagram.html#feynml.feynmandiagram.FeynmanDiagram.emission">[docs]</a>
+    def emission(
+        self,
+        leg_or_propagator: Union[Leg, Propagator],
+        new: Union[Leg, int, None] = None,
+        start=None,
+        end=None,
+        sense=&quot;outgoing&quot;,
+        position_ratio=0.5,
+        inplace=True,
+    ):
+        &quot;&quot;&quot;
+
+        Args:
+            inplace: If true keeps the original propagator/leg line, else the new intermediate Vertex can be located anywhere.
+            position_ratio: The position of the new vertex on the line between the source and target of the propagator/leg.
+        &quot;&quot;&quot;
+        x = None
+        y = None
+        sx = None
+        sy = None
+        tx = None
+        ty = None
+        if isinstance(leg_or_propagator, Propagator):
+            sx, tx, sy, ty = (
+                self.get_vertex(leg_or_propagator.source).x,
+                self.get_vertex(leg_or_propagator.target).x,
+                self.get_vertex(leg_or_propagator.source).y,
+                self.get_vertex(leg_or_propagator.target).y,
+            )
+        elif isinstance(leg_or_propagator, Leg):
+            sx, tx, sy, ty = (
+                leg_or_propagator.x,
+                self.get_vertex(leg_or_propagator.target).x,
+                leg_or_propagator.y,
+                self.get_vertex(leg_or_propagator.target).y,
+            )
+        else:
+            raise NotImplementedError(&quot;Only Propagator and Leg are supported&quot;)
+        if sx is not None and sy is not None and tx is not None and ty is not None:
+            if inplace:
+                x = sx * (1.0 - position_ratio) + tx * (0.0 - position_ratio)
+                y = sy * (1.0 - position_ratio) + ty * (0.0 - position_ratio)
+        new_vert = Vertex(x=x, y=y)
+        self.add(new_vert)
+        if new is None or is_pdgid_param(new):
+            new = Leg(**pdgid_param(new), sense=sense, target=new_vert)
+        elif isinstance(new, Leg):
+            new.with_target(new_vert)
+        self.add(new)
+
+        startid = leg_or_propagator.pdgid
+        if start is not None and is_pdgid_param(start):
+            startid = to_pdgid(start)
+            start = None
+
+        endid = leg_or_propagator.pdgid
+        if end is not None and is_pdgid_param(end):
+            endid = to_pdgid(end)
+            end = None
+
+        if start is None:
+            if isinstance(leg_or_propagator, Leg) and leg_or_propagator.is_outgoing():
+                # Continue Leg as Propagator
+                start = Propagator(pdgid=startid, source=leg_or_propagator.target)
+                self.add(start)
+            else:
+                start = copy.deepcopy(leg_or_propagator).with_new_id()
+                # replace leg_or_propagator with new leg (with out changing the order!)
+                if isinstance(leg_or_propagator, Leg):
+                    self.legs[self.legs.index(leg_or_propagator)] = start
+                elif isinstance(leg_or_propagator, Propagator):
+                    if leg_or_propagator in self.propagators:
+                        self.propagators.remove(leg_or_propagator)
+                    self.add(start)
+                else:
+                    raise Exception(&quot;Unknown leg_or_propagator type&quot;)
+            start.with_pdgid(**pdgid_param(startid))
+
+        if end is None:
+            if isinstance(leg_or_propagator, Leg) and leg_or_propagator.is_incoming():
+                # Continue Leg as Propagator
+                end = Propagator(pdgid=endid, target=leg_or_propagator.target)
+                self.add(end)
+            else:
+                end = copy.deepcopy(leg_or_propagator).with_new_id()
+                if isinstance(leg_or_propagator, Leg):
+                    self.legs[self.legs.index(leg_or_propagator)] = end
+                elif isinstance(leg_or_propagator, Propagator):
+                    if (
+                        leg_or_propagator in self.propagators
+                    ):  # could already be removed
+                        self.propagators.remove(leg_or_propagator)
+                    self.add(end)
+                else:
+                    raise Exception(&quot;Unknown leg_or_propagator type&quot;)
+            end.with_pdgid(**pdgid_param(endid))
+
+        start.with_target(
+            new_vert
+        )  # It does not matter if we have a Leg or Propagator as start
+        if isinstance(end, Propagator):
+            end.with_source(new_vert)
+        elif isinstance(end, Leg):
+            end.with_target(new_vert)
+        else:
+            assert False  # we should never get here
+
+        return new_vert, new, start, end</div>
+
+
+<div class="viewcode-block" id="FeynmanDiagram.get_bounding_box">
+<a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.FeynmanDiagram.html#feynml.feynmandiagram.FeynmanDiagram.get_bounding_box">[docs]</a>
+    def get_bounding_box(self):
         &quot;&quot;&quot;
         Get the bounding box of the diagram, i.e. the smallest rectangle that contains all vertices and legs.
 
@@ -281,7 +647,10 @@ class FeynmanDiagram(SheetHandler, XML, Styled, Identifiable):
             max_y = max(max_y, v.y)
         return min_x, min_y, max_x, max_y</div>
 
-<div class="viewcode-block" id="FeynmanDiagram.get_style"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.FeynmanDiagram.html#feynml.feynmandiagram.FeynmanDiagram.get_style">[docs]</a>    @doc.append_doc(Head.get_style)
+
+<div class="viewcode-block" id="FeynmanDiagram.get_style">
+<a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.FeynmanDiagram.html#feynml.feynmandiagram.FeynmanDiagram.get_style">[docs]</a>
+    @doc.append_doc(Head.get_style)
     def get_style(self, obj, xml: XML = None) -&gt; cssutils.css.CSSStyleDeclaration:
         # as of now, we don&#39;t have any xpath/styles from the fml itself
         # if self.parent_fml is not None:
@@ -291,18 +660,28 @@ class FeynmanDiagram(SheetHandler, XML, Styled, Identifiable):
         else:
             return super().get_style(obj, self)</div>
 
-<div class="viewcode-block" id="FeynmanDiagram.get_sheets"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.FeynmanDiagram.html#feynml.feynmandiagram.FeynmanDiagram.get_sheets">[docs]</a>    def get_sheets(self):
+
+<div class="viewcode-block" id="FeynmanDiagram.get_sheets">
+<a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.FeynmanDiagram.html#feynml.feynmandiagram.FeynmanDiagram.get_sheets">[docs]</a>
+    def get_sheets(self):
         if self.parent_fml is not None:
             return self.parent_fml.get_sheets() + [self.sheet]
         else:
             return super().get_sheets() + [self.sheet]</div>
 
-<div class="viewcode-block" id="FeynmanDiagram.get_sheet"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.FeynmanDiagram.html#feynml.feynmandiagram.FeynmanDiagram.get_sheet">[docs]</a>    def get_sheet(self):
+
+<div class="viewcode-block" id="FeynmanDiagram.get_sheet">
+<a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.FeynmanDiagram.html#feynml.feynmandiagram.FeynmanDiagram.get_sheet">[docs]</a>
+    def get_sheet(self):
         return self.sheet</div>
 
-<div class="viewcode-block" id="FeynmanDiagram.with_sheet"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.FeynmanDiagram.html#feynml.feynmandiagram.FeynmanDiagram.with_sheet">[docs]</a>    def with_sheet(self, sheet):
+
+<div class="viewcode-block" id="FeynmanDiagram.with_sheet">
+<a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.FeynmanDiagram.html#feynml.feynmandiagram.FeynmanDiagram.with_sheet">[docs]</a>
+    def with_sheet(self, sheet):
         self.sheet = sheet
         return self</div>
+
 
     def has_vertex(self, vertex):
         return vertex in self.vertices
@@ -338,7 +717,9 @@ class FeynmanDiagram(SheetHandler, XML, Styled, Identifiable):
         # TODO assert same legs!
         perms = 0
         fl1 = sorted(self.get_fermion_line_ends())
+        debug(f&quot;{fl1=}&quot;)
         fl2 = sorted(fd.get_fermion_line_ends())
+        debug(f&quot;{fl2=}&quot;)
         # find fl1[0][0] in fl2
         for fl1i in range(len(fl1)):
             for fl1j in [0, 1]:
@@ -347,15 +728,17 @@ class FeynmanDiagram(SheetHandler, XML, Styled, Identifiable):
                         if i != fl1i and fl2[i][j].id == fl1[fl1i][fl1j].id:
                             perms += 1
                             fl2[fl1i][fl1j], fl2[i][j] = fl2[i][j], fl2[fl1i][fl1j]
-        # print(perms)
+        debug(f&quot;{perms=}&quot;)
         return (-1) ** perms
 
     def get_fermion_line_ends(self):
+        &quot;&quot;&quot; &quot;&quot;&quot;
         fl = self.get_fermion_lines()
         ret = [[f[0], f[-1]] for f in fl]
         return ret
 
     def get_fermion_lines(self):
+        &quot;&quot;&quot; &quot;&quot;&quot;
         ret = []
         for leg in self.legs:
             if leg.is_outgoing() and leg.is_fermion():
@@ -393,7 +776,7 @@ class FeynmanDiagram(SheetHandler, XML, Styled, Identifiable):
             raise Exception(&quot;Unknown leg type&quot;)
 
         chain.append(v)
-        # TODO handle case where there are mutliple fermions ( i.e. checkc the flow)
+        # TODO handle case where there are multiple fermions ( i.e. checkc the flow)
         cs = self.get_connections(v)
         for c in cs:
             if c != leg and c.is_any_fermion():
@@ -415,19 +798,89 @@ class FeynmanDiagram(SheetHandler, XML, Styled, Identifiable):
                 return leg
         return None
 
-<div class="viewcode-block" id="FeynmanDiagram.scale_positions"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.FeynmanDiagram.html#feynml.feynmandiagram.FeynmanDiagram.scale_positions">[docs]</a>    def scale_positions(self, scale):
+<div class="viewcode-block" id="FeynmanDiagram.scale_positions">
+<a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.FeynmanDiagram.html#feynml.feynmandiagram.FeynmanDiagram.scale_positions">[docs]</a>
+    def scale_positions(self, scale):
         &quot;&quot;&quot;Scale the positions of the vertices and legs.&quot;&quot;&quot;
         for v in self.vertices:
             if v.x is not None:
                 v.x *= scale
             if v.y is not None:
                 v.y *= scale
-        for l in self.legs:
-            if l.x is not None:
-                l.x *= scale
-            if l.y is not None:
-                l.y *= scale
+        for le in self.legs:
+            if le.x is not None:
+                le.x *= scale
+            if le.y is not None:
+                le.y *= scale
         return self</div>
+
+
+    def is_valid(self, fm: FeynModel, only_vertex=False):
+        # first check that the propagator and leg pdgids are also in the model
+        if not only_vertex:
+            for p in self.propagators:
+                if not fm.has_particle(name=p.name, pdg_code=p.pdgid):
+                    return False
+            for le in self.legs:
+                if not fm.has_particle(name=le.name, pdg_code=le.pdgid):
+                    return False
+        for v in self.vertices:
+            if self.find_vertex_in_model(v, fm) is None:
+                return False
+
+        return True
+
+<div class="viewcode-block" id="FeynmanDiagram.find_vertex_in_model">
+<a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.FeynmanDiagram.html#feynml.feynmandiagram.FeynmanDiagram.find_vertex_in_model">[docs]</a>
+    def find_vertex_in_model(self, vertex: Vertex, model: FeynModel):
+        &quot;&quot;&quot;
+        Finds the model vertex corresponding to the given FeynmanDiagram vertex
+
+        Note: Sorting is to check for the correct particles in a vertex given they can be in any order and have duplicates
+        &quot;&quot;&quot;
+        assert vertex in self.vertices
+        cons = np.array(self.get_connections(vertex))
+        # debug(f&quot;{cons=}&quot;)
+        pdg_ids_list = []
+
+        # correct for incoming vs outgoing fermion struct
+        for c in cons:
+            p = c.pdgid
+            if c.is_any_fermion():
+                if c.goes_into(vertex):
+                    p = -p
+            pdg_ids_list += [p]
+        pdg_ids_array = np.array(pdg_ids_list)
+
+        sort_mask = np.argsort(pdg_ids_array)
+        particles = pdg_ids_array[sort_mask]
+        scons = cons[sort_mask]
+        # debug(f&quot;{scons=}&quot;)
+        ret = None
+        for v in model.vertices:
+            if len(v.particles) != len(particles):
+                continue
+            model_particle_ids = np.array([p.pdg_code for p in v.particles])
+            model_sort_mask = np.argsort(model_particle_ids)
+            # By sorting based on the indices we reproduce the order of the particles in the vertex
+            inverted_model_sort_mask = np.argsort(model_sort_mask)
+            sorted_model_particle_ids = model_particle_ids[model_sort_mask]
+            if np.array_equal(sorted_model_particle_ids, particles):
+                vc = []
+                for i, _ in enumerate(model_particle_ids):
+                    con = scons[inverted_model_sort_mask[i]]
+                    vc.append(con)
+                v.connections = vc
+                ret = v
+                break
+
+        # Make sure all connections are in the vertex
+        if ret is not None:
+            for c in cons:
+                assert c in ret.connections
+        # debug(f&quot;{ret=}&quot;)
+        return ret</div>
+
 
     def copy(self, new_vertex_ids=True, new_leg_ids=True, new_propagator_ids=True):
         copy = self.deepcopy()
@@ -438,23 +891,31 @@ class FeynmanDiagram(SheetHandler, XML, Styled, Identifiable):
             if new_vertex_ids:
                 v = v.with_new_id()
             id_map[oid] = v.id
-        for l in copy.legs:
-            oid = l.id
+        for le in copy.legs:
+            oid = le.id
             if new_leg_ids:
-                l = l.with_new_id()
-            id_map[oid] = l.id
+                le = le.with_new_id()
+            id_map[oid] = le.id
         for p in copy.propagators:
             oid = p.id
             if new_propagator_ids:
                 p = p.with_new_id()
             id_map[oid] = p.id
         # Now replace all ids in the diagram
-        for l in copy.legs:
-            l.target = id_map[l.target]
+        for le in copy.legs:
+            le.target = id_map[le.target]
         for p in copy.propagators:
             p.source = id_map[p.source]
             p.target = id_map[p.target]
         return copy
+
+    def fastcopy(self):
+        # get the matrix representation of the diagram
+        mat = self.to_matrix()
+        # create a new diagram from the matrix
+        return FeynmanDiagram.from_matrix(
+            mat, li=self.get_number_of_incoming(), lo=self.get_number_of_outgoing()
+        )
 
     def deepcopy(self):
         savesheets = self.sheet
@@ -464,14 +925,21 @@ class FeynmanDiagram(SheetHandler, XML, Styled, Identifiable):
         ret.sheet = cssutils.parseString(self.sheet.cssText)
         return ret
 
+<div class="viewcode-block" id="FeynmanDiagram.conjugated">
+<a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.FeynmanDiagram.html#feynml.feynmandiagram.FeynmanDiagram.conjugated">[docs]</a>
     def conjugated(
         self, new_vertex_ids=True, new_leg_ids=True, new_propagator_ids=True
     ):
+        &quot;&quot;&quot;
+        Warning: This does not mathematically conjugate the diagram, but only switches directions.
+        Differences to the mathematical conjugation are missing complex conjugation of i&#39;s and wrong momenta for e.g. 3g-vertex.
+        &quot;&quot;&quot;
         return self.copy(
             new_vertex_ids=new_vertex_ids,
             new_leg_ids=new_leg_ids,
             new_propagator_ids=new_propagator_ids,
-        )._conjugate()
+        )._conjugate()</div>
+
 
     def _conjugate(self):
         for leg in self.legs:
@@ -488,47 +956,38 @@ class FeynmanDiagram(SheetHandler, XML, Styled, Identifiable):
         auto_position=True,
         auto_position_legs=True,
         deepcopy=True,
+        source=False,
+        debug=False,
     ):
-        import pyfeyn2.render.all as renderall
-        from pyfeyn2.auto.bend import auto_bend
-        from pyfeyn2.auto.label import auto_label
-        from pyfeyn2.auto.position import (
-            auto_align_legs,
-            auto_vdw,
-            feynman_adjust_points,
-        )
+        try:
+            import pyfeyn2.render.all as renderall
+            from pyfeyn2.auto import auto_default
+        except ImportError as e:
+            warnings.warn(&quot;Could not import pyfeyn2, cannot render diagram&quot; + str(e))
+            return
 
         # deepcopy to avoid modifying the original diagram
         if deepcopy:
             fd = self.deepcopy()
         else:
             fd = self
-        if auto_position:
-            # remove all unpositioned vertices
-            if auto_position_legs:
-                fd = auto_align_legs(
-                    fd,
-                    incoming=[
-                        (0, i) for i in np.linspace(0, 10, len(self.get_incoming()))
-                    ],
-                    outgoing=[
-                        (10, i) for i in np.linspace(0, 10, len(self.get_outgoing()))
-                    ],
-                )
-            p = [v for v in fd.vertices if v.x is None or v.y is None]
-            if len(p) &gt; 0:
-                fd = auto_vdw(fd, points=p)
-        auto_label([*fd.propagators, *fd.legs])
-        fd = auto_bend(fd)
-        renderer = renderall.renderer_from_string(render)
-        renderer(fd).render(show=show, file=file)
+        fd = auto_default(
+            fd,
+            auto_position=auto_position,
+            auto_position_legs=auto_position_legs,
+            debug=debug,
+        )
+
+        renderer_class = renderall.renderer_from_string(render)
+        renderer = renderer_class(fd)
+        if source:
+            print(renderer.get_src())
+        renderer.render(show=show, file=file)
 
     def _ipython_display_(self):
-        try:
-            self.render(show=True)
-        except ImportError as e:
-            warnings.warn(&quot;Could not import pyfeyn2, cannot render diagram&quot; + str(e))
+        self.render(show=True)
         return self</div>
+
 </pre></div>
 
            </div>
@@ -538,7 +997,7 @@ class FeynmanDiagram(SheetHandler, XML, Styled, Identifiable):
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2024, Alexander Puck Neuwirth.</p>
+    <p>&#169; Copyright 2025, Alexander Puck Neuwirth.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

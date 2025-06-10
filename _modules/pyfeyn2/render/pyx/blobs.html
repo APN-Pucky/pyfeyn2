@@ -1,29 +1,27 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../../../../">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>pyfeyn2.render.pyx.blobs &mdash; pyfeyn2  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../../../_static/plot_directive.css" />
       <link rel="stylesheet" type="text/css" href="../../../../_static/jupyter-sphinx.css" />
       <link rel="stylesheet" type="text/css" href="../../../../_static/thebelab.css" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../../../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js?v=b3ba4146"></script>
-        <script src="../../../../_static/doctools.js?v=888ff710"></script>
-        <script src="../../../../_static/sphinx_highlight.js?v=4825356b"></script>
-        <script src="../../../../_static/thebelab-helper.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../../_static/thebelab-helper.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" /> 
@@ -41,9 +39,6 @@
             pyfeyn2
               <img src="../../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
-              <div class="version">
-                2.4.2
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -122,10 +117,14 @@ from pyfeyn2.render.pyx.utils import Visible
 
 
 ## Blob base class
-<div class="viewcode-block" id="Blob"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.blobs.Blob.html#pyfeyn2.render.pyx.blobs.Blob">[docs]</a>class Blob(Point, Visible):
+<div class="viewcode-block" id="Blob">
+<a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.blobs.Blob.html#pyfeyn2.render.pyx.blobs.Blob">[docs]</a>
+class Blob(Point, Visible):
     &quot;Base class for all blob-like objects in Feynman diagrams&quot;
 
-<div class="viewcode-block" id="Blob.__init__"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.blobs.Blob.html#pyfeyn2.render.pyx.blobs.Blob.__init__">[docs]</a>    def __init__(
+<div class="viewcode-block" id="Blob.__init__">
+<a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.blobs.Blob.html#pyfeyn2.render.pyx.blobs.Blob.__init__">[docs]</a>
+    def __init__(
         self,
         x,
         y,
@@ -145,37 +144,58 @@ from pyfeyn2.render.pyx.utils import Visible
         self.strokestyles = stroke
         self.layeroffset = 1000</div>
 
-<div class="viewcode-block" id="Blob.setStrokeStyle"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.blobs.Blob.html#pyfeyn2.render.pyx.blobs.Blob.setStrokeStyle">[docs]</a>    def setStrokeStyle(self, strokestyle):
+
+<div class="viewcode-block" id="Blob.setStrokeStyle">
+<a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.blobs.Blob.html#pyfeyn2.render.pyx.blobs.Blob.setStrokeStyle">[docs]</a>
+    def setStrokeStyle(self, strokestyle):
         &quot;&quot;&quot;Set the stroke style.&quot;&quot;&quot;
         self.strokestyles = [strokestyle]
         return self</div>
 
-<div class="viewcode-block" id="Blob.clearStrokeStyles"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.blobs.Blob.html#pyfeyn2.render.pyx.blobs.Blob.clearStrokeStyles">[docs]</a>    def clearStrokeStyles(self):
+
+<div class="viewcode-block" id="Blob.clearStrokeStyles">
+<a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.blobs.Blob.html#pyfeyn2.render.pyx.blobs.Blob.clearStrokeStyles">[docs]</a>
+    def clearStrokeStyles(self):
         &quot;&quot;&quot;Remove all the current stroke styles.&quot;&quot;&quot;
         self.strokestyles = []
         return self</div>
 
-<div class="viewcode-block" id="Blob.setFillStyle"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.blobs.Blob.html#pyfeyn2.render.pyx.blobs.Blob.setFillStyle">[docs]</a>    def setFillStyle(self, fillstyle):
+
+<div class="viewcode-block" id="Blob.setFillStyle">
+<a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.blobs.Blob.html#pyfeyn2.render.pyx.blobs.Blob.setFillStyle">[docs]</a>
+    def setFillStyle(self, fillstyle):
         &quot;&quot;&quot;Set the fill style.&quot;&quot;&quot;
         self.fillstyles = [fillstyle]
         return self</div>
 
-<div class="viewcode-block" id="Blob.clearFillStyles"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.blobs.Blob.html#pyfeyn2.render.pyx.blobs.Blob.clearFillStyles">[docs]</a>    def clearFillStyles(self):
+
+<div class="viewcode-block" id="Blob.clearFillStyles">
+<a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.blobs.Blob.html#pyfeyn2.render.pyx.blobs.Blob.clearFillStyles">[docs]</a>
+    def clearFillStyles(self):
         &quot;&quot;&quot;Remove all the current fill styles.&quot;&quot;&quot;
         self.fillstyles = []
         return self</div>
 
-<div class="viewcode-block" id="Blob.addTrafo"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.blobs.Blob.html#pyfeyn2.render.pyx.blobs.Blob.addTrafo">[docs]</a>    def addTrafo(self, trafo):
+
+<div class="viewcode-block" id="Blob.addTrafo">
+<a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.blobs.Blob.html#pyfeyn2.render.pyx.blobs.Blob.addTrafo">[docs]</a>
+    def addTrafo(self, trafo):
         &quot;&quot;&quot;Add a transformation.&quot;&quot;&quot;
         self.trafos.append(trafo)
         return self</div>
 
-<div class="viewcode-block" id="Blob.clearTrafos"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.blobs.Blob.html#pyfeyn2.render.pyx.blobs.Blob.clearTrafos">[docs]</a>    def clearTrafos(self):
+
+<div class="viewcode-block" id="Blob.clearTrafos">
+<a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.blobs.Blob.html#pyfeyn2.render.pyx.blobs.Blob.clearTrafos">[docs]</a>
+    def clearTrafos(self):
         &quot;&quot;&quot;Remove transformations.&quot;&quot;&quot;
         self.trafos = []
         return self</div>
 
-<div class="viewcode-block" id="Blob.setPoints"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.blobs.Blob.html#pyfeyn2.render.pyx.blobs.Blob.setPoints">[docs]</a>    def setPoints(self, points):
+
+<div class="viewcode-block" id="Blob.setPoints">
+<a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.blobs.Blob.html#pyfeyn2.render.pyx.blobs.Blob.setPoints">[docs]</a>
+    def setPoints(self, points):
         &quot;&quot;&quot;Set the points to which this blob is attached.&quot;&quot;&quot;
         if points:
             self.points = points
@@ -184,7 +204,10 @@ from pyfeyn2.render.pyx.utils import Visible
         else:
             self.points = []</div>
 
-<div class="viewcode-block" id="Blob.addLabel"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.blobs.Blob.html#pyfeyn2.render.pyx.blobs.Blob.addLabel">[docs]</a>    def addLabel(
+
+<div class="viewcode-block" id="Blob.addLabel">
+<a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.blobs.Blob.html#pyfeyn2.render.pyx.blobs.Blob.addLabel">[docs]</a>
+    def addLabel(
         self,
         text,
         displace=-0.15,
@@ -211,19 +234,28 @@ from pyfeyn2.render.pyx.utils import Visible
             print(&quot;Labels = &quot; + str(self.labels))
         return self</div>
 
-<div class="viewcode-block" id="Blob.clearLabels"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.blobs.Blob.html#pyfeyn2.render.pyx.blobs.Blob.clearLabels">[docs]</a>    def clearLabels(self):
+
+<div class="viewcode-block" id="Blob.clearLabels">
+<a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.blobs.Blob.html#pyfeyn2.render.pyx.blobs.Blob.clearLabels">[docs]</a>
+    def clearLabels(self):
         &quot;&quot;&quot;Remove all current labels.&quot;&quot;&quot;
         self.labels = []
-        return self</div></div>
+        return self</div>
+</div>
+
 
 
 ## Circle class (a kind of Blob)
-<div class="viewcode-block" id="Circle"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.blobs.Circle.html#pyfeyn2.render.pyx.blobs.Circle">[docs]</a>class Circle(Blob):
+<div class="viewcode-block" id="Circle">
+<a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.blobs.Circle.html#pyfeyn2.render.pyx.blobs.Circle">[docs]</a>
+class Circle(Blob):
     &quot;&quot;&quot;A circular blob&quot;&quot;&quot;
 
     blobshape = &quot;circle&quot;
 
-<div class="viewcode-block" id="Circle.__init__"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.blobs.Circle.html#pyfeyn2.render.pyx.blobs.Circle.__init__">[docs]</a>    def __init__(
+<div class="viewcode-block" id="Circle.__init__">
+<a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.blobs.Circle.html#pyfeyn2.render.pyx.blobs.Circle.__init__">[docs]</a>
+    def __init__(
         self,
         x=None,
         y=None,
@@ -258,25 +290,37 @@ from pyfeyn2.render.pyx.utils import Visible
         ## Add this to the current diagram automatically
         FeynDiagram.currentDiagram.add(self)</div>
 
-<div class="viewcode-block" id="Circle.getPath"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.blobs.Circle.html#pyfeyn2.render.pyx.blobs.Circle.getPath">[docs]</a>    def getPath(self):
+
+<div class="viewcode-block" id="Circle.getPath">
+<a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.blobs.Circle.html#pyfeyn2.render.pyx.blobs.Circle.getPath">[docs]</a>
+    def getPath(self):
         &quot;&quot;&quot;Get the path of this circle blob.&quot;&quot;&quot;
         return pyx.path.circle(self.getX(), self.getY(), self.radius)</div>
 
-<div class="viewcode-block" id="Circle.draw"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.blobs.Circle.html#pyfeyn2.render.pyx.blobs.Circle.draw">[docs]</a>    def draw(self, canvas):
+
+<div class="viewcode-block" id="Circle.draw">
+<a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.blobs.Circle.html#pyfeyn2.render.pyx.blobs.Circle.draw">[docs]</a>
+    def draw(self, canvas):
         &quot;&quot;&quot;Draw this circle blob.&quot;&quot;&quot;
         canvas.fill(self.getPath(), [pyx.color.rgb.white])
         canvas.fill(self.getPath(), self.fillstyles)
         canvas.stroke(self.getPath(), self.strokestyles)
         for l in self.labels:
-            l.draw(canvas)</div></div>
+            l.draw(canvas)</div>
+</div>
+
 
 
 ## Ellipse class (a kind of Blob)
-<div class="viewcode-block" id="Ellipse"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.blobs.Ellipse.html#pyfeyn2.render.pyx.blobs.Ellipse">[docs]</a>class Ellipse(Blob):
+<div class="viewcode-block" id="Ellipse">
+<a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.blobs.Ellipse.html#pyfeyn2.render.pyx.blobs.Ellipse">[docs]</a>
+class Ellipse(Blob):
     &quot;An elliptical blob&quot;
     blobshape = &quot;ellipse&quot;
 
-<div class="viewcode-block" id="Ellipse.__init__"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.blobs.Ellipse.html#pyfeyn2.render.pyx.blobs.Ellipse.__init__">[docs]</a>    def __init__(
+<div class="viewcode-block" id="Ellipse.__init__">
+<a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.blobs.Ellipse.html#pyfeyn2.render.pyx.blobs.Ellipse.__init__">[docs]</a>
+    def __init__(
         self,
         x=None,
         y=None,
@@ -323,51 +367,77 @@ from pyfeyn2.render.pyx.utils import Visible
         ## Add this to the current diagram automatically
         FeynDiagram.currentDiagram.add(self)</div>
 
-<div class="viewcode-block" id="Ellipse.getXRadius"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.blobs.Ellipse.html#pyfeyn2.render.pyx.blobs.Ellipse.getXRadius">[docs]</a>    def getXRadius(self):
+
+<div class="viewcode-block" id="Ellipse.getXRadius">
+<a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.blobs.Ellipse.html#pyfeyn2.render.pyx.blobs.Ellipse.getXRadius">[docs]</a>
+    def getXRadius(self):
         &quot;&quot;&quot;Get the component of the radius in the x-direction.&quot;&quot;&quot;
         return self.xrad</div>
 
-<div class="viewcode-block" id="Ellipse.setXRadius"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.blobs.Ellipse.html#pyfeyn2.render.pyx.blobs.Ellipse.setXRadius">[docs]</a>    def setXRadius(self, xrad):
+
+<div class="viewcode-block" id="Ellipse.setXRadius">
+<a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.blobs.Ellipse.html#pyfeyn2.render.pyx.blobs.Ellipse.setXRadius">[docs]</a>
+    def setXRadius(self, xrad):
         &quot;&quot;&quot;Set the component of the radius in the x-direction.&quot;&quot;&quot;
         self.xrad = float(xrad)
         return self</div>
 
-<div class="viewcode-block" id="Ellipse.getYRadius"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.blobs.Ellipse.html#pyfeyn2.render.pyx.blobs.Ellipse.getYRadius">[docs]</a>    def getYRadius(self):
+
+<div class="viewcode-block" id="Ellipse.getYRadius">
+<a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.blobs.Ellipse.html#pyfeyn2.render.pyx.blobs.Ellipse.getYRadius">[docs]</a>
+    def getYRadius(self):
         &quot;&quot;&quot;Get the component of the radius in the y-direction.&quot;&quot;&quot;
         return self.yrad</div>
 
-<div class="viewcode-block" id="Ellipse.setYRadius"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.blobs.Ellipse.html#pyfeyn2.render.pyx.blobs.Ellipse.setYRadius">[docs]</a>    def setYRadius(self, yrad):
+
+<div class="viewcode-block" id="Ellipse.setYRadius">
+<a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.blobs.Ellipse.html#pyfeyn2.render.pyx.blobs.Ellipse.setYRadius">[docs]</a>
+    def setYRadius(self, yrad):
         &quot;&quot;&quot;Set the component of the radius in the y-direction.&quot;&quot;&quot;
         self.yrad = float(yrad)
         return self</div>
 
-<div class="viewcode-block" id="Ellipse.getXYRadius"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.blobs.Ellipse.html#pyfeyn2.render.pyx.blobs.Ellipse.getXYRadius">[docs]</a>    def getXYRadius(self):
+
+<div class="viewcode-block" id="Ellipse.getXYRadius">
+<a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.blobs.Ellipse.html#pyfeyn2.render.pyx.blobs.Ellipse.getXYRadius">[docs]</a>
+    def getXYRadius(self):
         &quot;&quot;&quot;Get the components of the radius in the x and y
         directions at the same time.&quot;&quot;&quot;
         return self.getXRadius(), self.getYRadius()</div>
 
-<div class="viewcode-block" id="Ellipse.setXYRadius"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.blobs.Ellipse.html#pyfeyn2.render.pyx.blobs.Ellipse.setXYRadius">[docs]</a>    def setXYRadius(self, xrad, yrad):
+
+<div class="viewcode-block" id="Ellipse.setXYRadius">
+<a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.blobs.Ellipse.html#pyfeyn2.render.pyx.blobs.Ellipse.setXYRadius">[docs]</a>
+    def setXYRadius(self, xrad, yrad):
         &quot;&quot;&quot;Get the components of the radius in the x and y
         directions at the same time.&quot;&quot;&quot;
         self.setXRadius(xrad)
         self.setYRadius(yrad)
         return self</div>
 
-<div class="viewcode-block" id="Ellipse.getPath"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.blobs.Ellipse.html#pyfeyn2.render.pyx.blobs.Ellipse.getPath">[docs]</a>    def getPath(self):
+
+<div class="viewcode-block" id="Ellipse.getPath">
+<a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.blobs.Ellipse.html#pyfeyn2.render.pyx.blobs.Ellipse.getPath">[docs]</a>
+    def getPath(self):
         &quot;&quot;&quot;Get the path for this blob.&quot;&quot;&quot;
         ucircle = pyx.path.circle(self.xpos, self.ypos, 1.0)
         mytrafo = pyx.trafo.scale(self.xrad, self.yrad, self.xpos, self.ypos)
         epath = ucircle.transformed(mytrafo)
         return epath</div>
 
-<div class="viewcode-block" id="Ellipse.draw"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.blobs.Ellipse.html#pyfeyn2.render.pyx.blobs.Ellipse.draw">[docs]</a>    def draw(self, canvas):
+
+<div class="viewcode-block" id="Ellipse.draw">
+<a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.blobs.Ellipse.html#pyfeyn2.render.pyx.blobs.Ellipse.draw">[docs]</a>
+    def draw(self, canvas):
         &quot;&quot;&quot;Draw this blob on the given canvas.&quot;&quot;&quot;
         canvas.fill(self.getPath(), [pyx.color.rgb.white])
         canvas.fill(self.getPath(), self.fillstyles)
         # canvas.stroke(self.getPath(), [pyx.color.rgb.white])
         canvas.stroke(self.getPath(), self.strokestyles)
         for l in self.labels:
-            l.draw(canvas)</div></div>
+            l.draw(canvas)</div>
+</div>
+
 
 
 ## A dictionary to map feynML blob shape choices to blob classes
@@ -381,7 +451,7 @@ NamedBlob = {&quot;circle&quot;: Circle, &quot;ellipse&quot;: Ellipse}
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2024, Alexander Puck Neuwirth.</p>
+    <p>&#169; Copyright 2025, Alexander Puck Neuwirth.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

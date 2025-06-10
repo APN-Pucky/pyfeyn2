@@ -1,0 +1,6 @@
+pyfeyn2.auto.debug.auto\_debug
+==============================
+
+.. currentmodule:: pyfeyn2.auto.debug
+
+.. autofunction:: auto_debug

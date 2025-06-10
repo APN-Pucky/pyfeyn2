@@ -1,0 +1,30 @@
+pyfeyn2.auto.debug
+==================
+
+.. automodule:: pyfeyn2.auto.debug
+  
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+      :toctree:                                         
+   
+      auto_debug
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+

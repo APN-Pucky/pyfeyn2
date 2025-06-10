@@ -1,30 +1,28 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>feynml.vertex.Vertex &mdash; pyfeyn2  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
       <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
       <link rel="stylesheet" type="text/css" href="../_static/thebelab.css" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=b3ba4146"></script>
-        <script src="../_static/doctools.js?v=888ff710"></script>
-        <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
-        <script src="../_static/thebelab-helper.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/thebelab-helper.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -44,9 +42,6 @@
             pyfeyn2
               <img src="../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
-              <div class="version">
-                2.4.2
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -85,8 +80,10 @@
 <li class="toctree-l2"><a class="reference internal" href="feynml.leg.html">feynml.leg</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.line.html">feynml.line</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.link.html">feynml.link</a></li>
+<li class="toctree-l2"><a class="reference internal" href="feynml.log.html">feynml.log</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.meta.html">feynml.meta</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.momentum.html">feynml.momentum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="feynml.particle.html">feynml.particle</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.particles.html">feynml.particles</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.pdgid.html">feynml.pdgid</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.point.html">feynml.point</a></li>
@@ -96,6 +93,7 @@
 <li class="toctree-l2"><a class="reference internal" href="feynml.sourcing.html">feynml.sourcing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.styled.html">feynml.styled</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.targeting.html">feynml.targeting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="feynml.topology.html">feynml.topology</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.type.html">feynml.type</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.util.html">feynml.util</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="feynml.vertex.html">feynml.vertex</a><ul class="current">
@@ -147,14 +145,14 @@
            <div itemprop="articleBody">
              
   <section id="feynml-vertex-vertex">
-<h1>feynml.vertex.Vertex<a class="headerlink" href="#feynml-vertex-vertex" title="Permalink to this heading"></a></h1>
+<h1>feynml.vertex.Vertex<a class="headerlink" href="#feynml-vertex-vertex" title="Link to this heading"></a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="feynml.vertex.Vertex">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">feynml.vertex.</span></span><span class="sig-name descname"><span class="pre">Vertex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id:</span> <span class="pre">Optional[str]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style:</span> <span class="pre">cssutils.css.cssstyledeclaration.CSSStyleDeclaration</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clazz:</span> <span class="pre">Optional[str]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x:</span> <span class="pre">Optional[float]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y:</span> <span class="pre">Optional[float]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z:</span> <span class="pre">Optional[float]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label:</span> <span class="pre">Optional[str]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shape:</span> <span class="pre">Optional[str]</span> <span class="pre">=</span> <span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/feynml/vertex.html#Vertex"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#feynml.vertex.Vertex" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">feynml.vertex.</span></span><span class="sig-name descname"><span class="pre">Vertex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id:</span> <span class="pre">Optional[str]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style:</span> <span class="pre">cssutils.css.cssstyledeclaration.CSSStyleDeclaration</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clazz:</span> <span class="pre">Optional[str]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x:</span> <span class="pre">Optional[float]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y:</span> <span class="pre">Optional[float]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z:</span> <span class="pre">Optional[float]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label:</span> <span class="pre">Optional[str]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shape:</span> <span class="pre">Optional[str]</span> <span class="pre">=</span> <span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/feynml/vertex.html#Vertex"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#feynml.vertex.Vertex" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="feynml.labeled.Labeled.html#feynml.labeled.Labeled" title="feynml.labeled.Labeled"><code class="xref py py-class docutils literal notranslate"><span class="pre">Labeled</span></code></a>, <a class="reference internal" href="feynml.point.Point.html#feynml.point.Point" title="feynml.point.Point"><code class="xref py py-class docutils literal notranslate"><span class="pre">Point</span></code></a>, <a class="reference internal" href="feynml.styled.Styled.html#feynml.styled.Styled" title="feynml.styled.Styled"><code class="xref py py-class docutils literal notranslate"><span class="pre">Styled</span></code></a>, <a class="reference internal" href="feynml.id.Identifiable.html#feynml.id.Identifiable" title="feynml.id.Identifiable"><code class="xref py py-class docutils literal notranslate"><span class="pre">Identifiable</span></code></a></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="feynml.vertex.Vertex.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id:</span> <span class="pre">str</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style:</span> <span class="pre">~cssutils.css.cssstyledeclaration.CSSStyleDeclaration</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clazz:</span> <span class="pre">str</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x:</span> <span class="pre">float</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y:</span> <span class="pre">float</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z:</span> <span class="pre">float</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label:</span> <span class="pre">str</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shape:</span> <span class="pre">str</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#feynml.vertex.Vertex.__init__" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id:</span> <span class="pre">str</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style:</span> <span class="pre">~cssutils.css.cssstyledeclaration.CSSStyleDeclaration</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clazz:</span> <span class="pre">str</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x:</span> <span class="pre">float</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y:</span> <span class="pre">float</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z:</span> <span class="pre">float</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label:</span> <span class="pre">str</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shape:</span> <span class="pre">str</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#feynml.vertex.Vertex.__init__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <p class="rubric">Methods</p>
@@ -167,16 +165,10 @@
 <td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#feynml.vertex.Vertex.put_style" title="feynml.vertex.Vertex.put_style"><code class="xref py py-obj docutils literal notranslate"><span class="pre">put_style</span></code></a>(key, value)</p></td>
-<td><p><div class="deprecated">
-<p><span class="versionmodified deprecated">Deprecated since version 0.0.0.</span></p>
-</div>
-</p></td>
+<td><p></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#feynml.vertex.Vertex.put_styles" title="feynml.vertex.Vertex.put_styles"><code class="xref py py-obj docutils literal notranslate"><span class="pre">put_styles</span></code></a>(**kwargs)</p></td>
-<td><p><div class="deprecated">
-<p><span class="versionmodified deprecated">Deprecated since version 0.0.0.</span></p>
-</div>
-</p></td>
+<td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">raw_style</span></code>()</p></td>
 <td><p></p></td>
@@ -256,77 +248,77 @@
 </table>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="feynml.vertex.Vertex.clazz">
-<span class="sig-name descname"><span class="pre">clazz</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#feynml.vertex.Vertex.clazz" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">clazz</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#feynml.vertex.Vertex.clazz" title="Link to this definition"></a></dt>
 <dd><p>CSS class string.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="feynml.vertex.Vertex.put_style">
-<span class="sig-name descname"><span class="pre">put_style</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#feynml.vertex.Vertex.put_style" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">put_style</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#feynml.vertex.Vertex.put_style" title="Link to this definition"></a></dt>
 <dd><div class="deprecated">
-<p><span class="versionmodified deprecated">Deprecated since version 0.0.0.</span></p>
+<p><span class="versionmodified deprecated">Deprecated since version use: </span>with_style_property</p>
 </div>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="feynml.vertex.Vertex.put_styles">
-<span class="sig-name descname"><span class="pre">put_styles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#feynml.vertex.Vertex.put_styles" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">put_styles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#feynml.vertex.Vertex.put_styles" title="Link to this definition"></a></dt>
 <dd><div class="deprecated">
-<p><span class="versionmodified deprecated">Deprecated since version 0.0.0.</span></p>
+<p><span class="versionmodified deprecated">Deprecated since version use: </span>with_style_properties</p>
 </div>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="feynml.vertex.Vertex.shape">
-<span class="sig-name descname"><span class="pre">shape</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#feynml.vertex.Vertex.shape" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">shape</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#feynml.vertex.Vertex.shape" title="Link to this definition"></a></dt>
 <dd><p>Shape of the vertex</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="feynml.vertex.Vertex.style">
-<span class="sig-name descname"><span class="pre">style</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">CSSString</span></em><a class="headerlink" href="#feynml.vertex.Vertex.style" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">style</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">CSSString</span></em><a class="headerlink" href="#feynml.vertex.Vertex.style" title="Link to this definition"></a></dt>
 <dd><p>CSS style string.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="feynml.vertex.Vertex.with_id">
-<span class="sig-name descname"><span class="pre">with_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#feynml.vertex.Vertex.with_id" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">with_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#feynml.vertex.Vertex.with_id" title="Link to this definition"></a></dt>
 <dd><p>set id</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="feynml.vertex.Vertex.with_label">
-<span class="sig-name descname"><span class="pre">with_label</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'label'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#feynml.vertex.Vertex.with_label" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">with_label</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'label'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#feynml.vertex.Vertex.with_label" title="Link to this definition"></a></dt>
 <dd><p>Set label to <cite>value</cite> and return self.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="feynml.vertex.Vertex.with_new_id">
-<span class="sig-name descname"><span class="pre">with_new_id</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#feynml.vertex.Vertex.with_new_id" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">with_new_id</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#feynml.vertex.Vertex.with_new_id" title="Link to this definition"></a></dt>
 <dd><p>generate new id</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="feynml.vertex.Vertex.with_shape">
-<span class="sig-name descname"><span class="pre">with_shape</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'shape'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#feynml.vertex.Vertex.with_shape" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">with_shape</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'shape'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#feynml.vertex.Vertex.with_shape" title="Link to this definition"></a></dt>
 <dd><p>Set shape to <cite>value</cite> and return self.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="feynml.vertex.Vertex.x">
-<span class="sig-name descname"><span class="pre">x</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#feynml.vertex.Vertex.x" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">x</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#feynml.vertex.Vertex.x" title="Link to this definition"></a></dt>
 <dd><p>x coordinate</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="feynml.vertex.Vertex.y">
-<span class="sig-name descname"><span class="pre">y</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#feynml.vertex.Vertex.y" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">y</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#feynml.vertex.Vertex.y" title="Link to this definition"></a></dt>
 <dd><p>y coordinate</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="feynml.vertex.Vertex.z">
-<span class="sig-name descname"><span class="pre">z</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#feynml.vertex.Vertex.z" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">z</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#feynml.vertex.Vertex.z" title="Link to this definition"></a></dt>
 <dd><p>z coordinate</p>
 </dd></dl>
 
@@ -345,7 +337,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2024, Alexander Puck Neuwirth.</p>
+    <p>&#169; Copyright 2025, Alexander Puck Neuwirth.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

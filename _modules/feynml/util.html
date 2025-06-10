@@ -1,29 +1,27 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>feynml.util &mdash; pyfeyn2  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css" />
       <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
       <link rel="stylesheet" type="text/css" href="../../_static/thebelab.css" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=b3ba4146"></script>
-        <script src="../../_static/doctools.js?v=888ff710"></script>
-        <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
-        <script src="../../_static/thebelab-helper.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/thebelab-helper.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" /> 
@@ -41,9 +39,6 @@
             pyfeyn2
               <img src="../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
-              <div class="version">
-                2.4.2
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -109,10 +104,9 @@
            <div itemprop="articleBody">
              
   <h1>Source code for feynml.util</h1><div class="highlight"><pre>
-<span></span>from smpl_doc.doc import deprecated
-
-
-<div class="viewcode-block" id="id_wrap"><a class="viewcode-back" href="../../_autosummary/feynml.util.id_wrap.html#feynml.util.id_wrap">[docs]</a>def id_wrap(idd, id_type=&quot;&quot;):
+<div class="viewcode-block" id="id_wrap">
+<a class="viewcode-back" href="../../_autosummary/feynml.util.id_wrap.html#feynml.util.id_wrap">[docs]</a>
+<span></span>def id_wrap(idd, id_type=&quot;&quot;):
     &quot;&quot;&quot;
     Wrap a id in the format expected by feynml.
 
@@ -131,7 +125,10 @@
     return id_type + str(round(idd)).replace(&quot;-&quot;, &quot;m&quot;)</div>
 
 
-<div class="viewcode-block" id="vertex_id_wrap"><a class="viewcode-back" href="../../_autosummary/feynml.util.vertex_id_wrap.html#feynml.util.vertex_id_wrap">[docs]</a>def vertex_id_wrap(idd):
+
+<div class="viewcode-block" id="vertex_id_wrap">
+<a class="viewcode-back" href="../../_autosummary/feynml.util.vertex_id_wrap.html#feynml.util.vertex_id_wrap">[docs]</a>
+def vertex_id_wrap(idd):
     &quot;&quot;&quot;
     Wrap a vertex id in the format expected by feynml.
 
@@ -150,7 +147,10 @@
     return id_wrap(idd, &quot;Vertex&quot;)</div>
 
 
-<div class="viewcode-block" id="leg_id_wrap"><a class="viewcode-back" href="../../_autosummary/feynml.util.leg_id_wrap.html#feynml.util.leg_id_wrap">[docs]</a>def leg_id_wrap(idd):
+
+<div class="viewcode-block" id="leg_id_wrap">
+<a class="viewcode-back" href="../../_autosummary/feynml.util.leg_id_wrap.html#feynml.util.leg_id_wrap">[docs]</a>
+def leg_id_wrap(idd):
     &quot;&quot;&quot;
     Wrap a leg id in the format expected by feynml.
 
@@ -169,7 +169,10 @@
     return id_wrap(idd, &quot;Leg&quot;)</div>
 
 
-<div class="viewcode-block" id="propagator_id_wrap"><a class="viewcode-back" href="../../_autosummary/feynml.util.propagator_id_wrap.html#feynml.util.propagator_id_wrap">[docs]</a>def propagator_id_wrap(idd):
+
+<div class="viewcode-block" id="propagator_id_wrap">
+<a class="viewcode-back" href="../../_autosummary/feynml.util.propagator_id_wrap.html#feynml.util.propagator_id_wrap">[docs]</a>
+def propagator_id_wrap(idd):
     &quot;&quot;&quot;
     Wrap a propagator id in the format expected by feynml.
 
@@ -186,6 +189,7 @@
         &#39;Propagatorm1&#39;
     &quot;&quot;&quot;
     return id_wrap(idd, &quot;Propagator&quot;)</div>
+
 </pre></div>
 
            </div>
@@ -195,7 +199,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2024, Alexander Puck Neuwirth.</p>
+    <p>&#169; Copyright 2025, Alexander Puck Neuwirth.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

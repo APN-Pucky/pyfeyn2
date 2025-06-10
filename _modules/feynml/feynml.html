@@ -1,29 +1,27 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>feynml.feynml &mdash; pyfeyn2  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css" />
       <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
       <link rel="stylesheet" type="text/css" href="../../_static/thebelab.css" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=b3ba4146"></script>
-        <script src="../../_static/doctools.js?v=888ff710"></script>
-        <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
-        <script src="../../_static/thebelab-helper.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/thebelab-helper.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" /> 
@@ -41,9 +39,6 @@
             pyfeyn2
               <img src="../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
-              <div class="version">
-                2.4.2
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -109,27 +104,27 @@
            <div itemprop="articleBody">
              
   <h1>Source code for feynml.feynml</h1><div class="highlight"><pre>
-<span></span>import logging
-import os
+<span></span>import os
 import warnings
 from dataclasses import dataclass, field
 from importlib.metadata import version
 from typing import List, Optional
 
-import smpl_io.io as io
+import smpl.io as io
 
 from feynml.feynmandiagram import FeynmanDiagram
 from feynml.head import Head
 from feynml.id import Identifiable
 from feynml.meta import Meta
 from feynml.sheet import SheetHandler
-from feynml.styled import CSSSheet
 from feynml.xml import XML
 
 feynml_version = version(&quot;feynml&quot;)
 
 
-<div class="viewcode-block" id="FeynML"><a class="viewcode-back" href="../../_autosummary/feynml.feynml.FeynML.html#feynml.feynml.FeynML">[docs]</a>@dataclass
+<div class="viewcode-block" id="FeynML">
+<a class="viewcode-back" href="../../_autosummary/feynml.feynml.FeynML.html#feynml.feynml.FeynML">[docs]</a>
+@dataclass
 class FeynML(SheetHandler, XML):
     class Meta:
         name = &quot;feynml&quot;
@@ -163,6 +158,19 @@ class FeynML(SheetHandler, XML):
         metadata={&quot;name&quot;: &quot;diagram&quot;, &quot;type&quot;: &quot;Element&quot;, &quot;namespace&quot;: &quot;&quot;},
     )
 
+    def is_isomorphic(self, other: &quot;FeynML&quot;):
+        if len(self.diagrams) != len(other.diagrams):
+            return False
+        found = [False] * len(self.diagrams)
+        for d in self.diagrams:
+            for i, od in enumerate(other.diagrams):
+                if d.is_isomorphic(od):
+                    if found[i]:
+                        # No duplicates
+                        return False
+                    found[i] = True
+        return all(found)
+
     def get_root(self):
         return self.head.root
 
@@ -176,7 +184,9 @@ class FeynML(SheetHandler, XML):
                 return d
         return None
 
-<div class="viewcode-block" id="FeynML.get_style"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.FeynML.html#feynml.feynml.FeynML.get_style">[docs]</a>    def get_style(self, obj, xml=None):
+<div class="viewcode-block" id="FeynML.get_style">
+<a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.FeynML.html#feynml.feynml.FeynML.get_style">[docs]</a>
+    def get_style(self, obj, xml=None):
         if xml is None:
             xml = self
         for d in self.diagrams:
@@ -185,15 +195,25 @@ class FeynML(SheetHandler, XML):
                     return d.get_style(obj, xml)
         return self.head.get_style(obj, xml)</div>
 
-<div class="viewcode-block" id="FeynML.get_sheets"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.FeynML.html#feynml.feynml.FeynML.get_sheets">[docs]</a>    def get_sheets(self):
+
+<div class="viewcode-block" id="FeynML.get_sheets">
+<a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.FeynML.html#feynml.feynml.FeynML.get_sheets">[docs]</a>
+    def get_sheets(self):
         return self.head.get_sheets()</div>
 
-<div class="viewcode-block" id="FeynML.get_sheet"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.FeynML.html#feynml.feynml.FeynML.get_sheet">[docs]</a>    def get_sheet(self):
+
+<div class="viewcode-block" id="FeynML.get_sheet">
+<a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.FeynML.html#feynml.feynml.FeynML.get_sheet">[docs]</a>
+    def get_sheet(self):
         return self.head.get_sheet()</div>
 
-<div class="viewcode-block" id="FeynML.with_sheet"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.FeynML.html#feynml.feynml.FeynML.with_sheet">[docs]</a>    def with_sheet(self, sheet):
+
+<div class="viewcode-block" id="FeynML.with_sheet">
+<a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.FeynML.html#feynml.feynml.FeynML.with_sheet">[docs]</a>
+    def with_sheet(self, sheet):
         self.head.with_sheet(sheet)
         return self</div>
+
 
     def render(self, show=True, **kwargs):
         for d in self.diagrams:
@@ -203,7 +223,9 @@ class FeynML(SheetHandler, XML):
         self.render(show=True)
         return self
 
-<div class="viewcode-block" id="FeynML.from_xml_file"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.FeynML.html#feynml.feynml.FeynML.from_xml_file">[docs]</a>    @classmethod
+<div class="viewcode-block" id="FeynML.from_xml_file">
+<a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.FeynML.html#feynml.feynml.FeynML.from_xml_file">[docs]</a>
+    @classmethod
     def from_xml_file(cls, file: str):
         &quot;&quot;&quot;Load self from XML file.&quot;&quot;&quot;
         # get parent directory of file
@@ -214,7 +236,9 @@ class FeynML(SheetHandler, XML):
         elif file.startswith(&quot;http&quot;):
             # remove last file in url
             r.head.root = &quot;/&quot;.join(file.split(&quot;/&quot;)[:-1]) + &quot;/&quot;
-        return r</div></div>
+        return r</div>
+</div>
+
 </pre></div>
 
            </div>
@@ -224,7 +248,7 @@ class FeynML(SheetHandler, XML):
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2024, Alexander Puck Neuwirth.</p>
+    <p>&#169; Copyright 2025, Alexander Puck Neuwirth.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

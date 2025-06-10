@@ -1,0 +1,6 @@
+feynml.topology.two.noop
+========================
+
+.. currentmodule:: feynml.topology.two
+
+.. autofunction:: noop

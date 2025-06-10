@@ -1,30 +1,28 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>feynml.interface.formcalc &mdash; pyfeyn2  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
       <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
       <link rel="stylesheet" type="text/css" href="../_static/thebelab.css" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=b3ba4146"></script>
-        <script src="../_static/doctools.js?v=888ff710"></script>
-        <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
-        <script src="../_static/thebelab-helper.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/thebelab-helper.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -44,9 +42,6 @@
             pyfeyn2
               <img src="../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
-              <div class="version">
-                2.4.2
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -105,8 +100,10 @@
 <li class="toctree-l2"><a class="reference internal" href="feynml.leg.html">feynml.leg</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.line.html">feynml.line</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.link.html">feynml.link</a></li>
+<li class="toctree-l2"><a class="reference internal" href="feynml.log.html">feynml.log</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.meta.html">feynml.meta</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.momentum.html">feynml.momentum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="feynml.particle.html">feynml.particle</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.particles.html">feynml.particles</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.pdgid.html">feynml.pdgid</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.point.html">feynml.point</a></li>
@@ -116,6 +113,7 @@
 <li class="toctree-l2"><a class="reference internal" href="feynml.sourcing.html">feynml.sourcing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.styled.html">feynml.styled</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.targeting.html">feynml.targeting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="feynml.topology.html">feynml.topology</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.type.html">feynml.type</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.util.html">feynml.util</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.vertex.html">feynml.vertex</a></li>
@@ -161,44 +159,44 @@
            <div itemprop="articleBody">
              
   <section id="module-feynml.interface.formcalc">
-<span id="feynml-interface-formcalc"></span><h1>feynml.interface.formcalc<a class="headerlink" href="#module-feynml.interface.formcalc" title="Permalink to this heading"></a></h1>
+<span id="feynml-interface-formcalc"></span><h1>feynml.interface.formcalc<a class="headerlink" href="#module-feynml.interface.formcalc" title="Link to this heading"></a></h1>
 <p class="rubric">Modules</p>
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="feynml.interface.formcalc.fermion.html#module-feynml.interface.formcalc.fermion" title="feynml.interface.formcalc.fermion"><code class="xref py py-obj docutils literal notranslate"><span class="pre">feynml.interface.formcalc.fermion</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="feynml.interface.formcalc.fermion.html#module-feynml.interface.formcalc.fermion" title="feynml.interface.formcalc.fermion"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fermion</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="feynml.interface.formcalc.feynmangraph.html#module-feynml.interface.formcalc.feynmangraph" title="feynml.interface.formcalc.feynmangraph"><code class="xref py py-obj docutils literal notranslate"><span class="pre">feynml.interface.formcalc.feynmangraph</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="feynml.interface.formcalc.feynmangraph.html#module-feynml.interface.formcalc.feynmangraph" title="feynml.interface.formcalc.feynmangraph"><code class="xref py py-obj docutils literal notranslate"><span class="pre">feynmangraph</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="feynml.interface.formcalc.field.html#module-feynml.interface.formcalc.field" title="feynml.interface.formcalc.field"><code class="xref py py-obj docutils literal notranslate"><span class="pre">feynml.interface.formcalc.field</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="feynml.interface.formcalc.field.html#module-feynml.interface.formcalc.field" title="feynml.interface.formcalc.field"><code class="xref py py-obj docutils literal notranslate"><span class="pre">field</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="feynml.interface.formcalc.insertions.html#module-feynml.interface.formcalc.insertions" title="feynml.interface.formcalc.insertions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">feynml.interface.formcalc.insertions</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="feynml.interface.formcalc.insertions.html#module-feynml.interface.formcalc.insertions" title="feynml.interface.formcalc.insertions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">insertions</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="feynml.interface.formcalc.particle.html#module-feynml.interface.formcalc.particle" title="feynml.interface.formcalc.particle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">feynml.interface.formcalc.particle</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="feynml.interface.formcalc.particle.html#module-feynml.interface.formcalc.particle" title="feynml.interface.formcalc.particle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">particle</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="feynml.interface.formcalc.propagator.html#module-feynml.interface.formcalc.propagator" title="feynml.interface.formcalc.propagator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">feynml.interface.formcalc.propagator</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="feynml.interface.formcalc.propagator.html#module-feynml.interface.formcalc.propagator" title="feynml.interface.formcalc.propagator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">propagator</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="feynml.interface.formcalc.rule.html#module-feynml.interface.formcalc.rule" title="feynml.interface.formcalc.rule"><code class="xref py py-obj docutils literal notranslate"><span class="pre">feynml.interface.formcalc.rule</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="feynml.interface.formcalc.rule.html#module-feynml.interface.formcalc.rule" title="feynml.interface.formcalc.rule"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rule</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="feynml.interface.formcalc.sequenceform.html#module-feynml.interface.formcalc.sequenceform" title="feynml.interface.formcalc.sequenceform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">feynml.interface.formcalc.sequenceform</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="feynml.interface.formcalc.sequenceform.html#module-feynml.interface.formcalc.sequenceform" title="feynml.interface.formcalc.sequenceform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sequenceform</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="feynml.interface.formcalc.topology.html#module-feynml.interface.formcalc.topology" title="feynml.interface.formcalc.topology"><code class="xref py py-obj docutils literal notranslate"><span class="pre">feynml.interface.formcalc.topology</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="feynml.interface.formcalc.topology.html#module-feynml.interface.formcalc.topology" title="feynml.interface.formcalc.topology"><code class="xref py py-obj docutils literal notranslate"><span class="pre">topology</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="feynml.interface.formcalc.topologylist.html#module-feynml.interface.formcalc.topologylist" title="feynml.interface.formcalc.topologylist"><code class="xref py py-obj docutils literal notranslate"><span class="pre">feynml.interface.formcalc.topologylist</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="feynml.interface.formcalc.topologylist.html#module-feynml.interface.formcalc.topologylist" title="feynml.interface.formcalc.topologylist"><code class="xref py py-obj docutils literal notranslate"><span class="pre">topologylist</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="feynml.interface.formcalc.vector.html#module-feynml.interface.formcalc.vector" title="feynml.interface.formcalc.vector"><code class="xref py py-obj docutils literal notranslate"><span class="pre">feynml.interface.formcalc.vector</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="feynml.interface.formcalc.vector.html#module-feynml.interface.formcalc.vector" title="feynml.interface.formcalc.vector"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vector</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="feynml.interface.formcalc.vertex.html#module-feynml.interface.formcalc.vertex" title="feynml.interface.formcalc.vertex"><code class="xref py py-obj docutils literal notranslate"><span class="pre">feynml.interface.formcalc.vertex</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="feynml.interface.formcalc.vertex.html#module-feynml.interface.formcalc.vertex" title="feynml.interface.formcalc.vertex"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vertex</span></code></a></p></td>
 <td><p></p></td>
 </tr>
 </tbody>
@@ -216,7 +214,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2024, Alexander Puck Neuwirth.</p>
+    <p>&#169; Copyright 2025, Alexander Puck Neuwirth.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

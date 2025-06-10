@@ -1,0 +1,6 @@
+feynml.pdgid.to\_pdgid
+======================
+
+.. currentmodule:: feynml.pdgid
+
+.. autofunction:: to_pdgid

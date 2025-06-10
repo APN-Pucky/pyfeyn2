@@ -1,29 +1,27 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>feynml.pdgid &mdash; pyfeyn2  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css" />
       <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
       <link rel="stylesheet" type="text/css" href="../../_static/thebelab.css" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=b3ba4146"></script>
-        <script src="../../_static/doctools.js?v=888ff710"></script>
-        <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
-        <script src="../../_static/thebelab-helper.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/thebelab-helper.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" /> 
@@ -41,9 +39,6 @@
             pyfeyn2
               <img src="../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
-              <div class="version">
-                2.4.2
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -109,19 +104,58 @@
            <div itemprop="articleBody">
              
   <h1>Source code for feynml.pdgid</h1><div class="highlight"><pre>
-<span></span>import warnings
-from dataclasses import dataclass, field
-from typing import Optional
+<span></span>from dataclasses import dataclass, field
+from typing import Optional, Union
 
-from particle import Particle
-from smpl_util.util import withify
+from smpl.util import withify
+from feynmodel.feyn_model import FeynModel
 
 from feynml.id import Identifiable
+from feynml.particle import Particle
 
-from .particles import get_either_particle
+
+PDGID_PARAM = Union[int, str, None]
 
 
-<div class="viewcode-block" id="PDG"><a class="viewcode-back" href="../../_autosummary/feynml.pdgid.PDG.html#feynml.pdgid.PDG">[docs]</a>@withify()
+<div class="viewcode-block" id="is_pdgid_param">
+<a class="viewcode-back" href="../../_autosummary/feynml.pdgid.is_pdgid_param.html#feynml.pdgid.is_pdgid_param">[docs]</a>
+def is_pdgid_param(p):
+    return isinstance(p, int) or isinstance(p, str) or p is None</div>
+
+
+
+<div class="viewcode-block" id="pdgid_param">
+<a class="viewcode-back" href="../../_autosummary/feynml.pdgid.pdgid_param.html#feynml.pdgid.pdgid_param">[docs]</a>
+def pdgid_param(p: PDGID_PARAM) -&gt; dict:
+    if p is None:
+        return {&quot;type&quot;: &quot;line&quot;}
+    elif isinstance(p, int):
+        return {&quot;pdgid&quot;: p}
+    elif isinstance(p, str):
+        return {&quot;name&quot;: p}
+    else:
+        raise ValueError(&quot;Invalid input type&quot;)</div>
+
+
+
+<div class="viewcode-block" id="to_pdgid">
+<a class="viewcode-back" href="../../_autosummary/feynml.pdgid.to_pdgid.html#feynml.pdgid.to_pdgid">[docs]</a>
+def to_pdgid(p: PDGID_PARAM) -&gt; int:
+    return PDG(**pdgid_param(p)).pdgid</div>
+
+
+
+# u = 2
+# d = 1
+# g = 21
+# gamma = 22
+# e = 11
+# TODO continue here and allow this?
+
+
+<div class="viewcode-block" id="PDG">
+<a class="viewcode-back" href="../../_autosummary/feynml.pdgid.PDG.html#feynml.pdgid.PDG">[docs]</a>
+@withify()
 @dataclass
 class PDG(Identifiable):
     pdgid: Optional[int] = field(
@@ -130,21 +164,28 @@ class PDG(Identifiable):
     &quot;&quot;&quot;PDG ID of the particle&quot;&quot;&quot;
     name: Optional[str] = field(default=None, metadata={&quot;type&quot;: &quot;Element&quot;})
     &quot;&quot;&quot;Name of the particle&quot;&quot;&quot;
+    texname: Optional[str] = field(default=None, metadata={&quot;type&quot;: &quot;Element&quot;})
+    &quot;&quot;&quot;LaTeX name of the particle&quot;&quot;&quot;
     type: Optional[str] = field(
         default=None, metadata={&quot;xml_attribute&quot;: True, &quot;type&quot;: &quot;Attribute&quot;}
     )
     &quot;&quot;&quot;Type of the particle, e.g. fermion, boson, etc.&quot;&quot;&quot;
 
-    # TODO check SUSY
-    particle: Optional[Particle] = field(default=None, metadata={&quot;type&quot;: &quot;Ignore&quot;})
-    &quot;&quot;&quot;Particle object from the particle package&quot;&quot;&quot;
+    # particle: Optional[Particle] = field(default=None, metadata={&quot;type&quot;: &quot;Ignore&quot;})
+    # &quot;&quot;&quot;Particle object from the particle package&quot;&quot;&quot;
 
-    def _sync(self):
-        &quot;&quot;&quot;Sync the particle with the pdgid, name etc.&quot;&quot;&quot;
+    # _particle: Optional[Particle] = field(default=None, metadata={&quot;type&quot;: &quot;Ignore&quot;})
+    # &quot;&quot;&quot;Particle object from the particle package&quot;&quot;&quot;
+
+    def _sync(self, feynmodel: FeynModel = None):
+        &quot;&quot;&quot;Sync the particle with the pdgid, name and type.&quot;&quot;&quot;
+        particle = None
         if self.pdgid is not None:
-            self.particle = Particle.from_pdgid(self.pdgid)
-            self.name = self.particle.name
-        elif self.name is not None:
+            if feynmodel is not None:
+                particle = Particle.fromfeynmodel(self.pdgid, feynmodel)
+            else:
+                particle = Particle.frompdg(self.pdgid)
+        if self.name is not None:
             if self.name == &quot;ghG&quot; or self.name == &quot;gh&quot; or self.name == &quot;ghost&quot;:
                 self.particle = None
                 self.pdgid = None
@@ -155,104 +196,65 @@ class PDG(Identifiable):
                 self.pdgid = None
                 self.type = &quot;anti ghost&quot;
                 return
-            self.particle = get_either_particle(
-                programmatic_name=self.name,
-                name=self.name,
-                evtgen_name=self.name,
-                html_name=self.name,
-                latex_name=self.name,
-            )
-            if self.particle is None:
-                raise ValueError(f&quot;Particle {self.name} not found&quot;)
-            self.pdgid = int(self.particle.pdgid)
+            particle = Particle.fromname(self.name)
 
-        if self.pdgid is not None:
-            tmptype = self.type
-            # TODO infere type from pdgid
-            if self.pdgid in range(1, 7):
-                self.type = &quot;fermion&quot;
-            elif -self.pdgid in range(1, 7):
-                self.type = &quot;anti fermion&quot;
-            elif self.pdgid == 22:
-                self.type = &quot;photon&quot;
-            elif self.pdgid == 21:
-                self.type = &quot;gluon&quot;
-            elif self.pdgid in range(11, 19):
-                self.type = &quot;fermion&quot;
-            elif -self.pdgid in range(11, 19):
-                self.type = &quot;anti fermion&quot;
-            elif abs(self.pdgid) == 24:
-                self.type = &quot;boson&quot;
-            elif self.pdgid == 23:
-                self.type = &quot;boson&quot;
-            elif self.pdgid == 25:
-                self.type = &quot;higgs&quot;
-            elif self.pdgid == 2212:  # proton
-                self.type = &quot;baryon&quot;
-            elif self.pdgid == -2212:  # anti proton
-                self.type = &quot;anti baryon&quot;
-            elif self.pdgid == 111:  # pion
-                self.type = &quot;meson&quot;
-            elif abs(self.pdgid) == 211:  # pion
-                self.type = &quot;meson&quot;
-            elif self.pdgid &lt; 1000000 and self.pdgid &gt; 100:
-                if self.particle.pdgid.J == 0:
-                    self.type = &quot;line&quot;
-                elif self.particle.pdgid.J == 1:
-                    self.type = &quot;line&quot;
-                elif self.particle.pdgid.J == 0.5:
-                    self.type = &quot;fermion&quot;
-                elif self.particle.pdgid.J == 1.5:
-                    self.type = &quot;fermion&quot;
-            elif self.pdgid &gt; -1000000 and self.pdgid &lt; -100:
-                if self.particle.pdgid.J == 0:
-                    self.type = &quot;line&quot;
-                elif self.particle.pdgid.J == 1:
-                    self.type = &quot;line&quot;
-                elif self.particle.pdgid.J == 0.5:
-                    self.type = &quot;anti fermion&quot;
-                elif self.particle.pdgid.J == 1.5:
-                    self.type = &quot;anti fermion&quot;
-            else:
-                warnings.warn(
-                    f&quot;Inferring type from pdgid not implemented for pdgid {self.pdgid} &quot;
-                )
-                self.type = &quot;line&quot;
-            if tmptype is not None and tmptype != &quot;&quot; and self.type != tmptype:
-                warnings.warn(
-                    f&quot;Type {tmptype} is not consistent with pdgid {self.pdgid}, which is {self.type}. Using {tmptype} now.&quot;
-                )
-                self.type = tmptype
+        if particle is not None:
+            if self.texname is None:
+                self.texname = particle.texname
+            if self.name is None:
+                self.name = particle.name
+            if self.pdgid is None:
+                self.pdgid = particle.pdgid
+            if self.type is None:
+                self.type = particle.get_type()
 
-<div class="viewcode-block" id="PDG.is_anti_fermion"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.PDG.html#feynml.pdgid.PDG.is_anti_fermion">[docs]</a>    def is_anti_fermion(self):
+<div class="viewcode-block" id="PDG.is_anti_fermion">
+<a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.PDG.html#feynml.pdgid.PDG.is_anti_fermion">[docs]</a>
+    def is_anti_fermion(self):
         &quot;&quot;&quot;Return True if the particle is an anti fermion, False otherwise.&quot;&quot;&quot;
         return self.type == &quot;anti fermion&quot;</div>
 
-<div class="viewcode-block" id="PDG.is_fermion"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.PDG.html#feynml.pdgid.PDG.is_fermion">[docs]</a>    def is_fermion(self):
+
+<div class="viewcode-block" id="PDG.is_fermion">
+<a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.PDG.html#feynml.pdgid.PDG.is_fermion">[docs]</a>
+    def is_fermion(self):
         &quot;&quot;&quot;Return True if the particle is a fermion, False otherwise.&quot;&quot;&quot;
         return self.type == &quot;fermion&quot;</div>
 
-<div class="viewcode-block" id="PDG.is_any_fermion"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.PDG.html#feynml.pdgid.PDG.is_any_fermion">[docs]</a>    def is_any_fermion(self):
+
+<div class="viewcode-block" id="PDG.is_any_fermion">
+<a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.PDG.html#feynml.pdgid.PDG.is_any_fermion">[docs]</a>
+    def is_any_fermion(self):
         &quot;&quot;&quot;Return True if the particle is a fermion or anti fermion, False otherwise.&quot;&quot;&quot;
         return self.type == &quot;fermion&quot; or self.type == &quot;anti fermion&quot;</div>
 
-<div class="viewcode-block" id="PDG.is_anti"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.PDG.html#feynml.pdgid.PDG.is_anti">[docs]</a>    def is_anti(self):
+
+<div class="viewcode-block" id="PDG.is_anti">
+<a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.PDG.html#feynml.pdgid.PDG.is_anti">[docs]</a>
+    def is_anti(self):
         &quot;&quot;&quot;Return True if the particle is an anti particle, False otherwise.&quot;&quot;&quot;
         return self.pdgid &lt; 0  # TODO use pdg option?</div>
 
+
     def __post_init__(self):
         super().__post_init__()
-        self._sync()</div>
+        self._sync()
 
-    # def with_pdgid(self, pdgid):
-    #    self.pdgid = pdgid
-    #    self._sync()
-    #    return self
+    def with_pdgid(
+        self,
+        pdgid: int = None,
+        type: str = None,
+        name: str = None,
+        feynmodel: FeynModel = None,
+        sync=True,
+    ):
+        self.pdgid = pdgid
+        self.name = name
+        self.type = type
+        if sync:
+            self._sync(feynmodel=feynmodel)
+        return self</div>
 
-    # def with_name(self, name):
-    #    self.name = name
-    #    self._sync()
-    #    return self
 </pre></div>
 
            </div>
@@ -262,7 +264,7 @@ class PDG(Identifiable):
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2024, Alexander Puck Neuwirth.</p>
+    <p>&#169; Copyright 2025, Alexander Puck Neuwirth.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

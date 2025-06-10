@@ -21,6 +21,7 @@ feynml.interface.qgraf
    .. autosummary::
       :toctree:                                         
    
+      generate_fml
       get_style
    
    

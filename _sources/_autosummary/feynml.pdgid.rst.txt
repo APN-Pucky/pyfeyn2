@@ -9,6 +9,15 @@ feynml.pdgid
 
    
    
+   .. rubric:: Functions
+
+   .. autosummary::
+      :toctree:                                         
+   
+      is_pdgid_param
+      pdgid_param
+      to_pdgid
+   
    
 
    

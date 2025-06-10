@@ -1,0 +1,6 @@
+feynml.pdgid.is\_pdgid\_param
+=============================
+
+.. currentmodule:: feynml.pdgid
+
+.. autofunction:: is_pdgid_param

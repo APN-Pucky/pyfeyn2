@@ -1,29 +1,27 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../../../../">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>pyfeyn2.render.pyx.config &mdash; pyfeyn2  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../../../_static/plot_directive.css" />
       <link rel="stylesheet" type="text/css" href="../../../../_static/jupyter-sphinx.css" />
       <link rel="stylesheet" type="text/css" href="../../../../_static/thebelab.css" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../../../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js?v=b3ba4146"></script>
-        <script src="../../../../_static/doctools.js?v=888ff710"></script>
-        <script src="../../../../_static/sphinx_highlight.js?v=4825356b"></script>
-        <script src="../../../../_static/thebelab-helper.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../../_static/thebelab-helper.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" /> 
@@ -41,9 +39,6 @@
             pyfeyn2
               <img src="../../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
-              <div class="version">
-                2.4.2
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -114,7 +109,9 @@
 from optparse import OptionParser
 
 
-<div class="viewcode-block" id="addPyfeynOptions"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.config.addPyfeynOptions.html#pyfeyn2.render.pyx.config.addPyfeynOptions">[docs]</a>def addPyfeynOptions(parser):
+<div class="viewcode-block" id="addPyfeynOptions">
+<a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.config.addPyfeynOptions.html#pyfeyn2.render.pyx.config.addPyfeynOptions">[docs]</a>
+def addPyfeynOptions(parser):
     &quot;&quot;&quot;Add the PyFeyn options to the options parser&#39;s option set.&quot;&quot;&quot;
     parser.add_option(
         &quot;-V&quot;,
@@ -143,7 +140,10 @@ from optparse import OptionParser
     return parser</div>
 
 
-<div class="viewcode-block" id="processOptions"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.config.processOptions.html#pyfeyn2.render.pyx.config.processOptions">[docs]</a>def processOptions(parser=None):
+
+<div class="viewcode-block" id="processOptions">
+<a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.config.processOptions.html#pyfeyn2.render.pyx.config.processOptions">[docs]</a>
+def processOptions(parser=None):
     &quot;&quot;&quot;Process the given options.&quot;&quot;&quot;
     global _opts
     if parser is None:
@@ -154,21 +154,31 @@ from optparse import OptionParser
     return _options, _args</div>
 
 
-<div class="viewcode-block" id="OptionSet"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.config.OptionSet.html#pyfeyn2.render.pyx.config.OptionSet">[docs]</a>class OptionSet:
+
+<div class="viewcode-block" id="OptionSet">
+<a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.config.OptionSet.html#pyfeyn2.render.pyx.config.OptionSet">[docs]</a>
+class OptionSet:
     &quot;&quot;&quot;A container for options.&quot;&quot;&quot;
 
-<div class="viewcode-block" id="OptionSet.__init__"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.config.OptionSet.html#pyfeyn2.render.pyx.config.OptionSet.__init__">[docs]</a>    def __init__(self):
+<div class="viewcode-block" id="OptionSet.__init__">
+<a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.config.OptionSet.html#pyfeyn2.render.pyx.config.OptionSet.__init__">[docs]</a>
+    def __init__(self):
         self.DEBUG = False
         self.VDEBUG = False
-        self.DRAFT = False</div></div>
+        self.DRAFT = False</div>
+</div>
+
 
 
 _opts = OptionSet()
 
 
-<div class="viewcode-block" id="getOptions"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.config.getOptions.html#pyfeyn2.render.pyx.config.getOptions">[docs]</a>def getOptions():
+<div class="viewcode-block" id="getOptions">
+<a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.config.getOptions.html#pyfeyn2.render.pyx.config.getOptions">[docs]</a>
+def getOptions():
     &quot;&quot;&quot;Return the (unique) option set.&quot;&quot;&quot;
     return _opts</div>
+
 </pre></div>
 
            </div>
@@ -178,7 +188,7 @@ _opts = OptionSet()
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2024, Alexander Puck Neuwirth.</p>
+    <p>&#169; Copyright 2025, Alexander Puck Neuwirth.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

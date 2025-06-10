@@ -34,6 +34,7 @@ feynml.leg.Leg
       ~Leg.put_style
       ~Leg.put_styles
       ~Leg.raw_style
+      ~Leg.replace_vertex
       ~Leg.with_class
       ~Leg.with_color
       ~Leg.with_external
@@ -45,7 +46,6 @@ feynml.leg.Leg
       ~Leg.with_name
       ~Leg.with_new_id
       ~Leg.with_outgoing
-      ~Leg.with_particle
       ~Leg.with_pdgid
       ~Leg.with_point
       ~Leg.with_sense
@@ -55,6 +55,7 @@ feynml.leg.Leg
       ~Leg.with_style_property
       ~Leg.with_target
       ~Leg.with_tension
+      ~Leg.with_texname
       ~Leg.with_type
       ~Leg.with_x
       ~Leg.with_xy
@@ -75,11 +76,11 @@ feynml.leg.Leg
       ~Leg.label
       ~Leg.momentum
       ~Leg.name
-      ~Leg.particle
       ~Leg.pdgid
       ~Leg.sense
       ~Leg.shape
       ~Leg.target
+      ~Leg.texname
       ~Leg.type
       ~Leg.x
       ~Leg.y

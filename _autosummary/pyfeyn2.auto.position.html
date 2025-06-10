@@ -1,30 +1,28 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>pyfeyn2.auto.position &mdash; pyfeyn2  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
       <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
       <link rel="stylesheet" type="text/css" href="../_static/thebelab.css" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=b3ba4146"></script>
-        <script src="../_static/doctools.js?v=888ff710"></script>
-        <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
-        <script src="../_static/thebelab-helper.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/thebelab-helper.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -44,9 +42,6 @@
             pyfeyn2
               <img src="../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
-              <div class="version">
-                2.4.2
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -75,7 +70,9 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="pyfeyn2.html">pyfeyn2</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="pyfeyn2.auto.html">pyfeyn2.auto</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="pyfeyn2.auto.auto_default.html">pyfeyn2.auto.auto_default</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyfeyn2.auto.bend.html">pyfeyn2.auto.bend</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyfeyn2.auto.debug.html">pyfeyn2.auto.debug</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyfeyn2.auto.diagram.html">pyfeyn2.auto.diagram</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyfeyn2.auto.label.html">pyfeyn2.auto.label</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">pyfeyn2.auto.position</a><ul>
@@ -85,6 +82,7 @@
 <li class="toctree-l4"><a class="reference internal" href="pyfeyn2.auto.position.auto_gridded_springs.html">pyfeyn2.auto.position.auto_gridded_springs</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyfeyn2.auto.position.auto_position.html">pyfeyn2.auto.position.auto_position</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyfeyn2.auto.position.auto_remove_intersections_by_align_legs.html">pyfeyn2.auto.position.auto_remove_intersections_by_align_legs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyfeyn2.auto.position.auto_remove_intersections_by_permuting_legs.html">pyfeyn2.auto.position.auto_remove_intersections_by_permuting_legs</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyfeyn2.auto.position.auto_vdw.html">pyfeyn2.auto.position.auto_vdw</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyfeyn2.auto.position.ccw.html">pyfeyn2.auto.position.ccw</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyfeyn2.auto.position.feynman_adjust_points.html">pyfeyn2.auto.position.feynman_adjust_points</a></li>
@@ -104,6 +102,7 @@
 <li class="toctree-l2"><a class="reference internal" href="pyfeyn2.feynmandiagram.html">pyfeyn2.feynmandiagram</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pyfeyn2.mkfeyndiag.html">pyfeyn2.mkfeyndiag</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pyfeyn2.render.html">pyfeyn2.render</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyfeyn2.version.html">pyfeyn2.version</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="feynml.html">feynml</a></li>
@@ -146,7 +145,7 @@
            <div itemprop="articleBody">
              
   <section id="module-pyfeyn2.auto.position">
-<span id="pyfeyn2-auto-position"></span><h1>pyfeyn2.auto.position<a class="headerlink" href="#module-pyfeyn2.auto.position" title="Permalink to this heading"></a></h1>
+<span id="pyfeyn2-auto-position"></span><h1>pyfeyn2.auto.position<a class="headerlink" href="#module-pyfeyn2.auto.position" title="Link to this heading"></a></h1>
 <p class="rubric">Functions</p>
 <table class="autosummary longtable docutils align-default">
 <tbody>
@@ -168,40 +167,43 @@
 <tr class="row-even"><td><p><a class="reference internal" href="pyfeyn2.auto.position.auto_remove_intersections_by_align_legs.html#pyfeyn2.auto.position.auto_remove_intersections_by_align_legs" title="pyfeyn2.auto.position.auto_remove_intersections_by_align_legs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">auto_remove_intersections_by_align_legs</span></code></a>(fd)</p></td>
 <td><p>Automatically remove intersections by aligning the legs and reshufffling (permuting) them.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyfeyn2.auto.position.auto_vdw.html#pyfeyn2.auto.position.auto_vdw" title="pyfeyn2.auto.position.auto_vdw"><code class="xref py py-obj docutils literal notranslate"><span class="pre">auto_vdw</span></code></a>(fd[, points, LJ, dis, y_symmetry, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyfeyn2.auto.position.auto_remove_intersections_by_permuting_legs.html#pyfeyn2.auto.position.auto_remove_intersections_by_permuting_legs" title="pyfeyn2.auto.position.auto_remove_intersections_by_permuting_legs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">auto_remove_intersections_by_permuting_legs</span></code></a>(fd)</p></td>
+<td><p>Automatically remove intersections by aligning the legs and reshufffling (permuting) them.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyfeyn2.auto.position.auto_vdw.html#pyfeyn2.auto.position.auto_vdw" title="pyfeyn2.auto.position.auto_vdw"><code class="xref py py-obj docutils literal notranslate"><span class="pre">auto_vdw</span></code></a>(fd[, points, LJ, dis, y_symmetry, ...])</p></td>
 <td><p>Minimizes a potential between vertices and legs.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyfeyn2.auto.position.ccw.html#pyfeyn2.auto.position.ccw" title="pyfeyn2.auto.position.ccw"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ccw</span></code></a>(A, B, C)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyfeyn2.auto.position.ccw.html#pyfeyn2.auto.position.ccw" title="pyfeyn2.auto.position.ccw"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ccw</span></code></a>(A, B, C)</p></td>
 <td><p>Return true if the points A, B, and C are in counter-clockwise order.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyfeyn2.auto.position.feynman_adjust_points.html#pyfeyn2.auto.position.feynman_adjust_points" title="pyfeyn2.auto.position.feynman_adjust_points"><code class="xref py py-obj docutils literal notranslate"><span class="pre">feynman_adjust_points</span></code></a>(feyndiag[, size, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyfeyn2.auto.position.feynman_adjust_points.html#pyfeyn2.auto.position.feynman_adjust_points" title="pyfeyn2.auto.position.feynman_adjust_points"><code class="xref py py-obj docutils literal notranslate"><span class="pre">feynman_adjust_points</span></code></a>(feyndiag[, size, ...])</p></td>
 <td><p>Adjust the points of the vertices and legs using Dot language algorithms.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyfeyn2.auto.position.incoming_to_left.html#pyfeyn2.auto.position.incoming_to_left" title="pyfeyn2.auto.position.incoming_to_left"><code class="xref py py-obj docutils literal notranslate"><span class="pre">incoming_to_left</span></code></a>(fd)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyfeyn2.auto.position.incoming_to_left.html#pyfeyn2.auto.position.incoming_to_left" title="pyfeyn2.auto.position.incoming_to_left"><code class="xref py py-obj docutils literal notranslate"><span class="pre">incoming_to_left</span></code></a>(fd)</p></td>
 <td><p>Set the incoming legs to the left.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyfeyn2.auto.position.intersect.html#pyfeyn2.auto.position.intersect" title="pyfeyn2.auto.position.intersect"><code class="xref py py-obj docutils literal notranslate"><span class="pre">intersect</span></code></a>(A, B, C, D)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyfeyn2.auto.position.intersect.html#pyfeyn2.auto.position.intersect" title="pyfeyn2.auto.position.intersect"><code class="xref py py-obj docutils literal notranslate"><span class="pre">intersect</span></code></a>(A, B, C, D)</p></td>
 <td><p>Return true if line segments AB and CD intersect</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyfeyn2.auto.position.lennard_jones.html#pyfeyn2.auto.position.lennard_jones" title="pyfeyn2.auto.position.lennard_jones"><code class="xref py py-obj docutils literal notranslate"><span class="pre">lennard_jones</span></code></a>(points, cons, all_points, *args)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyfeyn2.auto.position.lennard_jones.html#pyfeyn2.auto.position.lennard_jones" title="pyfeyn2.auto.position.lennard_jones"><code class="xref py py-obj docutils literal notranslate"><span class="pre">lennard_jones</span></code></a>(points, cons, all_points, *args)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyfeyn2.auto.position.outgoing_to_right.html#pyfeyn2.auto.position.outgoing_to_right" title="pyfeyn2.auto.position.outgoing_to_right"><code class="xref py py-obj docutils literal notranslate"><span class="pre">outgoing_to_right</span></code></a>(fd)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyfeyn2.auto.position.outgoing_to_right.html#pyfeyn2.auto.position.outgoing_to_right" title="pyfeyn2.auto.position.outgoing_to_right"><code class="xref py py-obj docutils literal notranslate"><span class="pre">outgoing_to_right</span></code></a>(fd)</p></td>
 <td><p>Set the outgoing legs to the right.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyfeyn2.auto.position.quad.html#pyfeyn2.auto.position.quad" title="pyfeyn2.auto.position.quad"><code class="xref py py-obj docutils literal notranslate"><span class="pre">quad</span></code></a>(points, cons, all_points, *args[, dis])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyfeyn2.auto.position.quad.html#pyfeyn2.auto.position.quad" title="pyfeyn2.auto.position.quad"><code class="xref py py-obj docutils literal notranslate"><span class="pre">quad</span></code></a>(points, cons, all_points, *args[, dis])</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyfeyn2.auto.position.remove_unnecessary_vertices.html#pyfeyn2.auto.position.remove_unnecessary_vertices" title="pyfeyn2.auto.position.remove_unnecessary_vertices"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_unnecessary_vertices</span></code></a>(feyndiag)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyfeyn2.auto.position.remove_unnecessary_vertices.html#pyfeyn2.auto.position.remove_unnecessary_vertices" title="pyfeyn2.auto.position.remove_unnecessary_vertices"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_unnecessary_vertices</span></code></a>(feyndiag)</p></td>
 <td><p>Remove vertices that are only connected to two vertices with the same propagator.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyfeyn2.auto.position.require_xy.html#pyfeyn2.auto.position.require_xy" title="pyfeyn2.auto.position.require_xy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">require_xy</span></code></a>(points)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyfeyn2.auto.position.require_xy.html#pyfeyn2.auto.position.require_xy" title="pyfeyn2.auto.position.require_xy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">require_xy</span></code></a>(points)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyfeyn2.auto.position.scale_positions.html#pyfeyn2.auto.position.scale_positions" title="pyfeyn2.auto.position.scale_positions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scale_positions</span></code></a>(fd, scale)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyfeyn2.auto.position.scale_positions.html#pyfeyn2.auto.position.scale_positions" title="pyfeyn2.auto.position.scale_positions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scale_positions</span></code></a>(fd, scale)</p></td>
 <td><p>Scale the positions of the vertices and legs.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyfeyn2.auto.position.set_none_xy_to_zero.html#pyfeyn2.auto.position.set_none_xy_to_zero" title="pyfeyn2.auto.position.set_none_xy_to_zero"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_none_xy_to_zero</span></code></a>(points)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyfeyn2.auto.position.set_none_xy_to_zero.html#pyfeyn2.auto.position.set_none_xy_to_zero" title="pyfeyn2.auto.position.set_none_xy_to_zero"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_none_xy_to_zero</span></code></a>(points)</p></td>
 <td><p></p></td>
 </tr>
 </tbody>
@@ -219,7 +221,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2024, Alexander Puck Neuwirth.</p>
+    <p>&#169; Copyright 2025, Alexander Puck Neuwirth.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

@@ -1,0 +1,717 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FeynMF &mdash; pyfeyn2  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/thebelab.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/nbsphinx-code-cells.css?v=2aa19091" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/thebelab-helper.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Overleaf" href="../overleaf/overleaf.html" />
+    <link rel="prev" title="Feynman" href="../feynman/feynman.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            pyfeyn2
+              <img src="../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">FeynML:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../feynml/index.html">FeynML</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Gallery:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Gallery</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../all/all.html">All</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../feynman/feynman.html">Feynman</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">FeynMF</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Box">Box</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#2-to-4">2 to 4</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../overleaf/overleaf.html">Overleaf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pyfeyn/pyfeyn.html">Pyfeyn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wikipedia/wikipedia.html">Wikipedia</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Renderers:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../renderers/index.html">Renderers</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Interfaces:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../interfaces/index.html">Interfaces</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Modules:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../_autosummary/pyfeyn2.html">pyfeyn2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../_autosummary/feynml.html">feynml</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Versions:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://pyfeyn2.readthedocs.io/en/stable/">RTD</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/pyfeyn2/">Stable</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/pyfeyn2/test/">Dev</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Links:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/APN-Pucky/pyfeyn2">GitHub</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">pyfeyn2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Gallery</a></li>
+      <li class="breadcrumb-item active">FeynMF</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/gallery/feynmf/feynmf.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="FeynMF">
+<h1>FeynMF<a class="headerlink" href="#FeynMF" title="Link to this heading"></a></h1>
+<p>From:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ctan.math.illinois.edu/macros/latex/contrib/feynmf/fmfman.pdf">https://ctan.math.illinois.edu/macros/latex/contrib/feynmf/fmfman.pdf</a></p></li>
+<li><p><a class="reference external" href="https://www2.pd.infn.it/TeX/doc/latex/feynmf/manual.pdf">https://www2.pd.infn.it/TeX/doc/latex/feynmf/manual.pdf</a></p></li>
+</ul>
+<section id="Box">
+<h2>Box<a class="headerlink" href="#Box" title="Link to this heading"></a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">feynml</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">feynml.topology</span><span class="w"> </span><span class="kn">import</span> <span class="n">four</span> <span class="k">as</span> <span class="n">t2t</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pyfeyn2.auto</span><span class="w"> </span><span class="kn">import</span> <span class="n">auto_default</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pyfeyn2.render.latex.tikzfeynman</span><span class="w"> </span><span class="kn">import</span> <span class="n">TikzFeynmanRender</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pyfeyn2.render.all</span><span class="w"> </span><span class="kn">import</span> <span class="n">AllRender</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fd</span> <span class="o">=</span> <span class="n">t2t</span><span class="o">.</span><span class="n">v_channel</span><span class="p">(</span><span class="s2">&quot;b&quot;</span><span class="p">,</span><span class="s2">&quot;c_bar&quot;</span><span class="p">,</span><span class="s2">&quot;b_bar&quot;</span><span class="p">,</span><span class="s2">&quot;c&quot;</span><span class="p">)</span>
+<span class="n">fd</span><span class="o">.</span><span class="n">insert_vertex_loop</span><span class="p">(</span><span class="n">fd</span><span class="o">.</span><span class="n">vertices</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="s2">&quot;W+&quot;</span><span class="p">,</span><span class="s2">&quot;t_bar&quot;</span><span class="p">,</span><span class="s2">&quot;W-&quot;</span><span class="p">,</span><span class="s2">&quot;t&quot;</span><span class="p">)</span>
+<span class="c1"># Fix top arrow orientation in box</span>
+<span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">t</span> <span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;t&quot;</span><span class="p">,</span> <span class="n">fd</span><span class="o">.</span><span class="n">propagators</span><span class="p">):</span>
+    <span class="n">t</span><span class="o">.</span><span class="n">conjugate</span><span class="p">()</span>
+<span class="n">ar</span> <span class="o">=</span> <span class="n">AllRender</span><span class="p">(</span><span class="n">auto_default</span><span class="p">(</span><span class="n">fd</span><span class="p">))</span>
+<span class="n">ar</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+tikz:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/gallery_feynmf_feynmf_3_1.png" src="../../_images/gallery_feynmf_feynmf_3_1.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+pyx:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/gallery_feynmf_feynmf_3_3.png" src="../../_images/gallery_feynmf_feynmf_3_3.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+feynmp:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/gallery_feynmf_feynmf_3_5.png" src="../../_images/gallery_feynmf_feynmf_3_5.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+feynman:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/gallery_feynmf_feynmf_3_7.png" src="../../_images/gallery_feynmf_feynmf_3_7.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+dot:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/gallery_feynmf_feynmf_3_9.png" src="../../_images/gallery_feynmf_feynmf_3_9.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+mermaid:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/gallery_feynmf_feynmf_3_11.svg" src="../../_images/gallery_feynmf_feynmf_3_11.svg" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+asciipdf:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/gallery_feynmf_feynmf_3_13.png" src="../../_images/gallery_feynmf_feynmf_3_13.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+unicodepdf:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/gallery_feynmf_feynmf_3_15.png" src="../../_images/gallery_feynmf_feynmf_3_15.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+madgraph:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/gallery_feynmf_feynmf_3_17.png" src="../../_images/gallery_feynmf_feynmf_3_17.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+root:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/gallery_feynmf_feynmf_3_19.png" src="../../_images/gallery_feynmf_feynmf_3_19.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+Info in &lt;TCanvas::SaveSource&gt;: C++ Macro file: /tmp/tmpvr78t6t3.tex has been generated
+Info in &lt;TCanvas::Print&gt;: TeX file /tmp/tmpei2rm9jo.tex has been created
+</pre></div></div>
+</div>
+</section>
+<section id="2-to-4">
+<h2>2 to 4<a class="headerlink" href="#2-to-4" title="Link to this heading"></a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fd</span> <span class="o">=</span> <span class="n">t2t</span><span class="o">.</span><span class="n">s_channel</span><span class="p">(</span><span class="s2">&quot;e-&quot;</span><span class="p">,</span><span class="s2">&quot;e+&quot;</span><span class="p">,</span><span class="s2">&quot;gamma&quot;</span><span class="p">,</span><span class="s2">&quot;W+&quot;</span><span class="p">,</span><span class="s2">&quot;W-&quot;</span><span class="p">)</span>
+<span class="n">l1</span> <span class="o">=</span> <span class="n">fd</span><span class="o">.</span><span class="n">legs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">l2</span> <span class="o">=</span> <span class="n">fd</span><span class="o">.</span><span class="n">legs</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">fd</span><span class="o">.</span><span class="n">emission</span><span class="p">(</span><span class="n">l1</span><span class="p">,</span><span class="s2">&quot;c_bar&quot;</span><span class="p">,</span><span class="n">end</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">)</span>
+<span class="n">ar</span> <span class="o">=</span> <span class="n">AllRender</span><span class="p">(</span><span class="n">auto_default</span><span class="p">(</span><span class="n">fd</span><span class="p">))</span>
+<span class="n">ar</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+tikz:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/gallery_feynmf_feynmf_5_1.png" src="../../_images/gallery_feynmf_feynmf_5_1.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+pyx:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/gallery_feynmf_feynmf_5_3.png" src="../../_images/gallery_feynmf_feynmf_5_3.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+feynmp:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/gallery_feynmf_feynmf_5_5.png" src="../../_images/gallery_feynmf_feynmf_5_5.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+feynman:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/gallery_feynmf_feynmf_5_7.png" src="../../_images/gallery_feynmf_feynmf_5_7.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+dot:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/gallery_feynmf_feynmf_5_9.png" src="../../_images/gallery_feynmf_feynmf_5_9.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+mermaid:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/gallery_feynmf_feynmf_5_11.svg" src="../../_images/gallery_feynmf_feynmf_5_11.svg" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+asciipdf:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/gallery_feynmf_feynmf_5_13.png" src="../../_images/gallery_feynmf_feynmf_5_13.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+unicodepdf:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/gallery_feynmf_feynmf_5_15.png" src="../../_images/gallery_feynmf_feynmf_5_15.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+madgraph:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/gallery_feynmf_feynmf_5_17.png" src="../../_images/gallery_feynmf_feynmf_5_17.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+root:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/gallery_feynmf_feynmf_5_19.png" src="../../_images/gallery_feynmf_feynmf_5_19.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+Info in &lt;TCanvas::SaveSource&gt;: C++ Macro file: /tmp/tmpha6i3skt.tex has been generated
+Info in &lt;TCanvas::Print&gt;: TeX file /tmp/tmprn4a10hv.tex has been created
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fd</span> <span class="o">=</span> <span class="n">t2t</span><span class="o">.</span><span class="n">s_channel</span><span class="p">(</span><span class="s2">&quot;e-&quot;</span><span class="p">,</span><span class="s2">&quot;e+&quot;</span><span class="p">,</span><span class="s2">&quot;gamma&quot;</span><span class="p">,</span><span class="s2">&quot;W-&quot;</span><span class="p">,</span><span class="s2">&quot;W+&quot;</span><span class="p">)</span>
+<span class="n">l1</span> <span class="o">=</span> <span class="n">fd</span><span class="o">.</span><span class="n">legs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">l2</span> <span class="o">=</span> <span class="n">fd</span><span class="o">.</span><span class="n">legs</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">fd</span><span class="o">.</span><span class="n">decay</span><span class="p">(</span><span class="n">l1</span><span class="p">,</span><span class="s2">&quot;c_bar&quot;</span><span class="p">,</span><span class="s2">&quot;s&quot;</span><span class="p">)</span>
+<span class="n">fd</span><span class="o">.</span><span class="n">decay</span><span class="p">(</span><span class="n">l2</span><span class="p">,</span><span class="s2">&quot;nu_mu&quot;</span><span class="p">,</span><span class="s2">&quot;mu+&quot;</span><span class="p">)</span>
+<span class="n">ar</span> <span class="o">=</span> <span class="n">AllRender</span><span class="p">(</span><span class="n">auto_default</span><span class="p">(</span><span class="n">fd</span><span class="p">))</span>
+<span class="n">ar</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+tikz:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/gallery_feynmf_feynmf_6_1.png" src="../../_images/gallery_feynmf_feynmf_6_1.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+pyx:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/gallery_feynmf_feynmf_6_3.png" src="../../_images/gallery_feynmf_feynmf_6_3.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+feynmp:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/gallery_feynmf_feynmf_6_5.png" src="../../_images/gallery_feynmf_feynmf_6_5.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+feynman:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/gallery_feynmf_feynmf_6_7.png" src="../../_images/gallery_feynmf_feynmf_6_7.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+dot:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/gallery_feynmf_feynmf_6_9.png" src="../../_images/gallery_feynmf_feynmf_6_9.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+mermaid:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/gallery_feynmf_feynmf_6_11.svg" src="../../_images/gallery_feynmf_feynmf_6_11.svg" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+asciipdf:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/gallery_feynmf_feynmf_6_13.png" src="../../_images/gallery_feynmf_feynmf_6_13.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+unicodepdf:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/gallery_feynmf_feynmf_6_15.png" src="../../_images/gallery_feynmf_feynmf_6_15.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+madgraph:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/gallery_feynmf_feynmf_6_17.png" src="../../_images/gallery_feynmf_feynmf_6_17.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+root:
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/gallery_feynmf_feynmf_6_19.png" src="../../_images/gallery_feynmf_feynmf_6_19.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+Info in &lt;TCanvas::SaveSource&gt;: C++ Macro file: /tmp/tmpdfd34jt1.tex has been generated
+Info in &lt;TCanvas::Print&gt;: TeX file /tmp/tmp6g7j28pe.tex has been created
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../feynman/feynman.html" class="btn btn-neutral float-left" title="Feynman" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../overleaf/overleaf.html" class="btn btn-neutral float-right" title="Overleaf" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Alexander Puck Neuwirth.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,30 +1,28 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>pyfeyn2.feynmandiagram.Propagator &mdash; pyfeyn2  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
       <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
       <link rel="stylesheet" type="text/css" href="../_static/thebelab.css" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=b3ba4146"></script>
-        <script src="../_static/doctools.js?v=888ff710"></script>
-        <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
-        <script src="../_static/thebelab-helper.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/thebelab-helper.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -44,9 +42,6 @@
             pyfeyn2
               <img src="../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
-              <div class="version">
-                2.4.2
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -95,6 +90,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="pyfeyn2.mkfeyndiag.html">pyfeyn2.mkfeyndiag</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pyfeyn2.render.html">pyfeyn2.render</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyfeyn2.version.html">pyfeyn2.version</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="feynml.html">feynml</a></li>
@@ -137,14 +133,14 @@
            <div itemprop="articleBody">
              
   <section id="pyfeyn2-feynmandiagram-propagator">
-<h1>pyfeyn2.feynmandiagram.Propagator<a class="headerlink" href="#pyfeyn2-feynmandiagram-propagator" title="Permalink to this heading"></a></h1>
+<h1>pyfeyn2.feynmandiagram.Propagator<a class="headerlink" href="#pyfeyn2-feynmandiagram-propagator" title="Link to this heading"></a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Propagator">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyfeyn2.feynmandiagram.</span></span><span class="sig-name descname"><span class="pre">Propagator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/feynmandiagram.html#Propagator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.Propagator" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyfeyn2.feynmandiagram.</span></span><span class="sig-name descname"><span class="pre">Propagator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/feynmandiagram.html#Propagator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.Propagator" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="feynml.propagator.Propagator.html#feynml.propagator.Propagator" title="feynml.propagator.Propagator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Propagator</span></code></a></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Propagator.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/feynmandiagram.html#Propagator.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.Propagator.__init__" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/feynmandiagram.html#Propagator.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.Propagator.__init__" title="Link to this definition"></a></dt>
 <dd><div class="deprecated">
 <p><span class="versionmodified deprecated">Deprecated since version 2.2.6.</span></p>
 </div>
@@ -154,10 +150,7 @@
 <table class="autosummary longtable docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Propagator.__init__" title="pyfeyn2.feynmandiagram.Propagator.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(*args, **kwargs)</p></td>
-<td><p><div class="deprecated">
-<p><span class="versionmodified deprecated">Deprecated since version 2.2.6.</span></p>
-</div>
-</p></td>
+<td><p></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Propagator.conjugate" title="pyfeyn2.feynmandiagram.Propagator.conjugate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">conjugate</span></code></a>()</p></td>
 <td><p>Return the conjugate of the propagator.</p></td>
@@ -165,47 +158,47 @@
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">connect</span></code>(source, target)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Propagator.get_length" title="pyfeyn2.feynmandiagram.Propagator.get_length"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_length</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Propagator.connects" title="pyfeyn2.feynmandiagram.Propagator.connects"><code class="xref py py-obj docutils literal notranslate"><span class="pre">connects</span></code></a>(v1, v2[, directional])</p></td>
+<td><p>Return True if the propagator connects to the vertex, False otherwise.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Propagator.get_length" title="pyfeyn2.feynmandiagram.Propagator.get_length"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_length</span></code></a>()</p></td>
 <td><p>Get length of the connector</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_style_property</span></code>(key)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_style_property</span></code>(key)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Propagator.get_tension" title="pyfeyn2.feynmandiagram.Propagator.get_tension"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_tension</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Propagator.get_tension" title="pyfeyn2.feynmandiagram.Propagator.get_tension"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_tension</span></code></a>()</p></td>
 <td><p>Get tension of the connector</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Propagator.goes_into" title="pyfeyn2.feynmandiagram.Propagator.goes_into"><code class="xref py py-obj docutils literal notranslate"><span class="pre">goes_into</span></code></a>(vertex)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Propagator.goes_into" title="pyfeyn2.feynmandiagram.Propagator.goes_into"><code class="xref py py-obj docutils literal notranslate"><span class="pre">goes_into</span></code></a>(vertex)</p></td>
 <td><p>Return True if the propagator goes into the vertex, False otherwise.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Propagator.goes_out_of" title="pyfeyn2.feynmandiagram.Propagator.goes_out_of"><code class="xref py py-obj docutils literal notranslate"><span class="pre">goes_out_of</span></code></a>(vertex)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Propagator.goes_out_of" title="pyfeyn2.feynmandiagram.Propagator.goes_out_of"><code class="xref py py-obj docutils literal notranslate"><span class="pre">goes_out_of</span></code></a>(vertex)</p></td>
 <td><p>Return True if the propagator goes out of the vertex, False otherwise.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Propagator.is_anti" title="pyfeyn2.feynmandiagram.Propagator.is_anti"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_anti</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Propagator.is_anti" title="pyfeyn2.feynmandiagram.Propagator.is_anti"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_anti</span></code></a>()</p></td>
 <td><p>Return True if the particle is an anti particle, False otherwise.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Propagator.is_anti_fermion" title="pyfeyn2.feynmandiagram.Propagator.is_anti_fermion"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_anti_fermion</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Propagator.is_anti_fermion" title="pyfeyn2.feynmandiagram.Propagator.is_anti_fermion"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_anti_fermion</span></code></a>()</p></td>
 <td><p>Return True if the particle is an anti fermion, False otherwise.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Propagator.is_any_fermion" title="pyfeyn2.feynmandiagram.Propagator.is_any_fermion"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_any_fermion</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Propagator.is_any_fermion" title="pyfeyn2.feynmandiagram.Propagator.is_any_fermion"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_any_fermion</span></code></a>()</p></td>
 <td><p>Return True if the particle is a fermion or anti fermion, False otherwise.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Propagator.is_fermion" title="pyfeyn2.feynmandiagram.Propagator.is_fermion"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_fermion</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Propagator.is_fermion" title="pyfeyn2.feynmandiagram.Propagator.is_fermion"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_fermion</span></code></a>()</p></td>
 <td><p>Return True if the particle is a fermion, False otherwise.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Propagator.put_style" title="pyfeyn2.feynmandiagram.Propagator.put_style"><code class="xref py py-obj docutils literal notranslate"><span class="pre">put_style</span></code></a>(key, value)</p></td>
-<td><p><div class="deprecated">
-<p><span class="versionmodified deprecated">Deprecated since version 0.0.0.</span></p>
-</div>
-</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Propagator.put_styles" title="pyfeyn2.feynmandiagram.Propagator.put_styles"><code class="xref py py-obj docutils literal notranslate"><span class="pre">put_styles</span></code></a>(**kwargs)</p></td>
-<td><p><div class="deprecated">
-<p><span class="versionmodified deprecated">Deprecated since version 0.0.0.</span></p>
-</div>
-</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">raw_style</span></code>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Propagator.put_style" title="pyfeyn2.feynmandiagram.Propagator.put_style"><code class="xref py py-obj docutils literal notranslate"><span class="pre">put_style</span></code></a>(key, value)</p></td>
 <td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Propagator.put_styles" title="pyfeyn2.feynmandiagram.Propagator.put_styles"><code class="xref py py-obj docutils literal notranslate"><span class="pre">put_styles</span></code></a>(**kwargs)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">raw_style</span></code>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Propagator.replace_vertex" title="pyfeyn2.feynmandiagram.Propagator.replace_vertex"><code class="xref py py-obj docutils literal notranslate"><span class="pre">replace_vertex</span></code></a>(old_vertex, new_vertex)</p></td>
+<td><p>Replace the old vertex with the new vertex</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_class</span></code>(clazz)</p></td>
 <td><p></p></td>
@@ -231,29 +224,29 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Propagator.with_new_id" title="pyfeyn2.feynmandiagram.Propagator.with_new_id"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_new_id</span></code></a>()</p></td>
 <td><p>generate new id</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Propagator.with_particle" title="pyfeyn2.feynmandiagram.Propagator.with_particle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_particle</span></code></a>(value[, k])</p></td>
-<td><p>Set particle to <cite>value</cite> and return self.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Propagator.with_pdgid" title="pyfeyn2.feynmandiagram.Propagator.with_pdgid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_pdgid</span></code></a>(value[, k])</p></td>
-<td><p>Set pdgid to <cite>value</cite> and return self.</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_source</span></code>(source)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_pdgid</span></code>([pdgid, type, name, feynmodel, sync])</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_style</span></code>(style)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_source</span></code>(source)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_style_properties</span></code>(**kwargs)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_style</span></code>(style)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_style_property</span></code>(key, value)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_style_properties</span></code>(**kwargs)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_target</span></code>(target)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_style_property</span></code>(key, value)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Propagator.with_tension" title="pyfeyn2.feynmandiagram.Propagator.with_tension"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_tension</span></code></a>(tension)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_target</span></code>(target)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Propagator.with_tension" title="pyfeyn2.feynmandiagram.Propagator.with_tension"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_tension</span></code></a>(tension)</p></td>
 <td><p>Add tension to the connector</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Propagator.with_texname" title="pyfeyn2.feynmandiagram.Propagator.with_texname"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_texname</span></code></a>(value[, k])</p></td>
+<td><p>Set texname to <cite>value</cite> and return self.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Propagator.with_type" title="pyfeyn2.feynmandiagram.Propagator.with_type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_type</span></code></a>(value[, k])</p></td>
 <td><p>Set type to <cite>value</cite> and return self.</p></td>
@@ -278,20 +271,20 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Propagator.name" title="pyfeyn2.feynmandiagram.Propagator.name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">name</span></code></a></p></td>
 <td><p>Name of the particle</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Propagator.particle" title="pyfeyn2.feynmandiagram.Propagator.particle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">particle</span></code></a></p></td>
-<td><p>Particle object from the particle package</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Propagator.pdgid" title="pyfeyn2.feynmandiagram.Propagator.pdgid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pdgid</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Propagator.pdgid" title="pyfeyn2.feynmandiagram.Propagator.pdgid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pdgid</span></code></a></p></td>
 <td><p>PDG ID of the particle</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Propagator.source" title="pyfeyn2.feynmandiagram.Propagator.source"><code class="xref py py-obj docutils literal notranslate"><span class="pre">source</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Propagator.source" title="pyfeyn2.feynmandiagram.Propagator.source"><code class="xref py py-obj docutils literal notranslate"><span class="pre">source</span></code></a></p></td>
 <td><p>Source of the object</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Propagator.target" title="pyfeyn2.feynmandiagram.Propagator.target"><code class="xref py py-obj docutils literal notranslate"><span class="pre">target</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Propagator.target" title="pyfeyn2.feynmandiagram.Propagator.target"><code class="xref py py-obj docutils literal notranslate"><span class="pre">target</span></code></a></p></td>
 <td><p>Target of the object</p></td>
 </tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Propagator.texname" title="pyfeyn2.feynmandiagram.Propagator.texname"><code class="xref py py-obj docutils literal notranslate"><span class="pre">texname</span></code></a></p></td>
+<td><p>LaTeX name of the particle</p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Propagator.type" title="pyfeyn2.feynmandiagram.Propagator.type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">type</span></code></a></p></td>
-<td><p>Type of the particle, e.g.</p></td>
+<td><p>Type of the particle, e.g. fermion, boson, etc.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.feynmandiagram.Propagator.style" title="pyfeyn2.feynmandiagram.Propagator.style"><code class="xref py py-obj docutils literal notranslate"><span class="pre">style</span></code></a></p></td>
 <td><p>CSS style string.</p></td>
@@ -300,185 +293,191 @@
 </table>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Propagator.clazz">
-<span class="sig-name descname"><span class="pre">clazz</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#pyfeyn2.feynmandiagram.Propagator.clazz" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">clazz</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#pyfeyn2.feynmandiagram.Propagator.clazz" title="Link to this definition"></a></dt>
 <dd><p>CSS class string.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Propagator.conjugate">
-<span class="sig-name descname"><span class="pre">conjugate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/feynml/propagator.html#Propagator.conjugate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.Propagator.conjugate" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">conjugate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/feynml/propagator.html#Propagator.conjugate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.Propagator.conjugate" title="Link to this definition"></a></dt>
 <dd><p>Return the conjugate of the propagator.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Propagator.connects">
+<span class="sig-name descname"><span class="pre">connects</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="feynml.vertex.Vertex.html#feynml.vertex.Vertex" title="feynml.vertex.Vertex"><span class="pre">Vertex</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">v2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="feynml.vertex.Vertex.html#feynml.vertex.Vertex" title="feynml.vertex.Vertex"><span class="pre">Vertex</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">directional</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/feynml/propagator.html#Propagator.connects"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.Propagator.connects" title="Link to this definition"></a></dt>
+<dd><p>Return True if the propagator connects to the vertex, False otherwise.</p>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Propagator.get_length">
-<span class="sig-name descname"><span class="pre">get_length</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.feynmandiagram.Propagator.get_length" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">get_length</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.feynmandiagram.Propagator.get_length" title="Link to this definition"></a></dt>
 <dd><p>Get length of the connector</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Propagator.get_tension">
-<span class="sig-name descname"><span class="pre">get_tension</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.feynmandiagram.Propagator.get_tension" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">get_tension</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.feynmandiagram.Propagator.get_tension" title="Link to this definition"></a></dt>
 <dd><p>Get tension of the connector</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Propagator.goes_into">
-<span class="sig-name descname"><span class="pre">goes_into</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vertex</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.feynmandiagram.Propagator.goes_into" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">goes_into</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vertex</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.feynmandiagram.Propagator.goes_into" title="Link to this definition"></a></dt>
 <dd><p>Return True if the propagator goes into the vertex, False otherwise.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Propagator.goes_out_of">
-<span class="sig-name descname"><span class="pre">goes_out_of</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vertex</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.feynmandiagram.Propagator.goes_out_of" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">goes_out_of</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vertex</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.feynmandiagram.Propagator.goes_out_of" title="Link to this definition"></a></dt>
 <dd><p>Return True if the propagator goes out of the vertex, False otherwise.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Propagator.is_anti">
-<span class="sig-name descname"><span class="pre">is_anti</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.feynmandiagram.Propagator.is_anti" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">is_anti</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.feynmandiagram.Propagator.is_anti" title="Link to this definition"></a></dt>
 <dd><p>Return True if the particle is an anti particle, False otherwise.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Propagator.is_anti_fermion">
-<span class="sig-name descname"><span class="pre">is_anti_fermion</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.feynmandiagram.Propagator.is_anti_fermion" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">is_anti_fermion</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.feynmandiagram.Propagator.is_anti_fermion" title="Link to this definition"></a></dt>
 <dd><p>Return True if the particle is an anti fermion, False otherwise.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Propagator.is_any_fermion">
-<span class="sig-name descname"><span class="pre">is_any_fermion</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.feynmandiagram.Propagator.is_any_fermion" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">is_any_fermion</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.feynmandiagram.Propagator.is_any_fermion" title="Link to this definition"></a></dt>
 <dd><p>Return True if the particle is a fermion or anti fermion, False otherwise.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Propagator.is_fermion">
-<span class="sig-name descname"><span class="pre">is_fermion</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.feynmandiagram.Propagator.is_fermion" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">is_fermion</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.feynmandiagram.Propagator.is_fermion" title="Link to this definition"></a></dt>
 <dd><p>Return True if the particle is a fermion, False otherwise.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Propagator.momentum">
-<span class="sig-name descname"><span class="pre">momentum</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="pyfeyn2.feynmandiagram.Momentum.html#pyfeyn2.feynmandiagram.Momentum" title="pyfeyn2.feynmandiagram.Momentum"><span class="pre">Momentum</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#pyfeyn2.feynmandiagram.Propagator.momentum" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">momentum</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="pyfeyn2.feynmandiagram.Momentum.html#pyfeyn2.feynmandiagram.Momentum" title="pyfeyn2.feynmandiagram.Momentum"><span class="pre">Momentum</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#pyfeyn2.feynmandiagram.Propagator.momentum" title="Link to this definition"></a></dt>
 <dd><p>Momentum of the connector</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Propagator.name">
-<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#pyfeyn2.feynmandiagram.Propagator.name" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#pyfeyn2.feynmandiagram.Propagator.name" title="Link to this definition"></a></dt>
 <dd><p>Name of the particle</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Propagator.particle">
-<span class="sig-name descname"><span class="pre">particle</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="feynml.interface.formcalc.particle.Particle.html#feynml.interface.formcalc.particle.Particle" title="feynml.interface.formcalc.particle.Particle"><span class="pre">Particle</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#pyfeyn2.feynmandiagram.Propagator.particle" title="Permalink to this definition"></a></dt>
-<dd><p>Particle object from the particle package</p>
-</dd></dl>
-
-<dl class="py attribute">
 <dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Propagator.pdgid">
-<span class="sig-name descname"><span class="pre">pdgid</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#pyfeyn2.feynmandiagram.Propagator.pdgid" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">pdgid</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#pyfeyn2.feynmandiagram.Propagator.pdgid" title="Link to this definition"></a></dt>
 <dd><p>PDG ID of the particle</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Propagator.put_style">
-<span class="sig-name descname"><span class="pre">put_style</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.feynmandiagram.Propagator.put_style" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">put_style</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.feynmandiagram.Propagator.put_style" title="Link to this definition"></a></dt>
 <dd><div class="deprecated">
-<p><span class="versionmodified deprecated">Deprecated since version 0.0.0.</span></p>
+<p><span class="versionmodified deprecated">Deprecated since version use: </span>with_style_property</p>
 </div>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Propagator.put_styles">
-<span class="sig-name descname"><span class="pre">put_styles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.feynmandiagram.Propagator.put_styles" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">put_styles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.feynmandiagram.Propagator.put_styles" title="Link to this definition"></a></dt>
 <dd><div class="deprecated">
-<p><span class="versionmodified deprecated">Deprecated since version 0.0.0.</span></p>
+<p><span class="versionmodified deprecated">Deprecated since version use: </span>with_style_properties</p>
 </div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Propagator.replace_vertex">
+<span class="sig-name descname"><span class="pre">replace_vertex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">old_vertex</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="feynml.vertex.Vertex.html#feynml.vertex.Vertex" title="feynml.vertex.Vertex"><span class="pre">Vertex</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_vertex</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="feynml.vertex.Vertex.html#feynml.vertex.Vertex" title="feynml.vertex.Vertex"><span class="pre">Vertex</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/feynml/propagator.html#Propagator.replace_vertex"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.feynmandiagram.Propagator.replace_vertex" title="Link to this definition"></a></dt>
+<dd><p>Replace the old vertex with the new vertex</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Propagator.source">
-<span class="sig-name descname"><span class="pre">source</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">''</span></em><a class="headerlink" href="#pyfeyn2.feynmandiagram.Propagator.source" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">source</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">''</span></em><a class="headerlink" href="#pyfeyn2.feynmandiagram.Propagator.source" title="Link to this definition"></a></dt>
 <dd><p>Source of the object</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Propagator.style">
-<span class="sig-name descname"><span class="pre">style</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">CSSString</span></em><a class="headerlink" href="#pyfeyn2.feynmandiagram.Propagator.style" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">style</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">CSSString</span></em><a class="headerlink" href="#pyfeyn2.feynmandiagram.Propagator.style" title="Link to this definition"></a></dt>
 <dd><p>CSS style string.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Propagator.target">
-<span class="sig-name descname"><span class="pre">target</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">''</span></em><a class="headerlink" href="#pyfeyn2.feynmandiagram.Propagator.target" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">target</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">''</span></em><a class="headerlink" href="#pyfeyn2.feynmandiagram.Propagator.target" title="Link to this definition"></a></dt>
 <dd><p>Target of the object</p>
 </dd></dl>
 
 <dl class="py attribute">
+<dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Propagator.texname">
+<span class="sig-name descname"><span class="pre">texname</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#pyfeyn2.feynmandiagram.Propagator.texname" title="Link to this definition"></a></dt>
+<dd><p>LaTeX name of the particle</p>
+</dd></dl>
+
+<dl class="py attribute">
 <dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Propagator.type">
-<span class="sig-name descname"><span class="pre">type</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#pyfeyn2.feynmandiagram.Propagator.type" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">type</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#pyfeyn2.feynmandiagram.Propagator.type" title="Link to this definition"></a></dt>
 <dd><p>Type of the particle, e.g. fermion, boson, etc.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Propagator.with_id">
-<span class="sig-name descname"><span class="pre">with_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.feynmandiagram.Propagator.with_id" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">with_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.feynmandiagram.Propagator.with_id" title="Link to this definition"></a></dt>
 <dd><p>set id</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Propagator.with_label">
-<span class="sig-name descname"><span class="pre">with_label</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'label'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.feynmandiagram.Propagator.with_label" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">with_label</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'label'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.feynmandiagram.Propagator.with_label" title="Link to this definition"></a></dt>
 <dd><p>Set label to <cite>value</cite> and return self.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Propagator.with_length">
-<span class="sig-name descname"><span class="pre">with_length</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">length</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.feynmandiagram.Propagator.with_length" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">with_length</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">length</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.feynmandiagram.Propagator.with_length" title="Link to this definition"></a></dt>
 <dd><p>Add length to the connector</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Propagator.with_momentum">
-<span class="sig-name descname"><span class="pre">with_momentum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'momentum'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.feynmandiagram.Propagator.with_momentum" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">with_momentum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'momentum'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.feynmandiagram.Propagator.with_momentum" title="Link to this definition"></a></dt>
 <dd><p>Set momentum to <cite>value</cite> and return self.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Propagator.with_name">
-<span class="sig-name descname"><span class="pre">with_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'name'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.feynmandiagram.Propagator.with_name" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">with_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'name'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.feynmandiagram.Propagator.with_name" title="Link to this definition"></a></dt>
 <dd><p>Set name to <cite>value</cite> and return self.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Propagator.with_new_id">
-<span class="sig-name descname"><span class="pre">with_new_id</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.feynmandiagram.Propagator.with_new_id" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">with_new_id</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.feynmandiagram.Propagator.with_new_id" title="Link to this definition"></a></dt>
 <dd><p>generate new id</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Propagator.with_particle">
-<span class="sig-name descname"><span class="pre">with_particle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'particle'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.feynmandiagram.Propagator.with_particle" title="Permalink to this definition"></a></dt>
-<dd><p>Set particle to <cite>value</cite> and return self.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Propagator.with_pdgid">
-<span class="sig-name descname"><span class="pre">with_pdgid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'pdgid'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.feynmandiagram.Propagator.with_pdgid" title="Permalink to this definition"></a></dt>
-<dd><p>Set pdgid to <cite>value</cite> and return self.</p>
-</dd></dl>
-
-<dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Propagator.with_tension">
-<span class="sig-name descname"><span class="pre">with_tension</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tension</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.feynmandiagram.Propagator.with_tension" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">with_tension</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tension</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.feynmandiagram.Propagator.with_tension" title="Link to this definition"></a></dt>
 <dd><p>Add tension to the connector</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Propagator.with_texname">
+<span class="sig-name descname"><span class="pre">with_texname</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'texname'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.feynmandiagram.Propagator.with_texname" title="Link to this definition"></a></dt>
+<dd><p>Set texname to <cite>value</cite> and return self.</p>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.feynmandiagram.Propagator.with_type">
-<span class="sig-name descname"><span class="pre">with_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'type'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.feynmandiagram.Propagator.with_type" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">with_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'type'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.feynmandiagram.Propagator.with_type" title="Link to this definition"></a></dt>
 <dd><p>Set type to <cite>value</cite> and return self.</p>
 </dd></dl>
 
@@ -497,7 +496,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2024, Alexander Puck Neuwirth.</p>
+    <p>&#169; Copyright 2025, Alexander Puck Neuwirth.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

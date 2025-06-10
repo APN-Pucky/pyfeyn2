@@ -1,29 +1,27 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../../../../">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>pyfeyn2.render.pyx.diagrams &mdash; pyfeyn2  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../../../_static/plot_directive.css" />
       <link rel="stylesheet" type="text/css" href="../../../../_static/jupyter-sphinx.css" />
       <link rel="stylesheet" type="text/css" href="../../../../_static/thebelab.css" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../../../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js?v=b3ba4146"></script>
-        <script src="../../../../_static/doctools.js?v=888ff710"></script>
-        <script src="../../../../_static/sphinx_highlight.js?v=4825356b"></script>
-        <script src="../../../../_static/thebelab-helper.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../../_static/thebelab-helper.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" /> 
@@ -41,9 +39,6 @@
             pyfeyn2
               <img src="../../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
-              <div class="version">
-                2.4.2
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -118,12 +113,16 @@ from pyfeyn2.render.pyx.utils import Visible
 
 
 ## Diagram class
-<div class="viewcode-block" id="FeynDiagram"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.diagrams.FeynDiagram.html#pyfeyn2.render.pyx.diagrams.FeynDiagram">[docs]</a>class FeynDiagram:
+<div class="viewcode-block" id="FeynDiagram">
+<a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.diagrams.FeynDiagram.html#pyfeyn2.render.pyx.diagrams.FeynDiagram">[docs]</a>
+class FeynDiagram:
     &quot;&quot;&quot;The main PyFeyn diagram class.&quot;&quot;&quot;
 
     currentDiagram = None
 
-<div class="viewcode-block" id="FeynDiagram.__init__"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.diagrams.FeynDiagram.html#pyfeyn2.render.pyx.diagrams.FeynDiagram.__init__">[docs]</a>    def __init__(self, objects=None, canvas=None):
+<div class="viewcode-block" id="FeynDiagram.__init__">
+<a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.diagrams.FeynDiagram.html#pyfeyn2.render.pyx.diagrams.FeynDiagram.__init__">[docs]</a>
+    def __init__(self, objects=None, canvas=None):
         &quot;&quot;&quot;Objects for holding a set of Feynman diagram components.&quot;&quot;&quot;
         self.__objs = objects
         if self.__objs is None:
@@ -135,7 +134,10 @@ from pyfeyn2.render.pyx.utils import Visible
             self.currentCanvas = canvas
         FeynDiagram.currentDiagram = self</div>
 
-<div class="viewcode-block" id="FeynDiagram.add"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.diagrams.FeynDiagram.html#pyfeyn2.render.pyx.diagrams.FeynDiagram.add">[docs]</a>    def add(self, *objs):
+
+<div class="viewcode-block" id="FeynDiagram.add">
+<a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.diagrams.FeynDiagram.html#pyfeyn2.render.pyx.diagrams.FeynDiagram.add">[docs]</a>
+    def add(self, *objs):
         &quot;&quot;&quot;Add an object to the diagram.&quot;&quot;&quot;
         for obj in objs:
             if config.getOptions().DEBUG:
@@ -159,7 +161,10 @@ from pyfeyn2.render.pyx.utils import Visible
                 )
             self.__objs.append(obj)</div>
 
-<div class="viewcode-block" id="FeynDiagram.drawToCanvas"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.diagrams.FeynDiagram.html#pyfeyn2.render.pyx.diagrams.FeynDiagram.drawToCanvas">[docs]</a>    def drawToCanvas(self):
+
+<div class="viewcode-block" id="FeynDiagram.drawToCanvas">
+<a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.diagrams.FeynDiagram.html#pyfeyn2.render.pyx.diagrams.FeynDiagram.drawToCanvas">[docs]</a>
+    def drawToCanvas(self):
         &quot;&quot;&quot;Draw the components of this diagram in a well-defined order.&quot;&quot;&quot;
         if config.getOptions().DEBUG:
             print(&quot;Final #objs = %d&quot; % len(self.__objs))
@@ -181,12 +186,17 @@ from pyfeyn2.render.pyx.utils import Visible
 
         return self.currentCanvas</div>
 
-<div class="viewcode-block" id="FeynDiagram.draw"><a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.diagrams.FeynDiagram.html#pyfeyn2.render.pyx.diagrams.FeynDiagram.draw">[docs]</a>    def draw(self, outfile, enlargement=0):
+
+<div class="viewcode-block" id="FeynDiagram.draw">
+<a class="viewcode-back" href="../../../../_autosummary/pyfeyn2.render.pyx.diagrams.FeynDiagram.html#pyfeyn2.render.pyx.diagrams.FeynDiagram.draw">[docs]</a>
+    def draw(self, outfile, enlargement=0):
         &quot;&quot;&quot;Draw the diagram to a file, with the filetype (EPS or PDF)
         derived from the file extension.&quot;&quot;&quot;
         c = self.drawToCanvas()
         if c is not None and outfile is not None:
-            c.writetofile(outfile, page_bbox=c.bbox().enlarged(enlargement))</div></div>
+            c.writetofile(outfile, page_bbox=c.bbox().enlarged(enlargement))</div>
+</div>
+
 </pre></div>
 
            </div>
@@ -196,7 +206,7 @@ from pyfeyn2.render.pyx.utils import Visible
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2024, Alexander Puck Neuwirth.</p>
+    <p>&#169; Copyright 2025, Alexander Puck Neuwirth.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

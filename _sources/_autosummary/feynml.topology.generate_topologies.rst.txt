@@ -1,0 +1,6 @@
+feynml.topology.generate\_topologies
+====================================
+
+.. currentmodule:: feynml.topology
+
+.. autofunction:: generate_topologies

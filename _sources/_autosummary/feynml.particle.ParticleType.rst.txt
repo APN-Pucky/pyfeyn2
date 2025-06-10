@@ -1,0 +1,38 @@
+feynml.particle.ParticleType
+============================
+
+.. currentmodule:: feynml.particle
+
+.. autoclass:: ParticleType
+   :members:                                   
+   :show-inheritance:                           
+   :inherited-members:                         
+
+   
+   .. automethod:: __init__
+
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~ParticleType.FERMION
+      ~ParticleType.ANTI_FERMION
+      ~ParticleType.PHOTON
+      ~ParticleType.GLUON
+      ~ParticleType.BOSON
+      ~ParticleType.HIGGS
+      ~ParticleType.BARYON
+      ~ParticleType.ANTI_BARYON
+      ~ParticleType.MESON
+      ~ParticleType.GAUGINO
+      ~ParticleType.SLEPTON
+      ~ParticleType.SQUARK
+      ~ParticleType.GLUINO
+      ~ParticleType.NONE
+   
+   

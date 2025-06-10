@@ -1,0 +1,6 @@
+feynml.topology.four.fusion
+===========================
+
+.. currentmodule:: feynml.topology.four
+
+.. autofunction:: fusion

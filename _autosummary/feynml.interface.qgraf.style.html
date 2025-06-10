@@ -1,34 +1,32 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>feynml.interface.qgraf.style &mdash; pyfeyn2  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
       <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
       <link rel="stylesheet" type="text/css" href="../_static/thebelab.css" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=b3ba4146"></script>
-        <script src="../_static/doctools.js?v=888ff710"></script>
-        <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
-        <script src="../_static/thebelab-helper.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/thebelab-helper.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="feynml.interface.qgraf.get_style" href="feynml.interface.qgraf.get_style.html" />
+    <link rel="next" title="feynml.interface.qgraf.generate_fml" href="feynml.interface.qgraf.generate_fml.html" />
     <link rel="prev" title="feynml.interface.qgraf" href="feynml.interface.qgraf.html" /> 
 </head>
 
@@ -44,9 +42,6 @@
             pyfeyn2
               <img src="../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
-              <div class="version">
-                2.4.2
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -86,6 +81,7 @@
 <li class="toctree-l3"><a class="reference internal" href="feynml.interface.lhe.html">feynml.interface.lhe</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="feynml.interface.qgraf.html">feynml.interface.qgraf</a><ul class="current">
 <li class="toctree-l4 current"><a class="current reference internal" href="#">feynml.interface.qgraf.style</a></li>
+<li class="toctree-l4"><a class="reference internal" href="feynml.interface.qgraf.generate_fml.html">feynml.interface.qgraf.generate_fml</a></li>
 <li class="toctree-l4"><a class="reference internal" href="feynml.interface.qgraf.get_style.html">feynml.interface.qgraf.get_style</a></li>
 </ul>
 </li>
@@ -95,8 +91,10 @@
 <li class="toctree-l2"><a class="reference internal" href="feynml.leg.html">feynml.leg</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.line.html">feynml.line</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.link.html">feynml.link</a></li>
+<li class="toctree-l2"><a class="reference internal" href="feynml.log.html">feynml.log</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.meta.html">feynml.meta</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.momentum.html">feynml.momentum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="feynml.particle.html">feynml.particle</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.particles.html">feynml.particles</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.pdgid.html">feynml.pdgid</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.point.html">feynml.point</a></li>
@@ -106,6 +104,7 @@
 <li class="toctree-l2"><a class="reference internal" href="feynml.sourcing.html">feynml.sourcing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.styled.html">feynml.styled</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.targeting.html">feynml.targeting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="feynml.topology.html">feynml.topology</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.type.html">feynml.type</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.util.html">feynml.util</a></li>
 <li class="toctree-l2"><a class="reference internal" href="feynml.vertex.html">feynml.vertex</a></li>
@@ -152,10 +151,10 @@
            <div itemprop="articleBody">
              
   <section id="feynml-interface-qgraf-style">
-<h1>feynml.interface.qgraf.style<a class="headerlink" href="#feynml-interface-qgraf-style" title="Permalink to this heading"></a></h1>
+<h1>feynml.interface.qgraf.style<a class="headerlink" href="#feynml-interface-qgraf-style" title="Link to this heading"></a></h1>
 <dl class="py data">
 <dt class="sig sig-object py" id="feynml.interface.qgraf.style">
-<span class="sig-prename descclassname"><span class="pre">feynml.interface.qgraf.</span></span><span class="sig-name descname"><span class="pre">style</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\n&lt;prologue&gt;\n&lt;&lt;!--\n</span> <span class="pre">file</span> <span class="pre">generated</span> <span class="pre">by</span> <span class="pre">&lt;program&gt;\n\n&lt;command_loop&gt;&lt;command_line_loop&gt;</span> <span class="pre">&lt;command_data&gt;&lt;end&gt;&lt;end&gt;\n\n</span> <span class="pre">You</span> <span class="pre">must</span> <span class="pre">add</span> <span class="pre">x=</span> <span class="pre">and</span> <span class="pre">y=</span> <span class="pre">with</span> <span class="pre">suitable</span> <span class="pre">vertex</span> <span class="pre">positions.\n</span> <span class="pre">Some</span> <span class="pre">lines</span> <span class="pre">may</span> <span class="pre">need</span> <span class="pre">manual</span> <span class="pre">bending</span> <span class="pre">to</span> <span class="pre">render</span> <span class="pre">properly.\n--&gt;&gt;\n&lt;&lt;feynml&gt;&gt;\n&lt;diagram&gt;\n</span>&#160; <span class="pre">&lt;back&gt;\n</span> <span class="pre">&lt;&lt;diagram</span> <span class="pre">\n</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">id=&quot;Diagram&lt;diagram_index&gt;&quot;\n</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">incoming=&quot;&lt;legs_in&gt;&quot;\n</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">outgoing=&quot;&lt;legs_out&gt;&quot;\n</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">sign=&quot;&lt;sign&gt;&quot;\n</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">symmmetry_factor=&quot;&lt;symmetry_factor&gt;&quot;\n</span> <span class="pre">&gt;&gt;\n\n&lt;vertex_loop&gt;</span> <span class="pre">\n</span>&#160; <span class="pre">&lt;&lt;vertex</span> <span class="pre">id=&quot;Vert&lt;vertex_index&gt;&quot;&gt;&gt;\n</span>&#160; <span class="pre">&lt;&lt;/vertex&gt;&gt;\n&lt;end&gt;\n\n&lt;in_loop&gt;\n</span>&#160; <span class="pre">&lt;&lt;leg</span> <span class="pre">id=&quot;In&lt;in_index&gt;&quot;&gt;&gt;</span>&#160; <span class="pre">\n</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">&lt;&lt;name&gt;&gt;&lt;field&gt;&lt;&lt;/name&gt;&gt;\n</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">&lt;&lt;sense&gt;&gt;incoming&lt;&lt;/sense&gt;&gt;\n</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">&lt;&lt;target&gt;&gt;Vert&lt;vertex_index&gt;&lt;&lt;/target&gt;&gt;\n</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">&lt;&lt;momentum&gt;&gt;\n</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">&lt;&lt;name&gt;&gt;&lt;momentum&gt;&lt;&lt;/name&gt;&gt;\n</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">&lt;&lt;/momentum&gt;&gt;\n</span>&#160; <span class="pre">&lt;&lt;/leg&gt;&gt;\n&lt;end&gt;\n\n&lt;out_loop&gt;</span> <span class="pre">\n</span>&#160; <span class="pre">&lt;&lt;leg</span> <span class="pre">id=&quot;Out&lt;out_index&gt;&quot;&gt;&gt;</span>&#160; <span class="pre">\n</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">&lt;&lt;name&gt;&gt;&lt;field&gt;&lt;&lt;/name&gt;&gt;\n</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">&lt;&lt;sense&gt;&gt;outgoing&lt;&lt;/sense&gt;&gt;\n</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">&lt;&lt;target&gt;&gt;Vert&lt;vertex_index&gt;&lt;&lt;/target&gt;&gt;\n</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">&lt;&lt;momentum&gt;&gt;\n</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">&lt;&lt;name&gt;&gt;&lt;momentum&gt;&lt;&lt;/name&gt;&gt;\n</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">&lt;&lt;/momentum&gt;&gt;\n</span>&#160; <span class="pre">&lt;&lt;/leg&gt;&gt;\n&lt;end&gt;\n\n&lt;propagator_loop&gt;</span> <span class="pre">\n</span>&#160; <span class="pre">&lt;&lt;propagator</span> <span class="pre">id=&quot;Prop&lt;propagator_index&gt;&quot;&gt;&gt;</span>&#160; <span class="pre">\n</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">&lt;&lt;name&gt;&gt;&lt;field&gt;&lt;&lt;/name&gt;&gt;\n</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">&lt;&lt;source&gt;&gt;Vert&lt;dual-vertex_index&gt;&lt;&lt;/source&gt;&gt;\n</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">&lt;&lt;target&gt;&gt;Vert&lt;vertex_index&gt;&lt;&lt;/target&gt;&gt;\n</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">&lt;&lt;momentum&gt;&gt;\n</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">&lt;&lt;name&gt;&gt;&lt;momentum&gt;&lt;&lt;/name&gt;&gt;\n</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">&lt;&lt;/momentum&gt;&gt;\n</span>&#160; <span class="pre">&lt;&lt;/propagator&gt;&gt;\n&lt;end&gt;\n\n</span> <span class="pre">&lt;&lt;/diagram&gt;&gt;\n&lt;epilogue&gt;\n&lt;&lt;/feynml&gt;&gt;\n\n&lt;&lt;!--</span> <span class="pre">end</span> <span class="pre">--&gt;&gt;\n&lt;exit&gt;\n'</span></em><a class="headerlink" href="#feynml.interface.qgraf.style" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">feynml.interface.qgraf.</span></span><span class="sig-name descname"><span class="pre">style</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\n&lt;prologue&gt;\n&lt;&lt;!--\n</span> <span class="pre">file</span> <span class="pre">generated</span> <span class="pre">by</span> <span class="pre">&lt;program&gt;\n\n&lt;command_loop&gt;&lt;command_line_loop&gt;</span> <span class="pre">&lt;command_data&gt;&lt;end&gt;&lt;end&gt;\n\n</span> <span class="pre">You</span> <span class="pre">must</span> <span class="pre">add</span> <span class="pre">x=</span> <span class="pre">and</span> <span class="pre">y=</span> <span class="pre">with</span> <span class="pre">suitable</span> <span class="pre">vertex</span> <span class="pre">positions.\n</span> <span class="pre">Some</span> <span class="pre">lines</span> <span class="pre">may</span> <span class="pre">need</span> <span class="pre">manual</span> <span class="pre">bending</span> <span class="pre">to</span> <span class="pre">render</span> <span class="pre">properly.\n--&gt;&gt;\n&lt;&lt;feynml&gt;&gt;\n&lt;diagram&gt;\n</span>&#160; <span class="pre">&lt;back&gt;\n</span> <span class="pre">&lt;&lt;diagram\n</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">id=&quot;Diagram&lt;diagram_index&gt;&quot;\n</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">incoming=&quot;&lt;legs_in&gt;&quot;\n</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">outgoing=&quot;&lt;legs_out&gt;&quot;\n</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">sign=&quot;&lt;sign&gt;&quot;\n</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">symmmetry_factor=&quot;&lt;symmetry_factor&gt;&quot;\n</span> <span class="pre">&gt;&gt;\n\n&lt;vertex_loop&gt;\n</span>&#160; <span class="pre">&lt;&lt;vertex</span> <span class="pre">id=&quot;Vert&lt;vertex_index&gt;&quot;&gt;&gt;\n</span>&#160; <span class="pre">&lt;&lt;/vertex&gt;&gt;\n&lt;end&gt;\n\n&lt;in_loop&gt;\n</span>&#160; <span class="pre">&lt;&lt;leg</span> <span class="pre">id=&quot;In&lt;in_index&gt;&quot;&gt;&gt;\n</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">&lt;&lt;name&gt;&gt;&lt;field&gt;&lt;&lt;/name&gt;&gt;\n</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">&lt;&lt;sense&gt;&gt;incoming&lt;&lt;/sense&gt;&gt;\n</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">&lt;&lt;target&gt;&gt;Vert&lt;vertex_index&gt;&lt;&lt;/target&gt;&gt;\n</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">&lt;&lt;momentum&gt;&gt;\n</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">&lt;&lt;name&gt;&gt;&lt;momentum&gt;&lt;&lt;/name&gt;&gt;\n</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">&lt;&lt;/momentum&gt;&gt;\n</span>&#160; <span class="pre">&lt;&lt;/leg&gt;&gt;\n&lt;end&gt;\n\n&lt;out_loop&gt;\n</span>&#160; <span class="pre">&lt;&lt;leg</span> <span class="pre">id=&quot;Out&lt;out_index&gt;&quot;&gt;&gt;\n</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">&lt;&lt;name&gt;&gt;&lt;field&gt;&lt;&lt;/name&gt;&gt;\n</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">&lt;&lt;sense&gt;&gt;outgoing&lt;&lt;/sense&gt;&gt;\n</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">&lt;&lt;target&gt;&gt;Vert&lt;vertex_index&gt;&lt;&lt;/target&gt;&gt;\n</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">&lt;&lt;momentum&gt;&gt;\n</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">&lt;&lt;name&gt;&gt;&lt;momentum&gt;&lt;&lt;/name&gt;&gt;\n</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">&lt;&lt;/momentum&gt;&gt;\n</span>&#160; <span class="pre">&lt;&lt;/leg&gt;&gt;\n&lt;end&gt;\n\n&lt;propagator_loop&gt;\n</span>&#160; <span class="pre">&lt;&lt;propagator</span> <span class="pre">id=&quot;Prop&lt;propagator_index&gt;&quot;&gt;&gt;\n</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">&lt;&lt;name&gt;&gt;&lt;field&gt;&lt;&lt;/name&gt;&gt;\n</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">&lt;&lt;source&gt;&gt;Vert&lt;dual-vertex_index&gt;&lt;&lt;/source&gt;&gt;\n</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">&lt;&lt;target&gt;&gt;Vert&lt;vertex_index&gt;&lt;&lt;/target&gt;&gt;\n</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">&lt;&lt;momentum&gt;&gt;\n</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">&lt;&lt;name&gt;&gt;&lt;momentum&gt;&lt;&lt;/name&gt;&gt;\n</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">&lt;&lt;/momentum&gt;&gt;\n</span>&#160; <span class="pre">&lt;&lt;/propagator&gt;&gt;\n&lt;end&gt;\n\n</span> <span class="pre">&lt;&lt;/diagram&gt;&gt;\n&lt;epilogue&gt;\n&lt;&lt;/feynml&gt;&gt;\n\n&lt;&lt;!--</span> <span class="pre">end</span> <span class="pre">--&gt;&gt;\n&lt;exit&gt;\n'</span></em><a class="headerlink" href="#feynml.interface.qgraf.style" title="Link to this definition"></a></dt>
 <dd><p>Style for qgraf to produce feynml.</p>
 </dd></dl>
 
@@ -166,13 +165,13 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="feynml.interface.qgraf.html" class="btn btn-neutral float-left" title="feynml.interface.qgraf" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="feynml.interface.qgraf.get_style.html" class="btn btn-neutral float-right" title="feynml.interface.qgraf.get_style" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="feynml.interface.qgraf.generate_fml.html" class="btn btn-neutral float-right" title="feynml.interface.qgraf.generate_fml" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2024, Alexander Puck Neuwirth.</p>
+    <p>&#169; Copyright 2025, Alexander Puck Neuwirth.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

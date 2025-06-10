@@ -1,29 +1,27 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../../../">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>pyfeyn2.auto.position &mdash; pyfeyn2  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../../_static/plot_directive.css" />
       <link rel="stylesheet" type="text/css" href="../../../_static/jupyter-sphinx.css" />
       <link rel="stylesheet" type="text/css" href="../../../_static/thebelab.css" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js?v=b3ba4146"></script>
-        <script src="../../../_static/doctools.js?v=888ff710"></script>
-        <script src="../../../_static/sphinx_highlight.js?v=4825356b"></script>
-        <script src="../../../_static/thebelab-helper.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../_static/thebelab-helper.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
@@ -41,9 +39,6 @@
             pyfeyn2
               <img src="../../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
-              <div class="version">
-                2.4.2
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -99,6 +94,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+          <li class="breadcrumb-item"><a href="../auto.html">pyfeyn2.auto</a></li>
       <li class="breadcrumb-item active">pyfeyn2.auto.position</li>
       <li class="wy-breadcrumbs-aside">
       </li>
@@ -121,15 +117,20 @@ from pyfeyn2.interface.dot import dot_to_positions, feynman_to_dot
 
 
 # from https://stackoverflow.com/a/9997374
-<div class="viewcode-block" id="ccw"><a class="viewcode-back" href="../../../_autosummary/pyfeyn2.auto.position.ccw.html#pyfeyn2.auto.position.ccw">[docs]</a>def ccw(A, B, C):
+<div class="viewcode-block" id="ccw">
+<a class="viewcode-back" href="../../../_autosummary/pyfeyn2.auto.position.ccw.html#pyfeyn2.auto.position.ccw">[docs]</a>
+def ccw(A, B, C):
     &quot;&quot;&quot;
     Return true if the points A, B, and C are in counter-clockwise order.
     &quot;&quot;&quot;
     return (C.y - A.y) * (B.x - A.x) &gt; (B.y - A.y) * (C.x - A.x)</div>
 
 
+
 # Return true if line segments AB and CD intersect
-<div class="viewcode-block" id="intersect"><a class="viewcode-back" href="../../../_autosummary/pyfeyn2.auto.position.intersect.html#pyfeyn2.auto.position.intersect">[docs]</a>def intersect(A, B, C, D):
+<div class="viewcode-block" id="intersect">
+<a class="viewcode-back" href="../../../_autosummary/pyfeyn2.auto.position.intersect.html#pyfeyn2.auto.position.intersect">[docs]</a>
+def intersect(A, B, C, D):
     &quot;&quot;&quot;
     Return true if line segments AB and CD intersect
 
@@ -172,7 +173,10 @@ from pyfeyn2.interface.dot import dot_to_positions, feynman_to_dot
     return ccw(A, C, D) != ccw(B, C, D) and ccw(A, B, C) != ccw(A, B, D)</div>
 
 
-<div class="viewcode-block" id="set_none_xy_to_zero"><a class="viewcode-back" href="../../../_autosummary/pyfeyn2.auto.position.set_none_xy_to_zero.html#pyfeyn2.auto.position.set_none_xy_to_zero">[docs]</a>def set_none_xy_to_zero(points):
+
+<div class="viewcode-block" id="set_none_xy_to_zero">
+<a class="viewcode-back" href="../../../_autosummary/pyfeyn2.auto.position.set_none_xy_to_zero.html#pyfeyn2.auto.position.set_none_xy_to_zero">[docs]</a>
+def set_none_xy_to_zero(points):
     for p in points:
         if p.x is None:
             p.x = 0
@@ -180,13 +184,17 @@ from pyfeyn2.interface.dot import dot_to_positions, feynman_to_dot
             p.y = 0</div>
 
 
-<div class="viewcode-block" id="require_xy"><a class="viewcode-back" href="../../../_autosummary/pyfeyn2.auto.position.require_xy.html#pyfeyn2.auto.position.require_xy">[docs]</a>def require_xy(points):
+
+<div class="viewcode-block" id="require_xy">
+<a class="viewcode-back" href="../../../_autosummary/pyfeyn2.auto.position.require_xy.html#pyfeyn2.auto.position.require_xy">[docs]</a>
+def require_xy(points):
     # check if a vertex or leg is missing a x or y position
     for v in points:
         if v.x is None:
             raise Exception(f&quot;Vertex or leg {v} is missing x position.&quot;)
         if v.y is None:
             raise Exception(f&quot;Vertex or leg {v} is missing y position.&quot;)</div>
+
 
 
 def _compute_number_of_intersects(fd):
@@ -220,11 +228,12 @@ def _compute_number_of_intersects(fd):
     return ci
 
 
-<div class="viewcode-block" id="auto_remove_intersections_by_align_legs"><a class="viewcode-back" href="../../../_autosummary/pyfeyn2.auto.position.auto_remove_intersections_by_align_legs.html#pyfeyn2.auto.position.auto_remove_intersections_by_align_legs">[docs]</a>def auto_remove_intersections_by_align_legs(fd, adjust_points=False, size=5):
+<div class="viewcode-block" id="auto_remove_intersections_by_permuting_legs">
+<a class="viewcode-back" href="../../../_autosummary/pyfeyn2.auto.position.auto_remove_intersections_by_permuting_legs.html#pyfeyn2.auto.position.auto_remove_intersections_by_permuting_legs">[docs]</a>
+def auto_remove_intersections_by_permuting_legs(fd, adjust_points=False, size=10):
     &quot;&quot;&quot;
     Automatically remove intersections by aligning the legs and reshufffling (permuting) them.
     &quot;&quot;&quot;
-    fd = auto_align_legs(fd)
     if adjust_points:
         fd = feynman_adjust_points(fd, size=size, clear_vertices=True)
     min_intersections = np.inf
@@ -246,14 +255,14 @@ def _compute_number_of_intersects(fd):
         if adjust_points:
             fd = feynman_adjust_points(fd, size=size, clear_vertices=True)
         ci = _compute_number_of_intersects(fd)
-        print(ci)
-        logging.debug(f&quot;auto_remove_intersections_by_align_legs: {ci}&quot;)
+        # print(ci)
+        logging.debug(f&quot;auto_remove_intersections_by_align_legs: {ci=}&quot;)
         if ci &lt; min_intersections:
             min_intersections = ci
             min_perm = (i, o)
-            logging.debug(f&quot;auto_remove_intersections_by_align_legs: {ci}&quot;)
-            logging.debug(f&quot;auto_remove_intersections_by_align_legs: {i} {o}&quot;)
-            logging.debug(f&quot;auto_remove_intersections_by_align_legs: {xyin} {xyout}&quot;)
+            logging.debug(f&quot;auto_remove_intersections_by_align_legs: {ci=}&quot;)
+            logging.debug(f&quot;auto_remove_intersections_by_align_legs: {i=} {o=}&quot;)
+            logging.debug(f&quot;auto_remove_intersections_by_align_legs: {xyin=} {xyout=}&quot;)
     # use/return best permutation
     for xyi, l in zip(xyin, min_perm[0]):
         inc[l].x = xyi[0]
@@ -266,7 +275,23 @@ def _compute_number_of_intersects(fd):
     return fd</div>
 
 
-<div class="viewcode-block" id="auto_align_legs"><a class="viewcode-back" href="../../../_autosummary/pyfeyn2.auto.position.auto_align_legs.html#pyfeyn2.auto.position.auto_align_legs">[docs]</a>def auto_align_legs(fd, incoming=None, outgoing=None):
+
+<div class="viewcode-block" id="auto_remove_intersections_by_align_legs">
+<a class="viewcode-back" href="../../../_autosummary/pyfeyn2.auto.position.auto_remove_intersections_by_align_legs.html#pyfeyn2.auto.position.auto_remove_intersections_by_align_legs">[docs]</a>
+def auto_remove_intersections_by_align_legs(fd, adjust_points=False, size=10):
+    &quot;&quot;&quot;
+    Automatically remove intersections by aligning the legs and reshufffling (permuting) them.
+    &quot;&quot;&quot;
+    fd = auto_align_legs(fd)
+    return auto_remove_intersections_by_permuting_legs(
+        fd, adjust_points=adjust_points, size=size
+    )</div>
+
+
+
+<div class="viewcode-block" id="auto_align_legs">
+<a class="viewcode-back" href="../../../_autosummary/pyfeyn2.auto.position.auto_align_legs.html#pyfeyn2.auto.position.auto_align_legs">[docs]</a>
+def auto_align_legs(fd, incoming=None, outgoing=None):
     &quot;&quot;&quot;
     Automatically reshuffle the legs of a Feynman diagram.
     &quot;&quot;&quot;
@@ -282,6 +307,7 @@ def _compute_number_of_intersects(fd):
     _auto_align(inc, incoming)
     _auto_align(outc, outgoing)
     return fd</div>
+
 
 
 def _get_dist(points, positions):
@@ -311,7 +337,9 @@ def _auto_align(points, positions):
         dist[:, min_j] = np.inf
 
 
-<div class="viewcode-block" id="auto_align"><a class="viewcode-back" href="../../../_autosummary/pyfeyn2.auto.position.auto_align.html#pyfeyn2.auto.position.auto_align">[docs]</a>def auto_align(fd, positions, legs=True, vertices=True):
+<div class="viewcode-block" id="auto_align">
+<a class="viewcode-back" href="../../../_autosummary/pyfeyn2.auto.position.auto_align.html#pyfeyn2.auto.position.auto_align">[docs]</a>
+def auto_align(fd, positions, legs=True, vertices=True):
     &quot;&quot;&quot;
     Automatically position the vertices and legs on a list of positions.
 
@@ -338,7 +366,10 @@ def _auto_align(points, positions):
     return fd</div>
 
 
-<div class="viewcode-block" id="auto_grid"><a class="viewcode-back" href="../../../_autosummary/pyfeyn2.auto.position.auto_grid.html#pyfeyn2.auto.position.auto_grid">[docs]</a>def auto_grid(fd, n_x=None, n_y=None, min_x=None, min_y=None, max_x=None, max_y=None):
+
+<div class="viewcode-block" id="auto_grid">
+<a class="viewcode-back" href="../../../_autosummary/pyfeyn2.auto.position.auto_grid.html#pyfeyn2.auto.position.auto_grid">[docs]</a>
+def auto_grid(fd, n_x=None, n_y=None, min_x=None, min_y=None, max_x=None, max_y=None):
     &quot;&quot;&quot;
     Automatically position the vertices and legs on a grid, with the given
     minimum and maximum values for x and y, and the number of grid points, but
@@ -347,6 +378,7 @@ def _auto_align(points, positions):
     # get the bounding box and construct grid from that
     positions = _get_grid(fd, n_x, n_y, min_x, min_y, max_x, max_y)
     return auto_align(fd, positions)</div>
+
 
 
 def _get_grid(fd, n_x=None, n_y=None, min_x=None, min_y=None, max_x=None, max_y=None):
@@ -372,7 +404,9 @@ def _get_grid(fd, n_x=None, n_y=None, min_x=None, min_y=None, max_x=None, max_y=
     return positions
 
 
-<div class="viewcode-block" id="auto_position"><a class="viewcode-back" href="../../../_autosummary/pyfeyn2.auto.position.auto_position.html#pyfeyn2.auto.position.auto_position">[docs]</a>def auto_position(fd, layout=&quot;neato&quot;, size=5, clear_vertices=True):
+<div class="viewcode-block" id="auto_position">
+<a class="viewcode-back" href="../../../_autosummary/pyfeyn2.auto.position.auto_position.html#pyfeyn2.auto.position.auto_position">[docs]</a>
+def auto_position(fd, layout=&quot;neato&quot;, size=5, clear_vertices=True):
     &quot;&quot;&quot;Automatically position the vertices and legs.&quot;&quot;&quot;
     # fd = scale_positions(fd, 10)
     fd = fd.with_style(f&quot;layout : {layout}&quot;)
@@ -383,7 +417,10 @@ def _get_grid(fd, n_x=None, n_y=None, min_x=None, min_y=None, max_x=None, max_y=
     return fd</div>
 
 
-<div class="viewcode-block" id="incoming_to_left"><a class="viewcode-back" href="../../../_autosummary/pyfeyn2.auto.position.incoming_to_left.html#pyfeyn2.auto.position.incoming_to_left">[docs]</a>def incoming_to_left(fd):
+
+<div class="viewcode-block" id="incoming_to_left">
+<a class="viewcode-back" href="../../../_autosummary/pyfeyn2.auto.position.incoming_to_left.html#pyfeyn2.auto.position.incoming_to_left">[docs]</a>
+def incoming_to_left(fd):
     &quot;&quot;&quot;Set the incoming legs to the left.&quot;&quot;&quot;
     n = 0
     for l in fd.legs:
@@ -399,7 +436,10 @@ def _get_grid(fd, n_x=None, n_y=None, min_x=None, min_y=None, max_x=None, max_y=
     return fd</div>
 
 
-<div class="viewcode-block" id="outgoing_to_right"><a class="viewcode-back" href="../../../_autosummary/pyfeyn2.auto.position.outgoing_to_right.html#pyfeyn2.auto.position.outgoing_to_right">[docs]</a>def outgoing_to_right(fd):
+
+<div class="viewcode-block" id="outgoing_to_right">
+<a class="viewcode-back" href="../../../_autosummary/pyfeyn2.auto.position.outgoing_to_right.html#pyfeyn2.auto.position.outgoing_to_right">[docs]</a>
+def outgoing_to_right(fd):
     &quot;&quot;&quot;Set the outgoing legs to the right.&quot;&quot;&quot;
     n = 0
     for l in fd.legs:
@@ -414,7 +454,10 @@ def _get_grid(fd, n_x=None, n_y=None, min_x=None, min_y=None, max_x=None, max_y=
     return fd</div>
 
 
-<div class="viewcode-block" id="scale_positions"><a class="viewcode-back" href="../../../_autosummary/pyfeyn2.auto.position.scale_positions.html#pyfeyn2.auto.position.scale_positions">[docs]</a>def scale_positions(fd, scale):
+
+<div class="viewcode-block" id="scale_positions">
+<a class="viewcode-back" href="../../../_autosummary/pyfeyn2.auto.position.scale_positions.html#pyfeyn2.auto.position.scale_positions">[docs]</a>
+def scale_positions(fd, scale):
     &quot;&quot;&quot;Scale the positions of the vertices and legs.&quot;&quot;&quot;
     for v in fd.vertices:
         if v.x is not None:
@@ -429,7 +472,10 @@ def _get_grid(fd, n_x=None, n_y=None, min_x=None, min_y=None, max_x=None, max_y=
     return fd</div>
 
 
-<div class="viewcode-block" id="feynman_adjust_points"><a class="viewcode-back" href="../../../_autosummary/pyfeyn2.auto.position.feynman_adjust_points.html#pyfeyn2.auto.position.feynman_adjust_points">[docs]</a>def feynman_adjust_points(feyndiag, size=5, clear_vertices=False):
+
+<div class="viewcode-block" id="feynman_adjust_points">
+<a class="viewcode-back" href="../../../_autosummary/pyfeyn2.auto.position.feynman_adjust_points.html#pyfeyn2.auto.position.feynman_adjust_points">[docs]</a>
+def feynman_adjust_points(feyndiag, size=10, clear_vertices=False):
     &quot;&quot;&quot;Adjust the points of the vertices and legs using Dot language algorithms.&quot;&quot;&quot;
     fd = feyndiag
     if clear_vertices:
@@ -455,7 +501,10 @@ def _get_grid(fd, n_x=None, n_y=None, min_x=None, min_y=None, max_x=None, max_y=
     return fd</div>
 
 
-<div class="viewcode-block" id="remove_unnecessary_vertices"><a class="viewcode-back" href="../../../_autosummary/pyfeyn2.auto.position.remove_unnecessary_vertices.html#pyfeyn2.auto.position.remove_unnecessary_vertices">[docs]</a>def remove_unnecessary_vertices(feyndiag):
+
+<div class="viewcode-block" id="remove_unnecessary_vertices">
+<a class="viewcode-back" href="../../../_autosummary/pyfeyn2.auto.position.remove_unnecessary_vertices.html#pyfeyn2.auto.position.remove_unnecessary_vertices">[docs]</a>
+def remove_unnecessary_vertices(feyndiag):
     &quot;&quot;&quot;Remove vertices that are only connected to two vertices with the same propagator.&quot;&quot;&quot;
     fd = feyndiag
     vertices = []
@@ -483,7 +532,10 @@ def _get_grid(fd, n_x=None, n_y=None, min_x=None, min_y=None, max_x=None, max_y=
     return fd</div>
 
 
-<div class="viewcode-block" id="quad"><a class="viewcode-back" href="../../../_autosummary/pyfeyn2.auto.position.quad.html#pyfeyn2.auto.position.quad">[docs]</a>def quad(points, cons, all_points, *args, dis=1.0):
+
+<div class="viewcode-block" id="quad">
+<a class="viewcode-back" href="../../../_autosummary/pyfeyn2.auto.position.quad.html#pyfeyn2.auto.position.quad">[docs]</a>
+def quad(points, cons, all_points, *args, dis=1.0):
     for i, p in enumerate(points):
         p.x = args[2 * i]
         p.y = args[2 * i + 1]
@@ -509,7 +561,10 @@ def _get_grid(fd, n_x=None, n_y=None, min_x=None, min_y=None, max_x=None, max_y=
     return LenJ</div>
 
 
-<div class="viewcode-block" id="lennard_jones"><a class="viewcode-back" href="../../../_autosummary/pyfeyn2.auto.position.lennard_jones.html#pyfeyn2.auto.position.lennard_jones">[docs]</a>def lennard_jones(points, cons, all_points, *args, LJ=1.0):
+
+<div class="viewcode-block" id="lennard_jones">
+<a class="viewcode-back" href="../../../_autosummary/pyfeyn2.auto.position.lennard_jones.html#pyfeyn2.auto.position.lennard_jones">[docs]</a>
+def lennard_jones(points, cons, all_points, *args, LJ=1.0):
     for i, p in enumerate(points):
         p.x = args[2 * i]
         p.y = args[2 * i + 1]
@@ -549,7 +604,10 @@ def _get_grid(fd, n_x=None, n_y=None, min_x=None, min_y=None, max_x=None, max_y=
     return LenJ</div>
 
 
-<div class="viewcode-block" id="auto_vdw"><a class="viewcode-back" href="../../../_autosummary/pyfeyn2.auto.position.auto_vdw.html#pyfeyn2.auto.position.auto_vdw">[docs]</a>def auto_vdw(
+
+<div class="viewcode-block" id="auto_vdw">
+<a class="viewcode-back" href="../../../_autosummary/pyfeyn2.auto.position.auto_vdw.html#pyfeyn2.auto.position.auto_vdw">[docs]</a>
+def auto_vdw(
     fd, points=None, LJ=0.0, dis=None, y_symmetry=0.0, x_symmetry=0.0, intersection=0.0
 ):
     &quot;&quot;&quot;
@@ -659,7 +717,10 @@ def _get_grid(fd, n_x=None, n_y=None, min_x=None, min_y=None, max_x=None, max_y=
     return fd</div>
 
 
-<div class="viewcode-block" id="auto_gridded_springs"><a class="viewcode-back" href="../../../_autosummary/pyfeyn2.auto.position.auto_gridded_springs.html#pyfeyn2.auto.position.auto_gridded_springs">[docs]</a>def auto_gridded_springs(
+
+<div class="viewcode-block" id="auto_gridded_springs">
+<a class="viewcode-back" href="../../../_autosummary/pyfeyn2.auto.position.auto_gridded_springs.html#pyfeyn2.auto.position.auto_gridded_springs">[docs]</a>
+def auto_gridded_springs(
     fd,
     points=None,
     n_x=None,
@@ -675,6 +736,7 @@ def _get_grid(fd, n_x=None, n_y=None, min_x=None, min_y=None, max_x=None, max_y=
         fd, n_x=n_x, n_y=n_y, min_x=min_x, min_y=min_y, max_x=max_x, max_y=max_y
     )
     return fd</div>
+
 </pre></div>
 
            </div>
@@ -684,7 +746,7 @@ def _get_grid(fd, n_x=None, n_y=None, min_x=None, min_y=None, max_x=None, max_y=
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2024, Alexander Puck Neuwirth.</p>
+    <p>&#169; Copyright 2025, Alexander Puck Neuwirth.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

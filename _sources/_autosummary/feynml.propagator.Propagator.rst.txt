@@ -19,6 +19,7 @@ feynml.propagator.Propagator
       ~Propagator.__init__
       ~Propagator.conjugate
       ~Propagator.connect
+      ~Propagator.connects
       ~Propagator.get_length
       ~Propagator.get_style_property
       ~Propagator.get_tension
@@ -31,6 +32,7 @@ feynml.propagator.Propagator
       ~Propagator.put_style
       ~Propagator.put_styles
       ~Propagator.raw_style
+      ~Propagator.replace_vertex
       ~Propagator.with_class
       ~Propagator.with_color
       ~Propagator.with_id
@@ -39,7 +41,6 @@ feynml.propagator.Propagator
       ~Propagator.with_momentum
       ~Propagator.with_name
       ~Propagator.with_new_id
-      ~Propagator.with_particle
       ~Propagator.with_pdgid
       ~Propagator.with_source
       ~Propagator.with_style
@@ -47,6 +48,7 @@ feynml.propagator.Propagator
       ~Propagator.with_style_property
       ~Propagator.with_target
       ~Propagator.with_tension
+      ~Propagator.with_texname
       ~Propagator.with_type
    
    
@@ -62,10 +64,10 @@ feynml.propagator.Propagator
       ~Propagator.label
       ~Propagator.momentum
       ~Propagator.name
-      ~Propagator.particle
       ~Propagator.pdgid
       ~Propagator.source
       ~Propagator.target
+      ~Propagator.texname
       ~Propagator.type
       ~Propagator.style
    

@@ -1,29 +1,27 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>feynml.leg &mdash; pyfeyn2  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css" />
       <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
       <link rel="stylesheet" type="text/css" href="../../_static/thebelab.css" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=b3ba4146"></script>
-        <script src="../../_static/doctools.js?v=888ff710"></script>
-        <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
-        <script src="../../_static/thebelab-helper.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/thebelab-helper.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" /> 
@@ -41,9 +39,6 @@
             pyfeyn2
               <img src="../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
-              <div class="version">
-                2.4.2
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -112,14 +107,17 @@
 <span></span>from dataclasses import dataclass, field
 from typing import Optional
 
-from smpl_util.util import withify
+from smpl.util import withify
 
 from feynml.connector import Connector
 from feynml.point import Point
 from feynml.targeting import Targeting
+from feynml.vertex import Vertex
 
 
-<div class="viewcode-block" id="Leg"><a class="viewcode-back" href="../../_autosummary/feynml.leg.Leg.html#feynml.leg.Leg">[docs]</a>@withify()
+<div class="viewcode-block" id="Leg">
+<a class="viewcode-back" href="../../_autosummary/feynml.leg.Leg.html#feynml.leg.Leg">[docs]</a>
+@withify()
 @dataclass
 class Leg(Point, Targeting, Connector):
     shape: Optional[str] = field(default=None, metadata={&quot;type&quot;: &quot;Attribute&quot;})
@@ -134,42 +132,74 @@ class Leg(Point, Targeting, Connector):
     )
     &quot;&quot;&quot;External text for leg&quot;&quot;&quot;
 
-<div class="viewcode-block" id="Leg.is_incoming"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.Leg.html#feynml.leg.Leg.is_incoming">[docs]</a>    def is_incoming(self):
+<div class="viewcode-block" id="Leg.replace_vertex">
+<a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.Leg.html#feynml.leg.Leg.replace_vertex">[docs]</a>
+    def replace_vertex(self, old_vertex: Vertex, new_vertex: Vertex):
+        &quot;&quot;&quot;Replace the old vertex with the new vertex&quot;&quot;&quot;
+        if self.target == old_vertex.id:
+            return self.with_target(new_vertex)
+        else:
+            raise ValueError(&quot;Vertex not found in leg&quot;)</div>
+
+
+<div class="viewcode-block" id="Leg.is_incoming">
+<a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.Leg.html#feynml.leg.Leg.is_incoming">[docs]</a>
+    def is_incoming(self):
         &quot;&quot;&quot;Return True if the leg is incoming, False otherwise.&quot;&quot;&quot;
         return &quot;in&quot; == self.sense[:2] or self.sense[:8] == &quot;anti-out&quot;</div>
 
-<div class="viewcode-block" id="Leg.is_outgoing"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.Leg.html#feynml.leg.Leg.is_outgoing">[docs]</a>    def is_outgoing(self):
+
+<div class="viewcode-block" id="Leg.is_outgoing">
+<a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.Leg.html#feynml.leg.Leg.is_outgoing">[docs]</a>
+    def is_outgoing(self):
         &quot;&quot;&quot;Return True if the leg is outgoing, False otherwise.&quot;&quot;&quot;
         return &quot;out&quot; == self.sense[:3] or self.sense[:7] == &quot;anti-in&quot;</div>
 
-<div class="viewcode-block" id="Leg.with_incoming"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.Leg.html#feynml.leg.Leg.with_incoming">[docs]</a>    def with_incoming(self):
+
+<div class="viewcode-block" id="Leg.with_incoming">
+<a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.Leg.html#feynml.leg.Leg.with_incoming">[docs]</a>
+    def with_incoming(self):
         &quot;&quot;&quot;Set the leg to be incoming.&quot;&quot;&quot;
         self.sense = &quot;incoming&quot;
         return self</div>
 
-<div class="viewcode-block" id="Leg.goes_into"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.Leg.html#feynml.leg.Leg.goes_into">[docs]</a>    def goes_into(self, vertex):
+
+<div class="viewcode-block" id="Leg.goes_into">
+<a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.Leg.html#feynml.leg.Leg.goes_into">[docs]</a>
+    def goes_into(self, vertex):
         &quot;&quot;&quot;Return True if the leg goes into the vertex, False otherwise.&quot;&quot;&quot;
         return self.target == vertex.id and self.is_incoming()</div>
 
-<div class="viewcode-block" id="Leg.goes_out_of"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.Leg.html#feynml.leg.Leg.goes_out_of">[docs]</a>    def goes_out_of(self, vertex):
+
+<div class="viewcode-block" id="Leg.goes_out_of">
+<a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.Leg.html#feynml.leg.Leg.goes_out_of">[docs]</a>
+    def goes_out_of(self, vertex):
         &quot;&quot;&quot;Return True if the leg goes out of the vertex, False otherwise.&quot;&quot;&quot;
         return self.target == vertex.id and self.is_outgoing()</div>
 
+
     incoming = with_incoming
 
-<div class="viewcode-block" id="Leg.with_outgoing"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.Leg.html#feynml.leg.Leg.with_outgoing">[docs]</a>    def with_outgoing(self):
+<div class="viewcode-block" id="Leg.with_outgoing">
+<a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.Leg.html#feynml.leg.Leg.with_outgoing">[docs]</a>
+    def with_outgoing(self):
         &quot;&quot;&quot;Set the leg to be outgoing.&quot;&quot;&quot;
         self.sense = &quot;outgoing&quot;
         return self</div>
 
+
     outgoing = with_outgoing
 
-<div class="viewcode-block" id="Leg.conjugate"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.Leg.html#feynml.leg.Leg.conjugate">[docs]</a>    def conjugate(self):
+<div class="viewcode-block" id="Leg.conjugate">
+<a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.Leg.html#feynml.leg.Leg.conjugate">[docs]</a>
+    def conjugate(self):
         &quot;&quot;&quot;Set incoming to outgoing and vice versa.&quot;&quot;&quot;
         if self.is_incoming():
             return self.with_outgoing()
         elif self.is_outgoing():
-            return self.with_incoming()</div></div>
+            return self.with_incoming()</div>
+</div>
+
 </pre></div>
 
            </div>
@@ -179,7 +209,7 @@ class Leg(Point, Targeting, Connector):
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2024, Alexander Puck Neuwirth.</p>
+    <p>&#169; Copyright 2025, Alexander Puck Neuwirth.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

@@ -1,30 +1,28 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>pyfeyn2.render.pyx.lines.DecoratedLine &mdash; pyfeyn2  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
       <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
       <link rel="stylesheet" type="text/css" href="../_static/thebelab.css" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=b3ba4146"></script>
-        <script src="../_static/doctools.js?v=888ff710"></script>
-        <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
-        <script src="../_static/thebelab-helper.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/thebelab-helper.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -44,9 +42,6 @@
             pyfeyn2
               <img src="../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
-              <div class="version">
-                2.4.2
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -96,6 +91,7 @@
 <li class="toctree-l3"><a class="reference internal" href="pyfeyn2.render.render.html">pyfeyn2.render.render</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="pyfeyn2.version.html">pyfeyn2.version</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="feynml.html">feynml</a></li>
@@ -140,15 +136,15 @@
            <div itemprop="articleBody">
              
   <section id="pyfeyn2-render-pyx-lines-decoratedline">
-<h1>pyfeyn2.render.pyx.lines.DecoratedLine<a class="headerlink" href="#pyfeyn2-render-pyx-lines-decoratedline" title="Permalink to this heading"></a></h1>
+<h1>pyfeyn2.render.pyx.lines.DecoratedLine<a class="headerlink" href="#pyfeyn2-render-pyx-lines-decoratedline" title="Link to this heading"></a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="pyfeyn2.render.pyx.lines.DecoratedLine">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyfeyn2.render.pyx.lines.</span></span><span class="sig-name descname"><span class="pre">DecoratedLine</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">point1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">point2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amplitude</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frequency</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extras</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">invert</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linetype</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">styles</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arcthrupoint</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is3D</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arrows</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">labels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/lines.html#DecoratedLine"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.lines.DecoratedLine" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyfeyn2.render.pyx.lines.</span></span><span class="sig-name descname"><span class="pre">DecoratedLine</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">point1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">point2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amplitude</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frequency</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extras</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">invert</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linetype</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">styles</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arcthrupoint</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is3D</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arrows</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">labels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/lines.html#DecoratedLine"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.lines.DecoratedLine" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="pyfeyn2.render.pyx.lines.Line.html#pyfeyn2.render.pyx.lines.Line" title="pyfeyn2.render.pyx.lines.Line"><code class="xref py py-class docutils literal notranslate"><span class="pre">Line</span></code></a></p>
 <p>Base class for spring and sine-like lines</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.render.pyx.lines.DecoratedLine.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">point1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">point2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amplitude</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frequency</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extras</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">invert</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linetype</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">styles</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arcthrupoint</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is3D</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arrows</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">labels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/lines.html#DecoratedLine.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.lines.DecoratedLine.__init__" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">point1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">point2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amplitude</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frequency</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extras</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">invert</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linetype</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">styles</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arcthrupoint</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is3D</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arrows</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">labels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/lines.html#DecoratedLine.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.lines.DecoratedLine.__init__" title="Link to this definition"></a></dt>
 <dd><p>Constructor.</p>
 </dd></dl>
 
@@ -183,7 +179,7 @@
 <td><p>Draw this line on the given canvas.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#pyfeyn2.render.pyx.lines.DecoratedLine.fracpoint" title="pyfeyn2.render.pyx.lines.DecoratedLine.fracpoint"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fracpoint</span></code></a>(frac)</p></td>
-<td><p>Get a new Point representing the point at the given fraction along the fundamental line (i.e.</p></td>
+<td><p>Get a new Point representing the point at the given fraction along the fundamental line (i.e. no truncation or deformation).</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#pyfeyn2.render.pyx.lines.DecoratedLine.getAmplitude" title="pyfeyn2.render.pyx.lines.DecoratedLine.getAmplitude"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getAmplitude</span></code></a>()</p></td>
 <td><p>Get the radius of the oscillation.</p></td>
@@ -246,7 +242,7 @@
 </table>
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.render.pyx.lines.DecoratedLine.addArrow">
-<span class="sig-name descname"><span class="pre">addArrow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">position</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.53</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arrow</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.lines.DecoratedLine.addArrow" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">addArrow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">position</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.53</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arrow</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.lines.DecoratedLine.addArrow" title="Link to this definition"></a></dt>
 <dd><p>Add an arrow to the line at the specified position, which is a number
 between 0 and 1, representing the fraction along the line at which the
 arrow should be placed. The default arrow style can be overridden by
@@ -256,51 +252,51 @@ case the position argument will be ignored.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.render.pyx.lines.DecoratedLine.addLabel">
-<span class="sig-name descname"><span class="pre">addLabel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos=0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">displace=-0.25</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angle=0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size=&lt;pyx.text.size</span> <span class="pre">object&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">halign=&lt;pyx.text.halign</span> <span class="pre">object&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">valign=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.lines.DecoratedLine.addLabel" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">addLabel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos=0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">displace=-0.25</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angle=0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size=&lt;pyx.text.size</span> <span class="pre">object&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">halign=&lt;pyx.text.halign</span> <span class="pre">object&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">valign=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.lines.DecoratedLine.addLabel" title="Link to this definition"></a></dt>
 <dd><p>Add a LaTeX label to this line, either via parameters or actually as
 a TeXLabel object.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.render.pyx.lines.DecoratedLine.addParallelArrow">
-<span class="sig-name descname"><span class="pre">addParallelArrow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pos=0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">displace=0.3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">length=&lt;pyx.unit.length</span> <span class="pre">object&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size=&lt;pyx.unit.length</span> <span class="pre">object&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angle=45</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">constriction=0.8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sense=1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curved=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stems=1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stemsep=0.03</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.lines.DecoratedLine.addParallelArrow" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">addParallelArrow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pos=0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">displace=0.3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">length=&lt;pyx.unit.length</span> <span class="pre">object&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size=&lt;pyx.unit.length</span> <span class="pre">object&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angle=45</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">constriction=0.8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sense=1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curved=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stems=1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stemsep=0.03</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.lines.DecoratedLine.addParallelArrow" title="Link to this definition"></a></dt>
 <dd><p>Add an arrow pointing along the line.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.render.pyx.lines.DecoratedLine.addStyle">
-<span class="sig-name descname"><span class="pre">addStyle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">style</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.lines.DecoratedLine.addStyle" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">addStyle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">style</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.lines.DecoratedLine.addStyle" title="Link to this definition"></a></dt>
 <dd><p>Add a style to this line.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.render.pyx.lines.DecoratedLine.addStyles">
-<span class="sig-name descname"><span class="pre">addStyles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stylelist</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.lines.DecoratedLine.addStyles" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">addStyles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stylelist</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.lines.DecoratedLine.addStyles" title="Link to this definition"></a></dt>
 <dd><p>Add some styles to this line.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.render.pyx.lines.DecoratedLine.arcThru">
-<span class="sig-name descname"><span class="pre">arcThru</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arcpoint</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.lines.DecoratedLine.arcThru" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">arcThru</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arcpoint</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.lines.DecoratedLine.arcThru" title="Link to this definition"></a></dt>
 <dd><p>Set the point through which this line will arc. Either pass a Point
 or set x, y as floats.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.render.pyx.lines.DecoratedLine.bend">
-<span class="sig-name descname"><span class="pre">bend</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">amount</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.lines.DecoratedLine.bend" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">bend</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">amount</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.lines.DecoratedLine.bend" title="Link to this definition"></a></dt>
 <dd><p>Bend the line to the right by a given distance.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.render.pyx.lines.DecoratedLine.draw">
-<span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">canvas</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.lines.DecoratedLine.draw" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">canvas</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.lines.DecoratedLine.draw" title="Link to this definition"></a></dt>
 <dd><p>Draw this line on the given canvas.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.render.pyx.lines.DecoratedLine.fracpoint">
-<span class="sig-name descname"><span class="pre">fracpoint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frac</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.lines.DecoratedLine.fracpoint" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">fracpoint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frac</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.lines.DecoratedLine.fracpoint" title="Link to this definition"></a></dt>
 <dd><p>Get a new Point representing the point at the given fraction along
 the fundamental line (i.e. no truncation or deformation).
 TODO: Handle units properly.</p>
@@ -308,115 +304,115 @@ TODO: Handle units properly.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.render.pyx.lines.DecoratedLine.getAmplitude">
-<span class="sig-name descname"><span class="pre">getAmplitude</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/lines.html#DecoratedLine.getAmplitude"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.lines.DecoratedLine.getAmplitude" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">getAmplitude</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/lines.html#DecoratedLine.getAmplitude"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.lines.DecoratedLine.getAmplitude" title="Link to this definition"></a></dt>
 <dd><p>Get the radius of the oscillation.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.render.pyx.lines.DecoratedLine.getDeformedPath">
-<span class="sig-name descname"><span class="pre">getDeformedPath</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sign</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/lines.html#DecoratedLine.getDeformedPath"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.lines.DecoratedLine.getDeformedPath" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">getDeformedPath</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sign</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/lines.html#DecoratedLine.getDeformedPath"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.lines.DecoratedLine.getDeformedPath" title="Link to this definition"></a></dt>
 <dd><p>Get the deformed path.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.render.pyx.lines.DecoratedLine.getDepth">
-<span class="sig-name descname"><span class="pre">getDepth</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.lines.DecoratedLine.getDepth" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">getDepth</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.lines.DecoratedLine.getDepth" title="Link to this definition"></a></dt>
 <dd><p>Return the depth at which this instance lives.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.render.pyx.lines.DecoratedLine.getFrequency">
-<span class="sig-name descname"><span class="pre">getFrequency</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/lines.html#DecoratedLine.getFrequency"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.lines.DecoratedLine.getFrequency" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">getFrequency</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/lines.html#DecoratedLine.getFrequency"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.lines.DecoratedLine.getFrequency" title="Link to this definition"></a></dt>
 <dd><p>Get the rate of occurence of the oscillation.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.render.pyx.lines.DecoratedLine.getPath">
-<span class="sig-name descname"><span class="pre">getPath</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.lines.DecoratedLine.getPath" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">getPath</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.lines.DecoratedLine.getPath" title="Link to this definition"></a></dt>
 <dd><p>Get the path taken by this line.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.render.pyx.lines.DecoratedLine.getStyles">
-<span class="sig-name descname"><span class="pre">getStyles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stylelist</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.lines.DecoratedLine.getStyles" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">getStyles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stylelist</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.lines.DecoratedLine.getStyles" title="Link to this definition"></a></dt>
 <dd><p>Get the styles associated with this line.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.render.pyx.lines.DecoratedLine.getVisiblePath">
-<span class="sig-name descname"><span class="pre">getVisiblePath</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.lines.DecoratedLine.getVisiblePath" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">getVisiblePath</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.lines.DecoratedLine.getVisiblePath" title="Link to this definition"></a></dt>
 <dd><p>Find the subpath between the endpoints which isn’t overshadowed by a blob of some kind</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.render.pyx.lines.DecoratedLine.invert">
-<span class="sig-name descname"><span class="pre">invert</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/lines.html#DecoratedLine.invert"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.lines.DecoratedLine.invert" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">invert</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/lines.html#DecoratedLine.invert"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.lines.DecoratedLine.invert" title="Link to this definition"></a></dt>
 <dd><p>Reflect the decoration in the line itself.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.render.pyx.lines.DecoratedLine.isVisible">
-<span class="sig-name descname"><span class="pre">isVisible</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.lines.DecoratedLine.isVisible" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">isVisible</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.lines.DecoratedLine.isVisible" title="Link to this definition"></a></dt>
 <dd><p>Check if this instance is visible.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.render.pyx.lines.DecoratedLine.removeArrows">
-<span class="sig-name descname"><span class="pre">removeArrows</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.lines.DecoratedLine.removeArrows" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">removeArrows</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.lines.DecoratedLine.removeArrows" title="Link to this definition"></a></dt>
 <dd><p>Remove all arrows from this line.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.render.pyx.lines.DecoratedLine.removeLabels">
-<span class="sig-name descname"><span class="pre">removeLabels</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.lines.DecoratedLine.removeLabels" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">removeLabels</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.lines.DecoratedLine.removeLabels" title="Link to this definition"></a></dt>
 <dd><p>Remove the labels from this line.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.render.pyx.lines.DecoratedLine.set3D">
-<span class="sig-name descname"><span class="pre">set3D</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">is3D=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skipsize=&lt;pyx.unit.length</span> <span class="pre">object&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parity=0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/lines.html#DecoratedLine.set3D"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.lines.DecoratedLine.set3D" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">set3D</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">is3D=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skipsize=&lt;pyx.unit.length</span> <span class="pre">object&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parity=0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/lines.html#DecoratedLine.set3D"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.lines.DecoratedLine.set3D" title="Link to this definition"></a></dt>
 <dd><p>Make this line display in ‘3D’.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.render.pyx.lines.DecoratedLine.setAmplitude">
-<span class="sig-name descname"><span class="pre">setAmplitude</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">amplitude</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/lines.html#DecoratedLine.setAmplitude"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.lines.DecoratedLine.setAmplitude" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">setAmplitude</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">amplitude</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/lines.html#DecoratedLine.setAmplitude"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.lines.DecoratedLine.setAmplitude" title="Link to this definition"></a></dt>
 <dd><p>Set the radius of the oscillation.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.render.pyx.lines.DecoratedLine.setArrows">
-<span class="sig-name descname"><span class="pre">setArrows</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arrows</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.lines.DecoratedLine.setArrows" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">setArrows</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arrows</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.lines.DecoratedLine.setArrows" title="Link to this definition"></a></dt>
 <dd><p>Define the arrows on this line.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.render.pyx.lines.DecoratedLine.setDepth">
-<span class="sig-name descname"><span class="pre">setDepth</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">depth</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.lines.DecoratedLine.setDepth" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">setDepth</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">depth</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.lines.DecoratedLine.setDepth" title="Link to this definition"></a></dt>
 <dd><p>Set the depth at which this instance lives.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.render.pyx.lines.DecoratedLine.setExtraCycles">
-<span class="sig-name descname"><span class="pre">setExtraCycles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">extras</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/lines.html#DecoratedLine.setExtraCycles"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.lines.DecoratedLine.setExtraCycles" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">setExtraCycles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">extras</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/lines.html#DecoratedLine.setExtraCycles"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.lines.DecoratedLine.setExtraCycles" title="Link to this definition"></a></dt>
 <dd><p>Add some extra (possibly negative) cycles to the oscillation.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.render.pyx.lines.DecoratedLine.setFrequency">
-<span class="sig-name descname"><span class="pre">setFrequency</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">freq</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/lines.html#DecoratedLine.setFrequency"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.lines.DecoratedLine.setFrequency" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">setFrequency</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">freq</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyfeyn2/render/pyx/lines.html#DecoratedLine.setFrequency"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyfeyn2.render.pyx.lines.DecoratedLine.setFrequency" title="Link to this definition"></a></dt>
 <dd><p>Set the rate of occurence of the oscillation.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.render.pyx.lines.DecoratedLine.setStyles">
-<span class="sig-name descname"><span class="pre">setStyles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stylelist</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.lines.DecoratedLine.setStyles" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">setStyles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stylelist</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.lines.DecoratedLine.setStyles" title="Link to this definition"></a></dt>
 <dd><p>Set the styles associated with this line.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyfeyn2.render.pyx.lines.DecoratedLine.straighten">
-<span class="sig-name descname"><span class="pre">straighten</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.lines.DecoratedLine.straighten" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">straighten</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyfeyn2.render.pyx.lines.DecoratedLine.straighten" title="Link to this definition"></a></dt>
 <dd><p>Make this line a straight line between start and end.</p>
 </dd></dl>
 
@@ -435,7 +431,7 @@ TODO: Handle units properly.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2024, Alexander Puck Neuwirth.</p>
+    <p>&#169; Copyright 2025, Alexander Puck Neuwirth.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

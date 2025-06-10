@@ -24,8 +24,8 @@ feynml.pdgid.PDG
       ~PDG.with_id
       ~PDG.with_name
       ~PDG.with_new_id
-      ~PDG.with_particle
       ~PDG.with_pdgid
+      ~PDG.with_texname
       ~PDG.with_type
    
    
@@ -38,8 +38,8 @@ feynml.pdgid.PDG
    
       ~PDG.id
       ~PDG.name
-      ~PDG.particle
       ~PDG.pdgid
+      ~PDG.texname
       ~PDG.type
    
    

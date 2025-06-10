@@ -1,29 +1,27 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>feynml.propagator &mdash; pyfeyn2  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css" />
       <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
       <link rel="stylesheet" type="text/css" href="../../_static/thebelab.css" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=b3ba4146"></script>
-        <script src="../../_static/doctools.js?v=888ff710"></script>
-        <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
-        <script src="../../_static/thebelab-helper.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/thebelab-helper.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" /> 
@@ -41,9 +39,6 @@
             pyfeyn2
               <img src="../../_static/pyfeyn-logo.svg" class="logo" alt="Logo"/>
           </a>
-              <div class="version">
-                2.4.2
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -111,22 +106,54 @@
   <h1>Source code for feynml.propagator</h1><div class="highlight"><pre>
 <span></span>from dataclasses import dataclass
 
-from smpl_util.util import withify
+from smpl.util import withify
 
 from feynml.connector import Connector
 from feynml.line import Line
+from feynml.vertex import Vertex
 
 
-<div class="viewcode-block" id="Propagator"><a class="viewcode-back" href="../../_autosummary/feynml.propagator.Propagator.html#feynml.propagator.Propagator">[docs]</a>@withify()
+<div class="viewcode-block" id="Propagator">
+<a class="viewcode-back" href="../../_autosummary/feynml.propagator.Propagator.html#feynml.propagator.Propagator">[docs]</a>
+@withify()
 @dataclass
 class Propagator(Line, Connector):
-<div class="viewcode-block" id="Propagator.conjugate"><a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.Propagator.html#feynml.propagator.Propagator.conjugate">[docs]</a>    def conjugate(self):
+<div class="viewcode-block" id="Propagator.conjugate">
+<a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.Propagator.html#feynml.propagator.Propagator.conjugate">[docs]</a>
+    def conjugate(self):
         &quot;&quot;&quot;Return the conjugate of the propagator.&quot;&quot;&quot;
         tar = self.target
         src = self.source
         return self.with_target(src).with_source(
             tar
-        )  # this is inprinciple the same as negating the id</div></div>
+        )  # this is inprinciple the same as negating the id</div>
+
+
+<div class="viewcode-block" id="Propagator.connects">
+<a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.Propagator.html#feynml.propagator.Propagator.connects">[docs]</a>
+    def connects(self, v1: Vertex, v2: Vertex, directional=False):
+        &quot;&quot;&quot;Return True if the propagator connects to the vertex, False otherwise.&quot;&quot;&quot;
+        return (v1.id == self.source and v2.id == self.target) or (
+            not directional and v2.id == self.source and v1.id == self.target
+        )</div>
+
+
+<div class="viewcode-block" id="Propagator.replace_vertex">
+<a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.Propagator.html#feynml.propagator.Propagator.replace_vertex">[docs]</a>
+    def replace_vertex(self, old_vertex: Vertex, new_vertex: Vertex):
+        &quot;&quot;&quot;Replace the old vertex with the new vertex&quot;&quot;&quot;
+        hit = False
+        if self.source == old_vertex.id:
+            hit = True
+            self.with_source(new_vertex)
+        if self.target == old_vertex.id:
+            hit = True
+            self.with_target(new_vertex)
+        if not hit:
+            raise ValueError(&quot;Vertex not found in propagator&quot;)
+        return self</div>
+</div>
+
 </pre></div>
 
            </div>
@@ -136,7 +163,7 @@ class Propagator(Line, Connector):
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2024, Alexander Puck Neuwirth.</p>
+    <p>&#169; Copyright 2025, Alexander Puck Neuwirth.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
