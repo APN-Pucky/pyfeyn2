@@ -113,9 +113,11 @@ from typing import List, Union
 import networkx as nx
 import cssutils
 import numpy as np
-import smpl_doc.doc as doc
-from smpl_doc.doc import deprecated
-from smpl_util.util import withify
+import smpl.doc as doc
+
+# from warnings import deprecated
+from smpl.doc import deprecated
+from smpl.util import withify
 
 from feynmodel.feyn_model import FeynModel
 
@@ -369,7 +371,7 @@ class FeynmanDiagram(SheetHandler, XML, Styled, Identifiable):
 
 <div class="viewcode-block" id="FeynmanDiagram.remove_propagator">
 <a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.FeynmanDiagram.html#feynml.feynmandiagram.FeynmanDiagram.remove_propagator">[docs]</a>
-    @deprecated(&quot;0.0.0&quot;, &quot;use remove(propagator) instead&quot;)
+    @deprecated(&quot;use remove(propagator) instead&quot;)
     def remove_propagator(self, propagator):
         self.propagators.remove(propagator)
         return self</div>

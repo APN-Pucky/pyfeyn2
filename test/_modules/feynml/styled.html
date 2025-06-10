@@ -109,7 +109,9 @@ from dataclasses import dataclass, field
 from typing import Optional
 
 import cssutils
-from smpl_doc.doc import deprecated
+
+# from warnings import deprecated
+from smpl.doc import deprecated
 from xsdata.formats.converter import Converter, converter
 
 # We don&#39;t want to see the cssutils warnings, since we have custom properties
@@ -182,14 +184,14 @@ class Styled:
 
 <div class="viewcode-block" id="Styled.put_style">
 <a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.Styled.html#feynml.styled.Styled.put_style">[docs]</a>
-    @deprecated(&quot;0.0.0&quot;, &quot;use with_style_property&quot;)
+    @deprecated(&quot;use with_style_property&quot;)
     def put_style(self, key, value):
         return self.put_styles(**{key: value})</div>
 
 
 <div class="viewcode-block" id="Styled.put_styles">
 <a class="viewcode-back" href="../../_autosummary/pyfeyn2.feynmandiagram.Styled.html#feynml.styled.Styled.put_styles">[docs]</a>
-    @deprecated(&quot;0.0.0&quot;, &quot;use with_style_properties&quot;)
+    @deprecated(&quot;use with_style_properties&quot;)
     def put_styles(self, **kwargs):
         if self.style is not None:
             for key, value in kwargs.items():
