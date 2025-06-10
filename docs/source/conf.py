@@ -26,8 +26,7 @@ try:
 except ImportError:
     import tomli as tomllib  # Python <= 3.10
 
-from smpl_doc import doc
-from smpl_io import io
+from smpl import doc, io
 
 import pyfeyn2
 from pyfeyn2.render import all
